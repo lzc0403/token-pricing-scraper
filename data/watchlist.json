@@ -1,7 +1,7 @@
 [
   {
     "source": "aliyun",
-    "model_raw": "qwen3.7-max",
+    "model_raw": "qwen3.7-max当前能力等同于qwen3.7-max-2026-05-20Batch调用半价上下文缓存享有折扣",
     "input": 6.0,
     "output": 18.0,
     "cache_hit": null,
@@ -16,7 +16,7 @@
   },
   {
     "source": "aliyun",
-    "model_raw": "qwen3.7-plus",
+    "model_raw": "qwen3.7-plus当前能力等同于qwen3.7-plus-2026-05-26Batch调用半价上下文缓存享有折扣",
     "input": 6.4,
     "output": 6.4,
     "cache_hit": null,

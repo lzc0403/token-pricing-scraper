@@ -33,7 +33,7 @@ DATA_DIR = os.path.join(ROOT, "data")
 sys.path.insert(0, ROOT)
 
 from scrapers.base import BaseScraper  # noqa: E402
-from core import currency, matcher, report, store  # noqa: E402
+from core import currency, matcher, report, store, site  # noqa: E402
 
 
 def _load_yaml(path: str) -> Any:
@@ -107,6 +107,11 @@ def main(argv: List[str] | None = None) -> int:
         watchlist, deltas, scrape_status, generated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     )
     report.write_outputs(DATA_DIR, report_md, issue_body_md)
+
+    print("== 生成美化网页 ==")
+    # 在 changed 标志写入之前生成，保证 site/index.html 一定存在（供 workflow git add site/）
+    site_path = site.build_site(DATA_DIR)
+    print(f"  site -> {site_path}")
 
     changed = len(deltas) > 0
     print(f"== 完成 == 记录总数 {len(annotated)}，命中 {len(watchlist)}，变动 {len(deltas)}")

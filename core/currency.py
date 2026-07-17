@@ -9,8 +9,21 @@ DEFAULT_RATE = 7.2
 
 
 def get_rate() -> float:
-    """从环境变量读取 USD->CNY 汇率，默认 7.2。"""
-    return float(os.environ.get("USD_CNY_RATE", str(DEFAULT_RATE)))
+    """从环境变量读取 USD->CNY 汇率，默认 7.2。
+
+    GitHub Actions 在 `secrets.USD_CNY_RATE` 未配置时会把 `${{ secrets.X }}`
+    求值为**空字符串 `''`**（`os.environ.get` 拿到 `''` 而非 "未设置"）。
+    因此当变量为空 / 不存在 / 非数字时一律回退到 `DEFAULT_RATE`，避免
+    `float('')` 抛 `ValueError` 导致整个 CI 在 `currency.enrich` 处崩溃。
+    """
+    raw = os.environ.get("USD_CNY_RATE", "")
+    raw = raw.strip() if raw else ""
+    if not raw:
+        return DEFAULT_RATE
+    try:
+        return float(raw)
+    except (ValueError, TypeError):
+        return DEFAULT_RATE
 
 
 def to_rmb(price: Optional[float], currency: str, rate: float) -> Optional[float]:

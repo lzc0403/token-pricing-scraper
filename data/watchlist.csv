@@ -1,6 +1,6 @@
 ﻿source,model_raw,input,output,cache_hit,context,condition,unit,currency,input_rmb,output_rmb,canonical,is_lowest_input
-aliyun,qwen3.7-max,6.0,18.0,,,,1M tokens,CNY,6.0,18.0,qwen3.7,no
-aliyun,qwen3.7-plus,6.4,6.4,,,,1M tokens,CNY,6.4,6.4,qwen3.7,no
+aliyun,qwen3.7-max当前能力等同于qwen3.7-max-2026-05-20Batch调用半价上下文缓存享有折扣,6.0,18.0,,,,1M tokens,CNY,6.0,18.0,qwen3.7,no
+aliyun,qwen3.7-plus当前能力等同于qwen3.7-plus-2026-05-26Batch调用半价上下文缓存享有折扣,6.4,6.4,,,,1M tokens,CNY,6.4,6.4,qwen3.7,no
 bigmodel,GLM-5.1,6.0,24.0,,,"输入长度 [0, 32)",1M tokens,CNY,6.0,24.0,GLM-5.1,yes
 bigmodel,GLM-5.2 新品,8.0,28.0,,,1M,1M tokens,CNY,8.0,28.0,GLM-5.2,yes
 deepseek,deepseek-v4-flash,1.0,2.0,,1M,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,yes

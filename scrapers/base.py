@@ -109,7 +109,15 @@ class BaseScraper(abc.ABC):
         return resp.text
 
     def _fetch_js(self, url: str) -> str:
-        """使用 Playwright 无头浏览器渲染 JS 页面并返回 HTML。"""
+        """使用 Playwright 无头浏览器渲染 JS 页面并返回 HTML。
+
+        针对受限 / 无头环境（如 CI 美国节点）SPA 渲染不全、卡片需滚动才
+        懒加载的问题做了加固：
+
+        - `goto` 优先 `networkidle`，失败回退 `domcontentloaded`；
+        - goto 后等待 3s，滚动到底触发懒加载，再等 2s；
+        - 最后等待 `body.innerText.length > 800`（超时忽略），确保内容落位。
+        """
         from playwright.sync_api import sync_playwright
 
         with sync_playwright() as p:
@@ -120,13 +128,24 @@ class BaseScraper(abc.ABC):
                     viewport={"width": 1280, "height": 900},
                 )
                 page = ctx.new_page()
-                page.goto(url, timeout=DEFAULT_TIMEOUT * 1000, wait_until="domcontentloaded")
-                # 等待 SPA 渲染
-                page.wait_for_timeout(5000)
+                # 优先等待网络空闲；受限网络下 networkidle 可能超时，回退 domcontentloaded
+                try:
+                    page.goto(url, timeout=DEFAULT_TIMEOUT * 1000, wait_until="networkidle")
+                except Exception:
+                    page.goto(url, timeout=DEFAULT_TIMEOUT * 1000, wait_until="domcontentloaded")
+                # 给 SPA 初次渲染留时间
+                page.wait_for_timeout(3000)
+                # 滚动到底，触发懒加载 / 无限滚动卡片
+                try:
+                    page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                except Exception:
+                    pass
+                page.wait_for_timeout(2000)
+                # 确保正文已渲染（内容较短说明渲染不完整，但仅作为提示，不阻断）
                 try:
                     page.wait_for_function(
-                        "() => document.body && document.body.innerText.length > 500",
-                        timeout=15000,
+                        "() => document.body && document.body.innerText.length > 800",
+                        timeout=20000,
                     )
                 except Exception:
                     pass

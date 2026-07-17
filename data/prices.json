@@ -1,7 +1,7 @@
 [
   {
     "source": "aliyun",
-    "model_raw": "qwen3.7-max",
+    "model_raw": "qwen3.7-max当前能力等同于qwen3.7-max-2026-05-20Batch调用半价上下文缓存享有折扣",
     "input": 6.0,
     "output": 18.0,
     "cache_hit": null,
@@ -16,7 +16,7 @@
   },
   {
     "source": "aliyun",
-    "model_raw": "qwen3.7-plus",
+    "model_raw": "qwen3.7-plus当前能力等同于qwen3.7-plus-2026-05-26Batch调用半价上下文缓存享有折扣",
     "input": 6.4,
     "output": 6.4,
     "cache_hit": null,
@@ -946,6 +946,20 @@
     "output_rmb": 6.0,
     "canonical": "DeepSeek V4 Pro",
     "is_lowest_input": "yes"
+  },
+  {
+    "source": "modelmesh",
+    "model_raw": "Kimi K3",
+    "input": 20.0,
+    "output": 100.0,
+    "cache_hit": null,
+    "context": "1000K",
+    "condition": null,
+    "unit": "1M tokens",
+    "currency": "CNY",
+    "input_rmb": 20.0,
+    "output_rmb": 100.0,
+    "canonical": null
   },
   {
     "source": "modelmesh",
@@ -2331,20 +2345,6 @@
     "currency": "CNY",
     "input_rmb": 3.0,
     "output_rmb": 9.0,
-    "canonical": null
-  },
-  {
-    "source": "modelmesh",
-    "model_raw": "Qwen3 Next 80B A3B Thinking",
-    "input": 1.0,
-    "output": 10.0,
-    "cache_hit": null,
-    "context": "131K",
-    "condition": null,
-    "unit": "1M tokens",
-    "currency": "CNY",
-    "input_rmb": 1.0,
-    "output_rmb": 10.0,
     "canonical": null
   }
 ]
