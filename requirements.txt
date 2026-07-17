@@ -2,3 +2,4 @@ requests
 parsel
 pyyaml
 pytest
+playwright   # 10 源中 7 个为 SPA/JS 动态渲染，需无头浏览器渲染后才可取数
