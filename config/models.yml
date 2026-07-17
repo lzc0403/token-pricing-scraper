@@ -1,0 +1,24 @@
+# 目标关注模型（watchlist）及别名
+# 匹配规则（见 core/matcher.py）：
+#   1. 归一化：lowercase、去空格、去 - 与 _ 后比较
+#   2. 先「精确相等」匹配，再「包含」匹配（model_raw 归一化包含别名归一化，或反之）
+#   3. 命中返回 canonical；未命中为 None
+models:
+  - canonical: DeepSeek V4 Pro
+    aliases: [DeepSeek-V4-Pro, deepseek-v4-pro]
+  - canonical: DeepSeek V4 Flash
+    aliases: [DeepSeek-V4-Flash, deepseek-v4-flash]
+  - canonical: DeepSeek V3.2
+    aliases: [Deepseek-v3.2, deepseek-v3.2]
+  - canonical: GLM-5.1
+    aliases: [GLM-5.1, glm-5.1]
+  - canonical: GLM-5.2
+    aliases: [GLM-5.2, glm-5.2]
+  - canonical: Kimi K2.6
+    aliases: [kimi-k2.6, Kimi K2.6]
+  - canonical: MiniMax M2.7
+    aliases: [MiniMax-M2.7, minimax-m2.7]
+  - canonical: Seedance 2.0
+    aliases: [Seedance 2.0, Doubao-Seedance, Doubao-Seed-2.0]
+  - canonical: qwen3.7
+    aliases: [qwen3.7-max, qwen3.7-plus, Qwen3.7-Max, Qwen3.7-Plus]

@@ -1,0 +1,39 @@
+name: Token Pricing Scraper
+
+on:
+  schedule:
+    - cron: '0 18 * * 0'      # 每周日 18:00 UTC = 周一 02:00 北京时间
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Run scraper
+        id: scrape
+        run: python main.py
+        env:
+          USD_CNY_RATE: ${{ secrets.USD_CNY_RATE }}
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git commit -m "chore: weekly pricing update $(date +%F)" || echo "no changes"
+          git push
+      - name: Open issue on price change
+        if: steps.scrape.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "🔔 Token 定价变动 $(date +%F)" --body-file data/issue_body.md --label pricing

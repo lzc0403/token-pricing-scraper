@@ -1,0 +1,4 @@
+requests
+parsel
+pyyaml
+pytest
