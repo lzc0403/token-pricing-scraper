@@ -1,5 +1,5 @@
 ﻿source,model_raw,input,output,cache_hit,context,condition,unit,currency,input_rmb,output_rmb,canonical,is_lowest_input
-aliyun,qwen3.7-max当前能力等同于qwen3.7-max-2026-05-20Batch调用半价上下文缓存享有折扣,6.0,18.0,,,,1M tokens,CNY,6.0,18.0,qwen3.7,no
+aliyun,qwen3.7-max当前能力等同于qwen3.7-max-2026-05-20Batch调用半价上下文缓存享有折扣,6.0,18.0,,,,1M tokens,CNY,6.0,18.0,qwen3.7,yes
 aliyun,qwen3.7-plus当前能力等同于qwen3.7-plus-2026-05-26Batch调用半价上下文缓存享有折扣,6.4,6.4,,,,1M tokens,CNY,6.4,6.4,qwen3.7,no
 bigmodel,GLM-5.1,6.0,24.0,,,"输入长度 [0, 32)",1M tokens,CNY,6.0,24.0,GLM-5.1,yes
 bigmodel,GLM-5.2 新品,8.0,28.0,,,1M,1M tokens,CNY,8.0,28.0,GLM-5.2,yes
@@ -8,22 +8,7 @@ deepseek,deepseek-v4-pro,3.0,6.0,,1M,,1M tokens,CNY,3.0,6.0,DeepSeek V4 Pro,yes
 kimi,kimi-k2.6,1.1,27.0,1.1,"262,144 tokens",,1M tokens,CNY,1.1,27.0,Kimi K2.6,yes
 minimax,MiniMax-M2.7,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
 minimax,MiniMax-M2.7-highspeed,4.2,16.8,0.42,,,1M tokens,CNY,4.2,16.8,MiniMax M2.7,no
-modelmesh,DeepSeek V3.2 Thinking,2.0,3.0,,128K,,1M tokens,CNY,2.0,3.0,DeepSeek V3.2,yes
-modelmesh,Deepseek V3.2,2.0,3.0,,128K,,1M tokens,CNY,2.0,3.0,DeepSeek V3.2,yes
-modelmesh,DeepSeek-V4-Flash,1.0,2.0,,1000K,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,yes
-modelmesh,DeepSeek-V4-Pro,3.0,6.0,,1000K,,1M tokens,CNY,3.0,6.0,DeepSeek V4 Pro,yes
-modelmesh,GLM-5.1,6.0,24.0,,200K,,1M tokens,CNY,6.0,24.0,GLM-5.1,yes
-modelmesh,GLM-5.2,8.0,28.0,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.2,yes
-modelmesh,Kimi K2.6,6.5,27.0,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
-modelmesh,MiniMax M2.7,2.1,8.4,,200K,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
-modelmesh,MiniMax M2.7-highspeed,4.2,16.8,,200K,,1M tokens,CNY,4.2,16.8,MiniMax M2.7,no
-modelmesh,Doubao-Seed-2.0-Code,3.2,16.0,,256K,,1M tokens,CNY,3.2,16.0,Seedance 2.0,no
-modelmesh,Doubao-Seed-2.0-lite,0.6,3.6,,256K,,1M tokens,CNY,0.6,3.6,Seedance 2.0,no
-modelmesh,Doubao-Seed-2.0-mini,0.2,2.0,,256K,,1M tokens,CNY,0.2,2.0,Seedance 2.0,yes
-modelmesh,Doubao-Seed-2.0-pro,3.2,16.0,,256K,,1M tokens,CNY,3.2,16.0,Seedance 2.0,no
-modelmesh,Qwen3.7-Plus,1.6,6.4,,1000K,,1M tokens,CNY,1.6,6.4,qwen3.7,yes
-modelmesh,Qwen3.7-Max,6.0,18.0,,1000K,,1M tokens,CNY,6.0,18.0,qwen3.7,no
-tencent,Deepseek-v3.2,0.28,0.42,0.056,,-,1M tokens,USD,2.016,3.024,DeepSeek V3.2,no
+tencent,Deepseek-v3.2,0.28,0.42,0.056,,-,1M tokens,USD,2.016,3.024,DeepSeek V3.2,yes
 tencent,DeepSeek-V4-Flash 原厂直供,0.14,0.28,0.0028,,-,1M tokens,USD,1.008,2.016,DeepSeek V4 Flash,no
 tencent,DeepSeek-V4-Flash,0.14,0.28,0.028,,-,1M tokens,USD,1.008,2.016,DeepSeek V4 Flash,no
 tencent,DeepSeek-V4-Pro 原厂直供,0.435,0.87,0.00363,,-,1M tokens,USD,3.132,6.264,DeepSeek V4 Pro,no

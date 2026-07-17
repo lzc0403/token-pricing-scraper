@@ -1,49 +1,34 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-07-17 15:10:13
+> 生成时间：2026-07-17 07:15:36
 
 ## 一、目标模型跨源对照（已换算人民币）
 
 | 模型 | 源 | 输入¥ | 输出¥ | 缓存命中 | 货币 | 原始价(输入/输出) | 上下文 |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- |
-| DeepSeek V3.2 | modelmesh | 2 ¥ | 3 ¥ | - | CNY | 2 CNY / 3 CNY | 128K |
-| DeepSeek V3.2 | modelmesh | 2 ¥ | 3 ¥ | - | CNY | 2 CNY / 3 CNY | 128K |
 | DeepSeek V3.2 | tencent | 2.016 ¥ | 3.024 ¥ | 0.056 USD | USD | 0.28 USD / 0.42 USD | - |
 | DeepSeek V4 Flash | deepseek | 1 ¥ | 2 ¥ | - | CNY | 1 CNY / 2 CNY | 1M |
-| DeepSeek V4 Flash | modelmesh | 1 ¥ | 2 ¥ | - | CNY | 1 CNY / 2 CNY | 1000K |
 | DeepSeek V4 Flash | tencent | 1.008 ¥ | 2.016 ¥ | 0.0028 USD | USD | 0.14 USD / 0.28 USD | - |
 | DeepSeek V4 Flash | tencent | 1.008 ¥ | 2.016 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
 | DeepSeek V4 Pro | deepseek | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1M |
-| DeepSeek V4 Pro | modelmesh | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1000K |
 | DeepSeek V4 Pro | tencent | 3.132 ¥ | 6.264 ¥ | 0.00363 USD | USD | 0.435 USD / 0.87 USD | - |
 | DeepSeek V4 Pro | tencent | 12.528 ¥ | 25.056 ¥ | 0.145 USD | USD | 1.74 USD / 3.48 USD | - |
 | GLM-5.1 | bigmodel | 6 ¥ | 24 ¥ | - | CNY | 6 CNY / 24 CNY | - |
-| GLM-5.1 | modelmesh | 6 ¥ | 24 ¥ | - | CNY | 6 CNY / 24 CNY | 200K |
 | GLM-5.1 | tencent | 6.048 ¥ | 24.192 ¥ | 0.182 USD | USD | 0.84 USD / 3.36 USD | - |
 | GLM-5.1 | tencent | 8.064 ¥ | 28.224 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | bigmodel | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | - |
-| GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
 | GLM-5.2 | tencent | 8.064 ¥ | 28.224 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | Kimi K2.6 | kimi | 1.1 ¥ | 27 ¥ | 1.1 CNY | CNY | 1.1 CNY / 27 CNY | 262,144 tokens |
-| Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
 | Kimi K2.6 | tencent | 6.1776 ¥ | 25.6752 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
 | MiniMax M2.7 | minimax | 2.1 ¥ | 8.4 ¥ | 0.42 CNY | CNY | 2.1 CNY / 8.4 CNY | - |
 | MiniMax M2.7 | minimax | 4.2 ¥ | 16.8 ¥ | 0.42 CNY | CNY | 4.2 CNY / 16.8 CNY | - |
-| MiniMax M2.7 | modelmesh | 2.1 ¥ | 8.4 ¥ | - | CNY | 2.1 CNY / 8.4 CNY | 200K |
-| MiniMax M2.7 | modelmesh | 4.2 ¥ | 16.8 ¥ | - | CNY | 4.2 CNY / 16.8 CNY | 200K |
 | MiniMax M2.7 | tencent | 2.16 ¥ | 8.64 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | - |
-| Seedance 2.0 | modelmesh | 3.2 ¥ | 16 ¥ | - | CNY | 3.2 CNY / 16 CNY | 256K |
-| Seedance 2.0 | modelmesh | 0.6 ¥ | 3.6 ¥ | - | CNY | 0.6 CNY / 3.6 CNY | 256K |
-| Seedance 2.0 | modelmesh | 0.2 ¥ | 2 ¥ | - | CNY | 0.2 CNY / 2 CNY | 256K |
-| Seedance 2.0 | modelmesh | 3.2 ¥ | 16 ¥ | - | CNY | 3.2 CNY / 16 CNY | 256K |
 | Seedance 2.0 | volcengine | 3.2 ¥ | 16 ¥ | 0.64 CNY | CNY | 3.2 CNY / 16 CNY | - |
 | Seedance 2.0 | volcengine | 0.6 ¥ | 3.6 ¥ | 0.12 CNY | CNY | 0.6 CNY / 3.6 CNY | - |
 | Seedance 2.0 | volcengine | 0.2 ¥ | 2 ¥ | 0.04 CNY | CNY | 0.2 CNY / 2 CNY | - |
 | Seedance 2.0 | volcengine | 3.2 ¥ | 16 ¥ | 0.64 CNY | CNY | 3.2 CNY / 16 CNY | - |
 | qwen3.7 | aliyun | 6 ¥ | 18 ¥ | - | CNY | 6 CNY / 18 CNY | - |
 | qwen3.7 | aliyun | 6.4 ¥ | 6.4 ¥ | - | CNY | 6.4 CNY / 6.4 CNY | - |
-| qwen3.7 | modelmesh | 1.6 ¥ | 6.4 ¥ | - | CNY | 1.6 CNY / 6.4 CNY | 1000K |
-| qwen3.7 | modelmesh | 6 ¥ | 18 ¥ | - | CNY | 6 CNY / 18 CNY | 1000K |
 
 ## 二、周环比变动
 
@@ -61,14 +46,6 @@
 | GLM-5.1 | tencent | 输出 | 3.92 | 3.36 | USD |
 | MiniMax M2.7 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M2.7 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| qwen3.7 | modelmesh | 输入 | 6 | 1.6 | CNY |
-| qwen3.7 | modelmesh | 输出 | 18 | 6.4 | CNY |
-| MiniMax M2.7 | modelmesh | 输入 | 4.2 | 2.1 | CNY |
-| MiniMax M2.7 | modelmesh | 输出 | 16.8 | 8.4 | CNY |
-| Seedance 2.0 | modelmesh | 输入 | 3.2 | 0.6 | CNY |
-| Seedance 2.0 | modelmesh | 输出 | 16 | 3.6 | CNY |
-| Seedance 2.0 | modelmesh | 输入 | 3.2 | 0.2 | CNY |
-| Seedance 2.0 | modelmesh | 输出 | 16 | 2 | CNY |
 
 ## 三、抓取状态
 
@@ -81,4 +58,4 @@
 | deepseek | 成功 | 2 | 抓取 2 条 |
 | minimax | 成功 | 2 | 抓取 2 条 |
 | kimi | 成功 | 4 | 抓取 4 条 |
-| modelmesh | 成功 | 100 | 抓取 100 条 |
+| modelmesh | 成功 | 0 | 抓取 0 条 |

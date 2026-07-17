@@ -1,4 +1,4 @@
-## 🔔 Token 定价变动（2026-07-17 15:10:13）
+## 🔔 Token 定价变动（2026-07-17 07:15:36）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
@@ -14,11 +14,3 @@
 | GLM-5.1 | tencent | 输出 | 3.92 | 3.36 | USD |
 | MiniMax M2.7 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M2.7 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| qwen3.7 | modelmesh | 输入 | 6 | 1.6 | CNY |
-| qwen3.7 | modelmesh | 输出 | 18 | 6.4 | CNY |
-| MiniMax M2.7 | modelmesh | 输入 | 4.2 | 2.1 | CNY |
-| MiniMax M2.7 | modelmesh | 输出 | 16.8 | 8.4 | CNY |
-| Seedance 2.0 | modelmesh | 输入 | 3.2 | 0.6 | CNY |
-| Seedance 2.0 | modelmesh | 输出 | 16 | 3.6 | CNY |
-| Seedance 2.0 | modelmesh | 输入 | 3.2 | 0.2 | CNY |
-| Seedance 2.0 | modelmesh | 输出 | 16 | 2 | CNY |
