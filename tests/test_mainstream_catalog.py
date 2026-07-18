@@ -66,6 +66,16 @@ def _model(data):
     return data["sections"]["overseas"]["vendors"][0]["models"][0]
 
 
+def _non_claude_catalog():
+    data = _valid_catalog()
+    vendor = data["sections"]["overseas"]["vendors"][0]
+    vendor.update(id="example", name="Example", source_id="example")
+    _model(data).update(
+        canonical="Example Model", display_name="Example Model", api_id="example-model"
+    )
+    return data
+
+
 def _codes(data):
     return [error["code"] for error in validate_catalog(data)]
 
@@ -164,6 +174,100 @@ def test_required_identity_fields_cannot_be_blank(target, field):
     assert "required_field" in _codes(data)
 
 
+@pytest.mark.parametrize(
+    ("target", "field"),
+    [
+        ("section", "title"),
+        ("vendor", "id"),
+        ("vendor", "name"),
+        ("vendor", "source_id"),
+        ("model", "canonical"),
+        ("model", "display_name"),
+        ("model", "role"),
+        ("model", "availability"),
+        ("model", "modality"),
+        ("model", "currency"),
+        ("model", "unit"),
+        ("model", "source_url"),
+        ("model", "verified_at"),
+    ],
+)
+@pytest.mark.parametrize("invalid_value", [None, 123, ["value"]])
+def test_required_string_fields_reject_non_strings_without_duplicate_errors(
+    target, field, invalid_value
+):
+    data = _non_claude_catalog()
+    values = {
+        "section": data["sections"]["overseas"],
+        "vendor": data["sections"]["overseas"]["vendors"][0],
+        "model": _model(data),
+    }
+    values[target][field] = invalid_value
+
+    errors = validate_catalog(data)
+    field_path = {
+        "section": f"sections.overseas.{field}",
+        "vendor": f"sections.overseas.vendors[0].{field}",
+        "model": f"sections.overseas.vendors[0].models[0].{field}",
+    }[target]
+    field_errors = [error for error in errors if error["path"] == field_path]
+
+    assert len(field_errors) == 1
+    assert field_errors[0]["code"] != "required_field"
+
+
+@pytest.mark.parametrize("field", ["api_id", "openrouter_id"])
+def test_optional_model_ids_allow_none_but_reject_invalid_strings_and_types(field):
+    data = _non_claude_catalog()
+    _model(data)[field] = None
+    assert validate_catalog(data) == []
+
+    for invalid_value in ("", "   ", 123, ["id"]):
+        _model(data)[field] = invalid_value
+        field_path = f"sections.overseas.vendors[0].models[0].{field}"
+        field_errors = [
+            error for error in validate_catalog(data) if error["path"] == field_path
+        ]
+        assert len(field_errors) == 1
+        assert field_errors[0]["code"] == "invalid_string"
+
+
+@pytest.mark.parametrize(
+    ("field", "code"),
+    [
+        ("availability", "required_field"),
+        ("modality", "required_field"),
+        ("pricing_kind", "required_field"),
+        ("unit", "required_field"),
+        ("source_url", "required_field"),
+        ("verified_at", "required_field"),
+    ],
+)
+def test_blank_model_fields_emit_only_one_error(field, code):
+    data = _non_claude_catalog()
+    _model(data)[field] = "   "
+    field_path = f"sections.overseas.vendors[0].models[0].{field}"
+
+    field_errors = [
+        error for error in validate_catalog(data) if error["path"] == field_path
+    ]
+
+    assert len(field_errors) == 1
+    assert field_errors[0]["code"] == code
+
+
+def test_non_official_text_context_allows_none_but_rejects_other_invalid_types():
+    data = _non_claude_catalog()
+    model = _model(data)
+    model["availability"] = "tracking"
+    model["context_tokens"] = None
+    model["pricing"] = {"tiers": []}
+    assert validate_catalog(data) == []
+
+    model["context_tokens"] = "1000000"
+    assert "invalid_context_tokens" in _codes(data)
+
+
 def test_duplicate_canonical_in_same_section_is_rejected():
     data = _valid_catalog()
     duplicate = copy.deepcopy(_model(data))
@@ -187,7 +291,7 @@ def test_same_canonical_in_different_sections_is_allowed():
     assert "duplicate_canonical" not in _codes(data)
 
 
-@pytest.mark.parametrize("availability", ["beta", "deprecated", ""])
+@pytest.mark.parametrize("availability", ["beta", "deprecated"])
 def test_availability_is_closed_enum(availability):
     data = _valid_catalog()
     _model(data)["availability"] = availability
@@ -267,6 +371,55 @@ def test_paid_prices_must_be_non_negative_numbers(tier):
     assert "invalid_price" in _codes(data)
 
 
+@pytest.mark.parametrize("price", [float("nan"), float("inf"), float("-inf"), True])
+def test_prices_must_be_finite_numbers_and_reject_bool(price):
+    data = _valid_catalog()
+    _model(data)["pricing"] = {
+        "tiers": [{"condition": "default", "input_price": price, "output_price": 1}]
+    }
+
+    assert "invalid_price" in _codes(data)
+
+
+@pytest.mark.parametrize("availability", ["tracking", "invite_only"])
+def test_non_renderable_paid_model_allows_empty_tiers_for_unknown_official_price(
+    availability,
+):
+    data = _non_claude_catalog()
+    model = _model(data)
+    model["availability"] = availability
+    model["context_tokens"] = None
+    model["pricing"] = {"tiers": []}
+
+    assert validate_catalog(data) == []
+
+
+@pytest.mark.parametrize("availability", ["official", "preview"])
+def test_renderable_paid_model_still_requires_non_empty_tiers(availability):
+    data = _non_claude_catalog()
+    model = _model(data)
+    model["availability"] = availability
+    model["pricing"] = {"tiers": []}
+
+    assert "paid_price_required" in _codes(data)
+
+
+@pytest.mark.parametrize("condition", [None, "", "   ", 123, ["default"]])
+def test_tier_condition_must_be_non_empty_string(condition):
+    data = _valid_catalog()
+    _model(data)["pricing"]["tiers"][0]["condition"] = condition
+
+    errors = validate_catalog(data)
+    condition_errors = [
+        error
+        for error in errors
+        if error["path"]
+        == "sections.overseas.vendors[0].models[0].pricing.tiers[0].condition"
+    ]
+
+    assert len(condition_errors) == 1
+
+
 def test_each_paid_tier_is_validated():
     data = _valid_catalog()
     _model(data)["pricing"]["tiers"].append(
@@ -287,7 +440,13 @@ def test_source_url_must_be_http_url(source_url):
     data = _valid_catalog()
     _model(data)["source_url"] = source_url
 
-    assert "invalid_source_url" in _codes(data)
+    if source_url == "":
+        expected = "required_field"
+    elif source_url is None:
+        expected = "invalid_string"
+    else:
+        expected = "invalid_source_url"
+    assert expected in _codes(data)
 
 
 @pytest.mark.parametrize(
@@ -298,7 +457,13 @@ def test_verified_at_must_be_iso_datetime_with_timezone(verified_at):
     data = _valid_catalog()
     _model(data)["verified_at"] = verified_at
 
-    assert "invalid_verified_at" in _codes(data)
+    if verified_at == "":
+        expected = "required_field"
+    elif verified_at is None:
+        expected = "invalid_string"
+    else:
+        expected = "invalid_verified_at"
+    assert expected in _codes(data)
 
 
 @pytest.mark.parametrize(
@@ -362,6 +527,22 @@ def test_renderable_sections_keeps_vendor_order_and_only_renderable_text_models(
         "Preview Text",
     ]
     assert len(data["sections"]["overseas"]["vendors"][0]["models"]) == 5
+
+
+def test_renderable_sections_returns_deep_copy():
+    data = _valid_catalog()
+
+    rendered = renderable_sections(data)
+    rendered_vendor = rendered["overseas"][0]
+    rendered_vendor["metadata"] = {"nested": []}
+    data["sections"]["overseas"]["vendors"][0]["metadata"] = {"nested": []}
+    rendered = renderable_sections(data)
+    rendered["overseas"][0]["metadata"]["nested"].append("changed")
+    rendered["overseas"][0]["models"][0]["pricing"]["tiers"][0]["input_price"] = 999
+
+    vendor = data["sections"]["overseas"]["vendors"][0]
+    assert vendor["metadata"] == {"nested": []}
+    assert _model(data)["pricing"]["tiers"][0]["input_price"] == 10.0
 
 
 def test_catalog_canons_deduplicates_in_configuration_order_and_filters_section():

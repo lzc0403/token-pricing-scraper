@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+from copy import deepcopy
 from datetime import datetime
+from math import isfinite
 from typing import Any, Dict, List, Optional
 from urllib.parse import urlparse
 
@@ -51,7 +53,9 @@ def _missing_fields(
     for field in fields:
         field_value = value.get(field)
         if field not in value or (
-            isinstance(field_value, str) and not field_value.strip()
+            field not in {"api_id", "openrouter_id"}
+            and isinstance(field_value, str)
+            and not field_value.strip()
         ):
             field_path = f"{path}.{field}" if path else field
             errors.append(_error("required_field", field_path, f"{field} is required"))
@@ -59,7 +63,42 @@ def _missing_fields(
 
 
 def _is_number(value: Any) -> bool:
-    return isinstance(value, (int, float)) and not isinstance(value, bool)
+    return (
+        isinstance(value, (int, float))
+        and not isinstance(value, bool)
+        and isfinite(value)
+    )
+
+
+def _validate_required_strings(
+    value: Dict[str, Any], fields: tuple[str, ...], path: str
+) -> List[Dict[str, str]]:
+    errors = []
+    for field in fields:
+        if field not in value:
+            continue
+        field_value = value[field]
+        if isinstance(field_value, str):
+            continue
+        field_path = f"{path}.{field}" if path else field
+        errors.append(_error("invalid_string", field_path, f"{field} must be a string"))
+    return errors
+
+
+def _validate_optional_string(
+    value: Dict[str, Any], field: str, path: str, errors: List[Dict[str, str]]
+) -> None:
+    field_value = value.get(field)
+    if field not in value or field_value is None:
+        return
+    if not isinstance(field_value, str) or not field_value.strip():
+        errors.append(
+            _error(
+                "invalid_string",
+                f"{path}.{field}",
+                f"{field} must be a non-empty string or null",
+            )
+        )
 
 
 def _is_http_url(value: Any) -> bool:
@@ -103,12 +142,18 @@ def _validate_tiers(
         )
         return
 
-    if model.get("pricing_kind") == "paid" and not tiers:
+    availability = model.get("availability")
+    if (
+        model.get("pricing_kind") == "paid"
+        and isinstance(availability, str)
+        and availability in RENDERABLE
+        and not tiers
+    ):
         errors.append(
             _error(
                 "paid_price_required",
                 f"{model_path}.pricing.tiers",
-                "paid pricing requires at least one tier",
+                "renderable paid pricing requires at least one tier",
             )
         )
 
@@ -118,9 +163,18 @@ def _validate_tiers(
             errors.append(_error("invalid_pricing", tier_path, "tier must be an object"))
             continue
 
-        if "condition" not in tier:
+        condition = tier.get("condition")
+        if "condition" not in tier or (isinstance(condition, str) and not condition.strip()):
             errors.append(
                 _error("required_field", f"{tier_path}.condition", "condition is required")
+            )
+        elif not isinstance(condition, str):
+            errors.append(
+                _error(
+                    "invalid_string",
+                    f"{tier_path}.condition",
+                    "condition must be a string",
+                )
             )
 
         missing_price = False
@@ -187,9 +241,30 @@ def _validate_model(
         return
 
     errors.extend(_missing_fields(model, _MODEL_FIELDS, model_path))
+    errors.extend(
+        _validate_required_strings(
+            model,
+            (
+                "canonical",
+                "display_name",
+                "role",
+                "currency",
+                "unit",
+                "source_url",
+                "verified_at",
+            ),
+            model_path,
+        )
+    )
+    _validate_optional_string(model, "api_id", model_path, errors)
+    _validate_optional_string(model, "openrouter_id", model_path, errors)
 
     availability = model.get("availability")
-    if "availability" in model and availability not in AVAILABILITY:
+    if (
+        "availability" in model
+        and not (isinstance(availability, str) and not availability.strip())
+        and (not isinstance(availability, str) or availability not in AVAILABILITY)
+    ):
         errors.append(
             _error(
                 "invalid_availability",
@@ -199,7 +274,11 @@ def _validate_model(
         )
 
     modality = model.get("modality")
-    if "modality" in model and modality not in MODALITIES:
+    if (
+        "modality" in model
+        and not (isinstance(modality, str) and not modality.strip())
+        and (not isinstance(modality, str) or modality not in MODALITIES)
+    ):
         errors.append(
             _error(
                 "invalid_modality",
@@ -209,7 +288,13 @@ def _validate_model(
         )
 
     unit = model.get("unit")
-    if modality == "text" and "unit" in model and unit != TEXT_UNIT:
+    if (
+        modality == "text"
+        and "unit" in model
+        and isinstance(unit, str)
+        and unit.strip()
+        and unit != TEXT_UNIT
+    ):
         errors.append(
             _error(
                 "text_unit_required",
@@ -217,7 +302,11 @@ def _validate_model(
                 "text models must use per_million_tokens",
             )
         )
-    elif modality in {"image", "video"} and unit == TEXT_UNIT:
+    elif (
+        isinstance(modality, str)
+        and modality in {"image", "video"}
+        and unit == TEXT_UNIT
+    ):
         errors.append(
             _error(
                 "token_unit_for_non_text",
@@ -237,8 +326,27 @@ def _validate_model(
                 )
             )
 
+    context = model.get("context_tokens")
+    if (
+        "context_tokens" in model
+        and context is not None
+        and (not isinstance(context, int) or isinstance(context, bool) or context <= 0)
+        and not (availability == "official" and modality == "text")
+    ):
+        errors.append(
+            _error(
+                "invalid_context_tokens",
+                f"{model_path}.context_tokens",
+                "context_tokens must be a positive integer or null",
+            )
+        )
+
     pricing_kind = model.get("pricing_kind")
-    if "pricing_kind" in model and pricing_kind not in PRICING_KINDS:
+    if (
+        "pricing_kind" in model
+        and not (isinstance(pricing_kind, str) and not pricing_kind.strip())
+        and (not isinstance(pricing_kind, str) or pricing_kind not in PRICING_KINDS)
+    ):
         errors.append(
             _error(
                 "invalid_pricing_kind",
@@ -249,7 +357,13 @@ def _validate_model(
     if "pricing" in model:
         _validate_tiers(model, model_path, errors)
 
-    if "source_url" in model and not _is_http_url(model.get("source_url")):
+    source_url = model.get("source_url")
+    if (
+        "source_url" in model
+        and isinstance(source_url, str)
+        and source_url.strip()
+        and not _is_http_url(source_url)
+    ):
         errors.append(
             _error(
                 "invalid_source_url",
@@ -258,7 +372,13 @@ def _validate_model(
             )
         )
 
-    if "verified_at" in model and not _is_zoned_datetime(model.get("verified_at")):
+    verified_at = model.get("verified_at")
+    if (
+        "verified_at" in model
+        and isinstance(verified_at, str)
+        and verified_at.strip()
+        and not _is_zoned_datetime(verified_at)
+    ):
         errors.append(
             _error(
                 "invalid_verified_at",
@@ -300,6 +420,7 @@ def validate_catalog(catalog: Dict[str, Any]) -> List[Dict[str, str]]:
             continue
 
         errors.extend(_missing_fields(section, _SECTION_FIELDS, section_path))
+        errors.extend(_validate_required_strings(section, ("title",), section_path))
         vendors = section.get("vendors")
         if not isinstance(vendors, list):
             if "vendors" in section:
@@ -316,6 +437,9 @@ def validate_catalog(catalog: Dict[str, Any]) -> List[Dict[str, str]]:
                 continue
 
             errors.extend(_missing_fields(vendor, _VENDOR_FIELDS, vendor_path))
+            errors.extend(
+                _validate_required_strings(vendor, ("id", "name", "source_id"), vendor_path)
+            )
             models = vendor.get("models")
             if not isinstance(models, list):
                 if "models" in vendor:
@@ -376,13 +500,13 @@ def renderable_sections(
                 filtered_models = []
                 if isinstance(models, list):
                     filtered_models = [
-                        dict(model)
+                        deepcopy(model)
                         for model in models
                         if isinstance(model, dict)
                         and model.get("availability") in RENDERABLE
                         and model.get("modality") == "text"
                     ]
-                rendered_vendor = dict(vendor)
+                rendered_vendor = deepcopy(vendor)
                 rendered_vendor["models"] = filtered_models
                 rendered_vendors.append(rendered_vendor)
         rendered[section_id] = rendered_vendors
