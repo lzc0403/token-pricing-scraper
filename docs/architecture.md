@@ -34,10 +34,20 @@ matcher.build_watchlist  ──► annotated + watchlist
 
 | 区块 | 数据 | 货币 |
 |------|------|------|
+| 国内主流大模型 | `config/mainstream_models.yml` → `mainstream_catalog.renderable_sections("domestic")` | CNY |
+| 海外主流大模型 | `config/mainstream_models.yml` → `mainstream_catalog.renderable_sections("overseas")` | USD |
 | 厂商官网原价 | OFFICIAL_SOURCE 映射的国内源 | CNY 优先 |
-| 海外主流 | `OVERSEAS_OFFICIAL` 热门旗舰 | USD + 汇率约价 |
 | 新品跟进 | `config/new_models.yml` | 状态卡片 |
 | 渠道报价 | 非官网 + **OpenRouter** | 国内 CNY / 海外 USD 分页 |
+
+## 主流模型目录（core/mainstream_catalog.py）
+
+- `config/mainstream_models.yml` 是国内/海外主流专区的唯一型号来源
+- `load_catalog()` 读取并校验 schema：必填字段、枚举、价格非负、来源 URL、时区核验时间
+- `renderable_sections()` 只返回 `availability ∈ {official, preview}` 且 `modality = text` 的型号
+- `tracking` / `invite_only` 型号不进入正式卡片，但保留在目录中供监听
+- Claude official 型号必须有准确 `api_id`（Fable 5 / Opus 4.8 / Sonnet 5 / Haiku 4.5）
+- 卡片点击触发 `selectOnlyModel(canonical)`，联动下方渠道筛选
 
 ## 二次验证
 

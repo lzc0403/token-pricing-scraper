@@ -25,26 +25,28 @@
 ```
 token 定价/
 ├── config/
-│   ├── sources.yml         # 全部数据源（含 openrouter）
-│   ├── models.yml          # 国内目标模型别名
-│   ├── openrouter.yml      # OpenRouter 白名单 + top-weekly 规则
-│   └── new_models.yml      # 新品主动跟进清单
+│   ├── sources.yml              # 全部数据源（含 openrouter）
+│   ├── models.yml               # 国内目标模型别名（安全匹配：exact + 显式 prefix）
+│   ├── mainstream_models.yml    # 国内/海外主流模型官方目录（schema 校验）
+│   ├── openrouter.yml           # OpenRouter 白名单 + top-weekly 规则
+│   └── new_models.yml           # 新品主动跟进清单
 ├── scrapers/
 │   ├── base.py
-│   ├── openrouter.py       # Models API 下载缓存 + 解析
-│   └── …                   # 各厂商 parser
+│   ├── openrouter.py            # Models API 下载缓存 + 解析
+│   └── …                        # 各厂商 parser
 ├── core/
-│   ├── site.py             # 网页生成器
-│   ├── audit.py            # 抓取后全源核对
-│   ├── openrouter_verify.py# OpenRouter 二次验证
+│   ├── site.py                  # 网页生成器（双专区 + 卡片筛选联动）
+│   ├── mainstream_catalog.py    # 主流目录读取、schema 校验、可渲染过滤
+│   ├── audit.py                 # 抓取后全源核对
+│   ├── openrouter_verify.py     # OpenRouter 二次验证
 │   ├── matcher.py / currency.py / store.py / report.py
 ├── data/
 │   ├── prices.* / watchlist.*
-│   ├── openrouter_raw.json     # 自动下载的原始 API
-│   ├── openrouter_verify.*     # 二次验证产物
+│   ├── openrouter_raw.json      # 自动下载的原始 API
+│   ├── openrouter_verify.*      # 二次验证产物
 │   └── audit_* / REPORT.md
 ├── site/index.html
-├── docs/                   # 接入 / 架构 / 运维说明
+├── docs/                        # 接入 / 架构 / 运维说明
 ├── main.py
 └── requirements.txt
 ```
@@ -86,13 +88,16 @@ python -m venv .venv
 ## 网页布局（site/）
 
 1. 筛选与汇率（模型分类 + 渠道 + 仅国内/仅海外）
-2. 厂商官网原价（国内）
-3. 海外主流（官方 API 参考，仅热门主力，含 **GPT-4o**）
-4. 新品主动跟进（MiniMax M3 / Kimi K3 / Claude 5…）
-5. 渠道同类报价（含 **OpenRouter**，国内 CNY / 海外 USD 分页）
-6. 图表 / Excel 导出
+2. 国内主流大模型（六大厂商卡片：DeepSeek / 通义千问 / 智谱 GLM / Kimi / MiniMax / 豆包）
+3. 海外主流大模型（OpenAI / Anthropic Claude / Google Gemini 卡片，含 **GPT-4o**）
+4. 厂商官网原价（国内）
+5. 新品主动跟进（MiniMax M3 / Kimi K3 / Claude 5…）
+6. 渠道同类报价（含 **OpenRouter**，国内 CNY / 海外 USD 分页）
+7. 图表 / Excel 导出
 
 展示名：ModelMesh → **胜算云**；openrouter → **OpenRouter**。
+
+主流目录由 `config/mainstream_models.yml` 驱动；证据不足的型号设为 `tracking`，不进入正式卡片。渠道先行型号不等于官方正式型号。
 
 ---
 

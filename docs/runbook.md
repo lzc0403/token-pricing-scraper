@@ -11,7 +11,24 @@
 1. 各源 `[ok]` / `[FAIL]` 日志
 2. `data/audit_report.md` high 是否为 0
 3. `data/openrouter_verify.md` 是否 ✅ 通过
-4. 打开 `site/index.html`：OpenRouter pill、GPT-4o、新品雷达
+4. 打开 `site/index.html`：国内六家卡位、海外三家、Claude 四款、GPT-4o、新品雷达
+
+## 主流模型目录维护
+
+### 新品晋升流程
+
+1. `config/new_models.yml` 监听到新型号发布 → 状态 `tracking`
+2. 官方定价页核验完成 → 在 `config/mainstream_models.yml` 新增条目，`availability: official`
+3. 运行 `python -m pytest tests/test_mainstream_catalog.py` 确认 schema 通过
+4. 运行 `python main.py --dry-run` 重新抓取并生成站点
+5. 确认 `site/index.html` 出现新卡片
+
+### 目录校验失败
+
+- `load_catalog()` 抛 `ValueError` → 按错误信息修正 YAML 字段
+- Claude official 缺 `api_id` → 查 Anthropic 官方文档获取准确 API ID
+- `paid` 型号 tiers 为空但 `availability` 为 `official` → 补充完整价格档
+- `tracking` 型号不得进入正式卡片 → 检查 `renderable_sections()` 过滤
 
 ## 常见故障
 
