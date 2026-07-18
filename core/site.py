@@ -22,6 +22,11 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
 from core import currency  # noqa: F401
+from core import mainstream_catalog
+
+
+_ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_CATALOG_PATH = os.path.join(_ROOT_DIR, "config", "mainstream_models.yml")
 
 
 SOURCE_LABELS: Dict[str, str] = {
@@ -93,18 +98,8 @@ DOMESTIC_MODELS = {
     "qwen3.7",
 }
 
-# 海外主流模型官方 API 参考价（USD / 1M tokens）
-# 来源：OpenAI / Anthropic / Google 公开定价页，页面标注官方参考。
-# 海外只保留最热门主力（旗舰 + 高频使用主力）。不堆 mini/nano/lite。
-# GPT-4o 必须展示：仍是实际最主流调用之一。
-OVERSEAS_OFFICIAL: List[Dict[str, Any]] = [
-    {"canonical": "GPT-5", "model": "GPT-5", "source": "openai", "input": 1.25, "output": 10.0, "cache_hit": 0.125, "context": "272K", "currency": "USD", "family": "OpenAI", "note": "旗舰 · 官方 API", "hot": True},
-    {"canonical": "GPT-4o", "model": "GPT-4o", "source": "openai", "input": 2.5, "output": 10.0, "cache_hit": None, "context": "128K", "currency": "USD", "family": "OpenAI", "note": "主流长青 · 官方 API", "hot": True},
-    {"canonical": "Claude Opus 4.8", "model": "Claude Opus 4.8", "source": "anthropic", "input": 5.0, "output": 25.0, "cache_hit": None, "context": "200K", "currency": "USD", "family": "Claude", "note": "旗舰 · 官方 API", "hot": True},
-    {"canonical": "Claude Sonnet 5", "model": "Claude Sonnet 5", "source": "anthropic", "input": 2.0, "output": 10.0, "cache_hit": None, "context": "200K", "currency": "USD", "family": "Claude", "note": "主力 · 介绍价至 2026-08-31", "hot": True},
-    {"canonical": "Gemini 2.5 Pro", "model": "Gemini 2.5 Pro", "source": "google", "input": 1.25, "output": 10.0, "cache_hit": None, "context": "1M · ≤200K 档", "currency": "USD", "family": "Gemini", "note": "旗舰 · 官方 API", "hot": True},
-    {"canonical": "Gemini 2.5 Flash", "model": "Gemini 2.5 Flash", "source": "google", "input": 0.30, "output": 2.5, "cache_hit": None, "context": "1M", "currency": "USD", "family": "Gemini", "note": "高频主力 · 官方 API", "hot": True},
-]
+# 海外主流模型官方数据已迁移到 config/mainstream_models.yml
+# 旧 OVERSEAS_OFFICIAL 硬编码已移除；_overseas_official_rows() 改为从目录读取。
 
 # 已知噪声片段（精确清理）
 _NOISE_PHRASES = (
@@ -295,40 +290,84 @@ def _normalize_row(r: Dict[str, Any], canon: str, min_in: Optional[float]) -> Di
 
 
 def _overseas_official_rows(rate: float) -> List[Dict[str, Any]]:
-    """海外主流厂商官方 API 参考价（USD），按汇率换算 CNY 约价。"""
+    """海外主流厂商官方 API 参考价（USD），按汇率换算 CNY 约价。
+
+    数据来源已迁移到 config/mainstream_models.yml；此函数保留为兼容入口，
+    供旧渲染代码和 Excel 导出使用，直到 Task 5 完全替换渲染层。
+    """
     rows: List[Dict[str, Any]] = []
-    for item in OVERSEAS_OFFICIAL:
-        inp = item.get("input")
-        out = item.get("output")
-        sid = item.get("source") or "—"
-        in_rmb = round(float(inp) * rate, 4) if isinstance(inp, (int, float)) else None
-        out_rmb = round(float(out) * rate, 4) if isinstance(out, (int, float)) else None
-        rows.append(
-            {
-                "model": item.get("model") or item.get("canonical") or "—",
-                "model_raw": item.get("model") or item.get("canonical") or "—",
-                "canonical": item.get("canonical") or "—",
-                "source": sid,
-                "source_label": source_label(sid),
-                "family": item.get("family") or source_label(sid),
-                "input": inp,
-                "output": out,
-                "input_rmb": in_rmb,
-                "output_rmb": out_rmb,
-                "cache_hit": item.get("cache_hit"),
-                "currency": item.get("currency") or "USD",
-                "context": item.get("context") or "—",
-                "note": item.get("note") or "官方 API",
-                "hot": bool(item.get("hot")),
-                "is_lowest": False,
-                "is_official": True,
-                "premium": None,
-                "region": "overseas",
-            }
-        )
+    try:
+        catalog = mainstream_catalog.load_catalog(_CATALOG_PATH)
+    except (OSError, ValueError):
+        return rows
+    rendered = mainstream_catalog.renderable_sections(catalog)
     order = {name: i for i, name in enumerate(MODEL_ORDER)}
+    for vendor in rendered.get("overseas", []):
+        sid = vendor.get("source_id") or vendor.get("id") or "—"
+        fam = vendor.get("name") or source_label(sid)
+        for model in vendor.get("models", []):
+            tiers = model.get("pricing", {}).get("tiers", []) or []
+            tier0 = tiers[0] if tiers else {}
+            inp = tier0.get("input_price")
+            out = tier0.get("output_price")
+            cache = tier0.get("cache_input_price")
+            in_rmb = round(float(inp) * rate, 4) if isinstance(inp, (int, float)) else None
+            out_rmb = round(float(out) * rate, 4) if isinstance(out, (int, float)) else None
+            ctx = model.get("context_tokens")
+            ctx_label = f"{ctx // 1000}K" if isinstance(ctx, int) and ctx >= 1000 else (str(ctx) if ctx else "—")
+            rows.append(
+                {
+                    "model": model.get("display_name") or model.get("canonical") or "—",
+                    "model_raw": model.get("display_name") or model.get("canonical") or "—",
+                    "canonical": model.get("canonical") or "—",
+                    "source": sid,
+                    "source_label": source_label(sid),
+                    "family": fam,
+                    "input": inp,
+                    "output": out,
+                    "input_rmb": in_rmb,
+                    "output_rmb": out_rmb,
+                    "cache_hit": cache,
+                    "currency": model.get("currency") or "USD",
+                    "context": ctx_label,
+                    "note": model.get("role") or "官方 API",
+                    "hot": bool(model.get("featured")),
+                    "is_lowest": False,
+                    "is_official": True,
+                    "premium": None,
+                    "region": "overseas",
+                }
+            )
     rows.sort(key=lambda x: (order.get(x["canonical"], 1000), x["family"], x["model"].lower()))
     return rows
+
+
+def _context_label(tokens: Any) -> str:
+    if not isinstance(tokens, int):
+        return "—"
+    if tokens >= 1000000 and tokens % 1000000 == 0:
+        return f"{tokens // 1000000}M"
+    if tokens >= 1000:
+        return f"{tokens // 1000}K"
+    return str(tokens)
+
+
+def _build_mainstream_sections(
+    catalog: Dict[str, Any],
+    channel_canons: set,
+) -> Dict[str, List[Dict[str, Any]]]:
+    """构建国内/海外主流卡片专区数据，附加展示字段。"""
+    rendered = mainstream_catalog.renderable_sections(catalog)
+    for section_id, vendors in rendered.items():
+        for vendor in vendors:
+            for model in vendor.get("models", []):
+                tiers = model.get("pricing", {}).get("tiers", []) or []
+                model["display_tier"] = tiers[0] if tiers else {}
+                model["context_label"] = _context_label(model.get("context_tokens"))
+                model["source_label"] = source_label(vendor.get("source_id") or vendor.get("id"))
+                model["has_channel_price"] = model.get("canonical") in channel_canons
+                model["tier_count"] = len(tiers)
+    return rendered
 
 
 def _build_site_data(data_dir: str) -> Dict[str, Any]:
@@ -431,9 +470,23 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
 
     overseas_rows = _overseas_official_rows(7.0)  # 默认汇率 7.0 约价；前端改汇率后 JS 重算
     overseas_canons = [r["canonical"] for r in overseas_rows]
-    all_canons = _sort_canons(list(dict.fromkeys(canons + overseas_canons)))
+
+    # 主流模型目录（国内/海外双专区）
+    try:
+        catalog = mainstream_catalog.load_catalog(_CATALOG_PATH)
+        catalog_all_canons = mainstream_catalog.catalog_canons(catalog)
+        mainstream_sections = _build_mainstream_sections(catalog, set(canons))
+        has_domestic_mainstream = bool(mainstream_sections.get("domestic"))
+        has_overseas_mainstream = bool(mainstream_sections.get("overseas"))
+    except (OSError, ValueError):
+        catalog_all_canons = []
+        mainstream_sections = {}
+        has_domestic_mainstream = False
+        has_overseas_mainstream = False
+
+    all_canons = _sort_canons(list(dict.fromkeys(canons + overseas_canons + catalog_all_canons)))
     domestic_canons = [c for c in all_canons if c in DOMESTIC_MODELS or c in canons]
-    global_canons = [c for c in all_canons if c in {x["canonical"] for x in overseas_rows}]
+    global_canons = [c for c in all_canons if c in {x["canonical"] for x in overseas_rows} or c in catalog_all_canons]
     tracking_raw = _load_new_model_tracking()
     tracking = _merge_tracking_status(tracking_raw, canons, overseas_canons)
 
@@ -477,6 +530,9 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         "has_channel_overseas": bool(channel_overseas),
         "tracking": tracking,
         "has_tracking": bool(tracking),
+        "mainstream_sections": mainstream_sections,
+        "has_domestic_mainstream": has_domestic_mainstream,
+        "has_overseas_mainstream": has_overseas_mainstream,
     }
 
 
