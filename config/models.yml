@@ -16,8 +16,12 @@ models:
     aliases: [GLM-5.2, glm-5.2]
   - canonical: Kimi K2.6
     aliases: [kimi-k2.6, Kimi K2.6]
+  - canonical: Kimi K3
+    aliases: [kimi-k3, Kimi K3, Kimi-K3, moonshot-k3]
   - canonical: MiniMax M2.7
     aliases: [MiniMax-M2.7, minimax-m2.7]
+  - canonical: MiniMax M3
+    aliases: [MiniMax-M3, minimax-m3, MiniMax M3]
   - canonical: Seedance 2.0
     aliases: [Seedance 2.0, Doubao-Seedance, Doubao-Seed-2.0]
   - canonical: qwen3.7

@@ -1,0 +1,61 @@
+# 新品主动跟进清单
+# 规则：
+#   1. 新发布的主流模型必须先登记到本文件（status=tracking）
+#   2. 同时在 models.yml 补 canonical + aliases，抓取命中即可入 watchlist
+#   3. 官网/渠道尚未放出报价时，页面「新品跟进」区显示“监听中”
+#   4. 已在海外参考榜或国内官网抓到价格后，status 改为 active，并从监听提示降级
+#   5. 确认废弃/不再关注时 status=retired
+#
+# status:
+#   tracking  - 主动监听，优先展示
+#   active    - 已有稳定报价，常规追踪
+#   retired   - 停止跟进
+
+models:
+  - canonical: MiniMax M3
+    family: MiniMax
+    region: domestic
+    status: tracking
+    priority: high
+    aliases: [MiniMax-M3, minimax-m3, MiniMax M3]
+    note: 用户点名跟进的新一代 MiniMax 主力型号
+
+  - canonical: Kimi K3
+    family: Kimi
+    region: domestic
+    status: tracking
+    priority: high
+    aliases: [kimi-k3, Kimi K3, Kimi-K3, moonshot-k3]
+    note: 用户点名跟进的新一代 Kimi 主力型号
+
+  - canonical: Claude 5
+    family: Claude
+    region: overseas
+    status: tracking
+    priority: high
+    aliases: [Claude 5, Claude-5, claude-5, Claude Sonnet 5, Claude Opus 5]
+    note: 新一代 Claude 主线；Sonnet 5 已上榜，继续监听完整 Claude 5 线
+
+  - canonical: GPT-4o
+    family: OpenAI
+    region: overseas
+    status: active
+    priority: high
+    aliases: [GPT-4o, gpt-4o, GPT4o]
+    note: 海外主力长青模型，必须保留展示
+
+  - canonical: GPT-5
+    family: OpenAI
+    region: overseas
+    status: active
+    priority: high
+    aliases: [GPT-5, gpt-5]
+    note: OpenAI 旗舰
+
+# 跟进检查清单（给抓取/周报用）
+checklist:
+  - 新模型出现后 24h 内写入本文件
+  - 同步补 models.yml 别名，保证 matcher 可命中
+  - 海外官方参考价同步进 site.OVERSEAS_OFFICIAL（仅最主流）
+  - 国内厂商官网 URL 若变，更新 sources.yml
+  - 重新 build_site 后检查：GPT-4o 等必须可见

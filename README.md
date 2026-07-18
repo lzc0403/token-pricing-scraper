@@ -1,26 +1,22 @@
 # 大模型 Token 定价自动抓取（token-pricing）
 
-自动抓取多家主流大模型服务商的 **Token 定价**，结构化保存为 JSON / CSV，生成
-**9 个重点关注模型（watchlist）** 的横向比价视图，并在**价格周环比变动**时自动
-开 GitHub Issue 提醒。
+自动抓取多家主流大模型 **Token 定价**，结构化保存为 JSON / CSV，生成官网 / 渠道 / 海外主流 / OpenRouter 比价网页，并在周环比变动时开 GitHub Issue。
 
-> 适用场景：个人 / 团队做模型选型时的成本对比，或长期追踪各家价格变化。
+> 适用：选型成本对比、长期追踪价格变化。
 
 ---
 
 ## 功能特性
 
-- **10 个数据源**：阿里云百炼、火山引擎方舟、腾讯云 TokenHub、智谱 BigModel、
-  DeepSeek、MiniMax、Kimi、ModelMesh，以及多页抓取的 Kimi（3 个定价页）。
-- **统一数据模型**：每个 parser 输出 `parse(html) -> List[dict]`，字段统一为
-  `source / model_raw / input / output / cache_hit / context / condition / unit / currency`。
-- **汇率归一**：美元价格按 `USD_CNY_RATE`（默认 7.2）折算为人民币 `input_rmb / output_rmb`，
-  便于跨源比价与「最低价」标注。
-- **watchlist 匹配**：`config/models.yml` 定义 9 个目标模型及别名，按归一化（小写、
-  去空格 / `-` / `_`）后**精确 + 包含**匹配，自动标注 `canonical`。
-- **变更检测**：每次运行与已提交的 `data/prices.json` 对比，输出变动清单并生成
-  `REPORT.md` 与 GitHub Issue 正文。
-- **GitHub Action**：每周日 18:00 UTC 自动运行，提交 `data/` 并在有变动时开 Issue。
+- **数据源**：阿里云、火山引擎、腾讯云、智谱、DeepSeek、MiniMax、Kimi、胜算云（ModelMesh）、**OpenRouter**
+- **统一记录**：`source / model_raw / input / output / cache_hit / context / currency / unit`
+- **汇率归一**：USD → CNY（运行时默认汇率可配置；网页端默认 **7.0** 可手动改）
+- **watchlist 匹配**：`config/models.yml` 别名匹配 + OpenRouter 白名单强制 canonical
+- **二次验证**：
+  - 全源结构性 / 抽样核对 → `core/audit.py` → `data/audit_*`
+  - OpenRouter 原始 JSON vs 解析价 → `core/openrouter_verify.py` → `data/openrouter_verify.*`
+- **静态站点**：`core/site.py` 生成 `site/index.html`（筛选、Excel、国内/海外分页、新品雷达）
+- **GitHub Action**：定期抓取并提交 `data/` + `site/`
 
 ---
 
@@ -29,71 +25,83 @@
 ```
 token 定价/
 ├── config/
-│   ├── sources.yml        # 10 个数据源配置（URL / parser / 货币 / 是否 JS / 区域）
-│   └── models.yml         # 9 个目标模型及别名
+│   ├── sources.yml         # 全部数据源（含 openrouter）
+│   ├── models.yml          # 国内目标模型别名
+│   ├── openrouter.yml      # OpenRouter 白名单 + top-weekly 规则
+│   └── new_models.yml      # 新品主动跟进清单
 ├── scrapers/
-│   ├── base.py            # BaseScraper：HTTP 获取（含 Playwright JS 渲染）+ clean_price
-│   ├── aliyun.py         # 阿里云百炼（主 URL 失效自动回退 fallback）
-│   ├── volcengine.py     # 火山引擎方舟
-│   ├── tencent.py        # 腾讯云 TokenHub（仅取广州/中国大陆区域）
-│   ├── bigmodel.py       # 智谱 BigModel
-│   ├── deepseek.py       # DeepSeek
-│   ├── minimax.py        # MiniMax
-│   ├── kimi.py           # Kimi（多页）
-│   └── modelmesh.py      # ModelMesh 模型中心
+│   ├── base.py
+│   ├── openrouter.py       # Models API 下载缓存 + 解析
+│   └── …                   # 各厂商 parser
 ├── core/
-│   ├── matcher.py        # 模型名归一化与 watchlist 匹配
-│   ├── currency.py       # USD->CNY 汇率换算
-│   ├── store.py          # 写出 JSON/CSV + 历史对比
-│   └── report.py         # 生成 REPORT.md / issue_body.md
-├── tests/
-│   ├── fixtures/         # 已保存的真实页面 HTML（离线测试用）
-│   └── test_parsers.py   # parser / 匹配单元测试
-├── data/                 # 运行产物（自动生成，提交到仓库）
-│   ├── prices.json / prices.csv        # 全量抓取结果
-│   ├── watchlist.json / watchlist.csv  # 9 个目标模型比价视图
-│   ├── REPORT.md                       # 周报
-│   └── issue_body.md                  # Issue 正文（变动时）
-├── main.py               # 命令行入口与编排
-├── requirements.txt
-└── .github/workflows/scrape.yml
+│   ├── site.py             # 网页生成器
+│   ├── audit.py            # 抓取后全源核对
+│   ├── openrouter_verify.py# OpenRouter 二次验证
+│   ├── matcher.py / currency.py / store.py / report.py
+├── data/
+│   ├── prices.* / watchlist.*
+│   ├── openrouter_raw.json     # 自动下载的原始 API
+│   ├── openrouter_verify.*     # 二次验证产物
+│   └── audit_* / REPORT.md
+├── site/index.html
+├── docs/                   # 接入 / 架构 / 运维说明
+├── main.py
+└── requirements.txt
 ```
 
 ---
 
-## 环境准备
+## 快速运行
 
 ```bash
-# 使用受管 Python 创建虚拟环境（示例路径，请按需调整）
 python -m venv .venv
-.venv\Scripts\python.exe -m pip install -U pip
-.venv\Scripts\python.exe -m pip install requests parsel pyyaml pytest
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe -m playwright install chromium   # JS 源需要
 
-# 需要浏览器渲染的源（aliyun / volcengine / bigmodel / minimax / kimi / modelmesh）
-.venv\Scripts\python.exe -m pip install playwright
-.venv\Scripts\python.exe -m playwright install chromium
-```
-
----
-
-## 本地运行
-
-```bash
-# 完整抓取并写 data/（会写 $GITHUB_OUTPUT，仅当在 Action 环境中生效）
-.venv\Scripts\python.exe main.py
-
-# 预览模式：照常抓取写盘，但不写 GITHUB_OUTPUT
 .venv\Scripts\python.exe main.py --dry-run
 ```
 
-运行流程：
+产物：
 
-1. 读取 `config/sources.yml` 与 `config/models.yml`；
-2. 逐源抓取（失败仅记录，不中断整体）；
-3. 汇率换算、模型匹配标注 `canonical`；
-4. 写出 `data/prices.*` 与 `data/watchlist.*`；
-5. 与已提交的 `data/prices.json` 对比，生成周环比变动；
-6. 生成 `REPORT.md` / `issue_body.md`，并在有变动时输出 `changed=true`。
+- `data/prices.json` 全量
+- `data/watchlist.json` 目标模型 + OpenRouter 白名单
+- `data/openrouter_raw.json` 原始 API 缓存
+- `data/openrouter_verify.md` 二次验证报告
+- `site/index.html` 比价站
+
+---
+
+## OpenRouter 规则（摘要）
+
+详见 [docs/openrouter.md](docs/openrouter.md)。
+
+1. 自动请求 `https://openrouter.ai/api/v1/models?sort=top-weekly`
+2. 写入 `data/openrouter_raw.json`
+3. 按 `config/openrouter.yml` 白名单收录热门（含 GPT-4o / GPT-5 / Claude / Gemini / MiniMax M3 / Kimi K3 等）
+4. 再补 top-weekly 非免费文本模型
+5. `openrouter_verify` 用 raw 价 ×1e6 与解析结果交叉验证
+
+---
+
+## 网页布局（site/）
+
+1. 筛选与汇率（模型分类 + 渠道 + 仅国内/仅海外）
+2. 厂商官网原价（国内）
+3. 海外主流（官方 API 参考，仅热门主力，含 **GPT-4o**）
+4. 新品主动跟进（MiniMax M3 / Kimi K3 / Claude 5…）
+5. 渠道同类报价（含 **OpenRouter**，国内 CNY / 海外 USD 分页）
+6. 图表 / Excel 导出
+
+展示名：ModelMesh → **胜算云**；openrouter → **OpenRouter**。
+
+---
+
+## 相关文档
+
+- [docs/architecture.md](docs/architecture.md) — 数据流与模块
+- [docs/openrouter.md](docs/openrouter.md) — OpenRouter 接入与验证
+- [docs/runbook.md](docs/runbook.md) — 运维 / 排障
+- [docs/handoff.md](docs/handoff.md) — 当前完成状态与待办
 
 ---
 
@@ -103,20 +111,8 @@ python -m venv .venv
 .venv\Scripts\python.exe -m pytest tests/test_parsers.py
 ```
 
-测试基于 `tests/fixtures/` 中保存的真实页面 HTML，离线验证：
-各 parser 能正确解析、关键模型（如 `qwen3.7-max` 折后价 6.0/18.0）数值正确、
-腾讯云仅取中国大陆区域、以及 **9 个目标模型全部能被匹配**。
+OpenRouter 冒烟（需网络）：
 
----
-
-## 关键设计说明
-
-- **数据模型字段**：`input / output / cache_hit` 为每百万 tokens 价格；`unit` 默认
-  `"1M tokens"`；`currency` 取自各源配置（CNY / USD）。
-- **价格清洗**：`clean_price` 去除 `¥ $ 元 空格 逗号`；识别「原价 N 元 限时 M 折」
-  折算为折后价；对 ModelMesh 这类夹带 `$ (¥)` 的源，可用 `prefer_currency="¥"`
-  优先取人民币等价。
-- **区域过滤**：腾讯云文档用 tab 切换区域，本工具仅取「广州 / 中国大陆」面板；
-  阿里云仅保留「中国内地」部署范围的行。
-- **健壮性**：单源抓取异常不影响其他源；parser 通过 `importlib` 动态加载，新增源
-  只需在 `config/sources.yml` 增加一项并实现对应 `scrapers/<parser>.py`。
+```bash
+.venv\Scripts\python.exe -c "from scrapers.openrouter import OpenrouterScraper; import yaml; s=next(x for x in yaml.safe_load(open('config/sources.yml',encoding='utf-8')) if x['id']=='openrouter'); print(len(OpenrouterScraper(s).run()))"
+```

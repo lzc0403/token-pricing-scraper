@@ -33,7 +33,8 @@ DATA_DIR = os.path.join(ROOT, "data")
 sys.path.insert(0, ROOT)
 
 from scrapers.base import BaseScraper  # noqa: E402
-from core import currency, matcher, report, store, site  # noqa: E402
+from core import audit, currency, matcher, report, store, site  # noqa: E402
+from core import openrouter_verify  # noqa: E402
 
 
 def _load_yaml(path: str) -> Any:
@@ -84,7 +85,31 @@ def main(argv: List[str] | None = None) -> int:
 
     print("== 汇率换算 / 模型匹配 ==")
     currency.enrich(records)
+
+    # OpenRouter 白名单模型强制 canonical（热门主力即使不在 models.yml 也要进页面）
+    try:
+        or_rules = _load_yaml(os.path.join(CONFIG_DIR, "openrouter.yml")) or {}
+        id_to_canon = {
+            w.get("id"): w.get("model")
+            for w in (or_rules.get("whitelist") or [])
+            if w.get("id") and w.get("model")
+        }
+        for r in records:
+            if r.get("source") == "openrouter" and r.get("openrouter_id") in id_to_canon:
+                r["canonical"] = id_to_canon[r["openrouter_id"]]
+    except Exception as _exc:
+        print(f"  [warn] openrouter whitelist canonical: {_exc}")
+
     annotated, watchlist = matcher.build_watchlist(records, models_cfg)
+    # 合并：matcher 命中 + openrouter 白名单已写 canonical 的记录
+    seen = {(r.get("source"), r.get("model_raw"), r.get("input"), r.get("output")) for r in watchlist}
+    for r in annotated:
+        if r.get("source") == "openrouter" and r.get("canonical"):
+            key = (r.get("source"), r.get("model_raw"), r.get("input"), r.get("output"))
+            if key not in seen:
+                watchlist.append(r)
+                seen.add(key)
+
     print(f"  全量记录: {len(annotated)}，命中目标模型: {len(watchlist)}")
 
     print("== 写出 data/ ==")
@@ -107,6 +132,17 @@ def main(argv: List[str] | None = None) -> int:
         watchlist, deltas, scrape_status, generated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     )
     report.write_outputs(DATA_DIR, report_md, issue_body_md)
+
+    print("== 数据核对（防幻觉自我检查）==")
+    audit_res = audit.run(DATA_DIR, sources_cfg=sources)
+    astats = audit_res["stats"]
+    print(f"  可疑项 {astats['suspects']}（high {astats['high']} / med {astats['med']} / low {astats['low']}）")
+
+    print("== OpenRouter 二次验证 ==")
+    or_recs = [r for r in annotated if r.get("source") == "openrouter"]
+    or_verify = openrouter_verify.verify(DATA_DIR, records=or_recs)
+    os_ = or_verify.get("stats") or {}
+    print(f"  OpenRouter parsed={os_.get('parsed',0)} ok={or_verify.get('ok')} suspects={os_.get('suspects',0)} high={os_.get('high',0)}")
 
     print("== 生成美化网页 ==")
     # 在 changed 标志写入之前生成，保证 site/index.html 一定存在（供 workflow git add site/）

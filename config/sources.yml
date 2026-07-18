@@ -1,7 +1,7 @@
 # LLM Token 定价数据源配置
 # 字段说明：
-#   id       : 源唯一标识，会写入每条记录
-#   name     : 人类可读名称
+#   id       : 源唯一标识，会写入每条记录（内部 id，不要改）
+#   name     : 人类可读中文/品牌展示名（网页展示优先走 core/site.py SOURCE_LABELS）
 #   url      : 主抓取 URL（部分源有多个，用 urls 列表）
 #   urls     : 多 URL 列表（kimi 用）
 #   parser   : scrapers 下对应的 parser 模块名（不含 .py）
@@ -11,7 +11,7 @@
 #   fallback_url : 主 URL 失效时的回退地址（aliyun 用）
 #   note     : 备注
 - id: aliyun
-  name: 阿里云百炼
+  name: 阿里云
   url: https://help.aliyun.com/zh/model-studio/developer-reference/billing-for-text-generation
   fallback_url: https://help.aliyun.com/zh/model-studio/developer-reference/billing-for-text-rerank
   parser: aliyun
@@ -20,12 +20,14 @@
   note: 主用 URL 已失效(404)，自动回退到 fallback_url（重定向至 model-pricing 总览页）
 
 - id: volcengine
+  name: 火山引擎
   url: https://docs.volcengine.com/docs/82379/1544106?redirect=1&lang=zh
   parser: volcengine
   currency: CNY
   js: true
 
 - id: tencent
+  name: 腾讯云
   url: https://www.tencentcloud.com/zh/document/product/1300/78937
   parser: tencent
   currency: USD
@@ -33,24 +35,28 @@
   js: true                 # 文档为 SPA，静态 HTML 无表格，需浏览器渲染
 
 - id: bigmodel
+  name: 智谱
   url: https://open.bigmodel.cn/pricing
   parser: bigmodel
   currency: CNY
   js: true
 
 - id: deepseek
+  name: DeepSeek
   url: https://api-docs.deepseek.com/zh-cn/quick_start/pricing/
   parser: deepseek
   currency: CNY
   js: false
 
 - id: minimax
+  name: MiniMax
   url: https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise
   parser: minimax
   currency: CNY
   js: true
 
 - id: kimi
+  name: Kimi
   urls:
     - https://platform.kimi.com/docs/pricing/chat-k26
     - https://platform.kimi.com/docs/pricing/chat-k25
@@ -60,7 +66,19 @@
   js: true
 
 - id: modelmesh
+  name: 胜算云
   url: https://global.modelmesh.info/model
   parser: modelmesh
   currency: CNY
   js: true
+
+
+- id: openrouter
+  name: OpenRouter
+  url: https://openrouter.ai/api/v1/models?sort=top-weekly
+  parser: openrouter
+  currency: USD
+  js: false
+  cache_path: data/openrouter_raw.json
+  rules_path: config/openrouter.yml
+  note: 公开 Models API，自动缓存 JSON 并二次验证；收录热门白名单 + top-weekly 补充

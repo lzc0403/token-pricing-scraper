@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>前端审查报告 · 大模型 Token 定价追踪</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#533afd; --primary-deep:#4434d4; --primary-soft:#edeafe;
+  --green:#0ca678; --green-bg:#e6fcf5; --green-deep:#088f63;
+  --amber:#d9480f; --amber-bg:#fff4e6;
+  --red:#e03131; --red-bg:#fff5f5;
+  --canvas:#ffffff; --canvas-soft:#f6f9fc; --hairline:#e3e8ee;
+  --ink:#0d253d; --ink-sec:#273951; --ink-mute:#64748d;
+  --shadow-1:0 1px 3px rgba(0,55,112,.08);
+  --shadow-2:0 8px 24px rgba(0,55,112,.08),0 2px 6px rgba(0,55,112,.04);
+  --r:16px; --r-sm:10px;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Inter','Noto Sans SC',system-ui,sans-serif;background:var(--canvas-soft);
+  color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 24px 80px;}
+.hero{background:linear-gradient(135deg,#1c1e54,#4434d4);color:#fff;border-radius:24px;
+  padding:40px 32px;margin-bottom:32px;box-shadow:var(--shadow-2);}
+.hero .tag{display:inline-block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:#b9b9f9;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  padding:5px 12px;border-radius:999px;margin-bottom:14px;}
+.hero h1{margin:0 0 8px;font-size:30px;font-weight:800;letter-spacing:-.01em;}
+.hero p{margin:0;color:rgba(255,255,255,.78);font-size:15px;}
+.hero .meta{margin-top:18px;display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.85);}
+.hero .meta b{color:#fff;font-weight:700;}
+
+.card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r);
+  box-shadow:var(--shadow-1);padding:28px;margin-bottom:24px;}
+.card h2{margin:0 0 6px;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.01em;}
+.card .lead{color:var(--ink-mute);font-size:14px;margin:0 0 20px;}
+.card h3{margin:24px 0 10px;font-size:17px;font-weight:700;color:var(--ink-sec);}
+
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px;}
+.stat{background:var(--canvas-soft);border:1px solid var(--hairline);border-radius:var(--r-sm);
+  padding:16px 18px;}
+.stat .k{font-size:12px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
+.stat .v{font-size:24px;font-weight:800;color:var(--primary-deep);font-variant-numeric:tabular-nums;}
+.stat .v.green{color:var(--green-deep);}
+.stat .v.amber{color:var(--amber);}
+.stat .v.red{color:var(--red);}
+
+.issues{display:flex;flex-direction:column;gap:10px;}
+.issue{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;
+  padding:14px 16px;border-radius:var(--r-sm);border:1px solid var(--hairline);background:var(--canvas);}
+.issue .sev{font-size:11px;font-weight:700;text-align:center;padding:4px 0;border-radius:6px;letter-spacing:.04em;}
+.sev.p0{background:var(--red-bg);color:var(--red);}
+.sev.p1{background:var(--amber-bg);color:var(--amber);}
+.sev.p2{background:var(--green-bg);color:var(--green-deep);}
+.issue .body b{color:var(--ink);font-weight:700;}
+.issue .body .fix{margin-top:6px;font-size:13px;color:var(--ink-sec);}
+.issue .body .fix code{background:var(--canvas-soft);padding:1px 5px;border-radius:4px;font-size:12px;color:var(--primary-deep);}
+code{background:var(--canvas-soft);padding:2px 6px;border-radius:5px;font-size:.9em;color:var(--primary-deep);}
+
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--hairline);}
+th{background:var(--canvas-soft);color:var(--ink-mute);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em;}
+td b{color:var(--ink);}
+.del{color:var(--red);text-decoration:line-through;opacity:.7;}
+.add{color:var(--green-deep);font-weight:600;}
+
+ul.clean{margin:8px 0 0;padding:0;list-style:none;}
+ul.clean li{padding:6px 0 6px 22px;position:relative;color:var(--ink-sec);font-size:14px;}
+ul.clean li::before{content:"▸";position:absolute;left:0;color:var(--primary);font-weight:700;}
+
+.note{background:var(--primary-soft);border-left:3px solid var(--primary);padding:14px 18px;
+  border-radius:0 var(--r-sm) var(--r-sm) 0;margin:16px 0;font-size:13.5px;color:var(--ink-sec);}
+.note b{color:var(--primary-deep);}
+
+.footer{text-align:center;color:var(--ink-mute);font-size:13px;padding:24px 0 0;border-top:1px solid var(--hairline);margin-top:24px;}
+@media(max-width:760px){
+  .summary{grid-template-columns:repeat(2,1fr);}
+  .hero{padding:28px 20px;border-radius:var(--r);}
+  .hero h1{font-size:24px;}
+  .card{padding:20px;}
+  .issue{grid-template-columns:1fr;gap:8px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="tag">Frontend Code Review</span>
+    <h1>大模型 Token 定价追踪 · 前端审查报告</h1>
+    <p>对 <code>site/index.html</code> 及其生成器 <code>core/site.py</code> 的代码质量、Bug、可访问性、性能、UI/UX 与安全性的系统审查，并给出已落地的优化实现。</p>
+    <div class="meta">
+      <span>审查对象：<b>index.html</b>（生成器 core/site.py）</span>
+      <span>项目文档：<b>README.md</b></span>
+      <span>审查日期：<b>2026-07-17</b></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>摘要</h2>
+    <p class="lead">页面整体设计已有不错的基础（紫色调品牌一致、卡片化布局、Chart.js 可视化），但在可访问性、语义化、交互完整性与移动端体验上存在明显短板。本次重构在生成器 <code>core/site.py</code> 中实施 13 类优化，并重新生成 index.html。</p>
+    <div class="summary">
+      <div class="stat"><div class="k">发现问题</div><div class="v">18</div></div>
+      <div class="stat"><div class="k">P0 严重</div><div class="v red">1</div></div>
+      <div class="stat"><div class="k">P1 重要</div><div class="v amber">7</div></div>
+      <div class="stat"><div class="k">P2 改进</div><div class="v green">10</div></div>
+    </div>
+    <div class="note"><b>关于审查文件说明：</b>用户提示中提到的 <code>quantum-thunder-curie.md</code> 在项目目录下不存在（全盘 Glob 未命中）。本项目的实际文档为 <code>README.md</code>，已作为项目说明参与分析；<code>data/REPORT.md</code> 作为数据周报参考。<b>关键发现：index.html 并非手写，而是由 <code>core/site.py</code> 自动生成</b>——因此优化必须落在生成器上，否则下次抓取会覆盖手改。</div>
+  </div>
+
+  <div class="card">
+    <h2>一、代码质量分析</h2>
+    <p class="lead">从可读性、可维护性、性能、最佳实践四个维度评估。</p>
+
+    <h3>1.1 可读性</h3>
+    <ul class="clean">
+      <li><b>语义化缺失</b>：章节标题用 <code>&lt;div class="section-title"&gt;</code> 而非 <code>&lt;h2&gt;</code>，破坏标题层级，影响 SEO 与屏幕阅读器导航。<span class="add">已改 &lt;h2&gt; / &lt;section aria-labelledby&gt;</span></li>
+      <li><b>内联样式滥用</b>：<code>style="overflow-x:auto"</code>、<code>style="position:relative;height:360px"</code> 等散落多处，难以统一维护。<span class="add">已抽为 .table-scroll / .chart-wrap 类</span></li>
+      <li><b>硬编码文案</b>：Hero 副标题 "跨 10 个官方渠道" 与 metrics 卡 "数据源数 8" 数字打架（10 是配置源数含多页 Kimi，8 是 watchlist 实际去重源数）。<span class="add">已改为动态读取实际源数，标签改为「覆盖数据源」</span></li>
+      <li><b>长文本挤压行高</b>：<code>model_raw</code> 含 "qwen3.7-max当前能力等同于…Batch调用半价…折扣" 等长串，表格行被撑得很高。<span class="add">已加 max-width + word-break + title 悬停看全文</span></li>
+    </ul>
+
+    <h3>1.2 可维护性</h3>
+    <ul class="clean">
+      <li><b>生成器与产物耦合正确</b>：site.py 模板化生成，逻辑清晰（_build_site_data → 片段渲染 → 拼装），本次重构保持函数签名不变，<code>main.py</code> 调用零改动。</li>
+      <li><b>配置项集中</b>：颜色用 CSS 变量，本次新增 <code>--radius / --space-* / --shadow-3 / --green-deep</code> 体系，间距有据可循。</li>
+      <li><b>chart 数据结构扩展但向后兼容</b>：chart 行新增 <code>output_rmb / currency</code> 字段，旧 JS 仍可读（取 input_rmb），新 JS 用切换。</li>
+    </ul>
+
+    <h3>1.3 性能</h3>
+    <ul class="clean">
+      <li><b>字体加载</b>：已用 <code>preconnect + display=swap</code>，合格。</li>
+      <li><b>Chart.js CDN</b>：离线时 <code>typeof Chart === 'undefined'</code> 静默跳过，处理得当；但无降级提示。<span class="add">已保留静默跳过（避免误报），图表区在无 Chart 时仍占位不塌陷。</span></li>
+      <li><b>Hero mesh blur(8px)</b>：低端设备可能掉帧。<span class="add">已加 <code>@media (prefers-reduced-motion)</code> 关闭浮动动画，并限定动画用 transform（GPU 友好）。</span></li>
+      <li><b>内联 JSON 体量</b>：SITE_DATA 约 8KB 内联，可接受（自包含设计取舍，保证 file:// 可用）。</li>
+    </ul>
+
+    <h3>1.4 最佳实践</h3>
+    <ul class="clean">
+      <li><b>缺 SEO meta</b>：无 description / og / theme-color。<span class="add">已补全。</span></li>
+      <li><b>无 skip-link</b>：键盘用户需 Tab 全表。<span class="add">已加「跳到主要内容」。</span></li>
+      <li><b>无打印样式</b>：打印会丢失背景、出现滚动条。<span class="add">已加 <code>@media print</code>。</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>二、Bug 检测</h2>
+    <p class="lead">按严重度 P0 / P1 / P2 分级。P0 为已验证会出错或安全风险；P1 为体验/兼容缺陷；P2 为改进项。</p>
+
+    <div class="issues">
+      <div class="issue"><div class="sev p0">P0</div><div class="body">
+        <b>XSS 残留风险（已缓解）</b>：site.py 已对 model_raw 做 <code>_esc()</code> HTML 转义，且 JSON 注入做了 <code>&lt;/ → &lt;\/</code> 防闭合，整体安全。但若未来 scrapers 产出含 <code>&lt;script&gt;</code> 的 model_raw 且忘记走 _esc，仍会注入。<span class="add">本次新增 <code>_esc_attr</code> 用于 title 属性，确保属性上下文也安全；建议在 scrapers 层加 schema 校验。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p1">P1</div><div class="body">
+        <b>可访问性：最低价仅靠颜色区分</b>：绿色背景 + 左边框，色盲用户无法识别「最低价」行。<span class="add">已在最低行模型列前置 ★ 图标，多通道冗余。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p1">P1</div><div class="body">
+        <b>可访问性：表格无 caption / th 无 scope</b>：屏幕阅读器无法理解表格主题与列关系。<span class="add">已加 &lt;caption&gt;（visually-hidden）与 scope="col"。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p1">P1</div><div class="body">
+        <b>可访问性：canvas 无文本替代</b>：图表对读屏器不可见。<span class="add">已加 role="img" + aria-label，并加 aria-live 区域在切换模型时播报数据点数量。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p1">P1</div><div class="body">
+        <b>键盘焦点不可见</b>：默认 outline 被浏览器样式覆盖后无明显反馈。<span class="add">已加全局 :focus-visible（2px primary 描边）。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p1">P1</div><div class="body">
+        <b>移动端断点单一</b>：仅 760px 一档，小屏（≤480）stat-card 仍 2 列显挤；表格横向滚动无视觉提示。<span class="add">已加 1024 / 760 / 480 三档；表格滚动区 focusable + 自定义滚动条。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p1">P1</div><div class="body">
+        <b>图表仅展示输入价</b>：用户无法对比输出价（输出价往往是成本大头，如 Kimi K2.6 输出 27¥ vs 输入 1.1¥）。<span class="add">已加「输入价/输出价」分段切换，tooltip 同时显示输入+输出+币种。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p1">P1</div><div class="body">
+        <b>无排序能力</b>：9 张表只能按源字母序，无法按价格排序找最便宜。<span class="add">已实现表头点击排序（模型/源/输入/输出），aria-sort 同步，数值列正确处理空值。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>无「贵多少」直观标注</b>：非最低行看不出比最低贵多少。<span class="add">已加 premium 徽标（如 +275%），红色小标签。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>无回到顶部</b>：9 张表纵向很长。<span class="add">已加右下角浮动按钮，滚动 600px 后浮现。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>表格 hover 无反馈</b>：<span class="add">已加 tbody tr:hover 高亮 + 过渡。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>stat-card 无交互</b>：<span class="add">已加 hover 上浮 + 阴影增强。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>无 theme-color</b>：移动浏览器地址栏不匹配品牌色。<span class="add">已加 meta theme-color #4434d4。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>表格粘性表头缺失</b>：横向滚动时列名滚走。<span class="add">th 已 position:sticky top:0。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>图表无动画过渡</b>：切换模型硬切。<span class="add">已加 600ms easeOutQuart 动画。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>tooltip 信息单薄</b>：只显示一个 ¥ 值。<span class="add">已扩展为多行：维度值+输入价+输出价+原币种。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>图表 y 轴刻度颜色硬编码</b>：<span class="add">已用 #64748d 与表格 mute 统一。</span>
+      </div></div>
+
+      <div class="issue"><div class="sev p2">P2</div><div class="body">
+        <b>无 OG 标签</b>：分享无预览。<span class="add">已加 og:title / og:description / og:type。</span>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>三、UI 美化提升</h2>
+    <p class="lead">视觉设计、交互体验、响应式、动画四方面具体改进。</p>
+
+    <h3>3.1 视觉设计</h3>
+    <table>
+      <thead><tr><th>维度</th><th>优化前</th><th>优化后</th></tr></thead>
+      <tbody>
+        <tr><td><b>最低价标识</b></td><td>仅绿色背景+左边框</td><td><span class="add">★ 图标 + 绿色背景 + 深绿文字 + 左边框（四重冗余）</span></td></tr>
+        <tr><td><b>价格对比</b></td><td>无差异标注</td><td><span class="add">premium 红色徽标 +X%</span></td></tr>
+        <tr><td><b>卡片层次</b></td><td>单一 shadow-1</td><td><span class="add">shadow-1/2/3 三级，hover 升级阴影</span></td></tr>
+        <tr><td><b>字体数字</b></td><td>部分表格数字不对齐</td><td><span class="add">stat-card 与 td.num 统一 tabular-nums</span></td></tr>
+        <tr><td><b>品牌色</b></td><td>紫色调一致</td><td><span class="add">保留 + 新增 green-deep / amber 语义色</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.2 交互体验</h3>
+    <ul class="clean">
+      <li><b>表格排序</b>：点击表头排序，⇅ 提示可排序，↑↓ 显示当前方向，aria-sort 同步。</li>
+      <li><b>图表切换</b>：分段控件切换输入/输出价，aria-pressed 状态同步。</li>
+      <li><b>hover 反馈</b>：表格行、stat-card、按钮均有过渡。</li>
+      <li><b>回到顶部</b>：滚动 600px 浮现，平滑滚动。</li>
+      <li><b>键盘可达</b>：skip-link、focus-visible、表格滚动区 focusable。</li>
+    </ul>
+
+    <h3>3.3 响应式</h3>
+    <table>
+      <thead><tr><th>断点</th><th>优化前</th><th>优化后</th></tr></thead>
+      <tbody>
+        <tr><td><b>≤1024px</b></td><td>无</td><td><span class="add">stat-card 2 列</span></td></tr>
+        <tr><td><b>≤760px</b></td><td>stat 2 列 + h1 缩小</td><td><span class="add">+ 图表控件纵向堆叠 + 表格紧凑 + select 自适应</span></td></tr>
+        <tr><td><b>≤480px</b></td><td>无</td><td><span class="add">stat-card 单列 + 数值字号缩小</span></td></tr>
+        <tr><td><b>打印</b></td><td>无</td><td><span class="add">@media print：去 mesh/动画、卡片防分页</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.4 动画效果</h3>
+    <ul class="clean">
+      <li><b>Hero mesh 浮动</b>：18s 缓动 alternate，transform 而非 top/left（GPU 友好）。</li>
+      <li><b>stat-card 上浮</b>：hover translateY(-3px) + 阴影升级，0.25s。</li>
+      <li><b>图表过渡</b>：模型/维度切换 600ms easeOutQuart。</li>
+      <li><b>回到顶部</b>：opacity + translateY 渐入。</li>
+      <li><b>无障碍</b>：<code>prefers-reduced-motion: reduce</code> 自动关闭 mesh 动画。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>四、优化落地清单</h2>
+    <p class="lead">所有改动集中在 <code>core/site.py</code>（生成器），已重新生成 <code>site/index.html</code> 验证通过。</p>
+    <table>
+      <thead><tr><th>文件</th><th>改动类型</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><b>core/site.py</b></td><td>重构</td><td>CSS/JS/HTML 模板全面优化，数据装配加 premium/output_rmb 字段，保持 build_site 签名不变</td></tr>
+        <tr><td><b>site/index.html</b></td><td>重新生成</td><td>由 build_site('data') 产出，13 项特性检查全部通过</td></tr>
+        <tr><td><b>main.py</b></td><td>未改动</td><td>调用零修改，下次 GitHub Action 自动带上优化</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><b>验证结果：</b>SITE_DATA 6 键 / 9 groups / 9 chart keys 完整；premium 计算正确（qwen3.7 aliyun 6.0 vs 最低 1.6 = +275%）；排序表头、节省率徽标、输入输出切换、回到顶部、caption、scope、role=img、aria-live、meta description、theme-color、语义 section、reduced-motion、打印样式 13 项全部命中。</div>
+  </div>
+
+  <div class="card">
+    <h2>五、建议的后续跟进</h2>
+    <ul class="clean">
+      <li><b>scrapers 层 schema 校验</b>：在 BaseScraper 统一校验 model_raw 不含危险字符，作为 XSS 的纵深防御。</li>
+      <li><b>价格历史趋势</b>：data/prices.json 已有历史，可在图表下加 sparkline 展示近 4 周走势。</li>
+      <li><b>全部模型对比视图</b>：新增「总览」选项，所有模型最低输入价横向条形图。</li>
+      <li><b>深色模式</b>：CSS 变量已就绪，加 <code>prefers-color-scheme</code> 即可。</li>
+      <li><b>分享/复制</b>：每行加「复制」按钮，复制 "模型 | 源 | 输入¥ | 输出¥"。</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    审查报告 · 数妙妙（Phoebe）生成 · 2026-07-17 · 基于 site/index.html + core/site.py + README.md
+  </div>
+
+</div>
+</body>
+</html>
