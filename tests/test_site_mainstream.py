@@ -110,3 +110,18 @@ def test_generated_html_no_seedance_in_domestic_mainstream(tmp_path):
     if domestic_start >= 0 and overseas_start >= 0:
         domestic_html = html[domestic_start:overseas_start]
         assert "Seedance" not in domestic_html
+
+
+def test_excel_export_includes_mainstream_sheets(tmp_path):
+    """验证 Excel 导出数据包含国内/海外主流目录行。"""
+    data = site._build_site_data(os.path.join(ROOT, "data"))
+    ms = data.get("mainstream_sections") or {}
+    domestic_models = [m for v in ms.get("domestic", []) for m in v.get("models", [])]
+    overseas_models = [m for v in ms.get("overseas", []) for m in v.get("models", [])]
+    # 国内主流应包含 DeepSeek V3.2
+    assert any(m["canonical"] == "DeepSeek V3.2" for m in domestic_models)
+    # 海外主流应包含 Claude 四款
+    claude_canons = {m["canonical"] for m in overseas_models if "Claude" in m.get("canonical", "")}
+    assert {"Claude Fable 5", "Claude Opus 4.8", "Claude Sonnet 5", "Claude Haiku 4.5"} <= claude_canons
+    # Seedance 不应出现在国内文本主流
+    assert not any(m["canonical"] == "Seedance 2.0" for m in domestic_models)

@@ -145,6 +145,22 @@ def main(argv: List[str] | None = None) -> int:
     print(f"  OpenRouter parsed={os_.get('parsed',0)} ok={or_verify.get('ok')} suspects={os_.get('suspects',0)} high={os_.get('high',0)}")
 
     print("== 生成美化网页 ==")
+    # 主流模型目录校验：非法目录不得静默通过
+    from core import mainstream_catalog
+    catalog_path = os.path.join(CONFIG_DIR, "mainstream_models.yml")
+    try:
+        catalog = mainstream_catalog.load_catalog(catalog_path)
+        print(
+            "  主流目录:",
+            len(mainstream_catalog.catalog_canons(catalog, "domestic")),
+            "国内 /",
+            len(mainstream_catalog.catalog_canons(catalog, "overseas")),
+            "海外",
+        )
+    except (OSError, ValueError) as exc:
+        print(f"  [error] 主流目录校验失败: {exc}")
+        return 2
+
     # 在 changed 标志写入之前生成，保证 site/index.html 一定存在（供 workflow git add site/）
     site_path = site.build_site(DATA_DIR)
     print(f"  site -> {site_path}")

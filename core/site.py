@@ -1574,6 +1574,28 @@ const SITE_DATA = __SITE_DATA__;
         push('海外主流', SITE_DATA.overseas_rows);
         push('国内渠道', SITE_DATA.channel_domestic);
         push('海外渠道', SITE_DATA.channel_overseas);
+        // 主流模型目录（国内/海外双专区）
+        function pushMainstream(region, vendors){
+          (vendors||[]).forEach(function(vendor){
+            (vendor.models||[]).forEach(function(model){
+              var tier = (model.pricing && model.pricing.tiers && model.pricing.tiers[0]) || {};
+              rows.push([
+                region, vendor.name||vendor.id||'', model.display_name||model.canonical||'',
+                model.source_label||vendor.source_id||vendor.id||'',
+                tier.input_price==null?'':tier.input_price,
+                tier.output_price==null?'':tier.output_price,
+                '', '',
+                tier.cache_input_price==null?'':tier.cache_input_price,
+                model.context_label||'', model.currency||'',
+                '是', ''
+              ]);
+            });
+          });
+        }
+        if (SITE_DATA.mainstream_sections){
+          pushMainstream('国内主流', SITE_DATA.mainstream_sections.domestic);
+          pushMainstream('海外主流', SITE_DATA.mainstream_sections.overseas);
+        }
         var ws = XLSX.utils.aoa_to_sheet(rows);
         var wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, '比价');
