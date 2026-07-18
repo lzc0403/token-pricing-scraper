@@ -2,8 +2,8 @@
 
 匹配策略（见 README / config/models.yml）：
   1. `normalize`：转小写、去空格、去 `-` 与 `_`。
-  2. 先「精确相等」匹配（归一化后的 model_raw 等于某个别名的归一化形式）。
-  3. 再「包含」匹配（model_raw 归一化包含别名归一化，或反之）。
+  2. canonical 与普通 alias 执行精确匹配。
+  3. 仅显式声明 `match: prefix` 的 alias 执行前缀匹配。
   4. 命中即返回 canonical；未命中返回 None。
 """
 
@@ -22,30 +22,32 @@ def normalize(name: Optional[str]) -> str:
     return _STRIP_RE.sub("", str(name).lower())
 
 
-def _alias_norms(model: Dict[str, Any]) -> List[str]:
-    """返回某模型 canonical + 所有别名的归一化集合。"""
+def _alias_specs(model: Dict[str, Any]) -> List[Tuple[str, str]]:
     aliases = [model["canonical"]] + list(model.get("aliases", []))
-    return [normalize(a) for a in aliases if normalize(a)]
+    specs: List[Tuple[str, str]] = []
+    for alias in aliases:
+        if isinstance(alias, dict):
+            name = alias.get("name")
+            mode = alias.get("match", "exact")
+        else:
+            name = alias
+            mode = "exact"
+        norm = normalize(name)
+        if norm and mode in {"exact", "prefix"}:
+            specs.append((norm, mode))
+    return specs
 
 
 def match(model_raw: Optional[str], models_cfg: Dict[str, Any]) -> Optional[str]:
-    """将原始模型名匹配到目标 canonical；未命中返回 None。"""
     raw_n = normalize(model_raw)
     if not raw_n:
         return None
-
-    models = models_cfg.get("models", [])
-    # 第一遍：精确相等
-    for m in models:
-        if raw_n in _alias_norms(m):
-            return m["canonical"]
-    # 第二遍：包含匹配
-    for m in models:
-        for alias_n in _alias_norms(m):
-            if not alias_n:
-                continue
-            if alias_n in raw_n:
-                return m["canonical"]
+    for model in models_cfg.get("models", []):
+        for alias_n, mode in _alias_specs(model):
+            if mode == "exact" and raw_n == alias_n:
+                return model["canonical"]
+            if mode == "prefix" and raw_n.startswith(alias_n):
+                return model["canonical"]
     return None
 
 

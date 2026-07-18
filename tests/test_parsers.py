@@ -118,8 +118,10 @@ def test_modelmesh_cards():
         assert expected in models, f"modelmesh 缺少 {expected}"
 
 
-def test_watchlist_all_nine_matched():
+def test_watchlist_all_configured_targets_matched():
     recs = _all_records()
+    # matcher-only synthetic record：验证配置目标覆盖，不伪装成官方 HTML fixture。
+    recs.append({"model_raw": "seedance-2.0"})
     _, watch = matcher.build_watchlist(recs, MODELS_CFG)
     canons = {r["canonical"] for r in watch}
     targets = {m["canonical"] for m in MODELS_CFG["models"]}
@@ -208,3 +210,35 @@ def test_robustness_unknown_currency_and_missing_fields():
 def test_matcher_no_false_positive_glm5():
     """非目标模型 GLM-5 不应被误匹配为 GLM-5.1（需求#3：非目标不进 watchlist）。"""
     assert matcher.match("GLM-5", MODELS_CFG) is None
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected"),
+    [
+        ("qwen3.7-max", "Qwen3.7 Max"),
+        ("Qwen3.7-Plus", "Qwen3.7 Plus"),
+        ("doubao-seed-2.1-pro", "Doubao Seed 2.1 Pro"),
+        ("doubao-seed-2.1-turbo", "Doubao Seed 2.1 Turbo"),
+        ("kimi-k2.7-code", "Kimi K2.7 Code"),
+        ("MiniMax-M3", "MiniMax M3"),
+        ("seedance-2.0", "Seedance 2.0"),
+    ],
+)
+def test_matcher_safe_positive_matrix(raw, expected):
+    assert matcher.match(raw, MODELS_CFG) == expected
+
+
+@pytest.mark.parametrize(
+    "raw",
+    [
+        "doubao-seed-2.0-pro",
+        "doubao-seed-2.0-code",
+        "doubao-seed-2.1-turbo",
+    ],
+)
+def test_doubao_text_never_matches_seedance(raw):
+    assert matcher.match(raw, MODELS_CFG) != "Seedance 2.0"
+
+
+def test_qwen_max_plus_are_distinct():
+    assert matcher.match("qwen3.7-max", MODELS_CFG) != matcher.match("qwen3.7-plus", MODELS_CFG)
