@@ -69,3 +69,44 @@ def test_build_site_generates_without_error(tmp_path):
     site.build_site(os.path.join(ROOT, "data"), str(out))
     html = out.read_text(encoding="utf-8")
     assert len(html) > 1000
+
+
+def test_generated_html_has_symmetric_mainstream_sections(tmp_path):
+    out = tmp_path / "index.html"
+    site.build_site(os.path.join(ROOT, "data"), str(out))
+    html = out.read_text(encoding="utf-8")
+    assert 'data-section="domestic-mainstream"' in html
+    assert 'data-section="overseas-mainstream"' in html
+    assert html.count('data-vendor="') >= 9
+    for name in ["Fable 5", "Opus 4.8", "Sonnet 5", "Haiku 4.5"]:
+        assert name in html
+    assert 'data-empty-state="no-channel-price"' in html
+
+
+def test_generated_html_claude_context_attributes(tmp_path):
+    out = tmp_path / "index.html"
+    site.build_site(os.path.join(ROOT, "data"), str(out))
+    html = out.read_text(encoding="utf-8")
+    # Fable 5, Opus 4.8, Sonnet 5 = 1M; Haiku 4.5 = 200K
+    assert 'data-context="1000000"' in html
+    assert 'data-context="200000"' in html
+
+
+def test_generated_html_model_cards_have_canonical_attr(tmp_path):
+    out = tmp_path / "index.html"
+    site.build_site(os.path.join(ROOT, "data"), str(out))
+    html = out.read_text(encoding="utf-8")
+    assert 'data-canonical="Claude Fable 5"' in html
+    assert 'data-canonical="DeepSeek V3.2"' in html
+
+
+def test_generated_html_no_seedance_in_domestic_mainstream(tmp_path):
+    out = tmp_path / "index.html"
+    site.build_site(os.path.join(ROOT, "data"), str(out))
+    html = out.read_text(encoding="utf-8")
+    # Seedance is a video model, must not appear in domestic text mainstream cards
+    domestic_start = html.find('data-section="domestic-mainstream"')
+    overseas_start = html.find('data-section="overseas-mainstream"')
+    if domestic_start >= 0 and overseas_start >= 0:
+        domestic_html = html[domestic_start:overseas_start]
+        assert "Seedance" not in domestic_html

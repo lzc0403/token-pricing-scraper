@@ -784,6 +784,120 @@ def _tracking_section(items: List[Dict[str, Any]], has: bool) -> str:
     </section>"""
 
 
+def _mainstream_section(
+    section_id: str,
+    title: str,
+    vendors: List[Dict[str, Any]],
+    *,
+    accent: str = "domestic",
+) -> str:
+    """渲染国内/海外统一主流模型卡片专区。
+
+    accent: domestic（青绿）或 overseas（蓝色）
+    """
+    total_models = sum(len(v.get("models", [])) for v in vendors)
+    vendor_cards: List[str] = []
+    for vendor in vendors:
+        vid = vendor.get("id") or "—"
+        vname = vendor.get("name") or vid
+        models = vendor.get("models", [])
+        if not models:
+            vendor_cards.append(
+                f'<div class="ms-vendor" data-vendor="{_esc_attr(vid)}">'
+                f'<div class="ms-vendor-head"><span class="ms-vendor-name">{_esc(vname)}</span>'
+                f'<span class="ms-vendor-badge ms-pending">官方资料待核验</span></div>'
+                f'<div class="ms-empty-vendor">该厂商正式型号暂未进入主流目录</div>'
+                f"</div>"
+            )
+            continue
+        model_cards: List[str] = []
+        for model in models:
+            canon = model.get("canonical") or "—"
+            display = model.get("display_name") or canon
+            tier = model.get("display_tier") or {}
+            ctx_label = model.get("context_label") or "—"
+            ctx_tokens = model.get("context_tokens") or ""
+            role = model.get("role") or ""
+            inp = tier.get("input_price")
+            out = tier.get("output_price")
+            cache = tier.get("cache_input_price")
+            currency = model.get("currency") or ""
+            tier_count = model.get("tier_count") or 0
+            has_channel = model.get("has_channel_price")
+            featured = model.get("featured")
+            verified = (model.get("verified_at") or "")[:10]
+
+            price_html = (
+                f'<div class="ms-prices">'
+                f'<span class="ms-price"><b>{_fmt_num(inp)}</b> <small>{currency}/输入</small></span>'
+                f'<span class="ms-price"><b>{_fmt_num(out)}</b> <small>{currency}/输出</small></span>'
+                f"</div>"
+                if isinstance(inp, (int, float)) and isinstance(out, (int, float))
+                else '<div class="ms-prices ms-no-price"><span>价格待官方公布</span></div>'
+            )
+            cache_html = (
+                f'<span class="ms-cache">缓存写入 {_fmt_num(cache)} {currency}</span>'
+                if isinstance(cache, (int, float))
+                else ""
+            )
+            tiers_html = ""
+            if tier_count > 1:
+                tiers_list = "".join(
+                    f'<li>{_esc(t.get("condition") or "—")}：'
+                    f"{_fmt_num(t.get('input_price'))} / {_fmt_num(t.get('output_price'))} {currency}</li>"
+                    for t in model.get("pricing", {}).get("tiers", [])
+                )
+                tiers_html = f'<details class="ms-tiers"><summary>分档计费（{tier_count} 档）</summary><ul>{tiers_list}</ul></details>'
+
+            channel_html = (
+                '<span class="ms-channel-ok">有渠道报价</span>'
+                if has_channel
+                else '<span data-empty-state="no-channel-price" class="ms-channel-empty">暂无渠道报价</span>'
+            )
+            hot_badge = '<span class="ms-featured">热门</span>' if featured else ""
+
+            model_cards.append(
+                f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
+                f'data-context="{_esc_attr(ctx_tokens)}" data-source="{_esc_attr(vendor.get("source_id") or vid)}" '
+                f'tabindex="0" role="button" aria-label="筛选 {_esc(display)}">'
+                f'<div class="ms-model-head">'
+                f'<span class="ms-model-name">{_esc(display)}{hot_badge}</span>'
+                f'<span class="ms-context">{_esc(ctx_label)}</span>'
+                f"</div>"
+                f'<div class="ms-role">{_esc(role)}</div>'
+                f"{price_html}{cache_html}"
+                f"{tiers_html}"
+                f'<div class="ms-meta">{channel_html}<span class="ms-verified">核验 {_esc(verified)}</span></div>'
+                f"</article>"
+            )
+        vendor_cards.append(
+            f'<div class="ms-vendor" data-vendor="{_esc_attr(vid)}">'
+            f'<div class="ms-vendor-head"><span class="ms-vendor-name">{_esc(vname)}</span>'
+            f'<span class="ms-vendor-count">{len(models)} 款</span></div>'
+            f'<div class="ms-model-grid">{"".join(model_cards)}</div>'
+            f"</div>"
+        )
+
+    vendors_html = "\n".join(vendor_cards)
+    accent_class = "ms-overseas" if accent == "overseas" else "ms-domestic"
+    return f"""
+    <section class="block-card block-mainstream {accent_class}" data-section="{section_id}-mainstream" aria-labelledby="{section_id}-mainstream-title">
+      <div class="block-head">
+        <div>
+          <div class="block-kicker">{'DOMESTIC · MAINSTREAM' if accent == 'domestic' else 'GLOBAL · MAINSTREAM'}</div>
+          <h2 id="{section_id}-mainstream-title" class="block-title">{_esc(title)}</h2>
+          <p class="block-desc">官方 API 参考价 · 点击卡片可联动下方渠道筛选。证据不足的型号不在此展示。</p>
+        </div>
+        <div class="block-head-right">
+          <span class="block-count">{total_models} 款</span>
+        </div>
+      </div>
+      <div class="ms-vendors">
+        {vendors_html}
+      </div>
+    </section>"""
+
+
 def _overseas_section(rows: List[Dict[str, Any]], has: bool) -> str:
     table = _render_table(
         rows,
@@ -1084,6 +1198,45 @@ footer .disc{color:#a5b4fc}
 .tag-global{color:#4338ca;background:#eef2ff;border-color:rgba(79,70,229,.14)}
 .tag-family{color:#334155;background:#f8fafc;border-color:var(--line)}
 .overseas-note{margin:4px 20px 14px}
+
+/* 主流模型双专区 */
+.block-mainstream{border-color:#d1fae5}
+.block-mainstream.ms-overseas{border-color:#dbeafe}
+.ms-domestic .block-kicker{color:#059669}
+.ms-overseas .block-kicker{color:#2563eb}
+.ms-vendors{display:grid;grid-template-columns:1fr;gap:16px;padding:0 20px 16px}
+.ms-vendor{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ms-vendor-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.ms-vendor-name{font-size:15px;font-weight:800;color:var(--ink)}
+.ms-vendor-count{font-size:11px;font-weight:700;color:var(--mute);background:#f1f5f9;padding:3px 8px;border-radius:999px}
+.ms-vendor-badge{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px}
+.ms-pending{background:#fef3c7;color:#92400e;border:1px solid #fde68a}
+.ms-empty-vendor{font-size:13px;color:var(--mute);padding:8px 0}
+.ms-model-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.model-pick{background:linear-gradient(180deg,#fafcff 0%,#fff 100%);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;transition:border-color .15s,box-shadow .15s;outline:none}
+.model-pick:hover,.model-pick:focus-visible{border-color:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.15)}
+.ms-overseas .model-pick:hover,.ms-overseas .model-pick:focus-visible{border-color:#60a5fa;box-shadow:0 0 0 3px rgba(96,165,250,.15)}
+.ms-model-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px}
+.ms-model-name{font-size:14px;font-weight:800;color:var(--ink)}
+.ms-context{font-size:11px;font-weight:700;color:var(--mute);background:#f1f5f9;padding:2px 7px;border-radius:6px;white-space:nowrap}
+.ms-role{font-size:12px;color:var(--mute);margin-bottom:8px}
+.ms-prices{display:flex;gap:12px;margin-bottom:6px}
+.ms-price{display:flex;flex-direction:column}
+.ms-price b{font-size:16px;font-weight:800;color:var(--ink)}
+.ms-price small{font-size:10px;color:var(--mute)}
+.ms-no-price{color:var(--mute);font-size:13px;font-style:italic}
+.ms-cache{font-size:11px;color:var(--mute);display:block;margin-bottom:4px}
+.ms-tiers{margin:6px 0}
+.ms-tiers summary{font-size:11px;font-weight:700;color:var(--ink2);cursor:pointer}
+.ms-tiers ul{margin:4px 0 0;padding-left:16px;font-size:11px;color:var(--mute)}
+.ms-tiers li{margin:2px 0}
+.ms-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;font-size:11px}
+.ms-channel-ok{color:#059669;font-weight:700}
+.ms-channel-empty{color:#9ca3af}
+.ms-featured{display:inline-block;font-size:10px;font-weight:800;color:#fff;background:#f59e0b;padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.ms-verified{color:var(--mute)}
+@media (max-width:1024px){.ms-model-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.ms-model-grid{grid-template-columns:1fr}}
 tr[data-source="openai"] .pill{background:#ecfdf5;border-color:#a7f3d0;color:#047857}
 tr[data-source="anthropic"] .pill{background:#fff7ed;border-color:#fed7aa;color:#c2410c}
 tr[data-source="google"] .pill{background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
@@ -1504,6 +1657,13 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     )
 
     filter_block = _filter_toolbar()
+    ms = data.get("mainstream_sections") or {}
+    domestic_ms = _mainstream_section(
+        "domestic", "国内主流大模型", ms.get("domestic") or [], accent="domestic"
+    )
+    overseas_ms = _mainstream_section(
+        "overseas", "海外主流大模型", ms.get("overseas") or [], accent="overseas"
+    )
     official_block = _official_section(data.get("official_rows") or [], data.get("has_official"))
     overseas_block = _overseas_section(data.get("overseas_rows") or [], data.get("has_overseas"))
     tracking_block = _tracking_section(data.get("tracking") or [], data.get("has_tracking"))
@@ -1548,6 +1708,8 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     </div>
 
     {filter_block}
+    {domestic_ms}
+    {overseas_ms}
     {official_block}
     {overseas_block}
     {tracking_block}
