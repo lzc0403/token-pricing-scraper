@@ -84,6 +84,22 @@ def test_valid_catalog_has_no_errors():
     assert validate_catalog(_valid_catalog()) == []
 
 
+@pytest.mark.parametrize(
+    ("updated_at", "code"),
+    [(None, "invalid_string"), ([], "invalid_string"), ("   ", "required_field")],
+)
+def test_updated_at_must_be_a_non_empty_string_without_duplicate_errors(
+    updated_at, code
+):
+    data = _valid_catalog()
+    data["updated_at"] = updated_at
+
+    errors = [error for error in validate_catalog(data) if error["path"] == "updated_at"]
+
+    assert len(errors) == 1
+    assert errors[0]["code"] == code
+
+
 def test_errors_have_stable_shape_path_and_message():
     data = _valid_catalog()
     _model(data)["availability"] = "beta"
@@ -291,6 +307,18 @@ def test_same_canonical_in_different_sections_is_allowed():
     assert "duplicate_canonical" not in _codes(data)
 
 
+def test_blank_canonical_values_do_not_emit_duplicate_canonical():
+    data = _non_claude_catalog()
+    models = data["sections"]["overseas"]["vendors"][0]["models"]
+    models[0]["canonical"] = "   "
+    models.append(copy.deepcopy(models[0]))
+
+    errors = validate_catalog(data)
+
+    assert [error["code"] for error in errors].count("required_field") == 2
+    assert "duplicate_canonical" not in [error["code"] for error in errors]
+
+
 @pytest.mark.parametrize("availability", ["beta", "deprecated"])
 def test_availability_is_closed_enum(availability):
     data = _valid_catalog()
@@ -381,6 +409,66 @@ def test_prices_must_be_finite_numbers_and_reject_bool(price):
     assert "invalid_price" in _codes(data)
 
 
+def test_arbitrarily_large_integer_price_is_valid():
+    data = _valid_catalog()
+    _model(data)["pricing"]["tiers"][0]["input_price"] = 10**1000
+
+    assert validate_catalog(data) == []
+
+
+@pytest.mark.parametrize("field", ["input_price", "cache_input_price"])
+def test_free_explicit_none_price_is_invalid_at_field_path(field):
+    data = _non_claude_catalog()
+    model = _model(data)
+    model["pricing_kind"] = "free"
+    tier = model["pricing"]["tiers"][0]
+    tier["input_price"] = 0
+    tier["output_price"] = 0
+    tier[field] = None
+    field_path = f"sections.overseas.vendors[0].models[0].pricing.tiers[0].{field}"
+
+    errors = validate_catalog(data)
+
+    assert [error for error in errors if error["path"] == field_path] == [
+        {
+            "code": "invalid_price",
+            "path": field_path,
+            "message": f"{field} must be a non-negative number",
+        }
+    ]
+
+
+def test_paid_none_price_has_one_field_error_and_missing_price_error():
+    data = _non_claude_catalog()
+    _model(data)["pricing"]["tiers"][0]["input_price"] = None
+    tier_path = "sections.overseas.vendors[0].models[0].pricing.tiers[0]"
+
+    errors = validate_catalog(data)
+
+    assert [error["code"] for error in errors if error["path"] == tier_path] == [
+        "paid_price_required"
+    ]
+    assert [
+        error["code"]
+        for error in errors
+        if error["path"] == f"{tier_path}.input_price"
+    ] == ["invalid_price"]
+
+
+def test_non_string_tier_key_returns_stable_invalid_pricing_error():
+    data = _valid_catalog()
+    _model(data)["pricing"]["tiers"][0][1] = 2
+    tier_path = "sections.overseas.vendors[0].models[0].pricing.tiers[0]"
+
+    errors = validate_catalog(data)
+
+    assert {
+        "code": "invalid_pricing",
+        "path": tier_path,
+        "message": "tier field names must be strings",
+    } in errors
+
+
 @pytest.mark.parametrize("availability", ["tracking", "invite_only"])
 def test_non_renderable_paid_model_allows_empty_tiers_for_unknown_official_price(
     availability,
@@ -435,7 +523,9 @@ def test_each_paid_tier_is_validated():
     )
 
 
-@pytest.mark.parametrize("source_url", [None, "", "not-a-url", "ftp://example.com/pricing"])
+@pytest.mark.parametrize(
+    "source_url", [None, "", "not-a-url", "ftp://example.com/pricing", "http://["]
+)
 def test_source_url_must_be_http_url(source_url):
     data = _valid_catalog()
     _model(data)["source_url"] = source_url
@@ -485,6 +575,20 @@ def test_official_claude_requires_approved_name_and_exact_api_id(
     model["api_id"] = api_id
 
     assert "invalid_claude_official" in _codes(data)
+
+
+@pytest.mark.parametrize("canonical", [["Claude Fable 5"], {"name": "Claude Fable 5"}])
+def test_official_claude_non_string_canonical_returns_stable_errors(canonical):
+    data = _valid_catalog()
+    _model(data)["canonical"] = canonical
+    canonical_path = "sections.overseas.vendors[0].models[0].canonical"
+
+    errors = validate_catalog(data)
+
+    assert [error["code"] for error in errors if error["path"] == canonical_path] == [
+        "invalid_string"
+    ]
+    assert "invalid_claude_official" not in [error["code"] for error in errors]
 
 
 def test_renderable_sections_keeps_vendor_order_and_only_renderable_text_models():
@@ -575,3 +679,60 @@ def test_malformed_catalog_returns_errors_instead_of_crashing(catalog):
 
     assert errors
     assert all(set(error) == {"code", "path", "message"} for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "code"),
+    [
+        ("availability", ["official"], "invalid_availability"),
+        ("modality", ["text"], "invalid_modality"),
+        ("pricing_kind", ["paid"], "invalid_pricing_kind"),
+    ],
+)
+def test_unhashable_enum_values_return_stable_errors(field, value, code):
+    data = _non_claude_catalog()
+    _model(data)[field] = value
+
+    assert code in _codes(data)
+
+
+# --- Task 3: project catalog ---
+
+def test_project_catalog_is_valid_and_has_required_vendors():
+    catalog = load_catalog(os.path.join(ROOT, "config", "mainstream_models.yml"))
+    domestic = catalog["sections"]["domestic"]["vendors"]
+    overseas = catalog["sections"]["overseas"]["vendors"]
+    assert [v["id"] for v in domestic] == ["deepseek", "qwen", "glm", "kimi", "minimax", "doubao"]
+    assert [v["id"] for v in overseas] == ["openai", "anthropic", "google"]
+    assert {
+        "Claude Fable 5", "Claude Opus 4.8", "Claude Sonnet 5", "Claude Haiku 4.5"
+    } <= set(catalog_canons(catalog, "overseas"))
+
+
+def test_project_catalog_claude_official_models_have_exact_api_ids():
+    catalog = load_catalog(os.path.join(ROOT, "config", "mainstream_models.yml"))
+    overseas = catalog["sections"]["overseas"]["vendors"]
+    anthropic = next(v for v in overseas if v["id"] == "anthropic")
+    official = {m["canonical"]: m for m in anthropic["models"] if m["availability"] == "official"}
+    assert official["Claude Fable 5"]["api_id"] == "claude-fable-5"
+    assert official["Claude Opus 4.8"]["api_id"] == "claude-opus-4-8"
+    assert official["Claude Sonnet 5"]["api_id"] == "claude-sonnet-5"
+    assert official["Claude Haiku 4.5"]["api_id"] == "claude-haiku-4-5-20251001"
+
+
+def test_project_catalog_tracking_models_not_renderable():
+    catalog = load_catalog(os.path.join(ROOT, "config", "mainstream_models.yml"))
+    rendered = renderable_sections(catalog)
+    for vendors in rendered.values():
+        for vendor in vendors:
+            for model in vendor["models"]:
+                assert model["availability"] in {"official", "preview"}
+
+
+def test_project_catalog_no_seedance_in_domestic_text():
+    catalog = load_catalog(os.path.join(ROOT, "config", "mainstream_models.yml"))
+    rendered = renderable_sections(catalog)
+    domestic_canons = {
+        m["canonical"] for vendor in rendered.get("domestic", []) for m in vendor["models"]
+    }
+    assert "Seedance 2.0" not in domestic_canons
