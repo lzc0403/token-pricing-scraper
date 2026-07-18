@@ -1,0 +1,396 @@
+from __future__ import annotations
+
+import copy
+import os
+import sys
+
+import pytest
+import yaml
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+
+from core.mainstream_catalog import (  # noqa: E402
+    catalog_canons,
+    load_catalog,
+    renderable_sections,
+    validate_catalog,
+)
+
+
+def _valid_catalog():
+    return {
+        "updated_at": "2026-07-18",
+        "sections": {
+            "overseas": {
+                "title": "海外主流大模型",
+                "vendors": [
+                    {
+                        "id": "anthropic",
+                        "name": "Anthropic Claude",
+                        "source_id": "anthropic",
+                        "models": [
+                            {
+                                "canonical": "Claude Fable 5",
+                                "display_name": "Fable 5",
+                                "api_id": "claude-fable-5",
+                                "openrouter_id": None,
+                                "role": "旗舰代理",
+                                "availability": "official",
+                                "modality": "text",
+                                "context_tokens": 1_000_000,
+                                "pricing_kind": "paid",
+                                "pricing": {
+                                    "tiers": [
+                                        {
+                                            "condition": "default",
+                                            "input_price": 10.0,
+                                            "output_price": 50.0,
+                                        }
+                                    ]
+                                },
+                                "currency": "USD",
+                                "unit": "per_million_tokens",
+                                "source_url": "https://platform.claude.com/docs/zh-TW/about-claude/models/overview",
+                                "verified_at": "2026-07-18T23:00:00+08:00",
+                            }
+                        ],
+                    }
+                ],
+            }
+        },
+    }
+
+
+def _model(data):
+    return data["sections"]["overseas"]["vendors"][0]["models"][0]
+
+
+def _codes(data):
+    return [error["code"] for error in validate_catalog(data)]
+
+
+def test_valid_catalog_has_no_errors():
+    assert validate_catalog(_valid_catalog()) == []
+
+
+def test_errors_have_stable_shape_path_and_message():
+    data = _valid_catalog()
+    _model(data)["availability"] = "beta"
+
+    assert validate_catalog(data) == [
+        {
+            "code": "invalid_availability",
+            "path": "sections.overseas.vendors[0].models[0].availability",
+            "message": "availability must be one of: invite_only, official, preview, tracking",
+        }
+    ]
+
+
+def test_load_catalog_reads_valid_yaml(tmp_path):
+    path = tmp_path / "catalog.yml"
+    path.write_text(yaml.safe_dump(_valid_catalog(), allow_unicode=True), encoding="utf-8")
+
+    assert load_catalog(str(path)) == _valid_catalog()
+
+
+def test_load_catalog_rejects_invalid_yaml_catalog(tmp_path):
+    data = _valid_catalog()
+    _model(data)["unit"] = "per_second"
+    path = tmp_path / "catalog.yml"
+    path.write_text(yaml.safe_dump(data, allow_unicode=True), encoding="utf-8")
+
+    with pytest.raises(ValueError, match=r"^mainstream catalog invalid: text_unit_required: "):
+        load_catalog(str(path))
+
+
+@pytest.mark.parametrize(
+    ("mutate", "code"),
+    [
+        (lambda data: data.pop("updated_at"), "required_field"),
+        (lambda data: data.pop("sections"), "required_field"),
+        (lambda data: data["sections"]["overseas"].pop("title"), "required_field"),
+        (lambda data: data["sections"]["overseas"].pop("vendors"), "required_field"),
+        (lambda data: data["sections"]["overseas"]["vendors"][0].pop("id"), "required_field"),
+        (lambda data: data["sections"]["overseas"]["vendors"][0].pop("name"), "required_field"),
+        (lambda data: data["sections"]["overseas"]["vendors"][0].pop("source_id"), "required_field"),
+        (lambda data: data["sections"]["overseas"]["vendors"][0].pop("models"), "required_field"),
+        (lambda data: _model(data).pop("canonical"), "required_field"),
+        (lambda data: _model(data).pop("display_name"), "required_field"),
+        (lambda data: _model(data).pop("api_id"), "required_field"),
+        (lambda data: _model(data).pop("openrouter_id"), "required_field"),
+        (lambda data: _model(data).pop("role"), "required_field"),
+        (lambda data: _model(data).pop("availability"), "required_field"),
+        (lambda data: _model(data).pop("modality"), "required_field"),
+        (lambda data: _model(data).pop("context_tokens"), "required_field"),
+        (lambda data: _model(data).pop("pricing_kind"), "required_field"),
+        (lambda data: _model(data).pop("pricing"), "required_field"),
+        (lambda data: _model(data).pop("currency"), "required_field"),
+        (lambda data: _model(data).pop("unit"), "required_field"),
+        (lambda data: _model(data).pop("source_url"), "required_field"),
+        (lambda data: _model(data).pop("verified_at"), "required_field"),
+    ],
+)
+def test_missing_formal_fields_are_rejected_instead_of_guessed(mutate, code):
+    data = _valid_catalog()
+    mutate(data)
+
+    assert code in _codes(data)
+
+
+@pytest.mark.parametrize(
+    ("target", "field"),
+    [
+        ("section", "title"),
+        ("vendor", "id"),
+        ("vendor", "name"),
+        ("vendor", "source_id"),
+        ("model", "canonical"),
+        ("model", "display_name"),
+        ("model", "role"),
+        ("model", "currency"),
+        ("model", "unit"),
+    ],
+)
+def test_required_identity_fields_cannot_be_blank(target, field):
+    data = _valid_catalog()
+    values = {
+        "section": data["sections"]["overseas"],
+        "vendor": data["sections"]["overseas"]["vendors"][0],
+        "model": _model(data),
+    }
+    values[target][field] = "   "
+
+    assert "required_field" in _codes(data)
+
+
+def test_duplicate_canonical_in_same_section_is_rejected():
+    data = _valid_catalog()
+    duplicate = copy.deepcopy(_model(data))
+    data["sections"]["overseas"]["vendors"].append(
+        {"id": "other", "name": "Other", "source_id": "other", "models": [duplicate]}
+    )
+
+    errors = validate_catalog(data)
+
+    assert {
+        "code": "duplicate_canonical",
+        "path": "sections.overseas.vendors[1].models[0].canonical",
+        "message": "canonical duplicates sections.overseas.vendors[0].models[0].canonical",
+    } in errors
+
+
+def test_same_canonical_in_different_sections_is_allowed():
+    data = _valid_catalog()
+    data["sections"]["domestic"] = copy.deepcopy(data["sections"]["overseas"])
+
+    assert "duplicate_canonical" not in _codes(data)
+
+
+@pytest.mark.parametrize("availability", ["beta", "deprecated", ""])
+def test_availability_is_closed_enum(availability):
+    data = _valid_catalog()
+    _model(data)["availability"] = availability
+
+    assert "invalid_availability" in _codes(data)
+
+
+@pytest.mark.parametrize("modality", ["audio", "multimodal", None])
+def test_modality_is_closed_enum(modality):
+    data = _valid_catalog()
+    _model(data)["modality"] = modality
+
+    assert "invalid_modality" in _codes(data)
+
+
+def test_text_model_requires_token_unit():
+    data = _valid_catalog()
+    _model(data)["unit"] = "per_second"
+
+    assert "text_unit_required" in _codes(data)
+
+
+@pytest.mark.parametrize("modality", ["image", "video"])
+def test_non_text_model_cannot_use_token_unit(modality):
+    data = _valid_catalog()
+    model = _model(data)
+    model["availability"] = "tracking"
+    model["modality"] = modality
+
+    assert "token_unit_for_non_text" in _codes(data)
+
+
+@pytest.mark.parametrize("context", [None, 0, -1, 1.5, True, "1000000"])
+def test_official_text_context_must_be_positive_integer(context):
+    data = _valid_catalog()
+    _model(data)["context_tokens"] = context
+
+    assert "official_text_context_required" in _codes(data)
+
+
+@pytest.mark.parametrize("pricing_kind", ["trial", "unknown", None])
+def test_pricing_kind_is_closed_enum(pricing_kind):
+    data = _valid_catalog()
+    _model(data)["pricing_kind"] = pricing_kind
+
+    assert "invalid_pricing_kind" in _codes(data)
+
+
+@pytest.mark.parametrize(
+    "tiers",
+    [
+        [],
+        [{"condition": "default", "input_price": None, "output_price": 1}],
+        [{"condition": "default", "input_price": 1, "output_price": None}],
+        [{"condition": "default", "input_price": 0, "output_price": 0}],
+    ],
+)
+def test_paid_model_requires_complete_positive_tier_prices(tiers):
+    data = _valid_catalog()
+    _model(data)["pricing"] = {"tiers": tiers}
+
+    assert "paid_price_required" in _codes(data)
+
+
+@pytest.mark.parametrize(
+    "tier",
+    [
+        {"condition": "default", "input_price": -1, "output_price": 1},
+        {"condition": "default", "input_price": 1, "output_price": -1},
+        {"condition": "default", "input_price": "1", "output_price": 1},
+    ],
+)
+def test_paid_prices_must_be_non_negative_numbers(tier):
+    data = _valid_catalog()
+    _model(data)["pricing"] = {"tiers": [tier]}
+
+    assert "invalid_price" in _codes(data)
+
+
+def test_each_paid_tier_is_validated():
+    data = _valid_catalog()
+    _model(data)["pricing"]["tiers"].append(
+        {"condition": "long context", "input_price": 0, "output_price": 0}
+    )
+
+    errors = validate_catalog(data)
+
+    assert any(
+        error["code"] == "paid_price_required"
+        and error["path"] == "sections.overseas.vendors[0].models[0].pricing.tiers[1]"
+        for error in errors
+    )
+
+
+@pytest.mark.parametrize("source_url", [None, "", "not-a-url", "ftp://example.com/pricing"])
+def test_source_url_must_be_http_url(source_url):
+    data = _valid_catalog()
+    _model(data)["source_url"] = source_url
+
+    assert "invalid_source_url" in _codes(data)
+
+
+@pytest.mark.parametrize(
+    "verified_at",
+    [None, "", "2026-07-18", "2026-07-18T23:00:00", "not-a-date"],
+)
+def test_verified_at_must_be_iso_datetime_with_timezone(verified_at):
+    data = _valid_catalog()
+    _model(data)["verified_at"] = verified_at
+
+    assert "invalid_verified_at" in _codes(data)
+
+
+@pytest.mark.parametrize(
+    ("canonical", "display_name", "api_id"),
+    [
+        ("Claude Fable 5", "Fable 5", None),
+        ("Claude Fable 5", "Fable 5", "claude-fable-five"),
+        ("Claude Fable 5", "Claude Fable Five", "claude-fable-5"),
+        ("Claude Rumor 6", "Rumor 6", "claude-rumor-6"),
+    ],
+)
+def test_official_claude_requires_approved_name_and_exact_api_id(
+    canonical, display_name, api_id
+):
+    data = _valid_catalog()
+    model = _model(data)
+    model["canonical"] = canonical
+    model["display_name"] = display_name
+    model["api_id"] = api_id
+
+    assert "invalid_claude_official" in _codes(data)
+
+
+def test_renderable_sections_keeps_vendor_order_and_only_renderable_text_models():
+    data = _valid_catalog()
+    official = _model(data)
+    preview = copy.deepcopy(official)
+    preview.update(
+        canonical="Preview Text", display_name="Preview Text", api_id=None, availability="preview"
+    )
+    tracking = copy.deepcopy(official)
+    tracking.update(
+        canonical="Tracking Text", display_name="Tracking Text", api_id=None, availability="tracking"
+    )
+    invite_only = copy.deepcopy(official)
+    invite_only.update(
+        canonical="Invite Text", display_name="Invite Text", api_id=None, availability="invite_only"
+    )
+    image = copy.deepcopy(official)
+    image.update(
+        canonical="Official Image",
+        display_name="Official Image",
+        api_id=None,
+        modality="image",
+        context_tokens=None,
+        unit="per_image",
+    )
+    data["sections"]["overseas"]["vendors"][0]["models"] = [
+        official,
+        preview,
+        tracking,
+        invite_only,
+        image,
+    ]
+
+    rendered = renderable_sections(data)
+
+    assert [vendor["id"] for vendor in rendered["overseas"]] == ["anthropic"]
+    assert [model["canonical"] for model in rendered["overseas"][0]["models"]] == [
+        "Claude Fable 5",
+        "Preview Text",
+    ]
+    assert len(data["sections"]["overseas"]["vendors"][0]["models"]) == 5
+
+
+def test_catalog_canons_deduplicates_in_configuration_order_and_filters_section():
+    data = _valid_catalog()
+    overseas_models = data["sections"]["overseas"]["vendors"][0]["models"]
+    second = copy.deepcopy(overseas_models[0])
+    second.update(canonical="Second", display_name="Second", api_id=None, availability="tracking")
+    overseas_models.extend([second, copy.deepcopy(overseas_models[0])])
+    data["sections"]["domestic"] = {
+        "title": "国内主流大模型",
+        "vendors": [
+            {
+                "id": "domestic",
+                "name": "Domestic",
+                "source_id": "domestic",
+                "models": [copy.deepcopy(second)],
+            }
+        ],
+    }
+
+    assert catalog_canons(data) == ["Claude Fable 5", "Second"]
+    assert catalog_canons(data, "overseas") == ["Claude Fable 5", "Second"]
+    assert catalog_canons(data, "domestic") == ["Second"]
+    assert catalog_canons(data, "missing") == []
+
+
+@pytest.mark.parametrize("catalog", [None, [], {}, {"updated_at": "2026-07-18", "sections": []}])
+def test_malformed_catalog_returns_errors_instead_of_crashing(catalog):
+    errors = validate_catalog(catalog)
+
+    assert errors
+    assert all(set(error) == {"code", "path", "message"} for error in errors)
