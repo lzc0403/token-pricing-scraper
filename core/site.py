@@ -1484,6 +1484,32 @@ const SITE_DATA = __SITE_DATA__;
     });
   }
 
+  function selectOnlyModel(canonical){
+    Object.keys(state.models).forEach(function(key){ state.models[key] = key === canonical; });
+    renderChips();
+    bindChips();
+    applyFilter();
+    var filterBar = document.getElementById('filterBar');
+    if (filterBar) filterBar.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function bindModelCards(){
+    document.querySelectorAll('.model-pick[data-canonical]').forEach(function(card){
+      if (card.getAttribute('data-bound') === '1') return;
+      card.setAttribute('data-bound','1');
+      card.addEventListener('click', function(){
+        selectOnlyModel(card.dataset.canonical);
+      });
+      card.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          selectOnlyModel(card.dataset.canonical);
+        }
+      });
+    });
+  }
+  bindModelCards();
+
   var fx = document.getElementById('fxRate');
   var fxReset = document.getElementById('fxReset');
   function setRate(v){
