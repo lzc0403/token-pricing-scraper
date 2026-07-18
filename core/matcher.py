@@ -58,7 +58,7 @@ def build_watchlist(
 
     Returns:
         annotated : 全量记录，每条新增 `canonical` 字段（未命中为 None）。
-        watchlist: 仅 canonical 非 None 的记录（9 个目标模型的筛选视图）。
+        watchlist: 仅 canonical 非 None 的记录（models.yml 配置目标模型的筛选视图）。
     """
     annotated: List[Dict[str, Any]] = []
     watchlist: List[Dict[str, Any]] = []

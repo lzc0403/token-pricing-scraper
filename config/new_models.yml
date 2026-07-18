@@ -56,6 +56,6 @@ models:
 checklist:
   - 新模型出现后 24h 内写入本文件
   - 同步补 models.yml 别名，保证 matcher 可命中
-  - 海外官方参考价同步进 site.OVERSEAS_OFFICIAL（仅最主流）
+  - 海外官方参考价同步进 config/mainstream_models.yml（仅最主流）
   - 国内厂商官网 URL 若变，更新 sources.yml
   - 重新 build_site 后检查：GPT-4o 等必须可见

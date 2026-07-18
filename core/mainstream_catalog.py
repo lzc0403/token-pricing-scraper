@@ -63,11 +63,11 @@ def _missing_fields(
 
 
 def _is_number(value: Any) -> bool:
-    return (
-        isinstance(value, (int, float))
-        and not isinstance(value, bool)
-        and isfinite(value)
-    )
+    if isinstance(value, bool):
+        return False
+    if isinstance(value, int):
+        return True
+    return isinstance(value, float) and isfinite(value)
 
 
 def _validate_required_strings(
@@ -104,7 +104,10 @@ def _validate_optional_string(
 def _is_http_url(value: Any) -> bool:
     if not isinstance(value, str) or not value.strip():
         return False
-    parsed = urlparse(value)
+    try:
+        parsed = urlparse(value)
+    except ValueError:
+        return False
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
@@ -178,26 +181,20 @@ def _validate_tiers(
             )
 
         missing_price = False
-        invalid_price = False
+        invalid_required_price = False
         for field in ("input_price", "output_price"):
             if field not in tier or tier[field] is None:
                 if model.get("pricing_kind") == "paid":
                     missing_price = True
                 continue
             if not _is_number(tier[field]) or tier[field] < 0:
-                invalid_price = True
+                invalid_required_price = True
 
-        if invalid_price:
-            errors.append(
-                _error(
-                    "invalid_price",
-                    tier_path,
-                    "input_price and output_price must be non-negative numbers",
-                )
-            )
-        elif model.get("pricing_kind") == "paid":
+        if model.get("pricing_kind") == "paid":
             if missing_price or (
-                tier.get("input_price") == 0 and tier.get("output_price") == 0
+                not invalid_required_price
+                and tier.get("input_price") == 0
+                and tier.get("output_price") == 0
             ):
                 errors.append(
                     _error(
@@ -207,21 +204,25 @@ def _validate_tiers(
                     )
                 )
 
+        if any(not isinstance(field, str) for field in tier):
+            errors.append(
+                _error(
+                    "invalid_pricing",
+                    tier_path,
+                    "tier field names must be strings",
+                )
+            )
+
         for field, value in tier.items():
-            if field.endswith("_price") and value is not None:
+            if isinstance(field, str) and field.endswith("_price"):
                 if not _is_number(value) or value < 0:
-                    price_path = f"{tier_path}.{field}"
-                    if not any(
-                        item["code"] == "invalid_price" and item["path"] == price_path
-                        for item in errors
-                    ):
-                        errors.append(
-                            _error(
-                                "invalid_price",
-                                price_path,
-                                f"{field} must be a non-negative number",
-                            )
+                    errors.append(
+                        _error(
+                            "invalid_price",
+                            f"{tier_path}.{field}",
+                            f"{field} must be a non-negative number",
                         )
+                    )
 
 
 def _is_claude_vendor(vendor: Dict[str, Any]) -> bool:
@@ -387,8 +388,13 @@ def _validate_model(
             )
         )
 
-    if availability == "official" and _is_claude_vendor(vendor):
-        expected = _CLAUDE_OFFICIAL.get(model.get("canonical"))
+    canonical = model.get("canonical")
+    if (
+        availability == "official"
+        and _is_claude_vendor(vendor)
+        and isinstance(canonical, str)
+    ):
+        expected = _CLAUDE_OFFICIAL.get(canonical)
         if expected is None or (
             model.get("display_name"), model.get("api_id")
         ) != expected:
@@ -407,6 +413,7 @@ def validate_catalog(catalog: Dict[str, Any]) -> List[Dict[str, str]]:
         return [_error("invalid_catalog", "", "catalog must be an object")]
 
     errors.extend(_missing_fields(catalog, _CATALOG_FIELDS, ""))
+    errors.extend(_validate_required_strings(catalog, ("updated_at",), ""))
     sections = catalog.get("sections")
     if not isinstance(sections, dict):
         if "sections" in catalog:
@@ -454,7 +461,7 @@ def validate_catalog(catalog: Dict[str, Any]) -> List[Dict[str, str]]:
                 if not isinstance(model, dict):
                     continue
                 canonical = model.get("canonical")
-                if not isinstance(canonical, str) or not canonical:
+                if not isinstance(canonical, str) or not canonical.strip():
                     continue
                 canonical_path = f"{model_path}.canonical"
                 if canonical in seen_canons:
