@@ -30,7 +30,8 @@ def test_model_card_selects_only_one_model(tmp_path):
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": 1440, "height": 900})
-        page.goto(out.as_uri())
+        page.route("**/cdn.jsdelivr.net/**", lambda route: route.abort())
+        page.goto(out.as_uri(), wait_until="domcontentloaded")
         card = page.locator('.model-pick[data-canonical="Claude Fable 5"]')
         card.click()
         page.wait_for_timeout(500)
@@ -47,7 +48,8 @@ def test_model_card_keyboard_enter(tmp_path):
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": 1440, "height": 900})
-        page.goto(out.as_uri())
+        page.route("**/cdn.jsdelivr.net/**", lambda route: route.abort())
+        page.goto(out.as_uri(), wait_until="domcontentloaded")
         card = page.locator('.model-pick[data-canonical="DeepSeek V3.2"]')
         card.focus()
         page.keyboard.press("Enter")
@@ -64,7 +66,8 @@ def test_no_horizontal_overflow(tmp_path, width, height):
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": width, "height": height})
-        page.goto(out.as_uri())
+        page.route("**/cdn.jsdelivr.net/**", lambda route: route.abort())
+        page.goto(out.as_uri(), wait_until="domcontentloaded")
         page.wait_for_timeout(500)
         overflow = page.evaluate("document.documentElement.scrollWidth - window.innerWidth")
         browser.close()
@@ -76,7 +79,8 @@ def test_no_channel_price_empty_state_visible(tmp_path):
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": 1440, "height": 900})
-        page.goto(out.as_uri())
+        page.route("**/cdn.jsdelivr.net/**", lambda route: route.abort())
+        page.goto(out.as_uri(), wait_until="domcontentloaded")
         page.wait_for_timeout(300)
         empty = page.locator('[data-empty-state="no-channel-price"]')
         count = empty.count()

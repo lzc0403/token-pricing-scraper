@@ -672,60 +672,63 @@ def _render_table(
     </div>"""
 
 
-def _filter_toolbar() -> str:
+def _sidebar() -> str:
     return """
-    <section class="filter-bar" id="filterBar" aria-label="筛选与汇率">
-      <div class="filter-top">
-        <div>
-          <div class="filter-kicker">FILTER & FX</div>
-          <h2 class="filter-title">筛选与汇率</h2>
-          <p class="filter-desc">按模型分类与渠道自由组合；可快速切「仅国内模型」或「仅海外模型」；汇率默认 7.0。</p>
+    <aside class="sidebar" id="sidebar" aria-label="筛选">
+      <button type="button" class="sidebar-close" id="sidebarClose" aria-label="收起筛选">×</button>
+      <div class="sidebar-inner">
+        <div class="sidebar-head">
+          <span class="filter-kicker">FILTER &amp; FX</span>
+          <h2 class="sidebar-title">筛选与汇率</h2>
         </div>
-        <div class="rate-box">
-          <label class="rate-label" for="fxRate">USD → CNY</label>
-          <div class="rate-input-wrap">
-            <input id="fxRate" class="rate-input" type="number" inputmode="decimal" min="0.1" max="100" step="0.01" value="7.0" aria-describedby="fxHint">
-            <button type="button" id="fxReset" class="btn-ghost">重置 7.0</button>
-          </div>
-          <div id="fxHint" class="rate-hint">当前汇率 <strong id="fxCurrent">7.00</strong></div>
-        </div>
-      </div>
 
-      <div class="filter-grid">
-        <div class="filter-group">
-          <div class="filter-group-head">
-            <span class="filter-group-title">模型分类</span>
+        <div class="sidebar-group">
+          <div class="sx-group-head">
+            <span class="sx-group-title">模型分类</span>
             <div class="mini-actions">
               <button type="button" class="linkish" data-scope="model" data-act="all">全选</button>
               <button type="button" class="linkish" data-scope="model" data-act="none">清空</button>
-              <button type="button" class="linkish" data-scope="model" data-act="domestic">仅国内模型</button>
-              <button type="button" class="linkish" data-scope="model" data-act="overseas">仅海外模型</button>
+              <button type="button" class="linkish" data-scope="model" data-act="domestic">仅国内</button>
+              <button type="button" class="linkish" data-scope="model" data-act="overseas">仅海外</button>
             </div>
           </div>
-          <div id="modelChips" class="chip-row" role="group" aria-label="模型分类筛选"></div>
+          <div id="modelChips" class="chip-row chip-row-scroll" role="group" aria-label="模型分类筛选"></div>
         </div>
 
-        <div class="filter-group">
-          <div class="filter-group-head">
-            <span class="filter-group-title">渠道 / 来源</span>
+        <div class="sidebar-group">
+          <div class="sx-group-head">
+            <span class="sx-group-title">渠道 / 来源</span>
             <div class="mini-actions">
               <button type="button" class="linkish" data-scope="channel" data-act="all">全选</button>
               <button type="button" class="linkish" data-scope="channel" data-act="none">清空</button>
             </div>
           </div>
-          <div id="channelChips" class="chip-row" role="group" aria-label="渠道筛选"></div>
+          <div id="channelChips" class="chip-row chip-row-scroll" role="group" aria-label="渠道筛选"></div>
         </div>
-      </div>
 
-      <div class="filter-foot">
-        <div class="active-summary" id="filterSummary">当前：全部模型 · 全部渠道 · 汇率 7.00</div>
-        <div class="filter-actions">
-          <button type="button" id="filterReset" class="btn-ghost">重置筛选</button>
+        <div class="sidebar-group">
+          <div class="sx-group-head">
+            <span class="sx-group-title">汇率</span>
+            <button type="button" id="fxReset" class="linkish">重置 7.0</button>
+          </div>
+          <div class="rate-input-wrap">
+            <input id="fxRate" class="rate-input" type="number" inputmode="decimal" min="0.1" max="100" step="0.01" value="7.0" aria-describedby="fxHint">
+            <span class="rate-suffix">¥/$</span>
+          </div>
+          <div id="fxHint" class="rate-hint">当前 <strong id="fxCurrent">7.00</strong></div>
+        </div>
+
+        <div class="sidebar-foot">
+          <button type="button" id="filterReset" class="btn-filter-reset">重置全部筛选</button>
           <span class="visible-count" id="visibleCount">显示 0 行</span>
         </div>
       </div>
-    </section>
+    </aside>
     """
+
+
+def _filter_toolbar() -> str:
+    return ""
 
 
 def _official_section(rows: List[Dict[str, Any]], has: bool) -> str:
@@ -1026,7 +1029,8 @@ _CSS = """
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:clip}
+html{overflow-x:clip}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 :focus-visible{outline:2px solid var(--primary);outline-offset:2px}
 
@@ -1045,7 +1049,7 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .stat-card .value{color:var(--primary-deep);font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
 .stat-card .value small{font-size:12px;color:var(--mute);margin-left:4px;font-weight:600}
 
-.container{max-width:1120px;margin:0 auto;padding:28px 24px 56px}
+.container{max-width:1120px;margin:0 auto;padding:28px 24px 56px;min-width:0}
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 18px}
 .section-title{font-size:22px;font-weight:800;margin:0 0 4px;letter-spacing:-.01em}
 .section-sub{margin:0;color:var(--mute);font-size:14px}
@@ -1059,14 +1063,47 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .block-official .block-kicker{color:var(--amber)}
 .block-official{border-color:#fde68a}
 
-/* 筛选栏 */
-.filter-bar{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 20px;margin:0 0 18px}
-.filter-top{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:14px}
-.filter-kicker{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--primary);margin-bottom:4px}
-.filter-title{margin:0 0 4px;font-size:18px;font-weight:800;letter-spacing:-.01em}
-.filter-desc{margin:0;color:var(--mute);font-size:13.5px;max-width:640px;line-height:1.45}
-.rate-box{min-width:220px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.rate-label{display:block;font-size:12px;font-weight:700;color:var(--mute);margin-bottom:6px}
+.btn-filter-toggle{display:none;font-size:13px;font-weight:700;color:var(--primary);background:#fff;border:1px solid var(--primary);border-radius:8px;padding:8px 14px;cursor:pointer}
+@media (max-width:1024px){.btn-filter-toggle{display:inline-block}}
+
+/* ===== 侧边栏 + 主内容两栏布局 ===== */
+.layout{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start;min-width:0}
+.sidebar{position:sticky;top:18px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);max-height:calc(100vh - 36px);display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.sidebar-inner{padding:18px 16px;overflow-y:auto;flex:1}
+.sidebar-close{display:none;position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:20px;color:var(--ink2);cursor:pointer;z-index:10}
+.sidebar-head{margin-bottom:16px}
+.sidebar-title{margin:4px 0 0;font-size:18px;font-weight:800}
+.sidebar-group{margin-bottom:18px}
+.sx-group-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.sx-group-title{font-size:13px;font-weight:800;color:var(--ink2)}
+.sidebar-group .mini-actions{display:flex;gap:6px;flex-wrap:wrap}
+.sidebar-group .linkish{font-size:11px}
+.chip-row-scroll{max-height:240px;overflow-y:auto;padding-right:4px}
+.sidebar-group .rate-input-wrap{margin-bottom:4px}
+.sidebar-group .rate-suffix{font-size:13px;font-weight:700;color:var(--mute)}
+.sidebar-foot{margin-top:8px;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.btn-filter-reset{font-size:12px;font-weight:700;color:var(--primary);background:0 0;border:1px solid var(--primary);border-radius:8px;padding:7px 12px;cursor:pointer}
+.btn-filter-reset:hover{background:var(--primary);color:#fff}
+.sidebar .visible-count{font-size:11px;font-weight:700;color:var(--mute)}
+
+@media (max-width:1024px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:fixed;top:0;left:0;bottom:0;width:300px;max-height:100vh;border-radius:0;z-index:200;transform:translateX(-100%);transition:transform .25s}
+  .sidebar.is-open{transform:translateX(0)}
+  .sidebar-close{display:block}
+  .sidebar-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:190;display:none}
+  .sidebar-backdrop.is-open{display:block}
+}
+@media (max-width:760px){
+  .sidebar{width:85vw}
+}
+
+/* ---- 旧的 filter-bar 已迁移到侧边栏，保留兼容但隐藏 ---- */
+.filter-bar{display:none}
+.filter-top{display:none}
+.filter-grid{display:none}
+.filter-group{display:none}
+.filter-foot{display:none}
 .rate-input-wrap{display:flex;gap:8px;align-items:center}
 .rate-input{width:110px;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font:inherit;font-weight:700;color:var(--ink);background:#fff}
 .rate-input:focus{outline:2px solid var(--primary);outline-offset:1px}
@@ -1243,7 +1280,7 @@ tr[data-source="openai"] .pill{background:#ecfdf5;border-color:#a7f3d0;color:#04
 tr[data-source="anthropic"] .pill{background:#fff7ed;border-color:#fed7aa;color:#c2410c}
 tr[data-source="google"] .pill{background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
 
-@media (max-width:1024px){.metrics{grid-template-columns:repeat(2,1fr)};.filter-grid{grid-template-columns:1fr}}
+@media (max-width:1024px){.metrics{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){
   .hero-inner{padding:40px 16px 28px}
   .hero h1{font-size:26px}
@@ -1254,7 +1291,6 @@ tr[data-source="google"] .pill{background:#eff6ff;border-color:#bfdbfe;color:#1d
   .panel-hint,.block-head,.chart-head{padding-left:14px;padding-right:14px}
   .chart-wrap{height:280px}
   .price-table th,.price-table td{padding:9px 8px;font-size:12.5px}
-  .filter-bar{padding:14px}
   .rate-input-wrap{flex-wrap:wrap}
 }
 @media (max-width:480px){.metrics{grid-template-columns:1fr}}
@@ -1512,6 +1548,23 @@ const SITE_DATA = __SITE_DATA__;
   }
   bindModelCards();
 
+  // 移动端侧边栏展开/收起
+  var sidebarToggle = document.getElementById('sidebarToggle');
+  var sidebar = document.getElementById('sidebar');
+  var sidebarBackdrop = document.getElementById('sidebarBackdrop');
+  var sidebarClose = document.getElementById('sidebarClose');
+  function openSidebar(){
+    if (sidebar) sidebar.classList.add('is-open');
+    if (sidebarBackdrop) sidebarBackdrop.classList.add('is-open');
+  }
+  function closeSidebar(){
+    if (sidebar) sidebar.classList.remove('is-open');
+    if (sidebarBackdrop) sidebarBackdrop.classList.remove('is-open');
+  }
+  if (sidebarToggle) sidebarToggle.addEventListener('click', openSidebar);
+  if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
+  if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+
   var fx = document.getElementById('fxRate');
   var fxReset = document.getElementById('fxReset');
   function setRate(v){
@@ -1706,7 +1759,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
         ]
     )
 
-    filter_block = _filter_toolbar()
+    filter_block = _sidebar()
     ms = data.get("mainstream_sections") or {}
     domestic_ms = _mainstream_section(
         "domestic", "国内主流大模型", ms.get("domestic") or [], accent="domestic"
@@ -1736,7 +1789,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>{_CSS}</style>
 </head>
-<body>
+  <body>
   <a href="#main" class="visually-hidden">跳到主要内容</a>
   <header class="hero">
     <div class="mesh" aria-hidden="true"></div>
@@ -1748,24 +1801,28 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     </div>
   </header>
 
-  <main class="container" id="main">
-    <div class="sec-head">
-      <div>
-        <h2 class="section-title">定价总览</h2>
-        <p class="section-sub">DeepSeek 置顶 · 筛选可组合 · 官网与渠道分区</p>
-      </div>
-      <button type="button" id="btnExcel" class="btn-export">⬇ 导出 Excel</button>
-    </div>
-
+  <div class="layout">
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     {filter_block}
-    {domestic_ms}
-    {overseas_ms}
-    {official_block}
-    {overseas_block}
-    {tracking_block}
-    {channel_block}
-    {chart_block}
-  </main>
+    <main class="container" id="main">
+      <div class="sec-head">
+        <div>
+          <h2 class="section-title">定价总览</h2>
+          <p class="section-sub">DeepSeek 置顶 · 筛选可组合 · 官网与渠道分区</p>
+        </div>
+        <button type="button" class="btn-filter-toggle" id="sidebarToggle" aria-label="展开筛选">筛选</button>
+        <button type="button" id="btnExcel" class="btn-export">⬇ 导出 Excel</button>
+      </div>
+
+      {domestic_ms}
+      {overseas_ms}
+      {official_block}
+      {overseas_block}
+      {tracking_block}
+      {channel_block}
+      {chart_block}
+    </main>
+  </div>
 
   <footer>
     <div class="note">数据来源：国内厂商官网公开定价；OpenAI / Anthropic / Google 官方 API 参考价；胜算云、腾讯云等渠道报价。腾讯云中国大陆区域 USD 归入海外渠道页。GitHub Action 每周自动抓取。</div>
