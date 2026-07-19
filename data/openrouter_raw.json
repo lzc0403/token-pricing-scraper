@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-19T17:26:30.706072+00:00",
+  "fetched_at": "2026-07-19T18:45:45.715956+00:00",
   "url": "https://openrouter.ai/api/v1/models?sort=top-weekly",
   "body": {
     "data": [
@@ -574,9 +574,9 @@
           "instruct_type": null
         },
         "pricing": {
-          "prompt": "0.0000002408",
-          "completion": "0.0000007568",
-          "input_cache_read": "0.00000004472"
+          "prompt": "0.000000238",
+          "completion": "0.000000748",
+          "input_cache_read": "0.0000000442"
         },
         "top_provider": {
           "context_length": 1048576,
@@ -4273,11 +4273,14 @@
           }
         },
         "reasoning": {
-          "mandatory": true,
+          "mandatory": false,
           "default_enabled": true,
           "supported_efforts": [
-            "max"
-          ]
+            "max",
+            "high",
+            "low"
+          ],
+          "default_effort": "max"
         }
       },
       {
@@ -9029,125 +9032,6 @@
         }
       },
       {
-        "id": "z-ai/glm-4.7-flash",
-        "canonical_slug": "z-ai/glm-4.7-flash-20260119",
-        "hugging_face_id": "zai-org/GLM-4.7-Flash",
-        "name": "Z.ai: GLM 4.7 Flash",
-        "created": 1768833913,
-        "description": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency. It is further optimized for agentic coding use cases, strengthening coding capabilities, long-horizon task planning,...",
-        "context_length": 200000,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.0000000605",
-          "completion": "0.0000004"
-        },
-        "top_provider": {
-          "context_length": 131072,
-          "max_completion_tokens": 131072,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "logit_bias",
-          "logprobs",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "reasoning",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_logprobs",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": 1,
-          "top_p": 0.95,
-          "frequency_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/z-ai/glm-4.7-flash-20260119/endpoints"
-        },
-        "benchmarks": {
-          "design_arena": [
-            {
-              "arena": "models",
-              "category": "3d",
-              "elo": 1187,
-              "win_rate": 51.2,
-              "rank": 52
-            },
-            {
-              "arena": "models",
-              "category": "codecategories",
-              "elo": 1214,
-              "win_rate": 53.1,
-              "rank": 42
-            },
-            {
-              "arena": "models",
-              "category": "dataviz",
-              "elo": 1158,
-              "win_rate": 45.3,
-              "rank": 67
-            },
-            {
-              "arena": "models",
-              "category": "gamedev",
-              "elo": 1193,
-              "win_rate": 49.7,
-              "rank": 53
-            },
-            {
-              "arena": "models",
-              "category": "svg",
-              "elo": 1088,
-              "win_rate": 44.2,
-              "rank": 55
-            },
-            {
-              "arena": "models",
-              "category": "uicomponent",
-              "elo": 1249,
-              "win_rate": 57.6,
-              "rank": 32
-            },
-            {
-              "arena": "models",
-              "category": "website",
-              "elo": 1224,
-              "win_rate": 54,
-              "rank": 42
-            }
-          ]
-        },
-        "reasoning": {
-          "mandatory": false,
-          "default_enabled": true
-        }
-      },
-      {
         "id": "openai/gpt-5",
         "canonical_slug": "openai/gpt-5-2025-08-07",
         "hugging_face_id": "",
@@ -9283,86 +9167,122 @@
         }
       },
       {
-        "id": "openai/gpt-5.6-luna-pro",
-        "canonical_slug": "openai/gpt-5.6-luna-pro-20260709",
-        "hugging_face_id": null,
-        "name": "OpenAI: GPT-5.6 Luna Pro",
-        "created": 1783590867,
-        "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
-        "context_length": 1050000,
+        "id": "z-ai/glm-4.7-flash",
+        "canonical_slug": "z-ai/glm-4.7-flash-20260119",
+        "hugging_face_id": "zai-org/GLM-4.7-Flash",
+        "name": "Z.ai: GLM 4.7 Flash",
+        "created": 1768833913,
+        "description": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency. It is further optimized for agentic coding use cases, strengthening coding capabilities, long-horizon task planning,...",
+        "context_length": 200000,
         "architecture": {
-          "modality": "text+image+file->text",
+          "modality": "text->text",
           "input_modalities": [
-            "file",
-            "image",
             "text"
           ],
           "output_modalities": [
             "text"
           ],
-          "tokenizer": "GPT",
+          "tokenizer": "Other",
           "instruct_type": null
         },
         "pricing": {
-          "prompt": "0.000001",
-          "completion": "0.000006",
-          "web_search": "0.01",
-          "input_cache_read": "0.0000001",
-          "input_cache_write": "0.00000125",
-          "overrides": [
-            {
-              "min_prompt_tokens": 272000,
-              "prompt": "0.000002",
-              "completion": "0.000009",
-              "input_cache_read": "0.0000002",
-              "input_cache_write": "0.0000025"
-            }
-          ]
+          "prompt": "0.0000000605",
+          "completion": "0.0000004"
         },
         "top_provider": {
-          "context_length": 1050000,
-          "max_completion_tokens": 128000,
-          "is_moderated": true
+          "context_length": 131072,
+          "max_completion_tokens": 131072,
+          "is_moderated": false
         },
         "per_request_limits": null,
         "supported_parameters": [
+          "frequency_penalty",
           "include_reasoning",
-          "max_completion_tokens",
+          "logit_bias",
+          "logprobs",
           "max_tokens",
+          "min_p",
+          "presence_penalty",
           "reasoning",
-          "reasoning_effort",
+          "repetition_penalty",
           "response_format",
           "seed",
+          "stop",
           "structured_outputs",
+          "temperature",
           "tool_choice",
-          "tools"
+          "tools",
+          "top_k",
+          "top_logprobs",
+          "top_p"
         ],
         "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "top_k": null,
-          "frequency_penalty": null,
-          "presence_penalty": null,
-          "repetition_penalty": null
+          "temperature": 1,
+          "top_p": 0.95,
+          "frequency_penalty": null
         },
         "supported_voices": null,
-        "knowledge_cutoff": "2026-02-16",
+        "knowledge_cutoff": null,
         "expiration_date": null,
         "links": {
-          "details": "/api/v1/models/openai/gpt-5.6-luna-pro-20260709/endpoints"
+          "details": "/api/v1/models/z-ai/glm-4.7-flash-20260119/endpoints"
+        },
+        "benchmarks": {
+          "design_arena": [
+            {
+              "arena": "models",
+              "category": "3d",
+              "elo": 1187,
+              "win_rate": 51.2,
+              "rank": 52
+            },
+            {
+              "arena": "models",
+              "category": "codecategories",
+              "elo": 1214,
+              "win_rate": 53.1,
+              "rank": 42
+            },
+            {
+              "arena": "models",
+              "category": "dataviz",
+              "elo": 1158,
+              "win_rate": 45.3,
+              "rank": 67
+            },
+            {
+              "arena": "models",
+              "category": "gamedev",
+              "elo": 1193,
+              "win_rate": 49.7,
+              "rank": 53
+            },
+            {
+              "arena": "models",
+              "category": "svg",
+              "elo": 1088,
+              "win_rate": 44.2,
+              "rank": 55
+            },
+            {
+              "arena": "models",
+              "category": "uicomponent",
+              "elo": 1249,
+              "win_rate": 57.6,
+              "rank": 32
+            },
+            {
+              "arena": "models",
+              "category": "website",
+              "elo": 1224,
+              "win_rate": 54,
+              "rank": 42
+            }
+          ]
         },
         "reasoning": {
           "mandatory": false,
-          "default_enabled": true,
-          "supported_efforts": [
-            "max",
-            "xhigh",
-            "high",
-            "medium",
-            "low",
-            "none"
-          ],
-          "default_effort": "medium"
+          "default_enabled": true
         }
       },
       {
@@ -9433,6 +9353,89 @@
         "expiration_date": null,
         "links": {
           "details": "/api/v1/models/openai/gpt-5.6-sol-pro-20260709/endpoints"
+        },
+        "reasoning": {
+          "mandatory": false,
+          "default_enabled": true,
+          "supported_efforts": [
+            "max",
+            "xhigh",
+            "high",
+            "medium",
+            "low",
+            "none"
+          ],
+          "default_effort": "medium"
+        }
+      },
+      {
+        "id": "openai/gpt-5.6-luna-pro",
+        "canonical_slug": "openai/gpt-5.6-luna-pro-20260709",
+        "hugging_face_id": null,
+        "name": "OpenAI: GPT-5.6 Luna Pro",
+        "created": 1783590867,
+        "description": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.\n\nLearn more in OpenAI's docs: https://developers.openai.com/api/docs/guides/reasoning#reasoning-mode",
+        "context_length": 1050000,
+        "architecture": {
+          "modality": "text+image+file->text",
+          "input_modalities": [
+            "file",
+            "image",
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "GPT",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.000001",
+          "completion": "0.000006",
+          "web_search": "0.01",
+          "input_cache_read": "0.0000001",
+          "input_cache_write": "0.00000125",
+          "overrides": [
+            {
+              "min_prompt_tokens": 272000,
+              "prompt": "0.000002",
+              "completion": "0.000009",
+              "input_cache_read": "0.0000002",
+              "input_cache_write": "0.0000025"
+            }
+          ]
+        },
+        "top_provider": {
+          "context_length": 1050000,
+          "max_completion_tokens": 128000,
+          "is_moderated": true
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_completion_tokens",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "response_format",
+          "seed",
+          "structured_outputs",
+          "tool_choice",
+          "tools"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "top_k": null,
+          "frequency_penalty": null,
+          "presence_penalty": null,
+          "repetition_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": "2026-02-16",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/openai/gpt-5.6-luna-pro-20260709/endpoints"
         },
         "reasoning": {
           "mandatory": false,
@@ -12627,6 +12630,79 @@
         }
       },
       {
+        "id": "nvidia/nemotron-3-nano-30b-a3b",
+        "canonical_slug": "nvidia/nemotron-3-nano-30b-a3b",
+        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+        "name": "NVIDIA: Nemotron 3 Nano 30B A3B",
+        "created": 1765731275,
+        "description": "NVIDIA Nemotron 3 Nano 30B A3B is a small language MoE model with highest compute efficiency and accuracy for developers to build specialized agentic AI systems. The model is fully...",
+        "context_length": 262144,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.00000005",
+          "completion": "0.0000002"
+        },
+        "top_provider": {
+          "context_length": 262144,
+          "max_completion_tokens": 228000,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "logit_bias",
+          "logprobs",
+          "max_tokens",
+          "min_p",
+          "presence_penalty",
+          "reasoning",
+          "repetition_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_k",
+          "top_logprobs",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "frequency_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/nvidia/nemotron-3-nano-30b-a3b/endpoints"
+        },
+        "benchmarks": {
+          "design_arena": [],
+          "artificial_analysis": {
+            "intelligence_index": 14.2,
+            "coding_index": 14.4,
+            "agentic_index": 2
+          }
+        },
+        "reasoning": {
+          "mandatory": false
+        }
+      },
+      {
         "id": "openai/gpt-5.6-terra-pro",
         "canonical_slug": "openai/gpt-5.6-terra-pro-20260709",
         "hugging_face_id": null,
@@ -12707,79 +12783,6 @@
             "none"
           ],
           "default_effort": "medium"
-        }
-      },
-      {
-        "id": "nvidia/nemotron-3-nano-30b-a3b",
-        "canonical_slug": "nvidia/nemotron-3-nano-30b-a3b",
-        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
-        "name": "NVIDIA: Nemotron 3 Nano 30B A3B",
-        "created": 1765731275,
-        "description": "NVIDIA Nemotron 3 Nano 30B A3B is a small language MoE model with highest compute efficiency and accuracy for developers to build specialized agentic AI systems. The model is fully...",
-        "context_length": 262144,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.00000005",
-          "completion": "0.0000002"
-        },
-        "top_provider": {
-          "context_length": 262144,
-          "max_completion_tokens": 228000,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "logit_bias",
-          "logprobs",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "reasoning",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_logprobs",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "frequency_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/nvidia/nemotron-3-nano-30b-a3b/endpoints"
-        },
-        "benchmarks": {
-          "design_arena": [],
-          "artificial_analysis": {
-            "intelligence_index": 14.2,
-            "coding_index": 14.4,
-            "agentic_index": 2
-          }
-        },
-        "reasoning": {
-          "mandatory": false
         }
       },
       {
@@ -13237,6 +13240,63 @@
         }
       },
       {
+        "id": "ibm-granite/granite-4.0-h-micro",
+        "canonical_slug": "ibm-granite/granite-4.0-h-micro",
+        "hugging_face_id": "ibm-granite/granite-4.0-h-micro",
+        "name": "IBM: Granite 4.0 Micro",
+        "created": 1760927695,
+        "description": "Granite-4.0-H-Micro is a 3B parameter from the Granite 4 family of models. These models are the latest in a series of models released by IBM. They are fine-tuned for long...",
+        "context_length": 131000,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.000000017",
+          "completion": "0.000000112"
+        },
+        "top_provider": {
+          "context_length": 131000,
+          "max_completion_tokens": 131000,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "logit_bias",
+          "logprobs",
+          "max_tokens",
+          "min_p",
+          "presence_penalty",
+          "repetition_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "temperature",
+          "top_k",
+          "top_logprobs",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "frequency_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/ibm-granite/granite-4.0-h-micro/endpoints"
+        }
+      },
+      {
         "id": "moonshotai/kimi-k2-0905",
         "canonical_slug": "moonshotai/kimi-k2-0905",
         "hugging_face_id": "moonshotai/Kimi-K2-Instruct-0905",
@@ -13434,38 +13494,38 @@
         }
       },
       {
-        "id": "ibm-granite/granite-4.0-h-micro",
-        "canonical_slug": "ibm-granite/granite-4.0-h-micro",
-        "hugging_face_id": "ibm-granite/granite-4.0-h-micro",
-        "name": "IBM: Granite 4.0 Micro",
-        "created": 1760927695,
-        "description": "Granite-4.0-H-Micro is a 3B parameter from the Granite 4 family of models. These models are the latest in a series of models released by IBM. They are fine-tuned for long...",
-        "context_length": 131000,
+        "id": "google/gemma-3-12b-it",
+        "canonical_slug": "google/gemma-3-12b-it",
+        "hugging_face_id": "google/gemma-3-12b-it",
+        "name": "Google: Gemma 3 12B",
+        "created": 1741902625,
+        "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,...",
+        "context_length": 131072,
         "architecture": {
-          "modality": "text->text",
+          "modality": "text+image->text",
           "input_modalities": [
-            "text"
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
           ],
-          "tokenizer": "Other",
-          "instruct_type": null
+          "tokenizer": "Gemini",
+          "instruct_type": "gemma"
         },
         "pricing": {
-          "prompt": "0.000000017",
-          "completion": "0.000000112"
+          "prompt": "0.00000005",
+          "completion": "0.00000015"
         },
         "top_provider": {
-          "context_length": 131000,
-          "max_completion_tokens": 131000,
+          "context_length": 131072,
+          "max_completion_tokens": 16384,
           "is_moderated": false
         },
         "per_request_limits": null,
         "supported_parameters": [
           "frequency_penalty",
           "logit_bias",
-          "logprobs",
           "max_tokens",
           "min_p",
           "presence_penalty",
@@ -13473,21 +13533,27 @@
           "response_format",
           "seed",
           "stop",
+          "structured_outputs",
           "temperature",
+          "tool_choice",
+          "tools",
           "top_k",
-          "top_logprobs",
           "top_p"
         ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "frequency_penalty": null
-        },
+        "default_parameters": {},
         "supported_voices": null,
-        "knowledge_cutoff": null,
+        "knowledge_cutoff": "2024-08-31",
         "expiration_date": null,
         "links": {
-          "details": "/api/v1/models/ibm-granite/granite-4.0-h-micro/endpoints"
+          "details": "/api/v1/models/google/gemma-3-12b-it/endpoints"
+        },
+        "benchmarks": {
+          "design_arena": [],
+          "artificial_analysis": {
+            "intelligence_index": 5.5,
+            "coding_index": 5.8,
+            "agentic_index": 0.3
+          }
         }
       },
       {
@@ -13586,69 +13652,6 @@
             "intelligence_index": 10,
             "coding_index": 8.2,
             "agentic_index": 1.1
-          }
-        }
-      },
-      {
-        "id": "google/gemma-3-12b-it",
-        "canonical_slug": "google/gemma-3-12b-it",
-        "hugging_face_id": "google/gemma-3-12b-it",
-        "name": "Google: Gemma 3 12B",
-        "created": 1741902625,
-        "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,...",
-        "context_length": 131072,
-        "architecture": {
-          "modality": "text+image->text",
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Gemini",
-          "instruct_type": "gemma"
-        },
-        "pricing": {
-          "prompt": "0.00000005",
-          "completion": "0.00000015"
-        },
-        "top_provider": {
-          "context_length": 131072,
-          "max_completion_tokens": 16384,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2024-08-31",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/google/gemma-3-12b-it/endpoints"
-        },
-        "benchmarks": {
-          "design_arena": [],
-          "artificial_analysis": {
-            "intelligence_index": 5.5,
-            "coding_index": 5.8,
-            "agentic_index": 0.3
           }
         }
       },
@@ -14715,75 +14718,6 @@
         }
       },
       {
-        "id": "google/gemma-4-31b-it:free",
-        "canonical_slug": "google/gemma-4-31b-it-20260402",
-        "hugging_face_id": "google/gemma-4-31B-it",
-        "name": "Google: Gemma 4 31B (free)",
-        "created": 1775148486,
-        "description": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output. Features a 256K token context window, configurable thinking/reasoning mode, native function...",
-        "context_length": 262144,
-        "architecture": {
-          "modality": "text+image+video->text",
-          "input_modalities": [
-            "image",
-            "text",
-            "video"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Gemma",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0",
-          "completion": "0"
-        },
-        "top_provider": {
-          "context_length": 262144,
-          "max_completion_tokens": 32768,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "response_format",
-          "seed",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": 1,
-          "top_p": 0.95,
-          "top_k": 64,
-          "frequency_penalty": null,
-          "presence_penalty": null,
-          "repetition_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/google/gemma-4-31b-it-20260402/endpoints"
-        },
-        "benchmarks": {
-          "design_arena": [],
-          "artificial_analysis": {
-            "intelligence_index": 29.4,
-            "coding_index": 43.4,
-            "agentic_index": 14.4
-          }
-        },
-        "reasoning": {
-          "mandatory": false,
-          "default_enabled": false
-        }
-      },
-      {
         "id": "inception/mercury-2",
         "canonical_slug": "inception/mercury-2-20260304",
         "hugging_face_id": null,
@@ -14912,6 +14846,75 @@
         }
       },
       {
+        "id": "google/gemma-4-31b-it:free",
+        "canonical_slug": "google/gemma-4-31b-it-20260402",
+        "hugging_face_id": "google/gemma-4-31B-it",
+        "name": "Google: Gemma 4 31B (free)",
+        "created": 1775148486,
+        "description": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output. Features a 256K token context window, configurable thinking/reasoning mode, native function...",
+        "context_length": 262144,
+        "architecture": {
+          "modality": "text+image+video->text",
+          "input_modalities": [
+            "image",
+            "text",
+            "video"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Gemma",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0",
+          "completion": "0"
+        },
+        "top_provider": {
+          "context_length": 262144,
+          "max_completion_tokens": 32768,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "response_format",
+          "seed",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": 1,
+          "top_p": 0.95,
+          "top_k": 64,
+          "frequency_penalty": null,
+          "presence_penalty": null,
+          "repetition_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/google/gemma-4-31b-it-20260402/endpoints"
+        },
+        "benchmarks": {
+          "design_arena": [],
+          "artificial_analysis": {
+            "intelligence_index": 29.4,
+            "coding_index": 43.4,
+            "agentic_index": 14.4
+          }
+        },
+        "reasoning": {
+          "mandatory": false,
+          "default_enabled": false
+        }
+      },
+      {
         "id": "amazon/nova-lite-v1",
         "canonical_slug": "amazon/nova-lite-v1",
         "hugging_face_id": "",
@@ -14955,6 +14958,119 @@
         "expiration_date": null,
         "links": {
           "details": "/api/v1/models/amazon/nova-lite-v1/endpoints"
+        }
+      },
+      {
+        "id": "z-ai/glm-4.5-air",
+        "canonical_slug": "z-ai/glm-4.5-air",
+        "hugging_face_id": "zai-org/GLM-4.5-Air",
+        "name": "Z.ai: GLM 4.5 Air",
+        "created": 1753471258,
+        "description": "GLM-4.5-Air is the lightweight variant of our latest flagship model family, also purpose-built for agent-centric applications. Like GLM-4.5, it adopts the Mixture-of-Experts (MoE) architecture but with a more compact parameter...",
+        "context_length": 131072,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.00000013",
+          "completion": "0.00000085",
+          "input_cache_read": "0.000000025"
+        },
+        "top_provider": {
+          "context_length": 131072,
+          "max_completion_tokens": 98304,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "max_tokens",
+          "presence_penalty",
+          "reasoning",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": 0.75,
+          "top_p": null,
+          "frequency_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": "2024-12-31",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/z-ai/glm-4.5-air/endpoints"
+        },
+        "benchmarks": {
+          "design_arena": [
+            {
+              "arena": "models",
+              "category": "3d",
+              "elo": 1189,
+              "win_rate": 54.1,
+              "rank": 51
+            },
+            {
+              "arena": "models",
+              "category": "codecategories",
+              "elo": 1174,
+              "win_rate": 51.5,
+              "rank": 63
+            },
+            {
+              "arena": "models",
+              "category": "dataviz",
+              "elo": 1227,
+              "win_rate": 59.4,
+              "rank": 39
+            },
+            {
+              "arena": "models",
+              "category": "gamedev",
+              "elo": 1153,
+              "win_rate": 48.4,
+              "rank": 66
+            },
+            {
+              "arena": "models",
+              "category": "svg",
+              "elo": 1121,
+              "win_rate": 50.8,
+              "rank": 51
+            },
+            {
+              "arena": "models",
+              "category": "uicomponent",
+              "elo": 1165,
+              "win_rate": 54.6,
+              "rank": 60
+            },
+            {
+              "arena": "models",
+              "category": "website",
+              "elo": 1177,
+              "win_rate": 51.3,
+              "rank": 63
+            }
+          ]
+        },
+        "reasoning": {
+          "mandatory": false
         }
       },
       {
@@ -15075,119 +15191,6 @@
         "reasoning": {
           "mandatory": false,
           "default_enabled": true
-        }
-      },
-      {
-        "id": "z-ai/glm-4.5-air",
-        "canonical_slug": "z-ai/glm-4.5-air",
-        "hugging_face_id": "zai-org/GLM-4.5-Air",
-        "name": "Z.ai: GLM 4.5 Air",
-        "created": 1753471258,
-        "description": "GLM-4.5-Air is the lightweight variant of our latest flagship model family, also purpose-built for agent-centric applications. Like GLM-4.5, it adopts the Mixture-of-Experts (MoE) architecture but with a more compact parameter...",
-        "context_length": 131072,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.00000013",
-          "completion": "0.00000085",
-          "input_cache_read": "0.000000025"
-        },
-        "top_provider": {
-          "context_length": 131072,
-          "max_completion_tokens": 98304,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "presence_penalty",
-          "reasoning",
-          "repetition_penalty",
-          "seed",
-          "stop",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": 0.75,
-          "top_p": null,
-          "frequency_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": "2024-12-31",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/z-ai/glm-4.5-air/endpoints"
-        },
-        "benchmarks": {
-          "design_arena": [
-            {
-              "arena": "models",
-              "category": "3d",
-              "elo": 1189,
-              "win_rate": 54.1,
-              "rank": 51
-            },
-            {
-              "arena": "models",
-              "category": "codecategories",
-              "elo": 1174,
-              "win_rate": 51.5,
-              "rank": 63
-            },
-            {
-              "arena": "models",
-              "category": "dataviz",
-              "elo": 1227,
-              "win_rate": 59.4,
-              "rank": 39
-            },
-            {
-              "arena": "models",
-              "category": "gamedev",
-              "elo": 1153,
-              "win_rate": 48.4,
-              "rank": 66
-            },
-            {
-              "arena": "models",
-              "category": "svg",
-              "elo": 1121,
-              "win_rate": 50.8,
-              "rank": 51
-            },
-            {
-              "arena": "models",
-              "category": "uicomponent",
-              "elo": 1165,
-              "win_rate": 54.6,
-              "rank": 60
-            },
-            {
-              "arena": "models",
-              "category": "website",
-              "elo": 1177,
-              "win_rate": 51.3,
-              "rank": 63
-            }
-          ]
-        },
-        "reasoning": {
-          "mandatory": false
         }
       },
       {
@@ -16251,19 +16254,19 @@
         }
       },
       {
-        "id": "perceptron/perceptron-mk1",
-        "canonical_slug": "perceptron/perceptron-mk1-20260512",
-        "hugging_face_id": null,
-        "name": "Perceptron: Perceptron Mk1",
-        "created": 1778597029,
-        "description": "Perceptron Mk1 (Mark One) is Perceptron's highest-quality vision-language model for video and embodied reasoning.** It accepts image and video inputs paired with natural language queries, and produces detailed visual understanding...",
-        "context_length": 32768,
+        "id": "thinkingmachines/inkling",
+        "canonical_slug": "thinkingmachines/inkling-20260715",
+        "hugging_face_id": "thinkingmachines/Inkling",
+        "name": "Thinking Machines: Inkling",
+        "created": 1784325956,
+        "description": "Inkling is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 41B active parameters out of 975B total. It is designed for general-purpose reasoning, coding, agentic and tool-use systems,...",
+        "context_length": 1048576,
         "architecture": {
-          "modality": "text+image+video->text",
+          "modality": "text+image+audio->text",
           "input_modalities": [
             "text",
             "image",
-            "video"
+            "audio"
           ],
           "output_modalities": [
             "text"
@@ -16272,23 +16275,30 @@
           "instruct_type": null
         },
         "pricing": {
-          "prompt": "0.00000015",
-          "completion": "0.0000015"
+          "prompt": "0.000001",
+          "completion": "0.00000405",
+          "input_cache_read": "0.00000017"
         },
         "top_provider": {
-          "context_length": 32768,
-          "max_completion_tokens": 8192,
+          "context_length": 524288,
+          "max_completion_tokens": null,
           "is_moderated": false
         },
         "per_request_limits": null,
         "supported_parameters": [
           "frequency_penalty",
           "include_reasoning",
+          "logit_bias",
           "max_tokens",
+          "min_p",
           "presence_penalty",
           "reasoning",
-          "structured_outputs",
+          "reasoning_effort",
+          "repetition_penalty",
+          "stop",
           "temperature",
+          "tool_choice",
+          "tools",
           "top_k",
           "top_p"
         ],
@@ -16304,10 +16314,28 @@
         "knowledge_cutoff": null,
         "expiration_date": null,
         "links": {
-          "details": "/api/v1/models/perceptron/perceptron-mk1-20260512/endpoints"
+          "details": "/api/v1/models/thinkingmachines/inkling-20260715/endpoints"
+        },
+        "benchmarks": {
+          "design_arena": [],
+          "artificial_analysis": {
+            "intelligence_index": 40.7,
+            "coding_index": 52.1,
+            "agentic_index": 32.3
+          }
         },
         "reasoning": {
-          "mandatory": false
+          "mandatory": false,
+          "default_enabled": true,
+          "supported_efforts": [
+            "max",
+            "high",
+            "medium",
+            "low",
+            "minimal",
+            "none"
+          ],
+          "default_effort": "high"
         }
       },
       {
@@ -16407,19 +16435,19 @@
         }
       },
       {
-        "id": "thinkingmachines/inkling",
-        "canonical_slug": "thinkingmachines/inkling-20260715",
-        "hugging_face_id": "thinkingmachines/Inkling",
-        "name": "Thinking Machines: Inkling",
-        "created": 1784325956,
-        "description": "Inkling is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 41B active parameters out of 975B total. It is designed for general-purpose reasoning, coding, agentic and tool-use systems,...",
-        "context_length": 1048576,
+        "id": "perceptron/perceptron-mk1",
+        "canonical_slug": "perceptron/perceptron-mk1-20260512",
+        "hugging_face_id": null,
+        "name": "Perceptron: Perceptron Mk1",
+        "created": 1778597029,
+        "description": "Perceptron Mk1 (Mark One) is Perceptron's highest-quality vision-language model for video and embodied reasoning.** It accepts image and video inputs paired with natural language queries, and produces detailed visual understanding...",
+        "context_length": 32768,
         "architecture": {
-          "modality": "text+image+audio->text",
+          "modality": "text+image+video->text",
           "input_modalities": [
             "text",
             "image",
-            "audio"
+            "video"
           ],
           "output_modalities": [
             "text"
@@ -16428,30 +16456,23 @@
           "instruct_type": null
         },
         "pricing": {
-          "prompt": "0.000001",
-          "completion": "0.00000405",
-          "input_cache_read": "0.00000017"
+          "prompt": "0.00000015",
+          "completion": "0.0000015"
         },
         "top_provider": {
-          "context_length": 524288,
-          "max_completion_tokens": null,
+          "context_length": 32768,
+          "max_completion_tokens": 8192,
           "is_moderated": false
         },
         "per_request_limits": null,
         "supported_parameters": [
           "frequency_penalty",
           "include_reasoning",
-          "logit_bias",
           "max_tokens",
-          "min_p",
           "presence_penalty",
           "reasoning",
-          "reasoning_effort",
-          "repetition_penalty",
-          "stop",
+          "structured_outputs",
           "temperature",
-          "tool_choice",
-          "tools",
           "top_k",
           "top_p"
         ],
@@ -16467,28 +16488,10 @@
         "knowledge_cutoff": null,
         "expiration_date": null,
         "links": {
-          "details": "/api/v1/models/thinkingmachines/inkling-20260715/endpoints"
-        },
-        "benchmarks": {
-          "design_arena": [],
-          "artificial_analysis": {
-            "intelligence_index": 40.7,
-            "coding_index": 52.1,
-            "agentic_index": 32.3
-          }
+          "details": "/api/v1/models/perceptron/perceptron-mk1-20260512/endpoints"
         },
         "reasoning": {
-          "mandatory": false,
-          "default_enabled": true,
-          "supported_efforts": [
-            "max",
-            "high",
-            "medium",
-            "low",
-            "minimal",
-            "none"
-          ],
-          "default_effort": "high"
+          "mandatory": false
         }
       },
       {
@@ -16848,76 +16851,6 @@
         }
       },
       {
-        "id": "ibm-granite/granite-4.1-8b",
-        "canonical_slug": "ibm-granite/granite-4.1-8b-20260429",
-        "hugging_face_id": "ibm-granite/granite-4.1-8b",
-        "name": "IBM: Granite 4.1 8B",
-        "created": 1777577071,
-        "description": "Granite 4.1 8B is a dense, decoder-only 8-billion-parameter language model from IBM, part of the Granite 4.1 family. It supports a 131K-token context window and is designed for enterprise tasks...",
-        "context_length": 131072,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.00000005",
-          "completion": "0.0000001",
-          "input_cache_read": "0.00000005"
-        },
-        "top_provider": {
-          "context_length": 131072,
-          "max_completion_tokens": 131072,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logprobs",
-          "max_tokens",
-          "presence_penalty",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_logprobs",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "top_k": null,
-          "frequency_penalty": null,
-          "presence_penalty": null,
-          "repetition_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/ibm-granite/granite-4.1-8b-20260429/endpoints"
-        },
-        "benchmarks": {
-          "design_arena": [],
-          "artificial_analysis": {
-            "intelligence_index": null,
-            "coding_index": 9.5,
-            "agentic_index": null
-          }
-        }
-      },
-      {
         "id": "nex-agi/nex-n2-pro",
         "canonical_slug": "nex-agi/nex-n2-pro",
         "hugging_face_id": "nex-agi/Nex-N2-Pro",
@@ -17045,6 +16978,76 @@
         }
       },
       {
+        "id": "ibm-granite/granite-4.1-8b",
+        "canonical_slug": "ibm-granite/granite-4.1-8b-20260429",
+        "hugging_face_id": "ibm-granite/granite-4.1-8b",
+        "name": "IBM: Granite 4.1 8B",
+        "created": 1777577071,
+        "description": "Granite 4.1 8B is a dense, decoder-only 8-billion-parameter language model from IBM, part of the Granite 4.1 family. It supports a 131K-token context window and is designed for enterprise tasks...",
+        "context_length": 131072,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.00000005",
+          "completion": "0.0000001",
+          "input_cache_read": "0.00000005"
+        },
+        "top_provider": {
+          "context_length": 131072,
+          "max_completion_tokens": 131072,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "logprobs",
+          "max_tokens",
+          "presence_penalty",
+          "repetition_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_k",
+          "top_logprobs",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "top_k": null,
+          "frequency_penalty": null,
+          "presence_penalty": null,
+          "repetition_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/ibm-granite/granite-4.1-8b-20260429/endpoints"
+        },
+        "benchmarks": {
+          "design_arena": [],
+          "artificial_analysis": {
+            "intelligence_index": null,
+            "coding_index": 9.5,
+            "agentic_index": null
+          }
+        }
+      },
+      {
         "id": "google/gemma-3-4b-it",
         "canonical_slug": "google/gemma-3-4b-it",
         "hugging_face_id": "google/gemma-3-4b-it",
@@ -17103,90 +17106,6 @@
             "coding_index": 2.7,
             "agentic_index": null
           }
-        }
-      },
-      {
-        "id": "google/gemini-3.1-pro-preview-customtools",
-        "canonical_slug": "google/gemini-3.1-pro-preview-customtools-20260219",
-        "hugging_face_id": null,
-        "name": "Google: Gemini 3.1 Pro Preview Custom Tools",
-        "created": 1772045923,
-        "description": "Gemini 3.1 Pro Preview Custom Tools is a variant of Gemini 3.1 Pro that improves tool selection behavior by preventing overuse of a general bash tool when more efficient third-party...",
-        "context_length": 1048756,
-        "architecture": {
-          "modality": "text+image+file+audio+video->text",
-          "input_modalities": [
-            "text",
-            "audio",
-            "image",
-            "video",
-            "file"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Gemini",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.000002",
-          "completion": "0.000012",
-          "image": "0.000002",
-          "audio": "0.000002",
-          "input_audio_cache": "0.0000002",
-          "web_search": "0.014",
-          "internal_reasoning": "0.000012",
-          "input_cache_read": "0.0000002",
-          "input_cache_write": "0.000000375",
-          "overrides": [
-            {
-              "min_prompt_tokens": 200000,
-              "prompt": "0.000004",
-              "completion": "0.000018",
-              "audio": "0.000004",
-              "input_audio_cache": "0.0000004",
-              "input_cache_read": "0.0000004"
-            }
-          ]
-        },
-        "top_provider": {
-          "context_length": 1048576,
-          "max_completion_tokens": 65536,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "reasoning_effort",
-          "response_format",
-          "seed",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "frequency_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/google/gemini-3.1-pro-preview-customtools-20260219/endpoints"
-        },
-        "reasoning": {
-          "mandatory": true,
-          "supported_efforts": [
-            "high",
-            "medium",
-            "low"
-          ],
-          "default_effort": "medium"
         }
       },
       {
@@ -17309,6 +17228,90 @@
         },
         "reasoning": {
           "mandatory": false,
+          "supported_efforts": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "default_effort": "medium"
+        }
+      },
+      {
+        "id": "google/gemini-3.1-pro-preview-customtools",
+        "canonical_slug": "google/gemini-3.1-pro-preview-customtools-20260219",
+        "hugging_face_id": null,
+        "name": "Google: Gemini 3.1 Pro Preview Custom Tools",
+        "created": 1772045923,
+        "description": "Gemini 3.1 Pro Preview Custom Tools is a variant of Gemini 3.1 Pro that improves tool selection behavior by preventing overuse of a general bash tool when more efficient third-party...",
+        "context_length": 1048756,
+        "architecture": {
+          "modality": "text+image+file+audio+video->text",
+          "input_modalities": [
+            "text",
+            "audio",
+            "image",
+            "video",
+            "file"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Gemini",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.000002",
+          "completion": "0.000012",
+          "image": "0.000002",
+          "audio": "0.000002",
+          "input_audio_cache": "0.0000002",
+          "web_search": "0.014",
+          "internal_reasoning": "0.000012",
+          "input_cache_read": "0.0000002",
+          "input_cache_write": "0.000000375",
+          "overrides": [
+            {
+              "min_prompt_tokens": 200000,
+              "prompt": "0.000004",
+              "completion": "0.000018",
+              "audio": "0.000004",
+              "input_audio_cache": "0.0000004",
+              "input_cache_read": "0.0000004"
+            }
+          ]
+        },
+        "top_provider": {
+          "context_length": 1048576,
+          "max_completion_tokens": 65536,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "response_format",
+          "seed",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "frequency_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/google/gemini-3.1-pro-preview-customtools-20260219/endpoints"
+        },
+        "reasoning": {
+          "mandatory": true,
           "supported_efforts": [
             "high",
             "medium",
@@ -19323,64 +19326,6 @@
         }
       },
       {
-        "id": "openai/gpt-4o-2024-11-20",
-        "canonical_slug": "openai/gpt-4o-2024-11-20",
-        "hugging_face_id": "",
-        "name": "OpenAI: GPT-4o (2024-11-20)",
-        "created": 1732127594,
-        "description": "The 2024-11-20 version of GPT-4o offers a leveled-up creative writing ability with more natural, engaging, and tailored writing to improve relevance & readability. It’s also better at working with uploaded...",
-        "context_length": 128000,
-        "architecture": {
-          "modality": "text+image+file->text",
-          "input_modalities": [
-            "text",
-            "image",
-            "file"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "GPT",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.0000025",
-          "completion": "0.00001",
-          "input_cache_read": "0.00000125"
-        },
-        "top_provider": {
-          "context_length": 128000,
-          "max_completion_tokens": 16384,
-          "is_moderated": true
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "logprobs",
-          "max_tokens",
-          "prediction",
-          "presence_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_logprobs",
-          "top_p",
-          "web_search_options"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2023-10-31",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/openai/gpt-4o-2024-11-20/endpoints"
-        }
-      },
-      {
         "id": "mistralai/ministral-3b-2512",
         "canonical_slug": "mistralai/ministral-3b-2512",
         "hugging_face_id": "mistralai/Ministral-3-3B-Instruct-2512",
@@ -19474,6 +19419,64 @@
             "coding_index": 4.8,
             "agentic_index": 1.6
           }
+        }
+      },
+      {
+        "id": "openai/gpt-4o-2024-11-20",
+        "canonical_slug": "openai/gpt-4o-2024-11-20",
+        "hugging_face_id": "",
+        "name": "OpenAI: GPT-4o (2024-11-20)",
+        "created": 1732127594,
+        "description": "The 2024-11-20 version of GPT-4o offers a leveled-up creative writing ability with more natural, engaging, and tailored writing to improve relevance & readability. It’s also better at working with uploaded...",
+        "context_length": 128000,
+        "architecture": {
+          "modality": "text+image+file->text",
+          "input_modalities": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "GPT",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.0000025",
+          "completion": "0.00001",
+          "input_cache_read": "0.00000125"
+        },
+        "top_provider": {
+          "context_length": 128000,
+          "max_completion_tokens": 16384,
+          "is_moderated": true
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "logit_bias",
+          "logprobs",
+          "max_tokens",
+          "prediction",
+          "presence_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_logprobs",
+          "top_p",
+          "web_search_options"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": "2023-10-31",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/openai/gpt-4o-2024-11-20/endpoints"
         }
       },
       {
@@ -19823,6 +19826,64 @@
         }
       },
       {
+        "id": "stepfun/step-3.5-flash",
+        "canonical_slug": "stepfun/step-3.5-flash",
+        "hugging_face_id": "stepfun-ai/Step-3.5-Flash",
+        "name": "StepFun: Step 3.5 Flash",
+        "created": 1769728337,
+        "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token....",
+        "context_length": 262144,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.0000001",
+          "completion": "0.0000003"
+        },
+        "top_provider": {
+          "context_length": 262144,
+          "max_completion_tokens": 65536,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "top_k": null,
+          "frequency_penalty": null,
+          "presence_penalty": null,
+          "repetition_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/stepfun/step-3.5-flash/endpoints"
+        },
+        "reasoning": {
+          "mandatory": true
+        }
+      },
+      {
         "id": "kwaipilot/kat-coder-pro-v2",
         "canonical_slug": "kwaipilot/kat-coder-pro-v2-20260327",
         "hugging_face_id": "",
@@ -19892,64 +19953,6 @@
             "coding_index": 59.5,
             "agentic_index": 15.5
           }
-        }
-      },
-      {
-        "id": "stepfun/step-3.5-flash",
-        "canonical_slug": "stepfun/step-3.5-flash",
-        "hugging_face_id": "stepfun-ai/Step-3.5-Flash",
-        "name": "StepFun: Step 3.5 Flash",
-        "created": 1769728337,
-        "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token....",
-        "context_length": 262144,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.0000001",
-          "completion": "0.0000003"
-        },
-        "top_provider": {
-          "context_length": 262144,
-          "max_completion_tokens": 65536,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "top_k": null,
-          "frequency_penalty": null,
-          "presence_penalty": null,
-          "repetition_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/stepfun/step-3.5-flash/endpoints"
-        },
-        "reasoning": {
-          "mandatory": true
         }
       },
       {
@@ -22051,6 +22054,55 @@
         }
       },
       {
+        "id": "microsoft/wizardlm-2-8x22b",
+        "canonical_slug": "microsoft/wizardlm-2-8x22b",
+        "hugging_face_id": "microsoft/WizardLM-2-8x22B",
+        "name": "WizardLM-2 8x22B",
+        "created": 1713225600,
+        "description": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model. It demonstrates highly competitive performance compared to leading proprietary models, and it consistently outperforms all existing state-of-the-art opensource models. It is...",
+        "context_length": 65536,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Mistral",
+          "instruct_type": "vicuna"
+        },
+        "pricing": {
+          "prompt": "0.00000062",
+          "completion": "0.00000062"
+        },
+        "top_provider": {
+          "context_length": 65535,
+          "max_completion_tokens": 8000,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "max_tokens",
+          "presence_penalty",
+          "repetition_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "temperature",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": "2024-04-30",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/microsoft/wizardlm-2-8x22b/endpoints"
+        }
+      },
+      {
         "id": "openai/gpt-5.2-codex",
         "canonical_slug": "openai/gpt-5.2-codex-20260114",
         "hugging_face_id": "",
@@ -22153,55 +22205,6 @@
             "low"
           ],
           "default_effort": "medium"
-        }
-      },
-      {
-        "id": "microsoft/wizardlm-2-8x22b",
-        "canonical_slug": "microsoft/wizardlm-2-8x22b",
-        "hugging_face_id": "microsoft/WizardLM-2-8x22B",
-        "name": "WizardLM-2 8x22B",
-        "created": 1713225600,
-        "description": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model. It demonstrates highly competitive performance compared to leading proprietary models, and it consistently outperforms all existing state-of-the-art opensource models. It is...",
-        "context_length": 65536,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Mistral",
-          "instruct_type": "vicuna"
-        },
-        "pricing": {
-          "prompt": "0.00000062",
-          "completion": "0.00000062"
-        },
-        "top_provider": {
-          "context_length": 65535,
-          "max_completion_tokens": 8000,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "max_tokens",
-          "presence_penalty",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "temperature",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2024-04-30",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/microsoft/wizardlm-2-8x22b/endpoints"
         }
       },
       {
@@ -23490,6 +23493,64 @@
         }
       },
       {
+        "id": "perplexity/sonar-pro-search",
+        "canonical_slug": "perplexity/sonar-pro-search",
+        "hugging_face_id": "",
+        "name": "Perplexity: Sonar Pro Search",
+        "created": 1761854366,
+        "description": "Exclusively available on the OpenRouter API, Sonar Pro's new Pro Search mode is Perplexity's most advanced agentic search system. It is designed for deeper reasoning and analysis. Pricing is based...",
+        "context_length": 200000,
+        "architecture": {
+          "modality": "text+image->text",
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.000003",
+          "completion": "0.000015",
+          "web_search": "0.018"
+        },
+        "top_provider": {
+          "context_length": 200000,
+          "max_completion_tokens": 8000,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "max_tokens",
+          "presence_penalty",
+          "reasoning",
+          "structured_outputs",
+          "temperature",
+          "top_k",
+          "top_p",
+          "web_search_options"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "frequency_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/perplexity/sonar-pro-search/endpoints"
+        },
+        "reasoning": {
+          "mandatory": true
+        }
+      },
+      {
         "id": "qwen/qwen3-next-80b-a3b-thinking",
         "canonical_slug": "qwen/qwen3-next-80b-a3b-thinking-2509",
         "hugging_face_id": "Qwen/Qwen3-Next-80B-A3B-Thinking",
@@ -23555,64 +23616,6 @@
             "coding_index": 17.4,
             "agentic_index": 2.1
           }
-        },
-        "reasoning": {
-          "mandatory": true
-        }
-      },
-      {
-        "id": "perplexity/sonar-pro-search",
-        "canonical_slug": "perplexity/sonar-pro-search",
-        "hugging_face_id": "",
-        "name": "Perplexity: Sonar Pro Search",
-        "created": 1761854366,
-        "description": "Exclusively available on the OpenRouter API, Sonar Pro's new Pro Search mode is Perplexity's most advanced agentic search system. It is designed for deeper reasoning and analysis. Pricing is based...",
-        "context_length": 200000,
-        "architecture": {
-          "modality": "text+image->text",
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.000003",
-          "completion": "0.000015",
-          "web_search": "0.018"
-        },
-        "top_provider": {
-          "context_length": 200000,
-          "max_completion_tokens": 8000,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "presence_penalty",
-          "reasoning",
-          "structured_outputs",
-          "temperature",
-          "top_k",
-          "top_p",
-          "web_search_options"
-        ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "frequency_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/perplexity/sonar-pro-search/endpoints"
         },
         "reasoning": {
           "mandatory": true
@@ -23861,6 +23864,60 @@
         }
       },
       {
+        "id": "sao10k/l3.1-euryale-70b",
+        "canonical_slug": "sao10k/l3.1-euryale-70b",
+        "hugging_face_id": "Sao10K/L3.1-70B-Euryale-v2.2",
+        "name": "Sao10K: Llama 3.1 Euryale 70B v2.2",
+        "created": 1724803200,
+        "description": "Euryale L3.1 70B v2.2 is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k). It is the successor of [Euryale L3 70B v2.1](/models/sao10k/l3-euryale-70b).",
+        "context_length": 131072,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Llama3",
+          "instruct_type": "llama3"
+        },
+        "pricing": {
+          "prompt": "0.00000085",
+          "completion": "0.00000085"
+        },
+        "top_provider": {
+          "context_length": 131072,
+          "max_completion_tokens": 16384,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "logit_bias",
+          "max_tokens",
+          "min_p",
+          "presence_penalty",
+          "repetition_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": "2023-12-31",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/sao10k/l3.1-euryale-70b/endpoints"
+        }
+      },
+      {
         "id": "amazon/nova-pro-v1",
         "canonical_slug": "amazon/nova-pro-v1",
         "hugging_face_id": "",
@@ -23918,60 +23975,6 @@
         }
       },
       {
-        "id": "sao10k/l3.1-euryale-70b",
-        "canonical_slug": "sao10k/l3.1-euryale-70b",
-        "hugging_face_id": "Sao10K/L3.1-70B-Euryale-v2.2",
-        "name": "Sao10K: Llama 3.1 Euryale 70B v2.2",
-        "created": 1724803200,
-        "description": "Euryale L3.1 70B v2.2 is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k). It is the successor of [Euryale L3 70B v2.1](/models/sao10k/l3-euryale-70b).",
-        "context_length": 131072,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Llama3",
-          "instruct_type": "llama3"
-        },
-        "pricing": {
-          "prompt": "0.00000085",
-          "completion": "0.00000085"
-        },
-        "top_provider": {
-          "context_length": 131072,
-          "max_completion_tokens": 16384,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2023-12-31",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/sao10k/l3.1-euryale-70b/endpoints"
-        }
-      },
-      {
         "id": "minimax/minimax-01",
         "canonical_slug": "minimax/minimax-01",
         "hugging_face_id": "MiniMaxAI/MiniMax-Text-01",
@@ -24016,53 +24019,6 @@
         "expiration_date": null,
         "links": {
           "details": "/api/v1/models/minimax/minimax-01/endpoints"
-        }
-      },
-      {
-        "id": "minimax/minimax-m2-her",
-        "canonical_slug": "minimax/minimax-m2-her-20260123",
-        "hugging_face_id": "",
-        "name": "MiniMax: MiniMax M2-her",
-        "created": 1769177239,
-        "description": "MiniMax M2-her is a dialogue-first large language model built for immersive roleplay, character-driven chat, and expressive multi-turn conversations. Designed to stay consistent in tone and personality, it supports rich message...",
-        "context_length": 65536,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.0000003",
-          "completion": "0.0000012",
-          "input_cache_read": "0.00000003"
-        },
-        "top_provider": {
-          "context_length": 65536,
-          "max_completion_tokens": 2048,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": 1,
-          "top_p": 0.95,
-          "frequency_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/minimax/minimax-m2-her-20260123/endpoints"
         }
       },
       {
@@ -24113,6 +24069,53 @@
         "expiration_date": null,
         "links": {
           "details": "/api/v1/models/morph/morph-v3-large/endpoints"
+        }
+      },
+      {
+        "id": "minimax/minimax-m2-her",
+        "canonical_slug": "minimax/minimax-m2-her-20260123",
+        "hugging_face_id": "",
+        "name": "MiniMax: MiniMax M2-her",
+        "created": 1769177239,
+        "description": "MiniMax M2-her is a dialogue-first large language model built for immersive roleplay, character-driven chat, and expressive multi-turn conversations. Designed to stay consistent in tone and personality, it supports rich message...",
+        "context_length": 65536,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.0000003",
+          "completion": "0.0000012",
+          "input_cache_read": "0.00000003"
+        },
+        "top_provider": {
+          "context_length": 65536,
+          "max_completion_tokens": 2048,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": 1,
+          "top_p": 0.95,
+          "frequency_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/minimax/minimax-m2-her-20260123/endpoints"
         }
       },
       {
@@ -24239,6 +24242,60 @@
         }
       },
       {
+        "id": "bytedance/ui-tars-1.5-7b",
+        "canonical_slug": "bytedance/ui-tars-1.5-7b",
+        "hugging_face_id": "ByteDance-Seed/UI-TARS-1.5-7B",
+        "name": "ByteDance: UI-TARS 7B ",
+        "created": 1753205056,
+        "description": "UI-TARS-1.5 is a multimodal vision-language agent optimized for GUI-based environments, including desktop interfaces, web browsers, mobile systems, and games. Built by ByteDance, it builds upon the UI-TARS framework with reinforcement...",
+        "context_length": 128000,
+        "architecture": {
+          "modality": "text+image->text",
+          "input_modalities": [
+            "image",
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.0000001",
+          "completion": "0.0000002",
+          "input_cache_read": "0.0000001"
+        },
+        "top_provider": {
+          "context_length": 128000,
+          "max_completion_tokens": 2048,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "logit_bias",
+          "logprobs",
+          "max_tokens",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "top_k",
+          "top_logprobs",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": "2025-01-31",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/bytedance/ui-tars-1.5-7b/endpoints"
+        }
+      },
+      {
         "id": "upstage/solar-pro-3",
         "canonical_slug": "upstage/solar-pro-3",
         "hugging_face_id": "",
@@ -24302,60 +24359,6 @@
         },
         "reasoning": {
           "mandatory": false
-        }
-      },
-      {
-        "id": "bytedance/ui-tars-1.5-7b",
-        "canonical_slug": "bytedance/ui-tars-1.5-7b",
-        "hugging_face_id": "ByteDance-Seed/UI-TARS-1.5-7B",
-        "name": "ByteDance: UI-TARS 7B ",
-        "created": 1753205056,
-        "description": "UI-TARS-1.5 is a multimodal vision-language agent optimized for GUI-based environments, including desktop interfaces, web browsers, mobile systems, and games. Built by ByteDance, it builds upon the UI-TARS framework with reinforcement...",
-        "context_length": 128000,
-        "architecture": {
-          "modality": "text+image->text",
-          "input_modalities": [
-            "image",
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.0000001",
-          "completion": "0.0000002",
-          "input_cache_read": "0.0000001"
-        },
-        "top_provider": {
-          "context_length": 128000,
-          "max_completion_tokens": 2048,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "logprobs",
-          "max_tokens",
-          "presence_penalty",
-          "repetition_penalty",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "top_k",
-          "top_logprobs",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2025-01-31",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/bytedance/ui-tars-1.5-7b/endpoints"
         }
       },
       {
@@ -25858,6 +25861,55 @@
         }
       },
       {
+        "id": "google/gemma-2-27b-it",
+        "canonical_slug": "google/gemma-2-27b-it",
+        "hugging_face_id": "google/gemma-2-27b-it",
+        "name": "Google: Gemma 2 27B",
+        "created": 1720828800,
+        "description": "Gemma 2 27B by Google is an open model built from the same research and technology used to create the [Gemini models](/models?q=gemini). Gemma models are well-suited for a variety of...",
+        "context_length": 8192,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Gemini",
+          "instruct_type": "gemma"
+        },
+        "pricing": {
+          "prompt": "0.00000065",
+          "completion": "0.00000065"
+        },
+        "top_provider": {
+          "context_length": 8192,
+          "max_completion_tokens": 2048,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "max_tokens",
+          "presence_penalty",
+          "repetition_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": "2024-06-30",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/google/gemma-2-27b-it/endpoints"
+        }
+      },
+      {
         "id": "z-ai/glm-4.5v",
         "canonical_slug": "z-ai/glm-4.5v",
         "hugging_face_id": "zai-org/GLM-4.5V",
@@ -25917,55 +25969,6 @@
         },
         "reasoning": {
           "mandatory": false
-        }
-      },
-      {
-        "id": "google/gemma-2-27b-it",
-        "canonical_slug": "google/gemma-2-27b-it",
-        "hugging_face_id": "google/gemma-2-27b-it",
-        "name": "Google: Gemma 2 27B",
-        "created": 1720828800,
-        "description": "Gemma 2 27B by Google is an open model built from the same research and technology used to create the [Gemini models](/models?q=gemini). Gemma models are well-suited for a variety of...",
-        "context_length": 8192,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Gemini",
-          "instruct_type": "gemma"
-        },
-        "pricing": {
-          "prompt": "0.00000065",
-          "completion": "0.00000065"
-        },
-        "top_provider": {
-          "context_length": 8192,
-          "max_completion_tokens": 2048,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "max_tokens",
-          "presence_penalty",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2024-06-30",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/google/gemma-2-27b-it/endpoints"
         }
       },
       {
@@ -27193,6 +27196,59 @@
         }
       },
       {
+        "id": "google/lyria-3-clip-preview",
+        "canonical_slug": "google/lyria-3-clip-preview-20260330",
+        "hugging_face_id": null,
+        "name": "Google: Lyria 3 Clip Preview",
+        "created": 1774907255,
+        "description": "30 second duration clips are priced at $0.04 per clip. Lyria 3 is Google's family of music generation models, available through the Gemini API. With Lyria 3, you can generate...",
+        "context_length": 1048576,
+        "architecture": {
+          "modality": "text+image->text+audio",
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text",
+            "audio"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0",
+          "completion": "0"
+        },
+        "top_provider": {
+          "context_length": 1048576,
+          "max_completion_tokens": 65536,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "max_tokens",
+          "response_format",
+          "seed",
+          "temperature",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "top_k": null,
+          "frequency_penalty": null,
+          "presence_penalty": null,
+          "repetition_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/google/lyria-3-clip-preview-20260330/endpoints"
+        }
+      },
+      {
         "id": "openai/gpt-3.5-turbo-16k",
         "canonical_slug": "openai/gpt-3.5-turbo-16k",
         "hugging_face_id": null,
@@ -27244,59 +27300,6 @@
         "expiration_date": null,
         "links": {
           "details": "/api/v1/models/openai/gpt-3.5-turbo-16k/endpoints"
-        }
-      },
-      {
-        "id": "google/lyria-3-clip-preview",
-        "canonical_slug": "google/lyria-3-clip-preview-20260330",
-        "hugging_face_id": null,
-        "name": "Google: Lyria 3 Clip Preview",
-        "created": 1774907255,
-        "description": "30 second duration clips are priced at $0.04 per clip. Lyria 3 is Google's family of music generation models, available through the Gemini API. With Lyria 3, you can generate...",
-        "context_length": 1048576,
-        "architecture": {
-          "modality": "text+image->text+audio",
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text",
-            "audio"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0",
-          "completion": "0"
-        },
-        "top_provider": {
-          "context_length": 1048576,
-          "max_completion_tokens": 65536,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "max_tokens",
-          "response_format",
-          "seed",
-          "temperature",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "top_k": null,
-          "frequency_penalty": null,
-          "presence_penalty": null,
-          "repetition_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/google/lyria-3-clip-preview-20260330/endpoints"
         }
       },
       {
@@ -28065,11 +28068,14 @@
           "details": "/api/v1/models/~moonshotai/kimi-latest/endpoints"
         },
         "reasoning": {
-          "mandatory": true,
+          "mandatory": false,
           "default_enabled": true,
           "supported_efforts": [
-            "max"
-          ]
+            "max",
+            "high",
+            "low"
+          ],
+          "default_effort": "max"
         }
       },
       {
