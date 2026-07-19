@@ -43,6 +43,7 @@ jobs:
           git push
       - name: Open issue on price change
         if: steps.scrape.outputs.changed == 'true'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh issue create --title "🔔 Token 定价变动 $(date +%F)" --body-file data/issue_body.md --label pricing
