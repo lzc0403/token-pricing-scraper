@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-19 17:02:39",
+  "generated_at": "2026-07-19 18:07:11",
   "stats": {
-    "total": 26,
-    "suspects": 16,
+    "total": 39,
+    "suspects": 40,
     "high": 8,
     "med": 0,
-    "low": 8,
+    "low": 32,
     "tier1": 1,
-    "tier2": 15
+    "tier2": 39
   },
   "suspects": [
     {
@@ -85,6 +85,162 @@
     },
     {
       "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "DeepSeek V3.2",
+      "msg": "SPA 源静态 HTML 未含模型名「Deepseek V3.」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Deepseek V3.2",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "DeepSeek V4 Flash",
+      "msg": "SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "DeepSeek-V4-Flash",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "DeepSeek V4 Pro",
+      "msg": "SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "DeepSeek-V4-Pro",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "Doubao Seed 2.1 Pro",
+      "msg": "SPA 源静态 HTML 未含模型名「Doubao-Seed-」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Doubao-Seed-2.1-pro",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "Doubao Seed 2.1 Turbo",
+      "msg": "SPA 源静态 HTML 未含模型名「Doubao-Seed-」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Doubao-Seed-2.1-turbo",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "GLM-5.1",
+      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "GLM-5.1",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "GLM-5.2",
+      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "GLM-5.2",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "Kimi K2.6",
+      "msg": "SPA 源静态 HTML 未含模型名「Kimi K2.6」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Kimi K2.6",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "Kimi K2.7 Code",
+      "msg": "SPA 源静态 HTML 未含模型名「Kimi K2.7 Co」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Kimi K2.7 Code",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "MiniMax M2.7",
+      "msg": "SPA 源静态 HTML 未含模型名「MiniMax M2.7」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "MiniMax M2.7",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "MiniMax M3",
+      "msg": "SPA 源静态 HTML 未含模型名「MiniMax M3」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "MiniMax M3",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "Qwen3.7 Max",
+      "msg": "SPA 源静态 HTML 未含模型名「Qwen3.7-Max」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Qwen3.7-Max",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "Qwen3.7 Plus",
+      "msg": "SPA 源静态 HTML 未含模型名「Qwen3.7-Plus」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Qwen3.7-Plus",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
       "code": "PRICE_NOT_FOUND",
       "severity": "high",
       "source": "openrouter",
@@ -145,11 +301,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到input价数值「0.2716」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到input价数值「0.2674」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "input",
-        "value": "0.2716",
+        "value": "0.2674",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -159,11 +315,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到output价数值「0.8536」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到output价数值「0.8404」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "output",
-        "value": "0.8536",
+        "value": "0.8404",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -193,6 +349,138 @@
         "field": "output",
         "value": "3.42",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "DeepSeek V3.2",
+      "msg": "SPA 源静态 HTML 未含模型名「Deepseek-v3.」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Deepseek-v3.2",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "DeepSeek V4 Flash",
+      "msg": "SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "DeepSeek-V4-Flash",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "DeepSeek V4 Pro",
+      "msg": "SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "DeepSeek-V4-Pro",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "GLM-5.1",
+      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "GLM-5.1",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "GLM-5.1",
+      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "GLM-5.1",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "GLM-5.2",
+      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "GLM-5.2",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "Kimi K2.6",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k2.6",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "Kimi K2.7 Code",
+      "msg": "SPA 源静态 HTML 未含模型名「Kimi K2.7 Co」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Kimi K2.7 Code",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "MiniMax M2.7",
+      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "MiniMax-M2.7",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "MiniMax M3",
+      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "MiniMax-M3",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "tencent",
+      "canonical": "MiniMax M3",
+      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "MiniMax-M3",
+        "url": "https://www.tencentcloud.com/zh/document/product/1300/78937"
       }
     },
     {

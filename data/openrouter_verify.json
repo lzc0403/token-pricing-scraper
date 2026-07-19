@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-07-19T09:02:38.942501+00:00",
-  "generated_at": "2026-07-19 17:02:47",
+  "fetched_at": "2026-07-19T10:07:10.852598+00:00",
+  "generated_at": "2026-07-19 18:07:16",
   "stats": {
     "raw_models": 344,
     "parsed": 23,
@@ -92,8 +92,8 @@
     {
       "id": "z-ai/glm-5.2",
       "model": "GLM 5.2",
-      "input": 0.2716,
-      "output": 0.8536
+      "input": 0.2674,
+      "output": 0.8404
     },
     {
       "id": "anthropic/claude-opus-4.7",
