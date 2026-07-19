@@ -1,7 +1,7 @@
 # OpenRouter 二次验证报告
 
-- 时间：2026-07-19 02:03:46
-- 抓取时间：2026-07-18T18:03:43.514483+00:00
+- 时间：2026-07-19 17:02:47
+- 抓取时间：2026-07-19T09:02:38.942501+00:00
 - 结果：✅ 通过
 - 原始模型数：344
 - 解析条数：23
@@ -18,9 +18,9 @@
 - DeepSeek V4 Pro (`deepseek/deepseek-v4-pro`) in=0.435 out=0.87
 - DeepSeek V4 Flash (`deepseek/deepseek-v4-flash`) in=0.098 out=0.196
 - MiniMax M3 (`minimax/minimax-m3`) in=0.3 out=1.2
-- Kimi K2.6 (`moonshotai/kimi-k2.6`) in=0.95 out=4.0
+- Kimi K2.6 (`moonshotai/kimi-k2.6`) in=0.684 out=3.42
 - Kimi K3 (`moonshotai/kimi-k3`) in=3.0 out=15.0
 - MiMo-V2.5 (`xiaomi/mimo-v2.5`) in=0.14 out=0.28
-- GLM 5.2 (`z-ai/glm-5.2`) in=0.2912 out=0.9152
+- GLM 5.2 (`z-ai/glm-5.2`) in=0.2716 out=0.8536
 - Claude Opus 4.7 (`anthropic/claude-opus-4.7`) in=5.0 out=25.0
 - Gemini 3 Flash Preview (`google/gemini-3-flash-preview`) in=0.5 out=3.0

@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "fetched_at": "2026-07-18T18:03:43.514483+00:00",
-  "generated_at": "2026-07-19 02:03:46",
+  "fetched_at": "2026-07-19T09:02:38.942501+00:00",
+  "generated_at": "2026-07-19 17:02:47",
   "stats": {
     "raw_models": 344,
     "parsed": 23,
@@ -74,8 +74,8 @@
     {
       "id": "moonshotai/kimi-k2.6",
       "model": "Kimi K2.6",
-      "input": 0.95,
-      "output": 4.0
+      "input": 0.684,
+      "output": 3.42
     },
     {
       "id": "moonshotai/kimi-k3",
@@ -92,8 +92,8 @@
     {
       "id": "z-ai/glm-5.2",
       "model": "GLM 5.2",
-      "input": 0.2912,
-      "output": 0.9152
+      "input": 0.2716,
+      "output": 0.8536
     },
     {
       "id": "anthropic/claude-opus-4.7",

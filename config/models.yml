@@ -18,6 +18,8 @@ models:
     aliases: [kimi-k2.6, Kimi K2.6]
   - canonical: Kimi K2.7 Code
     aliases: [kimi-k2.7-code, Kimi K2.7 Code]
+  - canonical: Kimi K3
+    aliases: [kimi-k3, Kimi K3, moonshotai/kimi-k3]
   - canonical: MiniMax M2.7
     aliases: [MiniMax-M2.7, minimax-m2.7]
   - canonical: MiniMax M3
