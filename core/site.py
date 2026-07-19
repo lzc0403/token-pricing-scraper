@@ -1135,7 +1135,7 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 
 .sidebar-reopen{display:none;position:fixed;top:12px;left:12px;z-index:210;font-size:12px;font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:0 8px 8px 0;padding:8px 14px 8px 10px;cursor:pointer;box-shadow:2px 0 8px rgba(0,0,0,.12);transition:transform .2s,background .15s;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.04em}
 .sidebar-reopen:hover{background:var(--primary-deep);transform:translateX(2px)}
-.layout.is-collapsed ~ .sidebar-reopen{display:block}
+.sidebar-reopen{display:none!important}
 
 @media (max-width:1024px){
   .layout{display:block}
