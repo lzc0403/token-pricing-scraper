@@ -963,7 +963,7 @@ def _mainstream_section(
 
     accent_class = "ms-overseas" if accent == "overseas" else "ms-domestic"
     # 日期横幅 + 单位说明（区块级，不每张卡片重复）
-    unit_note = "元 / 百万 Token"
+    unit_note = "$ / Million Tokens" if accent == "overseas" else "元 / 百万 Token"
     date_banner = f'<div class="ms-date-banner">数据更新于 <b>{_esc(uniform_date)}</b> <span class="ms-unit-note">{unit_note}</span></div>' if uniform_date else ""
 
     return f"""
@@ -1141,18 +1141,19 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .sidebar-collapse:hover{color:var(--primary);border-color:var(--primary)}
 @media (min-width:1025px){.sidebar-collapse{display:inline-block}}
 .sidebar-head{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.sidebar-title{margin:2px 0 0;font-size:14px;font-weight:800;color:#0f172a;letter-spacing:-.01em}
+.sidebar-title{margin:2px 0 0;font-size:15px;font-weight:800;color:#0f172a;letter-spacing:-.01em}
+.filter-kicker{font-size:9px;font-weight:700;letter-spacing:.06em;color:var(--primary);text-transform:uppercase}
 .sidebar-group{margin-bottom:14px}
 .sx-group-head{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px}
-.sx-group-title{font-size:11px;font-weight:800;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.sx-group-title{font-size:11px;font-weight:700;color:#0f172a;letter-spacing:.01em}
 .sidebar-group .mini-actions{display:flex;gap:4px;flex-wrap:wrap}
-.sidebar-group .linkish{font-size:10px;color:var(--primary)}
+.sidebar-group .linkish{font-size:10px;color:var(--primary);font-weight:600}
 .chip-row-scroll{max-height:200px;overflow-y:auto;padding-right:2px}
 .sidebar-group .rate-input-wrap{margin-bottom:2px}
-.sidebar-group .rate-suffix{font-size:12px;font-weight:700;color:var(--mute)}
+.sidebar-group .rate-suffix{font-size:12px;font-weight:700;color:var(--mute);letter-spacing:.01em}
 .sidebar-foot{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:6px}
-.btn-filter-reset{font-size:11px;font-weight:700;color:var(--primary);background:0 0;border:1px solid var(--primary);border-radius:6px;padding:5px 10px;cursor:pointer;transition:background .12s,color .12s}
-.btn-filter-reset:hover{background:var(--primary);color:#fff}
+.btn-filter-reset{font-size:11px;font-weight:700;color:var(--primary);background:0 0;border:1px solid var(--line);border-radius:6px;padding:5px 10px;cursor:pointer;transition:background .12s,color .12s}
+.btn-filter-reset:hover{background:var(--canvas);color:var(--primary-deep)}
 .sidebar .visible-count{font-size:10px;font-weight:700;color:var(--mute)}
 
 /* 侧边栏底部操作按钮区 */
@@ -1371,7 +1372,7 @@ footer .disc{color:var(--mute)}
 .ms-featured{display:inline-block;font-size:7px;font-weight:800;color:#fff;background:var(--primary);padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle}
 .ms-tracking{display:inline-block;font-size:7px;font-weight:800;color:#b8860b;background:#fff8e7;padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle;cursor:help}
 .ms-verified{color:var(--mute);font-size:8px}
-.ms-date-banner{text-align:center;font-size:8px;color:var(--mute);padding:2px 10px 4px;letter-spacing:.02em}
+.ms-date-banner{font-size:8px;color:var(--mute);padding:2px 0 4px;letter-spacing:.02em;display:flex;align-items:center;gap:6px}
 .ms-date-banner .ms-unit-note{color:#94a3b8;font-weight:500;margin-left:6px}
 /* 入场错峰 + 厂商条纹流光 + 热标记脉冲（仅在允许动效时） */
 @media (prefers-reduced-motion: no-preference){
