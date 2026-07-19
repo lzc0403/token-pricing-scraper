@@ -60,10 +60,8 @@ OFFICIAL_SOURCE: Dict[str, str] = {
 # 渠道源：非官网聚合/转售渠道
 CHANNEL_SOURCES = {"modelmesh", "tencent", "openrouter", "volcengine", "aliyun"}
 
-# 渠道按「来源归属地」分区，而非按币种。
-# 腾讯云/火山引擎等国内云厂商原始价常以 USD 计，但属于国内渠道，必须进国内面板；
-# 只有 OpenRouter 这类聚合海外模型 API 的渠道才进海外面板。
-OVERSEAS_CHANNEL_SOURCES = {"openrouter"}
+# 渠道按「结算币种」分区：USD 结算 = 海外渠道面板；CNY/无标价 = 国内渠道面板。
+# 腾讯云/火山引擎等国内云厂商也可能以 USD 对外报价（如跨境实例），一律归入海外。
 
 MODEL_ORDER: List[str] = [
     # 国内主力
@@ -420,11 +418,10 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         official = sorted(official, key=lambda x: (x["model"].lower(), _price_key(x)))
         official_rows.extend(official)
 
-        # 渠道：非官网。按「来源归属地」分区，不按币种——
-        # 腾讯云等国内渠道即便以 USD 计价（已附 input_rmb/output_rmb）也应进国内面板。
+        # 渠道：非官网。按「结算币种」分区：USD 进海外面板；CNY 进国内面板。
         channels = [x for x in norm if not x["is_official"]]
-        d_ch = [x for x in channels if x["source"] not in OVERSEAS_CHANNEL_SOURCES]
-        o_ch = [x for x in channels if x["source"] in OVERSEAS_CHANNEL_SOURCES]
+        d_ch = [x for x in channels if str(x["currency"]).upper() != "USD"]
+        o_ch = [x for x in channels if str(x["currency"]).upper() == "USD"]
         d_ch = sorted(d_ch, key=lambda x: (_price_key(x), x["source_label"], x["model"].lower()))
         o_ch = sorted(o_ch, key=lambda x: (_price_key(x), x["source_label"], x["model"].lower()))
         channel_domestic.extend(d_ch)
@@ -1854,7 +1851,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
   <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
   <footer>
-    <div class="note">数据来源：国内厂商官网公开定价；OpenAI / Anthropic / Google 官方 API 参考价；胜算云、腾讯云、火山引擎等渠道报价。腾讯云等国内渠道即便以 USD 计价也归入国内渠道页。GitHub Action 每周自动抓取。</div>
+    <div class="note">数据来源：国内厂商官网公开定价；OpenAI / Anthropic / Google 官方 API 参考价；胜算云、腾讯云、火山引擎等渠道报价。USD 结算的渠道归入海外渠道页。GitHub Action 每周自动抓取。</div>
     <div class="disc">⚠️ 仅供参考，请以各官网实时报价为准 · 最近更新：{_esc(data['generated_at'])}</div>
   </footer>
   <button type="button" id="toTop" class="totop" aria-label="回到顶部">↑</button>
