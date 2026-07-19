@@ -629,6 +629,7 @@ def test_renderable_sections_keeps_vendor_order_and_only_renderable_text_models(
     assert [model["canonical"] for model in rendered["overseas"][0]["models"]] == [
         "Claude Fable 5",
         "Preview Text",
+        "Tracking Text",
     ]
     assert len(data["sections"]["overseas"]["vendors"][0]["models"]) == 5
 
@@ -720,13 +721,20 @@ def test_project_catalog_claude_official_models_have_exact_api_ids():
     assert official["Claude Haiku 4.5"]["api_id"] == "claude-haiku-4-5-20251001"
 
 
-def test_project_catalog_tracking_models_not_renderable():
+def test_project_catalog_tracking_models_appear_with_tracking_badge():
+    """tracking 型号应出现在目录中，并在渲染时标记为「渠道先行」。"""
     catalog = load_catalog(os.path.join(ROOT, "config", "mainstream_models.yml"))
     rendered = renderable_sections(catalog)
-    for vendors in rendered.values():
-        for vendor in vendors:
-            for model in vendor["models"]:
-                assert model["availability"] in {"official", "preview"}
+    domestic = rendered.get("domestic", [])
+    overseas = rendered.get("overseas", [])
+    all_models = [m for v in domestic + overseas for m in v.get("models", [])]
+    all_canons = [m["canonical"] for m in all_models]
+    # tracking 型号出现在渲染中
+    assert "DeepSeek V4 Pro" in all_canons
+    assert "DeepSeek V4 Flash" in all_canons
+    # 所有渲染的型号都是 text
+    for m in all_models:
+        assert m["modality"] == "text"
 
 
 def test_project_catalog_no_seedance_in_domestic_text():

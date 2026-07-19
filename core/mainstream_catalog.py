@@ -510,7 +510,7 @@ def renderable_sections(
                         deepcopy(model)
                         for model in models
                         if isinstance(model, dict)
-                        and model.get("availability") in RENDERABLE
+                        and model.get("availability") in RENDERABLE | {"tracking"}
                         and model.get("modality") == "text"
                     ]
                 rendered_vendor = deepcopy(vendor)

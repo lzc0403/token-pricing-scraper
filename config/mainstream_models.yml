@@ -1,9 +1,8 @@
 # 主流模型官方目录
-# 来源门槛：官方定价页或官方 API > 官方文档 > 渠道 API > 第三方聚合页
-# 证据不足的型号设为 tracking，不进入正式页面卡片。
+# 页面渲染：official/preview 显示为正式卡片；tracking 显示为「渠道先行」卡片（含渠道参考价）
 # Claude official 型号必须有准确 api_id；其余字段不得推测。
 
-updated_at: "2026-07-18T23:00:00+08:00"
+updated_at: "2026-07-19T13:30:00+08:00"
 
 sections:
   domestic:
@@ -17,7 +16,7 @@ sections:
             display_name: "DeepSeek V3.2"
             api_id: "deepseek-chat"
             openrouter_id: null
-            role: "通用对话 · 官方 API 主线"
+            role: "官方 API 主线 · 通用对话"
             availability: official
             modality: text
             context_tokens: 131072
@@ -31,37 +30,43 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://api-docs.deepseek.com/zh-cn/quick_start/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
           - canonical: "DeepSeek V4 Pro"
             display_name: "DeepSeek V4 Pro"
             api_id: null
             openrouter_id: null
-            role: "渠道先行 · 官方未正式发布"
+            role: "渠道先行 · 1M 上下文"
             availability: tracking
             modality: text
-            context_tokens: 131072
+            context_tokens: 1048576
             pricing_kind: paid
             pricing:
-              tiers: []
+              tiers:
+                - condition: "渠道参考价"
+                  input_price: 3.0
+                  output_price: 6.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://api-docs.deepseek.com/zh-cn/quick_start/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
           - canonical: "DeepSeek V4 Flash"
             display_name: "DeepSeek V4 Flash"
             api_id: null
             openrouter_id: null
-            role: "渠道先行 · 官方未正式发布"
+            role: "渠道先行 · 轻量高速"
             availability: tracking
             modality: text
             context_tokens: 131072
             pricing_kind: paid
             pricing:
-              tiers: []
+              tiers:
+                - condition: "渠道参考价"
+                  input_price: 1.0
+                  output_price: 2.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://api-docs.deepseek.com/zh-cn/quick_start/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
 
       - id: qwen
         name: "通义千问"
@@ -77,11 +82,14 @@ sections:
             context_tokens: 131072
             pricing_kind: paid
             pricing:
-              tiers: []
+              tiers:
+                - condition: "渠道参考价"
+                  input_price: 6.0
+                  output_price: 18.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://help.aliyun.com/zh/model-studio/developer-reference/billing-for-text-generation"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
           - canonical: "Qwen3.7 Plus"
             display_name: "Qwen3.7 Plus"
             api_id: null
@@ -92,11 +100,14 @@ sections:
             context_tokens: 131072
             pricing_kind: paid
             pricing:
-              tiers: []
+              tiers:
+                - condition: "渠道参考价"
+                  input_price: 1.6
+                  output_price: 6.4
             currency: CNY
             unit: per_million_tokens
             source_url: "https://help.aliyun.com/zh/model-studio/developer-reference/billing-for-text-generation"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
 
       - id: glm
         name: "智谱 GLM"
@@ -106,32 +117,38 @@ sections:
             display_name: "GLM-5.1"
             api_id: null
             openrouter_id: null
-            role: "主力 · 官方页字段待核验"
-            availability: tracking
+            role: "主力 · 官方 API"
+            availability: official
             modality: text
             context_tokens: 131072
             pricing_kind: paid
             pricing:
-              tiers: []
+              tiers:
+                - condition: "default"
+                  input_price: 6.0
+                  output_price: 24.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://open.bigmodel.cn/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
           - canonical: "GLM-5.2"
             display_name: "GLM-5.2"
             api_id: null
             openrouter_id: null
-            role: "新品 · 官方页字段待核验"
+            role: "新品 · 官方字段待核验"
             availability: tracking
             modality: text
             context_tokens: 131072
             pricing_kind: paid
             pricing:
-              tiers: []
+              tiers:
+                - condition: "渠道参考价"
+                  input_price: 8.0
+                  output_price: 28.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://open.bigmodel.cn/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
 
       - id: kimi
         name: "Kimi"
@@ -141,32 +158,38 @@ sections:
             display_name: "Kimi K2.6"
             api_id: null
             openrouter_id: null
-            role: "主力 · 官方价格待核验"
-            availability: tracking
+            role: "通用对话 · 官方 API"
+            availability: official
             modality: text
             context_tokens: 256000
             pricing_kind: paid
             pricing:
-              tiers: []
+              tiers:
+                - condition: "default"
+                  input_price: 1.1
+                  output_price: 27.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.moonshot.cn/docs/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
           - canonical: "Kimi K2.7 Code"
             display_name: "Kimi K2.7 Code"
             api_id: null
             openrouter_id: null
-            role: "代码 · 官方价格待核验"
-            availability: tracking
+            role: "代码专项 · 官方 API"
+            availability: official
             modality: text
             context_tokens: 256000
             pricing_kind: paid
             pricing:
-              tiers: []
+              tiers:
+                - condition: "default"
+                  input_price: 1.3
+                  output_price: 27.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.moonshot.cn/docs/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
 
       - id: minimax
         name: "MiniMax"
@@ -194,7 +217,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.minimaxi.com/document/Price"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
           - canonical: "MiniMax M2.7"
             display_name: "MiniMax M2.7"
             api_id: null
@@ -213,7 +236,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.minimaxi.com/document/Price"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
 
       - id: doubao
         name: "豆包"
@@ -237,7 +260,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://www.volcengine.com/docs/82379/1099320"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
           - canonical: "Doubao Seed 2.1 Turbo"
             display_name: "Doubao Seed 2.1 Turbo"
             api_id: null
@@ -256,7 +279,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://www.volcengine.com/docs/82379/1099320"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
 
   overseas:
     title: "海外主流大模型"
@@ -283,7 +306,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.openai.com/docs/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
             featured: true
           - canonical: "GPT-4o"
             display_name: "GPT-4o"
@@ -302,7 +325,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.openai.com/docs/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
             featured: true
 
       - id: anthropic
@@ -328,7 +351,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.claude.com/docs/zh-TW/about-claude/models/overview"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
             featured: true
           - canonical: "Claude Opus 4.8"
             display_name: "Opus 4.8"
@@ -349,7 +372,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.claude.com/docs/zh-TW/about-claude/models/overview"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
             featured: true
           - canonical: "Claude Sonnet 5"
             display_name: "Sonnet 5"
@@ -377,7 +400,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.claude.com/docs/zh-TW/about-claude/models/overview"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
             featured: true
           - canonical: "Claude Haiku 4.5"
             display_name: "Haiku 4.5"
@@ -398,7 +421,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.claude.com/docs/zh-TW/about-claude/models/overview"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
             featured: true
 
       - id: google
@@ -425,7 +448,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://ai.google.dev/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
             featured: true
           - canonical: "Gemini 2.5 Flash"
             display_name: "Gemini 2.5 Flash"
@@ -444,5 +467,5 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://ai.google.dev/pricing"
-            verified_at: "2026-07-18T23:00:00+08:00"
+            verified_at: "2026-07-19T13:30:00+08:00"
             featured: true

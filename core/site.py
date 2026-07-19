@@ -855,13 +855,14 @@ def _mainstream_section(
                 else '<span data-empty-state="no-channel-price" class="ms-channel-empty">暂无渠道报价</span>'
             )
             hot_badge = '<span class="ms-featured">热门</span>' if featured else ""
+            tracking_badge = '<span class="ms-tracking">渠道先行</span>' if model.get("availability") == "tracking" else ""
 
             model_cards.append(
                 f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
                 f'data-context="{_esc_attr(ctx_tokens)}" data-source="{_esc_attr(vendor.get("source_id") or vid)}" '
                 f'tabindex="0" role="button" aria-label="筛选 {_esc(display)}">'
                 f'<div class="ms-model-head">'
-                f'<span class="ms-model-name">{_esc(display)}{hot_badge}</span>'
+                f'<span class="ms-model-name">{_esc(display)}{hot_badge}{tracking_badge}</span>'
                 f'<span class="ms-context">{_esc(ctx_label)}</span>'
                 f"</div>"
                 f'<div class="ms-role">{_esc(role)}</div>'
@@ -1234,6 +1235,7 @@ footer .disc{color:#a5b4fc}
 .ms-channel-ok{color:#059669;font-weight:700}
 .ms-channel-empty{color:#9ca3af}
 .ms-featured{display:inline-block;font-size:10px;font-weight:800;color:#fff;background:#f59e0b;padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.ms-tracking{display:inline-block;font-size:10px;font-weight:800;color:#92400e;background:#fef3c7;padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle}
 .ms-verified{color:var(--mute)}
 @media (max-width:1024px){.ms-model-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){.ms-model-grid{grid-template-columns:1fr}}
