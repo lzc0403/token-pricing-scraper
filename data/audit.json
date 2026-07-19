@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19 17:21:40",
+  "generated_at": "2026-07-19 17:26:30",
   "stats": {
     "total": 31,
     "suspects": 34,
@@ -237,11 +237,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到input价数值「0.2436」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到input价数值「0.2408」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "input",
-        "value": "0.2436",
+        "value": "0.2408",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -251,11 +251,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到output价数值「0.7656」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到output价数值「0.7568」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "output",
-        "value": "0.7656",
+        "value": "0.7568",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
