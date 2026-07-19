@@ -251,6 +251,16 @@ def _fmt_num(v: Any) -> str:
     return str(v)
 
 
+def _clean_ctx_label(ctx: Any) -> str:
+    """把上下文 token 数转成人类可读标签：1048576→1M，131072→128K。"""
+    if not isinstance(ctx, int) or not ctx:
+        return ""
+    if ctx >= 1_000_000:
+        m = round(ctx / 1_000_000, 1)
+        return ("%g" % m).rstrip("0").rstrip(".") + "M"
+    return f"{ctx // 1000}K"
+
+
 def _esc(s: Any) -> str:
     if s is None:
         return "—"
@@ -886,23 +896,27 @@ def _mainstream_section(
         vid = model.get("_vid", "—")
         vname = model.get("_vname", vid)
 
-        # 价格行：全称 + 无货币符号 + 独立单位标签
+        # 价格：输入 / 输出 / 缓存命中 三个同级列 + 单位说明
         unit_label = "元 / 百万 Token" if currency == "CNY" else "$ / Million Tokens"
-        price_html = (
-            f'<div class="ms-prices-row">'
-            f'<span class="ms-p-item"><label>输入</label><b>{_fmt_num(inp)}</b></span>'
-            f'<span class="ms-p-sep">·</span>'
-            f'<span class="ms-p-item"><label>输出</label><b>{_fmt_num(out)}</b></span>'
-            f'</div>'
-            f'<div class="ms-unit">{unit_label}</div>'
-            if isinstance(inp, (int, float)) and isinstance(out, (int, float))
-            else '<div class="ms-prices-row ms-no-price"><span>价格待公布</span></div>'
-        )
-        cache_html = (
-            f'<span class="ms-cache-inline"><span class="ms-p-sep">·</span><span class="ms-p-item"><label>缓存命中</label><b>{_fmt_num(cache_input)}</b></span></span>'
-            if isinstance(cache_input, (int, float))
-            else ""
-        )
+        has_price = isinstance(inp, (int, float)) and isinstance(out, (int, float))
+        cache_val = _fmt_num(cache_input) if isinstance(cache_input, (int, float)) else "—"
+        if has_price:
+            price_html = (
+                f'<div class="ms-prices">'
+                f'<div class="ms-pcol"><span class="ms-plabel">输入</span><span class="ms-pval">{_fmt_num(inp)}</span></div>'
+                f'<div class="ms-pcol"><span class="ms-plabel">输出</span><span class="ms-pval">{_fmt_num(out)}</span></div>'
+                f'<div class="ms-pcol"><span class="ms-plabel">缓存命中</span><span class="ms-pval">{cache_val}</span></div>'
+                f'</div>'
+                f'<div class="ms-unit">{unit_label}</div>'
+            )
+        else:
+            price_html = '<div class="ms-prices ms-no-price"><span>价格待公布</span></div>'
+        cache_html = ""
+        # 上下文：并入 role 行，避免与右上角标签重复
+        clean_ctx = _clean_ctx_label(ctx_tokens)
+        role_text = role or ""
+        if clean_ctx and "上下文" not in role_text:
+            role_text = f"{role_text} · {clean_ctx} 上下文" if role_text else f"{clean_ctx} 上下文"
         tiers_html = ""
         if len(tiers) > 1:
             tiers_list = "".join(
@@ -929,9 +943,8 @@ def _mainstream_section(
             f'<span class="ms-vendor-stripe" data-vendor="{_esc_attr(vid)}" aria-hidden="true"></span>'
             f'<div class="ms-model-head">'
             f'<span class="ms-model-name">{_esc(display)}{hot_badge}{tracking_badge}</span>'
-            f'<span class="ms-context">{_esc(ctx_label)}</span>'
             f"</div>"
-            f'<div class="ms-role">{_esc(vname)} · {_esc(role)}</div>'
+            f'<div class="ms-role">{_esc(vname)} · {_esc(role_text)}</div>'
             f"{price_html}"
             f"{cache_html}"
             f"{tiers_html}"
@@ -1136,9 +1149,9 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .btn-confirm:hover{background:var(--primary-deep)}
 .btn-confirm:active{transform:scale(.97)}
 
-.sidebar-reopen{display:none;position:fixed;top:12px;left:12px;z-index:210;font-size:12px;font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:0 8px 8px 0;padding:8px 14px 8px 10px;cursor:pointer;box-shadow:2px 0 8px rgba(0,0,0,.12);transition:transform .2s,background .15s;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.04em}
-.sidebar-reopen:hover{background:var(--primary-deep);transform:translateX(2px)}
-.sidebar-reopen{display:none!important}
+.sidebar-reopen{display:none;position:fixed;top:14px;left:14px;z-index:210;font-size:12px;font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:6px;padding:6px 14px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:background .15s}
+.sidebar-reopen:hover{background:var(--primary-deep)}
+.layout.is-collapsed ~ .sidebar-reopen{display:block}
 
 @media (max-width:1024px){
   .layout{display:block}
@@ -1307,18 +1320,14 @@ footer .disc{color:var(--mute)}
 .ms-vendor-stripe[data-vendor=google]{background:#3b82f6}
 .ms-model-head{display:flex;align-items:flex-start;justify-content:space-between;gap:2px;margin-bottom:0}
 .ms-model-name{font-size:9px;font-weight:800;color:#0f172a}
-.ms-context{font-size:8px;font-weight:700;color:var(--mute);background:var(--canvas);padding:0 3px;border-radius:2px;white-space:nowrap}
 .ms-role{font-size:8px;color:var(--mute);margin-bottom:1px}
-/* 紧凑价格行：单行 入 X · 出 Y */
-.ms-prices-row{font-size:8px;color:#0f172a;line-height:1.4;margin-bottom:0;display:inline-flex;align-items:center;flex-wrap:wrap;gap:1px}
-.ms-p-item{display:inline-flex;align-items:center;gap:1px}
-.ms-p-item label{color:var(--mute);font-weight:500;font-size:7.5px;white-space:nowrap}
-.ms-p-item b{font-weight:800;white-space:nowrap;color:#0f172a}
-.ms-p-sep{color:#94a3b8;margin:0 2px;font-weight:400}
-.ms-unit{font-size:7px;color:var(--mute);margin-top:1px;letter-spacing:.02em}
-.ms-no-price{color:var(--mute);font-style:italic}
-/* 缓存命中 — 与价格同行，共用 ms-p-item 样式 */
-.ms-cache-inline{font-size:8px;color:var(--mute);display:inline-flex;align-items:center;margin-left:0}
+/* 价格：输入 / 输出 / 缓存命中 三列同级 */
+.ms-prices{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:1px}
+.ms-pcol{display:flex;flex-direction:column;align-items:center;gap:0;background:var(--canvas);border:1px solid var(--line);border-radius:3px;padding:2px 0}
+.ms-plabel{font-size:7px;color:var(--mute);font-weight:600;line-height:1.1}
+.ms-pval{font-size:9px;font-weight:800;color:#0f172a;line-height:1.2}
+.ms-unit{font-size:6.5px;color:var(--mute);text-align:center;margin-bottom:0;line-height:1}
+.ms-prices.ms-no-price{grid-template-columns:1fr;background:transparent;border:0;color:var(--mute);font-style:italic;font-size:8px;text-align:center;padding:2px 0}
 .ms-tiers{margin:3px 0}
 .ms-tiers summary{font-size:8px;font-weight:700;color:var(--ink2);cursor:pointer}
 .ms-tiers ul{margin:1px 0 0;padding-left:10px;font-size:8px;color:var(--mute)}
