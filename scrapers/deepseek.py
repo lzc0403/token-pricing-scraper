@@ -59,10 +59,16 @@ class DeepseekScraper(BaseScraper):
             if not cells:
                 continue
             label = cells[0]
+            # 处理 sub-header：如「价格」行含「百万tokens输入（缓存命中）」子标签
+            # 该行有4列（总标题 + 子标题 + n 个值），取 cells[1] 为标签、cells[2:] 为值
+            if len(cells) > n + 1:
+                label = cells[1]
+                raw_vals = cells[2:]
+            else:
+                raw_vals = cells[1:]
             fld = field_of(label)
             if not fld:
                 continue
-            raw_vals = cells[1:]
             for i in range(n):
                 v = raw_vals[i] if i < len(raw_vals) else (raw_vals[0] if raw_vals else None)
                 if fld == "context":

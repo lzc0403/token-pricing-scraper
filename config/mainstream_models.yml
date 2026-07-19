@@ -35,38 +35,46 @@ sections:
             display_name: "DeepSeek V4 Pro"
             api_id: null
             openrouter_id: null
-            role: "定价待补 · 1M 上下文"
-            availability: tracking
+            role: "旗舰 · 1M 上下文"
+            availability: official
             modality: text
             context_tokens: 1048576
             pricing_kind: paid
             pricing:
               tiers:
-                - condition: "渠道参考价"
+                - condition: "缓存命中"
+                  input_price: 0.025
+                  cache_input_price: 0.025
+                  output_price: 6.0
+                - condition: "缓存未命中"
                   input_price: 3.0
                   output_price: 6.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://api-docs.deepseek.com/zh-cn/quick_start/pricing"
-            verified_at: "2026-07-19T14:30:00+08:00"
+            verified_at: "2026-07-19T18:30:00+08:00"
           - canonical: "DeepSeek V4 Flash"
             display_name: "DeepSeek V4 Flash"
             api_id: null
             openrouter_id: null
-            role: "定价待补 · 轻量高速"
-            availability: tracking
+            role: "轻量高速 · 1M 上下文"
+            availability: official
             modality: text
-            context_tokens: 131072
+            context_tokens: 1048576
             pricing_kind: paid
             pricing:
               tiers:
-                - condition: "渠道参考价"
+                - condition: "缓存命中"
+                  input_price: 0.02
+                  cache_input_price: 0.02
+                  output_price: 2.0
+                - condition: "缓存未命中"
                   input_price: 1.0
                   output_price: 2.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://api-docs.deepseek.com/zh-cn/quick_start/pricing"
-            verified_at: "2026-07-19T14:30:00+08:00"
+            verified_at: "2026-07-19T18:30:00+08:00"
 
       - id: qwen
         name: "通义千问"

@@ -801,24 +801,22 @@ def _mainstream_section(
 ) -> str:
     """渲染国内/海外统一主流模型卡片专区。
 
+    采用统一网格布局：所有厂商的型号在同一网格中展示，
+    使用厂商色带（vendor stripe）标记每张卡片的来源，
+    视觉整齐划一，消除各厂商子网格列数不一致的问题。
+
     accent: domestic（青绿）或 overseas（蓝色）
     """
     total_models = sum(len(v.get("models", [])) for v in vendors)
-    vendor_cards: List[str] = []
+    all_cards: List[str] = []
+
     for vendor in vendors:
         vid = vendor.get("id") or "—"
         vname = vendor.get("name") or vid
         models = vendor.get("models", [])
         if not models:
-            vendor_cards.append(
-                f'<div class="ms-vendor" data-vendor="{_esc_attr(vid)}">'
-                f'<div class="ms-vendor-head"><span class="ms-vendor-name">{_esc(vname)}</span>'
-                f'<span class="ms-vendor-badge ms-pending">官方资料待核验</span></div>'
-                f'<div class="ms-empty-vendor">该厂商正式型号暂未进入主流目录</div>'
-                f"</div>"
-            )
             continue
-        model_cards: List[str] = []
+
         for model in models:
             canon = model.get("canonical") or "—"
             display = model.get("display_name") or canon
@@ -865,33 +863,26 @@ def _mainstream_section(
             hot_badge = '<span class="ms-featured">热门</span>' if featured else ""
             availability = model.get("availability")
             # 【定价待补】标签：非 official/preview 的展示模型（即官网定价尚未抓取到的）
-            # 注意：不是「渠道先行」——官网没价格不可能是渠道先出现，而是数据源抓取没跟上
             is_pending = availability not in ("official", "preview")
             tracking_badge = '<span class="ms-tracking" title="官网定价尚未抓取，以下为渠道参考价">定价待补</span>' if is_pending else ""
 
-            model_cards.append(
+            # 统一卡片：顶部一条厂商色带 + 主体内容
+            all_cards.append(
                 f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
                 f'data-context="{_esc_attr(ctx_tokens)}" data-source="{_esc_attr(vendor.get("source_id") or vid)}" '
                 f'tabindex="0" role="button" aria-label="筛选 {_esc(display)}">'
+                f'<span class="ms-vendor-stripe" data-vendor="{_esc_attr(vid)}" aria-hidden="true"></span>'
                 f'<div class="ms-model-head">'
                 f'<span class="ms-model-name">{_esc(display)}{hot_badge}{tracking_badge}</span>'
                 f'<span class="ms-context">{_esc(ctx_label)}</span>'
                 f"</div>"
-                f'<div class="ms-role">{_esc(role)}</div>'
+                f'<div class="ms-role">{_esc(vname)} · {_esc(role)}</div>'
                 f"{price_html}{cache_html}"
                 f"{tiers_html}"
                 f'<div class="ms-meta">{channel_html}<span class="ms-verified">核验 {_esc(verified)}</span></div>'
                 f"</article>"
             )
-        vendor_cards.append(
-            f'<div class="ms-vendor" data-vendor="{_esc_attr(vid)}">'
-            f'<div class="ms-vendor-head"><span class="ms-vendor-name">{_esc(vname)}</span>'
-            f'<span class="ms-vendor-count">{len(models)} 款</span></div>'
-            f'<div class="ms-model-grid">{"".join(model_cards)}</div>'
-            f"</div>"
-        )
 
-    vendors_html = "\n".join(vendor_cards)
     accent_class = "ms-overseas" if accent == "overseas" else "ms-domestic"
     return f"""
     <section class="block-card block-mainstream {accent_class}" data-section="{section_id}-mainstream" aria-labelledby="{section_id}-mainstream-title">
@@ -905,9 +896,7 @@ def _mainstream_section(
           <span class="block-count">{total_models} 款</span>
         </div>
       </div>
-      <div class="ms-vendors">
-        {vendors_html}
-      </div>
+      <div class="ms-unified-grid">{''.join(all_cards)}</div>
     </section>"""
 
 
@@ -1239,18 +1228,20 @@ footer .disc{color:var(--mute)}
 .block-mainstream.ms-overseas{border-color:#bcd4e8}
 .ms-domestic .block-kicker{color:#1a9e72}
 .ms-overseas .block-kicker{color:#3b82f6}
-.ms-vendors{display:grid;grid-template-columns:1fr;gap:10px;padding:0 12px 10px}
-.ms-vendor{background:#f8fafb;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
-.ms-vendor-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.ms-vendor-name{font-size:13px;font-weight:800;color:#0f172a}
-.ms-vendor-count{font-size:10px;font-weight:700;color:var(--mute);background:var(--canvas);padding:2px 7px;border-radius:999px}
-.ms-vendor-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px}
-.ms-pending{background:#fff8e7;color:#b8860b;border:1px solid #e8d08e}
-.ms-empty-vendor{font-size:12px;color:var(--mute);padding:6px 0}
-.ms-model-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
-.model-pick{background:#fff;border:1px solid var(--line);border-radius:6px;padding:5px 6px;cursor:pointer;transition:border-color .12s,box-shadow .12s;outline:none}
+.ms-unified-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:0 10px 10px}
+.model-pick{background:#fff;border:1px solid var(--line);border-radius:6px;padding:5px 6px;cursor:pointer;transition:border-color .12s,box-shadow .12s;outline:none;position:relative;overflow:hidden}
 .model-pick:hover,.model-pick:focus-visible{border-color:var(--primary);box-shadow:0 0 0 2px rgba(43,174,133,.12)}
 .ms-overseas .model-pick:hover,.ms-overseas .model-pick:focus-visible{border-color:#3b82f6;box-shadow:0 0 0 2px rgba(59,130,246,.12)}
+.ms-vendor-stripe{position:absolute;top:0;left:0;right:0;height:3px;background:#94a3b8}
+.ms-vendor-stripe[data-vendor=deepseek]{background:#4ade80}
+.ms-vendor-stripe[data-vendor=qwen]{background:#f59e0b}
+.ms-vendor-stripe[data-vendor=bigmodel]{background:#60a5fa}
+.ms-vendor-stripe[data-vendor=kimi]{background:#a78bfa}
+.ms-vendor-stripe[data-vendor=minimax]{background:#22d3ee}
+.ms-vendor-stripe[data-vendor=doubao]{background:#f472b6}
+.ms-vendor-stripe[data-vendor=openai]{background:#10b981}
+.ms-vendor-stripe[data-vendor=anthropic]{background:#e11d48}
+.ms-vendor-stripe[data-vendor=google]{background:#3b82f6}
 .ms-model-head{display:flex;align-items:flex-start;justify-content:space-between;gap:3px;margin-bottom:1px}
 .ms-model-name{font-size:10px;font-weight:800;color:#0f172a}
 .ms-context{font-size:9px;font-weight:700;color:var(--mute);background:var(--canvas);padding:1px 4px;border-radius:3px;white-space:nowrap}
@@ -1271,8 +1262,9 @@ footer .disc{color:var(--mute)}
 .ms-featured{display:inline-block;font-size:9px;font-weight:800;color:#fff;background:var(--primary);padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle}
 .ms-tracking{display:inline-block;font-size:8px;font-weight:800;color:#b8860b;background:#fff8e7;padding:1px 4px;border-radius:3px;margin-left:3px;vertical-align:middle;cursor:help}
 .ms-verified{color:var(--mute)}
-@media (min-width:1280px){.ms-model-grid{grid-template-columns:repeat(5,1fr);gap:5px}}@media (max-width:1024px){.ms-model-grid{grid-template-columns:repeat(2,1fr);gap:5px}}
-@media (max-width:760px){.ms-model-grid{grid-template-columns:1fr}}
+@media (min-width:1280px){.ms-unified-grid{grid-template-columns:repeat(5,1fr);gap:5px}}
+@media (max-width:1024px){.ms-unified-grid{grid-template-columns:repeat(2,1fr);gap:5px}}
+@media (max-width:760px){.ms-unified-grid{grid-template-columns:1fr}}
 tr[data-source="openai"] .pill{background:#e8f8f2;border-color:#a7d8c4;color:#1a9e72}
 tr[data-source="anthropic"] .pill{background:#fff8e7;border-color:#e8d08e;color:#b8860b}
 tr[data-source="google"] .pill{background:#e8f8f2;border-color:#a7d8c4;color:#1a9e72}

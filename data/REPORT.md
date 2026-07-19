@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-07-19 18:07:11
+> 生成时间：2026-07-19 18:39:05
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -8,11 +8,11 @@
 | --- | --- | ---: | ---: | ---: | --- | --- | --- |
 | DeepSeek V3.2 | modelmesh | 2 ¥ | 3 ¥ | - | CNY | 2 CNY / 3 CNY | 128K |
 | DeepSeek V3.2 | tencent | 2.016 ¥ | 3.024 ¥ | 0.056 USD | USD | 0.28 USD / 0.42 USD | - |
-| DeepSeek V4 Flash | deepseek | 1 ¥ | 2 ¥ | - | CNY | 1 CNY / 2 CNY | 1M |
+| DeepSeek V4 Flash | deepseek | 1 ¥ | 2 ¥ | 0.02 CNY | CNY | 1 CNY / 2 CNY | 1M |
 | DeepSeek V4 Flash | modelmesh | 1 ¥ | 2 ¥ | - | CNY | 1 CNY / 2 CNY | 1000K |
 | DeepSeek V4 Flash | openrouter | 0.7056 ¥ | 1.4112 ¥ | 0.0196 USD | USD | 0.098 USD / 0.196 USD | 1.04858M |
 | DeepSeek V4 Flash | tencent | 1.008 ¥ | 2.016 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
-| DeepSeek V4 Pro | deepseek | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1M |
+| DeepSeek V4 Pro | deepseek | 3 ¥ | 6 ¥ | 0.025 CNY | CNY | 3 CNY / 6 CNY | 1M |
 | DeepSeek V4 Pro | modelmesh | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1000K |
 | DeepSeek V4 Pro | openrouter | 3.132 ¥ | 6.264 ¥ | 0.003625 USD | USD | 0.435 USD / 0.87 USD | 1.04858M |
 | DeepSeek V4 Pro | tencent | 12.528 ¥ | 25.056 ¥ | 0.145 USD | USD | 1.74 USD / 3.48 USD | - |
@@ -25,7 +25,7 @@
 | GLM-5.1 | tencent | 6.048 ¥ | 24.192 ¥ | 0.182 USD | USD | 0.84 USD / 3.36 USD | - |
 | GLM-5.1 | tencent | 8.064 ¥ | 28.224 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.2 | openrouter | 1.92528 ¥ | 6.05088 ¥ | 0.04966 USD | USD | 0.2674 USD / 0.8404 USD | 1.04858M |
+| GLM-5.2 | openrouter | 1.9152 ¥ | 6.0192 ¥ | 0.0494 USD | USD | 0.266 USD / 0.836 USD | 1.04858M |
 | GLM-5.2 | tencent | 8.064 ¥ | 28.224 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | Kimi K2.6 | kimi | 1.1 ¥ | 27 ¥ | 1.1 CNY | CNY | 1.1 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
@@ -54,8 +54,8 @@
 | GLM-5.1 | tencent | 输出 | 3.92 | 3.36 | USD |
 | MiniMax M3 | tencent | 输入 | 0.6 | 0.3 | USD |
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
-| GLM-5.2 | openrouter | 输入 | 0.2716 | 0.2674 | USD |
-| GLM-5.2 | openrouter | 输出 | 0.8536 | 0.8404 | USD |
+| GLM-5.2 | openrouter | 输入 | 0.2674 | 0.266 | USD |
+| GLM-5.2 | openrouter | 输出 | 0.8404 | 0.836 | USD |
 
 ## 三、抓取状态
 

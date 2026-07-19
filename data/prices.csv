@@ -56,8 +56,8 @@ bigmodel,GLM-4.5-Air,0.8,2.0,,,"输入长度 [0, 32)输出长度 [0, 0.2)",1M to
 bigmodel,"输入长度 [0, 32)输出长度 [0.2+)",6.0,,0.16,,0.8元,1M tokens,CNY,6.0,,
 bigmodel,"输入长度 [32, 128)",8.0,,0.24,,1.2元,1M tokens,CNY,8.0,,
 bigmodel,GLM-4.7-FlashX,0.5,3.0,,,200K,1M tokens,CNY,0.5,3.0,
-deepseek,deepseek-v4-flash,1.0,2.0,,1M,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash
-deepseek,deepseek-v4-pro,3.0,6.0,,1M,,1M tokens,CNY,3.0,6.0,DeepSeek V4 Pro
+deepseek,deepseek-v4-flash,1.0,2.0,0.02,1M,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash
+deepseek,deepseek-v4-pro,3.0,6.0,0.025,1M,,1M tokens,CNY,3.0,6.0,DeepSeek V4 Pro
 minimax,MiniMax-M2.7,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,MiniMax M2.7
 minimax,MiniMax-M2.7-highspeed,4.2,16.8,0.42,,,1M tokens,CNY,4.2,16.8,
 kimi,kimi-k3,2.0,100.0,2.0,"1,048,576 tokens",,1M tokens,CNY,2.0,100.0,Kimi K3
@@ -177,7 +177,7 @@ openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,id=minimax/minimax-m3 | 新品跟进
 openrouter,Kimi K2.6,0.684,3.42,0.144,262K,id=moonshotai/kimi-k2.6 | Kimi 现役,1M tokens,USD,4.9248,24.624,Kimi K2.6
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,id=moonshotai/kimi-k3 | 新品跟进,1M tokens,USD,21.6,108.0,Kimi K3
 openrouter,MiMo-V2.5,0.14,0.28,0.0028,1.04858M,id=xiaomi/mimo-v2.5 | top-weekly,1M tokens,USD,1.008,2.016,
-openrouter,GLM 5.2,0.2674,0.8404,0.04966,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,1.92528,6.05088,GLM-5.2
+openrouter,GLM 5.2,0.266,0.836,0.0494,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,1.9152,6.0192,GLM-5.2
 openrouter,Claude Opus 4.7,5.0,25.0,0.5,1M,id=anthropic/claude-opus-4.7 | top-weekly,1M tokens,USD,36.0,180.0,
 openrouter,Gemini 3 Flash Preview,0.5,3.0,0.05,1.04858M,id=google/gemini-3-flash-preview | top-weekly,1M tokens,USD,3.6,21.6,
 openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,1M,id=anthropic/claude-sonnet-4.6 | top-weekly,1M tokens,USD,21.6,108.0,

@@ -1,7 +1,7 @@
 # OpenRouter 二次验证报告
 
-- 时间：2026-07-19 18:07:16
-- 抓取时间：2026-07-19T10:07:10.852598+00:00
+- 时间：2026-07-19 18:39:10
+- 抓取时间：2026-07-19T10:39:05.655345+00:00
 - 结果：✅ 通过
 - 原始模型数：344
 - 解析条数：23
@@ -21,6 +21,6 @@
 - Kimi K2.6 (`moonshotai/kimi-k2.6`) in=0.684 out=3.42
 - Kimi K3 (`moonshotai/kimi-k3`) in=3.0 out=15.0
 - MiMo-V2.5 (`xiaomi/mimo-v2.5`) in=0.14 out=0.28
-- GLM 5.2 (`z-ai/glm-5.2`) in=0.2674 out=0.8404
+- GLM 5.2 (`z-ai/glm-5.2`) in=0.266 out=0.836
 - Claude Opus 4.7 (`anthropic/claude-opus-4.7`) in=5.0 out=25.0
 - Gemini 3 Flash Preview (`google/gemini-3-flash-preview`) in=0.5 out=3.0
