@@ -97,7 +97,7 @@ python -m venv .venv
 
 展示名：ModelMesh → **胜算云**；openrouter → **OpenRouter**。
 
-主流目录由 `config/mainstream_models.yml` 驱动；证据不足的型号设为 `tracking`，不进入正式卡片。渠道先行型号不等于官方正式型号。
+主流目录由 `config/mainstream_models.yml` 驱动；证据不足的型号设为 `tracking`，不进入正式卡片。定价待补型号不等于官方正式型号。
 
 ---
 

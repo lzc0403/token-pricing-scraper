@@ -782,9 +782,9 @@ def _tracking_section(items: List[Dict[str, Any]], has: bool) -> str:
     <section class="block-card block-tracking" aria-labelledby="tracking-title">
       <div class="block-head">
         <div>
-          <div class="block-kicker">NEW MODEL RADAR</div>
-          <h2 id="tracking-title" class="block-title">新品主动跟进</h2>
-          <p class="block-desc">规则：新发布主流模型先登记监听（MiniMax M3 / Kimi K3 / Claude 5 等），命中报价后自动转为「已上榜」。不漏新模型。</p>
+          <div class="block-kicker">PRICING GAP</div>
+          <h2 id="tracking-title" class="block-title">定价待补监测</h2>
+          <p class="block-desc">官网定价尚未抓取到的型号，依靠渠道报价先行展示；数据源更新后自动转为官方定价。</p>
         </div>
         <span class="block-count">{len(items)} 项</span>
       </div>
@@ -863,7 +863,11 @@ def _mainstream_section(
                 else '<span data-empty-state="no-channel-price" class="ms-channel-empty">暂无渠道报价</span>'
             )
             hot_badge = '<span class="ms-featured">热门</span>' if featured else ""
-            tracking_badge = '<span class="ms-tracking">渠道先行</span>' if model.get("availability") == "tracking" else ""
+            availability = model.get("availability")
+            # 【定价待补】标签：非 official/preview 的展示模型（即官网定价尚未抓取到的）
+            # 注意：不是「渠道先行」——官网没价格不可能是渠道先出现，而是数据源抓取没跟上
+            is_pending = availability not in ("official", "preview")
+            tracking_badge = '<span class="ms-tracking" title="官网定价尚未抓取，以下为渠道参考价">定价待补</span>' if is_pending else ""
 
             model_cards.append(
                 f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
@@ -1057,6 +1061,7 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .layout.is-collapsed .sidebar{width:0;padding:0;border:none;overflow:hidden;opacity:0;transform:translateX(-100%)}
 
 .sidebar{position:sticky;top:12px;background:#fff;border:1px solid var(--line);border-radius:var(--r);max-height:calc(100vh - 24px);display:flex;flex-direction:column;overflow:hidden;min-width:0;transition:opacity .25s,transform .25s}
+.sidebar.is-peek{box-shadow:0 0 0 2px rgba(43,174,133,.25),0 4px 20px rgba(0,0,0,.12)}
 .sidebar-inner{padding:12px;overflow-y:auto;flex:1}
 .sidebar-close{display:none}
 .sidebar-collapse{display:none;position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:6px;border:1px solid var(--line);background:#fff;font-size:15px;font-weight:700;color:var(--mute);cursor:pointer;z-index:10;text-align:center;line-height:1}
@@ -1082,8 +1087,8 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .btn-confirm:hover{background:var(--primary-deep)}
 .btn-confirm:active{transform:scale(.97)}
 
-.sidebar-reopen{display:none;position:fixed;top:12px;left:12px;z-index:210;font-size:12px;font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:6px;padding:6px 12px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-.sidebar-reopen:hover{background:var(--primary-deep)}
+.sidebar-reopen{display:none;position:fixed;top:12px;left:12px;z-index:210;font-size:12px;font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:0 8px 8px 0;padding:8px 14px 8px 10px;cursor:pointer;box-shadow:2px 0 8px rgba(0,0,0,.12);transition:transform .2s,background .15s;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.04em}
+.sidebar-reopen:hover{background:var(--primary-deep);transform:translateX(2px)}
 .layout.is-collapsed ~ .sidebar-reopen{display:block}
 
 @media (max-width:1024px){
@@ -1152,6 +1157,8 @@ tr.js-row.is-hidden{display:none}
 .price-table th.sortable[aria-sort="descending"]::after{content:"↓";opacity:1;color:var(--primary)}
 .price-table th.num,.price-table td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
 .price-table tbody tr:hover{background:#f8fafb}
+.row-hl{animation:rowHl 2s ease-out}
+@keyframes rowHl{0%{background:#fff3cd}60%{background:#fff3cd}100%{background:transparent}}
 .price-table tbody tr:last-child td{border-bottom:0}
 
 .c-model .model{font-weight:700;color:var(--ink);line-height:1.3;word-break:break-word}
@@ -1262,7 +1269,7 @@ footer .disc{color:var(--mute)}
 .ms-channel-ok{color:#1a9e72;font-weight:700}
 .ms-channel-empty{color:var(--mute)}
 .ms-featured{display:inline-block;font-size:9px;font-weight:800;color:#fff;background:var(--primary);padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle}
-.ms-tracking{display:inline-block;font-size:9px;font-weight:800;color:#b8860b;background:#fff8e7;padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle}
+.ms-tracking{display:inline-block;font-size:9px;font-weight:800;color:#b8860b;background:#fff8e7;padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle;cursor:help}
 .ms-verified{color:var(--mute)}
 @media (max-width:1024px){.ms-model-grid{grid-template-columns:repeat(2,1fr);gap:6px}}
 @media (max-width:760px){.ms-model-grid{grid-template-columns:1fr}}
@@ -1511,6 +1518,42 @@ const SITE_DATA = __SITE_DATA__;
     });
   }
 
+
+  // FIX 2: Click model card → scroll to channel panel, switch tab, highlight row
+  function scrollToChannelPanel(canonical){
+    // Find a matching row in any channel table to know which tab to show
+    var targetRow = null;
+    var targetPanel = null;
+    ['domestic','overseas'].forEach(function(market){
+      var panel = document.getElementById('panel-' + market);
+      if (!panel) return;
+      var row = panel.querySelector('tr.js-row[data-canonical="' + canonical + '"]');
+      if (row){ targetRow = row; targetPanel = market; }
+    });
+    if (!targetPanel){
+      // Fallback: scroll to first channel block
+      var block = document.querySelector('.block-channel');
+      if (block) block.scrollIntoView({behavior:'smooth', block:'start'});
+      return;
+    }
+    // Switch to the correct tab
+    var tab = document.querySelector('.market-tab[data-market="' + targetPanel + '"]');
+    if (tab && !tab.classList.contains('is-active')){
+      tab.click();
+    }
+    // Wait a tick for tab to render then scroll + highlight
+    setTimeout(function(){
+      // Re-find row in case DOM changed
+      var panel = document.getElementById('panel-' + targetPanel);
+      var row = panel ? panel.querySelector('tr.js-row[data-canonical="' + canonical + '"]') : null;
+      if (!row) return;
+      row.scrollIntoView({behavior:'smooth', block:'center'});
+      // Briefly highlight the row
+      row.classList.add('row-hl');
+      setTimeout(function(){ row.classList.remove('row-hl'); }, 2000);
+    }, 250);
+  }
+
   function selectOnlyModel(canonical){
     Object.keys(state.models).forEach(function(key){ state.models[key] = key === canonical; });
     renderChips();
@@ -1522,6 +1565,8 @@ const SITE_DATA = __SITE_DATA__;
     } else {
       if (typeof closeSidebar === 'function') closeSidebar();
     }
+    // FIX 2: 跳转到渠道报价区
+    if (typeof scrollToChannelPanel === 'function') scrollToChannelPanel(canonical);
   }
 
   function bindModelCards(){
@@ -1558,19 +1603,85 @@ const SITE_DATA = __SITE_DATA__;
   if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
   if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
 
-  // 桌面端折叠/展开侧边栏
+  // 桌面端折叠/展开侧边栏（FIX 3: 增加 hover-peek + 自动收起）
   var layout = document.querySelector('.layout');
   var sidebarCollapse = document.getElementById('sidebarCollapse');
   var sidebarReopen = document.getElementById('sidebarReopen');
+  var sidebarWarmupTimer = null;
+  var sidebarLeaveTimer = null;
   var isCollapsed = false;
+  var isPeek = false;
+
+  function clearSidebarTimers(){
+    if (sidebarWarmupTimer){ clearTimeout(sidebarWarmupTimer); sidebarWarmupTimer = null; }
+    if (sidebarLeaveTimer){ clearTimeout(sidebarLeaveTimer); sidebarLeaveTimer = null; }
+  }
+
+  function collapseSidebar(){
+    if (!layout || isCollapsed) return;
+    isCollapsed = true;
+    layout.classList.add('is-collapsed');
+    sidebarReopen.classList.add('is-show');
+    isPeek = false;
+  }
+  function expandSidebar(){
+    if (!layout || !isCollapsed) return;
+    isCollapsed = false;
+    layout.classList.remove('is-collapsed');
+    sidebarReopen.classList.remove('is-show');
+    isPeek = false;
+  }
   function toggleSidebarLayout(){
     if (!layout) return;
-    isCollapsed = !isCollapsed;
-    layout.classList.toggle('is-collapsed', isCollapsed);
-    sidebarReopen.classList.toggle('is-show', isCollapsed);
+    if (isCollapsed) expandSidebar(); else collapseSidebar();
   }
+
+  // Hover-peek: hover reopen button → temporarily expand; leave → collapse
+  if (sidebarReopen){
+    sidebarReopen.addEventListener('mouseenter', function(){
+      if (!isCollapsed) return;
+      clearSidebarTimers();
+      isPeek = true;
+      layout.classList.remove('is-collapsed');
+      sidebar.classList.add('is-peek');
+    });
+    sidebarReopen.addEventListener('mouseleave', function(){
+      if (!isPeek) return;
+      clearSidebarTimers();
+      sidebarLeaveTimer = setTimeout(function(){
+        if (isCollapsed && isPeek){
+          layout.classList.add('is-collapsed');
+          sidebar.classList.remove('is-peek');
+          isPeek = false;
+        }
+      }, 800);
+    });
+  }
+  // When peeking, moving into sidebar keeps it open
+  if (sidebar){
+    sidebar.addEventListener('mouseenter', function(){
+      if (isPeek){ clearSidebarTimers(); }
+    });
+    sidebar.addEventListener('mouseleave', function(){
+      if (!isPeek || !isCollapsed) return;
+      clearSidebarTimers();
+      sidebarLeaveTimer = setTimeout(function(){
+        if (isCollapsed && isPeek){
+          layout.classList.add('is-collapsed');
+          sidebar.classList.remove('is-peek');
+          isPeek = false;
+        }
+      }, 600);
+    });
+  }
+
   if (sidebarCollapse) sidebarCollapse.addEventListener('click', toggleSidebarLayout);
-  if (sidebarReopen) sidebarReopen.addEventListener('click', toggleSidebarLayout);
+  if (sidebarReopen) sidebarReopen.addEventListener('click', function(){
+    // click fully toggles (cancel peek state)
+    isPeek = false;
+    clearSidebarTimers();
+    toggleSidebarLayout();
+  });
 
   // 确认按钮：有选中内容时显示，点击后收起侧边栏
   var sidebarConfirm = document.getElementById('sidebarConfirm');

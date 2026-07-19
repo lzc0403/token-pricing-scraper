@@ -725,7 +725,7 @@ def test_project_catalog_claude_official_models_have_exact_api_ids():
 
 
 def test_project_catalog_tracking_models_appear_with_tracking_badge():
-    """tracking 型号应出现在目录中，并在渲染时标记为「渠道先行」。"""
+    """tracking 型号应出现在目录中，并在渲染时标记为「定价待补」。"""
     catalog = load_catalog(os.path.join(ROOT, "config", "mainstream_models.yml"))
     rendered = renderable_sections(catalog)
     domestic = rendered.get("domestic", [])

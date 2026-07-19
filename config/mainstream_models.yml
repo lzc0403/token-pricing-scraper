@@ -1,6 +1,6 @@
 # 主流模型官方目录（2026-07-19 更新）
 # 本次更新：Kimi K3、Gemini 3.5、GPT-5.6 三系列新型号
-# 页面渲染：official/preview 显示为正式卡片；tracking 显示为「渠道先行」卡片
+# 页面渲染：official/preview 显示为正式卡片；tracking 显示为「定价待补」卡片
 
 updated_at: "2026-07-19T14:30:00+08:00"
 
@@ -35,7 +35,7 @@ sections:
             display_name: "DeepSeek V4 Pro"
             api_id: null
             openrouter_id: null
-            role: "渠道先行 · 1M 上下文"
+            role: "定价待补 · 1M 上下文"
             availability: tracking
             modality: text
             context_tokens: 1048576
@@ -53,7 +53,7 @@ sections:
             display_name: "DeepSeek V4 Flash"
             api_id: null
             openrouter_id: null
-            role: "渠道先行 · 轻量高速"
+            role: "定价待补 · 轻量高速"
             availability: tracking
             modality: text
             context_tokens: 131072
