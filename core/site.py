@@ -820,53 +820,51 @@ def _mainstream_section(
         for model in models:
             canon = model.get("canonical") or "—"
             display = model.get("display_name") or canon
-            tier = model.get("display_tier") or {}
+            pricing = model.get("pricing") or {}
+            tiers = pricing.get("tiers") or []
+            cache_input = pricing.get("cache_input_price")
             ctx_label = model.get("context_label") or "—"
             ctx_tokens = model.get("context_tokens") or ""
             role = model.get("role") or ""
-            inp = tier.get("input_price")
-            out = tier.get("output_price")
-            cache = tier.get("cache_input_price")
+            inp = tiers[0].get("input_price") if tiers else None
+            out = tiers[0].get("output_price") if tiers else None
             currency = model.get("currency") or ""
-            tier_count = model.get("tier_count") or 0
             has_channel = model.get("has_channel_price")
             featured = model.get("featured")
             verified = (model.get("verified_at") or "")[:10]
 
             price_html = (
                 f'<div class="ms-prices">'
-                f'<span class="ms-price"><b>{_fmt_num(inp)}</b> <small>{currency}/输入</small></span>'
-                f'<span class="ms-price"><b>{_fmt_num(out)}</b> <small>{currency}/输出</small></span>'
+                f'<span class="ms-price"><b>{_fmt_num(inp)}</b> <small>入</small></span>'
+                f'<span class="ms-price"><b>{_fmt_num(out)}</b> <small>出</small></span>'
                 f"</div>"
                 if isinstance(inp, (int, float)) and isinstance(out, (int, float))
-                else '<div class="ms-prices ms-no-price"><span>价格待官方公布</span></div>'
+                else '<div class="ms-prices ms-no-price"><span>价格待公布</span></div>'
             )
             cache_html = (
-                f'<span class="ms-cache">缓存写入 {_fmt_num(cache)} {currency}</span>'
-                if isinstance(cache, (int, float))
+                f'<span class="ms-cache">缓存 {_fmt_num(cache_input)}/{currency}</span>'
+                if isinstance(cache_input, (int, float))
                 else ""
             )
             tiers_html = ""
-            if tier_count > 1:
+            if len(tiers) > 1:
                 tiers_list = "".join(
                     f'<li>{_esc(t.get("condition") or "—")}：'
                     f"{_fmt_num(t.get('input_price'))} / {_fmt_num(t.get('output_price'))} {currency}</li>"
-                    for t in model.get("pricing", {}).get("tiers", [])
+                    for t in tiers
                 )
-                tiers_html = f'<details class="ms-tiers"><summary>分档计费（{tier_count} 档）</summary><ul>{tiers_list}</ul></details>'
+                tiers_html = f'<details class="ms-tiers"><summary>分档（{len(tiers)}档）</summary><ul>{tiers_list}</ul></details>'
 
             channel_html = (
-                '<span class="ms-channel-ok">有渠道报价</span>'
+                '<span class="ms-channel-ok">渠道✓</span>'
                 if has_channel
-                else '<span data-empty-state="no-channel-price" class="ms-channel-empty">暂无渠道报价</span>'
+                else '<span data-empty-state="no-channel-price" class="ms-channel-empty">无渠道</span>'
             )
-            hot_badge = '<span class="ms-featured">热门</span>' if featured else ""
+            hot_badge = '<span class="ms-featured">热</span>' if featured else ""
             availability = model.get("availability")
-            # 【定价待补】标签：非 official/preview 的展示模型（即官网定价尚未抓取到的）
             is_pending = availability not in ("official", "preview")
-            tracking_badge = '<span class="ms-tracking" title="官网定价尚未抓取，以下为渠道参考价">定价待补</span>' if is_pending else ""
+            tracking_badge = '<span class="ms-tracking" title="官网定价尚未抓取，以下为渠道参考价">待补</span>' if is_pending else ""
 
-            # 统一卡片：顶部一条厂商色带 + 主体内容
             all_cards.append(
                 f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
                 f'data-context="{_esc_attr(ctx_tokens)}" data-source="{_esc_attr(vendor.get("source_id") or vid)}" '
@@ -879,7 +877,7 @@ def _mainstream_section(
                 f'<div class="ms-role">{_esc(vname)} · {_esc(role)}</div>'
                 f"{price_html}{cache_html}"
                 f"{tiers_html}"
-                f'<div class="ms-meta">{channel_html}<span class="ms-verified">核验 {_esc(verified)}</span></div>'
+                f'<div class="ms-meta">{channel_html}<span class="ms-verified">{_esc(verified)}</span></div>'
                 f"</article>"
             )
 
@@ -1229,7 +1227,7 @@ footer .disc{color:var(--mute)}
 .ms-domestic .block-kicker{color:#1a9e72}
 .ms-overseas .block-kicker{color:#3b82f6}
 .ms-unified-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:0 10px 10px}
-.model-pick{background:#fff;border:1px solid var(--line);border-radius:6px;padding:5px 6px;cursor:pointer;transition:border-color .12s,box-shadow .12s;outline:none;position:relative;overflow:hidden}
+.model-pick{background:#fff;border:1px solid var(--line);border-radius:5px;padding:4px 5px;cursor:pointer;transition:border-color .12s,box-shadow .12s;outline:none;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:1px}
 .model-pick:hover,.model-pick:focus-visible{border-color:var(--primary);box-shadow:0 0 0 2px rgba(43,174,133,.12)}
 .ms-overseas .model-pick:hover,.ms-overseas .model-pick:focus-visible{border-color:#3b82f6;box-shadow:0 0 0 2px rgba(59,130,246,.12)}
 .ms-vendor-stripe{position:absolute;top:0;left:0;right:0;height:3px;background:#94a3b8}
@@ -1242,26 +1240,26 @@ footer .disc{color:var(--mute)}
 .ms-vendor-stripe[data-vendor=openai]{background:#10b981}
 .ms-vendor-stripe[data-vendor=anthropic]{background:#e11d48}
 .ms-vendor-stripe[data-vendor=google]{background:#3b82f6}
-.ms-model-head{display:flex;align-items:flex-start;justify-content:space-between;gap:3px;margin-bottom:1px}
-.ms-model-name{font-size:10px;font-weight:800;color:#0f172a}
-.ms-context{font-size:9px;font-weight:700;color:var(--mute);background:var(--canvas);padding:1px 4px;border-radius:3px;white-space:nowrap}
-.ms-role{font-size:9px;color:var(--mute);margin-bottom:2px}
-.ms-prices{display:flex;gap:5px;margin-bottom:2px;flex-wrap:wrap}
+.ms-model-head{display:flex;align-items:flex-start;justify-content:space-between;gap:2px;margin-bottom:0}
+.ms-model-name{font-size:9px;font-weight:800;color:#0f172a}
+.ms-context{font-size:8px;font-weight:700;color:var(--mute);background:var(--canvas);padding:0 3px;border-radius:2px;white-space:nowrap}
+.ms-role{font-size:8px;color:var(--mute);margin-bottom:1px}
+.ms-prices{display:flex;gap:4px;margin-bottom:1px;flex-wrap:wrap}
 .ms-price{display:inline-flex;flex-direction:column}
-.ms-price b{font-size:10px;font-weight:800;color:#0f172a}
-.ms-price small{font-size:8px;color:var(--mute)}
-.ms-no-price{color:var(--mute);font-size:11px;font-style:italic}
-.ms-cache{font-size:9px;color:var(--mute);display:block;margin-bottom:1px}
+.ms-price b{font-size:9px;font-weight:800;color:#0f172a}
+.ms-price small{font-size:7px;color:var(--mute)}
+.ms-no-price{color:var(--mute);font-size:9px;font-style:italic}
+.ms-cache{font-size:8px;color:var(--mute);display:block;margin-bottom:0}
 .ms-tiers{margin:3px 0}
-.ms-tiers summary{font-size:9px;font-weight:700;color:var(--ink2);cursor:pointer}
-.ms-tiers ul{margin:2px 0 0;padding-left:12px;font-size:9px;color:var(--mute)}
-.ms-tiers li{margin:1px 0}
-.ms-meta{display:flex;align-items:center;justify-content:space-between;gap:3px;margin-top:2px;font-size:9px}
-.ms-channel-ok{color:#1a9e72;font-weight:700}
-.ms-channel-empty{color:var(--mute)}
-.ms-featured{display:inline-block;font-size:9px;font-weight:800;color:#fff;background:var(--primary);padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle}
-.ms-tracking{display:inline-block;font-size:8px;font-weight:800;color:#b8860b;background:#fff8e7;padding:1px 4px;border-radius:3px;margin-left:3px;vertical-align:middle;cursor:help}
-.ms-verified{color:var(--mute)}
+.ms-tiers summary{font-size:8px;font-weight:700;color:var(--ink2);cursor:pointer}
+.ms-tiers ul{margin:1px 0 0;padding-left:10px;font-size:8px;color:var(--mute)}
+.ms-tiers li{margin:0}
+.ms-meta{display:flex;align-items:center;justify-content:space-between;gap:2px;margin-top:1px;font-size:8px}
+.ms-channel-ok{color:#1a9e72;font-weight:700;font-size:8px}
+.ms-channel-empty{color:var(--mute);font-size:8px}
+.ms-featured{display:inline-block;font-size:7px;font-weight:800;color:#fff;background:var(--primary);padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle}
+.ms-tracking{display:inline-block;font-size:7px;font-weight:800;color:#b8860b;background:#fff8e7;padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle;cursor:help}
+.ms-verified{color:var(--mute);font-size:8px}
 @media (min-width:1280px){.ms-unified-grid{grid-template-columns:repeat(5,1fr);gap:5px}}
 @media (max-width:1024px){.ms-unified-grid{grid-template-columns:repeat(2,1fr);gap:5px}}
 @media (max-width:760px){.ms-unified-grid{grid-template-columns:1fr}}
