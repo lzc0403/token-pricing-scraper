@@ -886,17 +886,20 @@ def _mainstream_section(
         vid = model.get("_vid", "—")
         vname = model.get("_vname", vid)
 
-        # 紧凑价格行：入 X · 出 Y · 缓存 Z（单行）
+        # 紧凑价格行：入 ¥X/MTok · 出 ¥Y/MTok · 缓存 ¥Z/MTok（带单位）
+        cur_sym = "¥" if currency == "CNY" else "$"
+        unit = "/MTok"
         price_html = (
             f'<div class="ms-prices-row">'
-            f'<b>{_fmt_num(inp)}</b>入'
-            f' · <b>{_fmt_num(out)}</b>出'
+            f'<span class="ms-p-item"><label>入</label><b>{cur_sym}{_fmt_num(inp)}{unit}</b></span>'
+            f'<span class="ms-p-sep">·</span>'
+            f'<span class="ms-p-item"><label>出</label><b>{cur_sym}{_fmt_num(out)}{unit}</b></span>'
             f'</div>'
             if isinstance(inp, (int, float)) and isinstance(out, (int, float))
-            else '<div class="ms-prices-row ms-no-price">价格待公布</div>'
+            else '<div class="ms-prices-row ms-no-price"><span>价格待公布</span></div>'
         )
         cache_html = (
-            f'<span class="ms-cache-inline">缓存 {_fmt_num(cache_input)}</span>'
+            f'<span class="ms-cache-inline"><span class="ms-p-sep">·</span><span class="ms-p-item"><label>缓存</label><b>{cur_sym}{_fmt_num(cache_input)}{unit}</b></span></span>'
             if isinstance(cache_input, (int, float))
             else ""
         )
@@ -1304,12 +1307,14 @@ footer .disc{color:var(--mute)}
 .ms-context{font-size:8px;font-weight:700;color:var(--mute);background:var(--canvas);padding:0 3px;border-radius:2px;white-space:nowrap}
 .ms-role{font-size:8px;color:var(--mute);margin-bottom:1px}
 /* 紧凑价格行：单行 入 X · 出 Y */
-.ms-prices-row{font-size:8px;color:#0f172a;line-height:1.3;margin-bottom:0}
-.ms-prices-row b{font-weight:800}
+.ms-prices-row{font-size:8px;color:#0f172a;line-height:1.4;margin-bottom:0;display:inline-flex;align-items:center;flex-wrap:wrap;gap:1px}
+.ms-p-item{display:inline-flex;align-items:center;gap:1px}
+.ms-p-item label{color:var(--mute);font-weight:500;font-size:7.5px}
+.ms-p-item b{font-weight:800;white-space:nowrap}
+.ms-p-sep{color:#94a3b8;margin:0 1px;font-weight:400}
 .ms-no-price{color:var(--mute);font-style:italic}
-/* 缓存命中 — 与价格同行 */
-.ms-cache-inline{font-size:8px;color:var(--mute);margin-left:4px}
-.ms-cache-inline::before{content:'·';margin-right:2px}
+/* 缓存命中 — 与价格同行，共用 ms-p-item 样式 */
+.ms-cache-inline{font-size:8px;color:var(--mute);display:inline-flex;align-items:center;margin-left:0}
 .ms-tiers{margin:3px 0}
 .ms-tiers summary{font-size:8px;font-weight:700;color:var(--ink2);cursor:pointer}
 .ms-tiers ul{margin:1px 0 0;padding-left:10px;font-size:8px;color:var(--mute)}
