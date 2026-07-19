@@ -1067,7 +1067,7 @@ html{overflow-x:clip}
 @media (max-width:1024px){.btn-filter-toggle{display:inline-block}}
 
 /* ===== 侧边栏 + 主内容两栏布局 ===== */
-.layout{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start;min-width:0}
+.layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;align-items:start;min-width:0}
 .sidebar{position:sticky;top:18px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);max-height:calc(100vh - 36px);display:flex;flex-direction:column;overflow:hidden;min-width:0}
 .sidebar-inner{padding:18px 16px;overflow-y:auto;flex:1}
 .sidebar-close{display:none;position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:20px;color:var(--ink2);cursor:pointer;z-index:10}
@@ -1087,13 +1087,16 @@ html{overflow-x:clip}
 .sidebar .visible-count{font-size:11px;font-weight:700;color:var(--mute)}
 
 @media (max-width:1024px){
-  .layout{grid-template-columns:1fr}
+  .layout{display:block}
   .sidebar{position:fixed;top:0;left:0;bottom:0;width:300px;max-height:100vh;border-radius:0;z-index:200;transform:translateX(-100%);transition:transform .25s}
   .sidebar.is-open{transform:translateX(0)}
   .sidebar-close{display:block}
   .sidebar-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:190;display:none}
   .sidebar-backdrop.is-open{display:block}
+  .container{max-width:100%;width:100%;padding:20px 14px 40px}
 }
+/* 桌面默认隐藏遮罩；移动端由上面的 media query 控制 fixed 显隐 */
+@media (min-width:1025px){.sidebar-backdrop{display:none}}
 @media (max-width:760px){
   .sidebar{width:85vw}
 }
@@ -1802,7 +1805,6 @@ def build_site(data_dir: str, out_path: str = None) -> str:
   </header>
 
   <div class="layout">
-    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
     {filter_block}
     <main class="container" id="main">
       <div class="sec-head">
@@ -1823,6 +1825,8 @@ def build_site(data_dir: str, out_path: str = None) -> str:
       {chart_block}
     </main>
   </div>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
   <footer>
     <div class="note">数据来源：国内厂商官网公开定价；OpenAI / Anthropic / Google 官方 API 参考价；胜算云、腾讯云等渠道报价。腾讯云中国大陆区域 USD 归入海外渠道页。GitHub Action 每周自动抓取。</div>
