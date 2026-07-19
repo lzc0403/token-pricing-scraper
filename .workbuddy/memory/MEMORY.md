@@ -1,6 +1,6 @@
 # 项目长期记忆 · token 定价
 
-更新：2026-07-18
+更新：2026-07-20
 
 ## 核心决策
 
@@ -12,7 +12,10 @@
 
 ## 部署
 
-CloudStudio: https://0946e061d8e1463e8946a119b5aa0afb.app.codebuddy.work
+- **永久地址（GitHub Pages）**：https://lzc0403.github.io/token-pricing-scraper/ （public 仓库 + Actions 部署，每周日 18:00 UTC 自动抓取并发布 site/；workflow_dispatch 可手动触发）
+- 旧 CloudStudio 临时沙箱已弃用（每次换 URL、会过期）
+- CI 数据提交模式：scrape.yml 的「Commit results」会自动 push data/site 到 origin/main，本地 main 会落后于远程 → 任何本地推送前先 `git fetch` + `git merge origin/main`
+- 部署源 = `main` 分支（含 feature/mainstream-model-sections 全部特性）
 
 ## 文档
 
