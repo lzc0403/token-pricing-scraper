@@ -63,6 +63,37 @@ CHANNEL_SOURCES = {"modelmesh", "tencent", "openrouter", "volcengine", "aliyun"}
 # 渠道按「结算币种」分区：USD 结算 = 海外渠道面板；CNY/无标价 = 国内渠道面板。
 # 腾讯云/火山引擎等国内云厂商也可能以 USD 对外报价（如跨境实例），一律归入海外。
 
+# 主流模型排序：按发布时间/技术先进性降序（越新越强排越前）
+# 依据：Kimi K3(2026-07-17) > GLM-5.2(2026-06-17) > DeepSeek V4 Pro > V4 Flash > V3.2
+MAINSTREAM_SORT_ORDER: List[str] = [
+    # 国内 — 按技术先进性
+    "Kimi K3",
+    "GLM-5.2",
+    "GLM-5.1",
+    "DeepSeek V4 Pro",
+    "DeepSeek V4 Flash",
+    "DeepSeek V3.2",
+    "MiniMax M3",
+    "Doubao Seed 2.1 Pro",
+    "Doubao Seed 2.1 Turbo",
+    "MiniMax M2.7",
+    "Kimi K2.7 Code",
+    "Kimi K2.6",
+    "Qwen3.7 Max",
+    "Qwen3.7 Plus",
+    # 海外 — GPT/Claude/Gemini 旗舰优先
+    "GPT-5.6 Sol",
+    "Claude Fable 5",
+    "GPT-5.6 Terra",
+    "Claude Opus 4.8",
+    "GPT-5.6 Luna",
+    "Claude Sonnet 5",
+    "GPT-4o",
+    "Claude Haiku 4.5",
+    "Gemini 3.5 Pro",
+    "Gemini 3.5 Flash",
+]
+
 MODEL_ORDER: List[str] = [
     # 国内主力
     "DeepSeek V4 Pro",
@@ -805,83 +836,110 @@ def _mainstream_section(
     使用厂商色带（vendor stripe）标记每张卡片的来源，
     视觉整齐划一，消除各厂商子网格列数不一致的问题。
 
+    排序按 MAINSTREAM_SORT_ORDER（发布时间/技术先进性）。
+    日期统一时仅在顶部展示一次。
+    价格紧凑为单行「入 X · 出 Y · 缓存 Z」。
+
     accent: domestic（青绿）或 overseas（蓝色）
     """
     total_models = sum(len(v.get("models", [])) for v in vendors)
-    all_cards: List[str] = []
 
+    # ---- 收集全部模型并排序 ----
+    flat_models: List[Dict[str, Any]] = []
     for vendor in vendors:
         vid = vendor.get("id") or "—"
         vname = vendor.get("name") or vid
-        models = vendor.get("models", [])
-        if not models:
-            continue
+        for model in vendor.get("models", []):
+            model["_vid"] = vid
+            model["_vname"] = vname
+            flat_models.append(model)
 
-        for model in models:
-            canon = model.get("canonical") or "—"
-            display = model.get("display_name") or canon
-            pricing = model.get("pricing") or {}
-            tiers = pricing.get("tiers") or []
-            cache_input = pricing.get("cache_input_price")
-            ctx_label = model.get("context_label") or "—"
-            ctx_tokens = model.get("context_tokens") or ""
-            role = model.get("role") or ""
-            inp = tiers[0].get("input_price") if tiers else None
-            out = tiers[0].get("output_price") if tiers else None
-            currency = model.get("currency") or ""
-            has_channel = model.get("has_channel_price")
-            featured = model.get("featured")
-            verified = (model.get("verified_at") or "")[:10]
+    # 按 MAINSTREAM_SORT_ORDER 排序，未列出的排最后
+    order_map = {name: i for i, name in enumerate(MAINSTREAM_SORT_ORDER)}
+    flat_models.sort(key=lambda m: order_map.get(m.get("canonical", ""), 9999))
 
-            price_html = (
-                f'<div class="ms-prices">'
-                f'<span class="ms-price"><b>{_fmt_num(inp)}</b> <small>入</small></span>'
-                f'<span class="ms-price"><b>{_fmt_num(out)}</b> <small>出</small></span>'
-                f"</div>"
-                if isinstance(inp, (int, float)) and isinstance(out, (int, float))
-                else '<div class="ms-prices ms-no-price"><span>价格待公布</span></div>'
-            )
-            cache_html = (
-                f'<span class="ms-cache">缓存 {_fmt_num(cache_input)}/{currency}</span>'
-                if isinstance(cache_input, (int, float))
-                else ""
-            )
-            tiers_html = ""
-            if len(tiers) > 1:
-                tiers_list = "".join(
-                    f'<li>{_esc(t.get("condition") or "—")}：'
-                    f"{_fmt_num(t.get('input_price'))} / {_fmt_num(t.get('output_price'))} {currency}</li>"
-                    for t in tiers
-                )
-                tiers_html = f'<details class="ms-tiers"><summary>分档（{len(tiers)}档）</summary><ul>{tiers_list}</ul></details>'
+    # ---- 日期去重检测 ----
+    all_dates = set()
+    for m in flat_models:
+        d = (m.get("verified_at") or "")[:10]
+        if d:
+            all_dates.add(d)
+    uniform_date = all_dates.pop() if len(all_dates) == 1 else ""
 
-            channel_html = (
-                '<span class="ms-channel-ok">渠道✓</span>'
-                if has_channel
-                else '<span data-empty-state="no-channel-price" class="ms-channel-empty">无渠道</span>'
-            )
-            hot_badge = '<span class="ms-featured">热</span>' if featured else ""
-            availability = model.get("availability")
-            is_pending = availability not in ("official", "preview")
-            tracking_badge = '<span class="ms-tracking" title="官网定价尚未抓取，以下为渠道参考价">待补</span>' if is_pending else ""
+    # ---- 渲染卡片 ----
+    all_cards: List[str] = []
 
-            all_cards.append(
-                f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
-                f'data-context="{_esc_attr(ctx_tokens)}" data-source="{_esc_attr(vendor.get("source_id") or vid)}" '
-                f'tabindex="0" role="button" aria-label="筛选 {_esc(display)}">'
-                f'<span class="ms-vendor-stripe" data-vendor="{_esc_attr(vid)}" aria-hidden="true"></span>'
-                f'<div class="ms-model-head">'
-                f'<span class="ms-model-name">{_esc(display)}{hot_badge}{tracking_badge}</span>'
-                f'<span class="ms-context">{_esc(ctx_label)}</span>'
-                f"</div>"
-                f'<div class="ms-role">{_esc(vname)} · {_esc(role)}</div>'
-                f"{price_html}{cache_html}"
-                f"{tiers_html}"
-                f'<div class="ms-meta">{channel_html}<span class="ms-verified">{_esc(verified)}</span></div>'
-                f"</article>"
+    for model in flat_models:
+        canon = model.get("canonical") or "—"
+        display = model.get("display_name") or canon
+        pricing = model.get("pricing") or {}
+        tiers = pricing.get("tiers") or []
+        cache_input = pricing.get("cache_input_price")
+        ctx_label = model.get("context_label") or "—"
+        ctx_tokens = model.get("context_tokens") or ""
+        role = model.get("role") or ""
+        inp = tiers[0].get("input_price") if tiers else None
+        out = tiers[0].get("output_price") if tiers else None
+        currency = model.get("currency") or ""
+        has_channel = model.get("has_channel_price")
+        featured = model.get("featured")
+        vid = model.get("_vid", "—")
+        vname = model.get("_vname", vid)
+
+        # 紧凑价格行：入 X · 出 Y · 缓存 Z（单行）
+        price_html = (
+            f'<div class="ms-prices-row">'
+            f'<b>{_fmt_num(inp)}</b>入'
+            f' · <b>{_fmt_num(out)}</b>出'
+            f'</div>'
+            if isinstance(inp, (int, float)) and isinstance(out, (int, float))
+            else '<div class="ms-prices-row ms-no-price">价格待公布</div>'
+        )
+        cache_html = (
+            f'<span class="ms-cache-inline">缓存 {_fmt_num(cache_input)}</span>'
+            if isinstance(cache_input, (int, float))
+            else ""
+        )
+        tiers_html = ""
+        if len(tiers) > 1:
+            tiers_list = "".join(
+                f'<li>{_esc(t.get("condition") or "—")}：'
+                f"{_fmt_num(t.get('input_price'))} / {_fmt_num(t.get('output_price'))} {currency}</li>"
+                for t in tiers
             )
+            tiers_html = f'<details class="ms-tiers"><summary>分档（{len(tiers)}档）</summary><ul>{tiers_list}</ul></details>'
+
+        channel_html = (
+            '<span class="ms-channel-ok">渠道✓</span>'
+            if has_channel
+            else '<span data-empty-state="no-channel-price" class="ms-channel-empty">无渠道</span>'
+        )
+        hot_badge = '<span class="ms-featured">热</span>' if featured else ""
+        availability = model.get("availability")
+        is_pending = availability not in ("official", "preview")
+        tracking_badge = '<span class="ms-tracking" title="官网定价尚未抓取，以下为渠道参考价">待补</span>' if is_pending else ""
+
+        all_cards.append(
+            f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
+            f'data-context="{_esc_attr(ctx_tokens)}" data-source="{_esc_attr(vid)}" '
+            f'tabindex="0" role="button" aria-label="筛选 {_esc(display)}">'
+            f'<span class="ms-vendor-stripe" data-vendor="{_esc_attr(vid)}" aria-hidden="true"></span>'
+            f'<div class="ms-model-head">'
+            f'<span class="ms-model-name">{_esc(display)}{hot_badge}{tracking_badge}</span>'
+            f'<span class="ms-context">{_esc(ctx_label)}</span>'
+            f"</div>"
+            f'<div class="ms-role">{_esc(vname)} · {_esc(role)}</div>'
+            f"{price_html}"
+            f"{cache_html}"
+            f"{tiers_html}"
+            f'<div class="ms-meta">{channel_html}</div>'
+            f"</article>"
+        )
 
     accent_class = "ms-overseas" if accent == "overseas" else "ms-domestic"
+    # 日期横幅：仅当所有卡片日期一致时显示
+    date_banner = f'<div class="ms-date-banner">数据更新于 <b>{_esc(uniform_date)}</b></div>' if uniform_date else ""
+
     return f"""
     <section class="block-card block-mainstream {accent_class}" data-section="{section_id}-mainstream" aria-labelledby="{section_id}-mainstream-title">
       <div class="block-head">
@@ -894,6 +952,7 @@ def _mainstream_section(
           <span class="block-count">{total_models} 款</span>
         </div>
       </div>
+      {date_banner}
       <div class="ms-unified-grid">{''.join(all_cards)}</div>
     </section>"""
 
@@ -1111,8 +1170,8 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .fam-claude{background:#fff8e7;border-color:#e8d08e;color:#b8860b}
 .fam-gemini{background:#e8f8f2;border-color:#a7d8c4;color:#1a9e72}
 
-.btn-filter-toggle{display:none;font-size:12px;font-weight:700;color:var(--primary);background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer}
-@media (max-width:1024px){.btn-filter-toggle{display:inline-block}}
+.btn-filter-toggle{display:inline-flex;align-items:center;font-size:12px;font-weight:700;color:var(--primary);background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px 14px;cursor:pointer;gap:4px}
+.btn-filter-toggle::before{content:'☰';font-size:13px}
 
 .filter-bar,.filter-top,.filter-grid,.filter-group,.filter-foot{display:none}
 .rate-input-wrap{display:flex;gap:6px;align-items:center}
@@ -1244,22 +1303,24 @@ footer .disc{color:var(--mute)}
 .ms-model-name{font-size:9px;font-weight:800;color:#0f172a}
 .ms-context{font-size:8px;font-weight:700;color:var(--mute);background:var(--canvas);padding:0 3px;border-radius:2px;white-space:nowrap}
 .ms-role{font-size:8px;color:var(--mute);margin-bottom:1px}
-.ms-prices{display:flex;gap:4px;margin-bottom:1px;flex-wrap:wrap}
-.ms-price{display:inline-flex;flex-direction:column}
-.ms-price b{font-size:9px;font-weight:800;color:#0f172a}
-.ms-price small{font-size:7px;color:var(--mute)}
-.ms-no-price{color:var(--mute);font-size:9px;font-style:italic}
-.ms-cache{font-size:8px;color:var(--mute);display:block;margin-bottom:0}
+/* 紧凑价格行：单行 入 X · 出 Y */
+.ms-prices-row{font-size:8px;color:#0f172a;line-height:1.3;margin-bottom:0}
+.ms-prices-row b{font-weight:800}
+.ms-no-price{color:var(--mute);font-style:italic}
+/* 缓存命中 — 与价格同行 */
+.ms-cache-inline{font-size:8px;color:var(--mute);margin-left:4px}
+.ms-cache-inline::before{content:'·';margin-right:2px}
 .ms-tiers{margin:3px 0}
 .ms-tiers summary{font-size:8px;font-weight:700;color:var(--ink2);cursor:pointer}
 .ms-tiers ul{margin:1px 0 0;padding-left:10px;font-size:8px;color:var(--mute)}
 .ms-tiers li{margin:0}
-.ms-meta{display:flex;align-items:center;justify-content:space-between;gap:2px;margin-top:1px;font-size:8px}
+.ms-meta{display:flex;align-items:center;gap:2px;margin-top:1px;font-size:8px}
 .ms-channel-ok{color:#1a9e72;font-weight:700;font-size:8px}
 .ms-channel-empty{color:var(--mute);font-size:8px}
 .ms-featured{display:inline-block;font-size:7px;font-weight:800;color:#fff;background:var(--primary);padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle}
 .ms-tracking{display:inline-block;font-size:7px;font-weight:800;color:#b8860b;background:#fff8e7;padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle;cursor:help}
 .ms-verified{color:var(--mute);font-size:8px}
+.ms-date-banner{text-align:center;font-size:8px;color:var(--mute);padding:2px 10px 4px;letter-spacing:.02em}
 @media (min-width:1280px){.ms-unified-grid{grid-template-columns:repeat(5,1fr);gap:5px}}
 @media (max-width:1024px){.ms-unified-grid{grid-template-columns:repeat(2,1fr);gap:5px}}
 @media (max-width:760px){.ms-unified-grid{grid-template-columns:1fr}}

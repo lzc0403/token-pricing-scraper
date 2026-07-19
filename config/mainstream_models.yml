@@ -130,20 +130,21 @@ sections:
         display_name: GLM-5.2
         api_id: null
         openrouter_id: null
-        role: 新品 · 官方字段待核验
-        availability: tracking
+        role: 旗舰开源 · 744B MoE · 1M上下文
+        availability: official
         modality: text
-        context_tokens: 131072
+        context_tokens: 1048576
         pricing_kind: paid
         pricing:
           tiers:
-          - condition: 渠道参考价
+          - condition: default
             input_price: 8.0
             output_price: 28.0
+          cache_input_price: 2.0
         currency: CNY
         unit: per_million_tokens
         source_url: https://open.bigmodel.cn/pricing
-        verified_at: '2026-07-19T14:30:00+08:00'
+        verified_at: '2026-07-19T20:00:00+08:00'
     - id: kimi
       name: Kimi
       source_id: kimi
