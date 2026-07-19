@@ -21,7 +21,6 @@
 | Doubao Seed 2.1 Turbo | modelmesh | 3 ¥ | 15 ¥ | - | CNY | 3 CNY / 15 CNY | 256K |
 | Doubao Seed 2.1 Turbo | volcengine | 3 ¥ | 15 ¥ | 0.6 CNY | CNY | 3 CNY / 15 CNY | - |
 | GLM-5.1 | bigmodel | 6 ¥ | 24 ¥ | - | CNY | 6 CNY / 24 CNY | - |
-| GLM-5.1 | modelmesh | 6 ¥ | 24 ¥ | - | CNY | 6 CNY / 24 CNY | 200K |
 | GLM-5.1 | tencent | 6.048 ¥ | 24.192 ¥ | 0.182 USD | USD | 0.84 USD / 3.36 USD | - |
 | GLM-5.1 | tencent | 8.064 ¥ | 28.224 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |

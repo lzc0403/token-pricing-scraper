@@ -324,7 +324,7 @@
     "input_rmb": 2.016,
     "output_rmb": 3.024,
     "canonical": "DeepSeek V3.2",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",
