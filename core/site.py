@@ -764,8 +764,12 @@ def _sidebar() -> str:
         </div>
 
         <div class="sidebar-foot">
-          <button type="button" id="filterReset" class="btn-filter-reset">重置全部筛选</button>
+          <button type="button" id="filterReset" class="btn-filter-reset">重置筛选</button>
           <span class="visible-count" id="visibleCount">显示 0 行</span>
+        </div>
+        <div class="sidebar-actions">
+          <button type="button" class="btn-filter-toggle" id="sidebarToggle" aria-label="收起筛选">≡ 收起</button>
+          <button type="button" id="btnExcel" class="btn-export">⬇ 导出 Excel</button>
         </div>
         <button type="button" id="sidebarConfirm" class="btn-confirm">确认筛选 ✓</button>
       </div>
@@ -1128,15 +1132,16 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .layout.is-collapsed{grid-template-columns:0 minmax(0,1fr);gap:0}
 .layout.is-collapsed .sidebar{width:0;padding:0;border:none;overflow:hidden;opacity:0;transform:translateX(-100%)}
 
-.sidebar{position:sticky;top:12px;background:#fff;border:1px solid var(--line);border-radius:var(--r);max-height:calc(100vh - 24px);display:flex;flex-direction:column;overflow:hidden;min-width:0;transition:opacity .25s,transform .25s}
-.sidebar.is-peek{box-shadow:0 0 0 2px rgba(43,174,133,.25),0 4px 20px rgba(0,0,0,.12)}
-.sidebar-inner{padding:12px;overflow-y:auto;flex:1}
+.sidebar{position:sticky;top:12px;background:#fff;border:1px solid var(--line);border-radius:var(--r);max-height:calc(100vh - 24px);display:flex;flex-direction:column;overflow:hidden;min-width:0;transition:opacity .25s,transform .25s,width .25s;box-shadow:0 1px 3px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.06)}
+.sidebar::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-deep));border-radius:var(--r) var(--r) 0 0}
+.sidebar.is-peek{box-shadow:0 0 0 2px rgba(43,174,133,.25),0 8px 28px rgba(0,0,0,.12)}
+.sidebar-inner{padding:14px 12px;overflow-y:auto;flex:1}
 .sidebar-close{display:none}
 .sidebar-collapse{display:none;position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:6px;border:1px solid var(--line);background:#fff;font-size:15px;font-weight:700;color:var(--mute);cursor:pointer;z-index:10;text-align:center;line-height:1}
 .sidebar-collapse:hover{color:var(--primary);border-color:var(--primary)}
 @media (min-width:1025px){.sidebar-collapse{display:inline-block}}
-.sidebar-head{margin-bottom:12px}
-.sidebar-title{margin:2px 0 0;font-size:14px;font-weight:800;color:#0f172a}
+.sidebar-head{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sidebar-title{margin:2px 0 0;font-size:14px;font-weight:800;color:#0f172a;letter-spacing:-.01em}
 .sidebar-group{margin-bottom:14px}
 .sx-group-head{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px}
 .sx-group-title{font-size:11px;font-weight:800;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
@@ -1145,23 +1150,33 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .chip-row-scroll{max-height:200px;overflow-y:auto;padding-right:2px}
 .sidebar-group .rate-input-wrap{margin-bottom:2px}
 .sidebar-group .rate-suffix{font-size:12px;font-weight:700;color:var(--mute)}
-.sidebar-foot{margin-top:6px;padding-top:8px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:6px}
-.btn-filter-reset{font-size:11px;font-weight:700;color:var(--primary);background:0 0;border:1px solid var(--primary);border-radius:6px;padding:5px 10px;cursor:pointer}
+.sidebar-foot{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:6px}
+.btn-filter-reset{font-size:11px;font-weight:700;color:var(--primary);background:0 0;border:1px solid var(--primary);border-radius:6px;padding:5px 10px;cursor:pointer;transition:background .12s,color .12s}
 .btn-filter-reset:hover{background:var(--primary);color:#fff}
 .sidebar .visible-count{font-size:10px;font-weight:700;color:var(--mute)}
+
+/* 侧边栏底部操作按钮区 */
+.sidebar-actions{display:flex;gap:6px;margin-top:8px}
+.sidebar-actions .btn-filter-toggle{flex:1;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--mute);background:var(--canvas);border:1px solid var(--line);border-radius:6px;padding:7px 10px;cursor:pointer;gap:4px;transition:color .12s,border-color .12s,background .12s}
+.sidebar-actions .btn-filter-toggle:hover{color:var(--primary);border-color:var(--primary)}
+.sidebar-actions .btn-export{flex:1;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:6px;padding:7px 10px;cursor:pointer;gap:4px;transition:background .12s,transform .1s}
+.sidebar-actions .btn-export:hover{background:var(--primary-deep)}
+.sidebar-actions .btn-export:active{transform:scale(.97)}
 
 .btn-confirm{display:flex;width:100%;margin-top:12px;justify-content:center;align-items:center;gap:6px;border:0;background:var(--primary);color:#fff;font:inherit;font-size:13px;font-weight:800;padding:9px 14px;border-radius:8px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(6px);transition:opacity .2s,transform .2s,background .12s}
 .btn-confirm.is-show{opacity:1;pointer-events:auto;transform:translateY(0)}
 .btn-confirm:hover{background:var(--primary-deep)}
 .btn-confirm:active{transform:scale(.97)}
 
-.sidebar-reopen{display:none;position:fixed;top:14px;left:14px;z-index:210;font-size:12px;font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:6px;padding:6px 14px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:background .15s}
-.sidebar-reopen:hover{background:var(--primary-deep)}
+.sidebar-reopen{display:none;position:fixed;top:14px;left:14px;z-index:210;font-size:12px;font-weight:700;color:#fff;background:var(--primary);border:0;border-radius:8px;padding:8px 16px;cursor:pointer;box-shadow:0 4px 14px rgba(43,174,133,.35);transition:background .15s,transform .15s;letter-spacing:.02em}
+.sidebar-reopen:hover{background:var(--primary-deep);transform:translateY(-1px)}
+.sidebar-reopen:active{transform:scale(.96)}
 .layout.is-collapsed ~ .sidebar-reopen{display:block}
 
 @media (max-width:1024px){
   .layout{display:block}
-  .sidebar{position:fixed;top:0;left:0;bottom:0;width:280px;max-height:100vh;border-radius:0;z-index:200;transform:translateX(-100%);transition:transform .25s}
+  .sidebar{position:fixed;top:0;left:0;bottom:0;width:280px;max-height:100vh;border-radius:0;z-index:200;transform:translateX(-100%);transition:transform .25s;box-shadow:4px 0 24px rgba(0,0,0,.15)}
+  .sidebar::before{border-radius:0}
   .sidebar.is-open{transform:translateX(0)}
   .sidebar-close{display:block;position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:#fff;font-size:18px;color:var(--ink);cursor:pointer;z-index:10}
   .sidebar-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:190;display:none}
@@ -1175,7 +1190,6 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 .sec-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 6px}
 .sec-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
 .sec-metrics .stat-card{background:#fff;border-radius:8px;padding:6px 10px;border:1px solid var(--line)}
-.sec-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:8px}
 .section-title{font-size:16px;font-weight:800;margin:0;color:#0f172a;letter-spacing:-.01em}
 .section-sub{margin:0;color:var(--mute);font-size:12px}
 
@@ -1701,11 +1715,11 @@ const SITE_DATA = __SITE_DATA__;
     if (sidebarBackdrop) sidebarBackdrop.classList.remove('is-open');
   }
   if (sidebarToggle) sidebarToggle.addEventListener('click', function(){
-    // 桌面端：切换侧边栏折叠；移动端：打开侧边栏浮层
+    // 按钮在侧边栏内部：桌面端切换折叠，移动端关闭浮层
     if (layout && window.innerWidth > 1024) {
       toggleSidebarLayout();
     } else {
-      openSidebar();
+      closeSidebar();
     }
   });
   if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
@@ -2076,10 +2090,6 @@ def build_site(data_dir: str, out_path: str = None) -> str:
         </div>
       </div>
       <div class="sec-metrics">{metrics_html}</div>
-      <div class="sec-actions">
-        <button type="button" class="btn-filter-toggle" id="sidebarToggle" aria-label="展开筛选">≡ 筛选</button>
-        <button type="button" id="btnExcel" class="btn-export">⬇ 导出 Excel</button>
-      </div>
 
       {domestic_ms}
       {overseas_ms}
