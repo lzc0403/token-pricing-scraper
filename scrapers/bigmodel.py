@@ -9,9 +9,14 @@
 
 from __future__ import annotations
 
+import re
 from typing import Any, Dict, List, Optional
 
 from scrapers.base import BaseScraper, clean_price
+
+# 剥离官网价格表里的营销/状态装饰后缀，避免 matcher 精确匹配失败
+# 例：「GLM-5.2 新品」「GLM-5-Turbo 新」→「GLM-5.2」「GLM-5-Turbo」
+_SUFFIX_RE = re.compile(r"\s*(新品|新上市|新|New|NEW|限时|预览|Preview|Beta|beta|尝鲜)\s*$", re.I)
 
 
 class BigmodelScraper(BaseScraper):
@@ -35,7 +40,7 @@ class BigmodelScraper(BaseScraper):
             cells = [c.xpath("string(.)").get(default="").strip() for c in row.css("td,th")]
             if len(cells) < 5:
                 continue
-            model = cells[0].strip()
+            model = _SUFFIX_RE.sub("", cells[0].strip()).strip()
             if model:
                 current_model = model
             if not current_model:

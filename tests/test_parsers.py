@@ -76,12 +76,19 @@ def test_tencent_mainland_only():
 def test_aliyun_qwen37_china_mainland():
     recs = _parse_source("aliyun")
     models = {r["model_raw"] for r in recs}
-    assert models == {"qwen3.7-max", "qwen3.7-plus"}
-    max_rec = next(r for r in recs if r["model_raw"] == "qwen3.7-max")
-    # 原价 12 元 限时 5 折 -> 6.0（CNY）
-    assert max_rec["input"] == 6.0
-    assert max_rec["output"] == 18.0
+    assert models == {"Qwen3.7-Max", "Qwen3.7-Plus"}
+    max_rec = next(r for r in recs if r["model_raw"] == "Qwen3.7-Max")
+    # Hologres 托管模型：元/千 Token -> 元/百万 Token（×1000）
+    assert max_rec["input"] == 14.4
+    assert max_rec["output"] == 43.2
+    # 缓存命中只取「隐式缓存命中」列（0.00288 元/千 -> 2.88 元/百万）
+    assert max_rec["cache_hit"] == 2.88
     assert max_rec["currency"] == "CNY"
+    plus_rec = next(r for r in recs if r["model_raw"] == "Qwen3.7-Plus")
+    # Qwen3.7-Plus 取基础阶梯 ≤256K：0.00240/0.00960/0.00048 元/千 -> ×1000
+    assert plus_rec["input"] == 2.4
+    assert plus_rec["output"] == 9.6
+    assert plus_rec["cache_hit"] == 0.48
 
 
 def test_volcengine_doubao_rows():
@@ -94,14 +101,26 @@ def test_volcengine_doubao_rows():
 def test_bigmodel_glm():
     recs = _parse_source("bigmodel")
     models = {r["model_raw"] for r in recs}
-    assert any("GLM-5.2" in m for m in models)
-    assert any("GLM-5.1" in m for m in models)
+    # 营销后缀「新品」必须被剥离，否则 matcher 精确匹配会失败
+    assert "GLM-5.2" in models
+    assert "GLM-5.2 新品" not in models
+    assert "GLM-5.1" in models
+    glm52 = next(r for r in recs if r["model_raw"] == "GLM-5.2")
+    assert glm52["input"] == 8.0
+    assert glm52["output"] == 28.0
 
 
 def test_minimax_m27():
     recs = _parse_source("minimax")
     models = {r["model_raw"] for r in recs}
     assert "MiniMax-M2.7" in models
+    # M3 系列（py-4 行）也应被抓取，且取折后实价
+    assert "MiniMax-M3" in models
+    m3 = [r for r in recs if r["model_raw"] == "MiniMax-M3"]
+    # 基础档 ≤512K：输入 2.1 / 输出 8.4 / 缓存读 0.42（元/百万 tokens，折后实价）
+    base = next(r for r in m3 if r["input"] == 2.1)
+    assert base["output"] == 8.4
+    assert base["cache_hit"] == 0.42
 
 
 def test_kimi_k26():
@@ -139,25 +158,18 @@ def test_clean_price_thousands_separator():
     assert clean_price("2,000.00") == 2000.0
 
 
-def test_aliyun_fallback_when_main_url_yields_nothing():
-    """主 URL 解析不到记录时，应回退到 fallback_url 并正确产出。"""
-    src = SOURCES["aliyun"]
-    cls = _get_scraper_class(src["parser"])
-    inst = cls(src)
-    # 主 URL 返回无定价记录的 404 页面；fallback 返回真实 fixture
-    main_html = "<html><body>404 Page Not Found qwen3.7 recommend</body></html>"
-    fallback_html = _load("aliyun.html")
-
-    def fake_fetch(url):
-        if url == src.get("fallback_url"):
-            return fallback_html
-        return main_html
-
-    inst.fetch_url = fake_fetch  # 离线打桩，不触外网
-    recs = [r for r in inst.run() if r and r.get("model_raw")]
-    assert recs, "回退后应有记录"
-    models = {r["model_raw"] for r in recs}
-    assert models == {"qwen3.7-max", "qwen3.7-plus"}
+def test_aliyun_overseas_excluded_and_implicit_cache_only():
+    """新加坡等海外区域不应出现；缓存命中只取隐式缓存命中，不含显式缓存。"""
+    recs = _parse_source("aliyun")
+    # 仅含中国内地模型
+    assert {r["model_raw"] for r in recs} == {"Qwen3.7-Max", "Qwen3.7-Plus"}
+    joined = " ".join(r["model_raw"] for r in recs)
+    assert "新加坡" not in joined
+    # 隐式缓存命中价已写入 cache_hit（元/百万 Token）
+    max_rec = next(r for r in recs if r["model_raw"] == "Qwen3.7-Max")
+    assert max_rec["cache_hit"] == 2.88
+    # 显式缓存命中（0.00144 元/千 -> 1.44 元/百万）未被采用
+    assert max_rec["cache_hit"] != 1.44
 
 
 def test_get_rate_falls_back_on_empty_or_bad_env(monkeypatch):

@@ -46,15 +46,26 @@ SOURCE_LABELS: Dict[str, str] = {
 
 # 厂商官网（官方原价）来源
 OFFICIAL_SOURCE: Dict[str, str] = {
+    # DeepSeek 官方
     "DeepSeek V4 Pro": "deepseek",
     "DeepSeek V4 Flash": "deepseek",
     "DeepSeek V3.2": "deepseek",
+    # 智谱官方
     "GLM-5.1": "bigmodel",
     "GLM-5.2": "bigmodel",
+    # Kimi 官方
+    "Kimi K3": "kimi",
     "Kimi K2.6": "kimi",
+    "Kimi K2.7 Code": "kimi",
+    # MiniMax 官方
     "MiniMax M2.7": "minimax",
-    "Seedance 2.0": "volcengine",
-    "qwen3.7": "aliyun",
+    "MiniMax M3": "minimax",
+    # 通义千问官方（阿里云）
+    "Qwen3.7 Max": "aliyun",
+    "Qwen3.7 Plus": "aliyun",
+    # 豆包官方（火山引擎）— volcengine 同时是渠道源，但对 Doubao 系列它是厂商官网价
+    "Doubao Seed 2.1 Pro": "volcengine",
+    "Doubao Seed 2.1 Turbo": "volcengine",
 }
 
 # 渠道源：非官网聚合/转售渠道
@@ -794,8 +805,8 @@ def _official_section(rows: List[Dict[str, Any]], has: bool) -> str:
       <div class="block-head">
         <div>
           <div class="block-kicker">TOP · OFFICIAL</div>
-          <h2 id="official-title" class="block-title">厂商官网原价</h2>
-          <p class="block-desc">大模型厂商官网公开报价，作为基准参考；模型名已精简，仅保留名称本身。</p>
+          <h2 id="official-title" class="block-title">国内厂商官方定价</h2>
+          <p class="block-desc">DeepSeek / 通义千问 / 智谱 GLM / Kimi / MiniMax / 豆包 官方 API 定价明细，作为基准参考；与上方卡片专区同源，此处为完整列表。</p>
         </div>
         <span class="block-count">{len(rows)} 条</span>
       </div>
@@ -1003,7 +1014,6 @@ def _overseas_section(rows: List[Dict[str, Any]], has: bool) -> str:
                 f'<div class="hot-price muted"><span>$ {_fmt_num(r.get("output"))}</span><small>输出 / 1M</small></div>'
                 f'</div>'
             )
-    highlight_html = f'<div class="hot-strip">{"".join(highlight)}</div>' if highlight else ""
     families = sorted({r.get("family") or r.get("source_label") for r in rows if r})
     fam_text = " · ".join(families) if families else "OpenAI · Claude · Gemini"
     return f"""
@@ -1011,20 +1021,14 @@ def _overseas_section(rows: List[Dict[str, Any]], has: bool) -> str:
       <div class="block-head">
         <div>
           <div class="block-kicker">GLOBAL · HOT ONLY</div>
-          <h2 id="overseas-title" class="block-title">海外主流大模型</h2>
-          <p class="block-desc">只展示最热门主力：<strong>GPT-5 / GPT-4o / Claude / Gemini</strong> 官方 API 参考价。不堆叠 mini / nano / lite 次级型号。</p>
+          <h2 id="overseas-title" class="block-title">海外厂商官方定价</h2>
+          <p class="block-desc">只展示最热门主力：<strong>GPT-5 / GPT-4o / Claude / Gemini</strong> 官方 API 参考价明细。不堆叠 mini / nano / lite 次级型号。</p>
         </div>
         <div class="block-head-right">
           <span class="block-count">{len(rows)} 条</span>
           <span class="block-fam">{_esc(fam_text)}</span>
         </div>
       </div>
-      <div class="family-strip" aria-hidden="true">
-        <span class="fam-chip fam-openai">OpenAI · 含 GPT-4o</span>
-        <span class="fam-chip fam-claude">Claude</span>
-        <span class="fam-chip fam-gemini">Gemini</span>
-      </div>
-      {highlight_html}
       {table if has else '<div class="empty-mini">暂无海外主流模型参考价。</div>'}
       <p class="panel-hint overseas-note">价格为官方公开标准档参考，可能调整；GPT-4o 作为高频主力必须保留展示。</p>
     </section>"""
@@ -1372,7 +1376,7 @@ footer .disc{color:var(--mute)}
 .ms-featured{display:inline-block;font-size:7px;font-weight:800;color:#fff;background:var(--primary);padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle}
 .ms-tracking{display:inline-block;font-size:7px;font-weight:800;color:#b8860b;background:#fff8e7;padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle;cursor:help}
 .ms-verified{color:var(--mute);font-size:8px}
-.ms-date-banner{font-size:8px;color:var(--mute);padding:2px 0 4px;letter-spacing:.02em;display:flex;align-items:center;gap:6px}
+.ms-date-banner{font-size:8px;color:var(--mute);padding:2px 0 4px;letter-spacing:.02em;display:flex;align-items:center;justify-content:flex-end;gap:6px}
 .ms-date-banner .ms-unit-note{color:#94a3b8;font-weight:500;margin-left:6px}
 /* 入场错峰 + 厂商条纹流光 + 热标记脉冲（仅在允许动效时） */
 @media (prefers-reduced-motion: no-preference){
@@ -2050,7 +2054,6 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     )
     official_block = _official_section(data.get("official_rows") or [], data.get("has_official"))
     overseas_block = _overseas_section(data.get("overseas_rows") or [], data.get("has_overseas"))
-    tracking_block = _tracking_section(data.get("tracking") or [], data.get("has_tracking"))
     channel_block = _channel_section(data)
     chart_block = _chart_section(canons, bool(data.get("chart")))
 
@@ -2063,7 +2066,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>大模型 Token 定价追踪</title>
-<meta name="description" content="厂商官网原价与渠道同类报价分区展示；支持 DeepSeek/渠道筛选与自定义汇率。">
+<meta name="description" content="国内/海外主流大模型官方定价与渠道同类报价分区展示；支持模型筛选与自定义汇率。">
 <meta name="theme-color" content="#4338ca">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2096,7 +2099,6 @@ def build_site(data_dir: str, out_path: str = None) -> str:
       {overseas_ms}
       {official_block}
       {overseas_block}
-      {tracking_block}
       {channel_block}
       {chart_block}
     </main>

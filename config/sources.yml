@@ -12,12 +12,14 @@
 #   note     : 备注
 - id: aliyun
   name: 阿里云
-  url: https://help.aliyun.com/zh/model-studio/developer-reference/billing-for-text-generation
-  fallback_url: https://help.aliyun.com/zh/model-studio/developer-reference/billing-for-text-rerank
+  url: https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing
   parser: aliyun
   currency: CNY
-  js: true
-  note: 主用 URL 已失效(404)，自动回退到 fallback_url（重定向至 model-pricing 总览页）
+  js: false
+  note: >-
+    Hologres 托管模型计费（中国站）。单表五列：输入 / 显式缓存创建 / 显式缓存命中 /
+    隐式缓存命中 / 输出，单位「元/千 Token」。解析时仅取中国内地区域（北京/上海/杭州/深圳），
+    缓存命中只取「隐式缓存命中」列，并按站点统一的「元/百万 Token」口径 ×1000。
 
 - id: volcengine
   name: 火山引擎
