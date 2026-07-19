@@ -1,8 +1,8 @@
-# 主流模型官方目录
-# 页面渲染：official/preview 显示为正式卡片；tracking 显示为「渠道先行」卡片（含渠道参考价）
-# Claude official 型号必须有准确 api_id；其余字段不得推测。
+# 主流模型官方目录（2026-07-19 更新）
+# 本次更新：Kimi K3、Gemini 3.5、GPT-5.6 三系列新型号
+# 页面渲染：official/preview 显示为正式卡片；tracking 显示为「渠道先行」卡片
 
-updated_at: "2026-07-19T13:30:00+08:00"
+updated_at: "2026-07-19T14:30:00+08:00"
 
 sections:
   domestic:
@@ -30,7 +30,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://api-docs.deepseek.com/zh-cn/quick_start/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
           - canonical: "DeepSeek V4 Pro"
             display_name: "DeepSeek V4 Pro"
             api_id: null
@@ -48,7 +48,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://api-docs.deepseek.com/zh-cn/quick_start/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
           - canonical: "DeepSeek V4 Flash"
             display_name: "DeepSeek V4 Flash"
             api_id: null
@@ -66,7 +66,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://api-docs.deepseek.com/zh-cn/quick_start/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
 
       - id: qwen
         name: "通义千问"
@@ -89,7 +89,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://help.aliyun.com/zh/model-studio/developer-reference/billing-for-text-generation"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
           - canonical: "Qwen3.7 Plus"
             display_name: "Qwen3.7 Plus"
             api_id: null
@@ -107,7 +107,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://help.aliyun.com/zh/model-studio/developer-reference/billing-for-text-generation"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
 
       - id: glm
         name: "智谱 GLM"
@@ -130,7 +130,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://open.bigmodel.cn/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
           - canonical: "GLM-5.2"
             display_name: "GLM-5.2"
             api_id: null
@@ -148,30 +148,34 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://open.bigmodel.cn/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
 
       - id: kimi
         name: "Kimi"
         source_id: kimi
         models:
-          - canonical: "Kimi K2.6"
-            display_name: "Kimi K2.6"
-            api_id: null
+          - canonical: "Kimi K3"
+            display_name: "Kimi K3"
+            api_id: "kimi-k3"
             openrouter_id: null
-            role: "通用对话 · 官方 API"
+            role: "旗舰 · 2.8万亿参数 · 1M上下文"
             availability: official
             modality: text
-            context_tokens: 256000
+            context_tokens: 1048576
             pricing_kind: paid
             pricing:
               tiers:
-                - condition: "default"
-                  input_price: 1.1
-                  output_price: 27.0
+                - condition: "缓存命中"
+                  input_price: 2.0
+                  output_price: 100.0
+                - condition: "缓存未命中"
+                  input_price: 20.0
+                  output_price: 100.0
+                  cache_input_price: 2.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.moonshot.cn/docs/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
           - canonical: "Kimi K2.7 Code"
             display_name: "Kimi K2.7 Code"
             api_id: null
@@ -189,7 +193,25 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.moonshot.cn/docs/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
+          - canonical: "Kimi K2.6"
+            display_name: "Kimi K2.6"
+            api_id: null
+            openrouter_id: null
+            role: "通用对话 · 官方 API"
+            availability: official
+            modality: text
+            context_tokens: 256000
+            pricing_kind: paid
+            pricing:
+              tiers:
+                - condition: "default"
+                  input_price: 1.1
+                  output_price: 27.0
+            currency: CNY
+            unit: per_million_tokens
+            source_url: "https://platform.moonshot.cn/docs/pricing"
+            verified_at: "2026-07-19T14:30:00+08:00"
 
       - id: minimax
         name: "MiniMax"
@@ -217,7 +239,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.minimaxi.com/document/Price"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
           - canonical: "MiniMax M2.7"
             display_name: "MiniMax M2.7"
             api_id: null
@@ -236,7 +258,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.minimaxi.com/document/Price"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
 
       - id: doubao
         name: "豆包"
@@ -260,7 +282,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://www.volcengine.com/docs/82379/1099320"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
           - canonical: "Doubao Seed 2.1 Turbo"
             display_name: "Doubao Seed 2.1 Turbo"
             api_id: null
@@ -279,7 +301,7 @@ sections:
             currency: CNY
             unit: per_million_tokens
             source_url: "https://www.volcengine.com/docs/82379/1099320"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
 
   overseas:
     title: "海外主流大模型"
@@ -288,25 +310,62 @@ sections:
         name: "OpenAI"
         source_id: openai
         models:
-          - canonical: "GPT-5"
-            display_name: "GPT-5"
-            api_id: "gpt-5"
-            openrouter_id: "openai/gpt-5"
+          - canonical: "GPT-5.6 Sol"
+            display_name: "GPT-5.6 Sol"
+            api_id: "gpt-5.6"
+            openrouter_id: "openai/gpt-5.6"
             role: "旗舰 · 官方 API"
             availability: official
             modality: text
-            context_tokens: 272000
+            context_tokens: 1048576
             pricing_kind: paid
             pricing:
               tiers:
                 - condition: "default"
-                  input_price: 1.25
-                  output_price: 10.0
-                  cache_input_price: 0.125
+                  input_price: 5.0
+                  output_price: 30.0
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.openai.com/docs/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
+            featured: true
+          - canonical: "GPT-5.6 Terra"
+            display_name: "GPT-5.6 Terra"
+            api_id: "gpt-5.6-terra"
+            openrouter_id: "openai/gpt-5.6-terra"
+            role: "均衡 · 日常办公"
+            availability: official
+            modality: text
+            context_tokens: 1048576
+            pricing_kind: paid
+            pricing:
+              tiers:
+                - condition: "default"
+                  input_price: 2.5
+                  output_price: 15.0
+            currency: USD
+            unit: per_million_tokens
+            source_url: "https://platform.openai.com/docs/pricing"
+            verified_at: "2026-07-19T14:30:00+08:00"
+            featured: true
+          - canonical: "GPT-5.6 Luna"
+            display_name: "GPT-5.6 Luna"
+            api_id: "gpt-5.6-luna"
+            openrouter_id: "openai/gpt-5.6-luna"
+            role: "低成本 · 高速响应"
+            availability: official
+            modality: text
+            context_tokens: 1048576
+            pricing_kind: paid
+            pricing:
+              tiers:
+                - condition: "default"
+                  input_price: 1.0
+                  output_price: 6.0
+            currency: USD
+            unit: per_million_tokens
+            source_url: "https://platform.openai.com/docs/pricing"
+            verified_at: "2026-07-19T14:30:00+08:00"
             featured: true
           - canonical: "GPT-4o"
             display_name: "GPT-4o"
@@ -325,7 +384,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.openai.com/docs/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
             featured: true
 
       - id: anthropic
@@ -351,7 +410,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.claude.com/docs/zh-TW/about-claude/models/overview"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
             featured: true
           - canonical: "Claude Opus 4.8"
             display_name: "Opus 4.8"
@@ -372,7 +431,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.claude.com/docs/zh-TW/about-claude/models/overview"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
             featured: true
           - canonical: "Claude Sonnet 5"
             display_name: "Sonnet 5"
@@ -400,7 +459,7 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.claude.com/docs/zh-TW/about-claude/models/overview"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
             featured: true
           - canonical: "Claude Haiku 4.5"
             display_name: "Haiku 4.5"
@@ -421,51 +480,51 @@ sections:
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.claude.com/docs/zh-TW/about-claude/models/overview"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
             featured: true
 
       - id: google
         name: "Google Gemini"
         source_id: google
         models:
-          - canonical: "Gemini 2.5 Pro"
-            display_name: "Gemini 2.5 Pro"
-            api_id: "gemini-2.5-pro"
-            openrouter_id: "google/gemini-2.5-pro"
-            role: "旗舰 · 官方 API"
-            availability: official
+          - canonical: "Gemini 3.5 Pro"
+            display_name: "Gemini 3.5 Pro"
+            api_id: "gemini-3.5-pro"
+            openrouter_id: "google/gemini-3.5-pro"
+            role: "旗舰 · 官方 API · 2M上下文"
+            availability: tracking
             modality: text
-            context_tokens: 1000000
+            context_tokens: 2000000
             pricing_kind: paid
             pricing:
               tiers:
-                - condition: "输入 ≤ 200K"
+                - condition: "官方定价待确认"
                   input_price: 1.25
-                  output_price: 10.0
-                - condition: "输入 > 200K"
-                  input_price: 2.5
-                  output_price: 15.0
+                  output_price: 5.0
             currency: USD
             unit: per_million_tokens
             source_url: "https://ai.google.dev/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
             featured: true
-          - canonical: "Gemini 2.5 Flash"
-            display_name: "Gemini 2.5 Flash"
-            api_id: "gemini-2.5-flash"
-            openrouter_id: "google/gemini-2.5-flash"
-            role: "高频主力 · 官方 API"
+          - canonical: "Gemini 3.5 Flash"
+            display_name: "Gemini 3.5 Flash"
+            api_id: "gemini-3.5-flash"
+            openrouter_id: "google/gemini-3.5-flash"
+            role: "轻量高速 · 官方 API"
             availability: official
             modality: text
-            context_tokens: 1000000
+            context_tokens: 1048576
             pricing_kind: paid
             pricing:
               tiers:
                 - condition: "default"
-                  input_price: 0.30
-                  output_price: 2.5
+                  input_price: 1.5
+                  output_price: 9.0
+                - condition: "缓存命中"
+                  input_price: 0.15
+                  output_price: 9.0
             currency: USD
             unit: per_million_tokens
             source_url: "https://ai.google.dev/pricing"
-            verified_at: "2026-07-19T13:30:00+08:00"
+            verified_at: "2026-07-19T14:30:00+08:00"
             featured: true
