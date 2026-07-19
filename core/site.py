@@ -896,18 +896,23 @@ def _mainstream_section(
         vid = model.get("_vid", "—")
         vname = model.get("_vname", vid)
 
-        # 价格：输入 / 输出 / 缓存命中 三个同级列（单位移入卡片右上角）
-        unit_label = "元 / 百万 Token" if currency == "CNY" else "$ / Million Tokens"
+        # 价格：紧凑单行，标签+数值内联，竖线分隔（无边框格子）
         has_price = isinstance(inp, (int, float)) and isinstance(out, (int, float))
-        cache_val = _fmt_num(cache_input) if isinstance(cache_input, (int, float)) else "—"
+        cache_val = _fmt_num(cache_input) if isinstance(cache_input, (int, float)) else ""
         if has_price:
+            sep = '<span class="ms-sep">|</span>'
             price_html = (
                 f'<div class="ms-prices">'
-                f'<div class="ms-pcol"><span class="ms-plabel">输入</span><span class="ms-pval">{_fmt_num(inp)}</span></div>'
-                f'<div class="ms-pcol"><span class="ms-plabel">输出</span><span class="ms-pval">{_fmt_num(out)}</span></div>'
-                f'<div class="ms-pcol"><span class="ms-plabel">缓存命中</span><span class="ms-pval">{cache_val}</span></div>'
-                f'</div>'
+                f'<span class="ms-pair"><span class="ms-plabel">输入</span><span class="ms-pval">{_fmt_num(inp)}</span></span>'
+                f'{sep}'
+                f'<span class="ms-pair"><span class="ms-plabel">输出</span><span class="ms-pval">{_fmt_num(out)}</span></span>'
             )
+            if cache_val:
+                price_html += (
+                    f'{sep}'
+                    f'<span class="ms-pair"><span class="ms-plabel">缓存命中</span><span class="ms-pval">{cache_val}</span></span>'
+                )
+            price_html += '</div>'
         else:
             price_html = '<div class="ms-prices ms-no-price"><span>价格待公布</span></div>'
         cache_html = ""
@@ -943,7 +948,6 @@ def _mainstream_section(
             f'<span class="ms-vendor-stripe" data-vendor="{_esc_attr(vid)}" aria-hidden="true"></span>'
             f'<div class="ms-model-head">'
             f'<span class="ms-model-name">{_esc(display)}{hot_badge}{tracking_badge}</span>'
-            f'<span class="ms-unit-badge">{_esc(unit_label)}</span>'
             f'</div>'
             f'<div class="ms-role">{_esc(vname)} · {_esc(role_text)}</div>'
             f"{price_html}"
@@ -954,8 +958,9 @@ def _mainstream_section(
         )
 
     accent_class = "ms-overseas" if accent == "overseas" else "ms-domestic"
-    # 日期横幅：仅当所有卡片日期一致时显示
-    date_banner = f'<div class="ms-date-banner">数据更新于 <b>{_esc(uniform_date)}</b></div>' if uniform_date else ""
+    # 日期横幅 + 单位说明（区块级，不每张卡片重复）
+    unit_note = "元 / 百万 Token"
+    date_banner = f'<div class="ms-date-banner">数据更新于 <b>{_esc(uniform_date)}</b> <span class="ms-unit-note">{unit_note}</span></div>' if uniform_date else ""
 
     return f"""
     <section class="block-card block-mainstream {accent_class}" data-section="{section_id}-mainstream" aria-labelledby="{section_id}-mainstream-title">
@@ -1334,18 +1339,14 @@ footer .disc{color:var(--mute)}
 .model-pick[data-source=google]{--vc:#3b82f6}
 .ms-model-head{display:flex;align-items:flex-start;justify-content:space-between;gap:3px;margin-bottom:0}
 .ms-model-name{font-size:9px;font-weight:800;color:#0f172a;line-height:1.15}
-.ms-unit-badge{font-size:6px;color:var(--mute);font-weight:600;white-space:nowrap;letter-spacing:.01em;align-self:flex-start;line-height:1.1;flex-shrink:0}
 .ms-role{font-size:8px;color:var(--mute);margin-bottom:1px}
-/* 价格：输入 / 输出 / 缓存命中 三列同级 */
-.ms-prices{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:1px}
-.ms-pcol{display:flex;flex-direction:column;align-items:center;gap:0;background:var(--canvas);border:1px solid var(--line);border-radius:3px;padding:2px 0;transition:background .15s,transform .15s}
-.ms-pcol:hover{transform:translateY(-1px);background:#e9f9f1}
-.ms-overseas .ms-pcol:hover{background:#eaf2fe}
-.model-pick:hover .ms-pcol{background:#f1fbf7}
-.ms-overseas .model-pick:hover .ms-pcol{background:#f1f6fe}
-.ms-plabel{font-size:7px;color:var(--mute);font-weight:600;line-height:1.1}
-.ms-pval{font-size:9px;font-weight:800;color:#0f172a;line-height:1.2}
-.ms-prices.ms-no-price{grid-template-columns:1fr;background:transparent;border:0;color:var(--mute);font-style:italic;font-size:8px;text-align:center;padding:2px 0}
+/* 价格：紧凑单行内联，竖线分隔，无边框 */
+.ms-prices{display:inline-flex;align-items:center;gap:0;margin-bottom:1px;flex-wrap:wrap;line-height:1.4}
+.ms-pair{display:inline-flex;align-items:center;gap:2px;padding:0 2px}
+.ms-plabel{font-size:7.5px;color:var(--mute);font-weight:500}
+.ms-pval{font-size:10px;font-weight:800;color:#0f172a;min-width:1.2em;text-align:right}
+.ms-sep{color:#cbd5e1;font-weight:300;margin:0 3px;font-size:8px}
+.ms-no-price{color:var(--mute);font-style:italic;font-size:8px}
 .ms-tiers{margin:3px 0}
 .ms-tiers summary{font-size:8px;font-weight:700;color:var(--ink2);cursor:pointer}
 .ms-tiers ul{margin:1px 0 0;padding-left:10px;font-size:8px;color:var(--mute)}
@@ -1357,6 +1358,7 @@ footer .disc{color:var(--mute)}
 .ms-tracking{display:inline-block;font-size:7px;font-weight:800;color:#b8860b;background:#fff8e7;padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle;cursor:help}
 .ms-verified{color:var(--mute);font-size:8px}
 .ms-date-banner{text-align:center;font-size:8px;color:var(--mute);padding:2px 10px 4px;letter-spacing:.02em}
+.ms-date-banner .ms-unit-note{color:#94a3b8;font-weight:500;margin-left:6px}
 /* 入场错峰 + 厂商条纹流光 + 热标记脉冲（仅在允许动效时） */
 @media (prefers-reduced-motion: no-preference){
   .model-pick{animation:cardIn .55s cubic-bezier(.16,1,.3,1) backwards;animation-delay:calc(var(--i,0)*42ms)}
