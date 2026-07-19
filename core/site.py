@@ -879,7 +879,7 @@ def _mainstream_section(
     # ---- 渲染卡片 ----
     all_cards: List[str] = []
 
-    for model in flat_models:
+    for idx, model in enumerate(flat_models):
         canon = model.get("canonical") or "—"
         display = model.get("display_name") or canon
         pricing = model.get("pricing") or {}
@@ -896,7 +896,7 @@ def _mainstream_section(
         vid = model.get("_vid", "—")
         vname = model.get("_vname", vid)
 
-        # 价格：输入 / 输出 / 缓存命中 三个同级列 + 单位说明
+        # 价格：输入 / 输出 / 缓存命中 三个同级列（单位移入卡片右上角）
         unit_label = "元 / 百万 Token" if currency == "CNY" else "$ / Million Tokens"
         has_price = isinstance(inp, (int, float)) and isinstance(out, (int, float))
         cache_val = _fmt_num(cache_input) if isinstance(cache_input, (int, float)) else "—"
@@ -907,7 +907,6 @@ def _mainstream_section(
                 f'<div class="ms-pcol"><span class="ms-plabel">输出</span><span class="ms-pval">{_fmt_num(out)}</span></div>'
                 f'<div class="ms-pcol"><span class="ms-plabel">缓存命中</span><span class="ms-pval">{cache_val}</span></div>'
                 f'</div>'
-                f'<div class="ms-unit">{unit_label}</div>'
             )
         else:
             price_html = '<div class="ms-prices ms-no-price"><span>价格待公布</span></div>'
@@ -939,11 +938,13 @@ def _mainstream_section(
         all_cards.append(
             f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
             f'data-context="{_esc_attr(ctx_tokens)}" data-source="{_esc_attr(vid)}" '
+            f'data-i="{idx}" style="--i:{idx}" '
             f'tabindex="0" role="button" aria-label="筛选 {_esc(display)}">'
             f'<span class="ms-vendor-stripe" data-vendor="{_esc_attr(vid)}" aria-hidden="true"></span>'
             f'<div class="ms-model-head">'
             f'<span class="ms-model-name">{_esc(display)}{hot_badge}{tracking_badge}</span>'
-            f"</div>"
+            f'<span class="ms-unit-badge">{_esc(unit_label)}</span>'
+            f'</div>'
             f'<div class="ms-role">{_esc(vname)} · {_esc(role_text)}</div>'
             f"{price_html}"
             f"{cache_html}"
@@ -1304,29 +1305,46 @@ footer .disc{color:var(--mute)}
 .block-mainstream.ms-overseas{border-color:#bcd4e8}
 .ms-domestic .block-kicker{color:#1a9e72}
 .ms-overseas .block-kicker{color:#3b82f6}
-.ms-unified-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:0 10px 10px}
-.model-pick{background:#fff;border:1px solid var(--line);border-radius:5px;padding:4px 5px;cursor:pointer;transition:border-color .12s,box-shadow .12s;outline:none;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:1px}
-.model-pick:hover,.model-pick:focus-visible{border-color:var(--primary);box-shadow:0 0 0 2px rgba(43,174,133,.12)}
-.ms-overseas .model-pick:hover,.ms-overseas .model-pick:focus-visible{border-color:#3b82f6;box-shadow:0 0 0 2px rgba(59,130,246,.12)}
-.ms-vendor-stripe{position:absolute;top:0;left:0;right:0;height:3px;background:#94a3b8}
-.ms-vendor-stripe[data-vendor=deepseek]{background:#4ade80}
-.ms-vendor-stripe[data-vendor=qwen]{background:#f59e0b}
-.ms-vendor-stripe[data-vendor=bigmodel]{background:#60a5fa}
-.ms-vendor-stripe[data-vendor=kimi]{background:#a78bfa}
-.ms-vendor-stripe[data-vendor=minimax]{background:#22d3ee}
-.ms-vendor-stripe[data-vendor=doubao]{background:#f472b6}
-.ms-vendor-stripe[data-vendor=openai]{background:#10b981}
-.ms-vendor-stripe[data-vendor=anthropic]{background:#e11d48}
-.ms-vendor-stripe[data-vendor=google]{background:#3b82f6}
-.ms-model-head{display:flex;align-items:flex-start;justify-content:space-between;gap:2px;margin-bottom:0}
-.ms-model-name{font-size:9px;font-weight:800;color:#0f172a}
+.ms-unified-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:0 10px 10px;perspective:1000px}
+.model-pick{background:#fff;border:1px solid var(--line);border-radius:5px;padding:4px 5px;cursor:pointer;outline:none;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:1px;transform-style:preserve-3d;will-change:transform;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s cubic-bezier(.16,1,.3,1),border-color .15s,box-shadow .15s}
+.model-pick:hover,.model-pick:focus-visible{--ty:-2px;border-color:var(--primary);box-shadow:0 6px 18px -8px rgba(15,23,42,.28),0 0 0 2px rgba(43,174,133,.14);translate:0 var(--ty,0)}
+.ms-overseas .model-pick:hover,.ms-overseas .model-pick:focus-visible{border-color:#3b82f6;box-shadow:0 6px 18px -8px rgba(15,23,42,.28),0 0 0 2px rgba(59,130,246,.14)}
+/* 聚光描边：鼠标位置的柔光 */
+.model-pick::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;opacity:0;transition:opacity .25s;background:radial-gradient(200px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--vc,#2baE85) 20%,transparent),transparent 62%)}
+.model-pick:hover::after,.model-pick:focus-visible::after{opacity:1}
+.model-pick>*{position:relative;z-index:2}
+.ms-vendor-stripe{position:absolute;top:0;left:0;right:0;height:3px;z-index:3;background:#94a3b8;background-size:200% 100%}
+.ms-vendor-stripe[data-vendor=deepseek]{--vc:#4ade80;background-image:linear-gradient(90deg,#4ade80,#bbf7d0,#4ade80)}
+.ms-vendor-stripe[data-vendor=qwen]{--vc:#f59e0b;background-image:linear-gradient(90deg,#f59e0b,#fde68a,#f59e0b)}
+.ms-vendor-stripe[data-vendor=bigmodel]{--vc:#60a5fa;background-image:linear-gradient(90deg,#60a5fa,#bfdbfe,#60a5fa)}
+.ms-vendor-stripe[data-vendor=kimi]{--vc:#a78bfa;background-image:linear-gradient(90deg,#a78bfa,#ddd6fe,#a78bfa)}
+.ms-vendor-stripe[data-vendor=minimax]{--vc:#22d3ee;background-image:linear-gradient(90deg,#22d3ee,#a5f3fc,#22d3ee)}
+.ms-vendor-stripe[data-vendor=doubao]{--vc:#f472b6;background-image:linear-gradient(90deg,#f472b6,#fbcfe8,#f472b6)}
+.ms-vendor-stripe[data-vendor=openai]{--vc:#10b981;background-image:linear-gradient(90deg,#10b981,#a7f3d0,#10b981)}
+.ms-vendor-stripe[data-vendor=anthropic]{--vc:#e11d48;background-image:linear-gradient(90deg,#e11d48,#fecdd3,#e11d48)}
+.ms-vendor-stripe[data-vendor=google]{--vc:#3b82f6;background-image:linear-gradient(90deg,#3b82f6,#bfdbfe,#3b82f6)}
+.model-pick[data-source=deepseek]{--vc:#4ade80}
+.model-pick[data-source=qwen]{--vc:#f59e0b}
+.model-pick[data-source=bigmodel]{--vc:#60a5fa}
+.model-pick[data-source=kimi]{--vc:#a78bfa}
+.model-pick[data-source=minimax]{--vc:#22d3ee}
+.model-pick[data-source=doubao]{--vc:#f472b6}
+.model-pick[data-source=openai]{--vc:#10b981}
+.model-pick[data-source=anthropic]{--vc:#e11d48}
+.model-pick[data-source=google]{--vc:#3b82f6}
+.ms-model-head{display:flex;align-items:flex-start;justify-content:space-between;gap:3px;margin-bottom:0}
+.ms-model-name{font-size:9px;font-weight:800;color:#0f172a;line-height:1.15}
+.ms-unit-badge{font-size:6px;color:var(--mute);font-weight:600;white-space:nowrap;letter-spacing:.01em;align-self:flex-start;line-height:1.1;flex-shrink:0}
 .ms-role{font-size:8px;color:var(--mute);margin-bottom:1px}
 /* 价格：输入 / 输出 / 缓存命中 三列同级 */
 .ms-prices{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:1px}
-.ms-pcol{display:flex;flex-direction:column;align-items:center;gap:0;background:var(--canvas);border:1px solid var(--line);border-radius:3px;padding:2px 0}
+.ms-pcol{display:flex;flex-direction:column;align-items:center;gap:0;background:var(--canvas);border:1px solid var(--line);border-radius:3px;padding:2px 0;transition:background .15s,transform .15s}
+.ms-pcol:hover{transform:translateY(-1px);background:#e9f9f1}
+.ms-overseas .ms-pcol:hover{background:#eaf2fe}
+.model-pick:hover .ms-pcol{background:#f1fbf7}
+.ms-overseas .model-pick:hover .ms-pcol{background:#f1f6fe}
 .ms-plabel{font-size:7px;color:var(--mute);font-weight:600;line-height:1.1}
 .ms-pval{font-size:9px;font-weight:800;color:#0f172a;line-height:1.2}
-.ms-unit{font-size:6.5px;color:var(--mute);text-align:center;margin-bottom:0;line-height:1}
 .ms-prices.ms-no-price{grid-template-columns:1fr;background:transparent;border:0;color:var(--mute);font-style:italic;font-size:8px;text-align:center;padding:2px 0}
 .ms-tiers{margin:3px 0}
 .ms-tiers summary{font-size:8px;font-weight:700;color:var(--ink2);cursor:pointer}
@@ -1339,6 +1357,18 @@ footer .disc{color:var(--mute)}
 .ms-tracking{display:inline-block;font-size:7px;font-weight:800;color:#b8860b;background:#fff8e7;padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle;cursor:help}
 .ms-verified{color:var(--mute);font-size:8px}
 .ms-date-banner{text-align:center;font-size:8px;color:var(--mute);padding:2px 10px 4px;letter-spacing:.02em}
+/* 入场错峰 + 厂商条纹流光 + 热标记脉冲（仅在允许动效时） */
+@media (prefers-reduced-motion: no-preference){
+  .model-pick{animation:cardIn .55s cubic-bezier(.16,1,.3,1) backwards;animation-delay:calc(var(--i,0)*42ms)}
+  .ms-vendor-stripe{animation:stripeSheen 3.6s linear infinite}
+  .ms-featured{animation:hotPulse 2.2s ease-in-out infinite}
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes stripeSheen{0%{background-position:0% 0}100%{background-position:200% 0}}
+@keyframes hotPulse{0%,100%{box-shadow:0 0 0 0 rgba(43,174,133,.55)}50%{box-shadow:0 0 0 3px rgba(43,174,133,0)}}
+@media (prefers-reduced-motion: reduce){
+  .model-pick,.ms-vendor-stripe,.ms-featured{animation:none!important;transition:none!important}
+}
 @media (min-width:1280px){.ms-unified-grid{grid-template-columns:repeat(5,1fr);gap:5px}}
 @media (max-width:1024px){.ms-unified-grid{grid-template-columns:repeat(2,1fr);gap:5px}}
 @media (max-width:760px){.ms-unified-grid{grid-template-columns:1fr}}
@@ -1678,6 +1708,29 @@ const SITE_DATA = __SITE_DATA__;
   });
   if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
   if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+
+  // 卡片聚光描边 + 轻微 3D 倾斜（尊重 prefers-reduced-motion）
+  (function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var cards = document.querySelectorAll('.model-pick');
+    var MAX = 5; // 最大倾斜角度
+    cards.forEach(function(card){
+      card.addEventListener('pointermove', function(e){
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+        card.style.setProperty('--ry', ((px - 0.5) * MAX * 2).toFixed(2) + 'deg');
+        card.style.setProperty('--rx', ((0.5 - py) * MAX * 2).toFixed(2) + 'deg');
+      });
+      card.addEventListener('pointerleave', function(){
+        card.style.setProperty('--ry', '0deg');
+        card.style.setProperty('--rx', '0deg');
+      });
+    });
+  })();
+
 
   // 桌面端折叠/展开侧边栏（FIX 3: 增加 hover-peek + 自动收起）
   var layout = document.querySelector('.layout');
