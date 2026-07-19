@@ -886,20 +886,20 @@ def _mainstream_section(
         vid = model.get("_vid", "—")
         vname = model.get("_vname", vid)
 
-        # 紧凑价格行：入 ¥X/MTok · 出 ¥Y/MTok · 缓存 ¥Z/MTok（带单位）
-        cur_sym = "¥" if currency == "CNY" else "$"
-        unit = "/MTok"
+        # 价格行：全称 + 无货币符号 + 独立单位标签
+        unit_label = "元 / 百万 Token" if currency == "CNY" else "$ / Million Tokens"
         price_html = (
             f'<div class="ms-prices-row">'
-            f'<span class="ms-p-item"><label>入</label><b>{cur_sym}{_fmt_num(inp)}{unit}</b></span>'
+            f'<span class="ms-p-item"><label>输入</label><b>{_fmt_num(inp)}</b></span>'
             f'<span class="ms-p-sep">·</span>'
-            f'<span class="ms-p-item"><label>出</label><b>{cur_sym}{_fmt_num(out)}{unit}</b></span>'
+            f'<span class="ms-p-item"><label>输出</label><b>{_fmt_num(out)}</b></span>'
             f'</div>'
+            f'<div class="ms-unit">{unit_label}</div>'
             if isinstance(inp, (int, float)) and isinstance(out, (int, float))
             else '<div class="ms-prices-row ms-no-price"><span>价格待公布</span></div>'
         )
         cache_html = (
-            f'<span class="ms-cache-inline"><span class="ms-p-sep">·</span><span class="ms-p-item"><label>缓存</label><b>{cur_sym}{_fmt_num(cache_input)}{unit}</b></span></span>'
+            f'<span class="ms-cache-inline"><span class="ms-p-sep">·</span><span class="ms-p-item"><label>缓存命中</label><b>{_fmt_num(cache_input)}</b></span></span>'
             if isinstance(cache_input, (int, float))
             else ""
         )
@@ -1153,7 +1153,10 @@ body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,
 @media (min-width:1025px){.sidebar-backdrop{display:none}}
 @media (max-width:760px){.sidebar{width:85vw}}
 
-.sec-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 12px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 6px}
+.sec-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.sec-metrics .stat-card{background:#fff;border-radius:8px;padding:6px 10px;border:1px solid var(--line)}
+.sec-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:8px}
 .section-title{font-size:16px;font-weight:800;margin:0;color:#0f172a;letter-spacing:-.01em}
 .section-sub{margin:0;color:var(--mute);font-size:12px}
 
@@ -1309,9 +1312,10 @@ footer .disc{color:var(--mute)}
 /* 紧凑价格行：单行 入 X · 出 Y */
 .ms-prices-row{font-size:8px;color:#0f172a;line-height:1.4;margin-bottom:0;display:inline-flex;align-items:center;flex-wrap:wrap;gap:1px}
 .ms-p-item{display:inline-flex;align-items:center;gap:1px}
-.ms-p-item label{color:var(--mute);font-weight:500;font-size:7.5px}
-.ms-p-item b{font-weight:800;white-space:nowrap}
-.ms-p-sep{color:#94a3b8;margin:0 1px;font-weight:400}
+.ms-p-item label{color:var(--mute);font-weight:500;font-size:7.5px;white-space:nowrap}
+.ms-p-item b{font-weight:800;white-space:nowrap;color:#0f172a}
+.ms-p-sep{color:#94a3b8;margin:0 2px;font-weight:400}
+.ms-unit{font-size:7px;color:var(--mute);margin-top:1px;letter-spacing:.02em}
 .ms-no-price{color:var(--mute);font-style:italic}
 /* 缓存命中 — 与价格同行，共用 ms-p-item 样式 */
 .ms-cache-inline{font-size:8px;color:var(--mute);display:inline-flex;align-items:center;margin-left:0}
@@ -1333,7 +1337,7 @@ tr[data-source="openai"] .pill{background:#e8f8f2;border-color:#a7d8c4;color:#1a
 tr[data-source="anthropic"] .pill{background:#fff8e7;border-color:#e8d08e;color:#b8860b}
 tr[data-source="google"] .pill{background:#e8f8f2;border-color:#a7d8c4;color:#1a9e72}
 
-@media (max-width:1024px){.metrics{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:1024px){.metrics{grid-template-columns:repeat(2,1fr)}.sec-metrics{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){
   .hero-inner{padding:16px 12px 12px}
   .hero h1{font-size:16px}
@@ -1344,7 +1348,7 @@ tr[data-source="google"] .pill{background:#e8f8f2;border-color:#a7d8c4;color:#1a
   .price-table th,.price-table td{padding:4px 6px;font-size:10px}
   .rate-input-wrap{flex-wrap:wrap}
 }
-@media (max-width:480px){.metrics{grid-template-columns:1fr}}
+@media (max-width:480px){.metrics{grid-template-columns:1fr}.sec-metrics{grid-template-columns:repeat(2,1fr)}}
 """
 
 _JS = """
@@ -1655,7 +1659,14 @@ const SITE_DATA = __SITE_DATA__;
     if (sidebar) sidebar.classList.remove('is-open');
     if (sidebarBackdrop) sidebarBackdrop.classList.remove('is-open');
   }
-  if (sidebarToggle) sidebarToggle.addEventListener('click', openSidebar);
+  if (sidebarToggle) sidebarToggle.addEventListener('click', function(){
+    // 桌面端：切换侧边栏折叠；移动端：打开侧边栏浮层
+    if (layout && window.innerWidth > 1024) {
+      toggleSidebarLayout();
+    } else {
+      openSidebar();
+    }
+  });
   if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
   if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
 
@@ -1988,7 +1999,6 @@ def build_site(data_dir: str, out_path: str = None) -> str:
       <span class="eyebrow">官网基准 · 渠道对照 · 可筛选</span>
       <h1>大模型 Token 定价追踪</h1>
       <p class="sub">顶部官网原价，下方渠道报价；支持 DeepSeek 模型与渠道组合筛选，汇率默认 7.0 可手动调整。</p>
-      <div class="metrics">{metrics_html}</div>
     </div>
   </header>
 
@@ -2000,7 +2010,10 @@ def build_site(data_dir: str, out_path: str = None) -> str:
           <h2 class="section-title">定价总览</h2>
           <p class="section-sub">DeepSeek 置顶 · 筛选可组合 · 官网与渠道分区</p>
         </div>
-        <button type="button" class="btn-filter-toggle" id="sidebarToggle" aria-label="展开筛选">筛选</button>
+      </div>
+      <div class="sec-metrics">{metrics_html}</div>
+      <div class="sec-actions">
+        <button type="button" class="btn-filter-toggle" id="sidebarToggle" aria-label="展开筛选">≡ 筛选</button>
         <button type="button" id="btnExcel" class="btn-export">⬇ 导出 Excel</button>
       </div>
 
