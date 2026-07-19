@@ -168,10 +168,10 @@ sections:
                 - condition: "缓存命中"
                   input_price: 2.0
                   output_price: 100.0
+                  cache_input_price: 2.0
                 - condition: "缓存未命中"
                   input_price: 20.0
                   output_price: 100.0
-                  cache_input_price: 2.0
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.moonshot.cn/docs/pricing"
@@ -190,6 +190,7 @@ sections:
                 - condition: "default"
                   input_price: 1.3
                   output_price: 27.0
+                  cache_input_price: 1.3
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.moonshot.cn/docs/pricing"
@@ -208,6 +209,7 @@ sections:
                 - condition: "default"
                   input_price: 1.1
                   output_price: 27.0
+                  cache_input_price: 1.1
             currency: CNY
             unit: per_million_tokens
             source_url: "https://platform.moonshot.cn/docs/pricing"
@@ -324,6 +326,7 @@ sections:
                 - condition: "default"
                   input_price: 5.0
                   output_price: 30.0
+                  cache_input_price: 2.5
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.openai.com/docs/pricing"
@@ -343,6 +346,7 @@ sections:
                 - condition: "default"
                   input_price: 2.5
                   output_price: 15.0
+                  cache_input_price: 1.25
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.openai.com/docs/pricing"
@@ -362,6 +366,7 @@ sections:
                 - condition: "default"
                   input_price: 1.0
                   output_price: 6.0
+                  cache_input_price: 0.5
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.openai.com/docs/pricing"
@@ -381,6 +386,7 @@ sections:
                 - condition: "default"
                   input_price: 2.5
                   output_price: 10.0
+                  cache_input_price: 1.25
             currency: USD
             unit: per_million_tokens
             source_url: "https://platform.openai.com/docs/pricing"
@@ -520,6 +526,7 @@ sections:
                 - condition: "default"
                   input_price: 1.5
                   output_price: 9.0
+                  cache_input_price: 0.15
                 - condition: "缓存命中"
                   input_price: 0.15
                   output_price: 9.0

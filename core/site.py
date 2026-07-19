@@ -722,6 +722,7 @@ def _sidebar() -> str:
           <button type="button" id="filterReset" class="btn-filter-reset">重置全部筛选</button>
           <span class="visible-count" id="visibleCount">显示 0 行</span>
         </div>
+        <button type="button" id="sidebarConfirm" class="btn-confirm">确认筛选 ✓</button>
       </div>
     </aside>
     """
@@ -1085,6 +1086,10 @@ html{overflow-x:clip}
 .btn-filter-reset{font-size:12px;font-weight:700;color:var(--primary);background:0 0;border:1px solid var(--primary);border-radius:8px;padding:7px 12px;cursor:pointer}
 .btn-filter-reset:hover{background:var(--primary);color:#fff}
 .sidebar .visible-count{font-size:11px;font-weight:700;color:var(--mute)}
+.btn-confirm{display:flex;width:100%;margin-top:16px;justify-content:center;align-items:center;gap:6px;border:0;background:var(--primary);color:#fff;font:inherit;font-size:14px;font-weight:800;padding:11px 16px;border-radius:10px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s,transform .25s,background .15s}
+.btn-confirm.is-show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.btn-confirm:hover{background:var(--primary-deep)}
+.btn-confirm:active{transform:scale(.97)}
 
 @media (max-width:1024px){
   .layout{display:block}
@@ -1455,6 +1460,7 @@ const SITE_DATA = __SITE_DATA__;
     updateSummary();
     updateVisibleCount(shown);
     maybeSyncChart();
+    updateConfirmButton();
   }
 
   function updateSummary(){
@@ -1568,6 +1574,22 @@ const SITE_DATA = __SITE_DATA__;
   if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
   if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
 
+  // 确认按钮：有选中内容时显示，点击后收起侧边栏
+  var sidebarConfirm = document.getElementById('sidebarConfirm');
+  function isDefaultFilter(){
+    return allOn(state.models) && allOn(state.channels) && Math.abs(state.rate - 7.0) < 0.01;
+  }
+  function updateConfirmButton(){
+    if (!sidebarConfirm) return;
+    sidebarConfirm.classList.toggle('is-show', !isDefaultFilter());
+  }
+  if (sidebarConfirm){
+    sidebarConfirm.addEventListener('click', function(){
+      closeSidebar();
+      document.getElementById('main').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  }
+
   var fx = document.getElementById('fxRate');
   var fxReset = document.getElementById('fxReset');
   function setRate(v){
@@ -1588,6 +1610,7 @@ const SITE_DATA = __SITE_DATA__;
         updatePrices();
         updateSummary();
         updateVisibleCount();
+        updateConfirmButton();
       }
     });
   }
