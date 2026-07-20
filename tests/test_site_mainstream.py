@@ -112,6 +112,70 @@ def test_generated_html_no_seedance_in_domestic_mainstream(tmp_path):
         assert "Seedance" not in domestic_html
 
 
+def test_qwen_cards_show_cache_hit_and_no_pending_badge(tmp_path):
+    """Qwen 官网已有隐式缓存命中价，卡片必须展示，不能再显示「待补」。"""
+    out = tmp_path / "index.html"
+    site.build_site(os.path.join(ROOT, "data"), str(out))
+    html = out.read_text(encoding="utf-8")
+    domestic_start = html.find('data-section="domestic-mainstream"')
+    overseas_start = html.find('data-section="overseas-mainstream"')
+    assert domestic_start >= 0 and overseas_start > domestic_start
+    domestic = html[domestic_start:overseas_start]
+    assert 'data-canonical="Qwen3.7 Max"' in domestic
+    assert 'data-canonical="Qwen3.7 Plus"' in domestic
+    # 缓存命中价（Hologres 隐式）：Max 2.88 / Plus 0.48
+    assert "2.88" in domestic
+    assert "0.48" in domestic
+    qwen_idx = domestic.find('data-canonical="Qwen3.7 Max"')
+    qwen_snip = domestic[qwen_idx : qwen_idx + 900]
+    assert "待补" not in qwen_snip
+    assert "官方价格页待修复" not in domestic
+
+
+def test_domestic_cards_grouped_by_vendor_flagship_first(tmp_path):
+    """同厂模型必须连续；每厂旗舰（最强）排在前。"""
+    import re
+
+    out = tmp_path / "index.html"
+    site.build_site(os.path.join(ROOT, "data"), str(out))
+    html = out.read_text(encoding="utf-8")
+    domestic_start = html.find('data-section="domestic-mainstream"')
+    overseas_start = html.find('data-section="overseas-mainstream"')
+    domestic = html[domestic_start:overseas_start]
+    canons = re.findall(r'data-canonical="([^"]+)"', domestic)
+    # 同厂连续：DeepSeek 三款必须相邻
+    ds = [i for i, c in enumerate(canons) if c.startswith("DeepSeek")]
+    assert ds and ds[-1] - ds[0] + 1 == len(ds)
+    # Qwen 两款相邻
+    qw = [i for i, c in enumerate(canons) if c.startswith("Qwen")]
+    assert len(qw) >= 2 and qw[-1] - qw[0] + 1 == len(qw)
+    # 厂内旗舰优先
+    assert canons.index("Qwen3.7 Max") < canons.index("Qwen3.7 Plus")
+    assert canons.index("DeepSeek V4 Pro") < canons.index("DeepSeek V4 Flash")
+    assert canons.index("DeepSeek V4 Flash") < canons.index("DeepSeek V3.2")
+
+
+def test_official_rows_vendor_grouped_with_qwen_cache():
+    data = site._build_site_data(os.path.join(ROOT, "data"))
+    rows = data["official_rows"]
+    qwen = [r for r in rows if str(r.get("canonical", "")).startswith("Qwen")]
+    assert qwen
+    assert any(r.get("cache_hit") == 2.88 for r in qwen)
+    assert any(r.get("cache_hit") == 0.48 for r in qwen)
+
+    sources = [r["source"] for r in rows]
+
+    def contiguous(src: str) -> bool:
+        idx = [i for i, s in enumerate(sources) if s == src]
+        if not idx:
+            return True
+        return idx[-1] - idx[0] + 1 == len(idx)
+
+    assert contiguous("deepseek")
+    assert contiguous("aliyun")
+    assert contiguous("bigmodel")
+
+
 def test_excel_export_includes_mainstream_sheets(tmp_path):
     """验证 Excel 导出数据包含国内/海外主流目录行。"""
     data = site._build_site_data(os.path.join(ROOT, "data"))

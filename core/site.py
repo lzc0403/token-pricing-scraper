@@ -74,56 +74,102 @@ CHANNEL_SOURCES = {"modelmesh", "tencent", "openrouter", "volcengine", "aliyun"}
 # 渠道按「结算币种」分区：USD 结算 = 海外渠道面板；CNY/无标价 = 国内渠道面板。
 # 腾讯云/火山引擎等国内云厂商也可能以 USD 对外报价（如跨境实例），一律归入海外。
 
-# 主流模型排序：按发布时间/技术先进性降序（越新越强排越前）
-# 依据：Kimi K3(2026-07-17) > GLM-5.2(2026-06-17) > DeepSeek V4 Pro > V4 Flash > V3.2
+# 厂内型号排序：同一厂商内「最强 / 最新」优先（下标越小越靠前）
+# 展示时还会再套一层「厂商聚合」：同厂模型挨在一起，不跨厂穿插。
 MAINSTREAM_SORT_ORDER: List[str] = [
-    # 国内 — 按技术先进性
-    "Kimi K3",
-    "GLM-5.2",
-    "GLM-5.1",
+    # DeepSeek
     "DeepSeek V4 Pro",
     "DeepSeek V4 Flash",
     "DeepSeek V3.2",
-    "MiniMax M3",
-    "Doubao Seed 2.1 Pro",
-    "Doubao Seed 2.1 Turbo",
-    "MiniMax M2.7",
-    "Kimi K2.7 Code",
-    "Kimi K2.6",
+    # 通义千问
     "Qwen3.7 Max",
     "Qwen3.7 Plus",
-    # 海外 — GPT/Claude/Gemini 旗舰优先
+    # 智谱
+    "GLM-5.2",
+    "GLM-5.1",
+    # Kimi
+    "Kimi K3",
+    "Kimi K2.7 Code",
+    "Kimi K2.6",
+    # MiniMax
+    "MiniMax M3",
+    "MiniMax M2.7",
+    # 豆包
+    "Doubao Seed 2.1 Pro",
+    "Doubao Seed 2.1 Turbo",
+    # 海外 — 各厂旗舰优先，同厂相邻
     "GPT-5.6 Sol",
-    "Claude Fable 5",
     "GPT-5.6 Terra",
-    "Claude Opus 4.8",
     "GPT-5.6 Luna",
-    "Claude Sonnet 5",
     "GPT-4o",
+    "Claude Fable 5",
+    "Claude Opus 4.8",
+    "Claude Sonnet 5",
     "Claude Haiku 4.5",
     "Gemini 3.5 Pro",
     "Gemini 3.5 Flash",
 ]
 
+# 国内厂商顺序（与 config/mainstream_models.yml 目录一致）
+DOMESTIC_VENDOR_ORDER: List[str] = [
+    "deepseek",
+    "qwen",
+    "glm",
+    "kimi",
+    "minimax",
+    "doubao",
+]
+
+# 海外厂商顺序
+OVERSEAS_VENDOR_ORDER: List[str] = [
+    "openai",
+    "anthropic",
+    "google",
+]
+
+# source_id → 厂商分组 id（官方表/渠道表聚合用）
+SOURCE_VENDOR: Dict[str, str] = {
+    "deepseek": "deepseek",
+    "aliyun": "qwen",
+    "bigmodel": "glm",
+    "kimi": "kimi",
+    "minimax": "minimax",
+    "volcengine": "doubao",
+    "openai": "openai",
+    "anthropic": "anthropic",
+    "google": "google",
+}
+
 MODEL_ORDER: List[str] = [
-    # 国内主力
+    # 国内：同厂连续，厂内旗舰优先（与 MAINSTREAM_SORT_ORDER 对齐）
     "DeepSeek V4 Pro",
     "DeepSeek V4 Flash",
     "DeepSeek V3.2",
-    "GLM-5.1",
+    "Qwen3.7 Max",
+    "Qwen3.7 Plus",
     "GLM-5.2",
-    "Kimi K2.6",
+    "GLM-5.1",
     "Kimi K3",
-    "MiniMax M2.7",
+    "Kimi K2.7 Code",
+    "Kimi K2.6",
     "MiniMax M3",
+    "MiniMax M2.7",
+    "Doubao Seed 2.1 Pro",
+    "Doubao Seed 2.1 Turbo",
     "Seedance 2.0",
-    "qwen3.7",
     # 海外最主流（只保留热门旗舰/主力）
+    "GPT-5.6 Sol",
+    "GPT-5.6 Terra",
+    "GPT-5.6 Luna",
     "GPT-5",
     "GPT-4o",
+    "Claude Fable 5",
     "Claude Opus 4.8",
     "Claude Sonnet 5",
+    "Claude Haiku 4.5",
     "Claude 5",
+    "Gemini 3.5 Pro",
+    "Gemini 3.5 Flash",
     "Gemini 2.5 Pro",
     "Gemini 2.5 Flash",
 ]
@@ -133,14 +179,18 @@ DOMESTIC_MODELS = {
     "DeepSeek V4 Pro",
     "DeepSeek V4 Flash",
     "DeepSeek V3.2",
+    "Qwen3.7 Max",
+    "Qwen3.7 Plus",
     "GLM-5.1",
     "GLM-5.2",
     "Kimi K2.6",
     "Kimi K3",
+    "Kimi K2.7 Code",
     "MiniMax M2.7",
     "MiniMax M3",
+    "Doubao Seed 2.1 Pro",
+    "Doubao Seed 2.1 Turbo",
     "Seedance 2.0",
-    "qwen3.7",
 }
 
 # 海外主流模型官方数据已迁移到 config/mainstream_models.yml
@@ -302,8 +352,37 @@ def _is_channel_row(r: Dict[str, Any]) -> bool:
 
 
 def _sort_canons(canons: List[str]) -> List[str]:
+    """模型排序：同厂连续，厂内按 MODEL_ORDER（旗舰优先）。"""
     order = {name: i for i, name in enumerate(MODEL_ORDER)}
     return sorted(canons, key=lambda c: (order.get(c, 1000), c))
+
+
+def _vendor_rank(source_or_vendor: Any, region: str = "domestic") -> int:
+    """厂商展示序：国内 deepseek→qwen→…；海外 openai→anthropic→google。"""
+    key = str(source_or_vendor or "").strip().lower()
+    vendor = SOURCE_VENDOR.get(key, key)
+    order = DOMESTIC_VENDOR_ORDER if region != "overseas" else OVERSEAS_VENDOR_ORDER
+    if vendor in order:
+        return order.index(vendor)
+    return 1000
+
+
+def _model_rank(canon: Any) -> int:
+    order = {name: i for i, name in enumerate(MODEL_ORDER)}
+    return order.get(str(canon or ""), 1000)
+
+
+def _official_sort_key(r: Dict[str, Any]) -> Tuple[int, int, str, float]:
+    """官方表：同厂聚合 + 厂内旗舰优先 + 同型号价格升序。"""
+    region = "overseas" if str(r.get("currency") or "").upper() == "USD" else "domestic"
+    # 优先用 source 映射；海外 catalog 行 source 已是 openai/anthropic/google
+    vendor_key = r.get("source") or r.get("family") or ""
+    return (
+        _vendor_rank(vendor_key, region),
+        _model_rank(r.get("canonical")),
+        str(r.get("model") or "").lower(),
+        _price_key(r),
+    )
 
 
 def _price_key(r: Dict[str, Any]) -> float:
@@ -361,11 +440,15 @@ def _overseas_official_rows(rate: float) -> List[Dict[str, Any]]:
         sid = vendor.get("source_id") or vendor.get("id") or "—"
         fam = vendor.get("name") or source_label(sid)
         for model in vendor.get("models", []):
-            tiers = model.get("pricing", {}).get("tiers", []) or []
+            pricing = model.get("pricing", {}) or {}
+            tiers = pricing.get("tiers", []) or []
             tier0 = tiers[0] if tiers else {}
             inp = tier0.get("input_price")
             out = tier0.get("output_price")
-            cache = tier0.get("cache_input_price")
+            # 缓存命中在目录里写在 pricing.cache_input_price，不在 tier 内
+            cache = pricing.get("cache_input_price")
+            if cache is None:
+                cache = tier0.get("cache_input_price")
             in_rmb = round(float(inp) * rate, 4) if isinstance(inp, (int, float)) else None
             out_rmb = round(float(out) * rate, 4) if isinstance(out, (int, float)) else None
             ctx = model.get("context_tokens")
@@ -393,7 +476,14 @@ def _overseas_official_rows(rate: float) -> List[Dict[str, Any]]:
                     "region": "overseas",
                 }
             )
-    rows.sort(key=lambda x: (order.get(x["canonical"], 1000), x["family"], x["model"].lower()))
+    rows.sort(
+        key=lambda x: (
+            _vendor_rank(x.get("source") or x.get("family"), "overseas"),
+            order.get(x["canonical"], 1000),
+            str(x.get("family") or ""),
+            str(x.get("model") or "").lower(),
+        )
+    )
     return rows
 
 
@@ -407,12 +497,92 @@ def _context_label(tokens: Any) -> str:
     return str(tokens)
 
 
+def _official_live_prices(watchlist: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """从已抓取的官网记录提取 canonical → 入/出/缓存价，供卡片覆盖目录静态价。"""
+    out: Dict[str, Dict[str, Any]] = {}
+    for r in watchlist:
+        if not isinstance(r, dict):
+            continue
+        canon = r.get("canonical")
+        if not canon or not _is_official_row(str(canon), r):
+            continue
+        # 同型号多档（如 M3 ≤512K / 512K~1M）保留价格最低的一档作为默认展示，
+        # 其余分档仍由 catalog 静态 tiers 或 rows 自行承担。
+        inp = r.get("input")
+        outp = r.get("output")
+        if not isinstance(inp, (int, float)) or not isinstance(outp, (int, float)):
+            continue
+        prev = out.get(str(canon))
+        if prev is not None and float(prev["input"]) <= float(inp):
+            continue
+        out[str(canon)] = {
+            "input": float(inp),
+            "output": float(outp),
+            "cache_hit": r.get("cache_hit"),
+            "context": r.get("context"),
+        }
+    return out
+
+
+def _hydrate_catalog_prices(
+    rendered: Dict[str, List[Dict[str, Any]]],
+    live: Dict[str, Dict[str, Any]],
+) -> None:
+    """用最新抓取价覆盖目录静态价：输入/输出 + cache_input_price（缓存命中）。
+
+    卡片区原先只读 config/mainstream_models.yml。官网解析器已抓到缓存价时，
+    若目录未同步（如 Qwen 仍标 tracking 且无 cache），页面就会「有数据却不显示」。
+    这里在渲染前把 live 官网价写回模型节点，并取消「待补」态。
+    """
+    for vendors in rendered.values():
+        for vendor in vendors:
+            for model in vendor.get("models", []) or []:
+                if not isinstance(model, dict):
+                    continue
+                canon = model.get("canonical")
+                if not canon or str(canon) not in live:
+                    continue
+                hit = live[str(canon)]
+                pricing = model.setdefault("pricing", {})
+                if not isinstance(pricing, dict):
+                    pricing = {}
+                    model["pricing"] = pricing
+                tiers = pricing.get("tiers")
+                if not isinstance(tiers, list) or not tiers:
+                    tiers = [{"condition": "default"}]
+                    pricing["tiers"] = tiers
+                tier0 = tiers[0] if isinstance(tiers[0], dict) else {}
+                if not isinstance(tiers[0], dict):
+                    tiers[0] = tier0
+                tier0["input_price"] = hit["input"]
+                tier0["output_price"] = hit["output"]
+                cache = hit.get("cache_hit")
+                if isinstance(cache, (int, float)):
+                    pricing["cache_input_price"] = float(cache)
+                # 已有官网抓取 → 卡片按 official 展示，去掉「待补」
+                if model.get("availability") in (None, "tracking", "preview"):
+                    model["availability"] = "official"
+                role = str(model.get("role") or "")
+                if "待修复" in role or "渠道参考" in role:
+                    model["role"] = role.replace("官方价格页待修复", "官方 API").replace(
+                        "渠道参考价", "官方 API"
+                    )
+
+
 def _build_mainstream_sections(
     catalog: Dict[str, Any],
     channel_canons: set,
+    watchlist: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, List[Dict[str, Any]]]:
-    """构建国内/海外主流卡片专区数据，附加展示字段。"""
+    """构建国内/海外主流卡片专区数据，附加展示字段。
+
+    会用 watchlist 里最新官网价覆盖目录静态价（含缓存命中），
+    避免「解析器已抓到、卡片还显示渠道参考/无缓存」。
+    """
     rendered = mainstream_catalog.renderable_sections(catalog)
+    live = _official_live_prices(watchlist or [])
+    if live:
+        _hydrate_catalog_prices(rendered, live)
     for section_id, vendors in rendered.items():
         for vendor in vendors:
             for model in vendor.get("models", []):
@@ -466,8 +636,6 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         # 若官网无国内 CNY，取官网任意币种
         if not official:
             official = [x for x in norm if x["is_official"]]
-        # 官方块按模型名排序（同模型多规格）
-        official = sorted(official, key=lambda x: (x["model"].lower(), _price_key(x)))
         official_rows.extend(official)
 
         # 渠道：非官网。按「结算币种」分区：USD 进海外面板；CNY 进国内面板。
@@ -495,22 +663,23 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
             for r in chart_rows
         ]
 
-    # 渠道表按模型序再按价格
-    order = {name: i for i, name in enumerate(MODEL_ORDER)}
+    # 官方表 / 渠道表：同厂聚合，厂内旗舰优先
+    official_rows = sorted(official_rows, key=_official_sort_key)
 
-    def _channel_sort(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def _channel_sort(rows: List[Dict[str, Any]], region: str) -> List[Dict[str, Any]]:
         return sorted(
             rows,
             key=lambda x: (
-                order.get(x["canonical"], 1000),
+                _vendor_rank(x.get("source"), region),
+                _model_rank(x.get("canonical")),
                 _price_key(x),
-                x["source_label"],
-                x["model"].lower(),
+                x.get("source_label") or "",
+                str(x.get("model") or "").lower(),
             ),
         )
 
-    channel_domestic = _channel_sort(channel_domestic)
-    channel_overseas = _channel_sort(channel_overseas)
+    channel_domestic = _channel_sort(channel_domestic, "domestic")
+    channel_overseas = _channel_sort(channel_overseas, "overseas")
 
     # Excel 导出兼容 groups：官方 + 渠道
     groups: List[Dict[str, Any]] = []
@@ -530,7 +699,9 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
     try:
         catalog = mainstream_catalog.load_catalog(_CATALOG_PATH)
         catalog_all_canons = mainstream_catalog.catalog_canons(catalog)
-        mainstream_sections = _build_mainstream_sections(catalog, set(canons))
+        mainstream_sections = _build_mainstream_sections(
+            catalog, set(canons), watchlist=watchlist
+        )
         has_domestic_mainstream = bool(mainstream_sections.get("domestic"))
         has_overseas_mainstream = bool(mainstream_sections.get("overseas"))
     except (OSError, ValueError):
@@ -861,27 +1032,42 @@ def _mainstream_section(
     使用厂商色带（vendor stripe）标记每张卡片的来源，
     视觉整齐划一，消除各厂商子网格列数不一致的问题。
 
-    排序按 MAINSTREAM_SORT_ORDER（发布时间/技术先进性）。
+    排序规则：
+      1) 同厂模型聚合连续（按目录 vendors 顺序 / 厂商序）
+      2) 厂内按 MAINSTREAM_SORT_ORDER 旗舰优先
     日期统一时仅在顶部展示一次。
     价格紧凑为单行「入 X · 出 Y · 缓存 Z」。
 
     accent: domestic（青绿）或 overseas（蓝色）
     """
     total_models = sum(len(v.get("models", [])) for v in vendors)
+    region = "overseas" if accent == "overseas" else "domestic"
+    model_order = {name: i for i, name in enumerate(MAINSTREAM_SORT_ORDER)}
 
-    # ---- 收集全部模型并排序 ----
+    # ---- 收集全部模型：同厂连续，厂内旗舰优先 ----
     flat_models: List[Dict[str, Any]] = []
-    for vendor in vendors:
+    # 先按目录 vendors 既有顺序；若缺序再用厂商 id 排序兜底
+    vendor_list = list(vendors)
+    vendor_list.sort(
+        key=lambda v: (
+            _vendor_rank(v.get("id") or v.get("source_id"), region),
+            str(v.get("id") or ""),
+        )
+    )
+    for vendor in vendor_list:
         vid = vendor.get("id") or "—"
         vname = vendor.get("name") or vid
-        for model in vendor.get("models", []):
+        models = list(vendor.get("models", []) or [])
+        models.sort(
+            key=lambda m: (
+                model_order.get(m.get("canonical", ""), 9999),
+                str(m.get("canonical") or ""),
+            )
+        )
+        for model in models:
             model["_vid"] = vid
             model["_vname"] = vname
             flat_models.append(model)
-
-    # 按 MAINSTREAM_SORT_ORDER 排序，未列出的排最后
-    order_map = {name: i for i, name in enumerate(MAINSTREAM_SORT_ORDER)}
-    flat_models.sort(key=lambda m: order_map.get(m.get("canonical", ""), 9999))
 
     # ---- 日期去重检测 ----
     all_dates = set()
