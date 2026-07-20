@@ -11,9 +11,9 @@ kimi,kimi-k3,2.0,100.0,2.0,"1,048,576 tokens",,1M tokens,CNY,2.0,100.0,Kimi K3,y
 minimax,MiniMax-M2.7,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
 minimax,MiniMax-M3,2.1,8.4,0.42,≤512K,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
 minimax,MiniMax-M3,4.2,16.8,0.84,512K~1,,1M tokens,CNY,4.2,16.8,MiniMax M3,no
-openrouter,DeepSeek V4 Flash,0.098,0.196,0.0196,1.04858M,id=deepseek/deepseek-v4-flash | 国内高频 OpenRouter 价,1M tokens,USD,0.7056,1.4112,DeepSeek V4 Flash,yes
+openrouter,DeepSeek V4 Flash,0.09,0.18,0.0196,1.04858M,id=deepseek/deepseek-v4-flash | 国内高频 OpenRouter 价,1M tokens,USD,0.648,1.296,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,0.435,0.87,0.003625,1.04858M,id=deepseek/deepseek-v4-pro | 国内旗舰 OpenRouter 价,1M tokens,USD,3.132,6.264,DeepSeek V4 Pro,no
-openrouter,GLM 5.2,0.9786,3.0756,0.18174,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,7.04592,22.14432,GLM-5.2,yes
+openrouter,GLM 5.2,0.9674,3.0404,0.17966,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,6.96528,21.89088,GLM-5.2,yes
 openrouter,Kimi K2.6,0.684,3.42,0.144,262K,id=moonshotai/kimi-k2.6 | Kimi 现役,1M tokens,USD,4.9248,24.624,Kimi K2.6,no
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,id=moonshotai/kimi-k3 | 新品跟进,1M tokens,USD,21.6,108.0,Kimi K3,no
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,id=minimax/minimax-m3 | 新品跟进,1M tokens,USD,2.16,8.64,MiniMax M3,no

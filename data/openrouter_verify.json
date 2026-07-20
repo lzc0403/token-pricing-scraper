@@ -1,21 +1,36 @@
 {
-  "ok": true,
-  "fetched_at": "2026-07-20T03:50:32.099777+00:00",
-  "generated_at": "2026-07-20 03:50:41",
+  "ok": false,
+  "fetched_at": "2026-07-20T06:45:28.223488+00:00",
+  "generated_at": "2026-07-20 06:45:37",
   "stats": {
     "raw_models": 338,
     "parsed": 23,
     "whitelist": 11,
     "missing_whitelist": 0,
     "absent_api": 0,
-    "suspects": 0,
-    "high": 0,
+    "suspects": 2,
+    "high": 2,
     "med": 0,
     "low": 0
   },
   "missing_whitelist": [],
   "absent_api": [],
-  "suspects": [],
+  "suspects": [
+    {
+      "code": "OR_PRICE_MISMATCH",
+      "severity": "high",
+      "model": "DeepSeek V4 Flash",
+      "id": "deepseek/deepseek-v4-flash",
+      "msg": "input 换算不一致 exp=0.098 got=0.09"
+    },
+    {
+      "code": "OR_PRICE_MISMATCH",
+      "severity": "high",
+      "model": "DeepSeek V4 Flash",
+      "id": "deepseek/deepseek-v4-flash",
+      "msg": "output 换算不一致 exp=0.196 got=0.18"
+    }
+  ],
   "sample": [
     {
       "id": "openai/gpt-4o",
@@ -62,8 +77,8 @@
     {
       "id": "deepseek/deepseek-v4-flash",
       "model": "DeepSeek V4 Flash",
-      "input": 0.098,
-      "output": 0.196
+      "input": 0.09,
+      "output": 0.18
     },
     {
       "id": "minimax/minimax-m3",
@@ -92,8 +107,8 @@
     {
       "id": "z-ai/glm-5.2",
       "model": "GLM 5.2",
-      "input": 0.9786,
-      "output": 3.0756
+      "input": 0.9674,
+      "output": 3.0404
     },
     {
       "id": "anthropic/claude-opus-4.7",
