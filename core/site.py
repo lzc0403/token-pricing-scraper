@@ -692,7 +692,7 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         if ov:
             groups.append({"canonical": c, "market": "overseas", "rows": ov})
 
-    overseas_rows = _overseas_official_rows(7.0)  # 默认汇率 7.0 约价；前端改汇率后 JS 重算
+    overseas_rows = _overseas_official_rows(7.2)  # 默认汇率 7.2；前端改汇率后 JS 重算
     overseas_canons = [r["canonical"] for r in overseas_rows]
 
     # 主流模型目录（国内/海外双专区）
@@ -724,7 +724,7 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
     return {
         "generated_at": generated_at,
         "rate": rate,
-        "default_rate": 7.0,
+        "default_rate": 7.2,
         "filter_meta": {
             "models": all_canons,
             "all_models": all_canons,
@@ -936,13 +936,13 @@ def _sidebar() -> str:
         <div class="sidebar-group">
           <div class="sx-group-head">
             <span class="sx-group-title">汇率</span>
-            <button type="button" id="fxReset" class="linkish">重置 7.0</button>
+            <button type="button" id="fxReset" class="linkish">重置 7.2</button>
           </div>
           <div class="rate-input-wrap">
-            <input id="fxRate" class="rate-input" type="number" inputmode="decimal" min="0.1" max="100" step="0.01" value="7.0" aria-describedby="fxHint">
+            <input id="fxRate" class="rate-input" type="number" inputmode="decimal" min="0.1" max="100" step="0.01" value="7.2" aria-describedby="fxHint">
             <span class="rate-suffix">¥/$</span>
           </div>
-          <div id="fxHint" class="rate-hint">当前 <strong id="fxCurrent">7.00</strong></div>
+          <div id="fxHint" class="rate-hint">当前 <strong id="fxCurrent">7.20</strong></div>
         </div>
 
         <div class="sidebar-foot">
@@ -1601,7 +1601,7 @@ _JS = """
 const SITE_DATA = __SITE_DATA__;
 (function(){
   var state = {
-    rate: 7.0,
+    rate: 7.2,
     models: {},     // canonical model -> bool （全部大模型）
     channels: {}    // source id -> bool
   };
@@ -2022,7 +2022,7 @@ const SITE_DATA = __SITE_DATA__;
   // 确认按钮：有选中内容时显示，点击后收起侧边栏
   var sidebarConfirm = document.getElementById('sidebarConfirm');
   function isDefaultFilter(){
-    return allOn(state.models) && allOn(state.channels) && Math.abs(state.rate - 7.0) < 0.01;
+    return allOn(state.models) && allOn(state.channels) && Math.abs(state.rate - 7.2) < 0.01;
   }
   function updateConfirmButton(){
     if (!sidebarConfirm) return;
@@ -2039,7 +2039,7 @@ const SITE_DATA = __SITE_DATA__;
   var fxReset = document.getElementById('fxReset');
   function setRate(v){
     var n = parseFloat(v);
-    if (isNaN(n) || n <= 0) n = 7.0;
+    if (isNaN(n) || n <= 0) n = 7.2;
     if (n > 100) n = 100;
     state.rate = Math.round(n * 100) / 100;
     if (fx) fx.value = state.rate;
@@ -2059,7 +2059,7 @@ const SITE_DATA = __SITE_DATA__;
       }
     });
   }
-  if (fxReset) fxReset.addEventListener('click', function(){ setRate(7.0); });
+  if (fxReset) fxReset.addEventListener('click', function(){ setRate(7.2); });
   var filterReset = document.getElementById('filterReset');
   if (filterReset){
     filterReset.addEventListener('click', function(){
@@ -2067,7 +2067,7 @@ const SITE_DATA = __SITE_DATA__;
       Object.keys(state.channels).forEach(function(k){ state.channels[k]=true; });
       renderChips();
       bindChips();
-      setRate(7.0);
+      setRate(7.2);
     });
   }
 
@@ -2199,7 +2199,7 @@ const SITE_DATA = __SITE_DATA__;
 
   renderChips();
   bindChips();
-  setRate(7.0);
+  setRate(7.2);
   if (sel) draw(sel.value);
 })();
 """
@@ -2224,7 +2224,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
             (
                 f'<div class="stat-card">'
                 f'<div class="label">汇率 USD→CNY</div>'
-                f'<div class="value" id="metricRate">7.00<small>¥/$</small></div>'
+                f'<div class="value" id="metricRate">7.20<small>¥/$</small></div>'
                 f"</div>"
             ),
         ]
@@ -2266,7 +2266,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     <div class="hero-inner">
       <span class="eyebrow">官网基准 · 渠道对照 · 可筛选</span>
       <h1>大模型 Token 定价追踪</h1>
-      <p class="sub">顶部官网原价，下方渠道报价；支持 DeepSeek 模型与渠道组合筛选，汇率默认 7.0 可手动调整。</p>
+      <p class="sub">顶部官网原价，下方渠道报价；支持 DeepSeek 模型与渠道组合筛选，汇率默认 7.2 可手动调整。</p>
     </div>
   </header>
 

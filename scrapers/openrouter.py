@@ -126,7 +126,7 @@ class OpenrouterScraper(BaseScraper):
             m = by_id.get(mid)
             if not m:
                 continue
-            rec = self._to_record(m, force_name=w.get("model"), note=w.get("note"))
+            rec = self._to_record(m, force_name=w.get("model"), note=w.get("note"), override=w)
             if rec and (not exclude_free or not self._is_free(m)):
                 selected.append(rec)
                 seen.add(mid)
@@ -167,14 +167,31 @@ class OpenrouterScraper(BaseScraper):
         m: Dict[str, Any],
         force_name: Optional[str] = None,
         note: Optional[str] = None,
+        override: Optional[Dict[str, Any]] = None,
     ) -> Optional[Dict[str, Any]]:
         mid = m.get("id")
         name = force_name or _clean_name(str(m.get("name") or mid or ""))
         if not name:
             return None
         p = m.get("pricing") or {}
-        inp = _per_m(p.get("prompt"))
-        out = _per_m(p.get("completion"))
+        # 优先使用白名单 price_override（官网价可能不同于 API 返回值）
+        ov_inp = None
+        ov_out = None
+        if override:
+            ov_inp = override.get("input_price")
+            ov_out = override.get("output_price")
+            if ov_inp is not None:
+                try:
+                    ov_inp = float(ov_inp)
+                except (TypeError, ValueError):
+                    ov_inp = None
+            if ov_out is not None:
+                try:
+                    ov_out = float(ov_out)
+                except (TypeError, ValueError):
+                    ov_out = None
+        inp = ov_inp if ov_inp is not None else _per_m(p.get("prompt"))
+        out = ov_out if ov_out is not None else _per_m(p.get("completion"))
         cache = _per_m(p.get("input_cache_read"))
         ctx = _fmt_ctx(m.get("context_length"))
         cond_bits = [f"id={mid}"]

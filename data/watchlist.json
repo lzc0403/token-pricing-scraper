@@ -182,8 +182,8 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Flash",
-    "input": 0.098,
-    "output": 0.196,
+    "input": 0.09,
+    "output": 0.18,
     "cache_hit": 0.0196,
     "context": "1.04858M",
     "condition": "id=deepseek/deepseek-v4-flash | 国内高频 OpenRouter 价",
@@ -192,8 +192,8 @@
     "openrouter_id": "deepseek/deepseek-v4-flash",
     "openrouter_prompt_per_token": "0.000000098",
     "openrouter_completion_per_token": "0.000000196",
-    "input_rmb": 0.7056,
-    "output_rmb": 1.4112,
+    "input_rmb": 0.648,
+    "output_rmb": 1.296,
     "canonical": "DeepSeek V4 Flash",
     "is_lowest_input": "yes"
   },
