@@ -36,6 +36,7 @@ jobs:
         env:
           USD_CNY_RATE: ${{ secrets.USD_CNY_RATE }}
       - name: Commit results
+        continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
