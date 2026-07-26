@@ -1,16 +1,16 @@
 # OpenRouter 二次验证报告
 
-- 时间：2026-07-20 06:45:37
-- 抓取时间：2026-07-20T06:45:28.223488+00:00
+- 时间：2026-07-26 18:50:26
+- 抓取时间：2026-07-26T18:50:17.406442+00:00
 - 结果：❌ 未通过
-- 原始模型数：338
+- 原始模型数：343
 - 解析条数：23
 - 白名单：11（缺失 0 / API 无 0）
 - 可疑：2（high 2 / med 0 / low 0）
 
 ## 可疑项
-- [high] `OR_PRICE_MISMATCH` deepseek/deepseek-v4-flash — input 换算不一致 exp=0.098 got=0.09
-- [high] `OR_PRICE_MISMATCH` deepseek/deepseek-v4-flash — output 换算不一致 exp=0.196 got=0.18
+- [high] `OR_PRICE_MISMATCH` deepseek/deepseek-v4-flash — input 换算不一致 exp=0.14 got=0.09
+- [high] `OR_PRICE_MISMATCH` deepseek/deepseek-v4-flash — output 换算不一致 exp=0.28 got=0.18
 
 ## 解析样本
 - GPT-4o (`openai/gpt-4o`) in=2.5 out=10.0
@@ -22,9 +22,9 @@
 - DeepSeek V4 Pro (`deepseek/deepseek-v4-pro`) in=0.435 out=0.87
 - DeepSeek V4 Flash (`deepseek/deepseek-v4-flash`) in=0.09 out=0.18
 - MiniMax M3 (`minimax/minimax-m3`) in=0.3 out=1.2
-- Kimi K2.6 (`moonshotai/kimi-k2.6`) in=0.684 out=3.42
+- Kimi K2.6 (`moonshotai/kimi-k2.6`) in=0.646 out=2.72
 - Kimi K3 (`moonshotai/kimi-k3`) in=3.0 out=15.0
 - MiMo-V2.5 (`xiaomi/mimo-v2.5`) in=0.14 out=0.28
-- GLM 5.2 (`z-ai/glm-5.2`) in=0.9674 out=3.0404
-- Claude Opus 4.7 (`anthropic/claude-opus-4.7`) in=5.0 out=25.0
-- Gemini 3 Flash Preview (`google/gemini-3-flash-preview`) in=0.5 out=3.0
+- Hy3 (`tencent/hy3`) in=0.132 out=0.528
+- GLM 5.2 (`z-ai/glm-5.2`) in=0.6692 out=2.1032
+- Step 3.7 Flash (`stepfun/step-3.7-flash`) in=0.2 out=1.15
