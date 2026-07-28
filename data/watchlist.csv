@@ -1,6 +1,6 @@
 ﻿source,model_raw,input,output,cache_hit,context,condition,unit,currency,input_rmb,output_rmb,canonical,is_lowest_input
-aliyun,Qwen3.7-Max,14.4,43.2,2.88,,,1M tokens,CNY,14.4,43.2,Qwen3.7 Max,yes
-aliyun,Qwen3.7-Plus,2.4,9.6,0.48,,,1M tokens,CNY,2.4,9.6,Qwen3.7 Plus,yes
+aliyun,Qwen3.7-Max,14.4,43.2,2.88,,,1M tokens,CNY,14.4,43.2,Qwen3.7 Max,no
+aliyun,Qwen3.7-Plus,2.4,9.6,0.48,,,1M tokens,CNY,2.4,9.6,Qwen3.7 Plus,no
 bigmodel,GLM-5.1,6.0,24.0,,,"输入长度 [0, 32)",1M tokens,CNY,6.0,24.0,GLM-5.1,yes
 bigmodel,GLM-5.2,8.0,28.0,,,1M,1M tokens,CNY,8.0,28.0,GLM-5.2,no
 deepseek,deepseek-v4-flash,1.0,2.0,0.02,1M,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,no
@@ -11,13 +11,27 @@ kimi,kimi-k3,2.0,100.0,2.0,"1,048,576 tokens",,1M tokens,CNY,2.0,100.0,Kimi K3,y
 minimax,MiniMax-M2.7,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
 minimax,MiniMax-M3,2.1,8.4,0.42,≤512K,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
 minimax,MiniMax-M3,4.2,16.8,0.84,512K~1,,1M tokens,CNY,4.2,16.8,MiniMax M3,no
-openrouter,DeepSeek V4 Flash,0.098,0.196,0.0196,1.04858M,id=deepseek/deepseek-v4-flash | 国内高频 OpenRouter 价,1M tokens,USD,0.686,1.372,DeepSeek V4 Flash,yes
+modelmesh,Deepseek V3.2,2.0,3.0,,128K,,1M tokens,CNY,2.0,3.0,DeepSeek V3.2,yes
+modelmesh,DeepSeek-V4-Flash,1.0,2.0,,1000K,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,no
+modelmesh,DeepSeek-V4-Pro,3.0,6.0,,1000K,,1M tokens,CNY,3.0,6.0,DeepSeek V4 Pro,yes
+modelmesh,Doubao-Seed-2.1-pro,6.0,30.0,,256K,,1M tokens,CNY,6.0,30.0,Doubao Seed 2.1 Pro,yes
+modelmesh,Doubao-Seed-2.1-turbo,3.0,15.0,,256K,,1M tokens,CNY,3.0,15.0,Doubao Seed 2.1 Turbo,yes
+modelmesh,GLM-5.1,6.0,24.0,,200K,,1M tokens,CNY,6.0,24.0,GLM-5.1,yes
+modelmesh,GLM-5.2,8.0,28.0,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.2,no
+modelmesh,Kimi K2.6,6.5,27.0,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
+modelmesh,Kimi K2.7 Code,6.5,27.0,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code,no
+modelmesh,Kimi K3,20.0,100.0,,1000K,,1M tokens,CNY,20.0,100.0,Kimi K3,no
+modelmesh,MiniMax M2.7,2.1,8.4,,200K,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
+modelmesh,MiniMax M3,2.1,8.4,,1000K,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
+modelmesh,Qwen3.7-Max,6.0,18.0,,1000K,,1M tokens,CNY,6.0,18.0,Qwen3.7 Max,yes
+modelmesh,Qwen3.7-Plus,1.6,6.4,,1000K,,1M tokens,CNY,1.6,6.4,Qwen3.7 Plus,yes
+openrouter,DeepSeek V4 Flash,0.09,0.18,0.028,1.04858M,id=deepseek/deepseek-v4-flash | 国内高频 OpenRouter 价,1M tokens,USD,0.63,1.26,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,0.435,0.87,0.003625,1.04858M,id=deepseek/deepseek-v4-pro | 国内旗舰 OpenRouter 价,1M tokens,USD,3.045,6.09,DeepSeek V4 Pro,no
-openrouter,GLM 5.2,0.9786,3.0756,0.18174,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,6.8502,21.5292,GLM-5.2,yes
-openrouter,Kimi K2.6,0.684,3.42,0.144,262K,id=moonshotai/kimi-k2.6 | Kimi 现役,1M tokens,USD,4.788,23.94,Kimi K2.6,no
+openrouter,GLM 5.2,0.6692,2.1032,0.12428,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,4.6844,14.7224,GLM-5.2,yes
+openrouter,Kimi K2.6,0.646,2.72,0.1088,262K,id=moonshotai/kimi-k2.6 | Kimi 现役,1M tokens,USD,4.522,19.04,Kimi K2.6,no
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,id=moonshotai/kimi-k3 | 新品跟进,1M tokens,USD,21.0,105.0,Kimi K3,no
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,id=minimax/minimax-m3 | 新品跟进,1M tokens,USD,2.1,8.4,MiniMax M3,no
-tencent,Deepseek-v3.2,0.28,0.42,0.056,,-,1M tokens,USD,1.96,2.94,DeepSeek V3.2,yes
+tencent,Deepseek-v3.2,0.28,0.42,0.056,,-,1M tokens,USD,1.96,2.94,DeepSeek V3.2,no
 tencent,DeepSeek-V4-Flash,0.14,0.28,0.028,,-,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,no
 tencent,DeepSeek-V4-Pro,1.74,3.48,0.145,,-,1M tokens,USD,12.18,24.36,DeepSeek V4 Pro,no
 tencent,GLM-5.1,0.84,3.36,0.182,,0 ≤ 输入长度 ＜ 32k,1M tokens,USD,5.88,23.52,GLM-5.1,no
@@ -25,6 +39,7 @@ tencent,GLM-5.1,1.12,3.92,0.28,,输入长度 ≥ 32k,1M tokens,USD,7.84,27.44,GL
 tencent,GLM-5.2,1.12,3.92,0.28,,-,1M tokens,USD,7.84,27.44,GLM-5.2,no
 tencent,kimi-k2.6,0.858,3.566,0.145,,-,1M tokens,USD,6.006,24.962,Kimi K2.6,no
 tencent,Kimi K2.7 Code,0.95,4.0,0.19,,-,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
+tencent,Kimi K3,2.731,13.653,0.2731,,-,1M tokens,USD,19.117,95.571,Kimi K3,no
 tencent,MiniMax-M2.7,0.3,1.2,0.06,,-,1M tokens,USD,2.1,8.4,MiniMax M2.7,no
 tencent,MiniMax-M3,0.3,1.2,0.06,,"输入长度（0, 512k]",1M tokens,USD,2.1,8.4,MiniMax M3,no
 tencent,MiniMax-M3,0.6,2.4,0.12,,输入长度 512k+,1M tokens,USD,4.2,16.8,MiniMax M3,no
