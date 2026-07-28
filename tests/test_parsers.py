@@ -173,16 +173,16 @@ def test_aliyun_overseas_excluded_and_implicit_cache_only():
 
 
 def test_get_rate_falls_back_on_empty_or_bad_env(monkeypatch):
-    """GitHub 未配置 secret 时 USD_CNY_RATE 被求值为空字符串 ''，必须回退 7.2。"""
+    """GitHub 未配置 secret 时 USD_CNY_RATE 被求值为空字符串 ''，必须回退 7.0。"""
     # 空字符串（CI 未配 secret 的真实情况）
     monkeypatch.setenv("USD_CNY_RATE", "")
-    assert currency.get_rate() == 7.2
+    assert currency.get_rate() == 7.0
     # 变量不存在
     monkeypatch.delenv("USD_CNY_RATE", raising=False)
-    assert currency.get_rate() == 7.2
+    assert currency.get_rate() == 7.0
     # 非数字
     monkeypatch.setenv("USD_CNY_RATE", "not-a-number")
-    assert currency.get_rate() == 7.2
+    assert currency.get_rate() == 7.0
     # 合法值应被采用
     monkeypatch.setenv("USD_CNY_RATE", "7.8")
     assert currency.get_rate() == 7.8
@@ -190,9 +190,9 @@ def test_get_rate_falls_back_on_empty_or_bad_env(monkeypatch):
 def test_robustness_unknown_currency_and_missing_fields():
     """未知货币 / cache_hit=None / context 非数字字符串 不应导致崩溃。"""
     # 货币换算对未知货币与 None 的健壮性（返回原值 / None，不抛异常）
-    assert currency.to_rmb(5.0, "EUR", 7.2) == 5.0
-    assert currency.to_rmb(None, "USD", 7.2) is None
-    assert currency.get_rate() == 7.2  # 默认汇率 7.2
+    assert currency.to_rmb(5.0, "EUR", 7.0) == 5.0
+    assert currency.to_rmb(None, "USD", 7.0) is None
+    assert currency.get_rate() == 7.0  # 默认汇率 7.0
 
     # 构造一条异常记录，跑完整 enrich + store 流程确认不崩
     rec = {

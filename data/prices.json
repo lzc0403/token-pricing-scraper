@@ -293,8 +293,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 1.008,
-    "output_rmb": 2.016,
+    "input_rmb": 0.98,
+    "output_rmb": 1.96,
     "canonical": null
   },
   {
@@ -307,8 +307,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 3.132,
-    "output_rmb": 6.264,
+    "input_rmb": 3.045,
+    "output_rmb": 6.09,
     "canonical": null
   },
   {
@@ -321,8 +321,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 1.008,
-    "output_rmb": 2.016,
+    "input_rmb": 0.98,
+    "output_rmb": 1.96,
     "canonical": "DeepSeek V4 Flash",
     "is_lowest_input": "no"
   },
@@ -336,8 +336,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 12.528,
-    "output_rmb": 25.056,
+    "input_rmb": 12.18,
+    "output_rmb": 24.36,
     "canonical": "DeepSeek V4 Pro",
     "is_lowest_input": "no"
   },
@@ -351,8 +351,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 2.016,
-    "output_rmb": 3.024,
+    "input_rmb": 1.96,
+    "output_rmb": 2.94,
     "canonical": "DeepSeek V3.2",
     "is_lowest_input": "yes"
   },
@@ -366,8 +366,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 8.064,
-    "output_rmb": 28.224,
+    "input_rmb": 7.84,
+    "output_rmb": 27.44,
     "canonical": "GLM-5.2",
     "is_lowest_input": "no"
   },
@@ -381,8 +381,8 @@
     "condition": "0 ≤ 输入长度 ＜ 32k",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 6.048,
-    "output_rmb": 24.192,
+    "input_rmb": 5.88,
+    "output_rmb": 23.52,
     "canonical": "GLM-5.1",
     "is_lowest_input": "no"
   },
@@ -396,8 +396,8 @@
     "condition": "输入长度 ≥ 32k",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 8.064,
-    "output_rmb": 28.224,
+    "input_rmb": 7.84,
+    "output_rmb": 27.44,
     "canonical": "GLM-5.1",
     "is_lowest_input": "no"
   },
@@ -411,8 +411,8 @@
     "condition": "0 ≤ 输入长度 ＜ 32k",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 4.1256,
-    "output_rmb": 18.576,
+    "input_rmb": 4.011,
+    "output_rmb": 18.06,
     "canonical": null
   },
   {
@@ -425,8 +425,8 @@
     "condition": "输入长度 ≥ 32k",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 6.192,
-    "output_rmb": 22.7088,
+    "input_rmb": 6.02,
+    "output_rmb": 22.078,
     "canonical": null
   },
   {
@@ -439,8 +439,8 @@
     "condition": "0 ≤ 输入长度 ＜ 32k",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 5.04,
-    "output_rmb": 22.176,
+    "input_rmb": 4.9,
+    "output_rmb": 21.56,
     "canonical": null
   },
   {
@@ -453,8 +453,8 @@
     "condition": "输入长度 ≥ 32k",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 7.056,
-    "output_rmb": 26.208,
+    "input_rmb": 6.86,
+    "output_rmb": 25.48,
     "canonical": null
   },
   {
@@ -467,8 +467,8 @@
     "condition": "0 ≤ 输入长度 ＜ 32k",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 5.04,
-    "output_rmb": 22.176,
+    "input_rmb": 4.9,
+    "output_rmb": 21.56,
     "canonical": null
   },
   {
@@ -481,8 +481,8 @@
     "condition": "输入长度 ≥ 32k",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 7.056,
-    "output_rmb": 26.208,
+    "input_rmb": 6.86,
+    "output_rmb": 25.48,
     "canonical": null
   },
   {
@@ -495,8 +495,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 13.68,
-    "output_rmb": 57.6,
+    "input_rmb": 13.3,
+    "output_rmb": 56.0,
     "canonical": null
   },
   {
@@ -509,8 +509,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 6.84,
-    "output_rmb": 28.8,
+    "input_rmb": 6.65,
+    "output_rmb": 28.0,
     "canonical": "Kimi K2.7 Code",
     "is_lowest_input": "no"
   },
@@ -524,8 +524,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 6.1776,
-    "output_rmb": 25.6752,
+    "input_rmb": 6.006,
+    "output_rmb": 24.962,
     "canonical": "Kimi K2.6",
     "is_lowest_input": "no"
   },
@@ -539,8 +539,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 4.032,
-    "output_rmb": 21.168,
+    "input_rmb": 3.92,
+    "output_rmb": 20.58,
     "canonical": null
   },
   {
@@ -553,8 +553,8 @@
     "condition": "输入长度（0, 512k]",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 2.16,
-    "output_rmb": 8.64,
+    "input_rmb": 2.1,
+    "output_rmb": 8.4,
     "canonical": "MiniMax M3",
     "is_lowest_input": "no"
   },
@@ -568,8 +568,8 @@
     "condition": "输入长度 512k+",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 4.32,
-    "output_rmb": 17.28,
+    "input_rmb": 4.2,
+    "output_rmb": 16.8,
     "canonical": "MiniMax M3",
     "is_lowest_input": "no"
   },
@@ -583,8 +583,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 2.16,
-    "output_rmb": 8.64,
+    "input_rmb": 2.1,
+    "output_rmb": 8.4,
     "canonical": "MiniMax M2.7",
     "is_lowest_input": "no"
   },
@@ -598,8 +598,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 2.16,
-    "output_rmb": 8.64,
+    "input_rmb": 2.1,
+    "output_rmb": 8.4,
     "canonical": null
   },
   {
@@ -612,8 +612,8 @@
     "condition": "-",
     "unit": "1M tokens",
     "currency": "USD",
-    "input_rmb": 0.72,
-    "output_rmb": 2.88,
+    "input_rmb": 0.7,
+    "output_rmb": 2.8,
     "canonical": null
   },
   {
@@ -989,8 +989,8 @@
     "openrouter_id": "openai/gpt-4o",
     "openrouter_prompt_per_token": "0.0000025",
     "openrouter_completion_per_token": "0.00001",
-    "input_rmb": 18.0,
-    "output_rmb": 72.0,
+    "input_rmb": 17.5,
+    "output_rmb": 70.0,
     "canonical": null
   },
   {
@@ -1006,8 +1006,8 @@
     "openrouter_id": "openai/gpt-5",
     "openrouter_prompt_per_token": "0.00000125",
     "openrouter_completion_per_token": "0.00001",
-    "input_rmb": 9.0,
-    "output_rmb": 72.0,
+    "input_rmb": 8.75,
+    "output_rmb": 70.0,
     "canonical": null
   },
   {
@@ -1023,8 +1023,8 @@
     "openrouter_id": "anthropic/claude-sonnet-5",
     "openrouter_prompt_per_token": "0.000002",
     "openrouter_completion_per_token": "0.00001",
-    "input_rmb": 14.4,
-    "output_rmb": 72.0,
+    "input_rmb": 14.0,
+    "output_rmb": 70.0,
     "canonical": null
   },
   {
@@ -1040,8 +1040,8 @@
     "openrouter_id": "anthropic/claude-opus-4.8",
     "openrouter_prompt_per_token": "0.000005",
     "openrouter_completion_per_token": "0.000025",
-    "input_rmb": 36.0,
-    "output_rmb": 180.0,
+    "input_rmb": 35.0,
+    "output_rmb": 175.0,
     "canonical": null
   },
   {
@@ -1057,8 +1057,8 @@
     "openrouter_id": "google/gemini-2.5-pro",
     "openrouter_prompt_per_token": "0.00000125",
     "openrouter_completion_per_token": "0.00001",
-    "input_rmb": 9.0,
-    "output_rmb": 72.0,
+    "input_rmb": 8.75,
+    "output_rmb": 70.0,
     "canonical": null
   },
   {
@@ -1074,8 +1074,8 @@
     "openrouter_id": "google/gemini-2.5-flash",
     "openrouter_prompt_per_token": "0.0000003",
     "openrouter_completion_per_token": "0.0000025",
-    "input_rmb": 2.16,
-    "output_rmb": 18.0,
+    "input_rmb": 2.1,
+    "output_rmb": 17.5,
     "canonical": null
   },
   {
@@ -1091,8 +1091,8 @@
     "openrouter_id": "deepseek/deepseek-v4-pro",
     "openrouter_prompt_per_token": "0.000000435",
     "openrouter_completion_per_token": "0.00000087",
-    "input_rmb": 3.132,
-    "output_rmb": 6.264,
+    "input_rmb": 3.045,
+    "output_rmb": 6.09,
     "canonical": "DeepSeek V4 Pro",
     "is_lowest_input": "no"
   },
@@ -1109,8 +1109,8 @@
     "openrouter_id": "deepseek/deepseek-v4-flash",
     "openrouter_prompt_per_token": "0.000000098",
     "openrouter_completion_per_token": "0.000000196",
-    "input_rmb": 0.648,
-    "output_rmb": 1.296,
+    "input_rmb": 0.63,
+    "output_rmb": 1.26,
     "canonical": "DeepSeek V4 Flash",
     "is_lowest_input": "yes"
   },
@@ -1127,8 +1127,8 @@
     "openrouter_id": "minimax/minimax-m3",
     "openrouter_prompt_per_token": "0.0000003",
     "openrouter_completion_per_token": "0.0000012",
-    "input_rmb": 2.16,
-    "output_rmb": 8.64,
+    "input_rmb": 2.1,
+    "output_rmb": 8.4,
     "canonical": "MiniMax M3",
     "is_lowest_input": "no"
   },
@@ -1145,8 +1145,8 @@
     "openrouter_id": "moonshotai/kimi-k2.6",
     "openrouter_prompt_per_token": "0.000000684",
     "openrouter_completion_per_token": "0.00000342",
-    "input_rmb": 4.9248,
-    "output_rmb": 24.624,
+    "input_rmb": 4.788,
+    "output_rmb": 23.94,
     "canonical": "Kimi K2.6",
     "is_lowest_input": "no"
   },
@@ -1163,8 +1163,8 @@
     "openrouter_id": "moonshotai/kimi-k3",
     "openrouter_prompt_per_token": "0.000003",
     "openrouter_completion_per_token": "0.000015",
-    "input_rmb": 21.6,
-    "output_rmb": 108.0,
+    "input_rmb": 21.0,
+    "output_rmb": 105.0,
     "canonical": "Kimi K3",
     "is_lowest_input": "no"
   },
@@ -1181,8 +1181,8 @@
     "openrouter_id": "xiaomi/mimo-v2.5",
     "openrouter_prompt_per_token": "0.00000014",
     "openrouter_completion_per_token": "0.00000028",
-    "input_rmb": 1.008,
-    "output_rmb": 2.016,
+    "input_rmb": 0.98,
+    "output_rmb": 1.96,
     "canonical": null
   },
   {
@@ -1198,8 +1198,8 @@
     "openrouter_id": "z-ai/glm-5.2",
     "openrouter_prompt_per_token": "0.0000009786",
     "openrouter_completion_per_token": "0.0000030756",
-    "input_rmb": 7.04592,
-    "output_rmb": 22.14432,
+    "input_rmb": 6.8502,
+    "output_rmb": 21.5292,
     "canonical": "GLM-5.2",
     "is_lowest_input": "yes"
   },
@@ -1216,8 +1216,8 @@
     "openrouter_id": "anthropic/claude-opus-4.7",
     "openrouter_prompt_per_token": "0.000005",
     "openrouter_completion_per_token": "0.000025",
-    "input_rmb": 36.0,
-    "output_rmb": 180.0,
+    "input_rmb": 35.0,
+    "output_rmb": 175.0,
     "canonical": null
   },
   {
@@ -1233,8 +1233,8 @@
     "openrouter_id": "google/gemini-3-flash-preview",
     "openrouter_prompt_per_token": "0.0000005",
     "openrouter_completion_per_token": "0.000003",
-    "input_rmb": 3.6,
-    "output_rmb": 21.6,
+    "input_rmb": 3.5,
+    "output_rmb": 21.0,
     "canonical": null
   },
   {
@@ -1250,8 +1250,8 @@
     "openrouter_id": "anthropic/claude-sonnet-4.6",
     "openrouter_prompt_per_token": "0.000003",
     "openrouter_completion_per_token": "0.000015",
-    "input_rmb": 21.6,
-    "output_rmb": 108.0,
+    "input_rmb": 21.0,
+    "output_rmb": 105.0,
     "canonical": null
   },
   {
@@ -1267,8 +1267,8 @@
     "openrouter_id": "stepfun/step-3.7-flash",
     "openrouter_prompt_per_token": "0.0000002",
     "openrouter_completion_per_token": "0.00000115",
-    "input_rmb": 1.44,
-    "output_rmb": 8.28,
+    "input_rmb": 1.4,
+    "output_rmb": 8.05,
     "canonical": null
   },
   {
@@ -1284,8 +1284,8 @@
     "openrouter_id": "openai/gpt-5.5",
     "openrouter_prompt_per_token": "0.000005",
     "openrouter_completion_per_token": "0.00003",
-    "input_rmb": 36.0,
-    "output_rmb": 216.0,
+    "input_rmb": 35.0,
+    "output_rmb": 210.0,
     "canonical": null
   },
   {
@@ -1301,8 +1301,8 @@
     "openrouter_id": "xiaomi/mimo-v2.5-pro",
     "openrouter_prompt_per_token": "0.000000435",
     "openrouter_completion_per_token": "0.00000087",
-    "input_rmb": 3.132,
-    "output_rmb": 6.264,
+    "input_rmb": 3.045,
+    "output_rmb": 6.09,
     "canonical": null
   },
   {
@@ -1318,8 +1318,8 @@
     "openrouter_id": "google/gemini-2.5-flash-lite",
     "openrouter_prompt_per_token": "0.0000001",
     "openrouter_completion_per_token": "0.0000004",
-    "input_rmb": 0.72,
-    "output_rmb": 2.88,
+    "input_rmb": 0.7,
+    "output_rmb": 2.8,
     "canonical": null
   },
   {
@@ -1335,8 +1335,8 @@
     "openrouter_id": "google/gemini-3.1-flash-lite",
     "openrouter_prompt_per_token": "0.00000025",
     "openrouter_completion_per_token": "0.0000015",
-    "input_rmb": 1.8,
-    "output_rmb": 10.8,
+    "input_rmb": 1.75,
+    "output_rmb": 10.5,
     "canonical": null
   },
   {
@@ -1352,8 +1352,8 @@
     "openrouter_id": "openai/gpt-oss-120b",
     "openrouter_prompt_per_token": "0.000000037",
     "openrouter_completion_per_token": "0.00000017",
-    "input_rmb": 0.2664,
-    "output_rmb": 1.224,
+    "input_rmb": 0.259,
+    "output_rmb": 1.19,
     "canonical": null
   },
   {
@@ -1369,8 +1369,8 @@
     "openrouter_id": "anthropic/claude-fable-5",
     "openrouter_prompt_per_token": "0.00001",
     "openrouter_completion_per_token": "0.00005",
-    "input_rmb": 72.0,
-    "output_rmb": 360.0,
+    "input_rmb": 70.0,
+    "output_rmb": 350.0,
     "canonical": null
   }
 ]

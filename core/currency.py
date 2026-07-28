@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 from typing import Any, Dict, List, Optional
 
-DEFAULT_RATE = 7.2
+DEFAULT_RATE = 7.0
 
 
 def get_rate() -> float:
