@@ -1,9 +1,9 @@
 {
   "ok": false,
-  "fetched_at": "2026-07-26T18:50:17.406442+00:00",
-  "generated_at": "2026-07-26 18:50:26",
+  "fetched_at": "2026-08-02T18:48:25.259848+00:00",
+  "generated_at": "2026-08-02 18:48:36",
   "stats": {
-    "raw_models": 343,
+    "raw_models": 337,
     "parsed": 23,
     "whitelist": 11,
     "missing_whitelist": 0,
@@ -89,8 +89,8 @@
     {
       "id": "moonshotai/kimi-k2.6",
       "model": "Kimi K2.6",
-      "input": 0.646,
-      "output": 2.72
+      "input": 0.6,
+      "output": 3.41
     },
     {
       "id": "moonshotai/kimi-k3",
@@ -113,14 +113,14 @@
     {
       "id": "z-ai/glm-5.2",
       "model": "GLM 5.2",
-      "input": 0.6692,
-      "output": 2.1032
+      "input": 0.2842,
+      "output": 0.8932
     },
     {
-      "id": "stepfun/step-3.7-flash",
-      "model": "Step 3.7 Flash",
-      "input": 0.2,
-      "output": 1.15
+      "id": "openai/gpt-5.6-luna",
+      "model": "GPT-5.6 Luna",
+      "input": 0.1,
+      "output": 0.6
     }
   ]
 }

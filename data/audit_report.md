@@ -1,13 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-07-26 18:50:17
+> 生成时间：2026-08-02 18:48:25
 
 ## 一、核对统计
 
 - 校验记录总数：**46**
-- 可疑项总数：**49**（high 12 / med 0 / low 37）
+- 可疑项总数：**48**（high 11 / med 0 / low 37）
 - Tier1 结构性校验可疑：**1**
-- Tier2 源页面核对可疑：**48**
+- Tier2 源页面核对可疑：**47**
 
 ## 二、核对维度
 
@@ -36,11 +36,10 @@
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到output价数值「0.18」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「0.435」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「0.87」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「0.6692」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「2.1032」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到input价数值「0.646」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到output价数值「2.72」，疑似解析/幻觉错误 |
-| low | T1 | DIVERGE | - | Kimi K3 | 跨源输入价离散 10.8× (最低 2.0 / 最高 21.6)，建议人工核对是否同规格模型 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「0.2842」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「0.8932」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到output价数值「3.41」，疑似解析/幻觉错误 |
+| low | T1 | DIVERGE | - | Kimi K3 | 跨源输入价离散 10.5× (最低 2.0 / 最高 21.0)，建议人工核对是否同规格模型 |
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.2 | SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi | Kimi K2.6 | SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对 |

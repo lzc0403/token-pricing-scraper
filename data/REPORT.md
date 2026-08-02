@@ -1,53 +1,53 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-07-26 18:50:17
+> 生成时间：2026-08-02 18:48:25
 
 ## 一、目标模型跨源对照（已换算人民币）
 
 | 模型 | 源 | 输入¥ | 输出¥ | 缓存命中 | 货币 | 原始价(输入/输出) | 上下文 |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- |
 | DeepSeek V3.2 | modelmesh | 2 ¥ | 3 ¥ | - | CNY | 2 CNY / 3 CNY | 128K |
-| DeepSeek V3.2 | tencent | 2.016 ¥ | 3.024 ¥ | 0.056 USD | USD | 0.28 USD / 0.42 USD | - |
+| DeepSeek V3.2 | tencent | 1.96 ¥ | 2.94 ¥ | 0.056 USD | USD | 0.28 USD / 0.42 USD | - |
 | DeepSeek V4 Flash | deepseek | 1 ¥ | 2 ¥ | 0.02 CNY | CNY | 1 CNY / 2 CNY | 1M |
 | DeepSeek V4 Flash | modelmesh | 1 ¥ | 2 ¥ | - | CNY | 1 CNY / 2 CNY | 1000K |
-| DeepSeek V4 Flash | openrouter | 0.648 ¥ | 1.296 ¥ | 0.028 USD | USD | 0.09 USD / 0.18 USD | 1.04858M |
-| DeepSeek V4 Flash | tencent | 1.008 ¥ | 2.016 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
+| DeepSeek V4 Flash | openrouter | 0.63 ¥ | 1.26 ¥ | 0.028 USD | USD | 0.09 USD / 0.18 USD | 1.04858M |
+| DeepSeek V4 Flash | tencent | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
 | DeepSeek V4 Pro | deepseek | 3 ¥ | 6 ¥ | 0.025 CNY | CNY | 3 CNY / 6 CNY | 1M |
 | DeepSeek V4 Pro | modelmesh | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1000K |
-| DeepSeek V4 Pro | openrouter | 3.132 ¥ | 6.264 ¥ | 0.003625 USD | USD | 0.435 USD / 0.87 USD | 1.04858M |
-| DeepSeek V4 Pro | tencent | 12.528 ¥ | 25.056 ¥ | 0.145 USD | USD | 1.74 USD / 3.48 USD | - |
+| DeepSeek V4 Pro | openrouter | 3.045 ¥ | 6.09 ¥ | 0.003625 USD | USD | 0.435 USD / 0.87 USD | 1.04858M |
+| DeepSeek V4 Pro | tencent | 12.18 ¥ | 24.36 ¥ | 0.145 USD | USD | 1.74 USD / 3.48 USD | - |
 | Doubao Seed 2.1 Pro | modelmesh | 6 ¥ | 30 ¥ | - | CNY | 6 CNY / 30 CNY | 256K |
 | Doubao Seed 2.1 Pro | volcengine | 6 ¥ | 30 ¥ | 1.2 CNY | CNY | 6 CNY / 30 CNY | - |
 | Doubao Seed 2.1 Turbo | modelmesh | 3 ¥ | 15 ¥ | - | CNY | 3 CNY / 15 CNY | 256K |
 | Doubao Seed 2.1 Turbo | volcengine | 3 ¥ | 15 ¥ | 0.6 CNY | CNY | 3 CNY / 15 CNY | - |
 | GLM-5.1 | bigmodel | 6 ¥ | 24 ¥ | - | CNY | 6 CNY / 24 CNY | - |
 | GLM-5.1 | modelmesh | 6 ¥ | 24 ¥ | - | CNY | 6 CNY / 24 CNY | 200K |
-| GLM-5.1 | tencent | 6.048 ¥ | 24.192 ¥ | 0.182 USD | USD | 0.84 USD / 3.36 USD | - |
-| GLM-5.1 | tencent | 8.064 ¥ | 28.224 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
+| GLM-5.1 | tencent | 5.88 ¥ | 23.52 ¥ | 0.182 USD | USD | 0.84 USD / 3.36 USD | - |
+| GLM-5.1 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | bigmodel | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.2 | openrouter | 4.81824 ¥ | 15.143 ¥ | 0.12428 USD | USD | 0.6692 USD / 2.1032 USD | 1.04858M |
-| GLM-5.2 | tencent | 8.064 ¥ | 28.224 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
+| GLM-5.2 | openrouter | 1.9894 ¥ | 6.2524 ¥ | 0.05278 USD | USD | 0.2842 USD / 0.8932 USD | 1.04858M |
+| GLM-5.2 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | Kimi K2.6 | kimi | 1.1 ¥ | 27 ¥ | 1.1 CNY | CNY | 1.1 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
-| Kimi K2.6 | openrouter | 4.6512 ¥ | 19.584 ¥ | 0.1088 USD | USD | 0.646 USD / 2.72 USD | 262K |
-| Kimi K2.6 | tencent | 6.1776 ¥ | 25.6752 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
+| Kimi K2.6 | openrouter | 4.2 ¥ | 23.87 ¥ | 0.2 USD | USD | 0.6 USD / 3.41 USD | 262K |
+| Kimi K2.6 | tencent | 6.006 ¥ | 24.962 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
 | Kimi K2.7 Code | kimi | 1.3 ¥ | 27 ¥ | 1.3 CNY | CNY | 1.3 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.7 Code | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
-| Kimi K2.7 Code | tencent | 6.84 ¥ | 28.8 ¥ | 0.19 USD | USD | 0.95 USD / 4 USD | - |
+| Kimi K2.7 Code | tencent | 6.65 ¥ | 28 ¥ | 0.19 USD | USD | 0.95 USD / 4 USD | - |
 | Kimi K3 | kimi | 2 ¥ | 100 ¥ | 2 CNY | CNY | 2 CNY / 100 CNY | 1,048,576 tokens |
 | Kimi K3 | modelmesh | 20 ¥ | 100 ¥ | - | CNY | 20 CNY / 100 CNY | 1000K |
-| Kimi K3 | openrouter | 21.6 ¥ | 108 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
-| Kimi K3 | tencent | 19.6632 ¥ | 98.3016 ¥ | 0.2731 USD | USD | 2.731 USD / 13.653 USD | - |
+| Kimi K3 | openrouter | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
+| Kimi K3 | tencent | 19.117 ¥ | 95.571 ¥ | 0.2731 USD | USD | 2.731 USD / 13.653 USD | - |
 | MiniMax M2.7 | minimax | 2.1 ¥ | 8.4 ¥ | 0.42 CNY | CNY | 2.1 CNY / 8.4 CNY | - |
 | MiniMax M2.7 | modelmesh | 2.1 ¥ | 8.4 ¥ | - | CNY | 2.1 CNY / 8.4 CNY | 200K |
-| MiniMax M2.7 | tencent | 2.16 ¥ | 8.64 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | - |
+| MiniMax M2.7 | tencent | 2.1 ¥ | 8.4 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | - |
 | MiniMax M3 | minimax | 2.1 ¥ | 8.4 ¥ | 0.42 CNY | CNY | 2.1 CNY / 8.4 CNY | ≤512K |
 | MiniMax M3 | minimax | 4.2 ¥ | 16.8 ¥ | 0.84 CNY | CNY | 4.2 CNY / 16.8 CNY | 512K~1 |
 | MiniMax M3 | modelmesh | 2.1 ¥ | 8.4 ¥ | - | CNY | 2.1 CNY / 8.4 CNY | 1000K |
-| MiniMax M3 | openrouter | 2.16 ¥ | 8.64 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | 1.04858M |
-| MiniMax M3 | tencent | 2.16 ¥ | 8.64 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | - |
-| MiniMax M3 | tencent | 4.32 ¥ | 17.28 ¥ | 0.12 USD | USD | 0.6 USD / 2.4 USD | - |
+| MiniMax M3 | openrouter | 2.1 ¥ | 8.4 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | 1.04858M |
+| MiniMax M3 | tencent | 2.1 ¥ | 8.4 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | - |
+| MiniMax M3 | tencent | 4.2 ¥ | 16.8 ¥ | 0.12 USD | USD | 0.6 USD / 2.4 USD | - |
 | Qwen3.7 Max | aliyun | 14.4 ¥ | 43.2 ¥ | 2.88 CNY | CNY | 14.4 CNY / 43.2 CNY | - |
 | Qwen3.7 Max | modelmesh | 6 ¥ | 18 ¥ | - | CNY | 6 CNY / 18 CNY | 1000K |
 | Qwen3.7 Plus | aliyun | 2.4 ¥ | 9.6 ¥ | 0.48 CNY | CNY | 2.4 CNY / 9.6 CNY | - |
@@ -63,10 +63,10 @@
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| Kimi K2.6 | openrouter | 输入 | 0.684 | 0.646 | USD |
-| Kimi K2.6 | openrouter | 输出 | 3.42 | 2.72 | USD |
-| GLM-5.2 | openrouter | 输入 | 0.9674 | 0.6692 | USD |
-| GLM-5.2 | openrouter | 输出 | 3.0404 | 2.1032 | USD |
+| Kimi K2.6 | openrouter | 输入 | 0.646 | 0.6 | USD |
+| Kimi K2.6 | openrouter | 输出 | 2.72 | 3.41 | USD |
+| GLM-5.2 | openrouter | 输入 | 0.6692 | 0.2842 | USD |
+| GLM-5.2 | openrouter | 输出 | 2.1032 | 0.8932 | USD |
 
 ## 三、抓取状态
 
