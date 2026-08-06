@@ -42,7 +42,7 @@
     "input_rmb": 6.0,
     "output_rmb": 24.0,
     "canonical": "GLM-5.1",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "bigmodel",
@@ -192,7 +192,7 @@
     "input_rmb": 2.0,
     "output_rmb": 3.0,
     "canonical": "DeepSeek V3.2",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "modelmesh",
@@ -267,7 +267,7 @@
     "input_rmb": 6.0,
     "output_rmb": 24.0,
     "canonical": "GLM-5.1",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "modelmesh",
@@ -428,36 +428,36 @@
   {
     "source": "openrouter",
     "model_raw": "GLM 5.2",
-    "input": 0.6692,
-    "output": 2.1032,
-    "cache_hit": 0.12428,
+    "input": 0.2842,
+    "output": 0.8932,
+    "cache_hit": 0.05278,
     "context": "1.04858M",
     "condition": "id=z-ai/glm-5.2 | top-weekly",
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.2",
-    "openrouter_prompt_per_token": "0.0000006692",
-    "openrouter_completion_per_token": "0.0000021032",
-    "input_rmb": 4.6844,
-    "output_rmb": 14.7224,
+    "openrouter_prompt_per_token": "0.0000002842",
+    "openrouter_completion_per_token": "0.0000008932",
+    "input_rmb": 1.9894,
+    "output_rmb": 6.2524,
     "canonical": "GLM-5.2",
     "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
     "model_raw": "Kimi K2.6",
-    "input": 0.646,
-    "output": 2.72,
-    "cache_hit": 0.1088,
+    "input": 0.6,
+    "output": 3.41,
+    "cache_hit": 0.2,
     "context": "262K",
     "condition": "id=moonshotai/kimi-k2.6 | Kimi 现役",
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "moonshotai/kimi-k2.6",
-    "openrouter_prompt_per_token": "0.000000646",
-    "openrouter_completion_per_token": "0.00000272",
-    "input_rmb": 4.522,
-    "output_rmb": 19.04,
+    "openrouter_prompt_per_token": "0.0000006",
+    "openrouter_completion_per_token": "0.00000341",
+    "input_rmb": 4.2,
+    "output_rmb": 23.87,
     "canonical": "Kimi K2.6",
     "is_lowest_input": "no"
   },
@@ -495,7 +495,7 @@
     "input_rmb": 2.1,
     "output_rmb": 8.4,
     "canonical": "MiniMax M3",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",
@@ -510,7 +510,7 @@
     "input_rmb": 1.96,
     "output_rmb": 2.94,
     "canonical": "DeepSeek V3.2",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",
@@ -555,7 +555,7 @@
     "input_rmb": 5.88,
     "output_rmb": 23.52,
     "canonical": "GLM-5.1",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",
@@ -645,7 +645,7 @@
     "input_rmb": 2.1,
     "output_rmb": 8.4,
     "canonical": "MiniMax M2.7",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",
@@ -660,7 +660,7 @@
     "input_rmb": 2.1,
     "output_rmb": 8.4,
     "canonical": "MiniMax M3",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",

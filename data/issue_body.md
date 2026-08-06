@@ -1,4 +1,4 @@
-## 🔔 Token 定价变动（2026-07-26 18:50:17）
+## 🔔 Token 定价变动（2026-08-02 18:48:25）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
@@ -8,7 +8,7 @@
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| Kimi K2.6 | openrouter | 输入 | 0.684 | 0.646 | USD |
-| Kimi K2.6 | openrouter | 输出 | 3.42 | 2.72 | USD |
-| GLM-5.2 | openrouter | 输入 | 0.9674 | 0.6692 | USD |
-| GLM-5.2 | openrouter | 输出 | 3.0404 | 2.1032 | USD |
+| Kimi K2.6 | openrouter | 输入 | 0.646 | 0.6 | USD |
+| Kimi K2.6 | openrouter | 输出 | 2.72 | 3.41 | USD |
+| GLM-5.2 | openrouter | 输入 | 0.6692 | 0.2842 | USD |
+| GLM-5.2 | openrouter | 输出 | 2.1032 | 0.8932 | USD |
