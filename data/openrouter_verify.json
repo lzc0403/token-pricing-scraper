@@ -1,9 +1,9 @@
 {
   "ok": false,
-  "fetched_at": "2026-08-02T18:48:25.259848+00:00",
-  "generated_at": "2026-08-02 18:48:36",
+  "fetched_at": "2026-08-06T17:20:55.362596+00:00",
+  "generated_at": "2026-08-06 17:21:06",
   "stats": {
-    "raw_models": 337,
+    "raw_models": 399,
     "parsed": 23,
     "whitelist": 11,
     "missing_whitelist": 0,
@@ -21,14 +21,14 @@
       "severity": "high",
       "model": "DeepSeek V4 Flash",
       "id": "deepseek/deepseek-v4-flash",
-      "msg": "input 换算不一致 exp=0.14 got=0.09"
+      "msg": "input 换算不一致 exp=0.0882 got=0.09"
     },
     {
       "code": "OR_PRICE_MISMATCH",
       "severity": "high",
       "model": "DeepSeek V4 Flash",
       "id": "deepseek/deepseek-v4-flash",
-      "msg": "output 换算不一致 exp=0.28 got=0.18"
+      "msg": "output 换算不一致 exp=0.1764 got=0.18"
     }
   ],
   "sample": [
@@ -89,8 +89,8 @@
     {
       "id": "moonshotai/kimi-k2.6",
       "model": "Kimi K2.6",
-      "input": 0.6,
-      "output": 3.41
+      "input": 0.57,
+      "output": 2.4
     },
     {
       "id": "moonshotai/kimi-k3",
@@ -99,22 +99,22 @@
       "output": 15.0
     },
     {
-      "id": "xiaomi/mimo-v2.5",
-      "model": "MiMo-V2.5",
-      "input": 0.14,
-      "output": 0.28
-    },
-    {
       "id": "tencent/hy3",
       "model": "Hy3",
       "input": 0.132,
       "output": 0.528
     },
     {
-      "id": "z-ai/glm-5.2",
-      "model": "GLM 5.2",
-      "input": 0.2842,
-      "output": 0.8932
+      "id": "xiaomi/mimo-v2.5",
+      "model": "MiMo-V2.5",
+      "input": 0.14,
+      "output": 0.28
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash-0731",
+      "model": "DeepSeek V4 Flash 0731",
+      "input": 0.09,
+      "output": 0.18
     },
     {
       "id": "openai/gpt-5.6-luna",
