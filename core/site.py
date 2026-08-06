@@ -1467,6 +1467,16 @@ select{font:inherit;padding:7px 10px;border-radius:6px;border:1px solid var(--li
 .btn-export:hover{background:var(--green-deep)}
 .btn-export[disabled]{opacity:.5;cursor:wait}
 
+.portal{max-width:960px;margin:24px auto 0;padding:0 24px}
+.portal h3{font-size:13px;font-weight:700;color:var(--ink);margin:0 0 10px}
+.portal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+.portal-card{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-decoration:none;transition:border-color .15s}
+.portal-card:hover{border-color:var(--primary)}
+.portal-card .pc-name{font-size:12px;font-weight:600;color:var(--ink)}
+.portal-card .pc-meta{font-size:10px;color:var(--mute)}
+.portal-card .pc-tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:9px;font-weight:700;margin-left:6px}
+.portal-card .pc-tag-cny{background:#e6f7ee;color:#0a8043}
+.portal-card .pc-tag-usd{background:#eef2ff;color:#4338ca}
 footer{background:#f8fafb;color:var(--mute);padding:16px 24px;text-align:center;font-size:12px;line-height:1.6;margin-top:8px;border-top:1px solid var(--line)}
 footer .note{max-width:720px;margin:0 auto 6px}
 footer strong{color:var(--primary)}
@@ -2292,6 +2302,68 @@ def build_site(data_dir: str, out_path: str = None) -> str:
 
   <button type="button" class="sidebar-reopen" id="sidebarReopen" aria-label="展开筛选">› 筛选</button>
   <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="portal">
+    <h3>厂商价格查询入口</h3>
+    <div class="portal-grid">
+      <a class="portal-card" href="https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing" target="_blank" rel="noopener">
+        <span><span class="pc-name">阿里云</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
+        <span class="pc-meta">Hologres 托管模型计费</span>
+      </a>
+      <a class="portal-card" href="https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices" target="_blank" rel="noopener">
+        <span><span class="pc-name">阿里云</span><span class="pc-tag pc-tag-usd">国际站 $</span></span>
+        <span class="pc-meta">Model Studio 定价</span>
+      </a>
+      <a class="portal-card" href="https://www.volcengine.com/docs/82379/1544106" target="_blank" rel="noopener">
+        <span><span class="pc-name">火山引擎</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
+        <span class="pc-meta">豆包模型计费</span>
+      </a>
+      <a class="portal-card" href="https://www.tencentcloud.com/zh/document/product/1300/78937" target="_blank" rel="noopener">
+        <span><span class="pc-name">腾讯云</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
+        <span class="pc-meta">TI 平台模型计费</span>
+      </a>
+      <a class="portal-card" href="https://www.tencentcloud.com/document/product/1300/78937" target="_blank" rel="noopener">
+        <span><span class="pc-name">Tencent Cloud</span><span class="pc-tag pc-tag-usd">国际站 $</span></span>
+        <span class="pc-meta">International Pricing</span>
+      </a>
+      <a class="portal-card" href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing/" target="_blank" rel="noopener">
+        <span><span class="pc-name">DeepSeek</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
+        <span class="pc-meta">API 定价</span>
+      </a>
+      <a class="portal-card" href="https://open.bigmodel.cn/pricing" target="_blank" rel="noopener">
+        <span><span class="pc-name">智谱</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
+        <span class="pc-meta">GLM 定价</span>
+      </a>
+      <a class="portal-card" href="https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise" target="_blank" rel="noopener">
+        <span><span class="pc-name">MiniMax</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
+        <span class="pc-meta">Token 套餐</span>
+      </a>
+      <a class="portal-card" href="https://platform.kimi.com/docs/pricing/chat-k3" target="_blank" rel="noopener">
+        <span><span class="pc-name">Kimi</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
+        <span class="pc-meta">K 系列定价</span>
+      </a>
+      <a class="portal-card" href="https://openai.com/api/pricing/" target="_blank" rel="noopener">
+        <span><span class="pc-name">OpenAI</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
+        <span class="pc-meta">API Pricing</span>
+      </a>
+      <a class="portal-card" href="https://www.anthropic.com/pricing" target="_blank" rel="noopener">
+        <span><span class="pc-name">Anthropic</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
+        <span class="pc-meta">Claude Pricing</span>
+      </a>
+      <a class="portal-card" href="https://ai.google.dev/pricing" target="_blank" rel="noopener">
+        <span><span class="pc-name">Google</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
+        <span class="pc-meta">Gemini Pricing</span>
+      </a>
+      <a class="portal-card" href="https://global.modelmesh.info/model" target="_blank" rel="noopener">
+        <span><span class="pc-name">胜算云</span><span class="pc-tag pc-tag-cny">渠道 ¥</span></span>
+        <span class="pc-meta">聚合渠道</span>
+      </a>
+      <a class="portal-card" href="https://openrouter.ai/models" target="_blank" rel="noopener">
+        <span><span class="pc-name">OpenRouter</span><span class="pc-tag pc-tag-usd">渠道 $</span></span>
+        <span class="pc-meta">聚合渠道</span>
+      </a>
+    </div>
+  </div>
 
   <footer>
     <div class="note">数据来源：国内厂商官网公开定价；OpenAI / Anthropic / Google 官方 API 参考价；胜算云、腾讯云、火山引擎等渠道报价。USD 结算的渠道归入海外渠道页。GitHub Action 每周自动抓取。</div>
