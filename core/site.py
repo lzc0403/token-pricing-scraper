@@ -43,6 +43,7 @@ SOURCE_LABELS: Dict[str, str] = {
     "google": "Google",
     "openrouter": "OpenRouter",
     "aliyun_intl": "阿里云国际站",
+    "atlascloud": "AtlasCloud",
 }
 
 # 厂商官网（官方原价）来源
@@ -70,7 +71,7 @@ OFFICIAL_SOURCE: Dict[str, str] = {
 }
 
 # 渠道源：非官网聚合/转售渠道
-CHANNEL_SOURCES = {"modelmesh", "tencent", "openrouter", "volcengine", "aliyun", "aliyun_intl"}
+CHANNEL_SOURCES = {"modelmesh", "tencent", "openrouter", "volcengine", "aliyun", "aliyun_intl", "atlascloud"}
 
 # 渠道按「结算币种」分区：USD 结算 = 海外渠道面板；CNY/无标价 = 国内渠道面板。
 # 腾讯云/火山引擎等国内云厂商也可能以 USD 对外报价（如跨境实例），一律归入海外。
@@ -127,6 +128,7 @@ OVERSEAS_VENDOR_ORDER: List[str] = [
     "anthropic",
     "google",
     "aliyun_intl",
+    "atlascloud",
 ]
 
 # source_id → 厂商分组 id（官方表/渠道表聚合用）
@@ -141,6 +143,7 @@ SOURCE_VENDOR: Dict[str, str] = {
     "anthropic": "anthropic",
     "google": "google",
     "aliyun_intl": "aliyun_intl",
+    "atlascloud": "atlascloud",
 }
 
 MODEL_ORDER: List[str] = [
@@ -1301,7 +1304,7 @@ _CSS = """
   --r:10px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:clip}
+html{scroll-behavior:smooth;overflow-x:clip;zoom:1.1}
 body{margin:0;font-family:Inter,'Noto Sans SC',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:clip;font-size:13px}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}

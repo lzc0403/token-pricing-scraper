@@ -10,6 +10,21 @@ aliyun_intl,kimi-k2.7-code,0.95,4.0,0.19,,阿里云国际站 Model Studio (ap-so
 aliyun_intl,qwen3.7-max,2.5,7.5,0.5,,阿里云国际站 Model Studio (ap-southeast-1),1M tokens,USD,17.5,52.5,Qwen3.7 Max,no
 aliyun_intl,qwen3.7-plus,0.4,1.6,0.08,,阿里云国际站 Model Studio (ap-southeast-1),1M tokens,USD,2.8,11.2,Qwen3.7 Plus,no
 aliyun_intl,qwen3.8-max,2.0,6.0,0.25,,阿里云国际站 Model Studio (ap-southeast-1),1M tokens,USD,14.0,42.0,Qwen3.8 Max,no
+atlascloud,DeepSeek V3.2,0.26,0.38,0.13,163K,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,1.82,2.66,DeepSeek V3.2,yes
+atlascloud,DeepSeek V4 Flash,0.14,0.28,0.028,1.04858M,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,no
+atlascloud,DeepSeek V4 Pro,1.68,3.38,0.13,1.04858M,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,11.76,23.66,DeepSeek V4 Pro,no
+atlascloud,Doubao Seed 2.1 Pro,0.9,4.5,0.18,262K,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,6.3,31.5,Doubao Seed 2.1 Pro,no
+atlascloud,Doubao Seed 2.1 Turbo,0.45,2.25,0.09,262K,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,3.15,15.75,Doubao Seed 2.1 Turbo,no
+atlascloud,GLM 5.1,1.26,3.96,0.234,202K,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,8.82,27.72,GLM-5.1,no
+atlascloud,GLM 5.2,1.26,3.96,0.234,1.04858M,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,8.82,27.72,GLM-5.2,no
+atlascloud,Kimi K2.6,0.95,4.0,0.16,262K,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,6.65,28.0,Kimi K2.6,no
+atlascloud,Kimi K2.7 Code,0.95,4.0,0.16,262K,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
+atlascloud,Kimi K3,3.0,15.0,0.3,1.04858M,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,21.0,105.0,Kimi K3,no
+atlascloud,MiniMax M2.7,0.3,1.2,0.06,196K,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,2.1,8.4,MiniMax M2.7,yes
+atlascloud,MiniMax M3,0.3,1.2,0.06,524K,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,2.1,8.4,MiniMax M3,yes
+atlascloud,Qwen3.7 Max,2.5,7.5,0.5,1M,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,17.5,52.5,Qwen3.7 Max,no
+atlascloud,Qwen3.7 Plus,0.4,1.6,0.08,1M,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,2.8,11.2,Qwen3.7 Plus,no
+atlascloud,Qwen3.8 Max,2.0,6.0,0.25,1M,AtlasCloud (atlascloud.ai) · USD/1M tokens,1M tokens,USD,14.0,42.0,Qwen3.8 Max,no
 bigmodel,GLM-5.1,6.0,24.0,,,"输入长度 [0, 32)",1M tokens,CNY,6.0,24.0,GLM-5.1,no
 bigmodel,GLM-5.2,8.0,28.0,,,1M,1M tokens,CNY,8.0,28.0,GLM-5.2,no
 deepseek,deepseek-v4-flash,1.0,2.0,0.02,1M,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,no
@@ -40,7 +55,7 @@ openrouter,GLM 5.2,0.76,2.42,0.14,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M token
 openrouter,Kimi K2.6,0.589,2.48,0.0992,262K,id=moonshotai/kimi-k2.6 | Kimi 现役,1M tokens,USD,4.123,17.36,Kimi K2.6,no
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,id=moonshotai/kimi-k3 | 新品跟进,1M tokens,USD,21.0,105.0,Kimi K3,no
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,id=minimax/minimax-m3 | 新品跟进,1M tokens,USD,2.1,8.4,MiniMax M3,yes
-tencent,Deepseek-v3.2,0.28,0.42,0.056,,-,1M tokens,USD,1.96,2.94,DeepSeek V3.2,yes
+tencent,Deepseek-v3.2,0.28,0.42,0.056,,-,1M tokens,USD,1.96,2.94,DeepSeek V3.2,no
 tencent,DeepSeek-V4-Flash,0.14,0.28,0.028,,-,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,no
 tencent,DeepSeek-V4-Pro,1.74,3.48,0.145,,-,1M tokens,USD,12.18,24.36,DeepSeek V4 Pro,no
 tencent,GLM-5.1,0.84,3.36,0.182,,0 ≤ 输入长度 ＜ 32k,1M tokens,USD,5.88,23.52,GLM-5.1,yes

@@ -8,7 +8,9 @@
 - 展示：ModelMesh→胜算云；网页汇率交互默认 7.0。
 - 海外：仅热门主力，含 GPT-4o；新品用 `config/new_models.yml` 监听。
 - OpenRouter：`scrapers/openrouter.py` + `config/openrouter.yml`；原始缓存 `data/openrouter_raw.json`；验证 `core/openrouter_verify.py`。
+- **OpenRouter 价格铁律**：一律用 `openrouter.ai/api/v1/models` 返回的真实价；**禁止**在 `openrouter.yml` 写 `input_price/output_price` override 去套用第三方转售商（如 AtlasCloud）的报价。2026-08-07 曾误把 AtlasCloud 的 $0.09/$0.18 写进 V4 Flash override，已删除，恢复真实价 $0.0882/$0.1764。
 - 渠道页包含 OpenRouter（USD）；与官网/海外官方参考分区展示。
+- **阿里云国际站**抓取：`config/sources.yml` 的 `aliyun_intl` 源（USD, js:true SPA）→ `scrapers/aliyun_intl.py`，抓 Qwen/DeepSeek/Kimi/GLM 共 9 模型（含 qwen3.8-max）。站点内为独立「阿里云国际站」海外渠道分组，与国内阿里云（CNY）区分。
 - 阿里云：国内站 CNY（help.aliyun.com）+ 国际站 USD（modelstudio.console.alibabacloud.com），同一模型两站价格不同，需区分标注。
 - **厂商价格查询入口**（portal 区块）：footer 上方，14 个厂商链接，CNY/USD 双色标签区分国内外站。
 

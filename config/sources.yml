@@ -96,3 +96,15 @@
   cache_path: data/openrouter_raw.json
   rules_path: config/openrouter.yml
   note: 公开 Models API，自动缓存 JSON 并二次验证；收录热门白名单 + top-weekly 补充
+
+- id: atlascloud
+  name: AtlasCloud
+  url: https://console.atlascloud.ai/api/v1/models
+  parser: atlascloud
+  currency: USD
+  js: false
+  cache_path: data/atlascloud_raw.json
+  note: >-
+    AtlasCloud（atlascloud.ai）AI 网关，OpenAI 兼容。稳定 JSON API 返回全量模型，
+    取 type=Text 的 LLM 模型，价格为「美元/百万 tokens」。与 OpenRouter 同类，作为渠道源展示，
+    便于与官网/官方价、其他渠道价横向对比（此前误归到 OpenRouter 的报价即来自此源）。
