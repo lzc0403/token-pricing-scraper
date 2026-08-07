@@ -11,6 +11,8 @@
 - **OpenRouter 价格铁律**：一律用 `openrouter.ai/api/v1/models` 返回的真实价；**禁止**在 `openrouter.yml` 写 `input_price/output_price` override 去套用第三方转售商（如 AtlasCloud）的报价。2026-08-07 曾误把 AtlasCloud 的 $0.09/$0.18 写进 V4 Flash override，已删除，恢复真实价 $0.0882/$0.1764。
 - 渠道页包含 OpenRouter（USD）；与官网/海外官方参考分区展示。
 - **阿里云国际站**抓取：`config/sources.yml` 的 `aliyun_intl` 源（USD, js:true SPA）→ `scrapers/aliyun_intl.py`，抓 Qwen/DeepSeek/Kimi/GLM 共 9 模型（含 qwen3.8-max）。站点内为独立「阿里云国际站」海外渠道分组，与国内阿里云（CNY）区分。
+- **AtlasCloud 渠道源**：`config/sources.yml` 的 `atlascloud` 源（USD，JSON API `console.atlascloud.ai/api/v1/models`）→ `scrapers/atlascloud.py`。仅取 `type=="Text"` 的 LLM 模型，命中目标后与现有 canonical 对齐展示；此前误写进 OpenRouter 的 AtlasCloud 价现在正确归属 AtlasCloud 渠道分组。
+- 页面默认缩放：`core/site.py` CSS `html{zoom:1.1}`（同时保留 `overflow-x:clip` 防滚动条），桌面视口下无溢出、无裁切。
 - 阿里云：国内站 CNY（help.aliyun.com）+ 国际站 USD（modelstudio.console.alibabacloud.com），同一模型两站价格不同，需区分标注。
 - **厂商价格查询入口**（portal 区块）：footer 上方，14 个厂商链接，CNY/USD 双色标签区分国内外站。
 
