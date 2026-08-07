@@ -34,3 +34,5 @@ models:
     aliases: [qwen3.7-max, Qwen3.7-Max]
   - canonical: Qwen3.7 Plus
     aliases: [qwen3.7-plus, Qwen3.7-Plus]
+  - canonical: Qwen3.8 Max
+    aliases: [qwen3.8-max, Qwen3.8-Max]

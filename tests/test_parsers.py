@@ -142,6 +142,7 @@ def test_watchlist_all_configured_targets_matched():
     # matcher-only synthetic record：验证配置目标覆盖，不伪装成官方 HTML fixture。
     recs.append({"model_raw": "seedance-2.0"})
     recs.append({"model_raw": "kimi-k3"})
+    recs.append({"model_raw": "qwen3.8-max"})
     _, watch = matcher.build_watchlist(recs, MODELS_CFG)
     canons = {r["canonical"] for r in watch}
     targets = {m["canonical"] for m in MODELS_CFG["models"]}

@@ -36,10 +36,7 @@ whitelist:
     note: 国内旗舰 OpenRouter 价
   - id: deepseek/deepseek-v4-flash
     model: DeepSeek V4 Flash
-    note: 国内高频 OpenRouter 价
-    # 官网页面 $0.09/$0.18 per 1M（API 返回 0.098/0.196，以官网为准）
-    input_price: 0.09
-    output_price: 0.18
+    note: 国内高频 OpenRouter 价（取 OpenRouter API 实时价，不覆盖）
   - id: minimax/minimax-m3
     model: MiniMax M3
     note: 新品跟进

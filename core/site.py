@@ -42,6 +42,7 @@ SOURCE_LABELS: Dict[str, str] = {
     "anthropic": "Anthropic",
     "google": "Google",
     "openrouter": "OpenRouter",
+    "aliyun_intl": "阿里云国际站",
 }
 
 # 厂商官网（官方原价）来源
@@ -69,7 +70,7 @@ OFFICIAL_SOURCE: Dict[str, str] = {
 }
 
 # 渠道源：非官网聚合/转售渠道
-CHANNEL_SOURCES = {"modelmesh", "tencent", "openrouter", "volcengine", "aliyun"}
+CHANNEL_SOURCES = {"modelmesh", "tencent", "openrouter", "volcengine", "aliyun", "aliyun_intl"}
 
 # 渠道按「结算币种」分区：USD 结算 = 海外渠道面板；CNY/无标价 = 国内渠道面板。
 # 腾讯云/火山引擎等国内云厂商也可能以 USD 对外报价（如跨境实例），一律归入海外。
@@ -125,6 +126,7 @@ OVERSEAS_VENDOR_ORDER: List[str] = [
     "openai",
     "anthropic",
     "google",
+    "aliyun_intl",
 ]
 
 # source_id → 厂商分组 id（官方表/渠道表聚合用）
@@ -138,6 +140,7 @@ SOURCE_VENDOR: Dict[str, str] = {
     "openai": "openai",
     "anthropic": "anthropic",
     "google": "google",
+    "aliyun_intl": "aliyun_intl",
 }
 
 MODEL_ORDER: List[str] = [

@@ -21,6 +21,17 @@
     隐式缓存命中 / 输出，单位「元/千 Token」。解析时仅取中国内地区域（北京/上海/杭州/深圳），
     缓存命中只取「隐式缓存命中」列，并按站点统一的「元/百万 Token」口径 ×1000。
 
+- id: aliyun_intl
+  name: 阿里云国际站
+  url: https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices
+  parser: aliyun_intl
+  currency: USD
+  js: true
+  note: >-
+    Model Studio 国际站（新加坡 ap-southeast-1），USD 结算。定价表含 Qwen / DeepSeek /
+    Kimi / GLM 等模型，单位「美元/百万 tokens」，含隐式缓存命中价。SPA 控制台需浏览器渲染。
+    与国内站（CNY，阿里云）区分展示，便于对比同模型国内外价格。
+
 - id: volcengine
   name: 火山引擎
   url: https://docs.volcengine.com/docs/82379/1544106?redirect=1&lang=zh

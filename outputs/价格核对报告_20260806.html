@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>模型价格核对报告 · 2026-08-06</title>
+<style>
+:root{--bg:#f8fafb;--card:#fff;--ink:#111827;--mute:#6b7280;--line:#e5e7eb;--red:#dc2626;--green:#16a34a;--orange:#ea580c;--blue:#2563eb}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:var(--bg);color:var(--ink);margin:0;padding:24px;line-height:1.5}
+.container{max-width:1100px;margin:0 auto}
+h1{font-size:22px;margin:0 0 6px}h2{font-size:16px;margin:28px 0 12px;border-left:4px solid var(--blue);padding-left:10px}
+.meta{color:var(--mute);font-size:13px;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card h3{margin:0 0 10px;font-size:14px}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;margin-left:6px}
+.b-cny{background:#dcfce7;color:#166534}.b-usd{background:#dbeafe;color:#1e40af}
+.b-ok{background:#dcfce7;color:#166534}.b-diff{background:#fee2e2;color:#991b1b}.b-miss{background:#fef3c7;color:#92400e}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{background:#f3f4f6;font-weight:600;color:#374151}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.diff td{background:#fff1f2}
+tr.miss td{background:#fffbeb}
+.note{font-size:12px;color:var(--mute);margin-top:8px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:20px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.stat .n{font-size:24px;font-weight:800;color:var(--blue)}.stat .l{font-size:12px;color:var(--mute);margin-top:4px}
+ul{font-size:13px;margin:6px 0;padding-left:18px}
+li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>模型价格核对报告</h1>
+<div class="meta">核对时间：2026-08-06 22:20 · 截图币种：USD / 百万 tokens · 项目数据源：data/watchlist.json（最新远程周更 2026-08-02）</div>
+
+<div class="summary">
+  <div class="stat"><div class="n">18</div><div class="l">截图中可识别模型/配置行</div></div>
+  <div class="stat"><div class="n">7</div><div class="l">与项目当前数据完全匹配</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">存在明显差异或无法对应</div></div>
+  <div class="stat"><div class="n">2</div><div class="l">关键渠道需拆分：DeepSeek V4 原厂直供 / 腾讯云自建</div></div>
+</div>
+
+<h2>一、截图数据与项目数据逐项比对</h2>
+<div class="card">
+<table>
+<tr><th>截图模型/来源</th><th>输入</th><th>输出</th><th>缓存命中</th><th>项目对应源</th><th>项目输入</th><th>项目输出</th><th>项目缓存</th><th>状态</th></tr>
+<tr><td>Hy3</td><td class="num">0.132</td><td class="num">0.528</td><td class="num">0.033</td><td>—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><span class="badge b-miss">未收录</span></td></tr>
+<tr class="diff"><td>DeepSeek-V4-Flash 原厂直供</td><td class="num">0.14</td><td class="num">0.28</td><td class="num">0.0028</td><td>openrouter</td><td class="num">0.09</td><td class="num">0.18</td><td class="num">0.028</td><td><span class="badge b-diff">价/缓存均不同</span></td></tr>
+<tr class="diff"><td>DeepSeek-V4-Pro 原厂直供</td><td class="num">0.435</td><td class="num">0.87</td><td class="num">0.00363</td><td>openrouter</td><td class="num">0.435</td><td class="num">0.87</td><td class="num">0.003625</td><td><span class="badge b-ok">价同，缓存差 0.000005</span></td></tr>
+<tr><td>DeepSeek-V4-Flash 腾讯云自建</td><td class="num">0.14</td><td class="num">0.28</td><td class="num">0.028</td><td>tencent</td><td class="num">0.14</td><td class="num">0.28</td><td class="num">0.028</td><td><span class="badge b-ok">一致</span></td></tr>
+<tr><td>DeepSeek-V4-Pro 腾讯云自建</td><td class="num">1.74</td><td class="num">3.48</td><td class="num">0.145</td><td>tencent</td><td class="num">1.74</td><td class="num">3.48</td><td class="num">0.145</td><td><span class="badge b-ok">一致</span></td></tr>
+<tr class="diff"><td>DeepSeek-v3.2</td><td class="num">0.57</td><td class="num">1.71</td><td class="num">0.114</td><td>tencent</td><td class="num">0.28</td><td class="num">0.42</td><td class="num">0.056</td><td><span class="badge b-diff">截图约为项目 2 倍</span></td></tr>
+<tr class="diff"><td>GLM-5.2</td><td class="num">1.4</td><td class="num">4.4</td><td class="num">0.26</td><td>tencent</td><td class="num">1.12</td><td class="num">3.92</td><td class="num">0.28</td><td><span class="badge b-diff">价不同</span></td></tr>
+<tr class="diff"><td>GLM-5.1</td><td class="num">1.4</td><td class="num">4.4</td><td class="num">0.26</td><td>tencent (&lt;32k)</td><td class="num">0.84</td><td class="num">3.36</td><td class="num">0.182</td><td><span class="badge b-diff">价不同</span></td></tr>
+<tr><td>GLM-5</td><td class="num">1.0</td><td class="num">3.2</td><td class="num">0.2</td><td>—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><span class="badge b-miss">未收录</span></td></tr>
+<tr class="diff"><td>GLM-5V-Turbo / GLM-5-Turbo</td><td class="num">1.2</td><td class="num">4.0</td><td class="num">0.24</td><td>—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><span class="badge b-miss">未收录</span></td></tr>
+<tr class="diff"><td>Kimi K3</td><td class="num">3.0</td><td class="num">15.0</td><td class="num">0.3</td><td>tencent</td><td class="num">2.731</td><td class="num">13.653</td><td class="num">0.2731</td><td><span class="badge b-diff">价不同</span></td></tr>
+<tr class="diff"><td>Kimi K2.7 Code HighSpeed</td><td class="num">19.0</td><td class="num">8.0</td><td class="num">0.38</td><td>—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><span class="badge b-miss">未收录</span></td></tr>
+<tr><td>Kimi K2.7 Code</td><td class="num">0.95</td><td class="num">4.0</td><td class="num">0.19</td><td>tencent</td><td class="num">0.95</td><td class="num">4.0</td><td class="num">0.19</td><td><span class="badge b-ok">一致</span></td></tr>
+<tr><td>kimi-k2.6</td><td class="num">0.858</td><td class="num">3.566</td><td class="num">0.145</td><td>tencent</td><td class="num">0.858</td><td class="num">3.566</td><td class="num">0.145</td><td><span class="badge b-ok">一致</span></td></tr>
+<tr class="diff"><td>kimi-k2.5</td><td class="num">0.6</td><td class="num">3.0</td><td class="num">0.1</td><td>openrouter</td><td class="num">0.6</td><td class="num">3.41</td><td class="num">0.2</td><td><span class="badge b-diff">输出/缓存不同</span></td></tr>
+<tr><td>MiniMax-M2.7</td><td class="num">0.3</td><td class="num">1.2</td><td class="num">0.06</td><td>tencent</td><td class="num">0.3</td><td class="num">1.2</td><td class="num">0.06</td><td><span class="badge b-ok">一致</span></td></tr>
+<tr><td>MiniMax-M3 (0,512k]</td><td class="num">0.3</td><td class="num">1.2</td><td class="num">0.06</td><td>tencent</td><td class="num">0.3</td><td class="num">1.2</td><td class="num">0.06</td><td><span class="badge b-ok">一致</span></td></tr>
+<tr><td>MiniMax-M3 (512k+)</td><td class="num">0.6</td><td class="num">2.4</td><td class="num">0.12</td><td>tencent</td><td class="num">0.6</td><td class="num">2.4</td><td class="num">0.12</td><td><span class="badge b-ok">一致</span></td></tr>
+<tr><td>Hy-MT2-Plus</td><td class="num">0.1</td><td class="num">0.4</td><td class="num">—</td><td>—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td><span class="badge b-miss">未收录</span></td></tr>
+</table>
+<p class="note">注：截图中 Phi4Max-M3 按输入长度分段，项目里无此模型；MiniMax-M3 截图把两段合并为一行，项目按两段分别记录。</p>
+</div>
+
+<h2>二、关键区分：DeepSeek V4 原厂直供 vs 腾讯云自建</h2>
+<div class="card">
+<h3>DeepSeek-V4-Flash</h3>
+<table>
+<tr><th>来源</th><th>输入 USD</th><th>输出 USD</th><th>缓存命中 USD</th><th>说明</th></tr>
+<tr><td>原厂直供（截图）</td><td class="num">0.14</td><td class="num">0.28</td><td class="num">0.0028</td><td>接近 DeepSeek 官方 CNY 价按 7.0 折算：1.0/2.0/0.02 CNY ≈ 0.143/0.286/0.0029 USD</td></tr>
+<tr><td>腾讯云自建（截图）</td><td class="num">0.14</td><td class="num">0.28</td><td class="num">0.028</td><td>与项目 <code>tencent</code> 源完全一致；缓存命中是原厂 10 倍</td></tr>
+<tr><td>项目 openrouter</td><td class="num">0.09</td><td class="num">0.18</td><td class="num">0.028</td><td>当前 OpenRouter 渠道价，低于截图原厂直供价</td></tr>
+</table>
+<h3>DeepSeek-V4-Pro</h3>
+<table>
+<tr><th>来源</th><th>输入 USD</th><th>输出 USD</th><th>缓存命中 USD</th><th>说明</th></tr>
+<tr><td>原厂直供（截图）</td><td class="num">0.435</td><td class="num">0.87</td><td class="num">0.00363</td><td>与项目 <code>openrouter</code> V4 Pro 价完全一致（缓存 0.003625）</td></tr>
+<tr><td>腾讯云自建（截图）</td><td class="num">1.74</td><td class="num">3.48</td><td class="num">0.145</td><td>与项目 <code>tencent</code> 源完全一致；输入价为原厂 4 倍</td></tr>
+</table>
+<p class="note"><strong>差异总结：</strong>「腾讯云自建」比「原厂直供」贵很多：V4-Flash 缓存命中贵 10 倍，V4-Pro 输入/输出贵 4 倍。截图在同一模型下拆成两行，但当前项目数据按 <code>source</code> 字段（tencent/openrouter/deepseek）分散存储，页面上没有「原厂直供 / 腾讯云自建」标签，容易混淆。</p>
+</div>
+
+<h2>三、问题与建议</h2>
+<div class="card">
+<ul>
+<li><strong>渠道标签缺失：</strong>腾讯云国际站同一个 DeepSeek 模型存在「原厂直供」和「腾讯云自建」两条报价，但项目只按 <code>source=tencent</code> 一条记录。建议抓取时增加 <code>channel_type</code> 或 <code>supplier</code> 字段，把「原厂直供 / 腾讯云自建」写入记录。</li>
+<li><strong>部分模型未收录：</strong>Hy3、GLM-5、GLM-5V-Turbo、GLM-5-Turbo、Kimi K2.7 Code HighSpeed、Hy-MT2-Plus 在项目中没有对应数据。</li>
+<li><strong>部分价格不一致：</strong>DeepSeek-v3.2（截图 0.57 vs 项目 0.28）、GLM-5.2/5.1、Kimi K3 与截图不符，可能是截图页面为其他区域/版本，或项目数据已过期。</li>
+<li><strong>截图来源推测：</strong>从布局与「原厂直供 / 腾讯云自建」标签看，截图大概率来自 <strong>腾讯云国际站 Model Studio</strong>，而非当前 GitHub Pages 站点。</li>
+</ul>
+</div>
+
+<h2>四、下一步动作</h2>
+<div class="card">
+<ul>
+<li>如果目标是让 GitHub Pages 也展示「原厂直供 / 腾讯云自建」双渠道，需要：①改 <code>scrapers/tencent.py</code> 解析这两类标签；②改 <code>core/site.py</code> 海外渠道区按 supplier 分开展示。</li>
+<li>如果目标是确认截图页面本身是否正确，请提供截图页面的 URL，我可以直接爬取最新版核对。</li>
+<li>如果目标是补全缺失模型，请确认这些型号是否要在 <code>config/mainstream_models.yml</code> 或 <code>config/new_models.yml</code> 里加入监听。</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
