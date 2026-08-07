@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-06 18:37:18",
+  "generated_at": "2026-08-07 12:02:17",
   "stats": {
     "total": 45,
-    "suspects": 47,
-    "high": 11,
+    "suspects": 48,
+    "high": 12,
     "med": 0,
     "low": 36,
     "tier1": 1,
-    "tier2": 46
+    "tier2": 47
   },
   "suspects": [
     {
@@ -393,11 +393,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到input价数值「0.546」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到input价数值「0.76」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "input",
-        "value": "0.546",
+        "value": "0.76",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -407,11 +407,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到output价数值「1.716」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到output价数值「2.42」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "output",
-        "value": "1.716",
+        "value": "2.42",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -421,11 +421,25 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "Kimi K2.6",
-      "msg": "静态源页面未找到input价数值「0.57」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到input价数值「0.589」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "Kimi K2.6",
         "field": "input",
-        "value": "0.57",
+        "value": "0.589",
+        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
+      "source": "openrouter",
+      "canonical": "Kimi K2.6",
+      "msg": "静态源页面未找到output价数值「2.48」，疑似解析/幻觉错误",
+      "record": {
+        "model_raw": "Kimi K2.6",
+        "field": "output",
+        "value": "2.48",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },

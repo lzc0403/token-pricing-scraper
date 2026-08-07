@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-06 18:37:18
+> 生成时间：2026-08-07 12:02:17
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -25,11 +25,11 @@
 | GLM-5.1 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | bigmodel | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.2 | openrouter | 3.822 ¥ | 12.012 ¥ | 0.1014 USD | USD | 0.546 USD / 1.716 USD | 1.04858M |
+| GLM-5.2 | openrouter | 5.32 ¥ | 16.94 ¥ | 0.14 USD | USD | 0.76 USD / 2.42 USD | 1.04858M |
 | GLM-5.2 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | Kimi K2.6 | kimi | 1.1 ¥ | 27 ¥ | 1.1 CNY | CNY | 1.1 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
-| Kimi K2.6 | openrouter | 3.99 ¥ | 16.8 ¥ | 0.096 USD | USD | 0.57 USD / 2.4 USD | 262K |
+| Kimi K2.6 | openrouter | 4.123 ¥ | 17.36 ¥ | 0.0992 USD | USD | 0.589 USD / 2.48 USD | 262K |
 | Kimi K2.6 | tencent | 6.006 ¥ | 24.962 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
 | Kimi K2.7 Code | kimi | 1.3 ¥ | 27 ¥ | 1.3 CNY | CNY | 1.3 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.7 Code | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
@@ -62,6 +62,10 @@
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
+| Kimi K2.6 | openrouter | 输入 | 0.57 | 0.589 | USD |
+| Kimi K2.6 | openrouter | 输出 | 2.4 | 2.48 | USD |
+| GLM-5.2 | openrouter | 输入 | 0.546 | 0.76 | USD |
+| GLM-5.2 | openrouter | 输出 | 1.716 | 2.42 | USD |
 
 ## 三、抓取状态
 

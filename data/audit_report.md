@@ -1,13 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-08-06 18:37:18
+> 生成时间：2026-08-07 12:02:17
 
 ## 一、核对统计
 
 - 校验记录总数：**45**
-- 可疑项总数：**47**（high 11 / med 0 / low 36）
+- 可疑项总数：**48**（high 12 / med 0 / low 36）
 - Tier1 结构性校验可疑：**1**
-- Tier2 源页面核对可疑：**46**
+- Tier2 源页面核对可疑：**47**
 
 ## 二、核对维度
 
@@ -36,9 +36,10 @@
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到output价数值「0.18」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「0.435」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「0.87」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「0.546」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「1.716」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到input价数值「0.57」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「0.76」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「2.42」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到input价数值「0.589」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到output价数值「2.48」，疑似解析/幻觉错误 |
 | low | T1 | DIVERGE | - | Kimi K3 | 跨源输入价离散 10.5× (最低 2.0 / 最高 21.0)，建议人工核对是否同规格模型 |
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.2 | SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对 |

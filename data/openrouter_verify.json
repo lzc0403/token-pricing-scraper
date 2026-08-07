@@ -1,7 +1,7 @@
 {
   "ok": false,
-  "fetched_at": "2026-08-06T18:37:18.806025+00:00",
-  "generated_at": "2026-08-06 18:37:28",
+  "fetched_at": "2026-08-07T12:02:17.705301+00:00",
+  "generated_at": "2026-08-07 12:02:29",
   "stats": {
     "raw_models": 400,
     "parsed": 23,
@@ -89,14 +89,20 @@
     {
       "id": "moonshotai/kimi-k2.6",
       "model": "Kimi K2.6",
-      "input": 0.57,
-      "output": 2.4
+      "input": 0.589,
+      "output": 2.48
     },
     {
       "id": "moonshotai/kimi-k3",
       "model": "Kimi K3",
       "input": 3.0,
       "output": 15.0
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash-0731",
+      "model": "DeepSeek V4 Flash 0731",
+      "input": 0.09,
+      "output": 0.18
     },
     {
       "id": "tencent/hy3",
@@ -109,12 +115,6 @@
       "model": "MiMo-V2.5",
       "input": 0.14,
       "output": 0.28
-    },
-    {
-      "id": "deepseek/deepseek-v4-flash-0731",
-      "model": "DeepSeek V4 Flash 0731",
-      "input": 0.09,
-      "output": 0.18
     },
     {
       "id": "openai/gpt-5.6-luna",
