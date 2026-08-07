@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-07T12:57:40.721713+00:00",
+  "fetched_at": "2026-08-07T13:03:45.043704+00:00",
   "url": "https://openrouter.ai/api/v1/models?sort=top-weekly",
   "body": {
     "data": [
@@ -17278,6 +17278,64 @@
         }
       },
       {
+        "id": "inclusionai/ling-3.0-tiny:free",
+        "canonical_slug": "inclusionai/ling-3.0-tiny-20260806",
+        "hugging_face_id": null,
+        "name": "inclusionAI: Ling 3.0 Tiny (free)",
+        "created": 1786034890,
+        "description": "Ling 3.0 Tiny is a mixture-of-experts model from InclusionAI, with 1.3B active parameters out of 7.9B total. It is designed for responsive agents, instruction following, and multi-turn conversations, with switchable...",
+        "context_length": 262144,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0",
+          "completion": "0"
+        },
+        "top_provider": {
+          "context_length": 262144,
+          "max_completion_tokens": 32768,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "logprobs",
+          "max_tokens",
+          "presence_penalty",
+          "reasoning",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_k",
+          "top_logprobs",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/inclusionai/ling-3.0-tiny-20260806/endpoints"
+        },
+        "reasoning": {
+          "mandatory": false,
+          "default_enabled": true
+        }
+      },
+      {
         "id": "qwen/qwen3-8b",
         "canonical_slug": "qwen/qwen3-8b-04-28",
         "hugging_face_id": "Qwen/Qwen3-8B",
@@ -17342,64 +17400,6 @@
             "coding_index": 9,
             "agentic_index": 1.6
           }
-        },
-        "reasoning": {
-          "mandatory": false,
-          "default_enabled": true
-        }
-      },
-      {
-        "id": "inclusionai/ling-3.0-tiny:free",
-        "canonical_slug": "inclusionai/ling-3.0-tiny-20260806",
-        "hugging_face_id": null,
-        "name": "inclusionAI: Ling 3.0 Tiny (free)",
-        "created": 1786034890,
-        "description": "Ling 3.0 Tiny is a mixture-of-experts model from InclusionAI, with 1.3B active parameters out of 7.9B total. It is designed for responsive agents, instruction following, and multi-turn conversations, with switchable...",
-        "context_length": 262144,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0",
-          "completion": "0"
-        },
-        "top_provider": {
-          "context_length": 262144,
-          "max_completion_tokens": 32768,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "logprobs",
-          "max_tokens",
-          "presence_penalty",
-          "reasoning",
-          "repetition_penalty",
-          "seed",
-          "stop",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_logprobs",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/inclusionai/ling-3.0-tiny-20260806/endpoints"
         },
         "reasoning": {
           "mandatory": false,
@@ -19660,54 +19660,6 @@
         }
       },
       {
-        "id": "perplexity/sonar",
-        "canonical_slug": "perplexity/sonar",
-        "hugging_face_id": "",
-        "name": "Perplexity: Sonar",
-        "created": 1738013808,
-        "description": "Sonar is lightweight, affordable, fast, and simple to use — now featuring citations and the ability to customize sources. It is designed for companies seeking to integrate lightweight question-and-answer features...",
-        "context_length": 127072,
-        "architecture": {
-          "modality": "text+image->text",
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.000001",
-          "completion": "0.000001",
-          "web_search": "0.005"
-        },
-        "top_provider": {
-          "context_length": 127072,
-          "max_completion_tokens": null,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "max_tokens",
-          "presence_penalty",
-          "temperature",
-          "top_k",
-          "top_p",
-          "web_search_options"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/perplexity/sonar/endpoints"
-        }
-      },
-      {
         "id": "google/gemini-3.1-pro-preview-customtools",
         "canonical_slug": "google/gemini-3.1-pro-preview-customtools-20260219",
         "hugging_face_id": null,
@@ -19789,6 +19741,54 @@
             "low"
           ],
           "default_effort": "medium"
+        }
+      },
+      {
+        "id": "perplexity/sonar",
+        "canonical_slug": "perplexity/sonar",
+        "hugging_face_id": "",
+        "name": "Perplexity: Sonar",
+        "created": 1738013808,
+        "description": "Sonar is lightweight, affordable, fast, and simple to use — now featuring citations and the ability to customize sources. It is designed for companies seeking to integrate lightweight question-and-answer features...",
+        "context_length": 127072,
+        "architecture": {
+          "modality": "text+image->text",
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.000001",
+          "completion": "0.000001",
+          "web_search": "0.005"
+        },
+        "top_provider": {
+          "context_length": 127072,
+          "max_completion_tokens": null,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "max_tokens",
+          "presence_penalty",
+          "temperature",
+          "top_k",
+          "top_p",
+          "web_search_options"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/perplexity/sonar/endpoints"
         }
       },
       {
@@ -19912,57 +19912,6 @@
         }
       },
       {
-        "id": "anthropic/claude-3-haiku",
-        "canonical_slug": "anthropic/claude-3-haiku",
-        "hugging_face_id": null,
-        "name": "Anthropic: Claude 3 Haiku",
-        "created": 1710288000,
-        "description": "Claude 3 Haiku is Anthropic's fastest and most compact model for\nnear-instant responsiveness. Quick and accurate targeted performance.\n\nSee the launch announcement and benchmark results [here](https://www.anthropic.com/news/claude-3-haiku)\n\n#multimodal",
-        "context_length": 200000,
-        "architecture": {
-          "modality": "text+image->text",
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Claude",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.00000025",
-          "completion": "0.00000125",
-          "web_search": "0.01",
-          "input_cache_read": "0.00000003",
-          "input_cache_write": "0.0000003",
-          "input_cache_write_1h": "0.0000005"
-        },
-        "top_provider": {
-          "context_length": 200000,
-          "max_completion_tokens": 4096,
-          "is_moderated": true
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "max_tokens",
-          "stop",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2023-08-31",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/anthropic/claude-3-haiku/endpoints"
-        }
-      },
-      {
         "id": "qwen/qwen3-coder-flash",
         "canonical_slug": "qwen/qwen3-coder-flash",
         "hugging_face_id": "",
@@ -20034,6 +19983,57 @@
         "expiration_date": null,
         "links": {
           "details": "/api/v1/models/qwen/qwen3-coder-flash/endpoints"
+        }
+      },
+      {
+        "id": "anthropic/claude-3-haiku",
+        "canonical_slug": "anthropic/claude-3-haiku",
+        "hugging_face_id": null,
+        "name": "Anthropic: Claude 3 Haiku",
+        "created": 1710288000,
+        "description": "Claude 3 Haiku is Anthropic's fastest and most compact model for\nnear-instant responsiveness. Quick and accurate targeted performance.\n\nSee the launch announcement and benchmark results [here](https://www.anthropic.com/news/claude-3-haiku)\n\n#multimodal",
+        "context_length": 200000,
+        "architecture": {
+          "modality": "text+image->text",
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Claude",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.00000025",
+          "completion": "0.00000125",
+          "web_search": "0.01",
+          "input_cache_read": "0.00000003",
+          "input_cache_write": "0.0000003",
+          "input_cache_write_1h": "0.0000005"
+        },
+        "top_provider": {
+          "context_length": 200000,
+          "max_completion_tokens": 4096,
+          "is_moderated": true
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": "2023-08-31",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/anthropic/claude-3-haiku/endpoints"
         }
       },
       {
@@ -23699,64 +23699,6 @@
         }
       },
       {
-        "id": "perplexity/sonar-pro-search",
-        "canonical_slug": "perplexity/sonar-pro-search",
-        "hugging_face_id": "",
-        "name": "Perplexity: Sonar Pro Search",
-        "created": 1761854366,
-        "description": "Exclusively available on the OpenRouter API, Sonar Pro's new Pro Search mode is Perplexity's most advanced agentic search system. It is designed for deeper reasoning and analysis. Pricing is based...",
-        "context_length": 200000,
-        "architecture": {
-          "modality": "text+image->text",
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.000003",
-          "completion": "0.000015",
-          "web_search": "0.018"
-        },
-        "top_provider": {
-          "context_length": 200000,
-          "max_completion_tokens": 8000,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "presence_penalty",
-          "reasoning",
-          "structured_outputs",
-          "temperature",
-          "top_k",
-          "top_p",
-          "web_search_options"
-        ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "frequency_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/perplexity/sonar-pro-search/endpoints"
-        },
-        "reasoning": {
-          "mandatory": true
-        }
-      },
-      {
         "id": "qwen/qwen3.6-max-preview",
         "canonical_slug": "qwen/qwen3.6-max-preview-20260420",
         "hugging_face_id": null,
@@ -23822,6 +23764,64 @@
         "reasoning": {
           "mandatory": false,
           "default_enabled": true
+        }
+      },
+      {
+        "id": "perplexity/sonar-pro-search",
+        "canonical_slug": "perplexity/sonar-pro-search",
+        "hugging_face_id": "",
+        "name": "Perplexity: Sonar Pro Search",
+        "created": 1761854366,
+        "description": "Exclusively available on the OpenRouter API, Sonar Pro's new Pro Search mode is Perplexity's most advanced agentic search system. It is designed for deeper reasoning and analysis. Pricing is based...",
+        "context_length": 200000,
+        "architecture": {
+          "modality": "text+image->text",
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.000003",
+          "completion": "0.000015",
+          "web_search": "0.018"
+        },
+        "top_provider": {
+          "context_length": 200000,
+          "max_completion_tokens": 8000,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "max_tokens",
+          "presence_penalty",
+          "reasoning",
+          "structured_outputs",
+          "temperature",
+          "top_k",
+          "top_p",
+          "web_search_options"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "frequency_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/perplexity/sonar-pro-search/endpoints"
+        },
+        "reasoning": {
+          "mandatory": true
         }
       },
       {
@@ -24111,6 +24111,56 @@
         }
       },
       {
+        "id": "meta-llama/llama-3.2-1b-instruct",
+        "canonical_slug": "meta-llama/llama-3.2-1b-instruct",
+        "hugging_face_id": "meta-llama/Llama-3.2-1B-Instruct",
+        "name": "Meta: Llama 3.2 1B Instruct",
+        "created": 1727222400,
+        "description": "Llama 3.2 1B is a 1-billion-parameter language model focused on efficiently performing natural language tasks, such as summarization, dialogue, and multilingual text analysis. Its smaller size allows it to operate...",
+        "context_length": 60000,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Llama3",
+          "instruct_type": "llama3"
+        },
+        "pricing": {
+          "prompt": "0.000000027",
+          "completion": "0.000000201"
+        },
+        "top_provider": {
+          "context_length": 60000,
+          "max_completion_tokens": 60000,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "logit_bias",
+          "max_tokens",
+          "min_p",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "temperature",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": "2023-12-31",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/meta-llama/llama-3.2-1b-instruct/endpoints"
+        }
+      },
+      {
         "id": "thedrummer/unslopnemo-12b",
         "canonical_slug": "thedrummer/unslopnemo-12b",
         "hugging_face_id": "TheDrummer/UnslopNemo-12B-v4.1",
@@ -24163,56 +24213,6 @@
         "expiration_date": null,
         "links": {
           "details": "/api/v1/models/thedrummer/unslopnemo-12b/endpoints"
-        }
-      },
-      {
-        "id": "meta-llama/llama-3.2-1b-instruct",
-        "canonical_slug": "meta-llama/llama-3.2-1b-instruct",
-        "hugging_face_id": "meta-llama/Llama-3.2-1B-Instruct",
-        "name": "Meta: Llama 3.2 1B Instruct",
-        "created": 1727222400,
-        "description": "Llama 3.2 1B is a 1-billion-parameter language model focused on efficiently performing natural language tasks, such as summarization, dialogue, and multilingual text analysis. Its smaller size allows it to operate...",
-        "context_length": 60000,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Llama3",
-          "instruct_type": "llama3"
-        },
-        "pricing": {
-          "prompt": "0.000000027",
-          "completion": "0.000000201"
-        },
-        "top_provider": {
-          "context_length": 60000,
-          "max_completion_tokens": 60000,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "repetition_penalty",
-          "seed",
-          "stop",
-          "temperature",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2023-12-31",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/meta-llama/llama-3.2-1b-instruct/endpoints"
         }
       },
       {
@@ -26436,61 +26436,6 @@
         }
       },
       {
-        "id": "anthracite-org/magnum-v4-72b",
-        "canonical_slug": "anthracite-org/magnum-v4-72b",
-        "hugging_face_id": "anthracite-org/magnum-v4-72b",
-        "name": "Magnum v4 72B",
-        "created": 1729555200,
-        "description": "This is a series of models designed to replicate the prose quality of the Claude 3 models, specifically Sonnet(https://openrouter.ai/anthropic/claude-3.5-sonnet) and Opus(https://openrouter.ai/anthropic/claude-3-opus).\n\nThe model is fine-tuned on top of [Qwen2.5 72B](https://openrouter.ai/qwen/qwen-2.5-72b-instruct).",
-        "context_length": 16384,
-        "architecture": {
-          "modality": "text->text",
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Qwen",
-          "instruct_type": "chatml"
-        },
-        "pricing": {
-          "prompt": "0.000003",
-          "completion": "0.000005"
-        },
-        "top_provider": {
-          "context_length": 16384,
-          "max_completion_tokens": 2048,
-          "is_moderated": false
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "logprobs",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "top_a",
-          "top_k",
-          "top_logprobs",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "supported_voices": null,
-        "knowledge_cutoff": "2024-06-30",
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/anthracite-org/magnum-v4-72b/endpoints"
-        }
-      },
-      {
         "id": "openai/gpt-5.6-luna-pro:batch",
         "canonical_slug": "openai/gpt-5.6-luna-pro-20260709",
         "hugging_face_id": null,
@@ -26568,6 +26513,61 @@
             "none"
           ],
           "default_effort": "medium"
+        }
+      },
+      {
+        "id": "anthracite-org/magnum-v4-72b",
+        "canonical_slug": "anthracite-org/magnum-v4-72b",
+        "hugging_face_id": "anthracite-org/magnum-v4-72b",
+        "name": "Magnum v4 72B",
+        "created": 1729555200,
+        "description": "This is a series of models designed to replicate the prose quality of the Claude 3 models, specifically Sonnet(https://openrouter.ai/anthropic/claude-3.5-sonnet) and Opus(https://openrouter.ai/anthropic/claude-3-opus).\n\nThe model is fine-tuned on top of [Qwen2.5 72B](https://openrouter.ai/qwen/qwen-2.5-72b-instruct).",
+        "context_length": 16384,
+        "architecture": {
+          "modality": "text->text",
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Qwen",
+          "instruct_type": "chatml"
+        },
+        "pricing": {
+          "prompt": "0.000003",
+          "completion": "0.000005"
+        },
+        "top_provider": {
+          "context_length": 16384,
+          "max_completion_tokens": 2048,
+          "is_moderated": false
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "logit_bias",
+          "logprobs",
+          "max_tokens",
+          "min_p",
+          "presence_penalty",
+          "repetition_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "top_a",
+          "top_k",
+          "top_logprobs",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "supported_voices": null,
+        "knowledge_cutoff": "2024-06-30",
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/anthracite-org/magnum-v4-72b/endpoints"
         }
       },
       {
@@ -26824,6 +26824,68 @@
         }
       },
       {
+        "id": "amazon/nova-premier-v1",
+        "canonical_slug": "amazon/nova-premier-v1",
+        "hugging_face_id": "",
+        "name": "Amazon: Nova Premier 1.0",
+        "created": 1761950332,
+        "description": "Amazon Nova Premier is the most capable of Amazon’s multimodal models for complex reasoning tasks and for use as the best teacher for distilling custom models.",
+        "context_length": 1000000,
+        "architecture": {
+          "modality": "text+image->text",
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Nova",
+          "instruct_type": null
+        },
+        "pricing": {
+          "prompt": "0.0000025",
+          "completion": "0.0000125",
+          "input_cache_read": "0.000000625"
+        },
+        "top_provider": {
+          "context_length": 1000000,
+          "max_completion_tokens": 32000,
+          "is_moderated": true
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "temperature",
+          "tools",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": null,
+          "top_p": null,
+          "frequency_penalty": null
+        },
+        "supported_voices": null,
+        "knowledge_cutoff": null,
+        "expiration_date": null,
+        "links": {
+          "details": "/api/v1/models/amazon/nova-premier-v1/endpoints"
+        },
+        "benchmarks": {
+          "design_arena": [
+            {
+              "arena": "models",
+              "category": "website",
+              "elo": 858,
+              "win_rate": 26.2,
+              "rank": 119
+            }
+          ]
+        }
+      },
+      {
         "id": "moonshotai/kimi-k2.7-code:batch",
         "canonical_slug": "moonshotai/kimi-k2.7-code-20260612",
         "hugging_face_id": "moonshotai/Kimi-K2.7-Code",
@@ -27010,68 +27072,6 @@
         "reasoning": {
           "mandatory": true,
           "default_enabled": true
-        }
-      },
-      {
-        "id": "amazon/nova-premier-v1",
-        "canonical_slug": "amazon/nova-premier-v1",
-        "hugging_face_id": "",
-        "name": "Amazon: Nova Premier 1.0",
-        "created": 1761950332,
-        "description": "Amazon Nova Premier is the most capable of Amazon’s multimodal models for complex reasoning tasks and for use as the best teacher for distilling custom models.",
-        "context_length": 1000000,
-        "architecture": {
-          "modality": "text+image->text",
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Nova",
-          "instruct_type": null
-        },
-        "pricing": {
-          "prompt": "0.0000025",
-          "completion": "0.0000125",
-          "input_cache_read": "0.000000625"
-        },
-        "top_provider": {
-          "context_length": 1000000,
-          "max_completion_tokens": 32000,
-          "is_moderated": true
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "max_tokens",
-          "stop",
-          "temperature",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {
-          "temperature": null,
-          "top_p": null,
-          "frequency_penalty": null
-        },
-        "supported_voices": null,
-        "knowledge_cutoff": null,
-        "expiration_date": null,
-        "links": {
-          "details": "/api/v1/models/amazon/nova-premier-v1/endpoints"
-        },
-        "benchmarks": {
-          "design_arena": [
-            {
-              "arena": "models",
-              "category": "website",
-              "elo": 858,
-              "win_rate": 26.2,
-              "rank": 119
-            }
-          ]
         }
       },
       {
