@@ -1475,6 +1475,7 @@ select{font:inherit;padding:7px 10px;border-radius:6px;border:1px solid var(--li
 
 .portal{max-width:960px;margin:24px auto 0;padding:0 24px}
 .portal h3{font-size:13px;font-weight:700;color:var(--ink);margin:0 0 10px}
+.portal .ph{font-size:11px;color:var(--mute);margin:0 0 12px;line-height:1.5}
 .portal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
 .portal-card{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;text-decoration:none;transition:border-color .15s}
 .portal-card:hover{border-color:var(--primary)}
@@ -2311,6 +2312,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
 
   <div class="portal">
     <h3>厂商价格查询入口</h3>
+    <p class="ph">同一大模型厂商通常提供「人民币（国内官网）」与「美元（英文 / 国际站）」两套定价。下方按币种分色：<span style="color:#0a8043;font-weight:700">绿 ¥</span> 国内官网、<span style="color:#4338ca;font-weight:700">蓝 $</span> 英文 / 国际站。DeepSeek / Kimi / MiniMax 已补充美元定价入口。</p>
     <div class="portal-grid">
       <a class="portal-card" href="https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing" target="_blank" rel="noopener">
         <span><span class="pc-name">阿里云</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
@@ -2336,6 +2338,10 @@ def build_site(data_dir: str, out_path: str = None) -> str:
         <span><span class="pc-name">DeepSeek</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
         <span class="pc-meta">API 定价</span>
       </a>
+      <a class="portal-card" href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener">
+        <span><span class="pc-name">DeepSeek</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
+        <span class="pc-meta">API Pricing (USD)</span>
+      </a>
       <a class="portal-card" href="https://open.bigmodel.cn/pricing" target="_blank" rel="noopener">
         <span><span class="pc-name">智谱</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
         <span class="pc-meta">GLM 定价</span>
@@ -2344,9 +2350,17 @@ def build_site(data_dir: str, out_path: str = None) -> str:
         <span><span class="pc-name">MiniMax</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
         <span class="pc-meta">Token 套餐</span>
       </a>
+      <a class="portal-card" href="https://platform.minimax.io/docs/guides/pricing-paygo" target="_blank" rel="noopener">
+        <span><span class="pc-name">MiniMax</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
+        <span class="pc-meta">Pay-as-You-Go (USD)</span>
+      </a>
       <a class="portal-card" href="https://platform.kimi.com/docs/pricing/chat-k3" target="_blank" rel="noopener">
         <span><span class="pc-name">Kimi</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
         <span class="pc-meta">K 系列定价</span>
+      </a>
+      <a class="portal-card" href="https://platform.moonshot.ai/" target="_blank" rel="noopener">
+        <span><span class="pc-name">Kimi</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
+        <span class="pc-meta">Kimi API Platform (USD)</span>
       </a>
       <a class="portal-card" href="https://openai.com/api/pricing/" target="_blank" rel="noopener">
         <span><span class="pc-name">OpenAI</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
@@ -2372,7 +2386,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
   </div>
 
   <footer>
-    <div class="note">数据来源：国内厂商官网公开定价；OpenAI / Anthropic / Google 官方 API 参考价；胜算云、腾讯云、火山引擎等渠道报价。USD 结算的渠道归入海外渠道页。GitHub Action 每周自动抓取。</div>
+    <div class="note">数据来源：国内厂商官网公开定价；OpenAI / Anthropic / Google 官方 API 参考价；胜算云、腾讯云、火山引擎等渠道报价。USD 结算的渠道归入海外渠道页。国内厂商（DeepSeek / Kimi / MiniMax 等）同时提供人民币与美元官方定价，上方入口已分别给出中文(¥)与英文($)链接。GitHub Action 每周自动抓取。</div>
     <div class="disc">⚠️ 仅供参考，请以各官网实时报价为准 · 最近更新：{_esc(data['generated_at'])}</div>
   </footer>
   <button type="button" id="toTop" class="totop" aria-label="回到顶部">↑</button>
