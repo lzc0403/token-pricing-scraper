@@ -14,7 +14,7 @@
 - **AtlasCloud 渠道源**：`config/sources.yml` 的 `atlascloud` 源（USD，JSON API `console.atlascloud.ai/api/v1/models`）→ `scrapers/atlascloud.py`。仅取 `type=="Text"` 的 LLM 模型，命中目标后与现有 canonical 对齐展示；此前误写进 OpenRouter 的 AtlasCloud 价现在正确归属 AtlasCloud 渠道分组。
 - 页面默认缩放：`core/site.py` CSS `html{zoom:1.1}`（同时保留 `overflow-x:clip` 防滚动条），桌面视口下无溢出、无裁切。
 - 阿里云：国内站 CNY（help.aliyun.com）+ 国际站 USD（modelstudio.console.alibabacloud.com），同一模型两站价格不同，需区分标注。
-- **厂商价格查询入口**（portal 区块）：footer 上方，14 个厂商链接，CNY/USD 双色标签区分国内外站。
+- **厂商价格查询入口**（portal 区块）：footer 上方，17 个厂商链接卡片，CNY/USD 双色标签（绿 ¥ 国内官网 / 蓝 $ 英文·国际站）区分。双卡厂商：阿里云（国内 help.aliyun.com / 国际 modelstudio.console）、腾讯云（国内 tencentcloud.com/zh / 国际 tencentcloud.com）、DeepSeek（中文 api-docs.deepseek.com/zh-cn / 英文 api-docs.deepseek.com/quick_start/pricing）、Kimi（中文 platform.kimi.com/docs/pricing/chat-k3 / 英文 platform.moonshot.ai）、MiniMax（中文 platform.minimaxi.com / 英文 platform.minimax.io/docs/guides/pricing-paygo）。门户标题下 `.ph` 一行说明「同模型 ¥/$ 双定价」逻辑。
 
 ## 部署
 
