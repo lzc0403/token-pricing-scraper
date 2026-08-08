@@ -168,6 +168,85 @@
         }
       },
       {
+        "uuid": "ms-lpr493tl1mxr",
+        "model": "deepseek-ai/deepseek-v4-flash-0731",
+        "type": "Text",
+        "displayName": "DeepSeek V4 Flash 0731",
+        "profile": "DeepSeek V4 Flash is a state-of-the-art large language model combining efficient sparse attention, strong reasoning, and integrated agent capabilities for robust long-context understanding and versatile AI applications.",
+        "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.2-exp.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
+        "background": "https://static.atlascloud.ai/model/background/deepseek-ai-deepseek-v4-flash-0731.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/63c708b2-631e-424f-b28a-c40d9a4e44a8.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/deepseek-ai-deepseek-v4-flash-0731.json",
+        "readme": "https://static.atlascloud.ai/model/readme/deepseek-ai-deepseek-v3.2-exp.md",
+        "organization": "DEEPSEEK",
+        "example": "https://static.atlascloud.ai/model/example/deepseek-ai-deepseek-v3.2-exp.json",
+        "priority": 90041,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "familyUUID": "mf-2bsoh80kj708",
+        "familyName": "deepseek",
+        "familyDisplayName": "DeepSeek API: Access V4, R1 & More Models with One OpenAI-Compatible Endpoint",
+        "parentFamilyUUID": "mf-2l826tbukl8m",
+        "parentFamilyName": "deepseek-ai",
+        "parentFamilyDisplayName": "DeepSeek AI Models on AtlasCloud",
+        "contextLength": 262144,
+        "maxCompletionTokens": 131072,
+        "avgTotalTPS": "22.56",
+        "avgLatency": "0.26",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "0.14",
+            "output_price": "0.28",
+            "cache_price": "0.028"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0.14",
+            "output_price": "0.28",
+            "cache_price": "0.028"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "tools",
+          "structured_outputs"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "architectureType": "Mixture-of-Experts (MoE)"
+      },
+      {
         "uuid": "ms-63366b946668",
         "model": "qwen-image-3.0/text-to-image",
         "type": "Image",
@@ -3263,85 +3342,6 @@
             "input_price": "1.74",
             "output_price": "3.48",
             "cache_price": "0.145"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_sampling_parameters": [
-          "temperature",
-          "top_p",
-          "top_k",
-          "min_p",
-          "frequency_penalty",
-          "presence_penalty",
-          "repetition_penalty",
-          "stop",
-          "seed",
-          "max_tokens",
-          "logit_bias"
-        ],
-        "supported_features": [
-          "json_mode",
-          "tools",
-          "structured_outputs"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "architectureType": "Mixture-of-Experts (MoE)"
-      },
-      {
-        "uuid": "ms-lpr493tl1mxr",
-        "model": "deepseek-ai/deepseek-v4-flash-0731",
-        "type": "Text",
-        "displayName": "DeepSeek V4 Flash 0731",
-        "profile": "DeepSeek V4 Flash is a state-of-the-art large language model combining efficient sparse attention, strong reasoning, and integrated agent capabilities for robust long-context understanding and versatile AI applications.",
-        "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.2-exp.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
-        "background": "https://static.atlascloud.ai/model/background/deepseek-ai-deepseek-v4-flash-0731.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/63c708b2-631e-424f-b28a-c40d9a4e44a8.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/deepseek-ai-deepseek-v4-flash-0731.json",
-        "readme": "https://static.atlascloud.ai/model/readme/deepseek-ai-deepseek-v3.2-exp.md",
-        "organization": "DEEPSEEK",
-        "example": "https://static.atlascloud.ai/model/example/deepseek-ai-deepseek-v3.2-exp.json",
-        "priority": 88888,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "familyUUID": "mf-2bsoh80kj708",
-        "familyName": "deepseek",
-        "familyDisplayName": "DeepSeek API: Access V4, R1 & More Models with One OpenAI-Compatible Endpoint",
-        "parentFamilyUUID": "mf-2l826tbukl8m",
-        "parentFamilyName": "deepseek-ai",
-        "parentFamilyDisplayName": "DeepSeek AI Models on AtlasCloud",
-        "contextLength": 262144,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "22.56",
-        "avgLatency": "0.26",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.14",
-            "output_price": "0.28",
-            "cache_price": "0.028"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.14",
-            "output_price": "0.28",
-            "cache_price": "0.028"
           }
         },
         "input_modalities": [

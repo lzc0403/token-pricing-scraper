@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-07 14:07:25
+> 生成时间：2026-08-08 15:23:31
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -13,7 +13,7 @@
 | DeepSeek V4 Flash | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | 1.04858M |
 | DeepSeek V4 Flash | deepseek | 1 ¥ | 2 ¥ | 0.02 CNY | CNY | 1 CNY / 2 CNY | 1M |
 | DeepSeek V4 Flash | modelmesh | 1 ¥ | 2 ¥ | - | CNY | 1 CNY / 2 CNY | 1000K |
-| DeepSeek V4 Flash | openrouter | 0.6174 ¥ | 1.2348 ¥ | 0.01764 USD | USD | 0.0882 USD / 0.1764 USD | 1.04858M |
+| DeepSeek V4 Flash | openrouter | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | 1.04858M |
 | DeepSeek V4 Flash | tencent | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
 | DeepSeek V4 Pro | aliyun_intl | 16.8 ¥ | 33.6 ¥ | 0.2 USD | USD | 2.4 USD / 4.8 USD | - |
 | DeepSeek V4 Pro | atlascloud | 11.76 ¥ | 23.66 ¥ | 0.13 USD | USD | 1.68 USD / 3.38 USD | 1.04858M |
@@ -37,12 +37,12 @@
 | GLM-5.2 | atlascloud | 8.82 ¥ | 27.72 ¥ | 0.234 USD | USD | 1.26 USD / 3.96 USD | 1.04858M |
 | GLM-5.2 | bigmodel | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.2 | openrouter | 5.32 ¥ | 16.94 ¥ | 0.14 USD | USD | 0.76 USD / 2.42 USD | 1.04858M |
+| GLM-5.2 | openrouter | 1.4406 ¥ | 4.5276 ¥ | 0.03822 USD | USD | 0.2058 USD / 0.6468 USD | 1.04858M |
 | GLM-5.2 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | Kimi K2.6 | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
 | Kimi K2.6 | kimi | 1.1 ¥ | 27 ¥ | 1.1 CNY | CNY | 1.1 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
-| Kimi K2.6 | openrouter | 4.123 ¥ | 17.36 ¥ | 0.0992 USD | USD | 0.589 USD / 2.48 USD | 262K |
+| Kimi K2.6 | openrouter | 4.0565 ¥ | 17.08 ¥ | 0.0976 USD | USD | 0.5795 USD / 2.44 USD | 262K |
 | Kimi K2.6 | tencent | 6.006 ¥ | 24.962 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
 | Kimi K2.7 Code | aliyun_intl | 6.65 ¥ | 28 ¥ | 0.19 USD | USD | 0.95 USD / 4 USD | - |
 | Kimi K2.7 Code | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
@@ -87,6 +87,12 @@
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.0882 | 0.14 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.1764 | 0.28 | USD |
+| Kimi K2.6 | openrouter | 输入 | 0.589 | 0.5795 | USD |
+| Kimi K2.6 | openrouter | 输出 | 2.48 | 2.44 | USD |
+| GLM-5.2 | openrouter | 输入 | 0.76 | 0.2058 | USD |
+| GLM-5.2 | openrouter | 输出 | 2.42 | 0.6468 | USD |
 
 ## 三、抓取状态
 
