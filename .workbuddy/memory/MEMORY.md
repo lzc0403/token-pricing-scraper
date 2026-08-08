@@ -13,6 +13,8 @@
 - **阿里云国际站**抓取：`config/sources.yml` 的 `aliyun_intl` 源（USD, js:true SPA）→ `scrapers/aliyun_intl.py`，抓 Qwen/DeepSeek/Kimi/GLM 共 9 模型（含 qwen3.8-max）。站点内为独立「阿里云国际站」海外渠道分组，与国内阿里云（CNY）区分。
 - **AtlasCloud 渠道源**：`config/sources.yml` 的 `atlascloud` 源（USD，JSON API `console.atlascloud.ai/api/v1/models`）→ `scrapers/atlascloud.py`。仅取 `type=="Text"` 的 LLM 模型，命中目标后与现有 canonical 对齐展示；此前误写进 OpenRouter 的 AtlasCloud 价现在正确归属 AtlasCloud 渠道分组。
 - 页面默认缩放：`core/site.py` CSS `html{zoom:1.1}`（同时保留 `overflow-x:clip` 防滚动条），桌面视口下无溢出、无裁切。
+- **2026-08-08 视觉统一**：引入 `--sp-*` 间距、`--r-sm/--r/--r-lg` 圆角、`--sh-1/--sh-2/--sh-3` 阴影三级设计令牌；body 背景 `--canvas` 浅灰、卡片 `#fff` 浮起；主色 `theme-color` 统一为 `#2BAE85`；价格单元格采用 `px-val`/`px-cur`/`js-rmb-hint` 三层结构；补齐 `.market-tabs` 等缺失样式。任何后续样式改动必须保持 JS 依赖类名（`js-cny-main`/`js-rmb-hint`/`js-row` 等）不变。
+- **2026-08-09 官方行标识优化**：官方定价表不再整行涂 `#fff8e7` 黄色（刺眼、破坏白卡片浮起感）。改为白底 + 左侧 2px 品牌绿内阴影线标识；`.tag-official` 同步改用品牌绿软底；hover 统一 `#f8fafb`。
 - 阿里云：国内站 CNY（help.aliyun.com）+ 国际站 USD（modelstudio.console.alibabacloud.com），同一模型两站价格不同，需区分标注。
 - **厂商价格查询入口**（portal 区块）：footer 上方，17 个厂商链接卡片，CNY/USD 双色标签（绿 ¥ 国内官网 / 蓝 $ 英文·国际站）区分。双卡厂商：阿里云（国内 help.aliyun.com / 国际 modelstudio.console）、腾讯云（国内 tencentcloud.com/zh / 国际 tencentcloud.com）、DeepSeek（中文 api-docs.deepseek.com/zh-cn / 英文 api-docs.deepseek.com/quick_start/pricing）、Kimi（中文 platform.kimi.com/docs/pricing/chat-k3 / 英文 platform.moonshot.ai）、MiniMax（中文 platform.minimaxi.com / 英文 platform.minimax.io/docs/guides/pricing-paygo）。门户标题下 `.ph` 一行说明「同模型 ¥/$ 双定价」逻辑。
 
