@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07 14:07:25",
+  "generated_at": "2026-08-08 15:23:31",
   "stats": {
     "total": 70,
     "suspects": 58,
@@ -457,11 +457,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "静态源页面未找到input价数值「0.0882」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到input价数值「0.14」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "DeepSeek V4 Flash",
         "field": "input",
-        "value": "0.0882",
+        "value": "0.14",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -471,11 +471,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "静态源页面未找到output价数值「0.1764」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到output价数值「0.28」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "DeepSeek V4 Flash",
         "field": "output",
-        "value": "0.1764",
+        "value": "0.28",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -513,11 +513,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到input价数值「0.76」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到input价数值「0.2058」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "input",
-        "value": "0.76",
+        "value": "0.2058",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -527,11 +527,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到output价数值「2.42」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到output价数值「0.6468」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "output",
-        "value": "2.42",
+        "value": "0.6468",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -541,11 +541,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "Kimi K2.6",
-      "msg": "静态源页面未找到input价数值「0.589」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到input价数值「0.5795」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "Kimi K2.6",
         "field": "input",
-        "value": "0.589",
+        "value": "0.5795",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -555,11 +555,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "Kimi K2.6",
-      "msg": "静态源页面未找到output价数值「2.48」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到output价数值「2.44」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "Kimi K2.6",
         "field": "output",
-        "value": "2.48",
+        "value": "2.44",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
