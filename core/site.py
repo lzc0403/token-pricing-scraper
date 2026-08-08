@@ -1464,7 +1464,7 @@ tr.js-row.is-hidden{display:none}
 .c-model .model{font-weight:700;color:var(--ink);line-height:1.3;word-break:break-word}
 .tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}
 .tag{display:inline-block;font-size:9px;font-weight:700;padding:1px 5px;border-radius:999px;border:1px solid transparent}
-.tag-official{color:var(--amber);background:var(--amber-soft);border-color:rgba(245,158,11,.15)}
+.tag-official{color:var(--primary-deep);background:var(--primary-soft);border-color:rgba(43,174,133,.22)}
 .tag-best{color:var(--green);background:var(--green-soft)}
 .tag-premium{color:var(--red);background:var(--red-soft)}
 .muted{color:var(--mute);font-weight:500}
@@ -1472,9 +1472,10 @@ tr.js-row.is-hidden{display:none}
 .sub-hint{font-size:10px;color:var(--mute);font-weight:500;margin-top:2px}
 .c-curr{text-align:center;font-weight:600;font-size:11px;color:var(--ink2)}
 
-tr.is-official td{background:#fff8e7}
-tr.is-official td:first-child{box-shadow:inset 2px 0 0 var(--amber)}
+tr.is-official td{background:#fff}
+tr.is-official td:first-child{box-shadow:inset 2px 0 0 var(--primary)}
 tr.is-lowest:not(.is-official) td:first-child{box-shadow:inset 2px 0 0 var(--green)}
+tr.is-official:hover td{background:#f8fafb}
 
 .empty-mini{padding:24px 14px;text-align:center;color:var(--mute);font-size:13px}
 
