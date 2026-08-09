@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-08 16:35:54
+> 生成时间：2026-08-09 18:22:02
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -37,7 +37,7 @@
 | GLM-5.2 | atlascloud | 8.82 ¥ | 27.72 ¥ | 0.234 USD | USD | 1.26 USD / 3.96 USD | 1.04858M |
 | GLM-5.2 | bigmodel | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.2 | openrouter | 1.4406 ¥ | 4.5276 ¥ | 0.03822 USD | USD | 0.2058 USD / 0.6468 USD | 1.04858M |
+| GLM-5.2 | openrouter | 0.49 ¥ | 1.54 ¥ | 0.013 USD | USD | 0.07 USD / 0.22 USD | 1.04858M |
 | GLM-5.2 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | Kimi K2.6 | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
 | Kimi K2.6 | kimi | 1.1 ¥ | 27 ¥ | 1.1 CNY | CNY | 1.1 CNY / 27 CNY | 262,144 tokens |
@@ -87,6 +87,8 @@
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
+| GLM-5.2 | openrouter | 输入 | 0.2058 | 0.07 | USD |
+| GLM-5.2 | openrouter | 输出 | 0.6468 | 0.22 | USD |
 
 ## 三、抓取状态
 

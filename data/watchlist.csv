@@ -51,7 +51,7 @@ modelmesh,Qwen3.7-Plus,1.6,6.4,,1000K,,1M tokens,CNY,1.6,6.4,Qwen3.7 Plus,yes
 modelmesh,Qwen3.8-Max,12.0,36.0,,1000K,,1M tokens,CNY,12.0,36.0,Qwen3.8 Max,yes
 openrouter,DeepSeek V4 Flash,0.14,0.28,0.028,1.04858M,id=deepseek/deepseek-v4-flash | 国内高频 OpenRouter 价（取 OpenRouter API 实时价，不覆盖）,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,0.435,0.87,0.003625,1.04858M,id=deepseek/deepseek-v4-pro | 国内旗舰 OpenRouter 价,1M tokens,USD,3.045,6.09,DeepSeek V4 Pro,no
-openrouter,GLM 5.2,0.2058,0.6468,0.03822,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,1.4406,4.5276,GLM-5.2,yes
+openrouter,GLM 5.2,0.07,0.22,0.013,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,0.49,1.54,GLM-5.2,yes
 openrouter,Kimi K2.6,0.5795,2.44,0.0976,262K,id=moonshotai/kimi-k2.6 | Kimi 现役,1M tokens,USD,4.0565,17.08,Kimi K2.6,no
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,id=moonshotai/kimi-k3 | 新品跟进,1M tokens,USD,21.0,105.0,Kimi K3,no
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,id=minimax/minimax-m3 | 新品跟进,1M tokens,USD,2.1,8.4,MiniMax M3,yes
