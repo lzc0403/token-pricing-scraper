@@ -43,6 +43,8 @@ SOURCE_LABELS: Dict[str, str] = {
     "google": "Google",
     "openrouter": "OpenRouter",
     "aliyun_intl": "阿里云国际站",
+    "aliyun_bailian": "阿里云百炼",
+    "tencent_cn": "腾讯云",
     "atlascloud": "AtlasCloud",
 }
 
@@ -71,7 +73,7 @@ OFFICIAL_SOURCE: Dict[str, str] = {
 }
 
 # 渠道源：非官网聚合/转售渠道
-CHANNEL_SOURCES = {"modelmesh", "tencent", "openrouter", "volcengine", "aliyun", "aliyun_intl", "atlascloud"}
+CHANNEL_SOURCES = {"modelmesh", "tencent", "tencent_cn", "openrouter", "volcengine", "aliyun", "aliyun_intl", "aliyun_bailian", "atlascloud"}
 
 # 渠道按「结算币种」分区：USD 结算 = 海外渠道面板；CNY/无标价 = 国内渠道面板。
 # 腾讯云/火山引擎等国内云厂商也可能以 USD 对外报价（如跨境实例），一律归入海外。

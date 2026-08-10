@@ -33,6 +33,8 @@ FIXTURE_MAP = {
     "minimax": ["minimax.html"],
     "kimi": ["kimi1.html", "kimi2.html", "kimi3.html"],
     "modelmesh": ["modelmesh.html"],
+    "tencent_cn": ["tencent_cn.html"],
+    "aliyun_bailian": ["aliyun_bailian.json"],
 }
 
 
@@ -219,6 +221,75 @@ def test_robustness_unknown_currency_and_missing_fields():
     paths = store.write_outputs([rec], td)
     written = json.load(open(paths["prices.json"], encoding="utf-8"))
     assert written[0]["context"] == "not-a-number-256K"
+
+
+def test_tencent_cn_complete_table_overrides_overview():
+    """腾讯云国内站应取完整定价表（table #1），避免概览表低价覆盖。"""
+    recs = _parse_source("tencent_cn")
+    glm52 = next(r for r in recs if r["model_raw"] == "GLM-5.2")
+    assert glm52["input"] == 10.254
+    assert glm52["output"] == 32.2282
+    assert glm52["cache_hit"] == 1.9044
+    k3 = next(r for r in recs if r["model_raw"] == "Kimi K3")
+    assert k3["input"] == 21.974
+    assert k3["output"] == 109.869
+    assert k3["cache_hit"] == 2.197
+
+
+def test_tencent_cn_conditions_for_deepseek():
+    """DeepSeek 应同时解析出「原厂直供」与「腾讯云自建」两档。"""
+    recs = _parse_source("tencent_cn")
+    flash = [r for r in recs if r["model_raw"] == "DeepSeek-V4-Flash"]
+    assert len(flash) == 2
+    conds = {r["condition"]: r for r in flash}
+    assert "原厂直供" in conds
+    assert "腾讯云自建" in conds
+    assert conds["原厂直供"]["cache_hit"] == 0.02
+    assert conds["腾讯云自建"]["cache_hit"] == 0.2
+    pro = [r for r in recs if r["model_raw"] == "DeepSeek-V4-Pro"]
+    assert len(pro) == 2
+    pro_cond = {r["condition"]: r for r in pro}
+    assert pro_cond["原厂直供"]["input"] == 3.0
+    assert pro_cond["腾讯云自建"]["input"] == 12.0
+
+
+def test_tencent_cn_multiword_model_name_preserved():
+    """「Kimi K3」等多词模型名不可被截断为「Kimi」。"""
+    recs = _parse_source("tencent_cn")
+    models = {r["model_raw"] for r in recs}
+    assert "Kimi K3" in models
+    assert "Kimi K2.7 Code" in models
+    assert "Kimi" not in models
+
+
+def test_bailian_cache_hit_is_20pct_of_input():
+    """百炼缓存命中价按输入单价 ×20% 计算。"""
+    recs = _parse_source("aliyun_bailian")
+    flash = next(r for r in recs if r["model_raw"] == "deepseek-v4-flash")
+    assert flash["input"] == 1.0
+    assert flash["cache_hit"] == 0.2
+    k3 = next(r for r in recs if r["model_raw"] == "kimi-k3")
+    assert k3["input"] == 20.0
+    assert k3["cache_hit"] == 4.0
+
+
+def test_bailian_excludes_overseas_regions():
+    """百炼应跳过「国际 / 美国 / 日本」等区域行。"""
+    recs = _parse_source("aliyun_bailian")
+    joined = " ".join(r.get("model_raw", "") for r in recs)
+    assert "-us" not in joined
+    # 没有显式的区域名残留，进一步断言目标模型存在
+    assert any(r["model_raw"] == "deepseek-v4-pro" for r in recs)
+
+
+def test_bailian_target_models_parsed():
+    """百炼应命中目标模型家族：deepseek / glm / kimi / minimax。"""
+    recs = _parse_source("aliyun_bailian")
+    models = {r["model_raw"] for r in recs}
+    for expected in ["deepseek-v4-flash", "deepseek-v4-pro", "deepseek-v3.2",
+                     "kimi-k3", "kimi-k2.6", "kimi-k2.7-code",
+                     "glm-5.2", "glm-5.1", "minimax-m3", "minimax-m2.7"]:
+        assert expected in models, f"aliyun_bailian 缺少 {expected}"
 
 
 def test_matcher_no_false_positive_glm5():

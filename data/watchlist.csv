@@ -1,6 +1,16 @@
 ﻿source,model_raw,input,output,cache_hit,context,condition,unit,currency,input_rmb,output_rmb,canonical,is_lowest_input
 aliyun,Qwen3.7-Max,14.4,43.2,2.88,,,1M tokens,CNY,14.4,43.2,Qwen3.7 Max,no
 aliyun,Qwen3.7-Plus,2.4,9.6,0.48,,,1M tokens,CNY,2.4,9.6,Qwen3.7 Plus,no
+aliyun_bailian,deepseek-v3.2,2.0,3.0,0.4,,,1M tokens,CNY,2.0,3.0,DeepSeek V3.2,no
+aliyun_bailian,deepseek-v4-flash,1.0,2.0,0.2,,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,no
+aliyun_bailian,deepseek-v4-pro,12.0,24.0,2.4,,,1M tokens,CNY,12.0,24.0,DeepSeek V4 Pro,no
+aliyun_bailian,glm-5.1,6.0,24.0,1.2,,,1M tokens,CNY,6.0,24.0,GLM-5.1,no
+aliyun_bailian,glm-5.2,8.0,28.0,1.6,,,1M tokens,CNY,8.0,28.0,GLM-5.2,no
+aliyun_bailian,kimi-k2.6,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
+aliyun_bailian,kimi-k2.7-code,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code,no
+aliyun_bailian,kimi-k3,20.0,100.0,4.0,,,1M tokens,CNY,20.0,100.0,Kimi K3,no
+aliyun_bailian,minimax-m2.7,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
+aliyun_bailian,minimax-m3,4.2,16.8,0.84,,,1M tokens,CNY,4.2,16.8,MiniMax M3,no
 aliyun_intl,deepseek-v3.2,0.57,1.71,0.114,,阿里云国际站 Model Studio (ap-southeast-1),1M tokens,USD,3.99,11.97,DeepSeek V3.2,no
 aliyun_intl,deepseek-v4-flash,0.2,0.4,0.04,,阿里云国际站 Model Studio (ap-southeast-1),1M tokens,USD,1.4,2.8,DeepSeek V4 Flash,no
 aliyun_intl,deepseek-v4-pro,2.4,4.8,0.2,,阿里云国际站 Model Studio (ap-southeast-1),1M tokens,USD,16.8,33.6,DeepSeek V4 Pro,no
@@ -49,9 +59,15 @@ modelmesh,MiniMax M3,2.1,8.4,,1000K,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
 modelmesh,Qwen3.7-Max,6.0,18.0,,1000K,,1M tokens,CNY,6.0,18.0,Qwen3.7 Max,yes
 modelmesh,Qwen3.7-Plus,1.6,6.4,,1000K,,1M tokens,CNY,1.6,6.4,Qwen3.7 Plus,yes
 modelmesh,Qwen3.8-Max,12.0,36.0,,1000K,,1M tokens,CNY,12.0,36.0,Qwen3.8 Max,yes
+openrouter,Claude Opus 4.8,5.0,25.0,0.5,1M,id=anthropic/claude-opus-4.8 | Claude 旗舰,1M tokens,USD,35.0,175.0,Claude Opus 4.8,yes
+openrouter,Claude Sonnet 5,2.0,10.0,0.2,1M,id=anthropic/claude-sonnet-5 | Claude 主力,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
 openrouter,DeepSeek V4 Flash,0.14,0.28,0.028,1.04858M,id=deepseek/deepseek-v4-flash | 国内高频 OpenRouter 价（取 OpenRouter API 实时价，不覆盖）,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,0.435,0.87,0.003625,1.04858M,id=deepseek/deepseek-v4-pro | 国内旗舰 OpenRouter 价,1M tokens,USD,3.045,6.09,DeepSeek V4 Pro,no
-openrouter,GLM 5.2,0.2058,0.6468,0.03822,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,1.4406,4.5276,GLM-5.2,yes
+openrouter,GLM 5.2,0.07,0.22,0.013,1.04858M,id=z-ai/glm-5.2 | top-weekly,1M tokens,USD,0.49,1.54,GLM-5.2,yes
+openrouter,GPT-4o,2.5,10.0,1.25,128K,id=openai/gpt-4o | 长青主流,1M tokens,USD,17.5,70.0,GPT-4o,yes
+openrouter,GPT-5,1.25,10.0,0.125,400K,id=openai/gpt-5 | 旗舰,1M tokens,USD,8.75,70.0,GPT-5,yes
+openrouter,Gemini 2.5 Flash,0.3,2.5,0.03,1.04858M,id=google/gemini-2.5-flash | Gemini 高频,1M tokens,USD,2.1,17.5,Gemini 2.5 Flash,yes
+openrouter,Gemini 2.5 Pro,1.25,10.0,0.125,1.04858M,id=google/gemini-2.5-pro | Gemini 旗舰,1M tokens,USD,8.75,70.0,Gemini 2.5 Pro,yes
 openrouter,Kimi K2.6,0.5795,2.44,0.0976,262K,id=moonshotai/kimi-k2.6 | Kimi 现役,1M tokens,USD,4.0565,17.08,Kimi K2.6,no
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,id=moonshotai/kimi-k3 | 新品跟进,1M tokens,USD,21.0,105.0,Kimi K3,no
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,id=minimax/minimax-m3 | 新品跟进,1M tokens,USD,2.1,8.4,MiniMax M3,yes
@@ -67,5 +83,16 @@ tencent,Kimi K3,2.731,13.653,0.2731,,-,1M tokens,USD,19.117,95.571,Kimi K3,no
 tencent,MiniMax-M2.7,0.3,1.2,0.06,,-,1M tokens,USD,2.1,8.4,MiniMax M2.7,yes
 tencent,MiniMax-M3,0.3,1.2,0.06,,"输入长度（0, 512k]",1M tokens,USD,2.1,8.4,MiniMax M3,yes
 tencent,MiniMax-M3,0.6,2.4,0.12,,输入长度 512k+,1M tokens,USD,4.2,16.8,MiniMax M3,no
+tencent_cn,DeepSeek-V4-Flash,1.0,2.0,0.02,,原厂直供,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,no
+tencent_cn,DeepSeek-V4-Flash,1.0,2.0,0.2,,腾讯云自建,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,no
+tencent_cn,DeepSeek-V4-Pro,3.0,6.0,0.025,,原厂直供,1M tokens,CNY,3.0,6.0,DeepSeek V4 Pro,yes
+tencent_cn,DeepSeek-V4-Pro,12.0,24.0,1.0,,腾讯云自建,1M tokens,CNY,12.0,24.0,DeepSeek V4 Pro,no
+tencent_cn,GLM-5.1,10.254,32.228,1.904,,,1M tokens,CNY,10.254,32.228,GLM-5.1,no
+tencent_cn,GLM-5.2,10.254,32.2282,1.9044,,,1M tokens,CNY,10.254,32.2282,GLM-5.2,no
+tencent_cn,Kimi-K2.6,6.5,27.0,1.1,,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
+tencent_cn,Kimi K2.7 Code,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code,no
+tencent_cn,Kimi K3,21.974,109.869,2.197,,,1M tokens,CNY,21.974,109.869,Kimi K3,no
+tencent_cn,MiniMax-M2.7,2.197,8.79,0.439,,,1M tokens,CNY,2.197,8.79,MiniMax M2.7,no
+tencent_cn,MiniMax-M3,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
 volcengine,doubao-seed-2.1-pro,6.0,30.0,1.2,,"输入长度 [0, 256]",1M tokens,CNY,6.0,30.0,Doubao Seed 2.1 Pro,yes
 volcengine,doubao-seed-2.1-turbo,3.0,15.0,0.6,,"输入长度 [0, 256]",1M tokens,CNY,3.0,15.0,Doubao Seed 2.1 Turbo,yes

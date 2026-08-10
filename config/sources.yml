@@ -32,6 +32,20 @@
     Kimi / GLM 等模型，单位「美元/百万 tokens」，含隐式缓存命中价。SPA 控制台需浏览器渲染。
     与国内站（CNY，阿里云）区分展示，便于对比同模型国内外价格。
 
+- id: aliyun_bailian
+  name: 阿里云百炼
+  url: https://help.aliyun.com/help/json/document_detail.json?alias=%2Fmodel-studio%2Fmodel-pricing&pageNum=1&pageSize=20&website=cn&language=zh
+  parser: bailian
+  currency: CNY
+  js: false
+  note: >-
+    阿里云百炼（国内站 cn-beijing）模型调用计费文档。控制台入口
+    bailian.console.aliyun.com/cn-beijing?tab=doc#/doc/?type=model&url=2987148
+    （doc id 2987148 = /model-studio/model-pricing）。静态帮助 JSON 含全量定价表
+    （元/百万 tokens）。仅取国内（全球/大陆）价，跳过「国际/美国/日本」区域行。
+    缓存命中价按用户给定规则 = 输入单价 × 20% 计算（页面仅标注「上下文缓存享有折扣」）。
+    覆盖 DeepSeek / GLM / Kimi / MiniMax 等转售模型；Qwen 仍由 aliyun（Hologres）源负责。
+
 - id: volcengine
   name: 火山引擎
   url: https://docs.volcengine.com/docs/82379/1544106?redirect=1&lang=zh
@@ -46,6 +60,18 @@
   currency: USD
   region: mainland          # 只取「广州/中国大陆」区域表，忽略「新加坡」等海外区域
   js: true                 # 文档为 SPA，静态 HTML 无表格，需浏览器渲染
+
+- id: tencent_cn
+  name: 腾讯云
+  url: https://cloud.tencent.com/document/product/1823/130055
+  parser: tencent_cn
+  currency: CNY
+  js: true
+  note: >-
+    腾讯云大模型服务平台 TokenHub 模型价格（国内站 cloud.tencent.com，CNY）。
+    语言模型表含「推理输入/推理输出/缓存命中」（元/百万 tokens），每个模型分
+    「原厂直供」与「腾讯云自建」两档，用 condition 字段区分。
+    与 tencent（国际站 tencentcloud.com，USD）区分展示，国内渠道面板由此源补充。
 
 - id: bigmodel
   name: 智谱
