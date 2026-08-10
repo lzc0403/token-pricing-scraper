@@ -1,26 +1,24 @@
 {
-  "generated_at": "2026-08-09 18:22:02",
+  "generated_at": "2026-08-10 12:01:37",
   "stats": {
-    "total": 70,
+    "total": 91,
     "suspects": 59,
     "high": 12,
-    "med": 0,
-    "low": 47,
+    "med": 1,
+    "low": 46,
     "tier1": 2,
     "tier2": 57
   },
   "suspects": [
     {
       "tier": 1,
-      "code": "DIVERGE",
-      "severity": "low",
-      "source": null,
-      "canonical": "GLM-5.2",
-      "msg": "跨源输入价离散 20.0× (最低 0.49 / 最高 9.8)，建议人工核对是否同规格模型",
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "tencent_cn",
+      "canonical": null,
+      "msg": "重复记录 ×2: DeepSeek-V4-Flash",
       "record": {
-        "min": 0.49,
-        "max": 9.8,
-        "ratio": 20.0
+        "key": "tencent_cn|DeepSeek-V4-Flash|1.0|2.0"
       }
     },
     {
@@ -29,11 +27,11 @@
       "severity": "low",
       "source": null,
       "canonical": "Kimi K3",
-      "msg": "跨源输入价离散 10.5× (最低 2.0 / 最高 21.0)，建议人工核对是否同规格模型",
+      "msg": "跨源输入价离散 11.0× (最低 2.0 / 最高 21.974)，建议人工核对是否同规格模型",
       "record": {
         "min": 2.0,
-        "max": 21.0,
-        "ratio": 10.5
+        "max": 21.974,
+        "ratio": 11.0
       }
     },
     {
@@ -90,6 +88,30 @@
         "field": "output",
         "value": "9.6",
         "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "MODEL_NOT_FOUND",
+      "severity": "high",
+      "source": "aliyun_bailian",
+      "canonical": "MiniMax M2.7",
+      "msg": "静态源页面未找到模型名「minimax-m2.7」，疑似幻觉/编造",
+      "record": {
+        "model_raw": "minimax-m2.7",
+        "url": "https://help.aliyun.com/help/json/document_detail.json?alias=%2Fmodel-studio%2Fmodel-pricing&pageNum=1&pageSize=20&website=cn&language=zh"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "MODEL_NOT_FOUND",
+      "severity": "high",
+      "source": "aliyun_bailian",
+      "canonical": "MiniMax M3",
+      "msg": "静态源页面未找到模型名「minimax-m3」，疑似幻觉/编造",
+      "record": {
+        "model_raw": "minimax-m3",
+        "url": "https://help.aliyun.com/help/json/document_detail.json?alias=%2Fmodel-studio%2Fmodel-pricing&pageNum=1&pageSize=20&website=cn&language=zh"
       }
     },
     {
@@ -526,11 +548,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到input价数值「0.07」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到input价数值「0.76」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "input",
-        "value": "0.07",
+        "value": "0.76",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
@@ -540,39 +562,11 @@
       "severity": "high",
       "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到output价数值「0.22」，疑似解析/幻觉错误",
+      "msg": "静态源页面未找到output价数值「2.42」，疑似解析/幻觉错误",
       "record": {
         "model_raw": "GLM 5.2",
         "field": "output",
-        "value": "0.22",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "Kimi K2.6",
-      "msg": "静态源页面未找到input价数值「0.5795」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "Kimi K2.6",
-        "field": "input",
-        "value": "0.5795",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "Kimi K2.6",
-      "msg": "静态源页面未找到output价数值「2.44」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "Kimi K2.6",
-        "field": "output",
-        "value": "2.44",
+        "value": "2.42",
         "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },

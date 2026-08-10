@@ -2443,6 +2443,12 @@
           "NEW",
           "HOT"
         ],
+        "familyUUID": "mf-2noatq7deoya",
+        "familyName": "avatar-omni-human",
+        "familyDisplayName": "Avatar Omni Human 1.5 API",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
           "discount": "100",
