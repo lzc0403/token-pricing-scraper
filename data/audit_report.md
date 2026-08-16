@@ -1,13 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-08-10 12:01:37
+> 生成时间：2026-08-16 18:11:53
 
 ## 一、核对统计
 
-- 校验记录总数：**91**
-- 可疑项总数：**59**（high 12 / med 1 / low 46）
-- Tier1 结构性校验可疑：**2**
-- Tier2 源页面核对可疑：**57**
+- 校验记录总数：**81**
+- 可疑项总数：**72**（high 27 / med 0 / low 45）
+- Tier1 结构性校验可疑：**20**
+- Tier2 源页面核对可疑：**52**
 
 ## 二、核对维度
 
@@ -28,21 +28,34 @@
 
 | 严重度 | 层级 | 代码 | 源 | 模型 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Max | 静态源页面未找到input价数值「14.4」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Max | 静态源页面未找到output价数值「43.2」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到input价数值「2.4」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到output价数值「9.6」，疑似解析/幻觉错误 |
-| high | T2 | MODEL_NOT_FOUND | aliyun_bailian | MiniMax M2.7 | 静态源页面未找到模型名「minimax-m2.7」，疑似幻觉/编造 |
-| high | T2 | MODEL_NOT_FOUND | aliyun_bailian | MiniMax M3 | 静态源页面未找到模型名「minimax-m3」，疑似幻觉/编造 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到input价数值「0.14」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到output价数值「0.28」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「0.435」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「0.87」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「0.76」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「2.42」，疑似解析/幻觉错误 |
-| med | T1 | DUPLICATE | tencent_cn | - | 重复记录 ×2: DeepSeek-V4-Flash |
+| high | T1 | EMPTY_INPUT | aliyun_intl | DeepSeek V4 Flash | 输入价为空 |
+| high | T1 | EMPTY_INPUT | aliyun_intl | DeepSeek V4 Pro | 输入价为空 |
+| high | T1 | EMPTY_INPUT | aliyun_intl | GLM-5.1 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | aliyun_intl | GLM-5.2 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | aliyun_intl | Kimi K2.7 Code | 输入价为空 |
+| high | T1 | EMPTY_INPUT | deepseek | DeepSeek V4 Flash | 输入价为空 |
+| high | T1 | EMPTY_INPUT | deepseek | DeepSeek V4 Pro | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | DeepSeek V3.2 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | DeepSeek V4 Flash | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | DeepSeek V4 Pro | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | GLM-5.1 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | GLM-5.1 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | GLM-5.2 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | Kimi K2.6 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | Kimi K2.7 Code | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | Kimi K3 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | MiniMax M2.7 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | MiniMax M3 | 输入价为空 |
+| high | T1 | EMPTY_INPUT | tencent | MiniMax M3 | 输入价为空 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到input价数值「0.06146」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到output价数值「0.12292」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「1.168」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「2.336」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「0.308」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「0.968」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到input价数值「0.5415」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到output价数值「2.28」，疑似解析/幻觉错误 |
 | low | T1 | DIVERGE | - | Kimi K3 | 跨源输入价离散 11.0× (最低 2.0 / 最高 21.974)，建议人工核对是否同规格模型 |
-| low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V3.2 | SPA 源静态 HTML 未含模型名「deepseek-v3.」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | GLM-5.1 | SPA 源静态 HTML 未含模型名「glm-5.1」，需 Playwright 渲染核对 |

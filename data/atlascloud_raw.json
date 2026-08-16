@@ -5,6 +5,84 @@
     "code": "200",
     "data": [
       {
+        "uuid": "ms-quhtbofvn503",
+        "model": "xai/grok-4.6",
+        "type": "Text",
+        "displayName": "Grok 4.6",
+        "profile": "xAI’s flagship model for advanced reasoning, coding, and agentic tasks.",
+        "logo": "https://static.atlascloud.ai/model/logo/grok-3.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-4.6.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/fadf4b00-918b-48f7-8a9e-af2035aa7d6e.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-4.6.json",
+        "readme": "https://static.atlascloud.ai/model/readme/grok-3.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/grok-3.json",
+        "priority": 190035,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "familyUUID": "mf-2l83qz7nslfl",
+        "familyName": "grok",
+        "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "contextLength": 500000,
+        "maxCompletionTokens": 500000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.56",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "tiered_price": true,
+          "actual": {
+            "type": "flat",
+            "input_price": "2",
+            "output_price": "6",
+            "cache_price": "0.5",
+            "prompt_thresholds": [
+              {
+                "threshold": 200000,
+                "input_price": "4",
+                "cache_price": "1",
+                "output_price": "12"
+              }
+            ]
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "2",
+            "output_price": "6",
+            "cache_price": "0.5",
+            "prompt_thresholds": [
+              {
+                "threshold": 200000,
+                "input_price": "4",
+                "cache_price": "1",
+                "output_price": "12"
+              }
+            ]
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
         "uuid": "ms-5eed25000003",
         "model": "bytedance/seedance-2.5/reference-to-video",
         "type": "Video",
@@ -197,8 +275,8 @@
         "parentFamilyUUID": "mf-2l826tbukl8m",
         "parentFamilyName": "deepseek-ai",
         "parentFamilyDisplayName": "DeepSeek AI Models on AtlasCloud",
-        "contextLength": 262144,
-        "maxCompletionTokens": 131072,
+        "contextLength": 1048576,
+        "maxCompletionTokens": 393216,
         "avgTotalTPS": "22.56",
         "avgLatency": "0.26",
         "display_console": true,
@@ -764,17 +842,34 @@
         "display_console": true,
         "price": {
           "discount": "100",
+          "tiered_price": true,
           "actual": {
             "type": "flat",
             "input_price": "2",
             "output_price": "6",
-            "cache_price": "0.5"
+            "cache_price": "0.3",
+            "prompt_thresholds": [
+              {
+                "threshold": 200000,
+                "input_price": "4",
+                "cache_price": "0.6",
+                "output_price": "12"
+              }
+            ]
           },
           "origin": {
             "type": "flat",
             "input_price": "2",
             "output_price": "6",
-            "cache_price": "0.5"
+            "cache_price": "0.3",
+            "prompt_thresholds": [
+              {
+                "threshold": 200000,
+                "input_price": "4",
+                "cache_price": "0.6",
+                "output_price": "12"
+              }
+            ]
           }
         },
         "input_modalities": [
@@ -1007,84 +1102,6 @@
           },
           "origin": {
             "base_price": "0.086"
-          }
-        }
-      },
-      {
-        "uuid": "ms-atlas-wan27-spicy-r2v",
-        "model": "atlascloud/wan-2.7-spicy/reference-to-video",
-        "type": "Video",
-        "displayName": "Wan 2.7 Spicy Reference-to-Video",
-        "profile": "An image-reference-to-video model that generates one continuous video from one to four reference images with precise subject binding and prompt control. Supports image references only; reference video and audio are not accepted.",
-        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-wan-2.2-image-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/background/atlascloud-wan-2.7-spicy-reference-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/64b47bef-3d24-4aa6-b22a-e831293f7865.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-wan-2.7-spicy-reference-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-wan-2.7-spicy-reference-to-video.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-wan-2.7-spicy-reference-to-video.json",
-        "priority": 90034,
-        "categories": null,
-        "tags": [
-          "REFERENCE-TO-VIDEO",
-          "WAN-2.7",
-          "SPICY",
-          "NEW"
-        ],
-        "familyUUID": "mf-2m21tk7clkej",
-        "familyName": "ns",
-        "familyDisplayName": "ns",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.1"
-          },
-          "origin": {
-            "base_price": "0.1"
-          }
-        }
-      },
-      {
-        "uuid": "ms-atlaswan27spicy",
-        "model": "atlascloud/wan-2.7-spicy/image-to-video",
-        "type": "Video",
-        "displayName": "Wan 2.7 Spicy Image-to-Video",
-        "profile": "AtlasCloud Wan 2.7 Spicy Image-to-Video turns a first-frame image into short cinematic motion with stable temporal detail and expressive character movement.",
-        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-video-upscaler.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/background/atlascloud-wan-2.7-spicy-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-wan-2.7-spicy-image-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-wan-2.7-spicy-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-wan-2.7-spicy-image-to-video.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-wan-2.7-spicy-image-to-video.json",
-        "priority": 90034,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "HOT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2hqjwr0k9g8c",
-        "familyName": "wan2.7",
-        "familyDisplayName": "Wan 2.7 API for All-in-One AI Video",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.1"
-          },
-          "origin": {
-            "base_price": "0.1"
           }
         }
       },
@@ -1849,7 +1866,7 @@
         "model": "alibaba/happyhorse-1.1/text-to-video",
         "type": "Video",
         "displayName": "HappyHorse-1.1 Text-to-video",
-        "profile": "Generates videos from text prompts with HappyHorse 1.1, supporting 720P or 1080P output, flexible aspect ratios, and durations from 3 to 15 seconds.",
+        "profile": "Generates videos from text prompts with HappyHorse 1.1, supporting 480P, 720P, or 1080P output, flexible aspect ratios, and durations from 3 to 15 seconds.",
         "logo": "https://static.atlascloud.ai/uploads/models/1190fff1-63e4-4965-9a15-81d211f9929a.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-happyhorse-1.1-text-to-video.png",
@@ -1878,10 +1895,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.14"
+            "base_price": "0.07"
           },
           "origin": {
-            "base_price": "0.14"
+            "base_price": "0.07"
           }
         }
       },
@@ -1890,7 +1907,7 @@
         "model": "alibaba/happyhorse-1.1/image-to-video",
         "type": "Video",
         "displayName": "HappyHorse-1.1 Image-to-video",
-        "profile": "Animates a first-frame image into video with optional prompt guidance, 720P or 1080P output, and durations from 3 to 15 seconds.",
+        "profile": "Animates a first-frame image into video with optional prompt guidance, 480P, 720P, or 1080P output, and durations from 3 to 15 seconds.",
         "logo": "https://static.atlascloud.ai/uploads/models/8a9df1c1-5dd1-40a1-a85c-1fc861752a4b.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-happyhorse-1.1-image-to-video.png",
@@ -1919,10 +1936,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.14"
+            "base_price": "0.07"
           },
           "origin": {
-            "base_price": "0.14"
+            "base_price": "0.07"
           }
         }
       },
@@ -1931,7 +1948,7 @@
         "model": "alibaba/happyhorse-1.1/reference-to-video",
         "type": "Video",
         "displayName": "HappyHorse-1.1 Reference-to-video",
-        "profile": "Generates videos from one to nine reference images and a text prompt, supporting 720P or 1080P output, flexible aspect ratios, and durations from 3 to 15 seconds.",
+        "profile": "Generates videos from one to nine reference images and a text prompt, supporting 480P, 720P, or 1080P output, flexible aspect ratios, and durations from 3 to 15 seconds.",
         "logo": "https://static.atlascloud.ai/uploads/models/2331b793-c740-4f2c-92a9-e14ffd7ce117.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-happyhorse-1.1-reference-to-video.png",
@@ -1958,10 +1975,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.14"
+            "base_price": "0.07"
           },
           "origin": {
-            "base_price": "0.14"
+            "base_price": "0.07"
           }
         }
       },
@@ -3159,6 +3176,117 @@
         }
       },
       {
+        "uuid": "ms-mlq2nqf3guv1",
+        "model": "anthropic/claude-opus-4.8-aws",
+        "type": "Text",
+        "displayName": "Claude Opus 4.8 AWS",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-4.8-aws.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/e23784cc-aca5-436e-b4fd-35b49f3d92c5.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-4.8-aws.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
+        "priority": 88891,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 1000000,
+        "maxCompletionTokens": 128000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "25",
+            "cache_creation_price": "6.25",
+            "cache_creation_1h_price": "10",
+            "cache_price": "0.5"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "25",
+            "cache_creation_price": "6.25",
+            "cache_creation_1h_price": "10",
+            "cache_price": "0.5"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
+        "uuid": "ms-0lobzq8wo52c",
+        "model": "dots-studio/dots-3-note-prev-free",
+        "type": "Text",
+        "displayName": "Dots 3 Note Preview",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/avatar/dots.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/DOTS.png",
+        "background": "https://static.atlascloud.ai/model/background/dots-studio-dots-3-note-prev-free.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/dots-studio-dots-3-note-prev-free.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/dots-studio-dots-3-note-prev-free.json",
+        "readme": "https://static.atlascloud.ai/model/readme/dots-studio-dots-3-note-prev-free.md",
+        "organization": "DOTS",
+        "example": "https://static.atlascloud.ai/model/example/dots-studio-dots-3-note-prev-free.json",
+        "priority": 88891,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 512000,
+        "maxCompletionTokens": 512000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "0",
+            "output_price": "0"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0",
+            "output_price": "0"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
         "uuid": "ms-y0hvtvqnlhn3",
         "model": "anthropic/claude-opus-4.8",
         "type": "Text",
@@ -3404,7 +3532,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -4763,7 +4891,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -4843,7 +4971,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -4923,7 +5051,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -4963,7 +5091,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -5003,7 +5131,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -5629,7 +5757,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.7-text-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a649e94d-cbcb-416b-93b4-fbd21ec9549a.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/bc4fb8e6-99e2-48c9-938e-d1202c5693c7.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.7-text-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.7-text-to-video.md",
@@ -5670,7 +5798,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.7-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/8088eae8-46ad-499c-853e-c2ddd15d70c6.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/6485c883-ab76-4366-8905-91225d6dc894.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.7-image-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.7-image-to-video.md",
@@ -5711,7 +5839,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.7-reference-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/c8a2d583-033f-4946-b68d-e5c7a2c2bcff.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/6e0afde9-cf56-4e78-9d9c-a92f0999df25.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.7-reference-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.7-reference-to-video.md",
@@ -5751,7 +5879,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.7-video-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a1acd1c4-a8c5-48e0-b57b-1b43ad67b7b4.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/21262493-3a71-415c-8c76-063518287f0c.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.7-video-edit.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.7-video-edit.md",
@@ -5979,80 +6107,6 @@
           },
           "origin": {
             "base_price": "0.05"
-          }
-        }
-      },
-      {
-        "uuid": "ms-1e640f5e105f",
-        "model": "atlascloud/wan-2.2-turbo-spicy/image-to-video-lora",
-        "type": "Video",
-        "displayName": "Wan-2.2-turbo-spicy Image-to-video Lora",
-        "profile": "Fast image-to-video generation with custom LoRA support. Powered by Wan 2.2 rCM turbo with high/low noise LoRA injection. Supports 480p, 720p, and 1080p output.",
-        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-wan-2.2-turbo-spicy-image-to-video-lora.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/background/atlascloud-wan-2.2-turbo-spicy-image-to-video-lora.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/76508744-f3ff-4f3a-a6b6-e70bd74ce605.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-wan-2.2-turbo-spicy-image-to-video-lora.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-wan-2.2-turbo-spicy-image-to-video-lora.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-wan-2.2-turbo-spicy-image-to-video-lora.json",
-        "priority": 40023,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2m21tk7clkej",
-        "familyName": "ns",
-        "familyDisplayName": "ns",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.026"
-          },
-          "origin": {
-            "base_price": "0.026"
-          }
-        }
-      },
-      {
-        "uuid": "ms-0c717fca1971",
-        "model": "atlascloud/wan-2.2-turbo-spicy/image-to-video",
-        "type": "Video",
-        "displayName": "Wan-2.2-turbo-spicy Image-to-video",
-        "profile": "Fast image-to-video generation powered by Wan 2.2 with rCM turbo acceleration. Supports 480p, 720p, and 1080p (via VSR upscaling) output with 5s or 8s duration.",
-        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-wan-2.2-turbo-spicy-image-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/background/atlascloud-wan-2.2-turbo-spicy-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/bbd2f7a9-10ba-4d30-b944-99f82a92a046.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-wan-2.2-turbo-spicy-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-wan-2.2-turbo-spicy-image-to-video.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-wan-2.2-turbo-spicy-image-to-video.json",
-        "priority": 40022,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2m21tk7clkej",
-        "familyName": "ns",
-        "familyDisplayName": "ns",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.02"
-          },
-          "origin": {
-            "base_price": "0.02"
           }
         }
       },
@@ -7792,7 +7846,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7832,7 +7886,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7872,7 +7926,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7912,7 +7966,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7952,7 +8006,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -8495,80 +8549,6 @@
         }
       },
       {
-        "uuid": "ms-acwan22svi",
-        "model": "atlascloud/wan-2.2-turbo-spicy/infinite-image-to-video",
-        "type": "Video",
-        "displayName": "Wan 2.2 Turbo Spicy Infinite Image-to-Video",
-        "profile": "Image-to-video model for segmented prompt video generation with stable motion and 30fps workflow post-processing.",
-        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-wan-2.2-image-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/cover/atlascloud-wan-2.2-image-to-video.jpg",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/9e0aa956-d2fe-43af-bd00-917786c398dd.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-wan-2.2-turbo-spicy-infinite-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-wan-2.2-turbo-spicy-infinite-image-to-video.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-wan-2.2-turbo-spicy-infinite-image-to-video.json",
-        "priority": 8700,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2m21tk7clkej",
-        "familyName": "ns",
-        "familyDisplayName": "ns",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.02"
-          },
-          "origin": {
-            "base_price": "0.02"
-          }
-        }
-      },
-      {
-        "uuid": "ms-acwan22svilora",
-        "model": "atlascloud/wan-2.2-turbo-spicy/infinite-image-to-video-lora",
-        "type": "Video",
-        "displayName": "Wan 2.2 Turbo Spicy Infinite Image-to-Video LoRA",
-        "profile": "Image-to-video LoRA variant for segmented prompt video generation with stable motion and 30fps workflow post-processing.",
-        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-wan-2.2-image-to-video-lora.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/cover/atlascloud-wan-2.2-image-to-video-lora.jpg",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/1c081949-f22b-4c8d-bd22-71906d6e7951.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-wan-2.2-turbo-spicy-infinite-image-to-video-lora.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-wan-2.2-turbo-spicy-infinite-image-to-video-lora.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-wan-2.2-turbo-spicy-infinite-image-to-video-lora.json",
-        "priority": 8700,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2m21tk7clkej",
-        "familyName": "ns",
-        "familyDisplayName": "ns",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.026"
-          },
-          "origin": {
-            "base_price": "0.026"
-          }
-        }
-      },
-      {
         "uuid": "ms-2eb74c466ee4",
         "model": "atlascloud/wan-2.2/image-to-video",
         "type": "Video",
@@ -8637,84 +8617,6 @@
         }
       },
       {
-        "uuid": "ms-q4a4v4k4d6u4",
-        "model": "alibaba/wan-2.2-spicy/image-to-video-lora",
-        "type": "Video",
-        "displayName": "Wan-2.2-spicy Image-to-video Lora",
-        "profile": "Open and Advanced Large-Scale Video Generative Models.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.2-spicy-image-to-video-lora.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.2-spicy-image-to-video-lora.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/bb4a18ae-e1dc-4954-8507-6d57445da5ec.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.2-spicy-image-to-video-lora.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.2-spicy-image-to-video-lora.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-2.2-spicy-image-to-video-lora.json",
-        "priority": 8700,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "familyUUID": "mf-2bre9rdqfz94",
-        "familyName": "wan",
-        "familyDisplayName": "Wan API: Open Video Generation by Alibaba",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.04"
-          },
-          "origin": {
-            "base_price": "0.04"
-          }
-        }
-      },
-      {
-        "uuid": "ms-x8j4v2f8w6k1",
-        "model": "alibaba/wan-2.2-spicy/image-to-video",
-        "type": "Video",
-        "displayName": "Wan-2.2-spicy Image-to-video",
-        "profile": "Open and Advanced Large-Scale Video Generative Models.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.2-spicy-image-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.2-spicy-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/afcc5aec-94fa-4303-8878-61826434696d.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.2-spicy-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.2-spicy-image-to-video.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-2.2-spicy-image-to-video.json",
-        "priority": 8700,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "familyUUID": "mf-2bre9rdqfz94",
-        "familyName": "wan",
-        "familyDisplayName": "Wan API: Open Video Generation by Alibaba",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.03"
-          },
-          "origin": {
-            "base_price": "0.03"
-          }
-        }
-      },
-      {
         "uuid": "ms-atlas-video-upscaler",
         "model": "atlascloud/video-upscaler",
         "type": "Video",
@@ -8749,82 +8651,6 @@
           },
           "origin": {
             "base_price": "0.018"
-          }
-        }
-      },
-      {
-        "uuid": "ms-atlas-face-swap-video",
-        "model": "atlascloud/face-swap-video",
-        "type": "Video",
-        "displayName": "Face Swap",
-        "profile": "Replace the person in a video with a face of your choice. Motion, timing and background are preserved while the character is swapped.",
-        "logo": "https://static.atlascloud.ai/uploads/models/da375b45-4112-4b28-9d3f-1e8798565605.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/background/atlascloud-face-swap-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-face-swap-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-face-swap-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-face-swap-video.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-face-swap-video.json",
-        "priority": 8500,
-        "categories": [
-          "VIDEO-TO-VIDEO"
-        ],
-        "tags": [
-          "VIDEO-TO-VIDEO",
-          "TOOLS",
-          "NEW"
-        ],
-        "familyUUID": "mf-2m21tk7clkej",
-        "familyName": "ns",
-        "familyDisplayName": "ns",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.2"
-          },
-          "origin": {
-            "base_price": "0.2"
-          }
-        }
-      },
-      {
-        "uuid": "ms-atlas-face-swap-image",
-        "model": "atlascloud/face-swap-image",
-        "type": "Image",
-        "displayName": "Face Swap",
-        "profile": "Swap a face onto any photo. The facial identity is transferred while pose, clothing and background stay intact.",
-        "logo": "https://static.atlascloud.ai/uploads/models/721ef938-55a5-4e06-9935-ae7df7fcf2ef.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/background/atlascloud-face-swap-image.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-face-swap-image.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-face-swap-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-face-swap-image.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-face-swap-image.json",
-        "priority": 8400,
-        "categories": [
-          "IMAGE-TOOLS"
-        ],
-        "tags": [
-          "IMAGE-TOOLS",
-          "TOOLS",
-          "NEW"
-        ],
-        "familyUUID": "mf-2m21tk7clkej",
-        "familyName": "ns",
-        "familyDisplayName": "ns",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.09"
-          },
-          "origin": {
-            "base_price": "0.09"
           }
         }
       },
@@ -9757,7 +9583,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.6-image-to-video-flash.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.6-image-to-video-flash.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/792a59b5-c776-4d80-8787-9a7ec5d769fd.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/3c04d128-cf2e-4299-810a-e4609a4c2d7d.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.6-image-to-video-flash.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.6-image-to-video-flash.md",
@@ -10005,7 +9831,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.6-image-edit.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.6-image-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/271ec1bd-6684-4b91-b122-e896c331d446.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/8aaa67e3-76c4-4db6-bc53-55f762286751.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.6-image-edit.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.6-image-edit.md",
@@ -10046,7 +9872,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.6-image-to-video.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.6-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/b208992e-ef0b-4d48-bc56-24b86367a4b4.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/c46fa794-fe6a-4650-9412-63b42ca268d3.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/49f0c558-b83c-4583-9d74-ca64ec477b26.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.6-image-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.6-image-to-video.md",
@@ -10086,7 +9912,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.6-video-to-video.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.6-video-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/7e1f592a-db74-4bef-add5-d4fe65e9e490.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/a0e6fab4-e9ba-4bed-9222-1120b781e343.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/a1ca13c5-5935-4081-9ad5-7b6cba08e2f5.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.6-video-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.6-video-to-video.md",
@@ -10126,7 +9952,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.6-text-to-video.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.6-text-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/0e2a70b7-a3b2-4772-8021-3df66966ed39.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/eccd0550-3b4b-4d0a-aeb4-a02e22238537.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/9bc7caab-b1ef-4b73-8bb4-fb67cf340cb1.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.6-text-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.6-text-to-video.md",
@@ -10356,6 +10182,9 @@
           "TOOLS",
           "NEW"
         ],
+        "familyUUID": "mf-2cy53y2p4dh2",
+        "familyName": "image-video-tools",
+        "familyDisplayName": "Tools",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -10908,7 +10737,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-video-o3-std-image-to-video.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
         "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-video-o3-std-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/98149337-dd6b-4918-ba95-bfdc58b0ae0f.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/6456757a-137d-4d3b-8861-7b7b31799a04.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-video-o3-std-image-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-video-o3-std-image-to-video.md",
@@ -11667,46 +11496,6 @@
           },
           "origin": {
             "base_price": "0.03"
-          }
-        }
-      },
-      {
-        "uuid": "ms-3kp8c5u7sr2e",
-        "model": "bytedance/seedance-v1.5-pro/image-to-video-spicy",
-        "type": "Video",
-        "displayName": "Seedance v1.5 Pro Image-to-Video Spicy",
-        "profile": "Seedance V1.5 Pro Spicy transforms images into high-quality cinematic video with smooth motion and expressive animations, optimized for creative content at scale.",
-        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedance-v1.5-pro-image-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
-        "background": "https://static.atlascloud.ai/model/background/bytedance-seedance-v1.5-pro-image-to-video-spicy.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a56f284b-409f-4594-9341-44cc66b18646.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedance-v1.5-pro-image-to-video-spicy.json",
-        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedance-v1.5-pro-image-to-video-spicy.md",
-        "organization": "BYTEDANCE",
-        "example": "https://static.atlascloud.ai/model/example/bytedance-seedance-v1.5-pro-image-to-video-spicy.json",
-        "priority": 2500,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "ENHANCED"
-        ],
-        "familyUUID": "mf-2bs2w82o2tfh",
-        "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
-        "parentFamilyUUID": "mf-2brf8kb6xlq0",
-        "parentFamilyName": "bytedance",
-        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.049"
-          },
-          "origin": {
-            "base_price": "0.049"
           }
         }
       },
@@ -14312,7 +14101,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.5-video-extend.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.5-video-extend.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/6141b2a6-fe77-45dc-84b0-d9b05b10b24d.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/435f390b-4f71-476f-ad1f-f3d99e9bbeba.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/ab7fec02-ac49-4ce9-b663-97edad460d45.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.5-video-extend.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.5-video-extend.md",
@@ -14856,7 +14645,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-video-upscaler.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-van-2.6-text-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/630fd899-0d3e-4f4d-9daf-f30cf42e5b1e.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/315e16f4-cb2e-4068-b08b-dba3838f4b59.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/9bc7caab-b1ef-4b73-8bb4-fb67cf340cb1.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-van-2.6-text-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-van-2.6-text-to-video.md",
@@ -14897,7 +14686,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.5-text-to-video-fast.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.5-text-to-video-fast.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a5c63327-d597-43d5-b0fb-b0da51d02cde.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/12faff7e-e580-44de-a085-eca134047a65.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/cef0fdcb-54ae-4c25-8d49-d1570c7fe71b.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.5-text-to-video-fast.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.5-text-to-video-fast.md",
@@ -14938,7 +14727,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.5-text-to-video.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.5-text-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/5d49606e-c353-4e9f-b2d1-6975cb8f3db0.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/ed6c0e85-defa-4c14-beaa-927787132559.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/6595aae9-2a56-4850-9f66-7950af13b24a.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.5-text-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.5-text-to-video.md",
@@ -14979,7 +14768,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.5-image-to-video.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.5-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/e230292a-464f-4dda-9d9b-0d332bdd0caa.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/18f789ee-e195-4c3f-bea7-b910e4dec4dc.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/e8a2b3a7-5ef7-4e31-94f0-ca35de89c8cf.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.5-image-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.5-image-to-video.md",
@@ -15020,7 +14809,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-video-upscaler.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-van-2.6-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/4aed85a0-a71d-433e-bd10-189a9ca59b68.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/8543c82b-0609-4cc0-a144-9c670760d4de.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/49f0c558-b83c-4583-9d74-ca64ec477b26.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-van-2.6-image-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-van-2.6-image-to-video.md",
@@ -15060,7 +14849,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.5-image-to-video-fast.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.5-image-to-video-fast.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/71a7cce8-90cb-4982-8e46-a10efc59ef11.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/dfe14b45-296e-4985-82c1-6b8b5216de5e.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/8e3933c8-0115-4975-b1e9-4816db8d1d37.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.5-image-to-video-fast.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.5-image-to-video-fast.md",
@@ -15530,81 +15319,6 @@
           },
           "origin": {
             "base_price": "0.28"
-          }
-        }
-      },
-      {
-        "uuid": "ms-k4a4a5e8j2m4",
-        "model": "alibaba/wan-2.2-spicy/video-extend-lora",
-        "type": "Video",
-        "displayName": "Wan-2.2-spicy Video Extend Lora",
-        "profile": "Open and Advanced Large-Scale Video Generative Models.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.2-spicy-video-extend-lora.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.2-spicy-video-extend-lora.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/5037e233-8aec-45fc-b873-a82738a41604.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.2-spicy-video-extend-lora.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.2-spicy-video-extend-lora.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-2.2-spicy-video-extend-lora.json",
-        "priority": 625,
-        "categories": [
-          "VIDEO-TO-VIDEO"
-        ],
-        "tags": [
-          "VIDEO-TO-VIDEO"
-        ],
-        "familyUUID": "mf-2m21tk7clkej",
-        "familyName": "ns",
-        "familyDisplayName": "ns",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.04"
-          },
-          "origin": {
-            "base_price": "0.04"
-          }
-        }
-      },
-      {
-        "uuid": "ms-m6l1d5g6o4j4",
-        "model": "alibaba/wan-2.2-spicy/video-extend",
-        "type": "Video",
-        "displayName": "Wan-2.2-spicy Video Extend",
-        "profile": "Open and Advanced Large-Scale Video Generative Models.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.2-spicy-video-extend.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.2-spicy-video-extend.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/51aa32fa-ca66-4320-8e97-8fcb366d9c1a.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.2-spicy-video-extend.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.2-spicy-video-extend.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-2.2-spicy-video-extend.json",
-        "priority": 625,
-        "categories": [
-          "VIDEO-TO-VIDEO"
-        ],
-        "tags": [
-          "VIDEO-TO-VIDEO"
-        ],
-        "familyUUID": "mf-2bre9rdqfz94",
-        "familyName": "wan",
-        "familyDisplayName": "Wan API: Open Video Generation by Alibaba",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.032"
-          },
-          "origin": {
-            "base_price": "0.032"
           }
         }
       },
@@ -17635,6 +17349,86 @@
         ]
       },
       {
+        "uuid": "ms-grokimg20edit",
+        "model": "xai/grok-imagine-image-2.0/edit",
+        "type": "Image",
+        "displayName": "Grok Imagine Image 2.0 Edit",
+        "profile": "xAI Grok Imagine Image 2.0 edits up to three reference images with natural-language instructions at 1K or 2K resolution, with selectable low/medium quality tiers.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-image-2.0-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-image-2.0-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-image-2.0-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-image-2.0-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-image-2.0-edit.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-image-2.0-edit.json",
+        "priority": 486,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.04"
+          }
+        }
+      },
+      {
+        "uuid": "ms-grokimg20t2i",
+        "model": "xai/grok-imagine-image-2.0/text-to-image",
+        "type": "Image",
+        "displayName": "Grok Imagine Image 2.0 Text-to-Image",
+        "profile": "xAI Grok Imagine Image 2.0 generates polished visuals from natural-language prompts at 1K or 2K resolution, with 14 aspect ratios and selectable low/medium quality tiers.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-image-2.0-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-image-2.0-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-image-2.0-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-image-2.0-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-image-2.0-text-to-image.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-image-2.0-text-to-image.json",
+        "priority": 485,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.04"
+          }
+        }
+      },
+      {
         "uuid": "ms-sr070wadkahb",
         "model": "xai/grok-imagine-image/edit",
         "type": "Image",
@@ -17659,7 +17453,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -17699,7 +17493,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for xAI Image, Video, and Audio",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -17713,6 +17507,238 @@
             "base_price": "0.02"
           }
         }
+      },
+      {
+        "uuid": "ms-wyx5kdte4rzq",
+        "model": "anthropic/claude-opus-4.7-aws",
+        "type": "Text",
+        "displayName": "Claude Opus 4.7 AWS",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-4.7-aws.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/2b15da0a-76ad-437a-8b7f-a8279f726832.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-4.7-aws.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
+        "priority": 474,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 1000000,
+        "maxCompletionTokens": 128000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "25",
+            "cache_creation_price": "6.25",
+            "cache_creation_1h_price": "10",
+            "cache_price": "0.5"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "25",
+            "cache_creation_price": "6.25",
+            "cache_creation_1h_price": "10",
+            "cache_price": "0.5"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
+        "uuid": "ms-tauaqpjgog9s",
+        "model": "anthropic/claude-opus-4.6-aws",
+        "type": "Text",
+        "displayName": "Claude Opus 4.6 AWS",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-4.6-aws.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/54e30990-2c90-4782-89a2-7bb27a28b0c2.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-4.6-aws.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
+        "priority": 474,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 1000000,
+        "maxCompletionTokens": 128000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "25",
+            "cache_creation_price": "6.25",
+            "cache_creation_1h_price": "10",
+            "cache_price": "0.5"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "25",
+            "cache_creation_price": "6.25",
+            "cache_creation_1h_price": "10",
+            "cache_price": "0.5"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
+        "uuid": "ms-mjo2to4uyvji",
+        "model": "anthropic/claude-sonnet-4.6-aws",
+        "type": "Text",
+        "displayName": "Claude Sonnet 4.6 AWS",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-sonnet-4-5-20250929.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-sonnet-4.6-aws.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/fccfc06c-8b60-4a48-9b63-5f0d0ef4b4ef.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-sonnet-4.6-aws.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-sonnet-4-5-20250929.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-sonnet-4-5-20250929.json",
+        "priority": 474,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 200000,
+        "maxCompletionTokens": 64000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "3",
+            "output_price": "15",
+            "cache_creation_price": "3.75",
+            "cache_creation_1h_price": "6",
+            "cache_price": "0.3"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "3",
+            "output_price": "15",
+            "cache_creation_price": "3.75",
+            "cache_creation_1h_price": "6",
+            "cache_price": "0.3"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
+        "uuid": "ms-lmrqingbov76",
+        "model": "anthropic/claude-haiku-4.5-20251001-aws",
+        "type": "Text",
+        "displayName": "Claude Haiku 4.5 20251001 AWS",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-haiku-4-5-20251001.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-haiku-4.5-20251001-aws.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/527b7c00-333a-4fb5-88b7-61886a5cbdd1.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-haiku-4.5-20251001-aws.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-haiku-4-5-20251001.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-haiku-4-5-20251001.json",
+        "priority": 474,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 200000,
+        "maxCompletionTokens": 64000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "1",
+            "output_price": "5",
+            "cache_creation_price": "1.25",
+            "cache_creation_1h_price": "2",
+            "cache_price": "0.1"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "1",
+            "output_price": "5",
+            "cache_creation_price": "1.25",
+            "cache_creation_1h_price": "2",
+            "cache_price": "0.1"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
       },
       {
         "uuid": "ms-1ylkksekttnj",
@@ -19344,7 +19370,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.5-image-edit.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.5-image-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/6fb58b4b-047f-4369-b245-654f52695fb1.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/b310521c-046c-43d2-b79e-32828ec4943f.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.5-image-edit.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.5-image-edit.md",
@@ -19383,7 +19409,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
         "background": "https://static.atlascloud.ai/model/background/z-image-turbo-lora.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/z-image-turbo-lora.jpg",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/43bbe8e2-39b6-4325-a659-a666e59a1c5b.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/z-image-turbo-lora.json",
         "readme": "https://static.atlascloud.ai/model/readme/z-image-turbo-lora.md",
@@ -19534,46 +19560,6 @@
         }
       },
       {
-        "uuid": "ms-atlaswan26spicy",
-        "model": "atlascloud/wan-2.6-spicy/image-to-video",
-        "type": "Video",
-        "displayName": "Wan 2.6 Spicy Image-to-Video",
-        "profile": "AtlasCloud Wan 2.6 Spicy Image-to-Video turns a reference image into a short motion clip with expressive character movement and stable temporal detail.",
-        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-video-upscaler.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
-        "background": "https://static.atlascloud.ai/model/background/atlascloud-wan-2.6-spicy-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/b34027c0-61a0-4245-a98d-dfed694609ad.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-wan-2.6-spicy-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-wan-2.6-spicy-image-to-video.md",
-        "organization": "ATLASCLOUD",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-wan-2.6-spicy-image-to-video.json",
-        "priority": 455,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2e3hix4c62ik",
-        "familyName": "wan2.6",
-        "familyDisplayName": "Wan 2.6 API: Multi-Shot Video, Consistent Characters",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "70",
-          "actual": {
-            "base_price": "0.07"
-          },
-          "origin": {
-            "base_price": "0.1"
-          }
-        }
-      },
-      {
         "uuid": "ms-x0z6u8r0z5m1",
         "model": "bytedance/seedream-v4/sequential",
         "type": "Image",
@@ -19703,7 +19689,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-video-upscaler.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-van-2.5-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/b4ee8f46-f107-408a-be15-0d8da5279444.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/04396e5e-9e30-4b4f-a603-6a1af9bda9a4.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/8e3933c8-0115-4975-b1e9-4816db8d1d37.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-van-2.5-image-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-van-2.5-image-to-video.md",
@@ -19867,7 +19853,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.2-animate-mix.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.2-animate-mix.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/8f0ec84c-3967-4024-8d3c-a0ade7bf0aed.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/70a50550-42cb-44cf-a92e-0843d9f839a5.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.2-animate-mix.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.2-animate-mix.md",
@@ -19907,7 +19893,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.2-animate-move.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.2-animate-move.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/2ccf0855-01b4-4338-9494-87667de18ba8.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/35890ef3-3b80-45ce-b88c-bfa82ac798bc.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.2-animate-move.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.2-animate-move.md",
@@ -19947,7 +19933,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/alibaba-wan-2.6-text-to-image.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/alibaba-wan-2.6-text-to-image.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/03a465ab-18d6-4257-a8c1-7e76b3d66a68.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/65ba65da-cd65-4e2a-bbbc-204026c5ee6c.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-2.6-text-to-image.json",
         "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-2.6-text-to-image.md",
@@ -20068,7 +20054,7 @@
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-video-upscaler.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-van-2.5-text-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/0b31d7a9-f13f-4e0a-a029-b724535d70f4.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/6ce036ff-23d0-4510-94dc-14cfaee991cc.png",
         "coverVideo": "https://static.atlascloud.ai/uploads/models/cef0fdcb-54ae-4c25-8d49-d1570c7fe71b.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-van-2.5-text-to-video.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-van-2.5-text-to-video.md",
@@ -21393,6 +21379,80 @@
         }
       },
       {
+        "uuid": "ms-81d4d0cc2fa3",
+        "model": "suno/chirp-v4-5-all",
+        "type": "Audio",
+        "displayName": "Suno chirp-v4-5-all",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v4-5-all.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4-5-all.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4-5-all.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4-5-all.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4-5-all.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4-5-all.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-cbdc9f75b842",
+        "model": "suno/chirp-v4-5-plus",
+        "type": "Audio",
+        "displayName": "Suno chirp-v4-5-plus",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v4-5-plus.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4-5-plus.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4-5-plus.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4-5-plus.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4-5-plus.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4-5-plus.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
         "uuid": "ms-81fdd3523387",
         "model": "black-forest-labs/flux-3/image-to-video",
         "type": "Video",
@@ -21606,6 +21666,9 @@
           "TOOLS",
           "NEW"
         ],
+        "familyUUID": "mf-2cy53y2p4dh2",
+        "familyName": "image-video-tools",
+        "familyDisplayName": "Tools",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -21691,10 +21754,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.04"
+            "base_price": "0.15"
           },
           "origin": {
-            "base_price": "0.04"
+            "base_price": "0.15"
           }
         }
       },
@@ -21814,10 +21877,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.02"
+            "base_price": "0.04"
           },
           "origin": {
-            "base_price": "0.02"
+            "base_price": "0.04"
           }
         }
       },
@@ -21855,10 +21918,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.04"
+            "base_price": "0.08"
           },
           "origin": {
-            "base_price": "0.04"
+            "base_price": "0.08"
           }
         }
       },
@@ -22223,6 +22286,206 @@
           },
           "origin": {
             "base_price": "0.025"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-auk",
+        "model": "suno/chirp-auk",
+        "type": "Audio",
+        "displayName": "Suno chirp-auk",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-auk.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-auk.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-auk.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-auk.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-auk.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-auk.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-fenix",
+        "model": "suno/chirp-fenix",
+        "type": "Audio",
+        "displayName": "Suno chirp-fenix",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-fenix.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-fenix.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-fenix.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-fenix.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-fenix.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-fenix.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-v3-5",
+        "model": "suno/chirp-v3-5",
+        "type": "Audio",
+        "displayName": "Suno chirp-v3-5",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v3-5.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v3-5.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v3-5.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v3-5.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v3-5.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v3-5.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-v4",
+        "model": "suno/chirp-v4",
+        "type": "Audio",
+        "displayName": "Suno chirp-v4",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v4.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-v5",
+        "model": "suno/chirp-v5",
+        "type": "Audio",
+        "displayName": "Suno chirp-v5",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v5.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v5.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v5.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v5.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v5.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v5.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
           }
         }
       },
@@ -22830,6 +23093,9 @@
           "TOOLS",
           "NEW"
         ],
+        "familyUUID": "mf-2cy53y2p4dh2",
+        "familyName": "image-video-tools",
+        "familyDisplayName": "Tools",
         "display_console": true,
         "price": {
           "discount": "100",
