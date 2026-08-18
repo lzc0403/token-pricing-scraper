@@ -3428,6 +3428,79 @@
         ]
       },
       {
+        "uuid": "ms-snej5el2y8yw",
+        "model": "deepseek-ai/deepseek-v4-pro-0813",
+        "type": "Text",
+        "displayName": "DeepSeek V4 Pro 0813",
+        "profile": "DeepSeek V4 Pro is a state-of-the-art large language model combining efficient sparse attention, strong reasoning, and integrated agent capabilities for robust long-context understanding and versatile AI applications.",
+        "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.2-exp.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
+        "background": "https://static.atlascloud.ai/model/background/deepseek-ai-deepseek-v4-pro-0813.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/1814eb73-b21a-4830-9191-4efe453e2f5a.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/deepseek-ai-deepseek-v4-pro-0813.json",
+        "readme": "https://static.atlascloud.ai/model/readme/deepseek-ai-deepseek-v3.2-exp.md",
+        "organization": "DEEPSEEK",
+        "example": "https://static.atlascloud.ai/model/example/deepseek-ai-deepseek-v3.2-exp.json",
+        "priority": 88889,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 393216,
+        "avgTotalTPS": "22.56",
+        "avgLatency": "0.26",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "1.32",
+            "output_price": "3.96",
+            "cache_price": "0.132"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "1.32",
+            "output_price": "3.96",
+            "cache_price": "0.132"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "tools",
+          "structured_outputs"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "architectureType": "Mixture-of-Experts (MoE)"
+      },
+      {
         "uuid": "ms-ualixbkz3osd",
         "model": "deepseek-ai/deepseek-v4-pro",
         "type": "Text",
@@ -16289,154 +16362,6 @@
             "base_price": "0.28"
           }
         }
-      },
-      {
-        "uuid": "ms-ve7s6usjy083",
-        "model": "google/gemini-2.0-flash",
-        "type": "Text",
-        "displayName": "Gemini 2.0 Flash",
-        "profile": "Gemini 2.0 Flash is Googles state-of-the-art AI model designed for advanced reasoning, coding, mathematics, and scientific tasks.",
-        "logo": "https://static.atlascloud.ai/model/logo/gemini-2.5-pro.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-gemini-2.0-flash.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/9d7b4c69-faeb-49bf-bf55-a5a0fa8e75ee.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-2.0-flash.json",
-        "readme": "https://static.atlascloud.ai/model/readme/gemini-2.5-pro.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/gemini-2.5-pro.json",
-        "priority": 533,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          " NEW",
-          " HOT"
-        ],
-        "familyUUID": "mf-2bsi7w2ldpa0",
-        "familyName": "gemini",
-        "familyDisplayName": "Gemini API for Advanced Multimodal Reasoning",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "contextLength": 1048576,
-        "maxCompletionTokens": 8192,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.1",
-            "input_audio_price": "0.7",
-            "output_price": "0.4",
-            "cache_price": "0.025",
-            "cache_audio_price": "0.175"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.1",
-            "input_audio_price": "0.7",
-            "output_price": "0.4",
-            "cache_price": "0.025",
-            "cache_audio_price": "0.175"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "gemini.generate",
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Advanced reasoning capabilities",
-          "Multimodal excellence",
-          "Long context handling",
-          "Production-ready reliability"
-        ],
-        "useCases": [
-          "Complex analytical tasks",
-          "Multimodal data processing",
-          "Advanced research support",
-          "Enterprise-critical applications"
-        ]
-      },
-      {
-        "uuid": "ms-k0in870j27km",
-        "model": "google/gemini-2.0-flash-lite",
-        "type": "Text",
-        "displayName": "Gemini 2.0 Flash Lite",
-        "profile": "Gemini 2.0 Flash Lite is Googles state-of-the-art AI model designed for advanced reasoning, coding, mathematics, and scientific tasks.",
-        "logo": "https://static.atlascloud.ai/model/logo/gemini-2.5-pro.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-gemini-2.0-flash-lite.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/e320f579-47a9-47ba-a255-3d422011457b.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-2.0-flash-lite.json",
-        "readme": "https://static.atlascloud.ai/model/readme/gemini-2.5-pro.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/gemini-2.5-pro.json",
-        "priority": 533,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          " NEW",
-          " HOT"
-        ],
-        "familyUUID": "mf-2bsi7w2ldpa0",
-        "familyName": "gemini",
-        "familyDisplayName": "Gemini API for Advanced Multimodal Reasoning",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "contextLength": 1048576,
-        "maxCompletionTokens": 8192,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.075",
-            "output_price": "0.3"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.075",
-            "output_price": "0.3"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "gemini.generate",
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Advanced reasoning capabilities",
-          "Multimodal excellence",
-          "Long context handling",
-          "Production-ready reliability"
-        ],
-        "useCases": [
-          "Complex analytical tasks",
-          "Multimodal data processing",
-          "Advanced research support",
-          "Enterprise-critical applications"
-        ]
       },
       {
         "uuid": "ms-3gz7e6mxmzte",

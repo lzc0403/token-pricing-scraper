@@ -1,13 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-08-17 14:16:41
+> 生成时间：2026-08-18 20:48:02
 
 ## 一、核对统计
 
-- 校验记录总数：**102**
-- 可疑项总数：**70**（high 11 / med 1 / low 58）
-- Tier1 结构性校验可疑：**7**
-- Tier2 源页面核对可疑：**63**
+- 校验记录总数：**101**
+- 可疑项总数：**64**（high 6 / med 1 / low 57）
+- Tier1 结构性校验可疑：**2**
+- Tier2 源页面核对可疑：**62**
 
 ## 二、核对维度
 
@@ -28,15 +28,10 @@
 
 | 严重度 | 层级 | 代码 | 源 | 模型 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| high | T1 | EMPTY_INPUT | aliyun_intl | DeepSeek V4 Flash | 输入价为空 |
-| high | T1 | EMPTY_INPUT | aliyun_intl | DeepSeek V4 Pro | 输入价为空 |
-| high | T1 | EMPTY_INPUT | aliyun_intl | GLM-5.1 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | aliyun_intl | GLM-5.2 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | aliyun_intl | Kimi K2.7 Code | 输入价为空 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到input价数值「0.0826」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到output价数值「0.1652」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「1.32」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「3.96」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「0.66」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「1.98」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「1.19」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「3.74」，疑似解析/幻觉错误 |
 | med | T1 | DUPLICATE | tencent | - | 重复记录 ×2: DeepSeek-V4-Flash |
@@ -58,7 +53,6 @@
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M2.7 | SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | modelmesh | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | Doubao Seed 2.1 Pro | SPA 源静态 HTML 未含模型名「Doubao-Seed-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | Doubao Seed 2.1 Turbo | SPA 源静态 HTML 未含模型名「Doubao-Seed-」，需 Playwright 渲染核对 |

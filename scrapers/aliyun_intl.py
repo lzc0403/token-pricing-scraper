@@ -64,6 +64,12 @@ class AliyunIntlScraper(BaseScraper):
             # 只处理含输入/输出/隐式缓存命中的定价表
             if "Input Price" not in hj or "Output Price" not in hj or "Implicit Cache Hit" not in hj:
                 continue
+            # 表结构：含 Time Period 列为峰谷表，列序整体右移一位
+            has_peak = "Time Period" in hj
+            if has_peak:
+                col_in, col_out, col_cache, col_peak = 4, 5, 6, 3
+            else:
+                col_in, col_out, col_cache, col_peak = 3, 4, 5, None
 
             for row in table.css("tr")[1:]:
                 cells = [
@@ -82,11 +88,12 @@ class AliyunIntlScraper(BaseScraper):
                 norm = _normalize(raw_model)
                 if not norm:
                     continue
-                inp = clean_price(cells[3])
-                out = clean_price(cells[4])
-                cache = clean_price(cells[5])
+                inp = clean_price(cells[col_in])
+                out = clean_price(cells[col_out])
+                cache = clean_price(cells[col_cache])
                 if inp is None and out is None:
                     continue
+                peak = cells[col_peak].strip() if col_peak is not None and col_peak < len(cells) else None
                 records.append(
                     {
                         "norm": norm,
@@ -94,37 +101,75 @@ class AliyunIntlScraper(BaseScraper):
                         "input": round(inp, 6) if inp is not None else None,
                         "output": round(out, 6) if out is not None else None,
                         "cache_hit": round(cache, 6) if cache is not None else None,
+                        "peak": peak,
+                        "has_peak": has_peak,
                     }
                 )
 
-        # 去重：同一 norm 只保留「无后缀基准名」的那条；其余（快照/分档续行）丢弃
-        best: Dict[str, Dict[str, Any]] = {}
+        # 按 norm 分组：同一 norm 下，若同时存在「空闲/高峰」双行，合并为单行峰谷记录；
+        # 若只有单行，直接保留。峰谷版优先于无输入价的普通版。
+        groups: Dict[str, List[Dict[str, Any]]] = {}
         for rec in records:
-            norm = rec["norm"]
-            existing = best.get(norm)
-            if existing is None:
-                best[norm] = rec
-                continue
-            # 优先无后缀（raw 不含 -日期/-preview/-数字快照）
-            if _is_base(rec["raw"]) and not _is_base(existing["raw"]):
-                best[norm] = rec
+            groups.setdefault(rec["norm"], []).append(rec)
+
+        merged: List[Dict[str, Any]] = []
+        for items in groups.values():
+            peak_rows = [r for r in items if r.get("peak") in ("Off-peak", "Peak")]
+            other_rows = [r for r in items if r not in peak_rows]
+            if len(peak_rows) >= 2:
+                by_peak = {r["peak"]: r for r in peak_rows}
+                if "Off-peak" in by_peak and "Peak" in by_peak:
+                    low, high = by_peak["Off-peak"], by_peak["Peak"]
+                    merged.append(
+                        {
+                            "norm": low["norm"],
+                            "raw": low["raw"],
+                            "input": high["input"],
+                            "output": high["output"],
+                            "cache_hit": high["cache_hit"],
+                            "peak_input_low": low["input"],
+                            "peak_input_high": high["input"],
+                            "peak_output_low": low["output"],
+                            "peak_output_high": high["output"],
+                            "peak_cache_low": low["cache_hit"],
+                            "peak_cache_high": high["cache_hit"],
+                            "condition_extra": "峰谷计费",
+                        }
+                    )
+                    continue
+            # 无峰谷或峰谷不完整：优先保留有输入价、来自峰谷表、无后缀基准名的记录
+            def _score(rec: Dict[str, Any]) -> tuple:
+                has_in = rec["input"] is not None
+                is_peak = rec.get("has_peak")
+                is_base = _is_base(rec["raw"])
+                return (has_in, is_peak, is_base)
+
+            candidates = peak_rows if peak_rows else other_rows
+            best = sorted(candidates, key=_score, reverse=True)[0]
+            merged.append({"condition_extra": None, **best})
 
         out: List[Dict[str, Any]] = []
-        for rec in best.values():
+        for rec in merged:
             norm = rec["norm"]
-            # DeepSeek 来源类型：页面无「原厂直供」标记 → 阿里云自部署；
-            # 其他模型 condition 留空（区域信息已由 SOURCE_LABELS「阿里云国际」表达）
-            condition = "阿里云自部署" if norm.startswith("deepseek") else None
-            out.append(
-                self._rec(
-                    model_raw=rec["norm"],
-                    input=rec["input"],
-                    output=rec["output"],
-                    cache_hit=rec["cache_hit"],
-                    context=None,
-                    condition=condition,
-                )
+            parts = []
+            if norm.startswith("deepseek"):
+                parts.append("阿里云自部署")
+            if rec.get("condition_extra"):
+                parts.append(rec["condition_extra"])
+            condition = " | ".join(parts) if parts else None
+            rec_out = self._rec(
+                model_raw=rec["norm"],
+                input=rec["input"],
+                output=rec["output"],
+                cache_hit=rec["cache_hit"],
+                context=None,
+                condition=condition,
             )
+            # 透传峰谷字段
+            for k in ["peak_input_low", "peak_input_high", "peak_output_low", "peak_output_high", "peak_cache_low", "peak_cache_high"]:
+                if k in rec:
+                    rec_out[k] = rec[k]
+            out.append(rec_out)
         return out
 
 

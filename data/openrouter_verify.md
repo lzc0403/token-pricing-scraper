@@ -1,9 +1,9 @@
 # OpenRouter 二次验证报告
 
-- 时间：2026-08-17 14:16:53
-- 抓取时间：2026-08-17T06:16:38.352600+00:00
+- 时间：2026-08-18 20:48:22
+- 抓取时间：2026-08-18T12:47:59.720790+00:00
 - 结果：✅ 通过
-- 原始模型数：414
+- 原始模型数：412
 - 解析条数：26
 - 白名单：14（缺失 0 / API 无 0）
 - 可疑：0（high 0 / med 0 / low 0）
@@ -18,7 +18,7 @@
 - Gemini 2.5 Flash (`google/gemini-2.5-flash`) in=0.3 out=2.5
 - Gemini 3.7 Flash (`google/gemini-3.7-flash`) in=0.375 out=1.875
 - Grok 4.6 (`x-ai/grok-4.6`) in=2.0 out=6.0
-- DeepSeek V4 Pro (`deepseek/deepseek-v4-pro`) in=1.32 out=3.96
+- DeepSeek V4 Pro (`deepseek/deepseek-v4-pro`) in=0.66 out=1.98
 - DeepSeek V4 Flash (`deepseek/deepseek-v4-flash`) in=0.0826 out=0.1652
 - MiniMax M3 (`minimax/minimax-m3`) in=0.3 out=1.2
 - Kimi K2.6 (`moonshotai/kimi-k2.6`) in=0.95 out=4.0
