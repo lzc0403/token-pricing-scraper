@@ -12,8 +12,12 @@ models:
     aliases: [Deepseek-v3.2, deepseek-v3.2]
   - canonical: GLM-5.1
     aliases: [GLM-5.1, glm-5.1]
+  - canonical: GLM-4.7
+    aliases: [GLM-4.7, glm-4.7]
   - canonical: GLM-5.2
     aliases: [GLM-5.2, glm-5.2]
+  - canonical: GLM-5.3
+    aliases: [GLM-5.3, glm-5.3]
   - canonical: Kimi K2.6
     aliases: [kimi-k2.6, Kimi K2.6]
   - canonical: Kimi K2.7 Code

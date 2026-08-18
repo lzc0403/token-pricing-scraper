@@ -114,7 +114,7 @@ class AtlascloudScraper(BaseScraper):
                     output=out,
                     cache_hit=cache,
                     context=_fmt_ctx(it.get("contextLength")),
-                    condition="AtlasCloud (atlascloud.ai) · USD/1M tokens",
+                    condition=None,
                 )
             )
         return records

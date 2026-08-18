@@ -32,7 +32,7 @@ def test_site_data_has_six_domestic_vendor_slots():
 def test_site_data_has_three_overseas_vendor_slots():
     data = site._build_site_data(os.path.join(ROOT, "data"))
     assert [v["id"] for v in data["mainstream_sections"]["overseas"]] == [
-        "openai", "anthropic", "google"
+        "openai", "anthropic", "google", "grok"
     ]
 
 

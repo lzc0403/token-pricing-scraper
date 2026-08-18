@@ -16,6 +16,7 @@ PRICING_KINDS = {"paid", "free"}
 
 _CLAUDE_OFFICIAL = {
     "Claude Fable 5": ("Fable 5", "claude-fable-5"),
+    "Claude Opus 5": ("Opus 5", "claude-opus-5"),
     "Claude Opus 4.8": ("Opus 4.8", "claude-opus-4-8"),
     "Claude Sonnet 5": ("Sonnet 5", "claude-sonnet-5"),
     "Claude Haiku 4.5": ("Haiku 4.5", "claude-haiku-4-5-20251001"),

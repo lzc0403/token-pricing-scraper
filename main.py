@@ -122,7 +122,11 @@ def main(argv: List[str] | None = None) -> int:
     store.write_outputs(annotated, DATA_DIR)
     if has_prev:
         deltas = store.compare_previous(os.path.join(DATA_DIR, "prices.json"), prev_tmp)
-        os.remove(prev_tmp)
+        # 临时备份删除失败（如沙箱回收站不可用）不应中断主流程；残留文件由 .gitignore 兜底
+        try:
+            os.remove(prev_tmp)
+        except OSError:
+            print(f"  [warn] 临时备份 {prev_tmp} 清理失败（已忽略，不影响结果）")
     else:
         deltas = []
 

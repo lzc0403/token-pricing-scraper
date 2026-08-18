@@ -53,6 +53,18 @@
   currency: CNY
   js: true
 
+- id: volcengine_intl
+  name: 火山云海外
+  url: https://docs.byteplus.com/en/docs/ModelArk/1544106
+  parser: volcengine_intl
+  currency: USD
+  js: true
+  note: >-
+    BytePlus ModelArk 海外站（docs.byteplus.com，USD 结算）。仅抓「大语言模型 - 在线推理(标准)」表，
+    收录 DeepSeek（v4-pro/v4-flash/v3.2）+ GLM（glm-5-2/glm-4-7）系列。模型名剥离日期快照后缀
+    （-260425/-251201/-260617/-251222）归一到无后缀基准名。DeepSeek 来源类型按规则标
+    「火山引擎自部署」（页面无「原厂直供」标记）。与国内火山引擎（CNY）区分展示。
+
 - id: tencent
   name: 腾讯云
   url: https://www.tencentcloud.com/zh/document/product/1300/78937
@@ -79,6 +91,15 @@
   parser: bigmodel
   currency: CNY
   js: true
+  note: 智谱国内站（open.bigmodel.cn，CNY）。与 `zai`（国际站 docs.z.ai，USD）区分展示。
+
+- id: zai
+  name: 智谱Z.ai
+  url: https://docs.z.ai/guides/overview/pricing
+  parser: zai
+  currency: USD
+  js: false
+  note: 智谱海外站 Z.AI（docs.z.ai，USD 结算）官方定价页。仅取文本模型表（Model/Input/Cached Input/Output），收录 GLM 系列。GLM-5.3 目前仅 Coding Plan 订阅提供、标准 API 未开放，定价页暂无，上线后自动收录。
 
 - id: deepseek
   name: DeepSeek
@@ -86,6 +107,15 @@
   parser: deepseek
   currency: CNY
   js: false
+  note: DeepSeek 官网中文站，人民币（¥/百万 tokens）计费。与 `deepseek_us`（英文站 USD）并列展示，保留原计费币种作为官网标价。
+
+- id: deepseek_us
+  name: DeepSeek (US)
+  url: https://api-docs.deepseek.com/quick_start/pricing/
+  parser: deepseek
+  currency: USD
+  js: false
+  note: DeepSeek 官网英文站，美元（$/百万 tokens）计费。与 `deepseek`（中文站 CNY）并列展示，保留原计费币种作为官网标价。
 
 - id: minimax
   name: MiniMax

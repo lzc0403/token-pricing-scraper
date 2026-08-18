@@ -194,17 +194,14 @@ class OpenrouterScraper(BaseScraper):
         out = ov_out if ov_out is not None else _per_m(p.get("completion"))
         cache = _per_m(p.get("input_cache_read"))
         ctx = _fmt_ctx(m.get("context_length"))
-        cond_bits = [f"id={mid}"]
-        if note:
-            cond_bits.append(note)
-        # 记录原始 per-token 便于二次验证
+        # 记录原始 per-token 便于二次验证；condition 留空（id/note 是内部备注，不对外展示）
         rec = self._rec(
             model_raw=name,
             input=inp,
             output=out,
             cache_hit=cache,
             context=ctx,
-            condition=" | ".join(cond_bits),
+            condition=None,
         )
         rec["openrouter_id"] = mid
         rec["openrouter_prompt_per_token"] = p.get("prompt")

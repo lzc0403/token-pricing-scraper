@@ -24,6 +24,19 @@ htmlcov/
 .worktrees/
 .superpowers/sdd/
 
+# WorkBuddy 本地产物（不进仓库）
+.workbuddy/skills/
+.workbuddy/redbox-screenshot.png
+.workbuddy/sessions/
+.workbuddy/mcp.json
+.workbuddy/settings.json
+
+# 本地临时分析报告（非项目交付物）
+20260812-MCP协议-深度分析报告.md
+前端审查报告.html
+
 # Local secrets / temp
 *.local
 .env
+# main.py 汇率对比临时备份（写入后短暂存在，沙箱下可能删除失败残留）
+.prices.prev.json

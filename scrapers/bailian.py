@@ -10,6 +10,10 @@
 该 JSON 接口返回文档全文 HTML（data.content），内含 274 张定价表，单位为「元/百万 tokens」。
 控制台 SPA 自身不服务端渲染价格表，故直连此 JSON 接口抓取。
 
+DeepSeek 来源类型区分：
+- 页面上 DeepSeek 模型行无「原厂直供」标记 → 阿里云自部署。
+- 非 DeepSeek 模型（GLM / Kimi / MiniMax）condition=None。
+
 解析规则：
 - 仅取模型 ID 命中目标家族（deepseek / glm / kimi / minimax）的行；
   Qwen 系列由 aliyun（Hologres）源负责，此处排除。
@@ -108,6 +112,11 @@ class BailianScraper(BaseScraper):
                     continue
                 seen.add(norm)
                 cache = round(inp * CACHE_HIT_RATIO, 6) if inp is not None else None
+                # DeepSeek 来源类型：页面无「原厂直供」标记 → 阿里云自部署
+                if norm.startswith("deepseek"):
+                    condition = "阿里云自部署"
+                else:
+                    condition = None
                 records.append(
                     self._rec(
                         model_raw=norm,
@@ -115,7 +124,7 @@ class BailianScraper(BaseScraper):
                         output=round(out, 6) if out is not None else None,
                         cache_hit=cache,
                         context=None,
-                        condition=None,
+                        condition=condition,
                     )
                 )
         return records

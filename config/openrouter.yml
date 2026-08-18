@@ -25,12 +25,21 @@ whitelist:
   - id: anthropic/claude-opus-4.8
     model: Claude Opus 4.8
     note: Claude 旗舰
+  - id: anthropic/claude-opus-5
+    model: Claude Opus 5
+    note: 2026-07 新旗舰
   - id: google/gemini-2.5-pro
     model: Gemini 2.5 Pro
     note: Gemini 旗舰
   - id: google/gemini-2.5-flash
     model: Gemini 2.5 Flash
     note: Gemini 高频
+  - id: google/gemini-3.7-flash
+    model: Gemini 3.7 Flash
+    note: 2026-08 新 Flash 主力
+  - id: x-ai/grok-4.6
+    model: Grok 4.6
+    note: 2026-08 新旗舰
   - id: deepseek/deepseek-v4-pro
     model: DeepSeek V4 Pro
     note: 国内旗舰 OpenRouter 价

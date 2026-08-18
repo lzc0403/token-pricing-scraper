@@ -35,6 +35,8 @@ FIXTURE_MAP = {
     "modelmesh": ["modelmesh.html"],
     "tencent_cn": ["tencent_cn.html"],
     "aliyun_bailian": ["aliyun_bailian.json"],
+    "volcengine_intl": ["volcengine_intl.html"],
+    "zai": ["zai.html"],
 }
 
 
@@ -145,6 +147,7 @@ def test_watchlist_all_configured_targets_matched():
     recs.append({"model_raw": "seedance-2.0"})
     recs.append({"model_raw": "kimi-k3"})
     recs.append({"model_raw": "qwen3.8-max"})
+    recs.append({"model_raw": "GLM-5.3"})
     _, watch = matcher.build_watchlist(recs, MODELS_CFG)
     canons = {r["canonical"] for r in watch}
     targets = {m["canonical"] for m in MODELS_CFG["models"]}
@@ -327,3 +330,134 @@ def test_doubao_text_never_matches_seedance(raw):
 
 def test_qwen_max_plus_are_distinct():
     assert matcher.match("qwen3.7-max", MODELS_CFG) != matcher.match("qwen3.7-plus", MODELS_CFG)
+
+
+def test_volcengine_intl_deepseek_glm_only():
+    """火山云海外只收录 DeepSeek + GLM 系列。"""
+    recs = _parse_source("volcengine_intl")
+    assert recs, "volcengine_intl 应解析出记录"
+    models = {r["model_raw"] for r in recs}
+    # 目标模型全部命中
+    for expected in ["deepseek-v4-pro", "deepseek-v4-flash", "deepseek-v3.2",
+                     "glm-5.2", "glm-4.7"]:
+        assert expected in models, f"volcengine_intl 缺少 {expected}"
+    # 非 DeepSeek/GLM 模型被过滤
+    assert not any(m.startswith("seed") for m in models), "seed 系列不应出现"
+    assert not any(m.startswith("dola") for m in models), "dola 系列不应出现"
+    assert not any(m.startswith("gpt-oss") for m in models), "gpt-oss 不应出现"
+
+
+def test_volcengine_intl_date_suffix_stripped():
+    """日期快照后缀（-260425/-251201/-260617/-251222）应被剥离归一。"""
+    recs = _parse_source("volcengine_intl")
+    models = {r["model_raw"] for r in recs}
+    # 归一后不应含日期后缀
+    assert "deepseek-v4-pro-260425" not in models
+    assert "deepseek-v4-flash-260425" not in models
+    assert "deepseek-v3-2-251201" not in models
+    assert "glm-5-2-260617" not in models
+    assert "glm-4-7-251222" not in models
+    # 应为无后缀基准名（版本号「-」已转「.」）
+    assert "deepseek-v4-pro" in models
+    assert "deepseek-v3.2" in models
+    assert "glm-5.2" in models
+    assert "glm-4.7" in models
+
+
+def test_volcengine_intl_ga_suffix_dedup():
+    """GA 日期后缀（-ga-260731）应剥离，并与普通快照归一到同一基准名。"""
+    recs = _parse_source("volcengine_intl")
+    models = {r["model_raw"] for r in recs}
+    # GA 版与普通快照都归一到 deepseek-v4-flash（去重后仅一条）
+    assert "deepseek-v4-flash-ga" not in models, "GA 后缀未剥离"
+    assert "deepseek-v4-flash-ga-260731" not in models
+    flash = [r for r in recs if r["model_raw"] == "deepseek-v4-flash"]
+    assert len(flash) == 1, f"flash 应去重为 1 条，实为 {len(flash)}"
+    assert flash[0]["input"] == 0.14 and flash[0]["output"] == 0.28
+
+
+def test_volcengine_intl_deepseek_condition():
+    """DeepSeek 行应标「火山引擎自部署」condition。"""
+    recs = _parse_source("volcengine_intl")
+    for r in recs:
+        if r["model_raw"].startswith("deepseek"):
+            assert r["condition"] == "火山引擎自部署", \
+                f"DeepSeek 行 condition 应为「火山引擎自部署」，实为 {r['condition']}"
+    # GLM 行 condition 应为 None
+    for r in recs:
+        if r["model_raw"].startswith("glm"):
+            assert r["condition"] is None, \
+                f"GLM 行 condition 应为 None，实为 {r['condition']}"
+
+
+def test_volcengine_intl_currency_usd():
+    """火山云海外为 USD 结算。"""
+    recs = _parse_source("volcengine_intl")
+    assert all(r["currency"] == "USD" for r in recs)
+
+
+def test_volcengine_intl_tier_dedup_first_row():
+    """分层定价的模型（如 deepseek-v3-2）只保留首行（基准档）。"""
+    recs = _parse_source("volcengine_intl")
+    v32 = [r for r in recs if r["model_raw"] == "deepseek-v3.2"]
+    assert len(v32) == 1, f"deepseek-v3.2 应只保留首行，实有 {len(v32)} 条"
+    # 首行 = [0, 32] 档：输入 0.28 / 输出 0.42 / 缓存 0.056
+    assert v32[0]["input"] == 0.28
+    assert v32[0]["output"] == 0.42
+    assert v32[0]["cache_hit"] == 0.056
+
+
+def test_volcengine_intl_skips_batch_and_video_tables():
+    """应跳过「批量推理」表和「视频生成」表，只取在线推理标准表。"""
+    recs = _parse_source("volcengine_intl")
+    # 批量推理表的 glm-4-7 价是 0.3/1.1，在线表是 0.6/2.2；应取在线表
+    glm47 = next(r for r in recs if r["model_raw"] == "glm-4.7")
+    assert glm47["input"] == 0.6
+    assert glm47["output"] == 2.2
+    # 视频表（dreamina-seedance / seedance）不应出现
+    assert not any("seedance" in r["model_raw"].lower() for r in recs)
+
+
+# --------------------------------------------------------------------------- #
+# 智谱 Z.ai 海外站（USD）
+# --------------------------------------------------------------------------- #
+def test_zai_text_models_parsed():
+    """Z.ai 应解析出 GLM 文本模型系列（USD）。"""
+    recs = _parse_source("zai")
+    assert recs, "zai 应解析出记录"
+    models = {r["model_raw"] for r in recs}
+    for expected in ["GLM-5.2", "GLM-5.1", "GLM-5", "GLM-5-Turbo",
+                     "GLM-4.7", "GLM-4.6", "GLM-4.5", "GLM-4.5-Air"]:
+        assert expected in models, f"zai 缺少 {expected}"
+
+
+def test_zai_vision_models_excluded():
+    """GLM-5V / GLM-4.6V / GLM-OCR 等视觉模型应被过滤。"""
+    recs = _parse_source("zai")
+    models = {r["model_raw"] for r in recs}
+    assert not any("V-Turbo" in m or "4.6V" in m or "4.5V" in m for m in models), \
+        "视觉模型不应出现"
+    assert not any("ocr" in m.lower() for m in models), "OCR 模型不应出现"
+
+
+def test_zai_currency_usd():
+    """Z.ai 全站 USD 结算。"""
+    recs = _parse_source("zai")
+    assert recs
+    assert all(r["currency"] == "USD" for r in recs)
+
+
+def test_zai_glm52_pricing():
+    """GLM-5.2 定价应为 $1.4/$4.4，缓存 $0.26。"""
+    recs = _parse_source("zai")
+    glm52 = next(r for r in recs if r["model_raw"] == "GLM-5.2")
+    assert glm52["input"] == 1.4
+    assert glm52["output"] == 4.4
+    assert glm52["cache_hit"] == 0.26
+
+
+def test_zai_condition_none():
+    """Z.ai 是智谱官方国际站原价，无来源类型区分，condition 应为 None。"""
+    recs = _parse_source("zai")
+    for r in recs:
+        assert r["condition"] is None, f"{r['model_raw']} condition 应为 None"

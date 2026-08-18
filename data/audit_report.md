@@ -1,13 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-08-16 18:11:53
+> 生成时间：2026-08-17 14:16:41
 
 ## 一、核对统计
 
-- 校验记录总数：**81**
-- 可疑项总数：**72**（high 27 / med 0 / low 45）
-- Tier1 结构性校验可疑：**20**
-- Tier2 源页面核对可疑：**52**
+- 校验记录总数：**102**
+- 可疑项总数：**70**（high 11 / med 1 / low 58）
+- Tier1 结构性校验可疑：**7**
+- Tier2 源页面核对可疑：**63**
 
 ## 二、核对维度
 
@@ -33,28 +33,13 @@
 | high | T1 | EMPTY_INPUT | aliyun_intl | GLM-5.1 | 输入价为空 |
 | high | T1 | EMPTY_INPUT | aliyun_intl | GLM-5.2 | 输入价为空 |
 | high | T1 | EMPTY_INPUT | aliyun_intl | Kimi K2.7 Code | 输入价为空 |
-| high | T1 | EMPTY_INPUT | deepseek | DeepSeek V4 Flash | 输入价为空 |
-| high | T1 | EMPTY_INPUT | deepseek | DeepSeek V4 Pro | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | DeepSeek V3.2 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | DeepSeek V4 Flash | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | DeepSeek V4 Pro | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | GLM-5.1 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | GLM-5.1 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | GLM-5.2 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | Kimi K2.6 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | Kimi K2.7 Code | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | Kimi K3 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | MiniMax M2.7 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | MiniMax M3 | 输入价为空 |
-| high | T1 | EMPTY_INPUT | tencent | MiniMax M3 | 输入价为空 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到input价数值「0.06146」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到output价数值「0.12292」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「1.168」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「2.336」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「0.308」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「0.968」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到input价数值「0.5415」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到output价数值「2.28」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到input价数值「0.0826」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到output价数值「0.1652」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「1.32」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「3.96」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「1.19」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「3.74」，疑似解析/幻觉错误 |
+| med | T1 | DUPLICATE | tencent | - | 重复记录 ×2: DeepSeek-V4-Flash |
 | low | T1 | DIVERGE | - | Kimi K3 | 跨源输入价离散 11.0× (最低 2.0 / 最高 21.974)，建议人工核对是否同规格模型 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
@@ -64,6 +49,7 @@
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | Qwen3.7 Max | SPA 源静态 HTML 未含模型名「qwen3.7-max」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | Qwen3.7 Plus | SPA 源静态 HTML 未含模型名「qwen3.7-plus」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | Qwen3.8 Max | SPA 源静态 HTML 未含模型名「qwen3.8-max」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | bigmodel | GLM-4.7 | SPA 源静态 HTML 未含模型名「GLM-4.7」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.2 | SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi | Kimi K2.6 | SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对 |
@@ -88,10 +74,17 @@
 | low | T2 | SPA_NEED_RENDER | modelmesh | Qwen3.8 Max | SPA 源静态 HTML 未含模型名「Qwen3.8-Max」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V3.2 | SPA 源静态 HTML 未含模型名「Deepseek-v3.」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | GLM-5.2 | SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | tencent | GLM-5.3 | SPA 源静态 HTML 未含模型名「GLM-5.3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | Kimi K2.6 | SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | Kimi K2.7 Code | SPA 源静态 HTML 未含模型名「Kimi K2.7 Co」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | Kimi K3 | SPA 源静态 HTML 未含模型名「Kimi K3」，需 Playwright 渲染核对 |
@@ -100,5 +93,10 @@
 | low | T2 | SPA_NEED_RENDER | tencent | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | volcengine | Doubao Seed 2.1 Pro | SPA 源静态 HTML 未含模型名「doubao-seed-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | volcengine | Doubao Seed 2.1 Turbo | SPA 源静态 HTML 未含模型名「doubao-seed-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | volcengine_intl | DeepSeek V3.2 | SPA 源静态 HTML 未含模型名「deepseek-v3.」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | volcengine_intl | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | volcengine_intl | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | volcengine_intl | GLM-4.7 | SPA 源静态 HTML 未含模型名「glm-4.7」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | volcengine_intl | GLM-5.2 | SPA 源静态 HTML 未含模型名「glm-5.2」，需 Playwright 渲染核对 |
 
 > ⚠️ high 级别需立即人工核对并修正；med 级别建议复核；low 级别多为 SPA 渲染提示。

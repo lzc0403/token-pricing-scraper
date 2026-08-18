@@ -6,6 +6,11 @@ SPA 控制台，需 Playwright 渲染（config 中 js: true）。
 页面含多张定价表，表头同时含「Input Price」「Output Price」「Implicit Cache Hit」，
 单位为「美元 / 百万 tokens」。模型含 Qwen（阿里云自有）与 DeepSeek / Kimi / GLM（转售）。
 
+DeepSeek 来源类型区分（与 tencent.py 同规则）：
+- 页面上 DeepSeek 模型行无「原厂直供」标记 → 阿里云自部署。
+  「阿里云自部署」字样不在页面上出现，是依据「未标原厂直供即自部署」规则判定。
+- 非 DeepSeek 模型（如 Qwen、Kimi、GLM）condition 保留原区域标签。
+
 解析规则：
 - 仅抓取表头含「Input Price」+「Output Price」+「Implicit Cache Hit」的定价表。
 - 列序固定：Model(0) | Input Token Range(1) | Mode(2) | Input Price(3) |
@@ -106,6 +111,10 @@ class AliyunIntlScraper(BaseScraper):
 
         out: List[Dict[str, Any]] = []
         for rec in best.values():
+            norm = rec["norm"]
+            # DeepSeek 来源类型：页面无「原厂直供」标记 → 阿里云自部署；
+            # 其他模型 condition 留空（区域信息已由 SOURCE_LABELS「阿里云国际」表达）
+            condition = "阿里云自部署" if norm.startswith("deepseek") else None
             out.append(
                 self._rec(
                     model_raw=rec["norm"],
@@ -113,7 +122,7 @@ class AliyunIntlScraper(BaseScraper):
                     output=rec["output"],
                     cache_hit=rec["cache_hit"],
                     context=None,
-                    condition="阿里云国际站 Model Studio (ap-southeast-1)",
+                    condition=condition,
                 )
             )
         return out

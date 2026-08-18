@@ -32,7 +32,7 @@ _CATALOG_PATH = os.path.join(_ROOT_DIR, "config", "mainstream_models.yml")
 SOURCE_LABELS: Dict[str, str] = {
     "aliyun": "阿里云",
     "volcengine": "火山引擎",
-    "tencent": "腾讯云",
+    "tencent": "腾讯云国际",
     "bigmodel": "智谱",
     "deepseek": "DeepSeek",
     "minimax": "MiniMax",
@@ -42,10 +42,12 @@ SOURCE_LABELS: Dict[str, str] = {
     "anthropic": "Anthropic",
     "google": "Google",
     "openrouter": "OpenRouter",
-    "aliyun_intl": "阿里云国际站",
+    "aliyun_intl": "阿里云国际",
     "aliyun_bailian": "阿里云百炼",
-    "tencent_cn": "腾讯云",
+    "tencent_cn": "腾讯云CN",
     "atlascloud": "AtlasCloud",
+    "volcengine_intl": "火山云海外",
+    "zai": "智谱Z.ai",
 }
 
 # 厂商官网（官方原价）来源
@@ -73,7 +75,7 @@ OFFICIAL_SOURCE: Dict[str, str] = {
 }
 
 # 渠道源：非官网聚合/转售渠道
-CHANNEL_SOURCES = {"modelmesh", "tencent", "tencent_cn", "openrouter", "volcengine", "aliyun", "aliyun_intl", "aliyun_bailian", "atlascloud"}
+CHANNEL_SOURCES = {"modelmesh", "tencent", "tencent_cn", "openrouter", "volcengine", "aliyun", "aliyun_intl", "aliyun_bailian", "atlascloud", "volcengine_intl"}
 
 # 渠道按「结算币种」分区：USD 结算 = 海外渠道面板；CNY/无标价 = 国内渠道面板。
 # 腾讯云/火山引擎等国内云厂商也可能以 USD 对外报价（如跨境实例），一律归入海外。
@@ -355,6 +357,23 @@ def _is_official_row(canon: str, r: Dict[str, Any]) -> bool:
     return bool(official and str(r.get("source") or "") == official)
 
 
+def _is_official_any_currency(canon: str, r: Dict[str, Any]) -> bool:
+    """官网源（不分币种）识别：厂商国内站(CNY)与海外站(USD)均视为官网官方标价。
+
+    - DeepSeek：中文站(deepseek, CNY) + 英文站(deepseek_us, USD)
+    - 智谱 GLM：国内站(bigmodel, CNY) + 海外站(zai, USD)
+    - 其余厂商官网源：与 _is_official_row 一致。
+    """
+    if not canon:
+        return False
+    src = str(r.get("source") or "")
+    if str(canon).startswith("DeepSeek") and src in ("deepseek", "deepseek_us"):
+        return True
+    if str(canon).startswith("GLM") and src in ("bigmodel", "zai"):
+        return True
+    return _is_official_row(canon, r)
+
+
 def _is_channel_row(r: Dict[str, Any]) -> bool:
     return str(r.get("source") or "") in CHANNEL_SOURCES
 
@@ -400,6 +419,75 @@ def _price_key(r: Dict[str, Any]) -> float:
     return float(v) if isinstance(v, (int, float)) else 1e18
 
 
+def _split_condition(cond: Optional[str]) -> Tuple[Optional[str], Optional[str], Optional[str]]:
+    """把 condition 拆成 (peak_cond, source_type, token_cond)。
+
+    peak_cond: 空闲时段 / 高峰时段
+    source_type: 原厂直供 / 腾讯云自建 / 阿里云自部署 / 火山引擎自部署
+    token_cond: 其它 token 长度条件
+    """
+    if not cond:
+        return None, None, None
+    peak = source = token = None
+    for part in (p.strip() for p in cond.split("|") if p.strip()):
+        if part in ("空闲时段", "高峰时段"):
+            peak = part
+        elif part in ("原厂直供", "腾讯云自建", "阿里云自部署", "火山引擎自部署"):
+            source = part
+        else:
+            token = part
+    return peak, source, token
+
+
+def _merge_peak_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """合并同一模型+来源的「空闲时段/高峰时段」双行为单行。
+
+    输出 row 保留高峰价作为主价（用于排序），同时附加 peak_*_low/high 字段用于展示。
+    condition 简化为「来源类型 · 峰谷计费」。
+    """
+    groups: Dict[Tuple[Any, ...], List[Dict[str, Any]]] = {}
+    for r in rows:
+        peak, source, token = _split_condition(r.get("condition"))
+        key = (r.get("canonical"), r.get("source"), source, token)
+        groups.setdefault(key, []).append({"peak": peak, "row": r})
+
+    merged: List[Dict[str, Any]] = []
+    for items in groups.values():
+        if len(items) == 1:
+            merged.append(items[0]["row"])
+            continue
+        by_peak = {item["peak"]: item["row"] for item in items if item["peak"]}
+        if "空闲时段" in by_peak and "高峰时段" in by_peak:
+            low = by_peak["空闲时段"]
+            high = by_peak["高峰时段"]
+            mrow = dict(high)
+            mrow["peak_input_low"] = low.get("input")
+            mrow["peak_input_high"] = high.get("input")
+            mrow["peak_output_low"] = low.get("output")
+            mrow["peak_output_high"] = high.get("output")
+            mrow["peak_cache_low"] = low.get("cache_hit")
+            mrow["peak_cache_high"] = high.get("cache_hit")
+            # rmb 版本（CNY 渲染用）
+            mrow["peak_input_rmb_low"] = low.get("input_rmb")
+            mrow["peak_input_rmb_high"] = high.get("input_rmb")
+            mrow["peak_output_rmb_low"] = low.get("output_rmb")
+            mrow["peak_output_rmb_high"] = high.get("output_rmb")
+            # condition 去掉 peak，改为 source + 峰谷计费
+            _, source, token = _split_condition(high.get("condition"))
+            parts = []
+            if source:
+                parts.append(source)
+            parts.append("峰谷计费")
+            if token:
+                parts.append(token)
+            mrow["condition"] = " | ".join(parts) if parts else "峰谷计费"
+            merged.append(mrow)
+        else:
+            for item in items:
+                merged.append(item["row"])
+    return merged
+
+
 def _normalize_row(r: Dict[str, Any], canon: str, min_in: Optional[float]) -> Dict[str, Any]:
     in_rmb = r.get("input_rmb")
     is_low = in_rmb is not None and min_in is not None and in_rmb == min_in
@@ -422,9 +510,20 @@ def _normalize_row(r: Dict[str, Any], canon: str, min_in: Optional[float]) -> Di
         "output": r.get("output"),
         "currency": r.get("currency") or "",
         "context": r.get("context"),
+        "condition": r.get("condition"),
+        "peak_input_low": r.get("peak_input_low"),
+        "peak_input_high": r.get("peak_input_high"),
+        "peak_output_low": r.get("peak_output_low"),
+        "peak_output_high": r.get("peak_output_high"),
+        "peak_cache_low": r.get("peak_cache_low"),
+        "peak_cache_high": r.get("peak_cache_high"),
+        "peak_input_rmb_low": r.get("peak_input_rmb_low"),
+        "peak_input_rmb_high": r.get("peak_input_rmb_high"),
+        "peak_output_rmb_low": r.get("peak_output_rmb_low"),
+        "peak_output_rmb_high": r.get("peak_output_rmb_high"),
         "note": "",
         "is_lowest": is_low,
-        "is_official": _is_official_row(canon, r),
+        "is_official": _is_official_any_currency(canon, r),
         "premium": premium,
         "region": "domestic",
     }
@@ -635,16 +734,24 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         rows = by_canon.get(c, [])
         if not rows:
             continue
+        # 渠道源：合并同一模型+来源的「空闲/高峰」峰谷双行为单行
+        rows = _merge_peak_rows(rows)
         inputs = [r.get("input_rmb") for r in rows if r.get("input_rmb") is not None]
         min_in = min(inputs) if inputs else None
         norm = [_normalize_row(r, c, min_in) for r in rows]
 
-        # 官方：官网源
-        official = [x for x in norm if x["is_official"] and not _is_overseas({"currency": x["currency"]})]
-        # 若官网无国内 CNY，取官网任意币种
-        if not official:
-            official = [x for x in norm if x["is_official"]]
-        official_rows.extend(official)
+        # 官方：官网源（保留原计费币种）。CNY 官网 → 国内官方表；USD 官网（如 DeepSeek 英文站）→ 海外官方表。
+        official_cny = [x for x in norm if x["is_official"] and str(x["currency"]).upper() != "USD"]
+        official_usd = [x for x in norm if x["is_official"] and str(x["currency"]).upper() == "USD"]
+        # DeepSeek 英文站（deepseek_us, USD）也是官方标价，进海外区；其余厂商 USD 行若已化为 CNY 官网则去重
+        for x in official_usd:
+            already_cny = any(
+                y["is_official"] and y["source"] == x["source"] and str(y["currency"]).upper() != "USD"
+                for y in official_cny
+            )
+            if x["source"] == "deepseek_us" or not already_cny:
+                official_rows.append(x)
+        official_rows.extend(official_cny)
 
         # 渠道：非官网。按「结算币种」分区：USD 进海外面板；CNY 进国内面板。
         channels = [x for x in norm if not x["is_official"]]
@@ -655,8 +762,8 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         channel_domestic.extend(d_ch)
         channel_overseas.extend(o_ch)
 
-        # 图表：官网 + 国内渠道
-        chart_rows = [x for x in official if str(x["currency"]).upper() != "USD"] + d_ch
+        # 图表：官网（国内 CNY）+ 国内渠道
+        chart_rows = [x for x in official_cny if str(x["currency"]).upper() != "USD"] + d_ch
         chart_rows = sorted(chart_rows, key=lambda x: (0 if x["is_official"] else 1, _price_key(x)))
         chart[c] = [
             {
@@ -786,28 +893,80 @@ def _attr_num(v: Any) -> str:
     return _esc_attr(v)
 
 
+def _peak_duo(low_val: Any, high_val: Any, fmt_cur: str = "") -> str:
+    """峰谷双价 HTML：高 X / 闲 Y。low/high 均可为 None。
+
+    高峰时段价为主价（官网基准），闲时价为附注。
+    """
+    lo = _fmt_num(low_val)
+    hi = _fmt_num(high_val)
+    cur = f'<span class="px-cur">{_esc(fmt_cur)}</span>' if fmt_cur else ""
+    return (
+        f'<span class="px-val px-peak"><span class="px-peak-hi">高 {hi}</span>'
+        f'<span class="px-peak-sep">/</span>'
+        f'<span class="px-peak-lo">闲 {lo}</span></span>{cur}'
+    )
+
+
 def _price_cells(r: Dict[str, Any], mode: str) -> Tuple[str, str, Any, Any]:
-    """返回 (in_html, out_html, sort_in, sort_out)。mode: cny|usd"""
-    if mode == "usd" or str(r.get("currency") or "").upper() == "USD":
+    """返回 (in_html, out_html, sort_in, sort_out)。mode: cny|usd
+
+    若 row 含 peak_*_low/high 字段（峰谷计费合并行），渲染「闲 X / 高 Y」双价。
+    """
+    is_usd = mode == "usd" or str(r.get("currency") or "").upper() == "USD"
+    has_peak = r.get("peak_input_low") is not None or r.get("peak_input_high") is not None
+    if is_usd:
         cur = _esc(r.get("currency") or "USD")
-        in_html = (
-            f'<span class="px-val">{_fmt_num(r.get("input"))}</span>'
-            f'<span class="px-cur">{cur}</span>'
-            f'<div class="sub-hint js-rmb-hint" data-side="input">'
-            f'约 ¥{_fmt_num(r.get("input_rmb"))}</div>'
-        )
-        out_html = (
-            f'<span class="px-val">{_fmt_num(r.get("output"))}</span>'
-            f'<span class="px-cur">{cur}</span>'
-            f'<div class="sub-hint js-rmb-hint" data-side="output">'
-            f'约 ¥{_fmt_num(r.get("output_rmb"))}</div>'
-        )
+        if has_peak:
+            in_html = (
+                f'{_peak_duo(r.get("peak_input_low"), r.get("peak_input_high"), cur)}'
+                f'<div class="sub-hint js-rmb-hint" data-side="input">'
+                f'约 ¥{_fmt_num(r.get("input_rmb"))}</div>'
+            )
+            out_html = (
+                f'{_peak_duo(r.get("peak_output_low"), r.get("peak_output_high"), cur)}'
+                f'<div class="sub-hint js-rmb-hint" data-side="output">'
+                f'约 ¥{_fmt_num(r.get("output_rmb"))}</div>'
+            )
+        else:
+            in_html = (
+                f'<span class="px-val">{_fmt_num(r.get("input"))}</span>'
+                f'<span class="px-cur">{cur}</span>'
+                f'<div class="sub-hint js-rmb-hint" data-side="input">'
+                f'约 ¥{_fmt_num(r.get("input_rmb"))}</div>'
+            )
+            out_html = (
+                f'<span class="px-val">{_fmt_num(r.get("output"))}</span>'
+                f'<span class="px-cur">{cur}</span>'
+                f'<div class="sub-hint js-rmb-hint" data-side="output">'
+                f'约 ¥{_fmt_num(r.get("output_rmb"))}</div>'
+            )
         return (
             in_html,
             out_html,
             r.get("input") if r.get("input") is not None else "",
             r.get("output") if r.get("output") is not None else "",
         )
+    # CNY mode
+    if has_peak:
+        # CNY 源原币种即 CNY，无 rmb 换算字段，fallback 到原币种 peak 值
+        in_low = r.get("peak_input_rmb_low") if r.get("peak_input_rmb_low") is not None else r.get("peak_input_low")
+        in_high = r.get("peak_input_rmb_high") if r.get("peak_input_rmb_high") is not None else r.get("peak_input_high")
+        out_low = r.get("peak_output_rmb_low") if r.get("peak_output_rmb_low") is not None else r.get("peak_output_low")
+        out_high = r.get("peak_output_rmb_high") if r.get("peak_output_rmb_high") is not None else r.get("peak_output_high")
+        in_html = (
+            f'<span class="js-cny-main px-val" data-side="input">'
+            f'{_peak_duo(in_low, in_high)}'
+            f'</span>'
+        )
+        out_html = (
+            f'<span class="js-cny-main px-val" data-side="output">'
+            f'{_peak_duo(out_low, out_high)}'
+            f'</span>'
+        )
+        sort_in = in_high if in_high is not None else r.get("input_rmb")
+        sort_out = out_high if out_high is not None else r.get("output_rmb")
+        return in_html, out_html, sort_in if sort_in is not None else "", sort_out if sort_out is not None else ""
     return (
         f'<span class="js-cny-main px-val" data-side="input">{_fmt_num(r.get("input_rmb"))}</span>',
         f'<span class="js-cny-main px-val" data-side="output">{_fmt_num(r.get("output_rmb"))}</span>',
@@ -848,6 +1007,9 @@ def _table_row(r: Dict[str, Any], *, kind: str, price_mode: str) -> str:
     cache = _fmt_num(r.get("cache_hit"))
     canon = r.get("canonical") or ""
     sid = r.get("source") or ""
+    cond = r.get("condition")
+    cond_html = f'<span class="tag tag-cond">{_esc(cond)}</span>' if cond else ""
+    src_html = f'<span class="pill">{_esc(src)}</span>{cond_html}'
 
     return f"""
       <tr{cls}
@@ -863,7 +1025,7 @@ def _table_row(r: Dict[str, Any], *, kind: str, price_mode: str) -> str:
           {tags_html}
         </td>
         <td class="c-canon muted" data-sort="{_esc_attr(str(canon).lower())}">{_esc(canon or "—")}</td>
-        <td class="c-source" data-sort="{_esc_attr(src)}"><span class="pill">{_esc(src)}</span></td>
+        <td class="c-source" data-sort="{_esc_attr(src)}">{src_html}</td>
         <td class="num c-price js-price-in" data-sort="{sort_in}">{in_html}</td>
         <td class="num c-price js-price-out" data-sort="{sort_out}">{out_html}</td>
         <td class="num c-cache">{cache}</td>
@@ -982,13 +1144,14 @@ def _official_section(rows: List[Dict[str, Any]], has: bool) -> str:
         empty_text="暂无厂商官网原价数据。",
         table_id="tbl-official",
     )
+    # 官方区说明：国内厂商官网价（含人民币站 + 海外官方站的美元标价）
     return f"""
     <section class="block-card block-official" aria-labelledby="official-title">
       <div class="block-head">
         <div>
           <div class="block-kicker">TOP · OFFICIAL</div>
           <h2 id="official-title" class="block-title">国内厂商官方定价</h2>
-          <p class="block-desc">DeepSeek / 通义千问 / 智谱 GLM / Kimi / MiniMax / 豆包 官方 API 定价明细，作为基准参考；与上方卡片专区同源，此处为完整列表。</p>
+          <p class="block-desc">DeepSeek / 通义千问 / 智谱 GLM / Kimi / MiniMax / 豆包 官方 API 参考价。国内官网以人民币标价；部分厂商同时提供海外官方站（英文站 / Z.ai 等）美元标价，币种不同但均为厂商官方定价，一并列出作为基准。</p>
         </div>
         <span class="block-count">{len(rows)} 条</span>
       </div>
@@ -1155,6 +1318,7 @@ def _mainstream_section(
         all_cards.append(
             f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
             f'data-context="{_esc_attr(ctx_tokens)}" data-source="{_esc_attr(vid)}" '
+            f'data-region="{_esc_attr(region)}" '
             f'data-i="{idx}" style="--i:{idx}" '
             f'tabindex="0" role="button" aria-label="筛选 {_esc(display)}">'
             f'<span class="ms-vendor-stripe" data-vendor="{_esc_attr(vid)}" aria-hidden="true"></span>'
@@ -1174,13 +1338,18 @@ def _mainstream_section(
     unit_note = "$ / Million Tokens" if accent == "overseas" else "元 / 百万 Token"
     date_banner = f'<div class="ms-date-banner">数据更新于 <b>{_esc(uniform_date)}</b> <span class="ms-unit-note">{unit_note}</span></div>' if uniform_date else ""
 
+    desc = (
+        "官方 API 参考价 · 点击卡片可联动下方渠道筛选。证据不足的型号不在此展示。"
+        if accent == "domestic"
+        else "OpenAI / Anthropic / Google / xAI 热门主力官方 API 参考价。仅展示 GPT-5 / GPT-4o / Claude / Gemini 等核心型号，不堆叠 mini / nano / lite 次级款。点击卡片联动海外渠道筛选。"
+    )
     return f"""
     <section class="block-card block-mainstream {accent_class}" data-section="{section_id}-mainstream" aria-labelledby="{section_id}-mainstream-title">
       <div class="block-head">
         <div>
           <div class="block-kicker">{'DOMESTIC · MAINSTREAM' if accent == 'domestic' else 'GLOBAL · MAINSTREAM'}</div>
           <h2 id="{section_id}-mainstream-title" class="block-title">{_esc(title)}</h2>
-          <p class="block-desc">官方 API 参考价 · 点击卡片可联动下方渠道筛选。证据不足的型号不在此展示。</p>
+          <p class="block-desc">{_esc(desc)}</p>
         </div>
         <div class="block-head-right">
           <span class="block-count">{total_models} 款</span>
@@ -1192,43 +1361,8 @@ def _mainstream_section(
 
 
 def _overseas_section(rows: List[Dict[str, Any]], has: bool) -> str:
-    table = _render_table(
-        rows,
-        kind="overseas",
-        price_mode="usd",
-        empty_text="暂无海外主流模型参考价。",
-        table_id="tbl-overseas",
-    )
-    # 顶栏高亮：只强调最主流（含 GPT-4o）
-    highlight = []
-    for r in rows:
-        if r.get("canonical") in {"GPT-5", "GPT-4o", "Claude Sonnet 5", "Gemini 2.5 Pro"}:
-            highlight.append(
-                f'<div class="hot-card" data-source="{_esc_attr(r.get("source"))}">'
-                f'<div class="hot-brand">{_esc(r.get("family") or r.get("source_label"))}</div>'
-                f'<div class="hot-name">{_esc(r.get("model"))}</div>'
-                f'<div class="hot-price"><span>$ {_fmt_num(r.get("input"))}</span><small>输入 / 1M</small></div>'
-                f'<div class="hot-price muted"><span>$ {_fmt_num(r.get("output"))}</span><small>输出 / 1M</small></div>'
-                f'</div>'
-            )
-    families = sorted({r.get("family") or r.get("source_label") for r in rows if r})
-    fam_text = " · ".join(families) if families else "OpenAI · Claude · Gemini"
-    return f"""
-    <section class="block-card block-overseas" aria-labelledby="overseas-title">
-      <div class="block-head">
-        <div>
-          <div class="block-kicker">GLOBAL · HOT ONLY</div>
-          <h2 id="overseas-title" class="block-title">海外厂商官方定价</h2>
-          <p class="block-desc">只展示最热门主力：<strong>GPT-5 / GPT-4o / Claude / Gemini</strong> 官方 API 参考价明细。不堆叠 mini / nano / lite 次级型号。</p>
-        </div>
-        <div class="block-head-right">
-          <span class="block-count">{len(rows)} 条</span>
-          <span class="block-fam">{_esc(fam_text)}</span>
-        </div>
-      </div>
-      {table if has else '<div class="empty-mini">暂无海外主流模型参考价。</div>'}
-      <p class="panel-hint overseas-note">价格为官方公开标准档参考，可能调整；GPT-4o 作为高频主力必须保留展示。</p>
-    </section>"""
+    """海外厂商官方定价表已弃用：海外主力模型在上方「海外主流大模型」卡片专区展示，此处不再重复列表。"""
+    return ""
 
 
 def _channel_section(data: Dict[str, Any]) -> str:
@@ -1246,6 +1380,18 @@ def _channel_section(data: Dict[str, Any]) -> str:
         empty_text="暂无海外渠道报价。",
         table_id="tbl-channel-overseas",
     )
+    # DeepSeek 峰谷定价说明：腾讯云国际站展示空闲/高峰双档合并价
+    has_peak = any(
+        r.get("peak_input_low") is not None or r.get("peak_input_high") is not None
+        for r in (data.get("channel_overseas") or [])
+    )
+    peak_note = ""
+    if has_peak:
+        peak_note = """
+        <div class="peak-note">
+          <strong>DeepSeek 峰谷定价</strong>
+          <span>DeepSeek 官方采用峰谷计费：高峰时段（北京时间 09:00-12:00、14:00-18:00）为全价，空闲时段价格减半。表中「闲 X / 高 Y」双价即对应两档，单行合并展示。</span>
+        </div>"""
     return f"""
     <section class="block-card block-channel" aria-labelledby="channel-title">
       <div class="block-head">
@@ -1264,7 +1410,8 @@ def _channel_section(data: Dict[str, Any]) -> str:
         {domestic}
       </div>
       <div id="panel-overseas" class="market-panel" role="tabpanel" aria-labelledby="tab-overseas" hidden>
-        <p class="panel-hint">仅 USD 报价 · 不与国内合并；旁注人民币约价。</p>
+        <p class="panel-hint">仅 USD 报价 · 不与国内合并；旁注人民币约价。DeepSeek 峰谷价（闲/高双档）单行合并展示。</p>
+        {peak_note}
         {overseas}
       </div>
     </section>"""
@@ -1456,6 +1603,10 @@ tr.js-row.is-hidden{display:none}
 /* 价格单元格三级层次：主数字 / 币种单位 / 折算子提示 */
 .c-price .px-val{font-size:13.5px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2}
 .c-price .px-cur{font-size:10px;color:var(--mute);font-weight:600;margin-left:3px}
+.c-price .px-peak{display:inline-flex;align-items:baseline;gap:4px;font-size:12.5px;font-weight:700}
+.c-price .px-peak-lo{color:var(--mute)}
+.c-price .px-peak-sep{color:var(--mute);font-weight:400;opacity:.5}
+.c-price .px-peak-hi{color:var(--ink);font-weight:800}
 .c-price .sub-hint,.c-price .js-rmb-hint{font-size:10px;color:var(--mute);font-weight:500;margin-top:3px;line-height:1.3}
 .js-cny-main{font-size:13.5px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
 .price-table tbody tr:hover{background:#f8fafb}
@@ -1469,6 +1620,7 @@ tr.js-row.is-hidden{display:none}
 .tag-official{color:var(--primary-deep);background:var(--primary-soft);border-color:rgba(43,174,133,.22)}
 .tag-best{color:var(--green);background:var(--green-soft)}
 .tag-premium{color:var(--red);background:var(--red-soft)}
+.tag-cond{color:var(--ink2);background:var(--canvas);border-color:var(--line);font-size:9px;margin-left:4px}
 .muted{color:var(--mute);font-weight:500}
 .pill{display:inline-block;padding:2px 7px;border-radius:6px;font-size:11px;font-weight:700;background:var(--canvas);color:var(--ink2);border:1px solid var(--line)}
 .sub-hint{font-size:10px;color:var(--mute);font-weight:500;margin-top:2px}
@@ -1558,6 +1710,8 @@ footer .disc{color:var(--mute)}
 .market-panel{padding:0 4px}
 .market-panel[hidden]{display:none}
 .panel-hint{margin:0 0 8px;font-size:11.5px;color:var(--mute);padding:7px 12px;background:var(--canvas);border:1px solid var(--line);border-radius:var(--r-sm);line-height:1.5}
+  .peak-note{margin:0 0 10px;font-size:12px;color:var(--text);padding:9px 13px;background:var(--canvas);border:1px solid var(--line);border-left:3px solid var(--theme-color);border-radius:var(--r-sm);line-height:1.6}
+  .peak-note strong{color:var(--theme-color);font-weight:600;margin-right:6px}
 
 /* 主流模型双专区 */
 .block-mainstream{border-color:#a7d8c4}
@@ -1891,15 +2045,33 @@ const SITE_DATA = __SITE_DATA__;
 
   // FIX 2: Click model card → scroll to channel panel, switch tab, highlight row
   function scrollToChannelPanel(canonical){
-    // Find a matching row in any channel table to know which tab to show
+    // 优先按模型卡片国籍选择面板：国内模型→domestic，海外模型→overseas
+    var card = document.querySelector('.model-pick[data-canonical="' + canonical + '"]');
+    var preferredPanel = card ? (card.getAttribute('data-region') || '') : '';
+    if (preferredPanel !== 'domestic' && preferredPanel !== 'overseas') preferredPanel = '';
+
     var targetRow = null;
     var targetPanel = null;
-    ['domestic','overseas'].forEach(function(market){
-      var panel = document.getElementById('panel-' + market);
-      if (!panel) return;
-      var row = panel.querySelector('tr.js-row[data-canonical="' + canonical + '"]');
-      if (row){ targetRow = row; targetPanel = market; }
-    });
+
+    // Step 1: 若有国籍偏好，先在对应面板找匹配行
+    if (preferredPanel){
+      var panel = document.getElementById('panel-' + preferredPanel);
+      if (panel){
+        var row = panel.querySelector('tr.js-row[data-canonical="' + canonical + '"]');
+        if (row){ targetRow = row; targetPanel = preferredPanel; }
+      }
+    }
+
+    // Step 2: 无偏好或没找到，遍历两个面板兜底
+    if (!targetPanel){
+      ['domestic','overseas'].forEach(function(market){
+        if (market === preferredPanel) return; // 已试过
+        var panel = document.getElementById('panel-' + market);
+        if (!panel) return;
+        var row = panel.querySelector('tr.js-row[data-canonical="' + canonical + '"]');
+        if (row){ targetRow = row; targetPanel = market; }
+      });
+    }
     if (!targetPanel){
       // Fallback: scroll to first channel block
       var block = document.querySelector('.block-channel');
