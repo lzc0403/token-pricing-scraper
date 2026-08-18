@@ -2545,7 +2545,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
         <span><span class="pc-name">火山引擎</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
         <span class="pc-meta">豆包模型计费</span>
       </a>
-      <a class="portal-card" href="https://www.tencentcloud.com/zh/document/product/1300/78937" target="_blank" rel="noopener">
+      <a class="portal-card" href="https://cloud.tencent.com/document/product/1823/130055" target="_blank" rel="noopener">
         <span><span class="pc-name">腾讯云</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
         <span class="pc-meta">TI 平台模型计费</span>
       </a>
