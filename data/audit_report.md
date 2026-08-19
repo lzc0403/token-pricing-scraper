@@ -1,14 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-08-19 14:23:25
+> 生成时间：2026-08-19 17:25:28
 
 ## 一、核对统计
 
-- 门禁状态：**⛔ 阻断（存在 high 级可疑项）**
 - 校验记录总数：**107**
-- 可疑项总数：**70**（high 7 / med 4 / low 59）
-- Tier1 结构性校验可疑：**5**
-- Tier2 源页面核对可疑：**65**
+- 可疑项总数：**69**（high 9 / med 1 / low 59）
+- Tier1 结构性校验可疑：**2**
+- Tier2 源页面核对可疑：**67**
 
 ## 二、核对维度
 
@@ -32,13 +31,12 @@
 | high | T2 | MODEL_NOT_FOUND | aliyun_bailian | GLM-5.3 | 静态源页面未找到模型名「glm-5.3」，疑似幻觉/编造 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到input价数值「0.0826」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Flash | 静态源页面未找到output价数值「0.1652」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「1.32」，疑似解析/幻觉错误 |
-| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「3.96」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到input价数值「1.44」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | DeepSeek V4 Pro | 静态源页面未找到output价数值「2.88」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到input价数值「0.966」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | openrouter | GLM-5.2 | 静态源页面未找到output价数值「3.036」，疑似解析/幻觉错误 |
-| med | T1 | CACHE_SUSPECT | kimi | Kimi K2.6 | 缓存命中价(1.1) 接近输入价(1.1)，异常偏高 |
-| med | T1 | CACHE_SUSPECT | kimi | Kimi K2.7 Code | 缓存命中价(1.3) 接近输入价(1.3)，异常偏高 |
-| med | T1 | CACHE_SUSPECT | kimi | Kimi K3 | 缓存命中价(2.0) 接近输入价(2.0)，异常偏高 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到input价数值「0.5605」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | openrouter | Kimi K2.6 | 静态源页面未找到output价数值「2.36」，疑似解析/幻觉错误 |
 | med | T1 | DUPLICATE | tencent | - | 重复记录 ×2: DeepSeek-V4-Flash |
 | low | T1 | DIVERGE | - | Kimi K3 | 跨源输入价离散 11.0× (最低 2.0 / 最高 21.974)，建议人工核对是否同规格模型 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |

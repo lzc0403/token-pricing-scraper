@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-19 14:23:25
+> 生成时间：2026-08-19 17:25:27
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -26,7 +26,7 @@
 | DeepSeek V4 Pro | deepseek | 9 ¥ | 27 ¥ | 0.3 CNY | CNY | 9 CNY / 27 CNY | 1M |
 | DeepSeek V4 Pro | deepseek_us | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | 1M |
 | DeepSeek V4 Pro | modelmesh | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1000K |
-| DeepSeek V4 Pro | openrouter | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | 1.04858M |
+| DeepSeek V4 Pro | openrouter | 10.08 ¥ | 20.16 ¥ | 0.1215 USD | USD | 1.44 USD / 2.88 USD | 1.04858M |
 | DeepSeek V4 Pro | tencent | 4.62 ¥ | 13.86 ¥ | 0.022 USD | USD | 0.66 USD / 1.98 USD | - |
 | DeepSeek V4 Pro | tencent | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | - |
 | DeepSeek V4 Pro | tencent | 3.045 ¥ | 6.09 ¥ | 0.00363 USD | USD | 0.435 USD / 0.87 USD | - |
@@ -74,7 +74,7 @@
 | Kimi K2.6 | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
 | Kimi K2.6 | kimi | 1.1 ¥ | 27 ¥ | 1.1 CNY | CNY | 1.1 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
-| Kimi K2.6 | openrouter | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
+| Kimi K2.6 | openrouter | 3.9235 ¥ | 16.52 ¥ | 0.0944 USD | USD | 0.5605 USD / 2.36 USD | 262K |
 | Kimi K2.6 | tencent | 6.006 ¥ | 24.962 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
 | Kimi K2.6 | tencent_cn | 6.5 ¥ | 27 ¥ | 1.1 CNY | CNY | 6.5 CNY / 27 CNY | - |
 | Kimi K2.7 Code | aliyun_bailian | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
@@ -134,10 +134,10 @@
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.66 | 1.32 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 1.98 | 3.96 | USD |
-| GLM-5.2 | openrouter | 输入 | 1.19 | 0.966 | USD |
-| GLM-5.2 | openrouter | 输出 | 3.74 | 3.036 | USD |
+| DeepSeek V4 Pro | openrouter | 输入 | 1.32 | 1.44 | USD |
+| DeepSeek V4 Pro | openrouter | 输出 | 3.96 | 2.88 | USD |
+| Kimi K2.6 | openrouter | 输入 | 0.95 | 0.5605 | USD |
+| Kimi K2.6 | openrouter | 输出 | 4 | 2.36 | USD |
 
 ## 三、抓取状态
 

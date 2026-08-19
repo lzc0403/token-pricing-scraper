@@ -318,10 +318,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.003"
+            "base_price": "0.04"
           },
           "origin": {
-            "base_price": "0.003"
+            "base_price": "0.04"
           }
         }
       },
@@ -358,10 +358,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.003"
+            "base_price": "0.04"
           },
           "origin": {
-            "base_price": "0.003"
+            "base_price": "0.04"
           }
         }
       },
@@ -517,10 +517,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.003"
+            "base_price": "0.03"
           },
           "origin": {
-            "base_price": "0.003"
+            "base_price": "0.03"
           }
         }
       },
@@ -557,10 +557,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.003"
+            "base_price": "0.03"
           },
           "origin": {
-            "base_price": "0.003"
+            "base_price": "0.03"
           }
         }
       },
@@ -16915,7 +16915,7 @@
         "uuid": "ms-iyqmvawgoshe",
         "model": "deepseek-ai/DeepSeek-V3.1",
         "type": "Text",
-        "displayName": "DeepSeek-V3.1",
+        "displayName": "DeepSeek V3.1",
         "profile": "Deepseek's latest and most powerful open-source model.",
         "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.1.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
@@ -21461,6 +21461,79 @@
         }
       },
       {
+        "uuid": "ms-uu9sbhm1ea76",
+        "model": "minimax/music-3.0",
+        "type": "Audio",
+        "displayName": "MiniMax Music 3.0",
+        "profile": "MiniMax Music 3.0 is MiniMax's 11.1B-parameter open-weights music model that turns a musical description and optional lyrics into a complete, fully arranged and mixed song of up to five minutes - vocals, instrumentation and production included - in a single generation, with section-tag control over the arrangement and vocal or instrumental output.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-music-3.0.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-music-3.0.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-music-3.0.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-music-3.0.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-music-3.0.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-music-3.0.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "MUSIC",
+          "TEXT-TO-MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.15",
+            "unit": "generation"
+          },
+          "origin": {
+            "base_price": "0.15",
+            "unit": "generation"
+          }
+        }
+      },
+      {
+        "uuid": "ms-dj5jqlegdydy",
+        "model": "minimax/lyrics-generation",
+        "type": "Audio",
+        "displayName": "MiniMax Lyrics Generation",
+        "profile": "MiniMax Lyrics Generation is a dedicated lyric-writing model that turns a one-line theme into a complete, professionally structured set of song lyrics - title, style tags, and sections marked with [Verse]/[Chorus] structure tags - and can also edit, continue, or restructure existing lyrics, with output directly usable as the lyrics input of MiniMax's music models.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-lyrics-generation.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-lyrics-generation.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-lyrics-generation.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-lyrics-generation.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-lyrics-generation.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-lyrics-generation.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.01",
+            "unit": "generation"
+          },
+          "origin": {
+            "base_price": "0.01",
+            "unit": "generation"
+          }
+        }
+      },
+      {
         "uuid": "ms-81d4d0cc2fa3",
         "model": "suno/chirp-v4-5-all",
         "type": "Audio",
@@ -22587,15 +22660,11 @@
         "organization": "MINIMAX",
         "example": "https://static.atlascloud.ai/model/example/minimax-music-2.6.json",
         "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
+        "categories": null,
         "tags": [
-          "TEXT-TO-SPEECH",
+          "TEXT-TO-AUDIO",
           "MUSIC",
-          "TEXT_TO_MUSIC",
-          "AUDIO",
-          "NEW"
+          "AUDIO"
         ],
         "familyUUID": "mf-2er4petbfz1y",
         "familyName": "minimax-m2.1",
