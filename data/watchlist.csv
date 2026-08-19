@@ -3,8 +3,10 @@ aliyun_bailian,deepseek-v3.2,2.0,3.0,0.4,,阿里云自部署,1M tokens,CNY,2.0,3
 aliyun_bailian,glm-4.7,3.0,14.0,0.6,,,1M tokens,CNY,3.0,14.0,GLM-4.7,no
 aliyun_bailian,glm-5.1,6.0,24.0,1.2,,,1M tokens,CNY,6.0,24.0,GLM-5.1,no
 aliyun_bailian,glm-5.2,8.0,28.0,1.6,,,1M tokens,CNY,8.0,28.0,GLM-5.2,no
+aliyun_bailian,glm-5.3,8.0,28.0,1.6,,,1M tokens,CNY,8.0,28.0,GLM-5.3,no
 aliyun_bailian,kimi-k2.6,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
 aliyun_bailian,kimi-k2.7-code,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code,no
+aliyun_bailian,kimi-k3,20.0,100.0,4.0,,,1M tokens,CNY,20.0,100.0,Kimi K3,no
 aliyun_intl,deepseek-v4-flash,0.44,1.32,0.044,,阿里云自部署 | 峰谷计费,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash,no
 aliyun_intl,deepseek-v4-pro,1.32,3.96,0.132,,阿里云自部署 | 峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
 aliyun_intl,glm-5.1,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.1,no
@@ -21,6 +23,7 @@ atlascloud,Doubao Seed 2.1 Turbo,0.45,2.25,0.09,262K,,1M tokens,USD,3.15,15.75,D
 atlascloud,GLM 4.7,0.52,1.85,0.12,202K,,1M tokens,USD,3.64,12.95,GLM-4.7,no
 atlascloud,GLM 5.1,1.26,3.96,0.234,202K,,1M tokens,USD,8.82,27.72,GLM-5.1,no
 atlascloud,GLM 5.2,1.26,3.96,0.234,1.04858M,,1M tokens,USD,8.82,27.72,GLM-5.2,no
+atlascloud,GLM 5.3,1.638,5.148,0.304,1.04858M,,1M tokens,USD,11.466,36.036,GLM-5.3,no
 atlascloud,Kimi K2.6,0.95,4.0,0.16,262K,,1M tokens,USD,6.65,28.0,Kimi K2.6,no
 atlascloud,Kimi K2.7 Code,0.95,4.0,0.16,262K,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
 atlascloud,Kimi K3,3.0,15.0,0.3,1.04858M,,1M tokens,USD,21.0,105.0,Kimi K3,no
@@ -32,6 +35,7 @@ atlascloud,Qwen3.8 Max,2.0,6.0,0.25,1M,,1M tokens,USD,14.0,42.0,Qwen3.8 Max,no
 bigmodel,GLM-4.7,2.0,8.0,,,"输入长度 [0, 32)输出长度 [0, 0.2)",1M tokens,CNY,2.0,8.0,GLM-4.7,yes
 bigmodel,GLM-5.1,6.0,24.0,,,"输入长度 [0, 32)",1M tokens,CNY,6.0,24.0,GLM-5.1,no
 bigmodel,GLM-5.2,8.0,28.0,,,1M,1M tokens,CNY,8.0,28.0,GLM-5.2,no
+bigmodel,GLM-5.3,8.0,28.0,,,1M,1M tokens,CNY,8.0,28.0,GLM-5.3,no
 deepseek,deepseek-v4-flash,3.0,9.0,0.1,1M,峰谷计费,1M tokens,CNY,3.0,9.0,DeepSeek V4 Flash,no
 deepseek,deepseek-v4-pro,9.0,27.0,0.3,1M,峰谷计费,1M tokens,CNY,9.0,27.0,DeepSeek V4 Pro,no
 deepseek_us,deepseek-v4-flash,0.44,1.32,0.014,1M,峰谷计费,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash,no
@@ -47,6 +51,7 @@ modelmesh,Doubao-Seed-2.1-pro,6.0,30.0,,256K,,1M tokens,CNY,6.0,30.0,Doubao Seed
 modelmesh,Doubao-Seed-2.1-turbo,3.0,15.0,,256K,,1M tokens,CNY,3.0,15.0,Doubao Seed 2.1 Turbo,yes
 modelmesh,GLM-5.1,6.0,24.0,,200K,,1M tokens,CNY,6.0,24.0,GLM-5.1,no
 modelmesh,GLM-5.2,8.0,28.0,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.2,no
+modelmesh,GLM-5.3,8.0,28.0,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.3,no
 modelmesh,Kimi K2.6,6.5,27.0,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
 modelmesh,Kimi K2.7 Code,6.5,27.0,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code,no
 modelmesh,Kimi K3,20.0,100.0,,1000K,,1M tokens,CNY,20.0,100.0,Kimi K3,no
@@ -56,8 +61,8 @@ modelmesh,Qwen3.7-Max,6.0,18.0,,1000K,,1M tokens,CNY,6.0,18.0,Qwen3.7 Max,yes
 modelmesh,Qwen3.7-Plus,1.6,6.4,,1000K,,1M tokens,CNY,1.6,6.4,Qwen3.7 Plus,yes
 modelmesh,Qwen3.8-Max,12.0,36.0,,1000K,,1M tokens,CNY,12.0,36.0,Qwen3.8 Max,yes
 openrouter,DeepSeek V4 Flash,0.0826,0.1652,0.01652,1.04858M,,1M tokens,USD,0.5782,1.1564,DeepSeek V4 Flash,yes
-openrouter,DeepSeek V4 Pro,0.66,1.98,0.022,1.04858M,,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,no
-openrouter,GLM 5.2,1.19,3.74,0.221,1.04858M,,1M tokens,USD,8.33,26.18,GLM-5.2,no
+openrouter,DeepSeek V4 Pro,1.32,3.96,0.044,1.04858M,,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
+openrouter,GLM 5.2,0.966,3.036,0.1932,1.04858M,,1M tokens,USD,6.762,21.252,GLM-5.2,yes
 openrouter,Kimi K2.6,0.95,4.0,0.16,262K,,1M tokens,USD,6.65,28.0,Kimi K2.6,no
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,,1M tokens,USD,21.0,105.0,Kimi K3,no
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,,1M tokens,USD,2.1,8.4,MiniMax M3,yes
@@ -72,7 +77,7 @@ tencent,DeepSeek-V4-Pro,0.435,0.87,0.00363,,原厂直供,1M tokens,USD,3.045,6.0
 tencent,DeepSeek-V4-Pro,1.74,3.48,0.145,,腾讯云自建,1M tokens,USD,12.18,24.36,DeepSeek V4 Pro,no
 tencent,GLM-5.1,0.84,3.36,0.182,,0 ≤ 输入长度 ＜ 32k,1M tokens,USD,5.88,23.52,GLM-5.1,yes
 tencent,GLM-5.1,1.12,3.92,0.28,,输入长度 ≥ 32k,1M tokens,USD,7.84,27.44,GLM-5.1,no
-tencent,GLM-5.2,1.12,3.92,0.28,,,1M tokens,USD,7.84,27.44,GLM-5.2,yes
+tencent,GLM-5.2,1.12,3.92,0.28,,,1M tokens,USD,7.84,27.44,GLM-5.2,no
 tencent,GLM-5.3,1.1116,3.8907,0.2779,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,yes
 tencent,kimi-k2.6,0.858,3.566,0.145,,,1M tokens,USD,6.006,24.962,Kimi K2.6,no
 tencent,Kimi K2.7 Code,0.95,4.0,0.19,,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
@@ -100,3 +105,4 @@ volcengine_intl,glm-5.2,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.2,no
 zai,GLM-4.7,0.6,2.2,0.11,,,1M tokens,USD,4.2,15.4,GLM-4.7,no
 zai,GLM-5.1,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.1,no
 zai,GLM-5.2,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.2,no
+zai,GLM-5.3,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.3,no

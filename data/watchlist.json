@@ -61,6 +61,21 @@
   },
   {
     "source": "aliyun_bailian",
+    "model_raw": "glm-5.3",
+    "input": 8.0,
+    "output": 28.0,
+    "cache_hit": 1.6,
+    "context": null,
+    "condition": null,
+    "unit": "1M tokens",
+    "currency": "CNY",
+    "input_rmb": 8.0,
+    "output_rmb": 28.0,
+    "canonical": "GLM-5.3",
+    "is_lowest_input": "no"
+  },
+  {
+    "source": "aliyun_bailian",
     "model_raw": "kimi-k2.6",
     "input": 6.5,
     "output": 27.0,
@@ -87,6 +102,21 @@
     "input_rmb": 6.5,
     "output_rmb": 27.0,
     "canonical": "Kimi K2.7 Code",
+    "is_lowest_input": "no"
+  },
+  {
+    "source": "aliyun_bailian",
+    "model_raw": "kimi-k3",
+    "input": 20.0,
+    "output": 100.0,
+    "cache_hit": 4.0,
+    "context": null,
+    "condition": null,
+    "unit": "1M tokens",
+    "currency": "CNY",
+    "input_rmb": 20.0,
+    "output_rmb": 100.0,
+    "canonical": "Kimi K3",
     "is_lowest_input": "no"
   },
   {
@@ -343,6 +373,21 @@
   },
   {
     "source": "atlascloud",
+    "model_raw": "GLM 5.3",
+    "input": 1.638,
+    "output": 5.148,
+    "cache_hit": 0.304,
+    "context": "1.04858M",
+    "condition": null,
+    "unit": "1M tokens",
+    "currency": "USD",
+    "input_rmb": 11.466,
+    "output_rmb": 36.036,
+    "canonical": "GLM-5.3",
+    "is_lowest_input": "no"
+  },
+  {
+    "source": "atlascloud",
     "model_raw": "Kimi K2.6",
     "input": 0.95,
     "output": 4.0,
@@ -504,6 +549,21 @@
     "input_rmb": 8.0,
     "output_rmb": 28.0,
     "canonical": "GLM-5.2",
+    "is_lowest_input": "no"
+  },
+  {
+    "source": "bigmodel",
+    "model_raw": "GLM-5.3",
+    "input": 8.0,
+    "output": 28.0,
+    "cache_hit": null,
+    "context": null,
+    "condition": "1M",
+    "unit": "1M tokens",
+    "currency": "CNY",
+    "input_rmb": 8.0,
+    "output_rmb": 28.0,
+    "canonical": "GLM-5.3",
     "is_lowest_input": "no"
   },
   {
@@ -757,6 +817,21 @@
   },
   {
     "source": "modelmesh",
+    "model_raw": "GLM-5.3",
+    "input": 8.0,
+    "output": 28.0,
+    "cache_hit": null,
+    "context": "1000K",
+    "condition": null,
+    "unit": "1M tokens",
+    "currency": "CNY",
+    "input_rmb": 8.0,
+    "output_rmb": 28.0,
+    "canonical": "GLM-5.3",
+    "is_lowest_input": "no"
+  },
+  {
+    "source": "modelmesh",
     "model_raw": "Kimi K2.6",
     "input": 6.5,
     "output": 27.0,
@@ -896,38 +971,38 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Pro",
-    "input": 0.66,
-    "output": 1.98,
-    "cache_hit": 0.022,
+    "input": 1.32,
+    "output": 3.96,
+    "cache_hit": 0.044,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4-pro",
-    "openrouter_prompt_per_token": "0.00000066",
-    "openrouter_completion_per_token": "0.00000198",
-    "input_rmb": 4.62,
-    "output_rmb": 13.86,
+    "openrouter_prompt_per_token": "0.00000132",
+    "openrouter_completion_per_token": "0.00000396",
+    "input_rmb": 9.24,
+    "output_rmb": 27.72,
     "canonical": "DeepSeek V4 Pro",
     "is_lowest_input": "no"
   },
   {
     "source": "openrouter",
     "model_raw": "GLM 5.2",
-    "input": 1.19,
-    "output": 3.74,
-    "cache_hit": 0.221,
+    "input": 0.966,
+    "output": 3.036,
+    "cache_hit": 0.1932,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.2",
-    "openrouter_prompt_per_token": "0.00000119",
-    "openrouter_completion_per_token": "0.00000374",
-    "input_rmb": 8.33,
-    "output_rmb": 26.18,
+    "openrouter_prompt_per_token": "0.000000966",
+    "openrouter_completion_per_token": "0.000003036",
+    "input_rmb": 6.762,
+    "output_rmb": 21.252,
     "canonical": "GLM-5.2",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
@@ -1161,7 +1236,7 @@
     "input_rmb": 7.84,
     "output_rmb": 27.44,
     "canonical": "GLM-5.2",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
@@ -1566,6 +1641,21 @@
     "input_rmb": 9.8,
     "output_rmb": 30.8,
     "canonical": "GLM-5.2",
+    "is_lowest_input": "no"
+  },
+  {
+    "source": "zai",
+    "model_raw": "GLM-5.3",
+    "input": 1.4,
+    "output": 4.4,
+    "cache_hit": 0.26,
+    "context": null,
+    "condition": null,
+    "unit": "1M tokens",
+    "currency": "USD",
+    "input_rmb": 9.8,
+    "output_rmb": 30.8,
+    "canonical": "GLM-5.3",
     "is_lowest_input": "no"
   }
 ]

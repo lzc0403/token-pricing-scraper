@@ -26,12 +26,13 @@ aliyun_bailian,deepseek-v3.1-terminus上下文缓存享有折扣,4.0,12.0,0.8,,�
 aliyun_bailian,deepseek-r1上下文缓存享有折扣,4.0,16.0,0.8,,阿里云自部署,1M tokens,CNY,4.0,16.0,
 aliyun_bailian,deepseek-v3上下文缓存享有折扣,2.0,8.0,0.4,,阿里云自部署,1M tokens,CNY,2.0,8.0,
 aliyun_bailian,deepseek-ocr,0.216,0.216,0.0432,,阿里云自部署,1M tokens,CNY,0.216,0.216,
+aliyun_bailian,kimi-k3,20.0,100.0,4.0,,,1M tokens,CNY,20.0,100.0,Kimi K3
 aliyun_bailian,kimi-k2.7-code,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code
 aliyun_bailian,kimi-k2.6,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,Kimi K2.6
 aliyun_bailian,kimi-k2.5,4.0,21.0,0.8,,,1M tokens,CNY,4.0,21.0,
 aliyun_bailian,kimi-k2-thinking,4.0,16.0,0.8,,,1M tokens,CNY,4.0,16.0,
-aliyun_bailian,kimi-k2.7-code上下文缓存享有折扣,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,
 aliyun_bailian,kimi-k3上下文缓存享有折扣,20.0,100.0,4.0,,,1M tokens,CNY,20.0,100.0,
+aliyun_bailian,kimi-k2.7-code上下文缓存享有折扣,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,
 aliyun_bailian,kimi-k2.7-code-highspeed上下文缓存享有折扣,13.0,54.0,2.6,,,1M tokens,CNY,13.0,54.0,
 aliyun_bailian,kimi-k2.6上下文缓存享有折扣,6.5,27.0,1.3,,,1M tokens,CNY,6.5,27.0,
 aliyun_bailian,kimi-k2.5上下文缓存享有折扣,4.0,21.0,0.8,,,1M tokens,CNY,4.0,21.0,
@@ -43,6 +44,7 @@ aliyun_bailian,glm-4.6,3.0,14.0,0.6,,,1M tokens,CNY,3.0,14.0,
 aliyun_bailian,glm-4.5,3.0,14.0,0.6,,,1M tokens,CNY,3.0,14.0,
 aliyun_bailian,glm-4.5-air,0.8,6.0,0.16,,,1M tokens,CNY,0.8,6.0,
 aliyun_bailian,glm-5.1上下文缓存享有折扣,6.0,24.0,1.2,,,1M tokens,CNY,6.0,24.0,
+aliyun_bailian,glm-5.3,8.0,28.0,1.6,,,1M tokens,CNY,8.0,28.0,GLM-5.3
 aliyun_bailian,minimax-m2.5,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,
 aliyun_bailian,minimax-m2.1,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,
 aliyun_bailian,minimax-m3上下文缓存享有折扣,4.2,16.8,0.84,,,1M tokens,CNY,4.2,16.8,
@@ -130,6 +132,7 @@ tencent_cn,MiniMax-M2.7,2.197,8.79,0.439,,,1M tokens,CNY,2.197,8.79,MiniMax M2.7
 tencent_cn,Qwen3.5-Flash,0.2,2.0,0.02,,,1M tokens,CNY,0.2,2.0,
 tencent_cn,Qwen3.5-Plus,2.936,17.614,0.294,,,1M tokens,CNY,2.936,17.614,
 tencent_cn,MiMo-V2.5-Pro,3.1862,6.3724,0.0264,,,1M tokens,CNY,3.1862,6.3724,
+bigmodel,GLM-5.3,8.0,28.0,,,1M,1M tokens,CNY,8.0,28.0,GLM-5.3
 bigmodel,GLM-5.2,8.0,28.0,,,1M,1M tokens,CNY,8.0,28.0,GLM-5.2
 bigmodel,GLM-5.1,6.0,24.0,,,"输入长度 [0, 32)",1M tokens,CNY,6.0,24.0,GLM-5.1
 bigmodel,输入长度 [32+),28.0,,2.0,,8元,1M tokens,CNY,28.0,,
@@ -144,6 +147,7 @@ bigmodel,GLM-4.5-Air,0.8,2.0,,,"输入长度 [0, 32)输出长度 [0, 0.2)",1M to
 bigmodel,"输入长度 [0, 32)输出长度 [0.2+)",6.0,,0.16,,0.8元,1M tokens,CNY,6.0,,
 bigmodel,"输入长度 [32, 128)",8.0,,0.24,,1.2元,1M tokens,CNY,8.0,,
 bigmodel,GLM-4.7-FlashX,0.5,3.0,,,200K,1M tokens,CNY,0.5,3.0,
+zai,GLM-5.3,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.3
 zai,GLM-5.2,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.2
 zai,GLM-5.1,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.1
 zai,GLM-5,1.0,3.2,0.2,,,1M tokens,USD,7.0,22.4,
@@ -172,6 +176,7 @@ kimi,kimi-k2.7-code-highspeed,2.6,54.0,2.6,"262,144 tokens",,1M tokens,CNY,2.6,5
 modelmesh,DeepSeek-V4-Pro-0813,3.0,6.0,,1000K,,1M tokens,CNY,3.0,6.0,
 modelmesh,DeepSeek-V4-Pro,3.0,6.0,,1000K,,1M tokens,CNY,3.0,6.0,DeepSeek V4 Pro
 modelmesh,DeepSeek-V4-Flash-0731,1.0,2.0,,1000K,,1M tokens,CNY,1.0,2.0,
+modelmesh,GLM-5.3,8.0,28.0,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.3
 modelmesh,Qwen3.8 27B,3.15,22.4,,1000K,,1M tokens,CNY,3.15,22.4,
 modelmesh,Qwen3.7-Flash,0.2,0.8,,1000K,,1M tokens,CNY,0.2,0.8,
 modelmesh,Qwen3.5-4B,0.0,0.0,,256K,,1M tokens,CNY,0.0,0.0,
@@ -232,7 +237,6 @@ modelmesh,MiniMax M2.5,2.1,8.4,,200K,,1M tokens,CNY,2.1,8.4,
 modelmesh,Claude Opus 4.6,35.0,175.0,,1000K,,1M tokens,CNY,35.0,175.0,
 modelmesh,Kimi K2.5,4.0,21.0,,256K,,1M tokens,CNY,4.0,21.0,
 modelmesh,Qwen3-Max-2026-01-23,2.5,10.0,,256K,,1M tokens,CNY,2.5,10.0,
-modelmesh,GPT 5.2 Codex,12.25,98.0,,400K,,1M tokens,CNY,12.25,98.0,
 openrouter,GPT-4o,2.5,10.0,1.25,128K,,1M tokens,USD,17.5,70.0,
 openrouter,GPT-5,1.25,10.0,0.125,400K,,1M tokens,USD,8.75,70.0,
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,1M,,1M tokens,USD,14.0,70.0,
@@ -242,7 +246,7 @@ openrouter,Gemini 2.5 Pro,1.25,10.0,0.125,1.04858M,,1M tokens,USD,8.75,70.0,
 openrouter,Gemini 2.5 Flash,0.3,2.5,0.03,1.04858M,,1M tokens,USD,2.1,17.5,
 openrouter,Gemini 3.7 Flash,0.375,1.875,0.0375,1.04858M,,1M tokens,USD,2.625,13.125,
 openrouter,Grok 4.6,2.0,6.0,0.5,500K,,1M tokens,USD,14.0,42.0,
-openrouter,DeepSeek V4 Pro,0.66,1.98,0.022,1.04858M,,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro
+openrouter,DeepSeek V4 Pro,1.32,3.96,0.044,1.04858M,,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro
 openrouter,DeepSeek V4 Flash,0.0826,0.1652,0.01652,1.04858M,,1M tokens,USD,0.5782,1.1564,DeepSeek V4 Flash
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,,1M tokens,USD,2.1,8.4,MiniMax M3
 openrouter,Kimi K2.6,0.95,4.0,0.16,262K,,1M tokens,USD,6.65,28.0,Kimi K2.6
@@ -251,13 +255,13 @@ openrouter,DeepSeek V4 Flash 0731,0.14,0.28,0.028,1.31072M,,1M tokens,USD,0.98,1
 openrouter,Hy3,0.132,0.528,0.033,262K,,1M tokens,USD,0.924,3.696,
 openrouter,GPT-5.6 Luna,0.2,1.2,0.02,1.05M,,1M tokens,USD,1.4,8.4,
 openrouter,MiMo-V2.5,0.14,0.28,0.0028,1.05M,,1M tokens,USD,0.98,1.96,
-openrouter,GLM 5.2,1.19,3.74,0.221,1.04858M,,1M tokens,USD,8.33,26.18,GLM-5.2
+openrouter,GLM 5.2,0.966,3.036,0.1932,1.04858M,,1M tokens,USD,6.762,21.252,GLM-5.2
 openrouter,Gemini 3.6 Flash,0.75,3.75,0.075,1.04858M,,1M tokens,USD,5.25,26.25,
+openrouter,DeepSeek V4 Pro 0813,1.32,3.96,0.044,1.04858M,,1M tokens,USD,9.24,27.72,
 openrouter,GPT-5.6 Terra,2.0,12.0,0.2,1.05M,,1M tokens,USD,14.0,84.0,
+openrouter,GPT-5.6 Sol,2.5,15.0,0.25,1.05M,,1M tokens,USD,17.5,105.0,
 openrouter,Step 3.7 Flash,0.2,1.15,0.04,262K,,1M tokens,USD,1.4,8.05,
 openrouter,Gemini 3 Flash Preview,0.5,3.0,0.05,1.04858M,,1M tokens,USD,3.5,21.0,
-openrouter,DeepSeek V4 Pro 0813,0.66,1.98,0.022,1.04858M,,1M tokens,USD,4.62,13.86,
-openrouter,GPT-5.6 Sol,2.5,15.0,0.25,1.05M,,1M tokens,USD,17.5,105.0,
 openrouter,Gemini 2.5 Flash Lite,0.1,0.4,0.01,1.04858M,,1M tokens,USD,0.7,2.8,
 atlascloud,Grok 4.6,2.0,6.0,0.5,500K,,1M tokens,USD,14.0,42.0,
 atlascloud,DeepSeek V4 Flash 0731,0.14,0.28,0.028,1.04858M,,1M tokens,USD,0.98,1.96,
@@ -269,6 +273,7 @@ atlascloud,KAT Coder Air V2.5,0.15,0.6,0.03,262K,,1M tokens,USD,1.05,4.2,
 atlascloud,Doubao Seed Character,0.2,0.8,0.04,131K,,1M tokens,USD,1.4,5.6,
 atlascloud,Doubao Seed 2.1 Turbo,0.45,2.25,0.09,262K,,1M tokens,USD,3.15,15.75,Doubao Seed 2.1 Turbo
 atlascloud,Doubao Seed 2.1 Pro,0.9,4.5,0.18,262K,,1M tokens,USD,6.3,31.5,Doubao Seed 2.1 Pro
+atlascloud,GLM 5.3,1.638,5.148,0.304,1.04858M,,1M tokens,USD,11.466,36.036,GLM-5.3
 atlascloud,GLM 5.2,1.26,3.96,0.234,1.04858M,,1M tokens,USD,8.82,27.72,GLM-5.2
 atlascloud,Kimi K2.7 Code,0.95,4.0,0.16,262K,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code
 atlascloud,MiniMax M3,0.3,1.2,0.06,524K,,1M tokens,USD,2.1,8.4,MiniMax M3

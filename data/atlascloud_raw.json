@@ -206,6 +206,166 @@
         }
       },
       {
+        "uuid": "ms-grokimg20t2i",
+        "model": "xai/grok-imagine-image-2.0/text-to-image",
+        "type": "Image",
+        "displayName": "Grok Imagine Image 2.0 Text-to-Image",
+        "profile": "xAI Grok Imagine Image 2.0 generates polished visuals from natural-language prompts at 1K or 2K resolution, with 14 aspect ratios and selectable low/medium quality tiers.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-image-2.0-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-image-2.0-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-image-2.0-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-image-2.0-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-image-2.0-text-to-image.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-image-2.0-text-to-image.json",
+        "priority": 90042,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.04"
+          }
+        }
+      },
+      {
+        "uuid": "ms-grokimg20edit",
+        "model": "xai/grok-imagine-image-2.0/edit",
+        "type": "Image",
+        "displayName": "Grok Imagine Image 2.0 Edit",
+        "profile": "xAI Grok Imagine Image 2.0 edits up to three reference images with natural-language instructions at 1K or 2K resolution, with selectable low/medium quality tiers.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-image-2.0-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-image-2.0-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-image-2.0-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-image-2.0-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-image-2.0-edit.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-image-2.0-edit.json",
+        "priority": 90042,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.04"
+          }
+        }
+      },
+      {
+        "uuid": "ms-f6f13ad1b76b",
+        "model": "qwen-image-3.0-pro/text-to-image",
+        "type": "Image",
+        "displayName": "Qwen Image 3.0 Pro Text-to-Image",
+        "profile": "Generates images from a text prompt at resolutions up to 2048×2048, with automatic prompt rewriting and prompt-guided resolution selection, building on Qwen strength in complex text rendering and precise prompt adherence",
+        "logo": "https://static.atlascloud.ai/uploads/models/937ed25f-9d90-4cb0-b682-a2ff8716f9d1.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
+        "background": "https://static.atlascloud.ai/model/background/qwen-image-3.0-pro-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/qwen-image-3.0-pro-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/qwen-image-3.0-pro-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/qwen-image-3.0-pro-text-to-image.md",
+        "organization": "QWEN",
+        "example": "https://static.atlascloud.ai/model/example/qwen-image-3.0-pro-text-to-image.json",
+        "priority": 90041,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ce5n45fejp7",
+        "familyName": "qwen-image",
+        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.003"
+          },
+          "origin": {
+            "base_price": "0.003"
+          }
+        }
+      },
+      {
+        "uuid": "ms-80e59090f559",
+        "model": "qwen-image-3.0-pro/edit",
+        "type": "Image",
+        "displayName": "Qwen Image 3.0 Pro Edit",
+        "profile": "Edits images from one to three reference images and a natural-language instruction, preserving key details such as facial features and identity while applying the requested changes",
+        "logo": "https://static.atlascloud.ai/uploads/models/81c0a53c-f4b8-4ee1-9aa8-7f30aadd6c9b.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
+        "background": "https://static.atlascloud.ai/model/background/qwen-image-3.0-pro-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/qwen-image-3.0-pro-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/qwen-image-3.0-pro-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/qwen-image-3.0-pro-edit.md",
+        "organization": "QWEN",
+        "example": "https://static.atlascloud.ai/model/example/qwen-image-3.0-pro-edit.json",
+        "priority": 90041,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ce5n45fejp7",
+        "familyName": "qwen-image",
+        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.003"
+          },
+          "origin": {
+            "base_price": "0.003"
+          }
+        }
+      },
+      {
         "uuid": "ms-sd5prolayer1",
         "model": "bytedance/seedream-v5.0-pro/layer-decomposition",
         "type": "Image",
@@ -331,13 +491,13 @@
         "displayName": "Qwen Image 3.0 Text-to-Image",
         "profile": "Generates images from a text prompt at resolutions up to 2048×2048, with automatic prompt rewriting and prompt-guided resolution selection, building on Qwen strength in complex text rendering and precise prompt adherence",
         "logo": "https://static.atlascloud.ai/uploads/models/0cf98296-b4ae-4ec2-866a-d044b2f74ed9.webp",
-        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/qwen-image-3.0-text-to-image.png",
         "coverUrl": "https://static.atlascloud.ai/model/cover/qwen-image-3.0-text-to-image.jpg",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/qwen-image-3.0-text-to-image.json",
         "readme": "https://static.atlascloud.ai/model/readme/qwen-image-3.0-text-to-image.md",
-        "organization": "",
+        "organization": "QWEN",
         "example": "https://static.atlascloud.ai/model/example/qwen-image-3.0-text-to-image.json",
         "priority": 90040,
         "categories": [
@@ -357,10 +517,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.04"
+            "base_price": "0.003"
           },
           "origin": {
-            "base_price": "0.04"
+            "base_price": "0.003"
           }
         }
       },
@@ -371,13 +531,13 @@
         "displayName": "Qwen Image 3.0 Edit",
         "profile": "Edits images from one to three reference images and a natural-language instruction, preserving key details such as facial features and identity while applying the requested changes",
         "logo": "https://static.atlascloud.ai/uploads/models/505d0f80-3152-4929-94ab-adc30e21ac33.webp",
-        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
         "background": "https://static.atlascloud.ai/model/background/qwen-image-3.0-edit.png",
         "coverUrl": "https://static.atlascloud.ai/model/cover/qwen-image-3.0-edit.jpg",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/qwen-image-3.0-edit.json",
         "readme": "https://static.atlascloud.ai/model/readme/qwen-image-3.0-edit.md",
-        "organization": "",
+        "organization": "QWEN",
         "example": "https://static.atlascloud.ai/model/example/qwen-image-3.0-edit.json",
         "priority": 90040,
         "categories": [
@@ -397,10 +557,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.04"
+            "base_price": "0.003"
           },
           "origin": {
-            "base_price": "0.04"
+            "base_price": "0.003"
           }
         }
       },
@@ -1860,6 +2020,83 @@
             "base_price": "0.056"
           }
         }
+      },
+      {
+        "uuid": "ms-pdxmg9mn6cmx",
+        "model": "zai-org/glm-5.3",
+        "type": "Text",
+        "displayName": "GLM 5.3",
+        "profile": "Agent-oriented model built for complex reasoning, tool use, and autonomous task execution.",
+        "logo": "https://static.atlascloud.ai/model/logo/zai-org-glm-4.6.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ZHIPUAI.png",
+        "background": "https://static.atlascloud.ai/model/background/zai-org-glm-5.3.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/d1838851-b8af-480f-bc9b-1ee715ab5e5b.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/zai-org-glm-5.3.json",
+        "readme": "https://static.atlascloud.ai/model/readme/zai-org-glm-5.2.md",
+        "organization": "ZHIPUAI",
+        "example": "https://static.atlascloud.ai/model/example/zai-org-glm-4.6.json",
+        "priority": 90025,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 131072,
+        "avgTotalTPS": "34.49",
+        "avgLatency": "0.70",
+        "display_console": false,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "type": "flat",
+            "input_price": "1.638",
+            "output_price": "5.148",
+            "cache_price": "0.304"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "1.82",
+            "output_price": "5.72",
+            "cache_price": "0.338"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "tools",
+          "reasoning",
+          "structured_outputs"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "totalParameters": "744B",
+        "activeParameters": "40B",
+        "architectureType": "Hybrid Transformer with high-sparsity MoE",
+        "knowledgeCutoff": "June 2025"
       },
       {
         "uuid": "ms-hh11t2vjun22",
@@ -17272,86 +17509,6 @@
           "Production environment deployments",
           "Diverse workload handling"
         ]
-      },
-      {
-        "uuid": "ms-grokimg20edit",
-        "model": "xai/grok-imagine-image-2.0/edit",
-        "type": "Image",
-        "displayName": "Grok Imagine Image 2.0 Edit",
-        "profile": "xAI Grok Imagine Image 2.0 edits up to three reference images with natural-language instructions at 1K or 2K resolution, with selectable low/medium quality tiers.",
-        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-image-2.0-edit.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
-        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-image-2.0-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-image-2.0-edit.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-image-2.0-edit.json",
-        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-image-2.0-edit.md",
-        "organization": "XAI",
-        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-image-2.0-edit.json",
-        "priority": 486,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
-        "parentFamilyUUID": "mf-2l7s625nq45i",
-        "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.04"
-          },
-          "origin": {
-            "base_price": "0.04"
-          }
-        }
-      },
-      {
-        "uuid": "ms-grokimg20t2i",
-        "model": "xai/grok-imagine-image-2.0/text-to-image",
-        "type": "Image",
-        "displayName": "Grok Imagine Image 2.0 Text-to-Image",
-        "profile": "xAI Grok Imagine Image 2.0 generates polished visuals from natural-language prompts at 1K or 2K resolution, with 14 aspect ratios and selectable low/medium quality tiers.",
-        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-image-2.0-text-to-image.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
-        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-image-2.0-text-to-image.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-image-2.0-text-to-image.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-image-2.0-text-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-image-2.0-text-to-image.md",
-        "organization": "XAI",
-        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-image-2.0-text-to-image.json",
-        "priority": 485,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
-        "parentFamilyUUID": "mf-2l7s625nq45i",
-        "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.04"
-          },
-          "origin": {
-            "base_price": "0.04"
-          }
-        }
       },
       {
         "uuid": "ms-sr070wadkahb",

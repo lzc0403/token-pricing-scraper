@@ -2506,7 +2506,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     </div>
   </header>
 
-  <div class="layout">
+  <div class="layout is-collapsed">
     {filter_block}
     <main class="container" id="main">
       <div class="sec-head">

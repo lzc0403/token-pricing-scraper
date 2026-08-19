@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "fetched_at": "2026-08-18T12:47:59.720790+00:00",
-  "generated_at": "2026-08-18 20:48:22",
+  "fetched_at": "2026-08-19T06:23:22.629439+00:00",
+  "generated_at": "2026-08-19 14:23:39",
   "stats": {
-    "raw_models": 412,
+    "raw_models": 415,
     "parsed": 26,
     "whitelist": 14,
     "missing_whitelist": 0,
@@ -74,8 +74,8 @@
     {
       "id": "deepseek/deepseek-v4-pro",
       "model": "DeepSeek V4 Pro",
-      "input": 0.66,
-      "output": 1.98
+      "input": 1.32,
+      "output": 3.96
     },
     {
       "id": "deepseek/deepseek-v4-flash",
