@@ -1024,7 +1024,6 @@ def _table_row(r: Dict[str, Any], *, kind: str, price_mode: str) -> str:
           <div class="model">{_esc(model)}</div>
           {tags_html}
         </td>
-        <td class="c-canon muted" data-sort="{_esc_attr(str(canon).lower())}">{_esc(canon or "—")}</td>
         <td class="c-source" data-sort="{_esc_attr(src)}">{src_html}</td>
         <td class="num c-price js-price-in" data-sort="{sort_in}">{in_html}</td>
         <td class="num c-price js-price-out" data-sort="{sort_out}">{out_html}</td>
@@ -1051,13 +1050,12 @@ def _render_table(
     <div class="table-wrap" id="{_esc_attr(table_id)}">
       <table class="price-table">
         <colgroup>
-          <col class="w-model"><col class="w-canon"><col class="w-source">
+          <col class="w-model"><col class="w-source">
           <col class="w-num"><col class="w-num"><col class="w-num"><col class="w-ctx"><col class="w-curr">
         </colgroup>
         <thead>
           <tr>
             <th class="sortable" data-key="model">模型</th>
-            <th class="sortable" data-key="canon">分组</th>
             <th class="sortable" data-key="source">来源</th>
             <th class="sortable num" data-key="input">{in_h}</th>
             <th class="sortable num" data-key="output">{out_h}</th>
@@ -1591,7 +1589,7 @@ tr.js-row.is-hidden{display:none}
 
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 0 4px}
 .price-table{width:100%;border-collapse:collapse;min-width:880px}
-.w-model{width:22%}.w-canon{width:13%}.w-source{width:10%}.w-num{width:12%}.w-ctx{width:12%}.w-curr{width:6%}
+.w-model{width:30%}.w-source{width:12%}.w-num{width:12%}.w-ctx{width:12%}.w-curr{width:6%}
 .price-table th,.price-table td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:12px;text-align:left}
 .price-table th{position:sticky;top:0;z-index:1;background:#f8fafb;color:var(--mute);font-size:11px;font-weight:700;white-space:nowrap}
 .price-table th.sortable{cursor:pointer;user-select:none}
