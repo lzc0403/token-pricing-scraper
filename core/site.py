@@ -439,6 +439,37 @@ def _split_condition(cond: Optional[str]) -> Tuple[Optional[str], Optional[str],
     return peak, source, token
 
 
+# ── 峰谷时段定义 ────────────────────────────────────────────────────────────
+# 统一以 UTC+8（北京时间）为基准时钟。各渠道虽同为 UTC+8，但峰谷「窗口」可能
+# 与 DeepSeek 官方相反（如阿里云国际站：闲时 22:00-08:00，其余忙时），导致同一
+# 时刻两边档位可能错位（08-09/12-14/18-22 错峰时段一方闲、一方忙）。
+# peak/off 用 [[起,止), ...] 的小时区间表达；二者只定义其一，另一为补集。
+PEAK_SCHEDULES = {
+    # DeepSeek 官方（国内/英文站）：高峰 09:00-12:00、14:00-18:00，其余空闲
+    "deepseek_official": {
+        "tz_offset": 8, "tz_label": "北京时间 (UTC+8)",
+        "peak": [[9, 12], [14, 18]], "off": None,
+        "peak_label": "高峰", "off_label": "空闲",
+    },
+    # 阿里云国际站 Model Studio：闲时 22:00-次日08:00，其余忙时（同样 UTC+8）
+    "aliyun_intl": {
+        "tz_offset": 8, "tz_label": "北京时间 (UTC+8)",
+        "peak": None, "off": [[22, 24], [0, 8]],
+        "peak_label": "忙时", "off_label": "空闲",
+    },
+}
+
+# 渠道源 → 其自身峰谷窗口 schedule key（仅当该渠道独立峰谷且窗口与官方不同才标注）
+_CHANNEL_PEAK_SCHED = {
+    "aliyun_intl": "aliyun_intl",
+}
+
+
+def _source_peak_schedule(source: Optional[str]) -> Optional[str]:
+    """返回某渠道源自身使用的峰谷窗口 key；无独立峰谷返回 None。"""
+    return _CHANNEL_PEAK_SCHED.get(source)
+
+
 def _merge_peak_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """合并同一模型+来源的「空闲时段/高峰时段」双行为单行。
 
@@ -751,6 +782,30 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         base_in = min(official_inputs) if official_inputs else None
         norm = [_normalize_row(r, c, min_in, base_in) for r in rows]
 
+        # 峰谷动态比价：提取官方「闲/高」两档基准价 + 渠道「闲/高」两档价，
+        # 供前端按当前北京时间所在时段实时切换溢价基准。
+        ofr = next((x for x in norm if x.get("is_official")), None)
+        official_off_in = base_in
+        official_peak_in = None
+        if ofr is not None:
+            official_off_in = ofr.get("input_rmb") if ofr.get("input_rmb") is not None else base_in
+            official_peak_in = (
+                ofr.get("peak_input_rmb_high")
+                if ofr.get("peak_input_rmb_high") is not None
+                else ofr.get("peak_input_high")
+            )
+        for x in norm:
+            ch_peak = (
+                x.get("peak_input_rmb_high")
+                if x.get("peak_input_rmb_high") is not None
+                else x.get("peak_input_high")
+            )
+            x["official_off_in"] = official_off_in
+            x["official_peak_in"] = official_peak_in
+            x["channel_off_in"] = x.get("input_rmb")
+            x["channel_peak_in"] = ch_peak
+            x["peak_sched"] = _source_peak_schedule(x.get("source"))
+
         # 官方：官网源（保留原计费币种）。CNY 官网 → 国内官方表；USD 官网（如 DeepSeek 英文站）→ 海外官方表。
         official_cny = [x for x in norm if x["is_official"] and str(x["currency"]).upper() != "USD"]
         official_usd = [x for x in norm if x["is_official"] and str(x["currency"]).upper() == "USD"]
@@ -1008,7 +1063,7 @@ def _table_row(r: Dict[str, Any], *, kind: str, price_mode: str) -> str:
     if r.get("is_lowest"):
         tags.append('<span class="tag tag-best">最低</span>')
     if r.get("premium") is not None and kind == "channel" and not r.get("is_lowest"):
-        tags.append(f'<span class="tag tag-premium">+{r["premium"]}%</span>')
+        tags.append(f'<span class="tag tag-premium js-premium" data-static="{r["premium"]}">+{r["premium"]}%</span>')
     tags_html = f'<div class="tags">{"".join(tags)}</div>' if tags else ""
 
     model = r.get("model") or clean_model_name(r.get("model_raw"), r.get("canonical", "—"))
@@ -1022,8 +1077,19 @@ def _table_row(r: Dict[str, Any], *, kind: str, price_mode: str) -> str:
     cond_html = f'<span class="tag tag-cond">{_esc(cond)}</span>' if cond else ""
     src_html = f'<span class="pill">{_esc(src)}</span>{cond_html}'
 
+    # 渠道行注入峰谷比价数据（供前端按当前时段动态切换溢价基准）
+    peak_attrs = ""
+    if kind == "channel":
+        peak_attrs = (
+            f' data-ch-off="{_attr_num(r.get("channel_off_in"))}"'
+            f' data-ch-peak="{_attr_num(r.get("channel_peak_in"))}"'
+            f' data-of-off="{_attr_num(r.get("official_off_in"))}"'
+            f' data-of-peak="{_attr_num(r.get("official_peak_in"))}"'
+            f' data-sched="{_esc_attr(r.get("peak_sched") or "")}"'
+        )
+
     return f"""
-      <tr{cls}
+      <tr{cls}{peak_attrs}
         data-canonical="{_esc_attr(canon)}"
         data-source="{_esc_attr(sid)}"
         data-currency="{_esc_attr(cur)}"
@@ -1394,12 +1460,15 @@ def _channel_section(data: Dict[str, Any]) -> str:
         r.get("peak_input_low") is not None or r.get("peak_input_high") is not None
         for r in (data.get("channel_overseas") or [])
     )
-    peak_note = ""
-    if has_peak:
-        peak_note = """
+    # 峰谷说明：官方与阿里云国际站窗口相反，需标注错峰错位
+    peak_note = """
         <div class="peak-note">
-          <strong>DeepSeek 峰谷定价</strong>
-          <span>DeepSeek 官方采用峰谷计费：高峰时段（北京时间 09:00-12:00、14:00-18:00）为全价，空闲时段价格减半。表中「闲 X / 高 Y」双价即对应两档，单行合并展示。</span>
+          <strong>峰谷计费说明</strong>
+          <span>
+            <b>DeepSeek 官方</b>：高峰 09:00–12:00、14:00–18:00（北京时间 UTC+8）全价，其余空闲减半。
+            <b>阿里云国际站</b>：闲时 22:00–次日 08:00（同为 UTC+8）半价，其余忙时。
+            两者窗口相反，<b>08–09 / 12–14 / 18–22 错峰时段一边闲、一边忙</b>，下方溢价比价会按各自当前时段实时计算，请勿直接横向比「闲/高」两档。
+          </span>
         </div>"""
     return f"""
     <section class="block-card block-channel" aria-labelledby="channel-title">
@@ -1410,6 +1479,7 @@ def _channel_section(data: Dict[str, Any]) -> str:
           <p class="block-desc">各渠道（胜算云、腾讯云等）同类模型报价，样式与字段统一；国内 / 海外分页展示。</p>
         </div>
       </div>
+      <div id="peak-clock" class="peak-clock" aria-live="polite"></div>
       <div class="market-tabs" role="tablist" aria-label="渠道报价市场">
         <button type="button" class="market-tab is-active" role="tab" aria-selected="true" data-market="domestic" id="tab-domestic">国内渠道</button>
         <button type="button" class="market-tab" role="tab" aria-selected="false" data-market="overseas" id="tab-overseas">海外渠道</button>
@@ -1721,6 +1791,18 @@ footer .disc{color:var(--mute)}
 .panel-hint{margin:0 0 8px;font-size:11.5px;color:var(--mute);padding:7px 12px;background:var(--canvas);border:1px solid var(--line);border-radius:var(--r-sm);line-height:1.5}
   .peak-note{margin:0 0 10px;font-size:12px;color:var(--text);padding:9px 13px;background:var(--canvas);border:1px solid var(--line);border-left:3px solid var(--theme-color);border-radius:var(--r-sm);line-height:1.6}
   .peak-note strong{color:var(--theme-color);font-weight:600;margin-right:6px}
+  .peak-note b{color:var(--ink);font-weight:700}
+
+  /* 峰谷动态比价时钟：随当前北京时段显示各方档位 */
+  .peak-clock{display:flex;flex-wrap:wrap;gap:7px 12px;align-items:center;margin:0 0 12px;padding:9px 13px;background:var(--canvas);border:1px solid var(--line);border-left:3px solid var(--ink);border-radius:var(--r-sm);font-size:12.5px;line-height:1.4}
+  .peak-clock .pc-time{font-weight:800;color:var(--ink);letter-spacing:.3px}
+  .peak-clock .pc-pill{display:inline-flex;align-items:center;gap:5px;padding:2px 10px;border-radius:999px;font-weight:700;font-size:12px}
+  .peak-clock .pc-pill.peak{background:rgba(224,49,49,.12);color:#e03131}
+  .peak-clock .pc-pill.off{background:rgba(12,166,120,.15);color:#0ca678}
+  .peak-clock .pc-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+  .peak-clock .pc-sep{color:var(--mute);font-size:11.5px}
+  .tag-premium.is-peak{color:#e03131;background:rgba(224,49,49,.12)}
+  .tag-premium.is-off{color:#0ca678;background:rgba(12,166,120,.15)}
 
 /* 主流模型双专区 */
 .block-mainstream{border-color:#a7d8c4}
@@ -1826,6 +1908,7 @@ tr[data-source="google"] .pill{background:#e8f8f2;border-color:#a7d8c4;color:#1a
 
 _JS = """
 const SITE_DATA = __SITE_DATA__;
+const PEAK = __PEAK_DATA__;
 (function(){
   var state = {
     rate: 7.0,
@@ -2447,6 +2530,99 @@ const SITE_DATA = __SITE_DATA__;
   setRate(7.0);
   if (sel) draw(sel.value);
 })();
+
+/* ===== 峰谷动态比价时钟 ===== */
+(function(){
+  if (typeof PEAK === 'undefined' || !PEAK.schedules) return;
+  var SCHEDS = PEAK.schedules;
+
+  // 当前北京时间（UTC+8），与各方窗口同基准
+  function bjNow(){
+    var n = new Date();
+    var utc = n.getTime() + n.getTimezoneOffset() * 60000;
+    return new Date(utc + 8 * 3600000);
+  }
+  function hourFloat(d){ return d.getHours() + d.getMinutes() / 60; }
+  // 返回 'peak' | 'off'：peak/off 只定义其一，另一为补集
+  function periodOf(sched, h){
+    if (sched.peak){
+      for (var i=0;i<sched.peak.length;i++){ var a=sched.peak[i][0],b=sched.peak[i][1]; if (h>=a && h<b) return 'peak'; }
+      return 'off';
+    }
+    if (sched.off){
+      for (var i=0;i<sched.off.length;i++){ var a=sched.off[i][0],b=sched.off[i][1]; if (h>=a && h<b) return 'off'; }
+      return 'peak';
+    }
+    return 'off';
+  }
+  function presentScheds(){
+    var seen = {'deepseek_official': true};
+    document.querySelectorAll('.js-row[data-sched]').forEach(function(tr){
+      var s = tr.getAttribute('data-sched');
+      if (s) seen[s] = true;
+    });
+    return seen;
+  }
+  function who(k){
+    if (k === 'deepseek_official') return 'DeepSeek 官方';
+    if (k === 'aliyun_intl') return '阿里云国际站';
+    return k;
+  }
+  function recalc(){
+    var bj = bjNow();
+    var hh = ('0' + bj.getHours()).slice(-2);
+    var mm = ('0' + bj.getMinutes()).slice(-2);
+    var h = hourFloat(bj);
+    var ofPer = periodOf(SCHEDS.deepseek_official, h);
+
+    // 顶部时钟：各方当前档位
+    var clock = document.getElementById('peak-clock');
+    if (clock){
+      var html = '<span class="pc-time">🕐 北京时间 ' + hh + ':' + mm + '</span>';
+      html += '<span class="pc-sep">·</span>';
+      var seen = presentScheds();
+      Object.keys(seen).forEach(function(k){
+        var sc = SCHEDS[k]; if (!sc) return;
+        var p = periodOf(sc, h);
+        var isPeak = (p === 'peak');
+        var label = isPeak ? sc.peak_label : sc.off_label;
+        html += '<span class="pc-pill ' + (isPeak ? 'peak' : 'off') + '">' + who(k) + '：' + label + '</span>';
+      });
+      html += '<span class="pc-sep">比价随当前时段实时切换</span>';
+      clock.innerHTML = html;
+    }
+
+    // 溢价单元格：按官方当前档位 + 渠道自身当前档位实时计算
+    document.querySelectorAll('.js-row[data-ch-off]').forEach(function(tr){
+      var chOff = parseFloat(tr.getAttribute('data-ch-off'));
+      var chPeakRaw = tr.getAttribute('data-ch-peak');
+      var chPeak = chPeakRaw ? parseFloat(chPeakRaw) : null;
+      var ofOff = parseFloat(tr.getAttribute('data-of-off'));
+      var ofPeakRaw = tr.getAttribute('data-of-peak');
+      var ofPeak = ofPeakRaw ? parseFloat(ofPeakRaw) : null;
+      var schedKey = tr.getAttribute('data-sched');
+      var chSched = schedKey ? SCHEDS[schedKey] : null;
+      var chPer = chSched ? periodOf(chSched, h) : 'flat';
+
+      var chPrice = (chPer === 'peak' && chPeak != null) ? chPeak : chOff;
+      var ofPrice = (ofPer === 'peak' && ofPeak != null) ? ofPeak : ofOff;
+
+      var tag = tr.querySelector('.js-premium');
+      if (tag && chPrice != null && ofPrice && ofPrice > 0){
+        var prem = (chPrice - ofPrice) / ofPrice * 100;
+        var sign = prem >= 0 ? '+' : '';
+        tag.textContent = sign + prem.toFixed(1) + '%';
+        var chTxt = chPer === 'peak' ? '忙/高' : (chPer === 'off' ? '闲/低' : '平');
+        var ofTxt = ofPer === 'peak' ? '忙/高' : '闲/低';
+        tag.title = '当前比价基准：渠道(' + chTxt + ') vs 官方(' + ofTxt + ')';
+        tag.classList.toggle('is-peak', ofPer === 'peak');
+        tag.classList.toggle('is-off', ofPer === 'off');
+      }
+    });
+  }
+  recalc();
+  setInterval(recalc, 60000);
+})();
 """
 
 
@@ -2489,7 +2665,11 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     chart_block = _chart_section(canons, bool(data.get("chart")))
 
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    js = _JS.replace("__SITE_DATA__", data_json)
+    peak_json = json.dumps(
+        {"schedules": PEAK_SCHEDULES, "channelSched": _CHANNEL_PEAK_SCHED},
+        ensure_ascii=False,
+    ).replace("</", "<\\/")
+    js = _JS.replace("__SITE_DATA__", data_json).replace("__PEAK_DATA__", peak_json)
 
     html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
