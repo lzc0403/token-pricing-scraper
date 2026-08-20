@@ -206,6 +206,91 @@
         }
       },
       {
+        "uuid": "ms-uu9sbhm1ea76",
+        "model": "minimax/music-3.0",
+        "type": "Audio",
+        "displayName": "MiniMax Music 3.0",
+        "profile": "MiniMax Music 3.0 is MiniMax's 11.1B-parameter open-weights music model that turns a musical description and optional lyrics into a complete, fully arranged and mixed song of up to five minutes - vocals, instrumentation and production included - in a single generation, with section-tag control over the arrangement and vocal or instrumental output.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-music-3.0.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-music-3.0.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-music-3.0.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-music-3.0.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-music-3.0.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-music-3.0.json",
+        "priority": 90043,
+        "categories": null,
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "MUSIC",
+          "TEXT-TO-MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2er4petbfz1y",
+        "familyName": "minimax-m2.1",
+        "familyDisplayName": "MiniMax API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.15",
+            "unit": "generation"
+          },
+          "origin": {
+            "base_price": "0.15",
+            "unit": "generation"
+          }
+        }
+      },
+      {
+        "uuid": "ms-dj5jqlegdydy",
+        "model": "minimax/lyrics-generation",
+        "type": "Audio",
+        "displayName": "MiniMax Lyrics Generation",
+        "profile": "MiniMax Lyrics Generation is a dedicated lyric-writing model that turns a one-line theme into a complete, professionally structured set of song lyrics - title, style tags, and sections marked with [Verse]/[Chorus] structure tags - and can also edit, continue, or restructure existing lyrics, with output directly usable as the lyrics input of MiniMax's music models.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-lyrics-generation.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-lyrics-generation.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/9ad25f48-7791-49d0-878b-1da2bdc1720c.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-lyrics-generation.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-lyrics-generation.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-lyrics-generation.json",
+        "priority": 90043,
+        "categories": null,
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2er4petbfz1y",
+        "familyName": "minimax-m2.1",
+        "familyDisplayName": "MiniMax API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.01",
+            "unit": "generation"
+          },
+          "origin": {
+            "base_price": "0.01",
+            "unit": "generation"
+          }
+        }
+      },
+      {
         "uuid": "ms-grokimg20t2i",
         "model": "xai/grok-imagine-image-2.0/text-to-image",
         "type": "Image",
@@ -485,6 +570,80 @@
         "architectureType": "Mixture-of-Experts (MoE)"
       },
       {
+        "uuid": "ms-81d4d0cc2fa3",
+        "model": "suno/chirp-v4-5-all",
+        "type": "Audio",
+        "displayName": "Suno chirp-v4-5-all",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/uploads/models/c5c9b468-265c-48e5-9e8c-6d2342efbc40.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4-5-all.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4-5-all.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4-5-all.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4-5-all.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4-5-all.json",
+        "priority": 90040,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-cbdc9f75b842",
+        "model": "suno/chirp-v4-5-plus",
+        "type": "Audio",
+        "displayName": "Suno chirp-v4-5-plus",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/uploads/models/ad9ea768-5bda-491e-8c0e-de18b7ae19ca.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4-5-plus.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4-5-plus.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4-5-plus.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4-5-plus.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4-5-plus.json",
+        "priority": 90040,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
         "uuid": "ms-63366b946668",
         "model": "qwen-image-3.0/text-to-image",
         "type": "Image",
@@ -561,6 +720,206 @@
           },
           "origin": {
             "base_price": "0.03"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-auk",
+        "model": "suno/chirp-auk",
+        "type": "Audio",
+        "displayName": "Suno chirp-auk",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/uploads/models/3017858a-d580-44e8-a939-ad9c480b1d06.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-auk.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-auk.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-auk.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-auk.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-auk.json",
+        "priority": 90040,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-fenix",
+        "model": "suno/chirp-fenix",
+        "type": "Audio",
+        "displayName": "Suno chirp-fenix",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/uploads/models/c424c094-6944-44e8-ae19-3ecd9fb70bac.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-fenix.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-fenix.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-fenix.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-fenix.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-fenix.json",
+        "priority": 90040,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-v3-5",
+        "model": "suno/chirp-v3-5",
+        "type": "Audio",
+        "displayName": "Suno chirp-v3-5",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/uploads/models/41ed9577-7c8b-45f2-9d5b-dfc92f842320.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v3-5.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v3-5.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v3-5.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v3-5.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v3-5.json",
+        "priority": 90040,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-v4",
+        "model": "suno/chirp-v4",
+        "type": "Audio",
+        "displayName": "Suno chirp-v4",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/uploads/models/c3dbba9f-5ce5-41ef-b2b2-dca92fd89750.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4.json",
+        "priority": 90040,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
+          }
+        }
+      },
+      {
+        "uuid": "ms-geneasy-chirp-v5",
+        "model": "suno/chirp-v5",
+        "type": "Audio",
+        "displayName": "Suno chirp-v5",
+        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
+        "logo": "https://static.atlascloud.ai/uploads/models/bbdca04a-ddb2-442d-8e11-088837d51fa2.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
+        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v5.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v5.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v5.json",
+        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v5.md",
+        "organization": "SUNO",
+        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v5.json",
+        "priority": 90040,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "MUSIC",
+          "TEXT_TO_MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2md5mji8rknl",
+        "familyName": "suno-chirp",
+        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.132"
+          },
+          "origin": {
+            "base_price": "0.132"
           }
         }
       },
@@ -3935,6 +4294,45 @@
           "openai.chat.completions"
         ],
         "architectureType": "Mixture-of-Experts (MoE)"
+      },
+      {
+        "uuid": "ms-minimaxmusic26",
+        "model": "minimax/music-2.6",
+        "type": "Audio",
+        "displayName": "MiniMax Music 2.6",
+        "profile": "MiniMax text-to-music (latest): generate a full vocal or instrumental song from a style prompt plus lyrics with [Verse]/[Chorus] structure tags. Synchronous single-call generation.",
+        "logo": "https://static.atlascloud.ai/uploads/models/c99e8328-1cb8-47f0-9fb6-5ee47202ef4e.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-music-2.6.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-music-2.6.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-music-2.6.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-music-2.6.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-music-2.6.json",
+        "priority": 80040,
+        "categories": null,
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "MUSIC",
+          "AUDIO"
+        ],
+        "familyUUID": "mf-2er4petbfz1y",
+        "familyName": "minimax-m2.1",
+        "familyDisplayName": "MiniMax API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.15"
+          },
+          "origin": {
+            "base_price": "0.15"
+          }
+        }
       },
       {
         "uuid": "ms-a67rve039m3m",
@@ -21461,165 +21859,6 @@
         }
       },
       {
-        "uuid": "ms-uu9sbhm1ea76",
-        "model": "minimax/music-3.0",
-        "type": "Audio",
-        "displayName": "MiniMax Music 3.0",
-        "profile": "MiniMax Music 3.0 is MiniMax's 11.1B-parameter open-weights music model that turns a musical description and optional lyrics into a complete, fully arranged and mixed song of up to five minutes - vocals, instrumentation and production included - in a single generation, with section-tag control over the arrangement and vocal or instrumental output.",
-        "logo": "https://static.atlascloud.ai/model/logo/minimax-music-3.0.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
-        "background": "https://static.atlascloud.ai/model/background/minimax-music-3.0.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-music-3.0.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/minimax-music-3.0.json",
-        "readme": "https://static.atlascloud.ai/model/readme/minimax-music-3.0.md",
-        "organization": "MINIMAX",
-        "example": "https://static.atlascloud.ai/model/example/minimax-music-3.0.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "TEXT-TO-AUDIO",
-          "MUSIC",
-          "TEXT-TO-MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.15",
-            "unit": "generation"
-          },
-          "origin": {
-            "base_price": "0.15",
-            "unit": "generation"
-          }
-        }
-      },
-      {
-        "uuid": "ms-dj5jqlegdydy",
-        "model": "minimax/lyrics-generation",
-        "type": "Audio",
-        "displayName": "MiniMax Lyrics Generation",
-        "profile": "MiniMax Lyrics Generation is a dedicated lyric-writing model that turns a one-line theme into a complete, professionally structured set of song lyrics - title, style tags, and sections marked with [Verse]/[Chorus] structure tags - and can also edit, continue, or restructure existing lyrics, with output directly usable as the lyrics input of MiniMax's music models.",
-        "logo": "https://static.atlascloud.ai/model/logo/minimax-lyrics-generation.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
-        "background": "https://static.atlascloud.ai/model/background/minimax-lyrics-generation.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/9ad25f48-7791-49d0-878b-1da2bdc1720c.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/minimax-lyrics-generation.json",
-        "readme": "https://static.atlascloud.ai/model/readme/minimax-lyrics-generation.md",
-        "organization": "MINIMAX",
-        "example": "https://static.atlascloud.ai/model/example/minimax-lyrics-generation.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "TEXT-TO-AUDIO",
-          "MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.01",
-            "unit": "generation"
-          },
-          "origin": {
-            "base_price": "0.01",
-            "unit": "generation"
-          }
-        }
-      },
-      {
-        "uuid": "ms-81d4d0cc2fa3",
-        "model": "suno/chirp-v4-5-all",
-        "type": "Audio",
-        "displayName": "Suno chirp-v4-5-all",
-        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v4-5-all.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
-        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4-5-all.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4-5-all.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4-5-all.json",
-        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4-5-all.md",
-        "organization": "SUNO",
-        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4-5-all.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
-        "tags": [
-          "TEXT-TO-SPEECH",
-          "MUSIC",
-          "TEXT_TO_MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.132"
-          },
-          "origin": {
-            "base_price": "0.132"
-          }
-        }
-      },
-      {
-        "uuid": "ms-cbdc9f75b842",
-        "model": "suno/chirp-v4-5-plus",
-        "type": "Audio",
-        "displayName": "Suno chirp-v4-5-plus",
-        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v4-5-plus.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
-        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4-5-plus.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4-5-plus.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4-5-plus.json",
-        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4-5-plus.md",
-        "organization": "SUNO",
-        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4-5-plus.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
-        "tags": [
-          "TEXT-TO-SPEECH",
-          "MUSIC",
-          "TEXT_TO_MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.132"
-          },
-          "origin": {
-            "base_price": "0.132"
-          }
-        }
-      },
-      {
         "uuid": "ms-81fdd3523387",
         "model": "black-forest-labs/flux-3/image-to-video",
         "type": "Video",
@@ -22453,245 +22692,6 @@
           },
           "origin": {
             "base_price": "0.025"
-          }
-        }
-      },
-      {
-        "uuid": "ms-geneasy-chirp-auk",
-        "model": "suno/chirp-auk",
-        "type": "Audio",
-        "displayName": "Suno chirp-auk",
-        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-auk.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
-        "background": "https://static.atlascloud.ai/model/background/suno-chirp-auk.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-auk.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-auk.json",
-        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-auk.md",
-        "organization": "SUNO",
-        "example": "https://static.atlascloud.ai/model/example/suno-chirp-auk.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
-        "tags": [
-          "TEXT-TO-SPEECH",
-          "MUSIC",
-          "TEXT_TO_MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2md5mji8rknl",
-        "familyName": "suno-chirp",
-        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.132"
-          },
-          "origin": {
-            "base_price": "0.132"
-          }
-        }
-      },
-      {
-        "uuid": "ms-geneasy-chirp-fenix",
-        "model": "suno/chirp-fenix",
-        "type": "Audio",
-        "displayName": "Suno chirp-fenix",
-        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-fenix.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
-        "background": "https://static.atlascloud.ai/model/background/suno-chirp-fenix.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-fenix.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-fenix.json",
-        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-fenix.md",
-        "organization": "SUNO",
-        "example": "https://static.atlascloud.ai/model/example/suno-chirp-fenix.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
-        "tags": [
-          "TEXT-TO-SPEECH",
-          "MUSIC",
-          "TEXT_TO_MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2md5mji8rknl",
-        "familyName": "suno-chirp",
-        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.132"
-          },
-          "origin": {
-            "base_price": "0.132"
-          }
-        }
-      },
-      {
-        "uuid": "ms-geneasy-chirp-v3-5",
-        "model": "suno/chirp-v3-5",
-        "type": "Audio",
-        "displayName": "Suno chirp-v3-5",
-        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v3-5.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
-        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v3-5.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v3-5.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v3-5.json",
-        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v3-5.md",
-        "organization": "SUNO",
-        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v3-5.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
-        "tags": [
-          "TEXT-TO-SPEECH",
-          "MUSIC",
-          "TEXT_TO_MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2md5mji8rknl",
-        "familyName": "suno-chirp",
-        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.132"
-          },
-          "origin": {
-            "base_price": "0.132"
-          }
-        }
-      },
-      {
-        "uuid": "ms-geneasy-chirp-v4",
-        "model": "suno/chirp-v4",
-        "type": "Audio",
-        "displayName": "Suno chirp-v4",
-        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v4.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
-        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v4.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v4.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v4.json",
-        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v4.md",
-        "organization": "SUNO",
-        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v4.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
-        "tags": [
-          "TEXT-TO-SPEECH",
-          "MUSIC",
-          "TEXT_TO_MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2md5mji8rknl",
-        "familyName": "suno-chirp",
-        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.132"
-          },
-          "origin": {
-            "base_price": "0.132"
-          }
-        }
-      },
-      {
-        "uuid": "ms-geneasy-chirp-v5",
-        "model": "suno/chirp-v5",
-        "type": "Audio",
-        "displayName": "Suno chirp-v5",
-        "profile": "Suno text-to-music via APIMart: inspiration mode (custom=false) turns a description into a song; custom mode (custom=true) uses your own lyrics. Async; returns 2 tracks per generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/suno-chirp-v5.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/SUNO.png",
-        "background": "https://static.atlascloud.ai/model/background/suno-chirp-v5.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/suno-chirp-v5.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/suno-chirp-v5.json",
-        "readme": "https://static.atlascloud.ai/model/readme/suno-chirp-v5.md",
-        "organization": "SUNO",
-        "example": "https://static.atlascloud.ai/model/example/suno-chirp-v5.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
-        "tags": [
-          "TEXT-TO-SPEECH",
-          "MUSIC",
-          "TEXT_TO_MUSIC",
-          "AUDIO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2md5mji8rknl",
-        "familyName": "suno-chirp",
-        "familyDisplayName": "Suno Chirp API for Full Songs with Vocals",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.132"
-          },
-          "origin": {
-            "base_price": "0.132"
-          }
-        }
-      },
-      {
-        "uuid": "ms-minimaxmusic26",
-        "model": "minimax/music-2.6",
-        "type": "Audio",
-        "displayName": "MiniMax Music 2.6",
-        "profile": "MiniMax text-to-music (latest): generate a full vocal or instrumental song from a style prompt plus lyrics with [Verse]/[Chorus] structure tags. Synchronous single-call generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/minimax-music-2.6.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
-        "background": "https://static.atlascloud.ai/model/background/minimax-music-2.6.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-music-2.6.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/minimax-music-2.6.json",
-        "readme": "https://static.atlascloud.ai/model/readme/minimax-music-2.6.md",
-        "organization": "MINIMAX",
-        "example": "https://static.atlascloud.ai/model/example/minimax-music-2.6.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "TEXT-TO-AUDIO",
-          "MUSIC",
-          "AUDIO"
-        ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.15"
-          },
-          "origin": {
-            "base_price": "0.15"
           }
         }
       },
