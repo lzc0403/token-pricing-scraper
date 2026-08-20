@@ -83,6 +83,79 @@
         ]
       },
       {
+        "uuid": "ms-snej5el2y8yw",
+        "model": "deepseek-ai/deepseek-v4-pro-0813",
+        "type": "Text",
+        "displayName": "DeepSeek V4 Pro 0813",
+        "profile": "DeepSeek V4 Pro is a state-of-the-art large language model combining efficient sparse attention, strong reasoning, and integrated agent capabilities for robust long-context understanding and versatile AI applications.",
+        "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.2-exp.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
+        "background": "https://static.atlascloud.ai/model/background/deepseek-ai-deepseek-v4-pro-0813.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/1814eb73-b21a-4830-9191-4efe453e2f5a.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/deepseek-ai-deepseek-v4-pro-0813.json",
+        "readme": "https://static.atlascloud.ai/model/readme/deepseek-ai-deepseek-v3.2-exp.md",
+        "organization": "DEEPSEEK",
+        "example": "https://static.atlascloud.ai/model/example/deepseek-ai-deepseek-v3.2-exp.json",
+        "priority": 188889,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 393216,
+        "avgTotalTPS": "22.56",
+        "avgLatency": "0.26",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "1.32",
+            "output_price": "3.96",
+            "cache_price": "0.132"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "1.32",
+            "output_price": "3.96",
+            "cache_price": "0.132"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "tools",
+          "structured_outputs"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "architectureType": "Mixture-of-Experts (MoE)"
+      },
+      {
         "uuid": "ms-5eed25000003",
         "model": "bytedance/seedance-2.5/reference-to-video",
         "type": "Video",
@@ -4022,79 +4095,6 @@
           "Capability exploration tasks",
           "Release preparation activities"
         ]
-      },
-      {
-        "uuid": "ms-snej5el2y8yw",
-        "model": "deepseek-ai/deepseek-v4-pro-0813",
-        "type": "Text",
-        "displayName": "DeepSeek V4 Pro 0813",
-        "profile": "DeepSeek V4 Pro is a state-of-the-art large language model combining efficient sparse attention, strong reasoning, and integrated agent capabilities for robust long-context understanding and versatile AI applications.",
-        "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.2-exp.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
-        "background": "https://static.atlascloud.ai/model/background/deepseek-ai-deepseek-v4-pro-0813.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/1814eb73-b21a-4830-9191-4efe453e2f5a.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/deepseek-ai-deepseek-v4-pro-0813.json",
-        "readme": "https://static.atlascloud.ai/model/readme/deepseek-ai-deepseek-v3.2-exp.md",
-        "organization": "DEEPSEEK",
-        "example": "https://static.atlascloud.ai/model/example/deepseek-ai-deepseek-v3.2-exp.json",
-        "priority": 88889,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 1048576,
-        "maxCompletionTokens": 393216,
-        "avgTotalTPS": "22.56",
-        "avgLatency": "0.26",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.32",
-            "output_price": "3.96",
-            "cache_price": "0.132"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.32",
-            "output_price": "3.96",
-            "cache_price": "0.132"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_sampling_parameters": [
-          "temperature",
-          "top_p",
-          "top_k",
-          "min_p",
-          "frequency_penalty",
-          "presence_penalty",
-          "repetition_penalty",
-          "stop",
-          "seed",
-          "max_tokens",
-          "logit_bias"
-        ],
-        "supported_features": [
-          "json_mode",
-          "tools",
-          "structured_outputs"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "architectureType": "Mixture-of-Experts (MoE)"
       },
       {
         "uuid": "ms-ualixbkz3osd",

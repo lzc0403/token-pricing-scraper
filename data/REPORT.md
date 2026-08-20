@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-20 09:54:48
+> 生成时间：2026-08-20 17:20:55
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -14,13 +14,13 @@
 | DeepSeek V4 Flash | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | 1.04858M |
 | DeepSeek V4 Flash | deepseek | 3 ¥ | 9 ¥ | 0.1 CNY | CNY | 3 CNY / 9 CNY | 1M |
 | DeepSeek V4 Flash | deepseek_us | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | 1M |
-| DeepSeek V4 Flash | openrouter | 0.620242 ¥ | 1.24048 ¥ | 0.017721 USD | USD | 0.088606 USD / 0.177212 USD | 1.04858M |
+| DeepSeek V4 Flash | openrouter | 0.5684 ¥ | 1.1368 ¥ | 0.01624 USD | USD | 0.0812 USD / 0.1624 USD | 1.04858M |
 | DeepSeek V4 Flash | tencent | 1.54 ¥ | 4.62 ¥ | 0.007 USD | USD | 0.22 USD / 0.66 USD | - |
 | DeepSeek V4 Flash | tencent | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | - |
 | DeepSeek V4 Flash | tencent | 0.98 ¥ | 1.96 ¥ | 0.0028 USD | USD | 0.14 USD / 0.28 USD | - |
 | DeepSeek V4 Flash | tencent | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
 | DeepSeek V4 Flash | tencent_cn | 1 ¥ | 2 ¥ | 0.2 CNY | CNY | 1 CNY / 2 CNY | - |
-| DeepSeek V4 Flash | volcengine_intl | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
+| DeepSeek V4 Flash | volcengine_intl | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | - |
 | DeepSeek V4 Pro | aliyun_intl | 9.24 ¥ | 27.72 ¥ | 0.132 USD | USD | 1.32 USD / 3.96 USD | - |
 | DeepSeek V4 Pro | atlascloud | 11.76 ¥ | 23.66 ¥ | 0.13 USD | USD | 1.68 USD / 3.38 USD | 1.04858M |
 | DeepSeek V4 Pro | deepseek | 9 ¥ | 27 ¥ | 0.3 CNY | CNY | 9 CNY / 27 CNY | 1M |
@@ -74,7 +74,7 @@
 | Kimi K2.6 | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
 | Kimi K2.6 | kimi | 6.5 ¥ | 27 ¥ | 1.1 CNY | CNY | 6.5 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
-| Kimi K2.6 | openrouter | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
+| Kimi K2.6 | openrouter | 3.9235 ¥ | 16.52 ¥ | 0.0944 USD | USD | 0.5605 USD / 2.36 USD | 262K |
 | Kimi K2.6 | tencent | 6.006 ¥ | 24.962 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
 | Kimi K2.6 | tencent_cn | 6.5 ¥ | 27 ¥ | 1.1 CNY | CNY | 6.5 CNY / 27 CNY | - |
 | Kimi K2.7 Code | aliyun_bailian | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
@@ -117,6 +117,8 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
+| DeepSeek V4 Flash | volcengine_intl | 输入 | 0.14 | 0.44 | USD |
+| DeepSeek V4 Flash | volcengine_intl | 输出 | 0.28 | 1.32 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.22 | USD |
 | DeepSeek V4 Flash | tencent | 输出 | 0.28 | 0.66 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.44 | USD |
@@ -133,6 +135,10 @@
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.088606 | 0.0812 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.177212 | 0.1624 | USD |
+| Kimi K2.6 | openrouter | 输入 | 0.95 | 0.5605 | USD |
+| Kimi K2.6 | openrouter | 输出 | 4 | 2.36 | USD |
 
 ## 三、抓取状态
 

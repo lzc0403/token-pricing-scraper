@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "fetched_at": "2026-08-20T09:54:47.276006+00:00",
-  "generated_at": "2026-08-20 09:55:03",
+  "fetched_at": "2026-08-20T17:20:55.294847+00:00",
+  "generated_at": "2026-08-20 17:21:16",
   "stats": {
-    "raw_models": 414,
+    "raw_models": 417,
     "parsed": 27,
     "whitelist": 15,
     "missing_whitelist": 0,
@@ -86,8 +86,8 @@
     {
       "id": "deepseek/deepseek-v4-flash",
       "model": "DeepSeek V4 Flash",
-      "input": 0.088606,
-      "output": 0.177212
+      "input": 0.0812,
+      "output": 0.1624
     },
     {
       "id": "minimax/minimax-m3",
@@ -98,8 +98,8 @@
     {
       "id": "moonshotai/kimi-k2.6",
       "model": "Kimi K2.6",
-      "input": 0.95,
-      "output": 4.0
+      "input": 0.5605,
+      "output": 2.36
     },
     {
       "id": "moonshotai/kimi-k3",

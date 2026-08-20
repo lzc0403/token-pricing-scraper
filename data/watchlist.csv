@@ -59,10 +59,10 @@ modelmesh,MiniMax M3,2.1,8.4,,1000K,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
 modelmesh,Qwen3.7-Max,6.0,18.0,,1000K,,1M tokens,CNY,6.0,18.0,Qwen3.7 Max,yes
 modelmesh,Qwen3.7-Plus,1.6,6.4,,1000K,,1M tokens,CNY,1.6,6.4,Qwen3.7 Plus,yes
 modelmesh,Qwen3.8-Max,12.0,36.0,,1000K,,1M tokens,CNY,12.0,36.0,Qwen3.8 Max,yes
-openrouter,DeepSeek V4 Flash,0.088606,0.177212,0.017721,1.04858M,,1M tokens,USD,0.620242,1.240484,DeepSeek V4 Flash,yes
+openrouter,DeepSeek V4 Flash,0.0812,0.1624,0.01624,1.04858M,,1M tokens,USD,0.5684,1.1368,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,1.6,3.2,0.135,1.04858M,,1M tokens,USD,11.2,22.4,DeepSeek V4 Pro,no
 openrouter,GLM 5.2,0.966,3.036,0.1932,1.04858M,,1M tokens,USD,6.762,21.252,GLM-5.2,yes
-openrouter,Kimi K2.6,0.95,4.0,0.16,262K,,1M tokens,USD,6.65,28.0,Kimi K2.6,no
+openrouter,Kimi K2.6,0.5605,2.36,0.0944,262K,,1M tokens,USD,3.9235,16.52,Kimi K2.6,yes
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,,1M tokens,USD,21.0,105.0,Kimi K3,no
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,,1M tokens,USD,2.1,8.4,MiniMax M3,yes
 tencent,Deepseek-v3.2,0.28,0.42,0.056,,,1M tokens,USD,1.96,2.94,DeepSeek V3.2,no
@@ -78,7 +78,7 @@ tencent,GLM-5.1,0.84,3.36,0.182,,0 ≤ 输入长度 ＜ 32k,1M tokens,USD,5.88,2
 tencent,GLM-5.1,1.12,3.92,0.28,,输入长度 ≥ 32k,1M tokens,USD,7.84,27.44,GLM-5.1,no
 tencent,GLM-5.2,1.12,3.92,0.28,,,1M tokens,USD,7.84,27.44,GLM-5.2,no
 tencent,GLM-5.3,1.1116,3.8907,0.2779,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,yes
-tencent,kimi-k2.6,0.858,3.566,0.145,,,1M tokens,USD,6.006,24.962,Kimi K2.6,yes
+tencent,kimi-k2.6,0.858,3.566,0.145,,,1M tokens,USD,6.006,24.962,Kimi K2.6,no
 tencent,Kimi K2.7 Code,0.95,4.0,0.19,,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
 tencent,Kimi K3,2.731,13.653,0.2731,,,1M tokens,USD,19.117,95.571,Kimi K3,yes
 tencent,MiniMax-M2.7,0.3,1.2,0.06,,,1M tokens,USD,2.1,8.4,MiniMax M2.7,yes
@@ -97,7 +97,7 @@ tencent_cn,MiniMax-M3,2.1,8.4,0.42,,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
 volcengine,doubao-seed-2.1-pro,6.0,30.0,1.2,,"输入长度 [0, 256]",1M tokens,CNY,6.0,30.0,Doubao Seed 2.1 Pro,yes
 volcengine,doubao-seed-2.1-turbo,3.0,15.0,0.6,,"输入长度 [0, 256]",1M tokens,CNY,3.0,15.0,Doubao Seed 2.1 Turbo,yes
 volcengine_intl,deepseek-v3.2,0.28,0.42,0.056,,火山引擎自部署,1M tokens,USD,1.96,2.94,DeepSeek V3.2,no
-volcengine_intl,deepseek-v4-flash,0.14,0.28,0.028,,火山引擎自部署,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,no
+volcengine_intl,deepseek-v4-flash,0.44,1.32,0.014,,火山引擎自部署,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash,no
 volcengine_intl,deepseek-v4-pro,1.32,3.96,0.044,,火山引擎自部署,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
 volcengine_intl,glm-4.7,0.6,2.2,0.11,,,1M tokens,USD,4.2,15.4,GLM-4.7,no
 volcengine_intl,glm-5.2,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.2,no
