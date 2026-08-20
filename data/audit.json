@@ -1,13 +1,15 @@
 {
-  "generated_at": "2026-08-19 17:25:28",
+  "generated_at": "2026-08-20 07:59:47",
   "stats": {
-    "total": 107,
-    "suspects": 69,
-    "high": 9,
+    "total": 106,
+    "suspects": 59,
+    "high": 0,
     "med": 1,
-    "low": 59,
-    "tier1": 2,
-    "tier2": 67
+    "low": 58,
+    "tier1": 1,
+    "tier2": 58,
+    "tier1_high": 0,
+    "gate": "pass"
   },
   "suspects": [
     {
@@ -19,31 +21,6 @@
       "msg": "重复记录 ×2: DeepSeek-V4-Flash",
       "record": {
         "key": "tencent|DeepSeek-V4-Flash|0.14|0.28"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "DIVERGE",
-      "severity": "low",
-      "source": null,
-      "canonical": "Kimi K3",
-      "msg": "跨源输入价离散 11.0× (最低 2.0 / 最高 21.974)，建议人工核对是否同规格模型",
-      "record": {
-        "min": 2.0,
-        "max": 21.974,
-        "ratio": 11.0
-      }
-    },
-    {
-      "tier": 2,
-      "code": "MODEL_NOT_FOUND",
-      "severity": "high",
-      "source": "aliyun_bailian",
-      "canonical": "GLM-5.3",
-      "msg": "静态源页面未找到模型名「glm-5.3」，疑似幻觉/编造",
-      "record": {
-        "model_raw": "glm-5.3",
-        "url": "https://help.aliyun.com/help/json/document_detail.json?alias=%2Fmodel-studio%2Fmodel-pricing&pageNum=1&pageSize=20&website=cn&language=zh"
       }
     },
     {
@@ -428,118 +405,6 @@
       "record": {
         "model_raw": "Qwen3.8-Max",
         "url": "https://global.modelmesh.info/model"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "静态源页面未找到input价数值「0.0826」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "DeepSeek V4 Flash",
-        "field": "input",
-        "value": "0.0826",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "静态源页面未找到output价数值「0.1652」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "DeepSeek V4 Flash",
-        "field": "output",
-        "value": "0.1652",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "DeepSeek V4 Pro",
-      "msg": "静态源页面未找到input价数值「1.44」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "DeepSeek V4 Pro",
-        "field": "input",
-        "value": "1.44",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "DeepSeek V4 Pro",
-      "msg": "静态源页面未找到output价数值「2.88」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "DeepSeek V4 Pro",
-        "field": "output",
-        "value": "2.88",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到input价数值「0.966」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "GLM 5.2",
-        "field": "input",
-        "value": "0.966",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "GLM-5.2",
-      "msg": "静态源页面未找到output价数值「3.036」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "GLM 5.2",
-        "field": "output",
-        "value": "3.036",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "Kimi K2.6",
-      "msg": "静态源页面未找到input价数值「0.5605」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "Kimi K2.6",
-        "field": "input",
-        "value": "0.5605",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "openrouter",
-      "canonical": "Kimi K2.6",
-      "msg": "静态源页面未找到output价数值「2.36」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "Kimi K2.6",
-        "field": "output",
-        "value": "2.36",
-        "url": "https://openrouter.ai/api/v1/models?sort=top-weekly"
       }
     },
     {
