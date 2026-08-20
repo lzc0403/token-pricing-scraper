@@ -48,6 +48,23 @@ _RATE_TOL = 0.01
 # 跨源离散倍数阈值
 _DIVERGE_RATIO = 10.0
 
+# 关键主力模型：输入价缺失必须拦（门禁级）
+# 这些模型是页面主推、用户最关注的价格基准，缺输入价直接失败
+_CRITICAL_MODELS = frozenset(
+    {
+        "DeepSeek V4 Pro",
+        "DeepSeek V4 Flash",
+        "Qwen3.8 Max",
+        "Qwen3.7 Max",
+        "GLM-5.2",
+        "GLM-5.1",
+        "Kimi K3",
+        "GPT-4o",
+        "Claude Opus 5",
+        "Gemini 3.7 Flash",
+    }
+)
+
 
 # --------------------------------------------------------------------------- #
 # Tier 1：结构性校验
@@ -63,13 +80,35 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
                              "source": r.get("source"), "canonical": r.get("canonical"),
                              "msg": "model_raw 为空", "record": r})
         if r.get("input_rmb") is None and r.get("input") is None:
-            suspects.append({"tier": 1, "code": "EMPTY_INPUT", "severity": "high",
+            sev = "high" if r.get("canonical") in _CRITICAL_MODELS else "low"
+            suspects.append({"tier": 1, "code": "EMPTY_INPUT", "severity": sev,
                              "source": r.get("source"), "canonical": r.get("canonical"),
-                             "msg": "输入价为空", "record": r})
+                             "msg": (f"关键模型输入价为空" if sev == "high" else "输入价为空"), "record": r})
         if r.get("output_rmb") is None and r.get("output") is None:
             suspects.append({"tier": 1, "code": "EMPTY_OUTPUT", "severity": "med",
                              "source": r.get("source"), "canonical": r.get("canonical"),
                              "msg": "输出价为空", "record": r})
+
+    # 1b. 缓存命中价合理性（语义：缓存命中价必须 ≤ 输入价，且应明显低于输入价）
+    for r in watchlist:
+        in_v = r.get("input")
+        out_v = r.get("output")
+        cache_v = r.get("cache_hit")
+        canon = r.get("canonical")
+        if in_v is None or cache_v is None:
+            continue
+        # 缓存命中 > 输入价 → 几乎必然列错位/解析错误
+        if cache_v > in_v:
+            suspects.append({"tier": 1, "code": "CACHE_GT_INPUT", "severity": "high",
+                             "source": r.get("source"), "canonical": canon,
+                             "msg": f"缓存命中价({cache_v}) > 输入价({in_v})，疑似列错位/解析错误",
+                             "record": r})
+        elif cache_v > in_v * 0.6:
+            # 缓存命中通常 ≤ 输入价的三四折；高于 60% 已显可疑（各厂商折扣不同，留余量）
+            suspects.append({"tier": 1, "code": "CACHE_SUSPECT", "severity": "med",
+                             "source": r.get("source"), "canonical": canon,
+                             "msg": f"缓存命中价({cache_v}) 接近输入价({in_v})，异常偏高",
+                             "record": r})
 
     # 2. 价格区间合理性
     for r in watchlist:
@@ -190,7 +229,12 @@ def _check_sources(
         src = src_map.get(sid)
         if not src:
             continue
+        # API/cache 型源（如 openrouter 走 JSON API 缓存、aliyun_bailian 走 JSON 文档接口）：
+        # 返回体是 JSON 而非 HTML，静态 HTML 核对不适用，整个 Tier2 跳过
+        # （避免 PRICE_NOT_FOUND / MODEL_NOT_FOUND 误报淹没报告）。
         url = src.get("url") or (src.get("urls") or [""])[0]
+        if src.get("cache_path") or (url and re.search(r"\.json(\?|$)|/api/", url)):
+            continue
         if not url:
             continue
         if url not in text_cache:
@@ -247,6 +291,7 @@ def _build_md(
         "",
         "## 一、核对统计",
         "",
+        f"- 门禁状态：**{'⛔ 阻断（存在 high 级可疑项）' if stats.get('gate') == 'block' else '✅ 通过'}**",
         f"- 校验记录总数：**{stats['total']}**",
         f"- 可疑项总数：**{stats['suspects']}**（high {stats['high']} / med {stats['med']} / low {stats['low']}）",
         f"- Tier1 结构性校验可疑：**{stats['tier1']}**",
@@ -325,6 +370,12 @@ def run(data_dir: str, sources_cfg: Optional[List[Dict[str, Any]]] = None) -> Di
     sev = {"high": 0, "med": 0, "low": 0}
     for s in suspects:
         sev[s.get("severity", "low")] = sev.get(s.get("severity", "low"), 0) + 1
+    # 门禁只按 Tier1 high 判定：Tier2 是源页面静态核对，SPA/API 源有大量
+    # 「静态 HTML 找不到价格」的误报（数据本身来自 Playwright/API，静态核对不适用）。
+    # 若把 Tier2 high 也算进门禁，CI 会永久 block。Tier1 是纯数据校验，无误报，是真正门禁。
+    tier1_high = sum(
+        1 for s in suspects if s.get("tier") == 1 and s.get("severity") == "high"
+    )
     stats = {
         "total": len(watchlist),
         "suspects": len(suspects),
@@ -333,6 +384,9 @@ def run(data_dir: str, sources_cfg: Optional[List[Dict[str, Any]]] = None) -> Di
         "low": sev["low"],
         "tier1": sum(1 for s in suspects if s.get("tier") == 1),
         "tier2": sum(1 for s in suspects if s.get("tier") == 2),
+        # 门禁判定：Tier1 high > 0 → block（结构性数据错误，不可信）
+        "tier1_high": tier1_high,
+        "gate": "block" if tier1_high > 0 else "pass",
     }
 
     md = _build_md(suspects, stats, generated_at)

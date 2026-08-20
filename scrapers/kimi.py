@@ -37,7 +37,12 @@ class KimiScraper(BaseScraper):
 
         i_model = idx_of("模型")
         i_cache = idx_of("缓存命中")
-        i_input = idx_of("缓存未命中", "输入价格")
+        # 输入价 = 输入价格（缓存未命中）。注意 col「输入价格（缓存命中）」也含
+        # 「输入价格」子串，若用 idx_of("输入价格") 会误匹配到缓存命中列，
+        # 必须用「缓存未命中」精确匹配（排除缓存命中列）。
+        i_input = idx_of("缓存未命中")
+        if i_input < 0:
+            i_input = idx_of("输入价格")
         i_output = idx_of("输出价格")
         i_ctx = idx_of("上下文")
         if i_model < 0 or i_input < 0 or i_output < 0:

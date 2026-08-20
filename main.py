@@ -142,6 +142,22 @@ def main(argv: List[str] | None = None) -> int:
     astats = audit_res["stats"]
     print(f"  可疑项 {astats['suspects']}（high {astats['high']} / med {astats['med']} / low {astats['low']}）")
 
+    # ⛔ 数据门禁：Tier1 high 级结构性错误（缓存>输入、关键模型缺输入价等）直接阻断上线。
+    # 只拦 Tier1（纯数据校验，无网络依赖、无误报）；Tier2 源页面核对有 SPA/API 误报，
+    # 保留为报告级提示。dry-run 模式下仅警告，不阻断（便于调试）。
+    tier1_high = [
+        s for s in audit_res["suspects"]
+        if s.get("tier") == 1 and s.get("severity") == "high"
+    ]
+    if tier1_high:
+        print("  ⛔ 门禁拦截：检测到 Tier1 high 级结构性数据错误，拒绝生成网页/上线")
+        for s in tier1_high:
+            print(f"    [{s['code']}] {s.get('source')} | {s.get('canonical')} | {s.get('msg')}")
+        if args.dry_run:
+            print("  [dry-run] 门禁仅警告，不阻断")
+        else:
+            return 2
+
     print("== OpenRouter 二次验证 ==")
     or_recs = [r for r in annotated if r.get("source") == "openrouter"]
     or_verify = openrouter_verify.verify(DATA_DIR, records=or_recs)
