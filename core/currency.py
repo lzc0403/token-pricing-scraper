@@ -41,11 +41,24 @@ def to_rmb(price: Optional[float], currency: str, rate: float) -> Optional[float
 
 
 def enrich(records: List[Dict[str, Any]], rate: Optional[float] = None) -> List[Dict[str, Any]]:
-    """就地（并返回）为每条记录补充 input_rmb / output_rmb。"""
+    """就地（并返回）为每条记录补充 input_rmb / output_rmb 及峰谷人民币等价。
+
+    对 USD 记录同时换算 peak_input/output_low/high → peak_input/output_rmb_low/high，
+    使下游（site.py 动态峰谷时钟 / 溢价计算）拿到正确的人民币峰谷档价。
+    """
     if rate is None:
         rate = get_rate()
     for rec in records:
         currency = rec.get("currency", "CNY")
         rec["input_rmb"] = to_rmb(rec.get("input"), currency, rate)
         rec["output_rmb"] = to_rmb(rec.get("output"), currency, rate)
+        # 峰谷人民币等价（仅 USD 需换算；CNY 原值透传）
+        for lo, hi, lo_rmb, hi_rmb in (
+            ("peak_input_low", "peak_input_high", "peak_input_rmb_low", "peak_input_rmb_high"),
+            ("peak_output_low", "peak_output_high", "peak_output_rmb_low", "peak_output_rmb_high"),
+            ("peak_cache_low", "peak_cache_high", "peak_cache_rmb_low", "peak_cache_rmb_high"),
+        ):
+            if rec.get(lo) is not None or rec.get(hi) is not None:
+                rec[lo_rmb] = to_rmb(rec.get(lo), currency, rate)
+                rec[hi_rmb] = to_rmb(rec.get(hi), currency, rate)
     return records

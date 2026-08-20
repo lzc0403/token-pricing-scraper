@@ -162,6 +162,69 @@ class OpenrouterScraper(BaseScraper):
         except (TypeError, ValueError):
             return False
 
+    @staticmethod
+    def _parse_overrides(m: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """解析 OpenRouter pricing.overrides 峰谷时段。
+
+        OpenRouter 部分模型（如 deepseek/deepseek-v4-pro-0813）在 pricing 里带
+        overrides 数组，用 utc_start/utc_end（UTC HHMM，如 1000=10:00）划分时段，
+        每个时段有独立 prompt/completion（可能含 input_cache_read）。同 DeepSeek 官网
+        峰谷：高峰时段（北京 09:00-12:00/14:00-18:00）全价、空闲时段减半。
+
+        返回 {peak_input_low, peak_input_high, peak_output_low, peak_output_high,
+               peak_cache_low, peak_cache_high, peak_window_beijing}，
+        无峰谷（单档 / overrides 缺省）返回 None。单位：USD / 1M tokens。
+        """
+        p = m.get("pricing") or {}
+        ovs = p.get("overrides") or []
+        if not isinstance(ovs, list) or len(ovs) < 2:
+            return None
+        # 收集所有时段的 input/output（per-token），找高低两档
+        inputs: List[float] = []
+        outputs: List[float] = []
+        caches: List[float] = []
+        for ov in ovs:
+            pi = _per_m(ov.get("prompt"))
+            po = _per_m(ov.get("completion"))
+            pc = _per_m(ov.get("input_cache_read"))
+            if pi is not None:
+                inputs.append(pi)
+            if po is not None:
+                outputs.append(po)
+            if pc is not None:
+                caches.append(pc)
+        # 无有效高低区分（全时段同价）→ 无峰谷
+        if len(set(inputs)) < 2 and len(set(outputs)) < 2:
+            return None
+        out = {
+            "peak_input_low": min(inputs) if inputs else None,
+            "peak_input_high": max(inputs) if inputs else None,
+            "peak_output_low": min(outputs) if outputs else None,
+            "peak_output_high": max(outputs) if outputs else None,
+            "peak_cache_low": min(caches) if caches else None,
+            "peak_cache_high": max(caches) if caches else None,
+        }
+        # 高峰/空闲窗口（UTC HHMM → 北京 HHMM）：记录第一个高峰时段的北京区间
+        # 语义与 DeepSeek 官网对齐：高峰 = prompt 更大的时段（全价），空闲 = prompt 更小。
+        # 按各时段 prompt 大小判定档位，聚合出北京高峰窗口。
+        bj_peak_windows: List[Tuple[int, int]] = []
+        for ov in ovs:
+            pi = _per_m(ov.get("prompt"))
+            s = int(ov.get("utc_start") or 0)
+            e = int(ov.get("utc_end") or 0)
+            if pi is None or s is None or e is None:
+                continue
+            if pi < out["peak_input_high"]:  # 低档 = 空闲
+                continue
+            # 高峰时段：UTC → 北京（+8h）
+            bs, be = (s + 800) % 2400, (e + 800) % 2400
+            bj_peak_windows.append((bs, be))
+        if bj_peak_windows:
+            out["peak_window_beijing"] = bj_peak_windows
+        # 换算回「是否峰谷计费」标记
+        out["is_peak"] = True
+        return out
+
     def _to_record(
         self,
         m: Dict[str, Any],
@@ -206,4 +269,15 @@ class OpenrouterScraper(BaseScraper):
         rec["openrouter_id"] = mid
         rec["openrouter_prompt_per_token"] = p.get("prompt")
         rec["openrouter_completion_per_token"] = p.get("completion")
+        # OpenRouter 峰谷：解析 overrides（如 deepseek-v4-pro-0813），
+        # 主字段保留基础价（空闲价）供 verify 复算；peak_* 双档供站点动态时钟展示。
+        peak = self._parse_overrides(m)
+        if peak:
+            for k in ("peak_input_low", "peak_input_high",
+                      "peak_output_low", "peak_output_high",
+                      "peak_cache_low", "peak_cache_high",
+                      "peak_window_beijing", "is_peak"):
+                rec[k] = peak.get(k)
+            # 来源类型标注（OpenRouter 代表市场成交价）
+            rec["condition"] = "OpenRouter 峰谷计费"
         return rec

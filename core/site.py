@@ -464,9 +464,24 @@ _CHANNEL_PEAK_SCHED = {
     "aliyun_intl": "aliyun_intl",
 }
 
+# 版本后缀模型 → 父模型（官网基准回退用）。
+# 如 OpenRouter 的 DeepSeek V4 Pro 0813（0813 正式版，带峰谷）是 V4 Pro 的旧版本，
+# 其官方基准价 = V4 Pro 官网价；父模型官网价在 _build_site_data 计算官方基准时回退查找。
+_CANON_PARENT = {
+    "DeepSeek V4 Pro 0813": "DeepSeek V4 Pro",
+}
 
-def _source_peak_schedule(source: Optional[str]) -> Optional[str]:
-    """返回某渠道源自身使用的峰谷窗口 key；无独立峰谷返回 None。"""
+
+def _source_peak_schedule(source: Optional[str], canon: Optional[str] = None) -> Optional[str]:
+    """返回某渠道源自身使用的峰谷窗口 key；无独立峰谷返回 None。
+
+    - 常规渠道：按 source 查 _CHANNEL_PEAK_SCHED。
+    - OpenRouter：它是市场成交价源，其 DeepSeek 峰的 overrides 时段与 DeepSeek 官网一致
+      （北京高峰 09-12/14-18），故带峰谷的 OpenRouter DeepSeek 行复用 deepseek_official
+      窗口，便于与官网档位实时对齐验证。
+    """
+    if source == "openrouter" and canon and "deepseek" in str(canon).lower():
+        return "deepseek_official"
     return _CHANNEL_PEAK_SCHED.get(source)
 
 
@@ -742,6 +757,14 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
     if not isinstance(watchlist, list):
         watchlist = []
 
+    # 兜底补齐 input_rmb/output_rmb 及 peak_*_rmb_* 字段。
+    # prices.json/watchlist.json 由 main.py 的 currency.enrich 写出，正常情况已含 rmb 字段；
+    # 但历史快照或手改数据可能缺 peak_*_rmb_*，这里再跑一次 enrich 保证下游动态峰谷时钟拿到正确值。
+    try:
+        currency.enrich(watchlist)
+    except Exception:
+        pass
+
     canons: List[str] = []
     for r in watchlist:
         c = r.get("canonical")
@@ -775,20 +798,40 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         min_in = min(inputs) if inputs else None
         # 溢价基准：该模型自身的官网价（不在渠道供应商内部比较）。
         # DeepSeek 模型即 DeepSeek 官网价；其余模型取其对应官网价。无官网价则不显示溢价。
+        # 版本后缀模型（如 DeepSeek V4 Pro 0813）回退到父模型官网价作为基准。
+        parent_c = _CANON_PARENT.get(c)
         official_inputs = [
             r.get("input_rmb") for r in rows
             if r.get("input_rmb") is not None and _is_official_any_currency(c, r)
         ]
+        if not official_inputs and parent_c and parent_c in by_canon:
+            official_inputs = [
+                r.get("input_rmb") for r in by_canon[parent_c]
+                if r.get("input_rmb") is not None and _is_official_any_currency(parent_c, r)
+            ]
         base_in = min(official_inputs) if official_inputs else None
         norm = [_normalize_row(r, c, min_in, base_in) for r in rows]
 
         # 峰谷动态比价：提取官方「闲/高」两档基准价 + 渠道「闲/高」两档价，
         # 供前端按当前北京时间所在时段实时切换溢价基准。
         ofr = next((x for x in norm if x.get("is_official")), None)
+        if ofr is None and parent_c and parent_c in by_canon:
+            # 父模型官网行（含峰谷双档）作为基准
+            for prow in by_canon[parent_c]:
+                if _is_official_any_currency(parent_c, prow):
+                    ofr = _normalize_row(prow, parent_c, None, None)
+                    break
         official_off_in = base_in
         official_peak_in = None
         if ofr is not None:
-            official_off_in = ofr.get("input_rmb") if ofr.get("input_rmb") is not None else base_in
+            # 官方「闲时」价：优先 peak_input_rmb_low（CNY 换算），否则 peak_input_low
+            # （原币种 CNY 时即人民币），最后回退主价 input_rmb。
+            of_lo = (
+                ofr.get("peak_input_rmb_low")
+                if ofr.get("peak_input_rmb_low") is not None
+                else ofr.get("peak_input_low")
+            )
+            official_off_in = of_lo if of_lo is not None else base_in
             official_peak_in = (
                 ofr.get("peak_input_rmb_high")
                 if ofr.get("peak_input_rmb_high") is not None
@@ -804,7 +847,7 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
             x["official_peak_in"] = official_peak_in
             x["channel_off_in"] = x.get("input_rmb")
             x["channel_peak_in"] = ch_peak
-            x["peak_sched"] = _source_peak_schedule(x.get("source"))
+            x["peak_sched"] = _source_peak_schedule(x.get("source"), x.get("canonical"))
 
         # 官方：官网源（保留原计费币种）。CNY 官网 → 国内官方表；USD 官网（如 DeepSeek 英文站）→ 海外官方表。
         official_cny = [x for x in norm if x["is_official"] and str(x["currency"]).upper() != "USD"]

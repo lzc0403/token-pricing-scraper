@@ -43,6 +43,9 @@ whitelist:
   - id: deepseek/deepseek-v4-pro
     model: DeepSeek V4 Pro
     note: 国内旗舰 OpenRouter 价
+  - id: deepseek/deepseek-v4-pro-0813
+    model: DeepSeek V4 Pro 0813
+    note: 0813 正式版 · OpenRouter 带峰谷（高峰 9-12/14-18 北京时间，与官网一致）
   - id: deepseek/deepseek-v4-flash
     model: DeepSeek V4 Flash
     note: 国内高频 OpenRouter 价（取 OpenRouter API 实时价，不覆盖）
