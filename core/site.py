@@ -442,8 +442,8 @@ def _split_condition(cond: Optional[str]) -> Tuple[Optional[str], Optional[str],
 def _merge_peak_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """合并同一模型+来源的「空闲时段/高峰时段」双行为单行。
 
-    输出 row 保留高峰价作为主价（用于排序），同时附加 peak_*_low/high 字段用于展示。
-    condition 简化为「来源类型 · 峰谷计费」。
+    输出 row 保留闲时价作为主价（用于排序与官网基准比较），同时附加 peak_*_low/high
+    字段用于展示（展示时闲时在前、高峰在后）。condition 简化为「来源类型 · 峰谷计费」。
     """
     groups: Dict[Tuple[Any, ...], List[Dict[str, Any]]] = {}
     for r in rows:
@@ -460,7 +460,9 @@ def _merge_peak_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         if "空闲时段" in by_peak and "高峰时段" in by_peak:
             low = by_peak["空闲时段"]
             high = by_peak["高峰时段"]
-            mrow = dict(high)
+            # 闲时优先：主价字段（input_rmb/output_rmb/input/output/cache_hit）取闲时价，
+            # 高峰价仅通过 peak_*_high 在展示层作为附注呈现。
+            mrow = dict(low)
             mrow["peak_input_low"] = low.get("input")
             mrow["peak_input_high"] = high.get("input")
             mrow["peak_output_low"] = low.get("output")
@@ -488,12 +490,14 @@ def _merge_peak_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return merged
 
 
-def _normalize_row(r: Dict[str, Any], canon: str, min_in: Optional[float]) -> Dict[str, Any]:
+def _normalize_row(r: Dict[str, Any], canon: str, min_in: Optional[float], base_in: Optional[float] = None) -> Dict[str, Any]:
     in_rmb = r.get("input_rmb")
     is_low = in_rmb is not None and min_in is not None and in_rmb == min_in
     premium = None
-    if not is_low and in_rmb is not None and min_in is not None and min_in > 0:
-        premium = round((in_rmb - min_in) / min_in * 100, 1)
+    # 溢价基准 = 官网价（base_in），不在渠道供应商内部互相比较。
+    # 无官网价基准时不显示溢价百分比。
+    if not is_low and in_rmb is not None and base_in is not None and base_in > 0:
+        premium = round((in_rmb - base_in) / base_in * 100, 1)
     sid = r.get("source") or "—"
     model_name = clean_model_name(r.get("model_raw"), fallback=canon)
     return {
@@ -738,7 +742,14 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         rows = _merge_peak_rows(rows)
         inputs = [r.get("input_rmb") for r in rows if r.get("input_rmb") is not None]
         min_in = min(inputs) if inputs else None
-        norm = [_normalize_row(r, c, min_in) for r in rows]
+        # 溢价基准：该模型自身的官网价（不在渠道供应商内部比较）。
+        # DeepSeek 模型即 DeepSeek 官网价；其余模型取其对应官网价。无官网价则不显示溢价。
+        official_inputs = [
+            r.get("input_rmb") for r in rows
+            if r.get("input_rmb") is not None and _is_official_any_currency(c, r)
+        ]
+        base_in = min(official_inputs) if official_inputs else None
+        norm = [_normalize_row(r, c, min_in, base_in) for r in rows]
 
         # 官方：官网源（保留原计费币种）。CNY 官网 → 国内官方表；USD 官网（如 DeepSeek 英文站）→ 海外官方表。
         official_cny = [x for x in norm if x["is_official"] and str(x["currency"]).upper() != "USD"]
@@ -894,17 +905,17 @@ def _attr_num(v: Any) -> str:
 
 
 def _peak_duo(low_val: Any, high_val: Any, fmt_cur: str = "") -> str:
-    """峰谷双价 HTML：高 X / 闲 Y。low/high 均可为 None。
+    """峰谷双价 HTML：闲 X / 高 Y。low/high 均可为 None。
 
-    高峰时段价为主价（官网基准），闲时价为附注。
+    闲时时段价为主价（默认优先展示），高峰价为附注。
     """
     lo = _fmt_num(low_val)
     hi = _fmt_num(high_val)
     cur = f'<span class="px-cur">{_esc(fmt_cur)}</span>' if fmt_cur else ""
     return (
-        f'<span class="px-val px-peak"><span class="px-peak-hi">高 {hi}</span>'
+        f'<span class="px-val px-peak"><span class="px-peak-lo">闲 {lo}</span>'
         f'<span class="px-peak-sep">/</span>'
-        f'<span class="px-peak-lo">闲 {lo}</span></span>{cur}'
+        f'<span class="px-peak-hi">高 {hi}</span></span>{cur}'
     )
 
 
@@ -964,8 +975,8 @@ def _price_cells(r: Dict[str, Any], mode: str) -> Tuple[str, str, Any, Any]:
             f'{_peak_duo(out_low, out_high)}'
             f'</span>'
         )
-        sort_in = in_high if in_high is not None else r.get("input_rmb")
-        sort_out = out_high if out_high is not None else r.get("output_rmb")
+        sort_in = in_low if in_low is not None else r.get("input_rmb")
+        sort_out = out_low if out_low is not None else r.get("output_rmb")
         return in_html, out_html, sort_in if sort_in is not None else "", sort_out if sort_out is not None else ""
     return (
         f'<span class="js-cny-main px-val" data-side="input">{_fmt_num(r.get("input_rmb"))}</span>',
@@ -1602,9 +1613,9 @@ tr.js-row.is-hidden{display:none}
 .c-price .px-val{font-size:13.5px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2}
 .c-price .px-cur{font-size:10px;color:var(--mute);font-weight:600;margin-left:3px}
 .c-price .px-peak{display:inline-flex;align-items:baseline;gap:4px;font-size:12.5px;font-weight:700}
-.c-price .px-peak-lo{color:var(--mute)}
+.c-price .px-peak-lo{color:var(--ink);font-weight:800}
 .c-price .px-peak-sep{color:var(--mute);font-weight:400;opacity:.5}
-.c-price .px-peak-hi{color:var(--ink);font-weight:800}
+.c-price .px-peak-hi{color:var(--mute);font-weight:600}
 .c-price .sub-hint,.c-price .js-rmb-hint{font-size:10px;color:var(--mute);font-weight:500;margin-top:3px;line-height:1.3}
 .js-cny-main{font-size:13.5px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
 .price-table tbody tr:hover{background:#f8fafb}
