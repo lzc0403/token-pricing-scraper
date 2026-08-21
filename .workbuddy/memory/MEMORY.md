@@ -87,7 +87,11 @@
 - 中：bailian 缓存 0.2 假设 / 17 源顺序执行 / CSS/JS 内嵌字符串 / 无前置输入校验 / 3 核心模块无测试（openrouter_verify/report/currency）/ atlascloud fetched_at 空。
 - 低：类型注解不全 / 正则静默失败 / 魔术数字 / 错误处理不一致 / 无 CI lint。
 - 改进三阶段：短期止血（atlascloud 时间戳+CI lint+百炼标注+补测试）→ 中期架构解耦（site.py 前端外提+并行抓取+模块拆分）→ 长期产品化（Jinja2+每日抓取+历史趋势图+价格推送）。
-- **短期 5 项 + 中期 5 项已全部落地并推送**（2026-08-22）：commit `62cbbce`..`5e7f087`，CI 全绿。仅中期 #5（OpenAI 动态抓取）经调研暂缓。剩余长期计划待做：Jinja2 模板引擎 / 每日抓取 automation / 全量类型注解+mypy / 历史价格趋势图 / 价格变动推送。
+- **短期 5 项 + 中期 5 项已全部落地并推送**（2026-08-22）：commit `62cbbce`..`5e7f087`，CI 全绿。仅中期 #5（OpenAI 动态抓取）经调研暂缓。
+- **长期计划进展（2026-08-22）**：
+  - ✅ **每日抓取 automation**：`automation-1787338740315`，每日 09:00 北京时间运行 `python main.py`（仅本地抓取+生成，不 push）。替代仅每周日 CI 抓取的缺口。
+  - ✅ **历史价格趋势图**：`data/history/YYYY-MM-DD.json` 每日快照归档（`core/store.py:archive_snapshot`）+ `_load_history()` 构建时间序列 + `_trend_section()` 渲染 Chart.js 折线图（按模型×渠道，输入/输出切换）。不足 2 天数据显示占位说明。commit `330afc6` 已推送。数据从 2026-08-22 起自动累积，2-3 天后可见趋势线。
+  - ⏳ 待做：Jinja2 模板引擎 / 全量类型注解+mypy strict / 价格变动推送（飞书/企业微信 webhook）。
 
 ## 文档
 
