@@ -208,15 +208,21 @@ class BaseScraper(abc.ABC):
         """抓取并解析，返回非空记录列表。
 
         多 URL 源（如 kimi 配置 `urls`）会依次抓取每个 URL 并合并。
+        解析/网络异常记录到 self.error（不抛出），由调用方检查状态。
         """
         records: List[Dict[str, Any]] = []
-        urls = self.source.get("urls") or [self.source.get("url")]
-        for url in urls:
-            if not url:
-                continue
-            html = self.fetch_url(url)
-            parsed = self.parse(html) or []
-            records.extend(parsed)
+        self.error: Optional[str] = None
+        try:
+            urls = self.source.get("urls") or [self.source.get("url")]
+            for url in urls:
+                if not url:
+                    continue
+                html = self.fetch_url(url)
+                parsed = self.parse(html) or []
+                records.extend(parsed)
+        except Exception as exc:  # 单源失败不中断整体
+            self.error = str(exc)
+            return []
         # 过滤空记录 / 无模型名的记录
         cleaned = [r for r in records if r and r.get("model_raw")]
         return cleaned

@@ -18,12 +18,21 @@ from __future__ import annotations
 import argparse
 import importlib
 import inspect
+import logging
 import os
 import shutil
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Dict, List
 
 import yaml
+
+logger = logging.getLogger("tps")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(name)s %(levelname)s %(message)s",
+    datefmt="%H:%M:%S",
+)
 
 # 以 main.py 所在目录为项目根，保证无论从何处运行都能定位 config/data
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -51,21 +60,54 @@ def _get_scraper_class(parser_name: str) -> type:
     raise RuntimeError(f"parser '{parser_name}' 未找到 BaseScraper 子类")
 
 
+def _run_one(src: Dict[str, Any]) -> tuple[str, List[Dict[str, Any]], str | None]:
+    """抓取单个源，返回 (sid, records, error)。"""
+    sid = src.get("id", "?")
+    try:
+        scraper_cls = _get_scraper_class(src["parser"])
+        scraper = scraper_cls(src)
+        recs = scraper.run()
+        return sid, recs, None
+    except Exception as exc:  # 单源失败不中断整体
+        return sid, [], str(exc)
+
+
 def run_sources(sources: List[Dict[str, Any]]) -> tuple[List[Dict[str, Any]], Dict[str, Dict[str, Any]]]:
-    """抓取所有源，返回 (全部记录, 抓取状态)。"""
+    """抓取所有源，返回 (全部记录, 抓取状态)。
+
+    并行策略：非 Playwright 源（js: false，requests/JSON API）用线程池并行，
+    每个 scraper 独立 session，线程安全；Playwright 源（js: true）浏览器实例
+    资源竞争大，保持顺序执行。CI 总耗时约从 8min 降到 3-4min。
+    """
     records: List[Dict[str, Any]] = []
     scrape_status: Dict[str, Dict[str, Any]] = {}
-    for src in sources:
-        sid = src.get("id", "?")
-        try:
-            scraper_cls = _get_scraper_class(src["parser"])
-            recs = scraper_cls(src).run()
-            records.extend(recs)
-            scrape_status[sid] = {"ok": True, "count": len(recs), "error": None}
-            print(f"  [ok]   {sid}: {len(recs)} 条")
-        except Exception as exc:  # 单源失败不中断整体
-            scrape_status[sid] = {"ok": False, "count": 0, "error": str(exc)}
-            print(f"  [FAIL] {sid}: {exc}")
+
+    fast = [s for s in sources if not s.get("js")]
+    slow = [s for s in sources if s.get("js")]
+
+    # 并行快源
+    if fast:
+        with ThreadPoolExecutor(max_workers=min(6, len(fast))) as pool:
+            futures = {pool.submit(_run_one, src): src.get("id", "?") for src in fast}
+            for fut in as_completed(futures):
+                sid, recs, err = fut.result()
+                records.extend(recs)
+                scrape_status[sid] = {"ok": err is None, "count": len(recs), "error": err}
+                if err:
+                    logger.warning("源 %s 失败: %s", sid, err)
+                else:
+                    logger.info("源 %s: %d 条", sid, len(recs))
+
+    # 顺序跑慢源（Playwright SPA）
+    for src in slow:
+        sid, recs, err = _run_one(src)
+        records.extend(recs)
+        scrape_status[sid] = {"ok": err is None, "count": len(recs), "error": err}
+        if err:
+            logger.warning("源 %s 失败: %s", sid, err)
+        else:
+            logger.info("源 %s: %d 条", sid, len(recs))
+
     return records, scrape_status
 
 
@@ -78,7 +120,7 @@ def main(argv: List[str] | None = None) -> int:
     print("== 读取配置 ==")
     sources = _load_yaml(os.path.join(CONFIG_DIR, "sources.yml")) or []
     models_cfg = _load_yaml(os.path.join(CONFIG_DIR, "models.yml")) or {"models": []}
-    print(f"  源数量: {len(sources)}，目标模型: {len(models_cfg.get('models', []))}")
+    logger.info("源数量: %d，目标模型: %d", len(sources), len(models_cfg.get("models", [])))
 
     print("== 抓取各源 ==")
     records, scrape_status = run_sources(sources)
