@@ -162,6 +162,11 @@ def main(argv: List[str] | None = None) -> int:
     if has_prev:
         shutil.copyfile(committed, prev_tmp)
     store.write_outputs(annotated, DATA_DIR)
+
+    # 每日快照归档（供历史趋势图使用）
+    snap = store.archive_snapshot(DATA_DIR)
+    if snap:
+        logger.info("归档快照: %s", snap)
     if has_prev:
         deltas = store.compare_previous(os.path.join(DATA_DIR, "prices.json"), prev_tmp)
         # 临时备份删除失败（如沙箱回收站不可用）不应中断主流程；残留文件由 .gitignore 兜底

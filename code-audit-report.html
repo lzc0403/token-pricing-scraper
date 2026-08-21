@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token 定价项目 · 代码审计与改进规划报告</title>
+<style>
+  :root {
+    --canvas: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #1a2233;
+    --ink-soft: #5a6478;
+    --line: #e3e6eb;
+    --brand: #2BAE85;
+    --brand-soft: #e8f6f0;
+    --brand-deep: #1e8a64;
+    --red: #e0504a;
+    --red-soft: #fdeceb;
+    --orange: #e08a3c;
+    --orange-soft: #fdf2e2;
+    --blue: #3a7bd5;
+    --blue-soft: #e8f0fc;
+    --purple: #7c5fc7;
+    --purple-soft: #f0eaf8;
+    --gray: #8a92a6;
+    --r-sm: 6px;
+    --r: 10px;
+    --r-lg: 16px;
+    --sh-1: 0 1px 3px rgba(20,30,50,.06), 0 1px 2px rgba(20,30,50,.04);
+    --sh-2: 0 4px 12px rgba(20,30,50,.08), 0 2px 4px rgba(20,30,50,.04);
+    --sh-3: 0 12px 32px rgba(20,30,50,.10), 0 4px 8px rgba(20,30,50,.05);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--canvas);
+    color: var(--ink);
+    line-height: 1.7;
+    padding: 0 0 80px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #1a2233 0%, #2d3a52 100%);
+    color: #fff;
+    padding: 48px 0 40px;
+    border-radius: 0 0 var(--r-lg) var(--r-lg);
+    box-shadow: var(--sh-3);
+    margin-bottom: 40px;
+  }
+  .hero .wrap { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .hero h1 { font-size: 28px; font-weight: 700; letter-spacing: -.5px; margin-bottom: 8px; }
+  .hero .sub { font-size: 15px; color: #b8c2d6; }
+  .hero .meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 16px; font-size: 13px; color: #8a9aba; }
+  .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero .badge {
+    background: rgba(43,174,133,.18);
+    color: #5fdba8;
+    border: 1px solid rgba(43,174,133,.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Overview stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border-radius: var(--r);
+    padding: 20px;
+    box-shadow: var(--sh-1);
+    text-align: center;
+  }
+  .stat-card .num { font-size: 32px; font-weight: 700; color: var(--brand); }
+  .stat-card .num.red { color: var(--red); }
+  .stat-card .num.orange { color: var(--orange); }
+  .stat-card .num.blue { color: var(--blue); }
+  .stat-card .label { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* Section */
+  .section { margin-bottom: 48px; }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--brand-soft);
+    color: var(--brand-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .section-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 20px; }
+
+  /* Severity cards */
+  .sev-group { margin-bottom: 32px; }
+  .sev-header {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 17px; font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--line);
+  }
+  .sev-tag {
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .5px;
+  }
+  .sev-fatal { background: #2d1a1a; color: #ff6b6b; }
+  .sev-high { background: var(--red-soft); color: var(--red); }
+  .sev-medium { background: var(--orange-soft); color: var(--orange); }
+  .sev-low { background: var(--blue-soft); color: var(--blue); }
+
+  .issue-card {
+    background: var(--surface);
+    border-radius: var(--r);
+    box-shadow: var(--sh-1);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .issue-card:hover { box-shadow: var(--sh-2); }
+  .issue-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .issue-head .idx {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--canvas);
+    color: var(--ink-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600;
+    flex-shrink: 0;
+  }
+  .issue-head .title { font-size: 15px; font-weight: 600; flex: 1; }
+  .issue-head .loc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    background: var(--canvas);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+    flex-shrink: 0;
+  }
+  .issue-head .chev {
+    color: var(--ink-soft);
+    transition: transform .2s;
+    flex-shrink: 0;
+  }
+  .issue-card.open .chev { transform: rotate(90deg); }
+  .issue-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--line);
+  }
+  .issue-card.open .issue-body { display: block; }
+  .issue-body .field { margin-top: 14px; }
+  .issue-body .field-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 6px;
+  }
+  .issue-body .field-content { font-size: 14px; color: var(--ink); }
+  .issue-body code {
+    background: var(--canvas);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  }
+  .issue-body .fix {
+    background: var(--brand-soft);
+    border-left: 3px solid var(--brand);
+    padding: 12px 16px;
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    font-size: 14px;
+  }
+  .issue-body .fix .field-label { color: var(--brand-deep); }
+
+  /* Improvement plan */
+  .plan-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .plan-card {
+    background: var(--surface);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-1);
+    overflow: hidden;
+  }
+  .plan-head {
+    padding: 20px 24px;
+    color: #fff;
+  }
+  .plan-short .plan-head { background: linear-gradient(135deg, #2BAE85, #1e8a64); }
+  .plan-mid .plan-head { background: linear-gradient(135deg, #3a7bd5, #2d5fa8); }
+  .plan-long .plan-head { background: linear-gradient(135deg, #7c5fc7, #5d3fa0); }
+  .plan-head .phase { font-size: 13px; opacity: .85; font-weight: 500; }
+  .plan-head .title { font-size: 20px; font-weight: 700; margin-top: 4px; }
+  .plan-body { padding: 24px; }
+  .plan-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .plan-item:last-child { border-bottom: none; }
+  .plan-priority {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .p-p0 { background: var(--red-soft); color: var(--red); }
+  .p-p1 { background: var(--orange-soft); color: var(--orange); }
+  .p-p2 { background: var(--blue-soft); color: var(--blue); }
+  .plan-content { flex: 1; }
+  .plan-content .title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .plan-content .desc { font-size: 13px; color: var(--ink-soft); }
+  .plan-tags { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .plan-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--canvas);
+    color: var(--ink-soft);
+  }
+  .plan-tag.benefit { background: var(--brand-soft); color: var(--brand-deep); }
+  .plan-tag.module { background: var(--purple-soft); color: var(--purple); }
+
+  /* Summary table */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-radius: var(--r);
+    overflow: hidden;
+    box-shadow: var(--sh-1);
+    font-size: 14px;
+  }
+  .summary-table th {
+    background: var(--canvas);
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table .sev-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  /* Architecture diagram */
+  .arch-diagram {
+    background: var(--surface);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-1);
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+  .arch-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .arch-node {
+    padding: 10px 16px;
+    border-radius: var(--r-sm);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    min-width: 80px;
+  }
+  .arch-node.src { background: var(--brand-soft); color: var(--brand-deep); }
+  .arch-node.core { background: var(--blue-soft); color: var(--blue); }
+  .arch-node.out { background: var(--purple-soft); color: var(--purple); }
+  .arch-arrow { color: var(--gray); font-size: 16px; }
+  .arch-label { font-size: 11px; color: var(--ink-soft); text-align: center; margin-top: 4px; }
+
+  @media (max-width: 768px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .hero .wrap { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div style="flex:1;min-width:280px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+        <span class="badge">只读审计 · 未修改代码</span>
+        <span class="badge" style="background:rgba(58,123,213,.18);color:#7ba8ed;border-color:rgba(58,123,213,.3);">6 维度全量覆盖</span>
+      </div>
+      <h1>Token 定价项目 · 代码审计与改进规划报告</h1>
+      <div class="sub">LLM Token 定价自动抓取与聚合系统 · 17 数据源 / 8,478+ 行代码 / CI 驱动</div>
+      <div class="meta">
+        <span>📅 2026-08-20</span>
+        <span>📦 main 分支</span>
+        <span>🔍 全量源码已审阅</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="num">8,478+</div>
+      <div class="label">代码行数（已审阅）</div>
+    </div>
+    <div class="stat-card">
+      <div class="num red">2</div>
+      <div class="label">高严重度问题</div>
+    </div>
+    <div class="stat-card">
+      <div class="num orange">6</div>
+      <div class="label">中严重度问题</div>
+    </div>
+    <div class="stat-card">
+      <div class="num blue">5</div>
+      <div class="label">低严重度问题</div>
+    </div>
+  </div>
+
+  <!-- Project Overview -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">📋</div>
+      项目全景
+    </div>
+    <div class="section-desc">业务上下文、核心价值、目标用户与痛点</div>
+
+    <div class="arch-diagram">
+      <div style="font-size:14px;font-weight:600;margin-bottom:20px;color:var(--ink-soft);">数据流水线全景</div>
+      <div class="arch-flow">
+        <div>
+          <div class="arch-node src">17 数据源</div>
+          <div class="arch-label">scrapers/*.py</div>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div>
+          <div class="arch-node core">enrich 货币换算</div>
+          <div class="arch-label">currency.py</div>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div>
+          <div class="arch-node core">match 匹配</div>
+          <div class="arch-label">matcher.py</div>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div>
+          <div class="arch-node core">audit 审计门</div>
+          <div class="arch-label">audit.py (Tier1+2)</div>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div>
+          <div class="arch-node core">verify 校验</div>
+          <div class="arch-label">openrouter_verify.py</div>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div>
+          <div class="arch-node core">catalog 目录</div>
+          <div class="arch-label">mainstream_catalog.py</div>
+        </div>
+        <span class="arch-arrow">→</span>
+        <div>
+          <div class="arch-node out">静态站点</div>
+          <div class="arch-label">site.py → index.html</div>
+        </div>
+      </div>
+      <div style="margin-top:24px;font-size:13px;color:var(--ink-soft);line-height:1.8;">
+        <strong>核心价值</strong>：自动聚合 17+ 厂商 LLM API 定价（CNY/USD 双币种），通过 GitHub Actions 每日抓取、结构化审计、静态站点发布，为 AI 应用开发者/企业选型提供透明的价格比较基准。<br>
+        <strong>目标用户</strong>：AI 应用开发者（比价选模型）、企业技术决策者（成本核算）、开源社区（价格透明度）。<br>
+        <strong>核心痛点</strong>：厂商定价页频繁改版（如 DeepSeek 峰谷定价）、多源价格不一致需交叉验证、Playwright SPA 渲染耗时且不稳定、site.py 单文件 2870 行维护困难。
+      </div>
+    </div>
+  </div>
+
+  <!-- Audit Summary Table -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">📊</div>
+      审计发现总览
+    </div>
+    <div class="section-desc">共 13 项问题，按严重度分级</div>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>严重度</th>
+          <th>问题</th>
+          <th>维度</th>
+          <th>定位</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="sev-dot" style="background:var(--red);"></span>高</td>
+          <td>site.py 单文件 2870 行巨型单体</td>
+          <td>架构</td>
+          <td><code>core/site.py</code></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="sev-dot" style="background:var(--red);"></span>高</td>
+          <td>OpenAI 长上下文价格硬编码</td>
+          <td>逻辑缺陷</td>
+          <td><code>scrapers/openai.py</code></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="sev-dot" style="background:var(--orange);"></span>中</td>
+          <td>百炼缓存命中价 0.2 比率假设</td>
+          <td>逻辑缺陷</td>
+          <td><code>scrapers/bailian.py</code></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="sev-dot" style="background:var(--orange);"></span>中</td>
+          <td>17 数据源顺序执行无并行</td>
+          <td>性能</td>
+          <td><code>main.py</code></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><span class="sev-dot" style="background:var(--orange);"></span>中</td>
+          <td>CSS/JS 内嵌 Python 字符串</td>
+          <td>可维护性</td>
+          <td><code>core/site.py</code></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="sev-dot" style="background:var(--orange);"></span>中</td>
+          <td>抓取数据无前置输入校验</td>
+          <td>安全</td>
+          <td><code>scrapers/base.py</code></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><span class="sev-dot" style="background:var(--orange);"></span>中</td>
+          <td>关键模块测试覆盖缺失</td>
+          <td>测试</td>
+          <td><code>tests/</code></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><span class="sev-dot" style="background:var(--orange);"></span>中</td>
+          <td>AtlasCloud 缓存时间戳为空</td>
+          <td>逻辑缺陷</td>
+          <td><code>scrapers/atlascloud.py</code></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><span class="sev-dot" style="background:var(--blue);"></span>低</td>
+          <td>类型注解不完整</td>
+          <td>可维护性</td>
+          <td>多个模块</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><span class="sev-dot" style="background:var(--blue);"></span>低</td>
+          <td>正则归一化静默失败风险</td>
+          <td>逻辑缺陷</td>
+          <td>多个 scrapers</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><span class="sev-dot" style="background:var(--blue);"></span>低</td>
+          <td>魔术数字散落</td>
+          <td>可维护性</td>
+          <td><code>base.py</code> 等</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><span class="sev-dot" style="background:var(--blue);"></span>低</td>
+          <td>错误处理模式不一致</td>
+          <td>可维护性</td>
+          <td>多个 scrapers</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><span class="sev-dot" style="background:var(--blue);"></span>低</td>
+          <td>无 CI lint 配置</td>
+          <td>测试</td>
+          <td><code>.github/</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Detailed Audit -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">🔍</div>
+      详细审计发现
+    </div>
+    <div class="section-desc">每项含：问题定位、根因分析、修复建议。点击展开详情。</div>
+
+    <!-- High -->
+    <div class="sev-group">
+      <div class="sev-header">
+        <span class="sev-tag sev-high">高 / HIGH</span>
+        <span>2 项 — 需优先处理，影响可维护性与数据准确性</span>
+      </div>
+
+      <!-- Issue 1 -->
+      <div class="issue-card open" id="issue-1">
+        <div class="issue-head" onclick="toggleIssue(1)">
+          <div class="idx">1</div>
+          <div class="title">site.py 单文件 2870 行巨型单体，CSS/JS/HTML/Python 混杂</div>
+          <div class="loc">core/site.py</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>core/site.py</code> 包含 2870 行代码，其中：嵌入式 CSS 约 400 行（设计令牌、响应式断点、组件样式）、嵌入式 JavaScript 约 500 行（汇率交互、排序、Excel 导出、侧边栏）、Python 渲染逻辑约 1970 行（20+ 渲染函数、数据构建、站点组装）。所有前端代码以 Python 三引号字符串内嵌，无独立 .css/.js 文件。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              项目从简单脚本演进而来，站点生成初期将前端资源内嵌可减少文件管理开销。但随着功能增长（峰谷定价、主流目录卡片、3D 倾斜效果、Excel 导出、portal 链接卡片），site.py 膨胀至接近 3000 行。核心问题：<strong>关注点未分离</strong>——数据构建、HTML 模板、CSS 样式、JS 交互四层逻辑混杂在同一文件中，任何前端调整都需要修改 Python 文件，增加回归风险。IDE 对内嵌字符串中的 CSS/JS 无语法高亮和补全，维护效率低下。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              <strong>渐进式拆分</strong>（不破坏现有 CI 流程）：<br>
+              1. <strong>短期</strong>：将 CSS 提取到 <code>site/assets/style.css</code>，JS 提取到 <code>site/assets/app.js</code>，site.py 仅负责生成 HTML 并引用外部资源。用 <code>{{CSS_CONTENT}}</code> 占位符→<code>&lt;link&gt;</code> 替换。<br>
+              2. <strong>中期</strong>：将 site.py 按职责拆分：<code>site_builder.py</code>（数据组装）、<code>site_renderer.py</code>（HTML 模板）、<code>site_assets.py</code>（资源管理）。<br>
+              3. <strong>长期</strong>：引入 Jinja2 模板引擎替代字符串拼接，实现模板与逻辑彻底分离。<br>
+              <strong>注意</strong>：拆分时必须保持 JS 依赖的类名（<code>js-cny-main</code>/<code>js-rmb-hint</code>/<code>js-row</code> 等）不变，这是 MEMORY.md 明确的铁律。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 2 -->
+      <div class="issue-card" id="issue-2">
+        <div class="issue-head" onclick="toggleIssue(2)">
+          <div class="idx">2</div>
+          <div class="title">OpenAI GPT-5.6 长上下文价格硬编码，脱离页面数据源</div>
+          <div class="loc">scrapers/openai.py</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>scrapers/openai.py</code> 中 <code>_LONG_CONTEXT_PRICES</code> 字典硬编码了 GPT-5.6 Sol/Terra/Luna 的长上下文价格（如 256K+ token 档位），这些价格不从 developers.openai.com 页面抓取，而是手动维护。当 OpenAI 调整长上下文定价时，此字典不会自动更新，导致站点展示过期价格。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              OpenAI 定价页使用 Astro 预渲染，<code>TextTokenPricingTables</code> 组件的 JSON 结构中长上下文档位可能以不同组件/布局呈现，当前 <code>_parse_rows_value</code> 的嵌套数组解析逻辑无法覆盖。开发时选择了硬编码作为权宜之计，但未设置后续清理计划。<strong>核心风险</strong>：硬编码价格与页面真实价格产生偏差时，用户获得错误信息，违背项目「价格透明」的核心价值。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. <strong>短期</strong>：在 <code>_LONG_CONTEXT_PRICES</code> 上方加 <code># TODO: 确认页面结构后改为动态抓取</code> 注释 + 在 audit.py 的 <code>RATE_MISMATCH</code> 检查中对比硬编码价与 OpenRouter 同模型价，偏差超阈值时告警。<br>
+              2. <strong>中期</strong>：分析 OpenAI 定价页 DOM 结构，扩展 <code>_parse_rows_value</code> 支持长上下文档位解析，删除硬编码字典。<br>
+              3. <strong>兜底</strong>：在 OpenRouter verify 层增加 OpenAI 长上下文价格交叉校验，若 OpenRouter 有对应模型则作为基准。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medium -->
+    <div class="sev-group">
+      <div class="sev-header">
+        <span class="sev-tag sev-medium">中 / MEDIUM</span>
+        <span>6 项 — 建议在迭代中逐步解决</span>
+      </div>
+
+      <!-- Issue 3 -->
+      <div class="issue-card" id="issue-3">
+        <div class="issue-head" onclick="toggleIssue(3)">
+          <div class="idx">3</div>
+          <div class="title">百炼缓存命中价按输入 × 20% 假设计算，非页面真实值</div>
+          <div class="loc">scrapers/bailian.py</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>scrapers/bailian.py</code> 第 10 行 <code>CACHE_HIT_RATIO = 0.2</code>，缓存命中价 = 输入单价 × 0.2。这个比率是假设值，不来自百炼 API 返回数据。如果阿里云调整缓存折扣策略（如改为 10% 或 30%），此值不会自动更新。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              百炼 JSON 文档 API（<code>help.aliyun.com/help/json/document_detail.json</code>）返回的定价结构中可能不包含独立的缓存命中价格字段（仅有输入/输出），开发者基于行业惯例（缓存命中通常为输入价的 10%-25%）选择了 20%。<strong>风险</strong>：与其他数据源（如腾讯云明确标注缓存命中价）对比时，百炼的缓存价可能系统性偏高/偏低，影响用户比价决策。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. 在百炼记录的 <code>condition</code> 字段标注「缓存价按输入×20% 估算」，让用户知道这是推算值。<br>
+              2. 在 audit.py 的 <code>CACHE_GT_INPUT</code> 检查基础上，增加 <code>CACHE_RATIO_ANOMALY</code> 检查：当某源的缓存/输入比率与同模型其他源偏差超 15% 时标记为中严重度。<br>
+              3. 排查百炼 API 返回体是否真的无缓存价字段，若有则直接取真实值。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 4 -->
+      <div class="issue-card" id="issue-4">
+        <div class="issue-head" onclick="toggleIssue(4)">
+          <div class="idx">4</div>
+          <div class="title">17 数据源顺序执行，Playwright 超时 40s × N 拖慢 CI</div>
+          <div class="loc">main.py</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>main.py</code> 的 <code>run()</code> 函数在 for 循环中顺序执行 17 个数据源的 <code>scraper.run()</code>。每个 Playwright 源（aliyun_intl、tencent、tencent_cn、volcengine_intl 等）超时 40s，加上 networkidle 等待和 scroll-to-bottom，单次完整抓取可能耗时 5-8 分钟。GitHub Actions 免费层有 6 分钟 job 超时限制。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              设计初期数据源少（3-5 个），顺序执行足够快。随着数据源增长到 17 个，且多个需 Playwright SPA 渲染，总耗时线性增长。<strong>瓶颈</strong>：Playwright 浏览器实例的启动/关闭开销 + 页面等待时间无法通过代码优化显著缩短，只能通过并行化解决。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. <strong>短期</strong>：用 <code>concurrent.futures.ThreadPoolExecutor(max_workers=4)</code> 并行执行非 Playwright 源（requests + JSON API），Playwright 源仍顺序执行（浏览器实例资源竞争）。<br>
+              2. <strong>中期</strong>：Playwright 源使用共享浏览器实例 + 多 context/page，减少启动开销；或改用 <code>asyncio</code> + <code>playwright.async_api</code>。<br>
+              3. <strong>兜底</strong>：CI 超时从 6 分钟调到 10 分钟（GitHub Actions 免费层最大 6 分钟 → 考虑 split job 或 self-hosted runner）。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 5 -->
+      <div class="issue-card" id="issue-5">
+        <div class="issue-head" onclick="toggleIssue(5)">
+          <div class="idx">5</div>
+          <div class="title">CSS/JS 内嵌 Python 三引号字符串，IDE 无语法支持</div>
+          <div class="loc">core/site.py</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              site.py 中约 400 行 CSS 和 500 行 JS 以 <code>"""..."""</code> 形式内嵌在 Python 文件中。IDE（VSCode）对字符串内的 CSS/JS 无语法高亮、无 IntelliSense、无格式化、无 lint。开发者修改 CSS 属性或 JS 函数时容易出语法错误，且无法使用前端工具链（Prettier、ESLint、Stylelint）。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              静态站点生成器通常将前端资源作为独立文件管理。本项目选择内嵌可能是为了简化 GitHub Pages 部署（单 HTML 文件即可发布）。但随着 CSS/JS 复杂度增长，内嵌方式的维护成本已超过单文件部署的便利性。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              与 Issue 1 同步解决：提取 CSS/JS 到独立文件 → site.py 读取文件内容并内联到 HTML（<code>&lt;style&gt;{{css}}&lt;/style&gt;</code>）。这样既保持单 HTML 文件部署，又获得 IDE 语法支持。或直接使用 <code>&lt;link&gt;</code>/<code>&lt;script src&gt;</code> 引用，GitHub Pages 支持多文件部署。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 6 -->
+      <div class="issue-card" id="issue-6">
+        <div class="issue-head" onclick="toggleIssue(6)">
+          <div class="idx">6</div>
+          <div class="title">抓取数据无前置输入校验，恶意/异常数据直接进流水线</div>
+          <div class="loc">scrapers/base.py</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>scrapers/base.py</code> 的 <code>fetch_url()</code> 返回 HTML 后直接交给 <code>parse()</code> 解析，无 HTML 结构校验。各 scraper 的 <code>_rec()</code> 工厂生成的 record 字典无 schema 校验就写入 prices.json。audit.py 的 Tier1 检查在数据生成之后才执行（gate 模式），如果数据源返回恶意内容（如 XSS payload 注入到模型名），可能被写入 JSON 并最终渲染到 HTML 站点。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              数据源均为知名厂商定价页，被投毒概率低。但从安全工程角度，不应信任任何外部输入。当前 <code>clean_price()</code> 只处理数字提取，<code>model</code> 字段直接取文本不做 HTML 转义。如果厂商定价页被篡改或 CDN 缓存被污染，恶意内容可能流入。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. 在 <code>base.py._rec()</code> 或 <code>run()</code> 出口增加字段校验：<code>model</code> 字段 <code>bleach.clean(model, tags=[])</code> 去除 HTML 标签；<code>input_price</code>/<code>output_price</code> 强制 <code>float</code> 转换 + 非负校验。<br>
+              2. 在 site.py 的 <code>_table_row()</code> 渲染模型名时使用 <code>html.escape()</code>（当前可能已有，需确认）。<br>
+              3. 在 audit.py 增加 <code>SUSPICIOUS_MODEL_NAME</code> 检查：模型名含 <code>&lt;</code>/<code>&gt;</code>/<code>script</code> 时标记为 high。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 7 -->
+      <div class="issue-card" id="issue-7">
+        <div class="issue-head" onclick="toggleIssue(7)">
+          <div class="idx">7</div>
+          <div class="title">openrouter_verify.py / report.py / currency.py 无单元测试</div>
+          <div class="loc">tests/</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>tests/</code> 目录有 5 个测试文件，覆盖：audit_gate（门控逻辑）、parsers（全 scraper fixture 测试）、mainstream_catalog（目录校验）、site_mainstream（站点数据生成）、mainstream_ui（未读但存在）。但 <code>core/openrouter_verify.py</code>（251 行，含价格交叉校验逻辑）、<code>core/report.py</code>（126 行，报告生成）、<code>core/currency.py</code>（64 行，货币换算）均无独立测试。<code>core/store.py</code> 的 <code>compare_previous</code> delta 检测也无测试。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              项目测试策略聚焦于 scraper 正确性（fixture-based 回归测试）和审计门控，对核心工具模块的单元测试投入不足。<code>currency.py</code> 的 <code>enrich()</code> 函数修改 record 字典 in-place，逻辑虽简单但涉及 peak_*_rmb 字段映射，边界情况（None 输入、未知币种）值得测试。<code>openrouter_verify.py</code> 的价格交叉校验逻辑复杂（per-token → per-million 转换 + tolerance 比较），无测试意味着回归风险高。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. 新建 <code>tests/test_currency.py</code>：测试 <code>to_rmb(usd, 7.0)</code>、<code>enrich()</code> 对 None/未知币种/peak 字段的处理。<br>
+              2. 新建 <code>tests/test_openrouter_verify.py</code>：用 mock raw JSON 测试 OR_PRICE_MISMATCH/OR_ID_MISSING/OR_WHITELIST_MISS 各场景。<br>
+              3. 新建 <code>tests/test_store.py</code>：测试 <code>compare_previous</code> 的 delta 检测（新增/删除/价格变动）。<br>
+              4. 目标：核心模块测试覆盖率从 ~60% 提升至 85%+。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 8 -->
+      <div class="issue-card" id="issue-8">
+        <div class="issue-head" onclick="toggleIssue(8)">
+          <div class="idx">8</div>
+          <div class="title">AtlasCloud 缓存 fetched_at 为空字符串</div>
+          <div class="loc">scrapers/atlascloud.py</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>scrapers/atlascloud.py</code> 在缓存原始 JSON 时，wrapper 为 <code>{"fetched_at": "", "url": ..., "body": ...}</code>，<code>fetched_at</code> 为空字符串。而 <code>scrapers/openrouter.py</code> 的缓存 wrapper 使用 <code>datetime.now().isoformat()</code>。<code>openrouter_verify.py</code> 读取缓存时对 <code>fetched_at</code> 无特殊处理，但未来若需要按时间排序缓存或判断过期，空字符串会导致解析异常。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              AtlasCloud scraper 在实现缓存时可能复制了 openrouter 的 wrapper 结构但遗漏了时间戳赋值。当前不影响功能（verify 只读 body），但破坏了数据一致性约定。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              在 <code>atlascloud.py</code> 的缓存写入处加 <code>from datetime import datetime</code> + <code>"fetched_at": datetime.now().isoformat()</code>。一行修复。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Low -->
+    <div class="sev-group">
+      <div class="sev-header">
+        <span class="sev-tag sev-low">低 / LOW</span>
+        <span>5 项 — 可在技术债务清理中逐步解决</span>
+      </div>
+
+      <!-- Issue 9 -->
+      <div class="issue-card" id="issue-9">
+        <div class="issue-head" onclick="toggleIssue(9)">
+          <div class="idx">9</div>
+          <div class="title">类型注解不完整，部分函数签名缺返回类型</div>
+          <div class="loc">多个模块</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>core/matcher.py</code> 的 <code>match()</code> 返回 Optional[str] 但无注解；<code>scrapers/base.py</code> 的 <code>_rec()</code> 返回 dict 但无注解；<code>core/store.py</code> 的 <code>compare_previous()</code> 返回 list[dict] 但无注解。部分新增函数有注解（如 mainstream_catalog.py），但不一致。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              项目从 Python 3.8 脚本起步，未启用 <code>from __future__ import annotations</code> 或 mypy。部分模块（mainstream_catalog.py）较新，作者风格更规范。历史代码未回填注解。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. 在 CI 中加 <code>mypy --strict core/ scrapers/</code>（先 <code>--ignore-missing-imports</code>），逐步修复告警。<br>
+              2. 优先为核心模块（site.py、audit.py、currency.py、matcher.py）补全类型注解。<br>
+              3. 定义 <code>PriceRecord = TypedDict(...)</code> 替代裸 dict，让 IDE 能提供字段提示。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 10 -->
+      <div class="issue-card" id="issue-10">
+        <div class="issue-head" onclick="toggleIssue(10)">
+          <div class="idx">10</div>
+          <div class="title">正则归一化静默失败，模型名不匹配时无告警</div>
+          <div class="loc">多个 scrapers</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>scrapers/volcengine_intl.py</code> 的 <code>_normalize()</code> 使用 <code>_SUFFIX_RE</code>/<code>_GA_SUFFIX_RE</code>/<code>_VERSION_DASH_RE</code> 多个正则剥离后缀；<code>scrapers/tencent_cn.py</code> 的 <code>_base_name()</code> 剥离正式版/原厂直供/HighSpeed 等标注；<code>scrapers/bigmodel.py</code> 的 <code>_SUFFIX_RE</code> 剥离新品/预览/Beta。如果正则不匹配（厂商改了命名规则），<code>re.sub</code> 静默返回原字符串，模型名无法归一到 canonical，watchlist 匹配失败 → 该模型从结果中消失。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              正则归一化是「尽力而为」策略，不匹配不报错是合理设计（避免误杀）。但缺少「匹配失败监控」：当某 scraper 返回的模型名与 watchlist 的匹配率骤降时，应该告警。当前 audit.py 无此检查。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. 在 audit.py 增加 <code>MATCH_RATE_DROP</code> 检查：对比上次 watchlist.json 的匹配率，如果下降超 20% 标记为 high。<br>
+              2. 在各 scraper 的 <code>_normalize()</code> 加 <code>logger.debug(f"normalized: {raw} → {norm}")</code>，便于排查。<br>
+              3. 在 <code>scrapers/base.py</code> 的 <code>run()</code> 返回时记录 <code>{"source": ..., "raw_count": N, "matched_count": M}</code>，低匹配率（&lt;50%）触发 Tier2 检查。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 11 -->
+      <div class="issue-card" id="issue-11">
+        <div class="issue-head" onclick="toggleIssue(11)">
+          <div class="idx">11</div>
+          <div class="title">魔术数字散落代码中，缺乏常量化</div>
+          <div class="loc">base.py 等</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>scrapers/base.py</code> 的 Playwright <code>wait_for_function("body.innerText.length > 800")</code> 中 800 是魔术数字；<code>scrapers/bailian.py</code> 的 <code>CACHE_HIT_RATIO = 0.2</code> 已常量化（好）；<code>core/audit.py</code> 的 <code>OUTLIER_PRICE</code> 阈值、<code>CACHE_GT_INPUT</code> 的 60% 阈值部分硬编码在条件判断中。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              阈值调参时直接改代码数字，没有提取为命名常量或配置项。当需要调整审计严格度时，要全文搜索数字。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. 将所有阈值提取为模块级常量：<code>_MIN_BODY_TEXT_LEN = 800</code>、<code>_CACHE_SUSPECT_RATIO = 0.6</code> 等。<br>
+              2. 更进一步：将审计阈值移入 <code>config/audit_rules.yml</code>，支持运行时覆盖。<br>
+              3. Playwright 超时也常量化：<code>_PLAYWRIGHT_TIMEOUT_MS = 40000</code>。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 12 -->
+      <div class="issue-card" id="issue-12">
+        <div class="issue-head" onclick="toggleIssue(12)">
+          <div class="idx">12</div>
+          <div class="title">错误处理模式不一致，部分吞异常</div>
+          <div class="loc">多个 scrapers</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              <code>scrapers/base.py</code> 的 <code>fetch_url()</code> 在 requests 失败时 fallback 到 Playwright，Playwright 也失败时返回 None；各 scraper 的 <code>parse()</code> 在 <code>html is None</code> 时返回 <code>[]</code>。但 <code>scrapers/openai.py</code> 的 <code>_parse_rows_value()</code> 遇到非预期嵌套结构时可能抛 IndexError，无 try-except 包裹。<code>scrapers/deepseek.py</code> 的状态机解析在非预期行格式时 <code>continue</code> 跳过，无日志。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              各 scraper 作者风格不同，无统一的错误处理规范。有的倾向 fail-fast（raise），有的倾向 fail-safe（return []），有的静默跳过（continue）。无 logging 框架，错误信息只 print 或被吞。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. 引入 <code>logging</code> 模块，在 <code>main.py</code> 配置 <code>logging.basicConfig(level=INFO, format="%(asctime)s [%(name)s] %(levelname)s: %(message)s")</code>。<br>
+              2. 统一错误处理策略：网络错误 → return [] + log.warning；解析错误 → log.error + raise（让 audit Tier2 捕获 SRC_UNREACHABLE）。<br>
+              3. 在 <code>base.py</code> 的 <code>run()</code> 中 try-except 包裹 <code>parse()</code>，异常时记录到 <code>self.error</code> 字段，供 report.py 展示。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issue 13 -->
+      <div class="issue-card" id="issue-13">
+        <div class="issue-head" onclick="toggleIssue(13)">
+          <div class="idx">13</div>
+          <div class="title">无 CI lint/type-check 配置，代码质量无自动化保障</div>
+          <div class="loc">.github/workflows/</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="issue-body">
+          <div class="field">
+            <div class="field-label">问题定位</div>
+            <div class="field-content">
+              GitHub Actions workflow（<code>.github/workflows/scrape.yml</code>）只运行抓取 + 提交 + 部署，无 <code>flake8</code>/<code>ruff</code>/<code>mypy</code>/<code>pytest</code> 步骤。代码提交前无 lint 检查，无 pre-commit hook 配置。
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">根因分析</div>
+            <div class="field-content">
+              CI 聚焦于数据产出（scrape → commit → deploy），代码质量检查未纳入流水线。测试（<code>pytest</code>）仅在本地手动运行。
+            </div>
+          </div>
+          <div class="field fix">
+            <div class="field-label">🔧 修复建议</div>
+            <div class="field-content">
+              1. 新增 <code>.github/workflows/ci.yml</code>：on push/PR 触发，运行 <code>ruff check</code> + <code>pytest</code>。<br>
+              2. 新增 <code>pyproject.toml</code> 配置 ruff 规则（E/F/W/I/UP）。<br>
+              3. 可选：pre-commit hook（<code>.pre-commit-config.yaml</code>）在本地提交前运行 ruff + pytest。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Improvement Plan -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">🚀</div>
+      改进规划
+    </div>
+    <div class="section-desc">基于审计结论与项目核心价值（价格透明、数据准确、用户可比价），分三阶段推进</div>
+
+    <div class="plan-grid">
+
+      <!-- Short term -->
+      <div class="plan-card plan-short">
+        <div class="plan-head">
+          <div class="phase">第一阶段 · 1-2 周</div>
+          <div class="title">短期：止血与质量基线</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-item">
+            <div class="plan-priority p-p0">P0</div>
+            <div class="plan-content">
+              <div class="title">修复 AtlasCloud 缓存时间戳 + 添加输入校验</div>
+              <div class="desc">一行修复 fetched_at 空字符串；在 base.py 出口增加 model 字段 HTML 标签清洗 + price 字段 float 强转</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">scrapers/atlascloud.py</span>
+                <span class="plan-tag module">scrapers/base.py</span>
+                <span class="plan-tag benefit">数据安全</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p0">P0</div>
+            <div class="plan-content">
+              <div class="title">CI 增加 lint + pytest 步骤</div>
+              <div class="desc">新建 ci.yml，配置 ruff + pytest；新增 pyproject.toml ruff 规则</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">.github/workflows/</span>
+                <span class="plan-tag module">pyproject.toml</span>
+                <span class="plan-tag benefit">质量基线</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p1">P1</div>
+            <div class="plan-content">
+              <div class="title">百炼缓存比率先标注，后续排查</div>
+              <div class="desc">在 condition 字段标注「缓存价按输入×20% 估算」；audit 增加 CACHE_RATIO_ANOMALY 检查</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">scrapers/bailian.py</span>
+                <span class="plan-tag module">core/audit.py</span>
+                <span class="plan-tag benefit">数据透明</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p1">P1</div>
+            <div class="plan-content">
+              <div class="title">补全核心模块单元测试</div>
+              <div class="desc">新建 test_currency.py / test_openrouter_verify.py / test_store.py，覆盖边界情况</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">tests/</span>
+                <span class="plan-tag benefit">覆盖率 60%→85%</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p1">P1</div>
+            <div class="plan-content">
+              <div class="title">OpenAI 硬编码价格加 TODO + 交叉校验</div>
+              <div class="desc">_LONG_CONTEXT_PRICES 加注释；audit 增加 OpenAI vs OpenRouter 价格偏差告警</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">scrapers/openai.py</span>
+                <span class="plan-tag module">core/audit.py</span>
+                <span class="plan-tag benefit">价格准确性</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mid term -->
+      <div class="plan-card plan-mid">
+        <div class="plan-head">
+          <div class="phase">第二阶段 · 1-2 月</div>
+          <div class="title">中期：架构解耦与性能优化</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-item">
+            <div class="plan-priority p-p0">P0</div>
+            <div class="plan-content">
+              <div class="title">site.py 前端资源外提</div>
+              <div class="desc">CSS→site/assets/style.css，JS→site/assets/app.js，site.py 读取并内联到 HTML。保持单文件部署 + 获得 IDE 语法支持</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">core/site.py</span>
+                <span class="plan-tag benefit">可维护性大幅提升</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p0">P0</div>
+            <div class="plan-content">
+              <div class="title">数据源并行抓取</div>
+              <div class="desc">ThreadPoolExecutor 并行非 Playwright 源；Playwright 源共享浏览器实例多 context</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">main.py</span>
+                <span class="plan-tag module">scrapers/base.py</span>
+                <span class="plan-tag benefit">CI 耗时 8min→3min</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p1">P1</div>
+            <div class="plan-content">
+              <div class="title">site.py 按职责拆分</div>
+              <div class="desc">拆为 site_builder（数据组装）/ site_renderer（HTML 模板）/ site_assets（资源管理）三模块</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">core/site*.py</span>
+                <span class="plan-tag benefit">关注点分离</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p1">P1</div>
+            <div class="plan-content">
+              <div class="title">引入 logging 框架 + 统一错误处理</div>
+              <div class="desc">main.py 配置 logging；各 scraper 统一网络错误→return []+warning，解析错误→log+raise</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">main.py</span>
+                <span class="plan-tag module">scrapers/*.py</span>
+                <span class="plan-tag benefit">可观测性</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p1">P1</div>
+            <div class="plan-content">
+              <div class="title">OpenAI 长上下文价格动态抓取</div>
+              <div class="desc">分析 OpenAI 定价页 DOM，扩展 _parse_rows_value 支持长上下文档位，删除硬编码</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">scrapers/openai.py</span>
+                <span class="plan-tag benefit">数据源真实</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p2">P2</div>
+            <div class="plan-content">
+              <div class="title">审计阈值配置化</div>
+              <div class="desc">OUTLIER/CACHE_RATIO 等阈值移入 config/audit_rules.yml，支持运行时覆盖</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">core/audit.py</span>
+                <span class="plan-tag module">config/</span>
+                <span class="plan-tag benefit">灵活性</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Long term -->
+      <div class="plan-card plan-long">
+        <div class="plan-head">
+          <div class="phase">第三阶段 · 3-6 月</div>
+          <div class="title">长期：产品化与用户体验</div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-item">
+            <div class="plan-priority p-p0">P0</div>
+            <div class="plan-content">
+              <div class="title">引入 Jinja2 模板引擎，彻底分离模板与逻辑</div>
+              <div class="desc">site_renderer.py 使用 Jinja2 模板文件（templates/*.html），告别字符串拼接。支持模板继承、宏、过滤器</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">core/site_renderer.py</span>
+                <span class="plan-tag module">templates/</span>
+                <span class="plan-tag benefit">可维护性质变</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p0">P0</div>
+            <div class="plan-content">
+              <div class="title">每日自动抓取 automation 配置</div>
+              <div class="desc">MEMORY.md 已记录缺口：仅 GitHub Actions 每周日跑，用户期望每日抓取。新建 automation 或 self-hosted runner cron</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">automation / CI</span>
+                <span class="plan-tag benefit">数据时效性</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p1">P1</div>
+            <div class="plan-content">
+              <div class="title">全量类型注解 + mypy strict CI 门控</div>
+              <div class="desc">核心模块补全 TypedDict；CI 中 mypy --strict 作为 merge 门控</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">core/ scrapers/</span>
+                <span class="plan-tag module">.github/workflows/ci.yml</span>
+                <span class="plan-tag benefit">类型安全</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p1">P1</div>
+            <div class="plan-content">
+              <div class="title">历史价格趋势图</div>
+              <div class="desc">每日抓取的 prices.json 归档到 data/history/YYYY-MM-DD.json，前端增加 Chart.js 趋势线，展示模型价格变化</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">core/store.py</span>
+                <span class="plan-tag module">core/site.py</span>
+                <span class="plan-tag benefit">用户价值核心</span>
+              </div>
+            </div>
+          </div>
+          <div class="plan-item">
+            <div class="plan-priority p-p2">P2</div>
+            <div class="plan-content">
+              <div class="title">价格变动推送通知</div>
+              <div class="desc">compare_previous 检测到关键模型价格变动时，通过 GitHub Issue / 微信推送 / RSS 通知用户</div>
+              <div class="plan-tags">
+                <span class="plan-tag module">core/store.py</span>
+                <span class="plan-tag module">core/report.py</span>
+                <span class="plan-tag benefit">用户触达</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Conclusion -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">✅</div>
+      审计结论
+    </div>
+    <div class="section-desc">总体评估与优先行动</div>
+
+    <div class="arch-diagram">
+      <div style="font-size:15px; line-height:2;">
+        <p><strong>整体评价</strong>：项目工程质量在「个人维护的 CI 驱动抓取系统」类别中属于上乘——17 数据源全量 fixture 测试、两 tier 审计门控、OpenRouter 二次校验、schema 校验的目录系统，这些工程实践远超同类项目。核心数据流设计清晰，模块职责合理。</p>
+        <p><strong>主要技术债务</strong>集中在 <code>core/site.py</code> 的单文件膨胀（2870 行），这是项目从脚本到产品化过程中最需要偿还的债。其次是测试覆盖缺口（3 个核心模块无测试）和 CI 质量门控缺失。</p>
+        <p><strong>无致命问题</strong>：项目可正常运行，数据准确性有多层审计保障。所有发现问题均为可维护性/性能/防御性增强类，不影响当前业务运转。</p>
+        <p style="margin-top:16px;padding:12px 16px;background:var(--brand-soft);border-radius:var(--r-sm);border-left:3px solid var(--brand);">
+          <strong>立即行动（本周）</strong>：① 修复 atlascloud.py fetched_at 空字符串（1 行）；② 新建 ci.yml 加入 ruff + pytest（1 小时）；③ 在 bailian.py condition 标注缓存估算（1 行）。<br>
+          <strong>本月重点</strong>：site.py 前端资源外提 + 数据源并行抓取。<br>
+          <strong>季度目标</strong>：Jinja2 模板引擎 + 每日抓取 automation + 历史价格趋势图。
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleIssue(id) {
+  var card = document.getElementById('issue-' + id);
+  if (card) {
+    card.classList.toggle('open');
+  }
+}
+</script>
+
+</body>
+</html>

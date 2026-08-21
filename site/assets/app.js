@@ -623,6 +623,95 @@ const PEAK = __PEAK_DATA__;
   if (sel) draw(sel.value);
 })();
 
+/* ===== 历史价格趋势图 ===== */
+(function(){
+  var HIST = (SITE_DATA && SITE_DATA.history) || {};
+  var dates = HIST.dates || [];
+  var series = HIST.series || {};
+  if (dates.length < 2) return;  // 不足 2 点不渲染（HTML 已显示占位）
+
+  var trendMetric = 'input';
+  var COLOR_POOL = ['#4f46e5','#059669','#dc2626','#d97706','#7c3aed','#0891b2','#db2777','#65a30d','#ea580c','#0d9488'];
+  var tSel = document.getElementById('trendModelSelect');
+  var tCanvas = document.getElementById('trendChart');
+  if (!tSel || !tCanvas) return;
+
+  function valOf(rec){
+    if (!rec) return null;
+    if (trendMetric === 'output'){
+      if ((rec.currency||'').toUpperCase() === 'USD' && rec.output != null) return rec.output * state.rate;
+      return rec.output_rmb != null ? rec.output_rmb : rec.output;
+    }
+    if ((rec.currency||'').toUpperCase() === 'USD' && rec.input != null) return rec.input * state.rate;
+    return rec.input_rmb != null ? rec.input_rmb : rec.input;
+  }
+
+  function drawTrend(canon){
+    if (typeof Chart === 'undefined') return;
+    var srcMap = series[canon] || {};
+    var srcIds = Object.keys(srcMap);
+    // 过滤：被取消勾选的渠道不显示
+    srcIds = srcIds.filter(function(s){ return state.channels[s] !== false; });
+    if (srcIds.length === 0) srcIds = Object.keys(srcMap);  // fallback 全显示
+
+    var datasets = srcIds.map(function(src, i){
+      var pts = dates.map(function(d){
+        var rec = (srcMap[src] || {})[d];
+        var v = valOf(rec);
+        return v == null ? null : v;
+      });
+      var label = (SITE_DATA.filter_meta && SITE_DATA.filter_meta.channels || [])
+        .filter(function(c){ return c.id === src; })[0];
+      label = label ? label.label : src;
+      return {
+        label: label,
+        data: pts,
+        borderColor: COLOR_POOL[i % COLOR_POOL.length],
+        backgroundColor: COLOR_POOL[i % COLOR_POOL.length],
+        spanGaps: true,
+        tension: 0.3,
+        pointRadius: 2,
+        borderWidth: 2
+      };
+    });
+
+    if (window.__trendChart) window.__trendChart.destroy();
+    var ctx = tCanvas.getContext('2d');
+    window.__trendChart = new Chart(ctx, {
+      type: 'line',
+      data: { labels: dates, datasets: datasets },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: true, position: 'bottom', labels: { color: '#475569', boxWidth: 12, font: { size: 11 } } },
+          tooltip: { callbacks: { label: function(c){ return c.dataset.label + ': ¥' + fmt(c.parsed.y); } } }
+        },
+        scales: {
+          y: { beginAtZero: true, ticks: { callback: function(v){ return '¥' + v; }, color: '#64748b' }, grid: { color: '#eef2f7' } },
+          x: { grid: { display: false }, ticks: { color: '#64748b', maxRotation: 45, minRotation: 0 } }
+        }
+      }
+    });
+  }
+
+  if (tSel){
+    tSel.addEventListener('change', function(e){ drawTrend(e.target.value); });
+    document.querySelectorAll('[data-trend-metric]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        trendMetric = btn.dataset.trendMetric;
+        document.querySelectorAll('[data-trend-metric]').forEach(function(b){
+          var on = b.dataset.trendMetric === trendMetric;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        drawTrend(tSel.value);
+      });
+    });
+    drawTrend(tSel.value);
+  }
+})();
+
 /* ===== 峰谷动态比价时钟 ===== */
 (function(){
   if (typeof PEAK === 'undefined' || !PEAK.schedules) return;

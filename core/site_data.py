@@ -754,6 +754,61 @@ def _build_mainstream_sections(
     return rendered
 
 
+def _load_history(data_dir: str, max_points: int = 90) -> Dict[str, Any]:
+    """读取 data/history/*.json 快照，构建模型×渠道价格时间序列。
+
+    每个快照文件名为 YYYY-MM-DD.json，内容为当日 prices.json 全量记录。
+    返回结构：
+    {
+      "dates": ["2026-08-22", ...],                     # 升序日期
+      "series": {                                        # canonical -> source -> {date: {input, output, currency}}
+        "DeepSeek V4 Pro": {
+          "deepseek": {"2026-08-22": {"input": 9.0, "output": 27.0, "currency": "CNY"}, ...},
+          ...
+        },
+        ...
+      }
+    }
+    若 history 目录不存在或无快照，返回空结构。
+    """
+    hist_dir = os.path.join(data_dir, "history")
+    if not os.path.isdir(hist_dir):
+        return {"dates": [], "series": {}}
+
+    import glob
+    files = sorted(glob.glob(os.path.join(hist_dir, "*.json")))
+    if max_points and len(files) > max_points:
+        files = files[-max_points:]  # 仅保留最近 N 天
+
+    dates: List[str] = []
+    series: Dict[str, Dict[str, Dict[str, Any]]] = {}
+
+    for fp in files:
+        date_str = os.path.splitext(os.path.basename(fp))[0]  # YYYY-MM-DD
+        try:
+            with open(fp, encoding="utf-8") as f:
+                snap = json.load(f)
+        except (ValueError, OSError):
+            continue
+        if not isinstance(snap, list):
+            continue
+        dates.append(date_str)
+        for r in snap:
+            c = r.get("canonical")
+            s = r.get("source")
+            if not c or not s:
+                continue
+            series.setdefault(c, {}).setdefault(s, {})[date_str] = {
+                "input": r.get("input"),
+                "output": r.get("output"),
+                "input_rmb": r.get("input_rmb"),
+                "output_rmb": r.get("output_rmb"),
+                "currency": r.get("currency"),
+            }
+
+    return {"dates": dates, "series": series}
+
+
 def _build_site_data(data_dir: str) -> Dict[str, Any]:
     watchlist: List[Dict[str, Any]] = _load_json(os.path.join(data_dir, "watchlist.json")) or []
     if not isinstance(watchlist, list):
@@ -985,4 +1040,5 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         "mainstream_sections": mainstream_sections,
         "has_domestic_mainstream": has_domestic_mainstream,
         "has_overseas_mainstream": has_overseas_mainstream,
+        "history": _load_history(data_dir),
     }

@@ -585,6 +585,53 @@ def _channel_section(data: Dict[str, Any]) -> str:
     </section>"""
 
 
+def _trend_section(history: Dict[str, Any], canons: List[str]) -> str:
+    """历史价格趋势图区块：按模型×渠道展示输入/输出价随时间变化。"""
+    dates = history.get("dates") or []
+    series = history.get("series") or {}
+    if len(dates) < 2:
+        # 不足 2 个数据点：展示占位说明，引导用户等待数据累积
+        return f"""
+    <section class="block-card trend-card" aria-labelledby="trend-title">
+      <div class="chart-head">
+        <div>
+          <h2 id="trend-title" class="block-title" style="margin:0">历史价格趋势</h2>
+          <p class="block-desc" style="margin:4px 0 0">每日自动抓取累积 · 折线图展示各渠道报价随时间变化</p>
+        </div>
+      </div>
+      <div class="trend-empty">
+        <p>📈 历史趋势图需要至少 2 天的数据点。当前已累积 <b>{len(dates)}</b> 天快照。</p>
+        <p class="trend-hint">每日抓取自动化已启用（每日 09:00 北京时间），数据将自动累积。预计 2-3 天后即可看到趋势线。</p>
+      </div>
+    </section>"""
+
+    # 可选项：有快照的模型（按当前 canons 顺序优先）
+    avail = [c for c in canons if c in series]
+    if not avail:
+        avail = list(series.keys())
+    options = "".join(f'<option value="{_esc(c)}">{_esc(c)}</option>' for c in avail)
+    return f"""
+    <section class="block-card trend-card" aria-labelledby="trend-title">
+      <div class="chart-head">
+        <div>
+          <h2 id="trend-title" class="block-title" style="margin:0">历史价格趋势</h2>
+          <p class="block-desc" style="margin:4px 0 0">每日自动抓取累积 · {len(dates)} 天数据 · 折线图展示各渠道报价随时间变化</p>
+        </div>
+        <div class="chart-controls">
+          <div class="seg" role="group" aria-label="价格维度">
+            <button type="button" class="seg-btn is-active" data-trend-metric="input" aria-pressed="true">输入价</button>
+            <button type="button" class="seg-btn" data-trend-metric="output" aria-pressed="false">输出价</button>
+          </div>
+          <select id="trendModelSelect" aria-label="选择模型">{options}</select>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="trendChart" role="img" aria-label="历史价格趋势折线图"></canvas>
+        <p id="trendLive" class="visually-hidden" aria-live="polite"></p>
+      </div>
+    </section>"""
+
+
 def _chart_section(canons: List[str], has_data: bool) -> str:
     if not has_data or not canons:
         return ""
@@ -662,6 +709,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     overseas_block = _overseas_section(data.get("overseas_rows") or [], data.get("has_overseas"))
     channel_block = _channel_section(data)
     chart_block = _chart_section(canons, bool(data.get("chart")))
+    trend_block = _trend_section(data.get("history") or {}, canons)
 
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     peak_json = json.dumps(
@@ -712,6 +760,7 @@ def build_site(data_dir: str, out_path: str = None) -> str:
       {overseas_block}
       {channel_block}
       {chart_block}
+      {trend_block}
     </main>
   </div>
 

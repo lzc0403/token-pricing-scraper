@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import shutil
 from typing import Any, Dict, List, Optional
 
 # 输出字段顺序（全量）
@@ -90,6 +91,33 @@ def write_outputs(records: List[Dict[str, Any]], out_dir: str) -> Dict[str, str]
         "watchlist.json": watch_path,
         "watchlist.csv": watch_csv,
     }
+
+
+def archive_snapshot(out_dir: str, date_str: Optional[str] = None) -> Optional[str]:
+    """每日抓取时归档当前 prices.json 快照到 data/history/YYYY-MM-DD.json。
+
+    用于历史价格趋势图的时间维度数据源。同一天多次抓取只保留最新一次
+    （覆盖写），避免 CI 重跑产生重复点。
+
+    Args:
+        out_dir: data/ 目录
+        date_str: 日期字符串（默认今天，格式 YYYY-MM-DD）
+    Returns:
+        归档文件路径，或 None（无 prices.json 时）
+    """
+    from datetime import datetime
+    if date_str is None:
+        date_str = datetime.now().strftime("%Y-%m-%d")
+
+    src = os.path.join(out_dir, "prices.json")
+    if not os.path.exists(src):
+        return None
+
+    hist_dir = os.path.join(out_dir, "history")
+    _ensure_dir(hist_dir)
+    dst = os.path.join(hist_dir, f"{date_str}.json")
+    shutil.copyfile(src, dst)
+    return dst
 
 
 def compare_previous(current_path: str, previous_path: str) -> List[Dict[str, Any]]:
