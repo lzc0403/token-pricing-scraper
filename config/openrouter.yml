@@ -22,12 +22,33 @@ whitelist:
   - id: anthropic/claude-sonnet-5
     model: Claude Sonnet 5
     note: Claude 主力
+  - id: anthropic/claude-sonnet-4.6
+    model: Claude Sonnet 4.6
+    note: Claude 主力
+  - id: anthropic/claude-sonnet-4.5
+    model: Claude Sonnet 4.5
+    note: Claude 主力
   - id: anthropic/claude-opus-4.8
     model: Claude Opus 4.8
+    note: Claude 旗舰
+  - id: anthropic/claude-opus-4.7
+    model: Claude Opus 4.7
+    note: Claude 旗舰
+  - id: anthropic/claude-opus-4.6
+    model: Claude Opus 4.6
+    note: Claude 旗舰
+  - id: anthropic/claude-opus-4.5
+    model: Claude Opus 4.5
     note: Claude 旗舰
   - id: anthropic/claude-opus-5
     model: Claude Opus 5
     note: 2026-07 新旗舰
+  - id: anthropic/claude-fable-5
+    model: Claude Fable 5
+    note: 2026-07 新旗舰
+  - id: anthropic/claude-haiku-4.5
+    model: Claude Haiku 4.5
+    note: Claude 高频
   - id: google/gemini-2.5-pro
     model: Gemini 2.5 Pro
     note: Gemini 旗舰
