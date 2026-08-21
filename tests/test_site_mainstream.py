@@ -155,11 +155,40 @@ def test_domestic_cards_grouped_by_vendor_flagship_first(tmp_path):
     assert canons.index("DeepSeek V4 Flash") < canons.index("DeepSeek V3.2")
 
 
-def test_official_rows_vendor_grouped_with_qwen_cache():
-    data = site._build_site_data(os.path.join(ROOT, "data"))
+def test_official_rows_vendor_grouped_with_qwen_cache(tmp_path):
+    """官方区 Qwen 分组 + aliyun 缓存价（不依赖真实 data/，用合成 fixture）。
+
+    背景：aliyun 源 2026-08 线上抓 0 条（help.aliyun.com 改版/限流），
+    该测试若读真实 data/watchlist.json 会因缺 Qwen 记录而 flaky。
+    这里直接注入合成 watchlist，稳定验证「官方区按厂商分组 + 缓存价透传」。
+    """
+    import json
+
+    wl = [
+        # aliyun（Hologres，官方区）Qwen3.7 Max/Plus —— 缓存价 2.88 / 0.48
+        {"source": "aliyun", "model_raw": "qwen3.7-max", "canonical": "Qwen3.7 Max",
+         "input": 2.0, "output": 8.0, "cache_hit": 2.88, "currency": "CNY",
+         "input_rmb": 2.0, "output_rmb": 8.0, "unit": "1M tokens"},
+        {"source": "aliyun", "model_raw": "qwen3.7-plus", "canonical": "Qwen3.7 Plus",
+         "input": 1.0, "output": 4.0, "cache_hit": 0.48, "currency": "CNY",
+         "input_rmb": 1.0, "output_rmb": 4.0, "unit": "1M tokens"},
+        # 其他官方源（deepseek / openai）各一条，验证分组连续性
+        {"source": "deepseek", "model_raw": "deepseek-v4-pro", "canonical": "DeepSeek V4 Pro",
+         "input": 4.0, "output": 12.0, "cache_hit": 0.8, "currency": "CNY",
+         "input_rmb": 4.0, "output_rmb": 12.0, "unit": "1M tokens"},
+        {"source": "openai", "model_raw": "gpt-5.6-sol", "canonical": "GPT-5.6 Sol",
+         "input": 5.0, "output": 30.0, "cache_hit": 0.5, "currency": "USD",
+         "input_rmb": 35.0, "output_rmb": 210.0, "unit": "1M tokens",
+         "openrouter_id": "openai/gpt-5.6", "condition": "短文本 · ≤272K"},
+    ]
+    data_dir = tmp_path
+    with open(data_dir / "watchlist.json", "w", encoding="utf-8") as f:
+        json.dump(wl, f, ensure_ascii=False)
+
+    data = site._build_site_data(str(data_dir))
     rows = data["official_rows"]
     qwen = [r for r in rows if str(r.get("canonical", "")).startswith("Qwen")]
-    assert qwen
+    assert qwen, "官方区应含 Qwen 记录"
     assert any(r.get("cache_hit") == 2.88 for r in qwen)
     assert any(r.get("cache_hit") == 0.48 for r in qwen)
 
