@@ -36,17 +36,52 @@ import requests
 
 from core import currency
 
-_TIMEOUT = 20
 _UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 )
-# 视为「价格离谱」的阈值：¥/1M tokens（GLM-5.2 输出 28、Kimi 输出 27 为已知合理高值，留余量）
-_PRICE_MAX = 1000.0
-# USD 换算容差
-_RATE_TOL = 0.01
-# 跨源离散倍数阈值
-_DIVERGE_RATIO = 10.0
+
+# --------------------------------------------------------------------------- #
+# 审计规则（config/audit_rules.yml 可覆盖；缺省回退到以下默认值）
+# 默认值注释即历史硬编码值，改动阈值无需改代码。
+# --------------------------------------------------------------------------- #
+_RULES_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config", "audit_rules.yml"
+)
+
+# 默认值（与历史行为一致）
+_TIMEOUT = 20
+_PRICE_MAX = 1000.0          # 视为「价格离谱」的阈值：¥/1M tokens
+_RATE_TOL = 0.01             # USD 换算容差
+_DIVERGE_RATIO = 10.0        # 跨源离散倍数阈值
+_CACHE_SUSPECT_RATIO = 0.6   # 缓存命中价 > 输入价 × 0.6 视为异常偏高
+_CACHE_RATIO_DEV = 0.15      # TERM1 CACHE_RATIO_ANOMALY 偏离基准 ±15%
+_OPENAI_LONG_DEV = 0.15      # OPENAI_LONG_DEV 硬编码价 vs OR 偏差 ±15%
+
+
+def _load_rules() -> Dict[str, Any]:
+    """从 config/audit_rules.yml 读取规则；文件缺失/非法时返回空 dict（用默认值）。"""
+    try:
+        import yaml  # type: ignore
+
+        with open(_RULES_PATH, encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+_RULES: Dict[str, Any] = _load_rules()
+
+
+def _rule(name: str, default: float) -> float:
+    """读规则值，缺省回退 default。"""
+    v = _RULES.get(name)
+    try:
+        return float(v) if v is not None else default
+    except (TypeError, ValueError):
+        return default
+
 
 # 关键主力模型：输入价缺失必须拦（门禁级）
 # 这些模型是页面主推、用户最关注的价格基准，缺输入价直接失败
@@ -72,6 +107,9 @@ _CRITICAL_MODELS = frozenset(
 def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict[str, Any]]:
     """对 watchlist 做结构性校验，返回可疑项列表。"""
     suspects: List[Dict[str, Any]] = []
+    price_max = _rule("price_max", _PRICE_MAX)
+    rate_tol = _rule("rate_tol", _RATE_TOL)
+    diverge_ratio = _rule("diverge_ratio", _DIVERGE_RATIO)
 
     # 1. 关键字段空值
     for r in watchlist:
@@ -103,7 +141,7 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
                              "source": r.get("source"), "canonical": canon,
                              "msg": f"缓存命中价({cache_v}) > 输入价({in_v})，疑似列错位/解析错误",
                              "record": r})
-        elif cache_v > in_v * 0.6:
+        elif cache_v > in_v * _rule("cache_suspect_ratio", _CACHE_SUSPECT_RATIO):
             # 缓存命中通常 ≤ 输入价的三四折；高于 60% 已显可疑（各厂商折扣不同，留余量）
             suspects.append({"tier": 1, "code": "CACHE_SUSPECT", "severity": "med",
                              "source": r.get("source"), "canonical": canon,
@@ -128,7 +166,7 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
         ratios = [e["ratio"] for e in entries]
         baseline = sorted(ratios)[len(ratios) // 2]  # 中位数作基准
         for e in entries:
-            if baseline > 0 and abs(e["ratio"] - baseline) / baseline > 0.15:
+            if baseline > 0 and abs(e["ratio"] - baseline) / baseline > _rule("cache_ratio_dev", _CACHE_RATIO_DEV):
                 suspects.append({"tier": 1, "code": "CACHE_RATIO_ANOMALY", "severity": "med",
                                  "source": e["record"].get("source"), "canonical": c,
                                  "msg": f"缓存/输入比率({e['ratio']:.0%}) 偏离同模型基准({baseline:.0%}) 超 15%，"
@@ -147,13 +185,13 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
                 suspects.append({"tier": 1, "code": "NEG_PRICE", "severity": "high",
                                  "source": r.get("source"), "canonical": r.get("canonical"),
                                  "msg": f"{label}价为负: {v}", "record": r})
-            elif v > _PRICE_MAX:
+            elif v > price_max:
                 # USD 源：用原始 USD 价对比（rmb 换算会放大 Pro 旗舰价）
                 raw = r.get("output" if label == "输出" else "input")
-                if not is_usd or not isinstance(raw, (int, float)) or raw > _PRICE_MAX:
+                if not is_usd or not isinstance(raw, (int, float)) or raw > price_max:
                     suspects.append({"tier": 1, "code": "OUTLIER_PRICE", "severity": "high",
                                      "source": r.get("source"), "canonical": r.get("canonical"),
-                                     "msg": f"{label}价超阈值(>{_PRICE_MAX}): {v}", "record": r})
+                                     "msg": f"{label}价超阈值(>{price_max}): {v}", "record": r})
 
     # 3. 货币换算一致性（USD 源）
     for r in watchlist:
@@ -163,7 +201,7 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
         in_rmb = r.get("input_rmb")
         if inp is not None and in_rmb is not None and rate > 0:
             expect = inp * rate
-            if expect > 0 and abs(in_rmb - expect) / expect > _RATE_TOL:
+            if expect > 0 and abs(in_rmb - expect) / expect > rate_tol:
                 suspects.append({"tier": 1, "code": "RATE_MISMATCH", "severity": "med",
                                  "source": r.get("source"), "canonical": r.get("canonical"),
                                  "msg": f"USD 换算不一致: input={inp} × {rate}={expect:.3f} 但 input_rmb={in_rmb}",
@@ -210,7 +248,7 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
         if len(inputs) < 2:
             continue
         lo, hi = min(inputs), max(inputs)
-        if lo > 0 and hi / lo > _DIVERGE_RATIO:
+        if lo > 0 and hi / lo > diverge_ratio:
             suspects.append({"tier": 1, "code": "DIVERGE", "severity": "low",
                              "source": None, "canonical": c,
                              "msg": f"跨源输入价离散 {hi/lo:.1f}× (最低 {lo} / 最高 {hi})，建议人工核对是否同规格模型",
@@ -242,7 +280,7 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
             or_v = or_rec.get(fld)
             if oai_v is not None and or_v is not None and or_v > 0:
                 dev = abs(oai_v - or_v) / or_v
-                if dev > 0.15:
+                if dev > _rule("openai_long_dev", _OPENAI_LONG_DEV):
                     suspects.append({"tier": 1, "code": "OPENAI_LONG_DEV", "severity": "high",
                                      "source": "openai", "canonical": r.get("canonical"),
                                      "msg": f"OpenAI 硬编码长上下文{fld}价({oai_v}) 与 OpenRouter({or_v}) 偏差 {dev:.1%}",

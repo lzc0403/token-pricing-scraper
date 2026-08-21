@@ -1,0 +1,14 @@
+# 数据审计规则配置（core/audit.py 读取）
+# 数值单位：价格为 ¥/1M tokens；比率为无单位比例。
+# 缺省的键回退到 audit.py 内的默认常量（与历史行为一致）。
+
+# Tier1 结构性校验阈值
+price_max: 1000.0          # 视为「价格离谱」的阈值（¥/1M tokens）
+rate_tol: 0.01             # USD 换算一致性容差（±1%）
+diverge_ratio: 10.0        # 同模型跨源输入价离散倍数阈值
+cache_suspect_ratio: 0.6   # 缓存命中价 > 输入价 × 0.6 视为异常偏高
+cache_ratio_dev: 0.15      # CACHE_RATIO_ANOMALY: 偏离同模型基准(中位数) ±15% 告警
+openai_long_dev: 0.15      # OPENAI_LONG_DEV: 硬编码长上下文价 vs OpenRouter 偏差 ±15% 告警
+
+# Tier2 源页面核对
+http_timeout: 20            # 源页面抓取超时（秒）
