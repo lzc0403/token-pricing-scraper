@@ -88,10 +88,13 @@
 - 低：类型注解不全 / 正则静默失败 / 魔术数字 / 错误处理不一致 / 无 CI lint。
 - 改进三阶段：短期止血（atlascloud 时间戳+CI lint+百炼标注+补测试）→ 中期架构解耦（site.py 前端外提+并行抓取+模块拆分）→ 长期产品化（Jinja2+每日抓取+历史趋势图+价格推送）。
 - **短期 5 项 + 中期 5 项已全部落地并推送**（2026-08-22）：commit `62cbbce`..`5e7f087`，CI 全绿。仅中期 #5（OpenAI 动态抓取）经调研暂缓。
-- **长期计划进展（2026-08-22）**：
-  - ✅ **每日抓取 automation**：`automation-1787338740315`，每日 09:00 北京时间运行 `python main.py`（仅本地抓取+生成，不 push）。替代仅每周日 CI 抓取的缺口。
-  - ✅ **历史价格趋势图**：`data/history/YYYY-MM-DD.json` 每日快照归档（`core/store.py:archive_snapshot`）+ `_load_history()` 构建时间序列 + `_trend_section()` 渲染 Chart.js 折线图（按模型×渠道，输入/输出切换）。不足 2 天数据显示占位说明。commit `330afc6` 已推送。数据从 2026-08-22 起自动累积，2-3 天后可见趋势线。
-  - ⏳ 待做：Jinja2 模板引擎 / 全量类型注解+mypy strict / 价格变动推送（飞书/企业微信 webhook）。
+- **长期计划全部完成（2026-08-22）**：三阶段（短期/中期/长期）全落地并推送。
+  - ✅ **每日抓取 automation**：`automation-1787338740315`，每日 09:00 北京时间运行 `python main.py`（仅本地抓取+生成，不 push）。
+  - ✅ **历史价格趋势图**：`data/history/YYYY-MM-DD.json` 每日快照归档（`core/store.py:archive_snapshot`）+ `_load_history()` + `_trend_section()` Chart.js 折线图。数据从 2026-08-22 起累积。
+  - ✅ **价格变动推送**：`core/notifier.py`，对比上一日快照生成飞书/企微 markdown 播报，配置驱动（FEISHU_WEBHOOK_URL/WECOM_WEBHOOK_URL 未设则静默跳过），main.py 生成报告后调用。tests/test_notifier.py 6 例。
+  - ✅ **mypy 类型检查 + CI 门禁**：pyproject `[tool.mypy]`，修复 21 处真实类型隐患（Any|None 参与数值比较、setdefault、重复 _load_asset、隐式 Optional、yaml stub），scrape.yml 新增 mypy 步骤，.mypy_cache 入 gitignore。
+  - ✅ **Jinja2 模板引擎**：`site/templates/index.html.j2` 承载页面骨架，`core/site_tpl.py:build_site` 改用 Jinja2 Environment 渲染（区块字符串仍由已测函数生成经 | safe 注入）。等价性验证：与迁移前基线归一化后仅时间戳不同，零回归。
+  - 全部 commit 见 `74ca634`（价格推送+mypy+Jinja2 三合一）。中期 #5（OpenAI 动态抓取）仍暂缓（页面 JS 注入长上下文价，无法静态解析）。
 
 ## 文档
 
