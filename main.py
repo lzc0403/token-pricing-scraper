@@ -42,7 +42,7 @@ DATA_DIR = os.path.join(ROOT, "data")
 sys.path.insert(0, ROOT)
 
 from scrapers.base import BaseScraper  # noqa: E402
-from core import audit, currency, matcher, report, store, site  # noqa: E402
+from core import audit, currency, matcher, report, store, site, notifier  # noqa: E402
 from core import openrouter_verify  # noqa: E402
 
 
@@ -183,6 +183,11 @@ def main(argv: List[str] | None = None) -> int:
         watchlist, deltas, scrape_status, generated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     )
     report.write_outputs(DATA_DIR, report_md, issue_body_md)
+
+    # 价格变动推送（飞书/企微 webhook；未配置则静默跳过，不阻断主流程）
+    from datetime import date as _today
+
+    notifier.notify_price_changes(deltas, _today.today().strftime("%Y-%m-%d"))
 
     print("== 数据核对（防幻觉自我检查）==")
     audit_res = audit.run(DATA_DIR, sources_cfg=sources)

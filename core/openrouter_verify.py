@@ -32,7 +32,7 @@ def _load_rules() -> Dict[str, Any]:
     if not os.path.exists(DEFAULT_RULES):
         return {}
     try:
-        import yaml  # type: ignore
+        import yaml
 
         with open(DEFAULT_RULES, encoding="utf-8") as f:
             return yaml.safe_load(f) or {}

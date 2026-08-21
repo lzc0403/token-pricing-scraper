@@ -260,7 +260,7 @@ def _load_new_model_tracking(data_dir: str = "data") -> List[Dict[str, Any]]:
     if not os.path.exists(cfg_path):
         return []
     try:
-        import yaml  # type: ignore
+        import yaml
         raw = yaml.safe_load(open(cfg_path, encoding="utf-8")) or {}
     except Exception:
         return []
@@ -483,6 +483,8 @@ def _source_peak_schedule(source: Optional[str], canon: Optional[str] = None) ->
       （北京高峰 09-12/14-18），故带峰谷的 OpenRouter DeepSeek 行复用 deepseek_official
       窗口，便于与官网档位实时对齐验证。
     """
+    if not source:
+        return None
     if source == "openrouter" and canon and "deepseek" in str(canon).lower():
         return "deepseek_official"
     return _CHANNEL_PEAK_SCHED.get(source)
@@ -829,7 +831,12 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
             canons.append(c)
     canons = _sort_canons(canons)
 
-    sources = sorted({r.get("source") for r in watchlist if r.get("source")})
+    srcs: List[str] = []
+    for r in watchlist:
+        s = r.get("source")
+        if s:
+            srcs.append(s)
+    sources = sorted(set(srcs))
     rate = currency.get_rate()
     generated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     date_str = generated_at.split(" ")[0]
@@ -851,21 +858,26 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
             continue
         # 渠道源：合并同一模型+来源的「空闲/高峰」峰谷双行为单行
         rows = _merge_peak_rows(rows)
-        inputs = [r.get("input_rmb") for r in rows if r.get("input_rmb") is not None]
+        inputs: List[float] = []
+        for r in rows:
+            v = r.get("input_rmb")
+            if v is not None:
+                inputs.append(v)
         min_in = min(inputs) if inputs else None
         # 溢价基准：该模型自身的官网价（不在渠道供应商内部比较）。
         # DeepSeek 模型即 DeepSeek 官网价；其余模型取其对应官网价。无官网价则不显示溢价。
         # 版本后缀模型（如 DeepSeek V4 Pro 0813）回退到父模型官网价作为基准。
         parent_c = _CANON_PARENT.get(c)
-        official_inputs = [
-            r.get("input_rmb") for r in rows
-            if r.get("input_rmb") is not None and _is_official_any_currency(c, r)
-        ]
+        official_inputs: List[float] = []
+        for r in rows:
+            v = r.get("input_rmb")
+            if v is not None and _is_official_any_currency(c, r):
+                official_inputs.append(v)
         if not official_inputs and parent_c and parent_c in by_canon:
-            official_inputs = [
-                r.get("input_rmb") for r in by_canon[parent_c]
-                if r.get("input_rmb") is not None and _is_official_any_currency(parent_c, r)
-            ]
+            for r in by_canon[parent_c]:
+                v = r.get("input_rmb")
+                if v is not None and _is_official_any_currency(parent_c, r):
+                    official_inputs.append(v)
         base_in = min(official_inputs) if official_inputs else None
         norm = [_normalize_row(r, c, min_in, base_in) for r in rows]
 

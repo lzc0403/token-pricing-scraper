@@ -29,6 +29,8 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Type check (mypy)
+        run: python -m mypy core main.py
       - name: Install Playwright Chromium
         # 从微软 CDN 下载约 100MB，美国节点可能慢；本地已有缓存则秒过
         run: playwright install --with-deps chromium

@@ -48,10 +48,16 @@ def _mark_lowest(watchlist: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """为 watchlist 每条记录标注 `is_lowest_input`（跨源同一 canonical 的最低输入价）。"""
     by_canon: Dict[str, List[Dict[str, Any]]] = {}
     for r in watchlist:
-        by_canon.setdefault(r.get("canonical"), []).append(r)
+        c = r.get("canonical")
+        if c:
+            by_canon.setdefault(c, []).append(r)
 
     for recs in by_canon.values():
-        inputs = [r.get("input_rmb") for r in recs if r.get("input_rmb") is not None]
+        inputs: List[float] = []
+        for r in recs:
+            v = r.get("input_rmb")
+            if v is not None:
+                inputs.append(v)
         min_in = min(inputs) if inputs else None
         for r in recs:
             is_low = (

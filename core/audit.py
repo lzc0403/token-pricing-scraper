@@ -62,7 +62,7 @@ _OPENAI_LONG_DEV = 0.15      # OPENAI_LONG_DEV 硬编码价 vs OR 偏差 ±15%
 def _load_rules() -> Dict[str, Any]:
     """从 config/audit_rules.yml 读取规则；文件缺失/非法时返回空 dict（用默认值）。"""
     try:
-        import yaml  # type: ignore
+        import yaml
 
         with open(_RULES_PATH, encoding="utf-8") as f:
             data = yaml.safe_load(f) or {}
@@ -226,7 +226,11 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
         if c:
             by_canon.setdefault(c, []).append(r)
     for c, rows in by_canon.items():
-        inputs = [r.get("input_rmb") for r in rows if r.get("input_rmb") is not None]
+        inputs: List[float] = []
+        for r in rows:
+            v = r.get("input_rmb")
+            if v is not None:
+                inputs.append(v)
         if not inputs:
             continue
         true_min = min(inputs)
@@ -244,10 +248,14 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
 
     # 6. 跨源离散度
     for c, rows in by_canon.items():
-        inputs = [r.get("input_rmb") for r in rows if r.get("input_rmb") is not None]
-        if len(inputs) < 2:
+        inputs_div: List[float] = []
+        for r in rows:
+            v = r.get("input_rmb")
+            if v is not None:
+                inputs_div.append(v)
+        if len(inputs_div) < 2:
             continue
-        lo, hi = min(inputs), max(inputs)
+        lo, hi = min(inputs_div), max(inputs_div)
         if lo > 0 and hi / lo > diverge_ratio:
             suspects.append({"tier": 1, "code": "DIVERGE", "severity": "low",
                              "source": None, "canonical": c,
@@ -318,7 +326,11 @@ def _check_sources(
     """对每条记录核对 model_raw 是否出现在源页面文本中。"""
     suspects: List[Dict[str, Any]] = []
     # 源 id -> (url, js, text_cache)
-    src_map: Dict[str, Dict[str, Any]] = {s.get("id"): s for s in sources_cfg}
+    src_map: Dict[str, Dict[str, Any]] = {}
+    for s in sources_cfg:
+        sid = s.get("id")
+        if sid:
+            src_map[sid] = s
     text_cache: Dict[str, str] = {}
 
     for r in watchlist:
@@ -423,7 +435,7 @@ def _build_md(
             "| --- | --- | --- | --- | --- | --- |",
         ]
         order = {"high": 0, "med": 1, "low": 2}
-        for s in sorted(suspects, key=lambda x: order.get(x.get("severity"), 9)):
+        for s in sorted(suspects, key=lambda x: order.get(str(x.get("severity") or ""), 9)):
             lines.append(
                 f"| {s.get('severity')} | T{s.get('tier')} | {s.get('code')} | "
                 f"{s.get('source') or '-'} | {s.get('canonical') or '-'} | {_esc_md(s.get('msg',''))} |"

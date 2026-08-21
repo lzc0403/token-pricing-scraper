@@ -7,6 +7,8 @@ from __future__ import annotations
 import json
 import os
 from typing import Any, Dict, List, Optional, Tuple
+
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 from core import site_data as _sd
 from core.site_data import (
     MAINSTREAM_SORT_ORDER,
@@ -26,6 +28,7 @@ from core.site_data import (
 # 前端资源（独立文件管理，build 时内联保持单 HTML 部署）
 _SITE_DIR = os.path.dirname(os.path.abspath(__file__))
 _ASSETS_ROOT = os.path.join(os.path.dirname(_SITE_DIR), "site", "assets")
+_TEMPLATES_DIR = os.path.join(os.path.dirname(_SITE_DIR), "site", "templates")
 
 
 def _load_asset(name: str) -> str:
@@ -658,21 +661,7 @@ def _chart_section(canons: List[str], has_data: bool) -> str:
     </section>"""
 
 
-# --------------------------------------------------------------------------- #
-# 前端资源（独立文件管理，build 时内联保持单 HTML 部署）
-# --------------------------------------------------------------------------- #
-_SITE_DIR = os.path.dirname(os.path.abspath(__file__))
-_ASSETS_ROOT = os.path.join(os.path.dirname(_SITE_DIR), "site", "assets")
-
-
-def _load_asset(name: str) -> str:
-    """读取 site/assets/ 下的前端资源文件。"""
-    path = os.path.join(_ASSETS_ROOT, name)
-    with open(path, encoding="utf-8") as f:
-        return f.read()
-
-
-def build_site(data_dir: str, out_path: str = None) -> str:
+def build_site(data_dir: str, out_path: Optional[str] = None) -> str:
     if out_path is None:
         out_path = os.path.join(
             os.path.dirname(os.path.abspath(data_dir)), "site", "index.html"
@@ -705,8 +694,8 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     overseas_ms = _mainstream_section(
         "overseas", "海外主流大模型", ms.get("overseas") or [], accent="overseas"
     )
-    official_block = _official_section(data.get("official_rows") or [], data.get("has_official"))
-    overseas_block = _overseas_section(data.get("overseas_rows") or [], data.get("has_overseas"))
+    official_block = _official_section(data.get("official_rows") or [], bool(data.get("has_official")))
+    overseas_block = _overseas_section(data.get("overseas_rows") or [], bool(data.get("has_overseas")))
     channel_block = _channel_section(data)
     chart_block = _chart_section(canons, bool(data.get("chart")))
     trend_block = _trend_section(data.get("history") or {}, canons)
@@ -719,140 +708,29 @@ def build_site(data_dir: str, out_path: str = None) -> str:
     js = _load_asset("app.js").replace("__SITE_DATA__", data_json).replace("__PEAK_DATA__", peak_json)
     css = _load_asset("style.css")
 
-    html = f"""<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>大模型 Token 定价追踪</title>
-<meta name="description" content="国内/海外主流大模型官方定价与渠道同类报价分区展示；支持模型筛选与自定义汇率。">
-<meta name="theme-color" content="#2BAE85">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-<style>{css}</style>
-</head>
-  <body>
-  <a href="#main" class="visually-hidden">跳到主要内容</a>
-  <header class="hero">
-    <div class="mesh" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <span class="eyebrow">官网基准 · 渠道对照 · 可筛选</span>
-      <h1>大模型 Token 定价追踪</h1>
-      <p class="sub">顶部官网原价，下方渠道报价；支持 DeepSeek 模型与渠道组合筛选，汇率默认 7.0 可手动调整。</p>
-    </div>
-  </header>
-
-  <div class="layout is-collapsed">
-    {filter_block}
-    <main class="container" id="main">
-      <div class="sec-head">
-        <div>
-          <h2 class="section-title">定价总览</h2>
-          <p class="section-sub">DeepSeek 置顶 · 筛选可组合 · 官网与渠道分区</p>
-        </div>
-      </div>
-      <div class="sec-metrics">{metrics_html}</div>
-
-      {domestic_ms}
-      {overseas_ms}
-      {official_block}
-      {overseas_block}
-      {channel_block}
-      {chart_block}
-      {trend_block}
-    </main>
-  </div>
-
-  <button type="button" class="sidebar-reopen" id="sidebarReopen" aria-label="展开筛选">› 筛选</button>
-  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-
-  <div class="portal">
-    <h3>厂商价格查询入口</h3>
-    <p class="ph">同一大模型厂商通常提供「人民币（国内官网）」与「美元（英文 / 国际站）」两套定价。下方按币种分色：<span style="color:#0a8043;font-weight:700">绿 ¥</span> 国内官网、<span style="color:#4338ca;font-weight:700">蓝 $</span> 英文 / 国际站。DeepSeek / Kimi / MiniMax 已补充美元定价入口。</p>
-    <div class="portal-grid">
-      <a class="portal-card" href="https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing" target="_blank" rel="noopener">
-        <span><span class="pc-name">阿里云</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
-        <span class="pc-meta">Hologres 托管模型计费</span>
-      </a>
-      <a class="portal-card" href="https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices" target="_blank" rel="noopener">
-        <span><span class="pc-name">阿里云</span><span class="pc-tag pc-tag-usd">国际站 $</span></span>
-        <span class="pc-meta">Model Studio 定价</span>
-      </a>
-      <a class="portal-card" href="https://www.volcengine.com/docs/82379/1544106" target="_blank" rel="noopener">
-        <span><span class="pc-name">火山引擎</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
-        <span class="pc-meta">豆包模型计费</span>
-      </a>
-      <a class="portal-card" href="https://cloud.tencent.com/document/product/1823/130055" target="_blank" rel="noopener">
-        <span><span class="pc-name">腾讯云</span><span class="pc-tag pc-tag-cny">国内站 ¥</span></span>
-        <span class="pc-meta">TI 平台模型计费</span>
-      </a>
-      <a class="portal-card" href="https://www.tencentcloud.com/document/product/1300/78937" target="_blank" rel="noopener">
-        <span><span class="pc-name">Tencent Cloud</span><span class="pc-tag pc-tag-usd">国际站 $</span></span>
-        <span class="pc-meta">International Pricing</span>
-      </a>
-      <a class="portal-card" href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing/" target="_blank" rel="noopener">
-        <span><span class="pc-name">DeepSeek</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
-        <span class="pc-meta">API 定价</span>
-      </a>
-      <a class="portal-card" href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener">
-        <span><span class="pc-name">DeepSeek</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
-        <span class="pc-meta">API Pricing (USD)</span>
-      </a>
-      <a class="portal-card" href="https://open.bigmodel.cn/pricing" target="_blank" rel="noopener">
-        <span><span class="pc-name">智谱</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
-        <span class="pc-meta">GLM 定价</span>
-      </a>
-      <a class="portal-card" href="https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise" target="_blank" rel="noopener">
-        <span><span class="pc-name">MiniMax</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
-        <span class="pc-meta">Token 套餐</span>
-      </a>
-      <a class="portal-card" href="https://platform.minimax.io/docs/guides/pricing-paygo" target="_blank" rel="noopener">
-        <span><span class="pc-name">MiniMax</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
-        <span class="pc-meta">Pay-as-You-Go (USD)</span>
-      </a>
-      <a class="portal-card" href="https://platform.kimi.com/docs/pricing/chat-k3" target="_blank" rel="noopener">
-        <span><span class="pc-name">Kimi</span><span class="pc-tag pc-tag-cny">官网 ¥</span></span>
-        <span class="pc-meta">K 系列定价</span>
-      </a>
-      <a class="portal-card" href="https://platform.moonshot.ai/" target="_blank" rel="noopener">
-        <span><span class="pc-name">Kimi</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
-        <span class="pc-meta">Kimi API Platform (USD)</span>
-      </a>
-      <a class="portal-card" href="https://openai.com/api/pricing/" target="_blank" rel="noopener">
-        <span><span class="pc-name">OpenAI</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
-        <span class="pc-meta">API Pricing</span>
-      </a>
-      <a class="portal-card" href="https://www.anthropic.com/pricing" target="_blank" rel="noopener">
-        <span><span class="pc-name">Anthropic</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
-        <span class="pc-meta">Claude Pricing</span>
-      </a>
-      <a class="portal-card" href="https://ai.google.dev/pricing" target="_blank" rel="noopener">
-        <span><span class="pc-name">Google</span><span class="pc-tag pc-tag-usd">官网 $</span></span>
-        <span class="pc-meta">Gemini Pricing</span>
-      </a>
-      <a class="portal-card" href="https://global.modelmesh.info/model" target="_blank" rel="noopener">
-        <span><span class="pc-name">胜算云</span><span class="pc-tag pc-tag-cny">渠道 ¥</span></span>
-        <span class="pc-meta">聚合渠道</span>
-      </a>
-      <a class="portal-card" href="https://openrouter.ai/models" target="_blank" rel="noopener">
-        <span><span class="pc-name">OpenRouter</span><span class="pc-tag pc-tag-usd">渠道 $</span></span>
-        <span class="pc-meta">聚合渠道</span>
-      </a>
-    </div>
-  </div>
-
-  <footer>
-    <div class="note">数据来源：国内厂商官网公开定价；OpenAI / Anthropic / Google 官方 API 参考价；胜算云、腾讯云、火山引擎等渠道报价。USD 结算的渠道归入海外渠道页。国内厂商（DeepSeek / Kimi / MiniMax 等）同时提供人民币与美元官方定价，上方入口已分别给出中文(¥)与英文($)链接。GitHub Action 每周自动抓取。</div>
-    <div class="disc">⚠️ 仅供参考，请以各官网实时报价为准 · 最近更新：{_esc(data['generated_at'])}</div>
-  </footer>
-  <button type="button" id="toTop" class="totop" aria-label="回到顶部">↑</button>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <script>{js}</script>
-</body>
-</html>
-"""
+    # 页面骨架由 Jinja2 模板（site/templates/index.html.j2）驱动；
+    # 各区块 HTML 仍由本模块的已测函数生成，经 | safe 注入，保证零回归。
+    env = Environment(
+        loader=FileSystemLoader(_TEMPLATES_DIR),
+        autoescape=select_autoescape(["html", "j2"]),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    template = env.get_template("index.html.j2")
+    html = template.render(
+        css=css,
+        js=js,
+        metrics_html=metrics_html,
+        filter_block=filter_block,
+        domestic_ms=domestic_ms,
+        overseas_ms=overseas_ms,
+        official_block=official_block,
+        overseas_block=overseas_block,
+        channel_block=channel_block,
+        chart_block=chart_block,
+        trend_block=trend_block,
+        generated_at=data["generated_at"],
+    )
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html)
     return os.path.abspath(out_path)

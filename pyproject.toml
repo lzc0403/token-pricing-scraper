@@ -17,3 +17,15 @@ ignore = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_ignores = true
+warn_redundant_casts = true
+disallow_untyped_defs = false
+ignore_missing_imports = false
+
+[[tool.mypy.overrides]]
+# 第三方库无类型 stub，放行导入检查（运行时已验证可用）
+module = ["yaml.*", "parsel.*", "requests.*", "playwright.*", "xlsx.*"]
+ignore_missing_imports = true
