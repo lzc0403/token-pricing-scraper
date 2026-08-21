@@ -143,6 +143,19 @@
   js: true
 
 
+- id: openai
+  name: OpenAI
+  url: https://developers.openai.com/api/docs/pricing
+  parser: openai
+  currency: USD
+  js: false
+  note: >-
+    OpenAI 官方定价页（developers.openai.com，USD）。页面为 Astro 预渲染，
+    价格数据在 TextTokenPricingTables 组件的 props JSON 内。取 standard 档
+    （默认展示档位），收录 GPT-5.5 / GPT-5.5-Pro / GPT-5.6 Sol·Terra·Luna，
+    旗舰区（5.6 系列）区分短文本（≤272K）与长文本（>272K）双档价格。
+    canonical 由 openrouter.yml 白名单同 id 映射（source=openai 特殊通道）。
+
 - id: openrouter
   name: OpenRouter
   url: https://openrouter.ai/api/v1/models?sort=top-weekly

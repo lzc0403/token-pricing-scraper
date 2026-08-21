@@ -63,7 +63,9 @@ def build_watchlist(
     annotated: List[Dict[str, Any]] = []
     watchlist: List[Dict[str, Any]] = []
     for rec in records:
-        canon = match(rec.get("model_raw"), models_cfg)
+        # 白名单（如 OpenRouter / OpenAI 官网）已在前面赋过 canonical 的记录原样保留；
+        # 否则按 models.yml 别名匹配。
+        canon = rec.get("canonical") if rec.get("canonical") else match(rec.get("model_raw"), models_cfg)
         rec = dict(rec)
         rec["canonical"] = canon
         annotated.append(rec)

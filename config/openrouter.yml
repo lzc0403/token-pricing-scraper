@@ -19,6 +19,21 @@ whitelist:
   - id: openai/gpt-5
     model: GPT-5
     note: 旗舰
+  - id: openai/gpt-5.5
+    model: GPT-5.5
+    note: 前代旗舰
+  - id: openai/gpt-5.5-pro
+    model: GPT-5.5 Pro
+    note: 前代旗舰 Pro
+  - id: openai/gpt-5.6
+    model: GPT-5.6 Sol
+    note: 2026-08 新旗舰
+  - id: openai/gpt-5.6-terra
+    model: GPT-5.6 Terra
+    note: 2026-08 主力
+  - id: openai/gpt-5.6-luna
+    model: GPT-5.6 Luna
+    note: 2026-08 高频
   - id: anthropic/claude-sonnet-5
     model: Claude Sonnet 5
     note: Claude 主力

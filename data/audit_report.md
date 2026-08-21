@@ -1,13 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-08-20 17:20:55
+> 生成时间：2026-08-21 20:35:48
 
 ## 一、核对统计
 
-- 门禁状态：**✅ 通过**
-- 校验记录总数：**106**
-- 可疑项总数：**59**（high 0 / med 1 / low 58）
-- Tier1 结构性校验可疑：**1**
+- 门禁状态：**⛔ 阻断（存在 high 级可疑项）**
+- 校验记录总数：**135**
+- 可疑项总数：**61**（high 2 / med 1 / low 58）
+- Tier1 结构性校验可疑：**3**
 - Tier2 源页面核对可疑：**58**
 
 ## 二、核对维度
@@ -29,6 +29,8 @@
 
 | 严重度 | 层级 | 代码 | 源 | 模型 | 说明 |
 | --- | --- | --- | --- | --- | --- |
+| high | T1 | OUTLIER_PRICE | openai | GPT-5.5 Pro | 输出价超阈值(>1000.0): 1260.0 |
+| high | T1 | OUTLIER_PRICE | openrouter | GPT-5.5 Pro | 输出价超阈值(>1000.0): 1260.0 |
 | med | T1 | DUPLICATE | tencent | - | 重复记录 ×2: DeepSeek-V4-Flash |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |

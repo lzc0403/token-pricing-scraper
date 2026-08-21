@@ -1,9 +1,7 @@
-## 🔔 Token 定价变动（2026-08-20 17:20:55）
+## 🔔 Token 定价变动（2026-08-21 20:35:48）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Flash | volcengine_intl | 输入 | 0.14 | 0.44 | USD |
-| DeepSeek V4 Flash | volcengine_intl | 输出 | 0.28 | 1.32 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.22 | USD |
 | DeepSeek V4 Flash | tencent | 输出 | 0.28 | 0.66 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.44 | USD |
@@ -20,7 +18,3 @@
 | MiniMax M3 | tencent | 输出 | 2.4 | 1.2 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.088606 | 0.0812 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.177212 | 0.1624 | USD |
-| Kimi K2.6 | openrouter | 输入 | 0.95 | 0.5605 | USD |
-| Kimi K2.6 | openrouter | 输出 | 4 | 2.36 | USD |

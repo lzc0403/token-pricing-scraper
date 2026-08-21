@@ -287,14 +287,16 @@
         "logo": "https://static.atlascloud.ai/model/logo/minimax-music-3.0.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
         "background": "https://static.atlascloud.ai/model/background/minimax-music-3.0.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-music-3.0.jpg",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/600a919c-8424-440a-bd6e-6eb262d2f481.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/minimax-music-3.0.json",
         "readme": "https://static.atlascloud.ai/model/readme/minimax-music-3.0.md",
         "organization": "MINIMAX",
         "example": "https://static.atlascloud.ai/model/example/minimax-music-3.0.json",
         "priority": 90043,
-        "categories": null,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
         "tags": [
           "TEXT-TO-AUDIO",
           "MUSIC",
@@ -337,7 +339,9 @@
         "organization": "MINIMAX",
         "example": "https://static.atlascloud.ai/model/example/minimax-lyrics-generation.json",
         "priority": 90043,
-        "categories": null,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
         "tags": [
           "TEXT-TO-AUDIO",
           "MUSIC",
@@ -602,14 +606,14 @@
           "discount": "100",
           "actual": {
             "type": "flat",
-            "input_price": "0.14",
-            "output_price": "0.28",
+            "input_price": "0.44",
+            "output_price": "1.32",
             "cache_price": "0.028"
           },
           "origin": {
             "type": "flat",
-            "input_price": "0.14",
-            "output_price": "0.28",
+            "input_price": "0.44",
+            "output_price": "1.32",
             "cache_price": "0.028"
           }
         },
@@ -4311,7 +4315,9 @@
         "organization": "MINIMAX",
         "example": "https://static.atlascloud.ai/model/example/minimax-music-2.6.json",
         "priority": 80040,
-        "categories": null,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
         "tags": [
           "TEXT-TO-AUDIO",
           "MUSIC",
@@ -21859,196 +21865,6 @@
         }
       },
       {
-        "uuid": "ms-81fdd3523387",
-        "model": "black-forest-labs/flux-3/image-to-video",
-        "type": "Video",
-        "displayName": "BLACKFORESTLABS FLUX 3 Image-to-Video",
-        "profile": "Generate a video that starts from an input image using FLUX 3.",
-        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-image-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
-        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-image-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-image-to-video.md",
-        "organization": "BLACK-FOREST-LABS",
-        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-image-to-video.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "IMAGE_TO_VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2djaqmk42iik",
-        "familyName": "flux",
-        "familyDisplayName": "Flux.2 Image Models",
-        "parentFamilyUUID": "mf-2l7qmbr9uow1",
-        "parentFamilyName": "black-forest-labs",
-        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.17"
-          },
-          "origin": {
-            "base_price": "0.17"
-          }
-        }
-      },
-      {
-        "uuid": "ms-151b29aaa3a0",
-        "model": "black-forest-labs/flux-3/extend-video",
-        "type": "Video",
-        "displayName": "BLACKFORESTLABS FLUX 3 Extend Video",
-        "profile": "Extend a video, continuing from the source clip final frames, using FLUX 3.",
-        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-extend-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
-        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-extend-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-extend-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-extend-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-extend-video.md",
-        "organization": "BLACK-FOREST-LABS",
-        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-extend-video.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "VIDEO_TO_VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2djaqmk42iik",
-        "familyName": "flux",
-        "familyDisplayName": "Flux.2 Image Models",
-        "parentFamilyUUID": "mf-2l7qmbr9uow1",
-        "parentFamilyName": "black-forest-labs",
-        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.41"
-          },
-          "origin": {
-            "base_price": "0.41"
-          }
-        }
-      },
-      {
-        "uuid": "ms-2dfdc82d2895",
-        "model": "black-forest-labs/flux-3/keyframes-to-video",
-        "type": "Video",
-        "displayName": "BLACKFORESTLABS FLUX 3 Keyframes to Video",
-        "profile": "Generate a video that hits the supplied keyframe images at exact frame positions using FLUX 3.",
-        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-keyframes-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
-        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-keyframes-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-keyframes-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-keyframes-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-keyframes-to-video.md",
-        "organization": "BLACK-FOREST-LABS",
-        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-keyframes-to-video.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "IMAGE_TO_VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2djaqmk42iik",
-        "familyName": "flux",
-        "familyDisplayName": "Flux.2 Image Models",
-        "parentFamilyUUID": "mf-2l7qmbr9uow1",
-        "parentFamilyName": "black-forest-labs",
-        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.17"
-          },
-          "origin": {
-            "base_price": "0.17"
-          }
-        }
-      },
-      {
-        "uuid": "ms-d7dfe4633a41",
-        "model": "black-forest-labs/flux-3/first-last-frame-to-video",
-        "type": "Video",
-        "displayName": "BLACKFORESTLABS FLUX 3 First & Last Frame to Video",
-        "profile": "Generate a video between a start frame and an end frame using FLUX 3.",
-        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-first-last-frame-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
-        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-first-last-frame-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-first-last-frame-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-first-last-frame-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-first-last-frame-to-video.md",
-        "organization": "BLACK-FOREST-LABS",
-        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-first-last-frame-to-video.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "IMAGE_TO_VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2djaqmk42iik",
-        "familyName": "flux",
-        "familyDisplayName": "Flux.2 Image Models",
-        "parentFamilyUUID": "mf-2l7qmbr9uow1",
-        "parentFamilyName": "black-forest-labs",
-        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.17"
-          },
-          "origin": {
-            "base_price": "0.17"
-          }
-        }
-      },
-      {
-        "uuid": "ms-54184cf051ce",
-        "model": "black-forest-labs/flux-3/text-to-video",
-        "type": "Video",
-        "displayName": "BLACKFORESTLABS FLUX 3 Text-to-Video",
-        "profile": "Generate a video (with audio) from a text prompt using FLUX 3.",
-        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-text-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
-        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-text-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-text-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-text-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-text-to-video.md",
-        "organization": "BLACK-FOREST-LABS",
-        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-text-to-video.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "TEXT_TO_VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2djaqmk42iik",
-        "familyName": "flux",
-        "familyDisplayName": "Flux.2 Image Models",
-        "parentFamilyUUID": "mf-2l7qmbr9uow1",
-        "parentFamilyName": "black-forest-labs",
-        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.17"
-          },
-          "origin": {
-            "base_price": "0.17"
-          }
-        }
-      },
-      {
         "uuid": "ms-1e6ba1ab9e56",
         "model": "byteplus/video/upscaler",
         "type": "Video",
@@ -22495,9 +22311,11 @@
         "organization": "LIGHTRICKS",
         "example": "https://static.atlascloud.ai/model/example/ltx-2.3-quality-image-to-video.json",
         "priority": 100,
-        "categories": null,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
         "tags": [
-          "IMAGE_TO_VIDEO",
+          "IMAGE-TO-VIDEO",
           "NEW"
         ],
         "familyUUID": "mf-2cwtx01qc4tg",
@@ -22530,9 +22348,11 @@
         "organization": "LIGHTRICKS",
         "example": "https://static.atlascloud.ai/model/example/ltx-2.3-quality-extend-video.json",
         "priority": 100,
-        "categories": null,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
         "tags": [
-          "VIDEO_TO_VIDEO",
+          "VIDEO-TO-VIDEO",
           "NEW"
         ],
         "familyUUID": "mf-2cwtx01qc4tg",
@@ -22565,9 +22385,11 @@
         "organization": "",
         "example": "https://static.atlascloud.ai/model/example/nvidia-cosmos-3-super-image-to-video.json",
         "priority": 100,
-        "categories": null,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
         "tags": [
-          "IMAGE_TO_VIDEO",
+          "IMAGE-TO-VIDEO",
           "NEW"
         ],
         "familyUUID": "mf-2mg02j6xc8e9",

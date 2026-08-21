@@ -72,6 +72,12 @@ OFFICIAL_SOURCE: Dict[str, str] = {
     # 豆包官方（火山引擎）— volcengine 同时是渠道源，但对 Doubao 系列它是厂商官网价
     "Doubao Seed 2.1 Pro": "volcengine",
     "Doubao Seed 2.1 Turbo": "volcengine",
+    # OpenAI 官方（developers.openai.com，USD）
+    "GPT-5.6 Sol": "openai",
+    "GPT-5.6 Terra": "openai",
+    "GPT-5.6 Luna": "openai",
+    "GPT-5.5": "openai",
+    "GPT-5.5 Pro": "openai",
 }
 
 # 渠道源：非官网聚合/转售渠道
