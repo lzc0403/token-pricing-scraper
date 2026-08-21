@@ -1,0 +1,19 @@
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+exclude = [".venv", "site/", ".git", "__pycache__", "data/"]
+
+[tool.ruff.lint]
+# F = pyflakes（未使用导入/变量/未定义名，真正抓 bug）
+# E9 = 语法级错误；W292 = 文件末尾缺换行
+# 存量代码大量使用 typing.Dict/List/Optional 与 120+ 行长，属风格债：
+# UP006/UP035/UP045（新式类型注解）、E501（行长）先 ignore，待逐步偿还
+select = ["F", "E9", "W292"]
+ignore = [
+    "F401",  # 未使用 import：存量代码多处存在，清理需谨慎
+    "F841",  # 未使用变量：存量少量存在
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

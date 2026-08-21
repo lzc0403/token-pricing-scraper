@@ -2704,10 +2704,10 @@ def build_site(data_dir: str, out_path: str = None) -> str:
             _stat_card("数据源", str(m["sources"]), "个"),
             _stat_card("官网原价", str(m.get("official_count", 0)), "条"),
             (
-                f'<div class="stat-card">'
-                f'<div class="label">汇率 USD→CNY</div>'
-                f'<div class="value" id="metricRate">7.00<small>¥/$</small></div>'
-                f"</div>"
+                '<div class="stat-card">'
+                '<div class="label">汇率 USD→CNY</div>'
+                '<div class="value" id="metricRate">7.00<small>¥/$</small></div>'
+                "</div>"
             ),
         ]
     )

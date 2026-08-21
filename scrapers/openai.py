@@ -29,7 +29,10 @@ from typing import Any, Dict, List, Optional
 
 from scrapers.base import BaseScraper
 
-# 旗舰区长文本价格（页面渲染区短+长 8 列确认）
+# TODO: 长上下文价格当前硬编码，需确认页面结构后改为动态抓取。
+# 这些价格在 OpenAI 定价页的 TextTokenPricingTables 组件中可能以不同布局呈现，
+# 当前 _parse_rows_value 的嵌套数组解析逻辑无法覆盖。确认页面 DOM 后扩展解析。
+# 兜底防线：core/audit.py 的 OPENAI_LONG_DEV 检查会在硬编码价与 OpenRouter 偏差 >15% 时告警。
 _LONG_CONTEXT_PRICES: Dict[str, Dict[str, float]] = {
     "gpt-5.6-sol": {"input": 10.0, "output": 45.0, "cache_hit": 1.0},
     "gpt-5.6-terra": {"input": 4.0, "output": 18.0, "cache_hit": 0.4},

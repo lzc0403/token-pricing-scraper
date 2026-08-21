@@ -83,7 +83,7 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
             sev = "high" if r.get("canonical") in _CRITICAL_MODELS else "low"
             suspects.append({"tier": 1, "code": "EMPTY_INPUT", "severity": sev,
                              "source": r.get("source"), "canonical": r.get("canonical"),
-                             "msg": (f"关键模型输入价为空" if sev == "high" else "输入价为空"), "record": r})
+                             "msg": ("关键模型输入价为空" if sev == "high" else "输入价为空"), "record": r})
         if r.get("output_rmb") is None and r.get("output") is None:
             suspects.append({"tier": 1, "code": "EMPTY_OUTPUT", "severity": "med",
                              "source": r.get("source"), "canonical": r.get("canonical"),
@@ -110,8 +110,35 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
                              "msg": f"缓存命中价({cache_v}) 接近输入价({in_v})，异常偏高",
                              "record": r})
 
-    # 2. 价格区间合理性
+    # 1c. 缓存/输入比率跨源异常（如百炼缓存价是推算的 20%，若与实际折扣差异过大则告警）
+    # 基准用「中位数」而非均值：少数源偏离不会把基准拉偏，只有真正偏离的源被标记。
+    by_canon_cache: Dict[str, List[Dict[str, Any]]] = {}
     for r in watchlist:
+        c = r.get("canonical")
+        in_v = r.get("input")
+        cache_v = r.get("cache_hit")
+        if c and in_v is not None and cache_v is not None and in_v > 0:
+            ratio = cache_v / in_v
+            by_canon_cache.setdefault(c, []).append(
+                {"source": r.get("source"), "ratio": ratio, "record": r}
+            )
+    for c, entries in by_canon_cache.items():
+        if len(entries) < 2:
+            continue
+        ratios = [e["ratio"] for e in entries]
+        baseline = sorted(ratios)[len(ratios) // 2]  # 中位数作基准
+        for e in entries:
+            if baseline > 0 and abs(e["ratio"] - baseline) / baseline > 0.15:
+                suspects.append({"tier": 1, "code": "CACHE_RATIO_ANOMALY", "severity": "med",
+                                 "source": e["record"].get("source"), "canonical": c,
+                                 "msg": f"缓存/输入比率({e['ratio']:.0%}) 偏离同模型基准({baseline:.0%}) 超 15%，"
+                                        f"疑似缓存价缺失/估算口径不一致",
+                                 "record": e["record"]})
+
+    # 2. 价格区间合理性（按原币种判断：CNY 源阈值 1000 元；USD 源阈值 $1000，
+    #    避免 Pro 级旗舰如 GPT-5.5 Pro 输出 $180×7=1260 元被误报为离谱价）
+    for r in watchlist:
+        is_usd = r.get("currency") == "USD"
         for fld, label in (("input_rmb", "输入"), ("output_rmb", "输出")):
             v = r.get(fld)
             if v is None:
@@ -121,9 +148,12 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
                                  "source": r.get("source"), "canonical": r.get("canonical"),
                                  "msg": f"{label}价为负: {v}", "record": r})
             elif v > _PRICE_MAX:
-                suspects.append({"tier": 1, "code": "OUTLIER_PRICE", "severity": "high",
-                                 "source": r.get("source"), "canonical": r.get("canonical"),
-                                 "msg": f"{label}价超阈值(>{_PRICE_MAX}): {v}", "record": r})
+                # USD 源：用原始 USD 价对比（rmb 换算会放大 Pro 旗舰价）
+                raw = r.get("output" if label == "输出" else "input")
+                if not is_usd or not isinstance(raw, (int, float)) or raw > _PRICE_MAX:
+                    suspects.append({"tier": 1, "code": "OUTLIER_PRICE", "severity": "high",
+                                     "source": r.get("source"), "canonical": r.get("canonical"),
+                                     "msg": f"{label}价超阈值(>{_PRICE_MAX}): {v}", "record": r})
 
     # 3. 货币换算一致性（USD 源）
     for r in watchlist:
@@ -185,6 +215,38 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
                              "source": None, "canonical": c,
                              "msg": f"跨源输入价离散 {hi/lo:.1f}× (最低 {lo} / 最高 {hi})，建议人工核对是否同规格模型",
                              "record": {"min": lo, "max": hi, "ratio": round(hi / lo, 1)}})
+
+    # 7. OpenAI 硬编码长上下文价 vs OpenRouter 交叉校验
+    # openai.py 的 _LONG_CONTEXT_PRICES 是硬编码值（TODO：待改动态抓取），
+    # 此处与 OpenRouter 同模型价格对比，偏差超 15% 告警，防止硬编码价过期。
+    for r in watchlist:
+        if r.get("source") != "openai" or not r.get("openrouter_id"):
+            continue
+        cond = str(r.get("condition") or "")
+        if "长文本" not in cond and "长上下文" not in cond:
+            continue
+        or_records = [
+            x for x in watchlist
+            if x.get("openrouter_id") == r.get("openrouter_id")
+            and x.get("source") == "openrouter"
+        ]
+        if not or_records:
+            suspects.append({"tier": 1, "code": "OPENAI_LONG_NO_OR", "severity": "med",
+                             "source": "openai", "canonical": r.get("canonical"),
+                             "msg": f"OpenAI 硬编码长上下文价 {r.get('canonical')} 无对应 OpenRouter 记录可交叉校验",
+                             "record": r})
+            continue
+        or_rec = or_records[0]
+        for fld in ("input", "output"):
+            oai_v = r.get(fld)
+            or_v = or_rec.get(fld)
+            if oai_v is not None and or_v is not None and or_v > 0:
+                dev = abs(oai_v - or_v) / or_v
+                if dev > 0.15:
+                    suspects.append({"tier": 1, "code": "OPENAI_LONG_DEV", "severity": "high",
+                                     "source": "openai", "canonical": r.get("canonical"),
+                                     "msg": f"OpenAI 硬编码长上下文{fld}价({oai_v}) 与 OpenRouter({or_v}) 偏差 {dev:.1%}",
+                                     "record": r})
 
     return suspects
 

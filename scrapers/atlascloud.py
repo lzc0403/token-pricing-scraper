@@ -19,6 +19,7 @@ from __future__ import annotations
 import json
 import os
 import re
+from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 from scrapers.base import BaseScraper
@@ -64,7 +65,7 @@ class AtlascloudScraper(BaseScraper):
         text = resp.text
         try:
             payload = {
-                "fetched_at": "",
+                "fetched_at": datetime.now().isoformat(timespec="seconds"),
                 "url": url,
                 "body": json.loads(text),
             }
