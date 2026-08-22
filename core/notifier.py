@@ -38,14 +38,26 @@ def _fmt_delta(d: Dict[str, Any]) -> str:
     return f"- {canon} [{src}] {field}：{old_s} → {new_s}"
 
 
-def build_message(deltas: List[Dict[str, Any]], snapshot_date: str) -> str:
-    """构建纯文本播报消息。"""
+def build_message(
+    deltas: List[Dict[str, Any]], snapshot_date: str, keyword: Optional[str] = None
+) -> str:
+    """构建纯文本播报消息。
+
+    keyword: 若给定，会在消息末尾追加。飞书自定义机器人若开启了
+    「自定义关键词」安全校验，消息正文必须包含设定的关键词，否则
+    webhook 返回 code:19024 (Key Words Not Found)。通过 `PRICE_KEYWORD`
+    环境变量可配置该关键词，未配置时默认追加“定价”二字。
+    """
+    kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "定价")
     lines = [
         f"📊 Token 定价变动播报（{snapshot_date}）",
         f"共 **{len(deltas)}** 处价格变动：",
         "",
     ]
     lines.extend(_fmt_delta(d) for d in deltas)
+    lines.append("")
+    lines.append("— 定价数据仅供参考，具体以厂商官网为准 —")
+    lines.append(f"[关键词：{kw}]")
     return "\n".join(lines)
 
 
@@ -84,6 +96,13 @@ def send_webhook(msg: str, url: str, wh_type: str) -> bool:
         with urllib.request.urlopen(req, timeout=10) as resp:
             body = resp.read().decode("utf-8", "ignore")
         logger.info("webhook 推送成功（%s）：%s", wh_type, body[:120])
+        # 飞书 19024 = 自定义关键词未命中，需在机器人安全设置中补充关键词
+        if wh_type == "feishu" and '"code":19024' in body.replace(" ", ""):
+            logger.warning(
+                "飞书 webhook 被拒（code:19024 = 自定义关键词未命中）。"
+                "请将机器人【安全设置-自定义关键词】设为消息中包含的词（如「定价」/「Token」），"
+                "或通过 PRICE_KEYWORD 环境变量在消息末尾追加关键词。"
+            )
         return True
     except Exception as exc:  # 网络/格式异常不应中断抓取主流程
         logger.warning("webhook 推送失败（%s）：%s", wh_type, exc)
