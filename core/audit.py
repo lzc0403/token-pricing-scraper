@@ -283,16 +283,30 @@ def _check_structural(watchlist: List[Dict[str, Any]], rate: float) -> List[Dict
                              "record": r})
             continue
         or_rec = or_records[0]
+        # OpenRouter 匹配记录是否同为长上下文档（condition 标注长文本/长上下文）。
+        # 若 OR 也有长档：两边是同规格对标价，偏差过大说明硬编码价可能过期 → high 阻断。
+        # 若 OR 只有标准档（无长档标注）：偏差是渠道定价差异，非硬编码价过期 → 降 med 提示，不阻断。
+        or_is_long = any(
+            "长文本" in str(x.get("condition") or "") or "长上下文" in str(x.get("condition") or "")
+            for x in or_records
+        )
         for fld in ("input", "output"):
             oai_v = r.get(fld)
             or_v = or_rec.get(fld)
             if oai_v is not None and or_v is not None and or_v > 0:
                 dev = abs(oai_v - or_v) / or_v
                 if dev > _rule("openai_long_dev", _OPENAI_LONG_DEV):
-                    suspects.append({"tier": 1, "code": "OPENAI_LONG_DEV", "severity": "high",
+                    if or_is_long:
+                        severity = "high"
+                        code = "OPENAI_LONG_DEV"
+                        msg = f"OpenAI 硬编码长上下文{fld}价({oai_v}) 与 OpenRouter 长档({or_v}) 偏差 {dev:.1%}，疑似硬编码价过期"
+                    else:
+                        severity = "med"
+                        code = "OPENAI_LONG_DEV_CH"
+                        msg = f"OpenAI 长上下文{fld}价({oai_v}) 与 OpenRouter 标准档({or_v}) 偏差 {dev:.1%}，属渠道定价差异（OR 无长档可对标）"
+                    suspects.append({"tier": 1, "code": code, "severity": severity,
                                      "source": "openai", "canonical": r.get("canonical"),
-                                     "msg": f"OpenAI 硬编码长上下文{fld}价({oai_v}) 与 OpenRouter({or_v}) 偏差 {dev:.1%}",
-                                     "record": r})
+                                     "msg": msg, "record": r})
 
     return suspects
 
