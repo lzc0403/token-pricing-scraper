@@ -11,6 +11,7 @@
 
 用法：
   python main.py [--dry-run]
+  python main.py --verify-only   # 纯只读验证：不抓取、不写 data/
 """
 
 from __future__ import annotations
@@ -115,7 +116,14 @@ def main(argv: List[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="LLM Token 定价抓取器")
     parser.add_argument("--dry-run", action="store_true",
                         help="照常抓取并写 data/，仅额外打印摘要（不写 $GITHUB_OUTPUT）")
+    parser.add_argument("--verify-only", action="store_true",
+                        help="纯只读验证：不抓取、不写 data/，仅对磁盘现有 data/ 跑审计门禁 + OpenRouter 二次验证")
     args = parser.parse_args(argv)
+
+    # ⛔ 纯只读验证入口：供本机 cron / 巡检使用，避免与本机抓取 write data/ 造成云端竞争。
+    # 只校验云端已提交的 data/（git pull 后），零写入、零网络抓取，天然幂等。
+    if args.verify_only:
+        return _verify_existing(DATA_DIR)
 
     print("== 读取配置 ==")
     sources = _load_yaml(os.path.join(CONFIG_DIR, "sources.yml")) or []
@@ -247,6 +255,43 @@ def main(argv: List[str] | None = None) -> int:
             with open(github_output, "a", encoding="utf-8") as f:
                 f.write(f"changed={'true' if changed else 'false'}\n")
 
+    return 0
+
+
+def _verify_existing(data_dir: str) -> int:
+    """纯只读验证磁盘上已有的 data/ 数据。（供本机 cron / 巡检消费云端提交的数据）
+
+    零写入、零抓取——只跑审计门禁 + OpenRouter 二次验证，判断远端数据是否健康。
+    返回 0 = 数据健康（Tier1 high = 0）；返回 2 = 检测到 Tier1 high 级结构性错误。
+    """
+    print("== 只读验证磁盘数据 ==")
+    if not os.path.isdir(data_dir):
+        print(f"  [error] 数据目录不存在: {data_dir}（请先 git pull 云端提交）")
+        return 2
+
+    sources = _load_yaml(os.path.join(CONFIG_DIR, "sources.yml")) or []
+
+    print("== 数据核对（防幻觉自我检查）==")
+    audit_res = audit.run(data_dir, sources_cfg=sources, write_audit=False)
+    astats = audit_res["stats"]
+    print(f"  可疑项 {astats['suspects']}（high {astats['high']} / med {astats['med']} / low {astats['low']}）")
+
+    tier1_high = [
+        s for s in audit_res["suspects"]
+        if s.get("tier") == 1 and s.get("severity") == "high"
+    ]
+    if tier1_high:
+        print("  ⛔ 门禁拦截：检测到 Tier1 high 级结构性数据错误")
+        for s in tier1_high:
+            print(f"    [{s['code']}] {s.get('source')} | {s.get('canonical')} | {s.get('msg')}")
+        return 2
+
+    print("== OpenRouter 二次验证 ==")
+    or_verify = openrouter_verify.verify(data_dir, write_audit=False)
+    os_ = or_verify.get("stats") or {}
+    print(f"  OpenRouter parsed={os_.get('parsed',0)} ok={or_verify.get('ok')} suspects={os_.get('suspects',0)} high={os_.get('high',0)}")
+
+    print("== 只读验证通过：云端数据健康 ==")
     return 0
 
 

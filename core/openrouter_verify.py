@@ -49,12 +49,15 @@ def _per_m(v: Any) -> Optional[float]:
         return None
 
 
-def verify(data_dir: str = "data", records: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
+def verify(data_dir: str = "data", records: Optional[List[Dict[str, Any]]] = None,
+           write_audit: bool = True) -> Dict[str, Any]:
     """核对 OpenRouter 缓存与解析结果。
 
     Args:
         data_dir: data 目录
         records: 可选，已解析的 openrouter 记录；缺省则从 prices.json 过滤 source=openrouter
+        write_audit: 是否写出 openrouter_verify.json / .md。纯只读验证（--verify-only）
+            时传 False，避免本机校验污染生产 data/（方案 A：云端唯一数据源）。
     """
     cache_path = os.path.join(data_dir, "openrouter_raw.json")
     # 兼容 scraper 新格式 {fetched_at, body} 与旧直接 body
@@ -66,7 +69,7 @@ def verify(data_dir: str = "data", records: Optional[List[Dict[str, Any]]] = Non
             "msg": "data/openrouter_raw.json 不存在，请先抓取 OpenRouter",
             "suspects": [],
             "stats": {},
-        })
+        }, write_audit)
 
     if isinstance(raw_wrap, dict) and "body" in raw_wrap:
         body = raw_wrap.get("body") or {}
@@ -83,7 +86,7 @@ def verify(data_dir: str = "data", records: Optional[List[Dict[str, Any]]] = Non
             "msg": "缓存 JSON 结构无效",
             "suspects": [],
             "stats": {},
-        })
+        }, write_audit)
 
     by_id = {str(m.get("id")): m for m in items if m.get("id")}
     rules = _load_rules()
@@ -205,10 +208,12 @@ def verify(data_dir: str = "data", records: Optional[List[Dict[str, Any]]] = Non
             for r in or_recs[:15]
         ],
     }
-    return _write(data_dir, result)
+    return _write(data_dir, result, write_audit)
 
 
-def _write(data_dir: str, result: Dict[str, Any]) -> Dict[str, Any]:
+def _write(data_dir: str, result: Dict[str, Any], write_audit: bool = True) -> Dict[str, Any]:
+    if not write_audit:
+        return result
     os.makedirs(data_dir, exist_ok=True)
     jpath = os.path.join(data_dir, "openrouter_verify.json")
     mpath = os.path.join(data_dir, "openrouter_verify.md")

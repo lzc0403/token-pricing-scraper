@@ -466,12 +466,15 @@ def _esc_md(s: str) -> str:
 # --------------------------------------------------------------------------- #
 # 主入口
 # --------------------------------------------------------------------------- #
-def run(data_dir: str, sources_cfg: Optional[List[Dict[str, Any]]] = None) -> Dict[str, Any]:
+def run(data_dir: str, sources_cfg: Optional[List[Dict[str, Any]]] = None,
+        write_audit: bool = True) -> Dict[str, Any]:
     """执行数据核对，写出 data/audit_report.md 与 data/audit.json。
 
     Args:
         data_dir: data/ 目录。
         sources_cfg: config/sources.yml 解析结果；为 None 时跳过 Tier2。
+        write_audit: 是否写出 audit_report.md / audit.json。纯只读验证（--verify-only）
+            时传 False，避免本机校验污染生产 data/（方案 A：云端唯一数据源）。
 
     Returns:
         {"suspects": [...], "stats": {...}}
@@ -516,10 +519,11 @@ def run(data_dir: str, sources_cfg: Optional[List[Dict[str, Any]]] = None) -> Di
     }
 
     md = _build_md(suspects, stats, generated_at)
-    with open(os.path.join(data_dir, "audit_report.md"), "w", encoding="utf-8") as f:
-        f.write(md)
-    with open(os.path.join(data_dir, "audit.json"), "w", encoding="utf-8") as f:
-        json.dump({"generated_at": generated_at, "stats": stats, "suspects": suspects},
-                  f, ensure_ascii=False, indent=2)
+    if write_audit:
+        with open(os.path.join(data_dir, "audit_report.md"), "w", encoding="utf-8") as f:
+            f.write(md)
+        with open(os.path.join(data_dir, "audit.json"), "w", encoding="utf-8") as f:
+            json.dump({"generated_at": generated_at, "stats": stats, "suspects": suspects},
+                      f, ensure_ascii=False, indent=2)
 
     return {"suspects": suspects, "stats": stats}
