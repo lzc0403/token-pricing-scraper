@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-22 15:55:28
+> 生成时间：2026-08-22 17:08:23
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -99,7 +99,6 @@
 | Grok 4.6 | openrouter | 14 ¥ | 42 ¥ | 0.5 USD | USD | 2 USD / 6 USD | 500K |
 | Kimi K2.6 | aliyun_bailian | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
 | Kimi K2.6 | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
-| Kimi K2.6 | kimi | 6.5 ¥ | 27 ¥ | 1.1 CNY | CNY | 6.5 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
 | Kimi K2.6 | openrouter | 3.7905 ¥ | 15.96 ¥ | 0.0912 USD | USD | 0.5415 USD / 2.28 USD | 262K |
 | Kimi K2.6 | tencent | 6.006 ¥ | 24.962 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
@@ -107,14 +106,12 @@
 | Kimi K2.7 Code | aliyun_bailian | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
 | Kimi K2.7 Code | aliyun_intl | 6.65 ¥ | 28 ¥ | 0.19 USD | USD | 0.95 USD / 4 USD | - |
 | Kimi K2.7 Code | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
-| Kimi K2.7 Code | kimi | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.7 Code | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
 | Kimi K2.7 Code | tencent | 6.65 ¥ | 28 ¥ | 0.19 USD | USD | 0.95 USD / 4 USD | - |
 | Kimi K2.7 Code | tencent_cn | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
 | Kimi K3 | aliyun_bailian | 20 ¥ | 100 ¥ | 4 CNY | CNY | 20 CNY / 100 CNY | - |
 | Kimi K3 | aliyun_intl | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | - |
 | Kimi K3 | atlascloud | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
-| Kimi K3 | kimi | 20 ¥ | 100 ¥ | 2 CNY | CNY | 20 CNY / 100 CNY | 1,048,576 tokens |
 | Kimi K3 | modelmesh | 20 ¥ | 100 ¥ | - | CNY | 20 CNY / 100 CNY | 1000K |
 | Kimi K3 | openrouter | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
 | Kimi K3 | tencent | 19.117 ¥ | 95.571 ¥ | 0.2731 USD | USD | 2.731 USD / 13.653 USD | - |
@@ -152,12 +149,6 @@
 | GPT-5.6 Terra | openai | 输出 | 18 | 12 | USD |
 | GPT-5.6 Luna | openai | 输入 | 0.4 | 0.2 | USD |
 | GPT-5.6 Luna | openai | 输出 | 1.8 | 1.2 | USD |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.54897 | 0.413772 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 1.09794 | 0.827544 | USD |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.07826 | 0.06006 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.15652 | 0.12012 | USD |
-| Kimi K2.6 | openrouter | 输入 | 0.5605 | 0.5415 | USD |
-| Kimi K2.6 | openrouter | 输出 | 2.36 | 2.28 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.22 | USD |
 | DeepSeek V4 Flash | tencent | 输出 | 0.28 | 0.66 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.44 | USD |
@@ -178,11 +169,11 @@
 | 源 | 状态 | 记录数 | 说明 |
 | --- | --- | ---: | --- |
 | openai | 成功 | 8 | 抓取 8 条 |
-| zai | 成功 | 13 | 抓取 13 条 |
 | openrouter | 成功 | 38 | 抓取 38 条 |
+| zai | 成功 | 13 | 抓取 13 条 |
 | deepseek_us | 成功 | 3 | 抓取 3 条 |
-| deepseek | 成功 | 3 | 抓取 3 条 |
 | atlascloud | 成功 | 133 | 抓取 133 条 |
+| deepseek | 成功 | 3 | 抓取 3 条 |
 | aliyun | 成功 | 0 | 抓取 0 条 |
 | aliyun_bailian | 成功 | 43 | 抓取 43 条 |
 | aliyun_intl | 成功 | 10 | 抓取 10 条 |
@@ -192,5 +183,5 @@
 | tencent_cn | 成功 | 26 | 抓取 26 条 |
 | bigmodel | 成功 | 15 | 抓取 15 条 |
 | minimax | 成功 | 4 | 抓取 4 条 |
-| kimi | 成功 | 5 | 抓取 5 条 |
+| kimi | 成功 | 0 | 抓取 0 条 |
 | modelmesh | 成功 | 64 | 抓取 64 条 |

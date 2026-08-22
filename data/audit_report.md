@@ -1,14 +1,14 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-08-22 15:55:28
+> 生成时间：2026-08-22 17:08:24
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
-- 校验记录总数：**135**
-- 可疑项总数：**86**（high 0 / med 29 / low 57）
+- 校验记录总数：**132**
+- 可疑项总数：**83**（high 0 / med 29 / low 54）
 - Tier1 结构性校验可疑：**29**
-- Tier2 源页面核对可疑：**57**
+- Tier2 源页面核对可疑：**54**
 
 ## 二、核对维度
 
@@ -71,9 +71,6 @@
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.2 | SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.3 | SPA 源静态 HTML 未含模型名「GLM-5.3」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | kimi | Kimi K2.6 | SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | kimi | Kimi K2.7 Code | SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | kimi | Kimi K3 | SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M2.7 | SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |

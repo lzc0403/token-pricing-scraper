@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-22 15:55:28",
+  "generated_at": "2026-08-22 17:08:24",
   "stats": {
-    "total": 135,
-    "suspects": 86,
+    "total": 132,
+    "suspects": 83,
     "high": 0,
     "med": 29,
-    "low": 57,
+    "low": 54,
     "tier1": 29,
-    "tier2": 57,
+    "tier2": 54,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -901,42 +901,6 @@
       "record": {
         "model_raw": "GLM-5.3",
         "url": "https://open.bigmodel.cn/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "kimi",
-      "canonical": "Kimi K2.6",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k2.6",
-        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "kimi",
-      "canonical": "Kimi K2.7 Code",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k2.7-code",
-        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "kimi",
-      "canonical": "Kimi K3",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k3",
-        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
       }
     },
     {
