@@ -35,5 +35,7 @@ jobs:
         run: playwright install --with-deps chromium
       - name: Lint (ruff)
         run: ruff check core/ scrapers/ tests/ main.py
+      - name: Type check (mypy)
+        run: python -m mypy core/ scrapers/ main.py
       - name: Test (pytest)
         run: pytest tests/ -q

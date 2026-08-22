@@ -89,9 +89,9 @@ class AliyunIntlScraper(BaseScraper):
                 if not norm:
                     continue
                 inp = clean_price(cells[col_in])
-                out = clean_price(cells[col_out])
+                outp = clean_price(cells[col_out])
                 cache = clean_price(cells[col_cache])
-                if inp is None and out is None:
+                if inp is None and outp is None:
                     continue
                 peak = cells[col_peak].strip() if col_peak is not None and col_peak < len(cells) else None
                 records.append(
@@ -99,7 +99,7 @@ class AliyunIntlScraper(BaseScraper):
                         "norm": norm,
                         "raw": raw_model,
                         "input": round(inp, 6) if inp is not None else None,
-                        "output": round(out, 6) if out is not None else None,
+                        "output": round(outp, 6) if outp is not None else None,
                         "cache_hit": round(cache, 6) if cache is not None else None,
                         "peak": peak,
                         "has_peak": has_peak,
@@ -119,20 +119,20 @@ class AliyunIntlScraper(BaseScraper):
             if len(peak_rows) >= 2:
                 by_peak = {r["peak"]: r for r in peak_rows}
                 if "Off-peak" in by_peak and "Peak" in by_peak:
-                    low, high = by_peak["Off-peak"], by_peak["Peak"]
+                    lo_rec, hi_rec = by_peak["Off-peak"], by_peak["Peak"]
                     merged.append(
                         {
-                            "norm": low["norm"],
-                            "raw": low["raw"],
-                            "input": high["input"],
-                            "output": high["output"],
-                            "cache_hit": high["cache_hit"],
-                            "peak_input_low": low["input"],
-                            "peak_input_high": high["input"],
-                            "peak_output_low": low["output"],
-                            "peak_output_high": high["output"],
-                            "peak_cache_low": low["cache_hit"],
-                            "peak_cache_high": high["cache_hit"],
+                            "norm": lo_rec["norm"],
+                            "raw": lo_rec["raw"],
+                            "input": hi_rec["input"],
+                            "output": hi_rec["output"],
+                            "cache_hit": hi_rec["cache_hit"],
+                            "peak_input_low": lo_rec["input"],
+                            "peak_input_high": hi_rec["input"],
+                            "peak_output_low": lo_rec["output"],
+                            "peak_output_high": hi_rec["output"],
+                            "peak_cache_low": lo_rec["cache_hit"],
+                            "peak_cache_high": hi_rec["cache_hit"],
                             "condition_extra": "峰谷计费",
                         }
                     )

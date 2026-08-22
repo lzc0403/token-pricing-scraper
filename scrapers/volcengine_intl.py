@@ -142,16 +142,16 @@ class VolcengineIntlScraper(BaseScraper):
                 if not (norm.startswith("deepseek") or norm.startswith("glm")):
                     continue
                 inp = clean_price(cells[i_input]) if i_input >= 0 else None
-                out = clean_price(cells[i_output]) if i_output >= 0 else None
+                outp = clean_price(cells[i_output]) if i_output >= 0 else None
                 cache = clean_price(cells[i_cache]) if i_cache >= 0 else None
-                if inp is None and out is None:
+                if inp is None and outp is None:
                     continue
                 records.append(
                     {
                         "norm": norm,
                         "raw": raw_model,
                         "input": round(inp, 6) if inp is not None else None,
-                        "output": round(out, 6) if out is not None else None,
+                        "output": round(outp, 6) if outp is not None else None,
                         "cache_hit": round(cache, 6) if cache is not None else None,
                     }
                 )

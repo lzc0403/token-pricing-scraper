@@ -104,7 +104,7 @@ class TencentScraper(BaseScraper):
             cells = [c.xpath("string(.)").get(default="").strip() for c in row.css("td,th")]
             if len(cells) <= max(i for i in col.values() if i is not None):
                 continue
-            model = cells[col["model"]].strip()
+            model = cells[col["model"] or 0].strip()
             if model and model != "\ufeff":
                 current_model = model
             if not current_model:
@@ -121,7 +121,7 @@ class TencentScraper(BaseScraper):
             cells = [c.xpath("string(.)").get(default="").strip().replace("\ufeff", "") for c in row.css("td,th")]
             if len(cells) <= max(i for i in col.values() if i is not None):
                 continue
-            model = cells[col["model"]].strip()
+            model = cells[col["model"] or 0].strip()
             # 空模型名（零宽空格等）表示同一模型的阶梯条件续行
             if model:
                 current_model = model

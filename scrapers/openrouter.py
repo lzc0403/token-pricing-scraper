@@ -86,7 +86,7 @@ class OpenrouterScraper(BaseScraper):
         if not os.path.exists(path):
             return {}
         try:
-            import yaml  # type: ignore
+            import yaml
 
             with open(path, encoding="utf-8") as f:
                 return yaml.safe_load(f) or {}
@@ -123,11 +123,12 @@ class OpenrouterScraper(BaseScraper):
             mid = w.get("id")
             if not mid or mid in seen:
                 continue
-            m = by_id.get(mid)
-            if not m:
+            # 收集白名单记录，m 类型由 whitelist 字典决定
+            wm = by_id.get(mid)
+            if not wm:
                 continue
-            rec = self._to_record(m, force_name=w.get("model"), note=w.get("note"), override=w)
-            if rec and (not exclude_free or not self._is_free(m)):
+            rec = self._to_record(wm, force_name=w.get("model"), note=w.get("note"), override=w)
+            if rec and (not exclude_free or not self._is_free(wm)):
                 selected.append(rec)
                 seen.add(mid)
 
@@ -196,7 +197,7 @@ class OpenrouterScraper(BaseScraper):
         # 无有效高低区分（全时段同价）→ 无峰谷
         if len(set(inputs)) < 2 and len(set(outputs)) < 2:
             return None
-        out = {
+        out: Dict[str, Any] = {
             "peak_input_low": min(inputs) if inputs else None,
             "peak_input_high": max(inputs) if inputs else None,
             "peak_output_low": min(outputs) if outputs else None,
