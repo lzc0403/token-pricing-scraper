@@ -11,7 +11,7 @@
 - **官方行标识**：白底 + 左侧 2px 品牌绿内阴影线（非整行黄底）；`.tag-official` 品牌绿软底；hover `#f8fafb`。
 - **CI 门禁（2026-08-22 启用）**：`.github/workflows/ci.yml` push 触发 ruff + pytest（代码变更路径才跑）。ruff 配置 `select=["F","E9","W292"]` + `ignore=["F401","F841"]`——**存量代码大量 typing.Dict/List 风格债（UP006×365），全量启用会卡死所有 push**，故先只启用抓真 bug 的规则，风格债逐步偿还。pytest 需 `playwright install --with-deps chromium`（SPA scraper 测试真实渲染）。
 - **audit.py CACHE_RATIO_ANOMALY 基准=中位数**（2026-08-22）：跨源缓存/输入比率偏离中位数 >15% 才告警。**不能用均值**——少数偏离源会把均值拉偏导致多数派误报（功能验证抓出的设计缺陷）。
-- **audit.py OPENAI_LONG_DEV**（2026-08-22）：openai 硬编码长上下文价 vs OpenRouter 同模型偏差 >15% 标记 high，防硬编码价过期无人知。
+- **audit.py OPENAI_LONG_DEV**（2026-08-22 修正）：openai 硬编码长上下文价 vs OpenRouter 同模型比对。**区分语义**：仅当 OpenRouter 匹配记录也带长文本/长上下文档（同规格对价）且偏差 >15% 才标 high（疑似硬编码价过期，阻断）；若 OpenRouter 只有标准档（无长档），偏差属渠道定价差异，降为 med（code `OPENAI_LONG_DEV_CH`）不阻断。原规则误把"OR 标准档 vs OAI 长档"的差异当过期，导致每日 automation 误拦（terra 4/18 vs OR 2/12、luna 0.4/1.8 vs OR 0.2/1.2）。硬编码值(mem: sol 10/45、terra 4/18、luna 0.4/1.8)经核与官网真实长档价一致，未过期。
 
 ## 数据源铁律
 
