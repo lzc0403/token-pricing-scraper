@@ -89,7 +89,7 @@
 - 改进三阶段：短期止血（atlascloud 时间戳+CI lint+百炼标注+补测试）→ 中期架构解耦（site.py 前端外提+并行抓取+模块拆分）→ 长期产品化（Jinja2+每日抓取+历史趋势图+价格推送）。
 - **短期 5 项 + 中期 5 项已全部落地并推送**（2026-08-22）：commit `62cbbce`..`5e7f087`，CI 全绿。仅中期 #5（OpenAI 动态抓取）经调研暂缓。
 - **长期计划全部完成（2026-08-22）**：三阶段（短期/中期/长期）全落地并推送。
-  - ✅ **每日抓取 automation**：`automation-1787338740315`，每日 09:00 北京时间运行 `python main.py`（仅本地抓取+生成，不 push）。
+  - ✅ **每日抓取 automation**：`automation-1787338740315`。**方案 A（2026-08-22 定稿）：云端唯一数据源**——GitHub Action（scrape.yml，UTC 17:00 = 北京时间 01:00）是唯一权威抓取源；本机 cron 每日 10:40 只负责 `git pull` + `python main.py --verify-only` 只读校验（不抓取、不写 data/、不 push），异常才上报。
   - ✅ **历史价格趋势图**：`data/history/YYYY-MM-DD.json` 每日快照归档（`core/store.py:archive_snapshot`）+ `_load_history()` + `_trend_section()` Chart.js 折线图。数据从 2026-08-22 起累积。
   - ✅ **价格变动推送**：`core/notifier.py`，对比上一日快照生成飞书/企微 markdown 播报，配置驱动（FEISHU_WEBHOOK_URL/WECOM_WEBHOOK_URL 未设则静默跳过），main.py 生成报告后调用。tests/test_notifier.py 6 例。
   - ✅ **mypy 类型检查 + CI 门禁**：pyproject `[tool.mypy]`，修复 21 处真实类型隐患（Any|None 参与数值比较、setdefault、重复 _load_asset、隐式 Optional、yaml stub），scrape.yml 新增 mypy 步骤，.mypy_cache 入 gitignore。
