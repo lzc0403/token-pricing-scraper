@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-21 20:35:48
+> 生成时间：2026-08-22 09:14:57
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -24,7 +24,7 @@
 | DeepSeek V4 Flash | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | 1.04858M |
 | DeepSeek V4 Flash | deepseek | 3 ¥ | 9 ¥ | 0.1 CNY | CNY | 3 CNY / 9 CNY | 1M |
 | DeepSeek V4 Flash | deepseek_us | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | 1M |
-| DeepSeek V4 Flash | openrouter | 0.5782 ¥ | 1.1564 ¥ | 0.01652 USD | USD | 0.0826 USD / 0.1652 USD | 1.04858M |
+| DeepSeek V4 Flash | openrouter | 0.54782 ¥ | 1.09564 ¥ | 0.015652 USD | USD | 0.07826 USD / 0.15652 USD | 1.04858M |
 | DeepSeek V4 Flash | tencent | 1.54 ¥ | 4.62 ¥ | 0.007 USD | USD | 0.22 USD / 0.66 USD | - |
 | DeepSeek V4 Flash | tencent | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | - |
 | DeepSeek V4 Flash | tencent | 0.98 ¥ | 1.96 ¥ | 0.0028 USD | USD | 0.14 USD / 0.28 USD | - |
@@ -36,7 +36,7 @@
 | DeepSeek V4 Pro | deepseek | 9 ¥ | 27 ¥ | 0.3 CNY | CNY | 9 CNY / 27 CNY | 1M |
 | DeepSeek V4 Pro | deepseek_us | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | 1M |
 | DeepSeek V4 Pro | modelmesh | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1000K |
-| DeepSeek V4 Pro | openrouter | 11.2 ¥ | 22.4 ¥ | 0.135 USD | USD | 1.6 USD / 3.2 USD | 1.04858M |
+| DeepSeek V4 Pro | openrouter | 3.84279 ¥ | 7.68558 ¥ | 0.045747 USD | USD | 0.54897 USD / 1.09794 USD | 1.04858M |
 | DeepSeek V4 Pro | tencent | 4.62 ¥ | 13.86 ¥ | 0.022 USD | USD | 0.66 USD / 1.98 USD | - |
 | DeepSeek V4 Pro | tencent | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | - |
 | DeepSeek V4 Pro | tencent | 3.045 ¥ | 6.09 ¥ | 0.00363 USD | USD | 0.435 USD / 0.87 USD | - |
@@ -90,7 +90,7 @@
 | GPT-5.6 Luna | openai | 1.4 ¥ | 8.4 ¥ | 0.02 USD | USD | 0.2 USD / 1.2 USD | 1M |
 | GPT-5.6 Luna | openai | 2.8 ¥ | 12.6 ¥ | 0.04 USD | USD | 0.4 USD / 1.8 USD | 1M |
 | GPT-5.6 Luna | openrouter | 1.4 ¥ | 8.4 ¥ | 0.02 USD | USD | 0.2 USD / 1.2 USD | 1.05M |
-| GPT-5.6 Sol | openai | 35 ¥ | 210 ¥ | 0.5 USD | USD | 5 USD / 30 USD | 1M |
+| GPT-5.6 Sol | openai | 28 ¥ | 140 ¥ | 0.4 USD | USD | 4 USD / 20 USD | 1M |
 | GPT-5.6 Sol | openai | 70 ¥ | 315 ¥ | 1 USD | USD | 10 USD / 45 USD | 1M |
 | GPT-5.6 Terra | openai | 14 ¥ | 84 ¥ | 0.2 USD | USD | 2 USD / 12 USD | 1M |
 | GPT-5.6 Terra | openai | 28 ¥ | 126 ¥ | 0.4 USD | USD | 4 USD / 18 USD | 1M |
@@ -103,7 +103,7 @@
 | Kimi K2.6 | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
 | Kimi K2.6 | kimi | 6.5 ¥ | 27 ¥ | 1.1 CNY | CNY | 6.5 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
-| Kimi K2.6 | openrouter | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
+| Kimi K2.6 | openrouter | 3.9235 ¥ | 16.52 ¥ | 0.0944 USD | USD | 0.5605 USD / 2.36 USD | 262K |
 | Kimi K2.6 | tencent | 6.006 ¥ | 24.962 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
 | Kimi K2.6 | tencent_cn | 6.5 ¥ | 27 ¥ | 1.1 CNY | CNY | 6.5 CNY / 27 CNY | - |
 | Kimi K2.7 Code | aliyun_bailian | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
@@ -113,6 +113,8 @@
 | Kimi K2.7 Code | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
 | Kimi K2.7 Code | tencent | 6.65 ¥ | 28 ¥ | 0.19 USD | USD | 0.95 USD / 4 USD | - |
 | Kimi K2.7 Code | tencent_cn | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
+| Kimi K3 | aliyun_bailian | 20 ¥ | 100 ¥ | 4 CNY | CNY | 20 CNY / 100 CNY | - |
+| Kimi K3 | aliyun_intl | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | - |
 | Kimi K3 | atlascloud | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
 | Kimi K3 | kimi | 20 ¥ | 100 ¥ | 2 CNY | CNY | 20 CNY / 100 CNY | 1,048,576 tokens |
 | Kimi K3 | modelmesh | 20 ¥ | 100 ¥ | - | CNY | 20 CNY / 100 CNY | 1000K |
@@ -146,6 +148,12 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
+| GPT-5.6 Sol | openai | 输入 | 10 | 4 | USD |
+| GPT-5.6 Sol | openai | 输出 | 45 | 20 | USD |
+| GPT-5.6 Terra | openai | 输入 | 4 | 2 | USD |
+| GPT-5.6 Terra | openai | 输出 | 18 | 12 | USD |
+| GPT-5.6 Luna | openai | 输入 | 0.4 | 0.2 | USD |
+| GPT-5.6 Luna | openai | 输出 | 1.8 | 1.2 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.22 | USD |
 | DeepSeek V4 Flash | tencent | 输出 | 0.28 | 0.66 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.44 | USD |
@@ -167,20 +175,20 @@
 
 | 源 | 状态 | 记录数 | 说明 |
 | --- | --- | ---: | --- |
+| deepseek | 成功 | 3 | 抓取 3 条 |
+| deepseek_us | 成功 | 3 | 抓取 3 条 |
+| zai | 成功 | 13 | 抓取 13 条 |
 | aliyun | 成功 | 0 | 抓取 0 条 |
-| aliyun_intl | 成功 | 9 | 抓取 9 条 |
-| aliyun_bailian | 成功 | 41 | 抓取 41 条 |
+| openai | 成功 | 8 | 抓取 8 条 |
+| openrouter | 成功 | 38 | 抓取 38 条 |
+| aliyun_bailian | 成功 | 43 | 抓取 43 条 |
+| atlascloud | 成功 | 133 | 抓取 133 条 |
+| aliyun_intl | 成功 | 10 | 抓取 10 条 |
 | volcengine | 成功 | 18 | 抓取 18 条 |
 | volcengine_intl | 成功 | 5 | 抓取 5 条 |
 | tencent | 成功 | 33 | 抓取 33 条 |
 | tencent_cn | 成功 | 25 | 抓取 25 条 |
 | bigmodel | 成功 | 15 | 抓取 15 条 |
-| zai | 成功 | 13 | 抓取 13 条 |
-| deepseek | 成功 | 3 | 抓取 3 条 |
-| deepseek_us | 成功 | 3 | 抓取 3 条 |
 | minimax | 成功 | 4 | 抓取 4 条 |
 | kimi | 成功 | 5 | 抓取 5 条 |
 | modelmesh | 成功 | 64 | 抓取 64 条 |
-| openai | 成功 | 8 | 抓取 8 条 |
-| openrouter | 成功 | 38 | 抓取 38 条 |
-| atlascloud | 成功 | 133 | 抓取 133 条 |

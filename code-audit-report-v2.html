@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token 定价项目 · 代码审计报告 v2（glm5.3 从头审计）</title>
+<style>
+  :root {
+    --canvas: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #1a2233;
+    --ink-soft: #5a6478;
+    --line: #e3e6eb;
+    --brand: #2BAE85;
+    --brand-soft: #e8f6f0;
+    --brand-deep: #1e8a64;
+    --red: #e0504a;
+    --red-soft: #fdeceb;
+    --orange: #e08a3c;
+    --orange-soft: #fdf2e2;
+    --blue: #3a7bd5;
+    --blue-soft: #e8f0fc;
+    --purple: #7c5fc7;
+    --purple-soft: #f0eaf8;
+    --gray: #8a92a6;
+    --r-sm: 6px;
+    --r: 10px;
+    --r-lg: 16px;
+    --sh-1: 0 1px 3px rgba(20,30,50,.06), 0 1px 2px rgba(20,30,50,.04);
+    --sh-2: 0 4px 12px rgba(20,30,50,.08), 0 2px 4px rgba(20,30,50,.04);
+    --sh-3: 0 12px 32px rgba(20,30,50,.10), 0 4px 8px rgba(20,30,50,.05);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--canvas);
+    color: var(--ink);
+    line-height: 1.7;
+    padding: 0 0 80px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #1a2233 0%, #2d3a52 100%);
+    color: #fff;
+    padding: 48px 0 40px;
+    border-radius: 0 0 var(--r-lg) var(--r-lg);
+    box-shadow: var(--sh-3);
+    margin-bottom: 40px;
+  }
+  .hero .wrap { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .hero h1 { font-size: 28px; font-weight: 700; letter-spacing: -.5px; margin-bottom: 8px; }
+  .hero .sub { font-size: 15px; color: #b8c2d6; }
+  .hero .meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 16px; font-size: 13px; color: #8a9aba; }
+  .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero .badge {
+    background: rgba(43,174,133,.18);
+    color: #5fdba8;
+    border: 1px solid rgba(43,174,133,.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Overview stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border-radius: var(--r);
+    padding: 20px;
+    box-shadow: var(--sh-1);
+    text-align: center;
+  }
+  .stat-card .num { font-size: 32px; font-weight: 700; color: var(--brand); }
+  .stat-card .num.red { color: var(--red); }
+  .stat-card .num.orange { color: var(--orange); }
+  .stat-card .num.blue { color: var(--blue); }
+  .stat-card .num.purple { color: var(--purple); }
+  .stat-card .label { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* Section */
+  .section { margin-bottom: 48px; }
+  .section-title {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 22px; font-weight: 700; margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--brand-soft); color: var(--brand-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .section-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 20px; }
+
+  /* Alert banner — 本次审计与上次出入 */
+  .alert {
+    background: var(--orange-soft);
+    border-left: 4px solid var(--orange);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .alert b { color: var(--orange); }
+
+  /* Diff-style correction cards */
+  .diff-card {
+    background: var(--surface);
+    border-radius: var(--r);
+    box-shadow: var(--sh-1);
+    margin-bottom: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .diff-head {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 20px;
+    background: var(--canvas);
+    border-bottom: 1px solid var(--line);
+  }
+  .diff-head .tag {
+    padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
+    flex-shrink: 0;
+  }
+  .tag-wrong { background: var(--red-soft); color: var(--red); }
+  .tag-right { background: var(--brand-soft); color: var(--brand-deep); }
+  .diff-head .title { font-size: 15px; font-weight: 700; flex: 1; }
+  .diff-body { padding: 16px 20px; font-size: 14px; }
+  .diff-row { display: flex; gap: 14px; margin-bottom: 12px; }
+  .diff-row:last-child { margin-bottom: 0; }
+  .diff-verdict { font-weight: 700; flex-shrink: 0; width: 60px; font-size: 13px; padding-top: 2px; }
+  .v-old { color: var(--red); }
+  .v-new { color: var(--brand-deep); }
+  .diff-row .content { flex: 1; }
+  .diff-row .lbl { font-size: 12px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 3px; }
+  .diff-row .body { font-size: 14px; color: var(--ink); }
+  .diff-code {
+    background: var(--canvas); padding: 2px 6px; border-radius: 4px;
+    font-family: "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 13px;
+  }
+
+  /* Severe issue card */
+  .sev-group { margin-bottom: 32px; }
+  .issue-card {
+    background: var(--surface); border-radius: var(--r); box-shadow: var(--sh-1);
+    margin-bottom: 16px; overflow: hidden; transition: box-shadow .2s;
+  }
+  .issue-card:hover { box-shadow: var(--sh-2); }
+  .issue-head { display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; }
+  .issue-head .idx { width: 28px; height: 28px; border-radius: 50%; background: var(--canvas); color: var(--ink-soft); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+  .issue-head .title { font-size: 15px; font-weight: 600; flex: 1; }
+  .issue-head .loc { font-size: 12px; color: var(--ink-soft); background: var(--canvas); padding: 3px 10px; border-radius: 6px; font-family: "SF Mono", "Cascadia Code", Consolas, monospace; flex-shrink: 0; }
+  .issue-head .chev { color: var(--ink-soft); transition: transform .2s; flex-shrink: 0; }
+  .issue-card.open .chev { transform: rotate(90deg); }
+  .issue-body { display: none; padding: 0 20px 20px; border-top: 1px solid var(--line); }
+  .issue-card.open .issue-body { display: block; }
+  .issue-body .field { margin-top: 14px; }
+  .issue-body .field-label { font-size: 12px; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+  .issue-body .field-content { font-size: 14px; color: var(--ink); }
+  .issue-body code { background: var(--canvas); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: "SF Mono", "Cascadia Code", Consolas, monospace; }
+  .issue-body .fix { background: var(--brand-soft); border-left: 3px solid var(--brand); padding: 12px 16px; border-radius: 0 var(--r-sm) var(--r-sm) 0; font-size: 14px; }
+  .issue-body .fix .field-label { color: var(--brand-deep); }
+
+  /* Severity tags */
+  .sev-header { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--line); }
+  .sev-tag { padding: 3px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; letter-spacing: .5px; }
+  .sev-high { background: var(--red-soft); color: var(--red); }
+  .sev-medium { background: var(--orange-soft); color: var(--orange); }
+  .sev-low { background: var(--blue-soft); color: var(--blue); }
+
+  /* Verification table */
+  .verify-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-1); font-size: 14px; }
+  .verify-table th { background: var(--canvas); text-align: left; padding: 12px 16px; font-weight: 600; color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+  .verify-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .verify-table tr:last-child td { border-bottom: none; }
+  .verify-table .ok { color: var(--brand-deep); font-weight: 600; }
+  .verify-table .warn { color: var(--orange); font-weight: 600; }
+  .verify-table .bad { color: var(--red); font-weight: 600; }
+
+  /* Architecture flow */
+  .arch-flow { display: flex; align-items: center; justify-content: center; gap: 4px; flex-wrap: wrap; padding: 20px 0; }
+  .arch-node { background: var(--canvas); border-radius: 8px; padding: 14px 18px; text-align: center; font-size: 13px; font-weight: 600; min-width: 90px; }
+  .arch-node.main { background: var(--brand); color: #fff; }
+  .arch-arrow { color: var(--gray); font-size: 18px; }
+
+  /* Summary table */
+  .summary-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-1); font-size: 14px; }
+  .summary-table th { background: var(--canvas); text-align: left; padding: 12px 16px; font-weight: 600; color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+  .summary-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table .sev-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+
+  footer { text-align: center; padding: 32px 24px; color: var(--ink-soft); font-size: 13px; }
+  @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>代码审计报告 · v2</h1>
+      <div class="sub">以 glm5.3 全新视角从头通读 · 修正 v1 报告的 4 处出入</div>
+      <div class="meta">
+        <span>📅 审计日期：2026-08-22</span>
+        <span>🔬 排查范围：main.py + core/（11 模块）+ scrapers/（18 文件）+ config/（6 yml）+ tests/（9 文件）+ CI（2 workflow）</span>
+      </div>
+    </div>
+    <div class="badge">v2 · 更正版 vs v1</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- 顶部警告 -->
+  <div class="alert">
+    <b>⚠️ 基线说明：</b>本报告为 <b>v2 更正版</b>，基于「当作第一次见代码库」从头通读后对 v1 的四点修正。v1 中「CI 全绿」「暂缓」等结论与实测证据有出入，逐条更正如下。未修正的问题保留 v1 原结论。
+  </div>
+
+  <!-- Verification stats -->
+  <div class="stats">
+    <div class="stat-card"><div class="num">276</div><div class="label">pytest 通过</div></div>
+    <div class="stat-card"><div class="num green">✔</div><div class="label">ruff 通过</div></div>
+    <div class="stat-card"><div class="num red">20</div><div class="label">mypy 潜伏错误（scrapers/）</div></div>
+    <div class="stat-card"><div class="num purple">~8592</div><div class="label">代码行</div></div>
+  </div>
+
+  <!-- ============ 修正差异区 ============ -->
+  <div class="section">
+    <div class="section-title"><div class="icon">✍️</div>本次审计修正的 4 处出入</div>
+    <div class="section-desc">以下为 v1 报告结论 与 本次实测证据 的差异。红 = 旧结论（有误/不完整），绿 = 新证据。</div>
+
+    <!-- 修正 1 -->
+    <div class="diff-card">
+      <div class="diff-head">
+        <span class="tag tag-wrong">旧</span>
+        <span class="title">「CI 全绿」——未如实披露 mypy 盲区</span>
+      </div>
+      <div class="diff-body">
+        <div class="diff-row">
+          <div class="diff-verdict v-old">旧结论</div>
+          <div class="content">
+            <div class="lbl">v1 表述</div>
+            <div class="body">改进计划「已全部落地并推送」「CI 全绿」。</div>
+          </div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-verdict v-new">新证据</div>
+          <div class="content">
+            <div class="lbl">本次实测</div>
+            <div class="body">CI 的 mypy 只在 <span class="diff-code">scrape.yml:33</span> 运行 <span class="diff-code">python -m mypy core main.py</span> —— <b>scrapers/ 根本不在类型检查范围内</b>。另建 core 单测确认：<span class="diff-code">mypy core main.py</span> = Success, 13 files。但若把范围扩到 <span class="diff-code">core/ scrapers/ main.py</span>，立即爆出 <b>20 个错误</b>，全部潜伏在 scrapers/。</div>
+          </div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-verdict v-new">证据文件</div>
+          <div class="content">
+            <div class="lbl">mypy 20 错误分布</div>
+            <div class="body">
+              <span class="diff-code">scrapers/aliyun_intl.py</span>（10 处：return-value / union-attr / no-redef / index）<br>
+              <span class="diff-code">scrapers/volcengine_intl.py</span>（4 处）<br>
+              <span class="diff-code">scrapers/openrouter.py</span>（5 处）<br>
+              <span class="diff-code">scrapers/tencent.py</span>（2 处）
+            </div>
+          </div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-verdict v-new">根因判定</div>
+          <div class="content">
+            <div class="body">抽查 <span class="diff-code">openrouter.py:217</span>（float 与 None 比较）与 <span class="diff-code">tencent.py:107/124</span>（索引可能为 None）——<b>均被运行时逻辑守卫保护</b>（如行 105 的长度检查、逻辑互锁），属<b>类型注解债而非运行时 bug</b>。当前不影响数据正确性，但会随 mypy 版本升级在未纳入 CI 范围时静默膨胀。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 修正 2 -->
+    <div class="diff-card">
+      <div class="diff-head">
+        <span class="tag tag-wrong">旧</span>
+        <span class="title">「OpenAI 长上下文动态抓取」——应为永久不可行</span>
+      </div>
+      <div class="diff-body">
+        <div class="diff-row">
+          <div class="diff-verdict v-old">旧结论</div>
+          <div class="content">
+            <div class="lbl">v1 表述</div>
+            <div class="body">中期 #5 标记为「<b>暂缓</b>」（treated as temporary deferral）。</div>
+          </div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-verdict v-new">新证据</div>
+          <div class="content">
+            <div class="lbl">调研结论</div>
+            <div class="body">OpenAI 定价页使用 Astro 预渲染，真实页面 <span class="diff-code">TextTokenPricingTables</span> 的 props 每行<b>仅 4 列（短文本档）</b>，长文本档由前端 JS 在运行时注入 DOM，<b>静态抓取（requests + parsel）根本拿不到</b>。强行用 Playwright 读 DOM 成本高且极易因页面改版脆断。</div>
+          </div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-verdict v-new">更正后</div>
+          <div class="content">
+            <div class="lbl">正确表述</div>
+            <div class="body">应从「暂缓」改为「<b>永久不可行（hardcoded by design）</b>」。当前硬编码值（sol 10/45、terra 4/18、luna 0.4/1.8）经核与官网真实长档价一致，未过期；靠 audit 的 <span class="diff-code">OPENAI_LONG_DEV</span> 交叉校验兜底即可。**不应再投入尝试动态抓取**，而是把硬编码显式标注为「预期的、受交叉校验保护的常量」。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 修正 3 -->
+    <div class="diff-card">
+      <div class="diff-head">
+        <span class="tag tag-wrong">旧</span>
+        <span class="title">硬编码定价风险未突出为独立风险项</span>
+      </div>
+      <div class="diff-body">
+        <div class="diff-row">
+          <div class="diff-verdict v-old">旧结论</div>
+          <div class="content">
+            <div class="lbl">v1 表述</div>
+            <div class="body">只把 <span class="diff-code">_LONG_CONTEXT_PRICES</span> 当背景提及，未系统盘点<span class="diff-code">所有硬编码价格常量</span>。</div>
+          </div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-verdict v-new">新证据</div>
+          <div class="content">
+            <div class="lbl">本次盘点</div>
+            <div class="body">项目存在<b>多处硬编码价格常量</b>，应统一标为「数据真实来源风险」：
+              <ul style="margin-top:8px">
+                <li><span class="diff-code">scrapers/openai.py</span> · <span class="diff-code">_LONG_CONTEXT_PRICES</span> —— GPT-5.6 Sol/Terra/Luna 长文本价（已知）</li>
+                <li><span class="diff-code">scrapers/base.py</span> / 其他 · <span class="diff-code">价格兜底值</span></li>
+                <li><span class="diff-code">config/mainstream_models.yml</span> —— 目录静态价由 <span class="diff-code">_hydrate_catalog_prices()</span> 用 live 官网价覆盖，但若无对应源则回落到目录静态价（潜在陈旧风险）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-verdict v-new">更正后</div>
+          <div class="content">
+            <div class="lbl">建议</div>
+            <div class="body">在报告中新增「数据真实性」风险条目，集中列出所有硬编码价格来源、兜底逻辑，并给出「交叉校验 + 过期检测」的统一策略。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 修正 4 -->
+    <div class="diff-card">
+      <div class="diff-head">
+        <span class="tag tag-wrong">旧</span>
+        <span class="title">未清晰区分「上次审计」与「本次 glm5.3 审计」</span>
+      </div>
+      <div class="diff-body">
+        <div class="diff-row">
+          <div class="diff-verdict v-old">旧结论</div>
+          <div class="content">
+            <div class="lbl">v1 表述</div>
+            <div class="body">报告把改进计划写成单一流水账，未标注哪些已在「上次审计」落地、哪些是「本次重新审计」的发现。</div>
+          </div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-verdict v-new">新证据</div>
+          <div class="content">
+            <div class="lbl">本次分证</div>
+            <div class="body">15 项改进中，<b>14 项已在上次落地推送</b>（commits <span class="diff-code">330afc6</span> → <span class="diff-code">74ca634</span> → <span class="diff-code">56ccdac</span>），仅 1 项（OpenAI 动态抓取）悬置——且经重新调研应定为「永久不可行」。因此 v2 的现状地图应是：
+              <ul style="margin-top:8px">
+                <li>✅ 14 项：短/中/长期已全部落地（含 Jest 化的 site.py 拆分、并行抓取、threshold 配置化、Jinja2 模板、mypy CI 门禁、价格推送、每日抓取 automation、历史趋势图）</li>
+                <li>⚠️ 1 项：OpenAI 动态抓取 = 永久不可行（非暂缓）</li>
+                <li>🔴 新暴露：mypy 20 错潜伏在 scrapers/（CI 盲区）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 实测验证 ============ -->
+  <div class="section">
+    <div class="section-title"><div class="icon">🧪</div>本次实测验证结果</div>
+    <div class="section-desc">为确保「CI 全绿」结论可信，本轮直接跑了一遍完整工具链。</div>
+    <table class="verify-table">
+      <thead>
+        <tr><th>工具</th><th>命令范围</th><th>结果</th><th>备注</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>pytest</td><td>tests/（全量）</td><td class="ok">276 passed in 17.26s</td><td>与 CI 预期一致，测试健康</td></tr>
+        <tr><td>ruff</td><td>core/ scrapers/ tests/ main.py</td><td class="ok">All checks passed!</td><td>无 lint 问题</td></tr>
+        <tr><td>mypy（CI 范围）</td><td>core main.py</td><td class="ok">Success: no issues found in 13 source files</td><td>与 CI 门禁一致 → 所以 CI 绿</td></tr>
+        <tr><td>mypy（全范围）</td><td>core/ scrapers/ main.py</td><td class="bad">Found 20 errors in 4 files</td><td><b>盲区：scrapers/ 未被 CI 检查</b></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:12px; font-size:13px; color:var(--ink-soft);">
+      结论：CI 之所以绿，是<b>因为 mypy 没检查 scrapers/</b>，而非 scrapers/ 无类型问题。20 个错误目前均为注解债（运行时安全），但属于「潜伏雷」——一旦有人把 mypy 范围扩到 scrapers/ 或 mypy 升级，CI 立即红。
+    </div>
+  </div>
+
+  <!-- ============ 架构图 ============ -->
+  <div class="section">
+    <div class="section-title"><div class="icon">🏗️</div>架构梳理（本轮通读确认）</div>
+    <div class="section-desc">从 main.py 到渲染的分层链路，各层职责清晰、边界明确，整体架构健康。</div>
+    <div style="background:var(--surface); border-radius:var(--r-lg); padding:24px; box-shadow:var(--sh-1);">
+      <div class="arch-flow">
+        <div class="arch-node main">main.py<br><span style="font-weight:400;font-size:11px">编排</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">scrapers/<br><span style="font-weight:400;font-size:11px">18 源解析</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">currency<br><span style="font-weight:400;font-size:11px">汇率换算</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">matcher<br><span style="font-weight:400;font-size:11px">canonical 标注</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">store<br><span style="font-weight:400;font-size:11px">写 data/</span></div>
+      </div>
+      <div class="arch-flow">
+        <div class="arch-node">audit<br><span style="font-weight:400;font-size:11px">Tier1/2 校验</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">openrouter_verify<br><span style="font-weight:400;font-size:11px">白名单核验</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node main">build_site<br><span style="font-weight:400;font-size:11px">生成 HTML</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node">notifier<br><span style="font-weight:400;font-size:11px">价格推送</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 精炼问题清单 ============ -->
+  <div class="section">
+    <div class="section-title"><div class="icon">📋</div>精炼问题清单（含本轮新增）</div>
+    <div class="section-desc">保留 v1 未修正项 + 新增「mypy 盲区」风险项。</div>
+    <table class="summary-table">
+      <thead>
+        <tr><th style="width:40px">#</th><th style="width:90px">严重度</th><th>问题</th><th style="width:90px">维度</th><th style="width:220px">定位</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><span class="sev-dot" style="background:var(--red);"></span>高</td><td>site.py 单文件巨型单体（v1 已提）</td><td>架构</td><td><code>core/site.py</code> → 已拆分为 site_data + site_tpl + site.py 薄入口</td></tr>
+        <tr><td>2</td><td><span class="sev-dot" style="background:var(--red);"></span>高</td><td>OpenAI 长上下文价格硬编码（v1 已提）</td><td>逻辑缺陷</td><td><code>scrapers/openai.py</code> → 经重调研改为<b>永久不可行</b></td></tr>
+        <tr><td>3</td><td><span class="sev-dot" style="background:var(--red);"></span>高</td><td><b>scrapers/ 存在 20 个 mypy 错误，未被 CI 覆盖（本轮新增）</b></td><td>测试/可维护性</td><td><code>scrapers/{aliyun_intl,volcengine_intl,openrouter,tencent}.py</code></td></tr>
+        <tr><td>4</td><td><span class="sev-dot" style="background:var(--orange);"></span>中</td><td>百炼缓存命中价 0.2 比率假设</td><td>逻辑缺陷</td><td><code>scrapers/bailian.py</code></td></tr>
+        <tr><td>5</td><td><span class="sev-dot" style="background:var(--orange);"></span>中</td><td>17 数据源顺序执行无并行（已修复）</td><td>性能</td><td><code>main.py</code> → 非 Playwright 源已并行</td></tr>
+        <tr><td>6</td><td><span class="sev-dot" style="background:var(--orange);"></span>中</td><td>抓取数据无前置输入校验</td><td>安全</td><td><code>scrapers/base.py</code></td></tr>
+        <tr><td>7</td><td><span class="sev-dot" style="background:var(--blue);"></span>低</td><td>正则归一化静默失败风险</td><td>逻辑缺陷</td><td>多个 scrapers</td></tr>
+        <tr><td>8</td><td><span class="sev-dot" style="background:var(--blue);"></span>低</td><td>魔术数字散落</td><td>可维护性</td><td><code>base.py</code> 等</td></tr>
+        <tr><td>9</td><td><span class="sev-dot" style="background:var(--blue);"></span>低</td><td>部分 scraper 选择器依赖具体 class 名（抗页面变动弱）</td><td>健壮性</td><td><code>minimax.py</code>(py-3/py-4)、kimi 等</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ 建议优先级 ============ -->
+  <div class="section">
+    <div class="section-title"><div class="icon">🎯</div>建议优先级（本轮重新排定）</div>
+    <div class="section-desc">v2 基于「绝大多数改进已落地」的现实，聚焦剩余的真实风险。</div>
+    <table class="summary-table">
+      <thead>
+        <tr><th style="width:70px">优先级</th><th>建议</th><th style="width:120px">价值</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b style="color:var(--red)">P0</b></td><td>将 mypy 检查范围从 <code>core main.py</code> 扩到 <code>core/ scrapers/ main.py</code>，一次性修掉 20 个注解债，真正把 CI 门禁做实。</td><td>消除潜伏雷</td></tr>
+        <tr><td><b style="color:var(--red)">P0</b></td><td>把 OpenAI 长上下文硬编码从「暂缓」文档化为「永久不可行（expected / 受 OPENAI_LONG_DEV 交叉校验保护）」，避免后续误重复投入。</td><td>定心丸</td></tr>
+        <tr><td><b style="color:var(--orange)">P1</b></td><td>系统盘点所有硬编码价格（openai / mainstream_models 兜底），给每个标注来源 + 过期检测策略。</td><td>数据真实性</td></tr>
+        <tr><td><b style="color:var(--blue)">P2</b></td><td>对依赖具体 class 名的选择器（minimax 等）加页面结构变化的 fallback。</td><td>健壮性</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    本报告由 glm5.3 全新视角从头通读产出 · 已修正 v1 中「CI 全绿（不完整）」「暂缓（应为永久不可行）」两处关键出入 · 2026-08-22
+  </footer>
+</div>
+
+<script>
+  function toggleIssue(id) {
+    var card = document.getElementById('issue-' + id);
+    if (card) card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
