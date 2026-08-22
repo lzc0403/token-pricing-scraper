@@ -41,6 +41,9 @@ jobs:
         run: python main.py
         env:
           USD_CNY_RATE: ${{ secrets.USD_CNY_RATE }}
+          # 价格变动推送（飞书/企微；未配置 secrets 则 notifier 内部静默跳过，不阻断）
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          WECOM_WEBHOOK_URL: ${{ secrets.WECOM_WEBHOOK_URL }}
       - name: Commit results
         if: steps.scrape.outcome == 'success'
         run: |
