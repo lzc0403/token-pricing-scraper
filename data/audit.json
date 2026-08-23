@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22 17:24:12",
+  "generated_at": "2026-08-23 17:13:35",
   "stats": {
     "total": 135,
     "suspects": 86,
@@ -322,18 +322,18 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Flash",
-        "input": 0.06006,
-        "output": 0.12012,
-        "cache_hit": 0.012012,
+        "input": 0.04886,
+        "output": 0.09772,
+        "cache_hit": 0.009772,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-flash",
-        "openrouter_prompt_per_token": "0.00000006006",
-        "openrouter_completion_per_token": "0.00000012012",
-        "input_rmb": 0.42042,
-        "output_rmb": 0.84084,
+        "openrouter_prompt_per_token": "0.00000004886",
+        "openrouter_completion_per_token": "0.00000009772",
+        "input_rmb": 0.34202,
+        "output_rmb": 0.68404,
         "canonical": "DeepSeek V4 Flash",
         "is_lowest_input": "yes"
       }

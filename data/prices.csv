@@ -27,15 +27,15 @@ openrouter,Gemini 2.5 Pro,1.25,10.0,0.125,1.04858M,,1M tokens,USD,8.75,70.0,Gemi
 openrouter,Gemini 2.5 Flash,0.3,2.5,0.03,1.04858M,,1M tokens,USD,2.1,17.5,Gemini 2.5 Flash
 openrouter,Gemini 3.7 Flash,0.375,1.875,0.0375,1.04858M,,1M tokens,USD,2.625,13.125,Gemini 3.7 Flash
 openrouter,Grok 4.6,2.0,6.0,0.5,500K,,1M tokens,USD,14.0,42.0,Grok 4.6
-openrouter,DeepSeek V4 Pro,0.413772,0.827544,0.034481,1.04858M,,1M tokens,USD,2.896404,5.792808,DeepSeek V4 Pro
-openrouter,DeepSeek V4 Pro 0813,1.188,3.564,0.0396,1.04858M,,1M tokens,USD,8.316,24.948,DeepSeek V4 Pro 0813
-openrouter,DeepSeek V4 Flash,0.06006,0.12012,0.012012,1.04858M,,1M tokens,USD,0.42042,0.84084,DeepSeek V4 Flash
+openrouter,DeepSeek V4 Pro,0.396894,0.793788,0.033074,1.04858M,,1M tokens,USD,2.778258,5.556516,DeepSeek V4 Pro
+openrouter,DeepSeek V4 Pro 0813,1.122,3.366,0.0374,1.04858M,,1M tokens,USD,7.854,23.562,DeepSeek V4 Pro 0813
+openrouter,DeepSeek V4 Flash,0.04886,0.09772,0.009772,1.04858M,,1M tokens,USD,0.34202,0.68404,DeepSeek V4 Flash
 openrouter,MiniMax M3,0.3,1.2,0.06,1.04858M,,1M tokens,USD,2.1,8.4,MiniMax M3
-openrouter,Kimi K2.6,0.5415,2.28,0.0912,262K,,1M tokens,USD,3.7905,15.96,Kimi K2.6
+openrouter,Kimi K2.6,0.95,4.0,0.16,262K,,1M tokens,USD,6.65,28.0,Kimi K2.6
 openrouter,Kimi K3,3.0,15.0,0.3,1.04858M,,1M tokens,USD,21.0,105.0,Kimi K3
 openrouter,DeepSeek V4 Flash 0731,0.08,0.18,0.016,1.31072M,,1M tokens,USD,0.56,1.26,
-openrouter,Hy3,0.132,0.528,0.033,262K,,1M tokens,USD,0.924,3.696,
 openrouter,MiMo-V2.5,0.14,0.28,0.0028,1.05M,,1M tokens,USD,0.98,1.96,
+openrouter,Hy3,0.132,0.528,0.033,262K,,1M tokens,USD,0.924,3.696,
 openrouter,GLM 5.2,0.966,3.036,0.1932,1.04858M,,1M tokens,USD,6.762,21.252,GLM-5.2
 openrouter,Gemini 3.6 Flash,0.75,3.75,0.075,1.04858M,,1M tokens,USD,5.25,26.25,
 openrouter,GPT-5.6 Sol,2.0,10.0,0.2,1.05M,,1M tokens,USD,14.0,70.0,
@@ -44,7 +44,10 @@ openrouter,Gemini 2.5 Flash Lite,0.1,0.4,0.01,1.04858M,,1M tokens,USD,0.7,2.8,
 openrouter,Step 3.7 Flash,0.2,1.15,0.04,262K,,1M tokens,USD,1.4,8.05,
 openrouter,Solar Pro 4,0.03,0.12,0.006,524K,,1M tokens,USD,0.21,0.84,
 openrouter,MiMo-V2.5-Pro,0.435,0.87,0.0036,1.05M,,1M tokens,USD,3.045,6.09,
-openrouter,GPT-5.6 Luna Pro,0.2,1.2,0.02,1.05M,,1M tokens,USD,1.4,8.4,
+openrouter,gpt-oss-120b,0.037,0.17,,131K,,1M tokens,USD,0.259,1.19,
+deepseek_us,deepseek-v4-flash,0.44,1.32,0.014,1M,峰谷计费,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash
+deepseek_us,deepseek-v4-pro,1.32,3.96,0.044,1M,峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro
+deepseek_us,deepseek-v4-flash-vision-exp,0.44,1.32,0.014,1M,峰谷计费,1M tokens,USD,3.08,9.24,
 zai,GLM-5.3,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.3
 zai,GLM-5.2,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.2
 zai,GLM-5.1,1.4,4.4,0.26,,,1M tokens,USD,9.8,30.8,GLM-5.1
@@ -58,9 +61,6 @@ zai,GLM-4.5-X,2.2,8.9,0.45,,,1M tokens,USD,15.4,62.3,
 zai,GLM-4.5-Air,0.2,1.1,0.03,,,1M tokens,USD,1.4,7.7,
 zai,GLM-4.5-AirX,1.1,4.5,0.22,,,1M tokens,USD,7.7,31.5,
 zai,GLM-4-32B-0414-128K,0.1,0.1,,,,1M tokens,USD,0.7,0.7,
-deepseek_us,deepseek-v4-flash,0.44,1.32,0.014,1M,峰谷计费,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash
-deepseek_us,deepseek-v4-pro,1.32,3.96,0.044,1M,峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro
-deepseek_us,deepseek-v4-flash-vision-exp,0.44,1.32,0.014,1M,峰谷计费,1M tokens,USD,3.08,9.24,
 atlascloud,Grok 4.6,2.0,6.0,0.5,500K,,1M tokens,USD,14.0,42.0,
 atlascloud,DeepSeek V4 Pro 0813,1.32,3.96,0.132,1.04858M,,1M tokens,USD,9.24,27.72,
 atlascloud,DeepSeek V4 Flash 0731,0.44,1.32,0.028,1.04858M,,1M tokens,USD,3.08,9.24,

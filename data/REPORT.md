@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-22 17:24:11
+> 生成时间：2026-08-23 17:13:34
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -24,7 +24,7 @@
 | DeepSeek V4 Flash | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | 1.04858M |
 | DeepSeek V4 Flash | deepseek | 3 ¥ | 9 ¥ | 0.1 CNY | CNY | 3 CNY / 9 CNY | 1M |
 | DeepSeek V4 Flash | deepseek_us | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | 1M |
-| DeepSeek V4 Flash | openrouter | 0.42042 ¥ | 0.84084 ¥ | 0.012012 USD | USD | 0.06006 USD / 0.12012 USD | 1.04858M |
+| DeepSeek V4 Flash | openrouter | 0.34202 ¥ | 0.68404 ¥ | 0.009772 USD | USD | 0.04886 USD / 0.09772 USD | 1.04858M |
 | DeepSeek V4 Flash | tencent | 1.54 ¥ | 4.62 ¥ | 0.007 USD | USD | 0.22 USD / 0.66 USD | - |
 | DeepSeek V4 Flash | tencent | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | - |
 | DeepSeek V4 Flash | tencent | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
@@ -35,13 +35,13 @@
 | DeepSeek V4 Pro | deepseek | 9 ¥ | 27 ¥ | 0.3 CNY | CNY | 9 CNY / 27 CNY | 1M |
 | DeepSeek V4 Pro | deepseek_us | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | 1M |
 | DeepSeek V4 Pro | modelmesh | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1000K |
-| DeepSeek V4 Pro | openrouter | 2.8964 ¥ | 5.79281 ¥ | 0.034481 USD | USD | 0.413772 USD / 0.827544 USD | 1.04858M |
+| DeepSeek V4 Pro | openrouter | 2.77826 ¥ | 5.55652 ¥ | 0.033074 USD | USD | 0.396894 USD / 0.793788 USD | 1.04858M |
 | DeepSeek V4 Pro | tencent | 4.62 ¥ | 13.86 ¥ | 0.022 USD | USD | 0.66 USD / 1.98 USD | - |
 | DeepSeek V4 Pro | tencent | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | - |
 | DeepSeek V4 Pro | tencent | 12.18 ¥ | 24.36 ¥ | 0.145 USD | USD | 1.74 USD / 3.48 USD | - |
 | DeepSeek V4 Pro | tencent_cn | 12 ¥ | 24 ¥ | 1 CNY | CNY | 12 CNY / 24 CNY | - |
 | DeepSeek V4 Pro | volcengine_intl | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | - |
-| DeepSeek V4 Pro 0813 | openrouter | 8.316 ¥ | 24.948 ¥ | 0.0396 USD | USD | 1.188 USD / 3.564 USD | 1.04858M |
+| DeepSeek V4 Pro 0813 | openrouter | 7.854 ¥ | 23.562 ¥ | 0.0374 USD | USD | 1.122 USD / 3.366 USD | 1.04858M |
 | Doubao Seed 2.1 Pro | atlascloud | 6.3 ¥ | 31.5 ¥ | 0.18 USD | USD | 0.9 USD / 4.5 USD | 262K |
 | Doubao Seed 2.1 Pro | modelmesh | 6 ¥ | 30 ¥ | - | CNY | 6 CNY / 30 CNY | 256K |
 | Doubao Seed 2.1 Pro | volcengine | 6 ¥ | 30 ¥ | 1.2 CNY | CNY | 6 CNY / 30 CNY | - |
@@ -101,7 +101,7 @@
 | Kimi K2.6 | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
 | Kimi K2.6 | kimi | 6.5 ¥ | 27 ¥ | 1.1 CNY | CNY | 6.5 CNY / 27 CNY | 262,144 tokens |
 | Kimi K2.6 | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
-| Kimi K2.6 | openrouter | 3.7905 ¥ | 15.96 ¥ | 0.0912 USD | USD | 0.5415 USD / 2.28 USD | 262K |
+| Kimi K2.6 | openrouter | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
 | Kimi K2.6 | tencent | 6.006 ¥ | 24.962 ¥ | 0.145 USD | USD | 0.858 USD / 3.566 USD | - |
 | Kimi K2.6 | tencent_cn | 6.5 ¥ | 27 ¥ | 1.1 CNY | CNY | 6.5 CNY / 27 CNY | - |
 | Kimi K2.7 Code | aliyun_bailian | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
@@ -152,6 +152,14 @@
 | GPT-5.6 Terra | openai | 输出 | 18 | 12 | USD |
 | GPT-5.6 Luna | openai | 输入 | 0.4 | 0.2 | USD |
 | GPT-5.6 Luna | openai | 输出 | 1.8 | 1.2 | USD |
+| DeepSeek V4 Pro | openrouter | 输入 | 0.413772 | 0.396894 | USD |
+| DeepSeek V4 Pro | openrouter | 输出 | 0.827544 | 0.793788 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输入 | 1.188 | 1.122 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输出 | 3.564 | 3.366 | USD |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.06006 | 0.04886 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.12012 | 0.09772 | USD |
+| Kimi K2.6 | openrouter | 输入 | 0.5415 | 0.95 | USD |
+| Kimi K2.6 | openrouter | 输出 | 2.28 | 4 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.22 | USD |
 | DeepSeek V4 Flash | tencent | 输出 | 0.28 | 0.66 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.44 | USD |
@@ -173,8 +181,8 @@
 | --- | --- | ---: | --- |
 | openai | 成功 | 8 | 抓取 8 条 |
 | openrouter | 成功 | 38 | 抓取 38 条 |
-| zai | 成功 | 13 | 抓取 13 条 |
 | deepseek_us | 成功 | 3 | 抓取 3 条 |
+| zai | 成功 | 13 | 抓取 13 条 |
 | atlascloud | 成功 | 133 | 抓取 133 条 |
 | deepseek | 成功 | 3 | 抓取 3 条 |
 | aliyun | 成功 | 0 | 抓取 0 条 |
