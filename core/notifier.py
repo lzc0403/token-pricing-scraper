@@ -79,8 +79,11 @@ def _webhook_config() -> Optional[Tuple[str, str]]:
 def _payload(msg: str, wh_type: str) -> Dict[str, Any]:
     if wh_type == "wecom":
         return {"msgtype": "markdown", "markdown": {"content": msg}}
-    # 飞书 markdown
-    return {"msg_type": "markdown", "content": {"text": msg}}
+    # 飞书必须用 msg_type="text"（合法类型仅 text/post/image/share_chat/interactive）。
+    # 关键坑：非标准 msg_type="markdown" 时，飞书的自定义关键词校验不扫描
+    # content.text（官方文档：关键词只对 text/title 类文本参数值生效），
+    # 会导致消息必带关键词仍返回 code:19024 Key Words Not Found。
+    return {"msg_type": "text", "content": {"text": msg}}
 
 
 def send_webhook(msg: str, url: str, wh_type: str) -> bool:

@@ -40,7 +40,7 @@ def test_build_message_keyword_env(monkeypatch):
 
 def test_payload_feishu():
     p = notifier._payload("hi", "feishu")
-    assert p["msg_type"] == "markdown"
+    assert p["msg_type"] == "text"
     assert p["content"]["text"] == "hi"
 
 
