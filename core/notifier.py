@@ -46,9 +46,9 @@ def build_message(
     keyword: 若给定，会在消息末尾追加。飞书自定义机器人若开启了
     「自定义关键词」安全校验，消息正文必须包含设定的关键词，否则
     webhook 返回 code:19024 (Key Words Not Found)。通过 `PRICE_KEYWORD`
-    环境变量可配置该关键词，未配置时默认追加“定价”二字。
+    环境变量可配置该关键词，未配置时默认追加「官网价格」四字。
     """
-    kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "定价")
+    kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "官网价格")
     lines = [
         f"📊 Token 定价变动播报（{snapshot_date}）",
         f"共 **{len(deltas)}** 处价格变动：",
@@ -100,7 +100,7 @@ def send_webhook(msg: str, url: str, wh_type: str) -> bool:
         if wh_type == "feishu" and '"code":19024' in body.replace(" ", ""):
             logger.warning(
                 "飞书 webhook 被拒（code:19024 = 自定义关键词未命中）。"
-                "请将机器人【安全设置-自定义关键词】设为消息中包含的词（如「定价」/「Token」），"
+                "请将机器人【安全设置-自定义关键词】设为消息中包含的词（如「官网价格」/「Token」），"
                 "或通过 PRICE_KEYWORD 环境变量在消息末尾追加关键词。"
             )
         return True

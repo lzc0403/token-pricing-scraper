@@ -23,8 +23,8 @@ def test_build_message_format():
     assert "5.0USD → 4.0USD" in msg
     assert "DeepSeek V4" in msg
     assert "12.0CNY → 13.0CNY" in msg
-    # 默认追加关键词「定价」，规避飞书 code:19024
-    assert "定价" in msg
+    # 默认追加关键词「官网价格」，规避飞书 code:19024
+    assert "官网价格" in msg
 
 
 def test_build_message_custom_keyword():
