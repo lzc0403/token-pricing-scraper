@@ -18,17 +18,16 @@ DELTAS = [
 
 def test_build_message_format():
     msg = notifier.build_message(DELTAS, "2026-08-22")
-    # 结构区段
-    assert "【今日概览】" in msg
-    assert "变动模型" in msg
-    assert "2026-08-22" in msg
-    # 模型分组展示（含来源中文名与币种符号）
-    assert "GPT-5｜OpenAI官网" in msg
+    # 标题 + 概览一行
+    assert "Token 定价日报 2026-08-22" in msg
+    assert "变动 2 模型 / 2 处" in msg
+    # 表格行：模型｜来源｜变动（含来源中文名与币种符号）
+    assert "GPT-5｜OpenAI官网｜" in msg
     assert "$5→$4" in msg
-    assert "DeepSeek V4｜DeepSeek官网" in msg
+    assert "DeepSeek V4｜DeepSeek官网｜" in msg
     assert "¥12→¥13" in msg
-    # 涨跌幅符号
-    assert "%" in msg
+    # 涨跌幅箭头百分比
+    assert "↓25%" in msg or "↑8%" in msg
     # 站点链接
     assert "token-pricing-scraper" in msg
     # 默认追加关键词「官网价格」，规避飞书 code:19024
@@ -44,22 +43,27 @@ def test_build_message_condition_display():
          "old": 0.14, "new": 0.44, "currency": "USD", "condition": "腾讯云自建"},
     ]
     msg = notifier.build_message(deltas, "2026-08-24")
-    assert "腾讯云国际·原厂直供·闲时价" in msg
-    assert "腾讯云自建" in msg
+    assert "腾讯云国际·原厂·闲时" in msg
+    assert "腾讯云国际·自建" in msg
     # 不再出现内部 source id
     assert "[tencent]" not in msg and "｜tencent" not in msg
 
 
-def test_build_message_major_minor_split():
-    """大幅变动进重点区，小幅变动折叠。"""
+def test_build_message_table_layout():
+    """表格行按幅度降序排列，行内多字段空格分隔。"""
     deltas = [
-        {"canonical": "BigCut", "source": "openai", "field": "input", "old": 10.0, "new": 2.0, "currency": "USD"},   # -80%
-        {"canonical": "SmallMove", "source": "openai", "field": "output", "old": 1.0, "new": 1.1, "currency": "USD"},  # +10%
+        {"canonical": "BigCut", "source": "openai", "field": "input",
+         "old": 10.0, "new": 2.0, "currency": "USD"},   # -80%
+        {"canonical": "SmallMove", "source": "openai", "field": "output",
+         "old": 1.0, "new": 1.1, "currency": "USD"},    # +10%
     ]
     msg = notifier.build_message(deltas, "2026-08-24")
-    assert "重点变动" in msg
-    assert "■ BigCut｜OpenAI官网" in msg
-    assert "· SmallMove｜OpenAI官网：" in msg
+    big = msg.index("BigCut")
+    small = msg.index("SmallMove")
+    assert big < small  # 幅度大的在前
+    # 行格式含表格分隔符
+    assert "BigCut｜OpenAI官网｜入 $10→$2 ↓80%" in msg
+    assert "SmallMove｜OpenAI官网｜出 $1→$1.1 ↑10%" in msg
 
 
 def test_build_message_peak_reminder():
@@ -69,7 +73,7 @@ def test_build_message_peak_reminder():
         {"canonical": "DS V4 Flash", "source": "tencent", "field": "input", "old": 0.14, "new": 0.44, "currency": "USD"},
     ]
     msg = notifier.build_message(deltas, "2026-08-24")
-    assert "峰谷分时计费" in msg
+    assert "峰谷分时" in msg
 
 
 def test_build_message_all_down_reminder():
