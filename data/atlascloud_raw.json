@@ -1,9 +1,204 @@
 {
-  "fetched_at": "2026-08-24T03:35:38",
+  "fetched_at": "2026-08-24T17:20:30",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
     "data": [
+      {
+        "uuid": "ms-41c3900d4644",
+        "model": "alibaba/wan-3.0/text-to-video",
+        "type": "Video",
+        "displayName": "Wan-3.0 Text-to-video",
+        "profile": "All-in-one Wan3.0 renderer: cinematic, hyper-real video from a text prompt, up to 30s with smart-duration and adaptive aspect ratio.",
+        "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
+        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-3.0-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/476d33ab-0897-4321-9bc7-f70887b35663.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-3.0-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-3.0-text-to-video.md",
+        "organization": "QWEN",
+        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-3.0-text-to-video.json",
+        "priority": 90050,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nom0wpb73yq",
+        "familyName": "wan-3.0",
+        "familyDisplayName": "Wan 3.0 API is Now Live on Atlas Cloud!",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.05"
+          },
+          "origin": {
+            "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-d913b8ae1309",
+        "model": "alibaba/wan-3.0/image-to-video",
+        "type": "Video",
+        "displayName": "Wan-3.0 Image-to-video",
+        "profile": "Animate a first frame (optionally with a last frame) into a coherent clip, with native audio and smart-duration up to 30s.",
+        "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
+        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-3.0-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/ef1807ac-e619-4a70-8b15-3c2e03229e1f.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-3.0-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-3.0-image-to-video.md",
+        "organization": "QWEN",
+        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-3.0-image-to-video.json",
+        "priority": 90050,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nom0wpb73yq",
+        "familyName": "wan-3.0",
+        "familyDisplayName": "Wan 3.0 API is Now Live on Atlas Cloud!",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.05"
+          },
+          "origin": {
+            "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-6cb1b908a201",
+        "model": "alibaba/wan-3.0/reference-to-video",
+        "type": "Video",
+        "displayName": "Wan-3.0 Reference-to-video",
+        "profile": "All-in-One Reference: keep subjects consistent from any mix of reference images, videos, and audio; pixel-level identity/voice/space alignment.",
+        "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
+        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-3.0-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/83002692-d6df-477e-8e7a-356f5a07128d.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-3.0-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-3.0-reference-to-video.md",
+        "organization": "QWEN",
+        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-3.0-reference-to-video.json",
+        "priority": 90050,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nom0wpb73yq",
+        "familyName": "wan-3.0",
+        "familyDisplayName": "Wan 3.0 API is Now Live on Atlas Cloud!",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.05"
+          },
+          "origin": {
+            "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-snej5el2y8yw",
+        "model": "deepseek-ai/deepseek-v4-pro-0813",
+        "type": "Text",
+        "displayName": "DeepSeek V4 Pro 0813",
+        "profile": "DeepSeek V4 Pro is a state-of-the-art large language model combining efficient sparse attention, strong reasoning, and integrated agent capabilities for robust long-context understanding and versatile AI applications.",
+        "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.2-exp.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
+        "background": "https://static.atlascloud.ai/model/background/deepseek-ai-deepseek-v4-pro-0813.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/1814eb73-b21a-4830-9191-4efe453e2f5a.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/deepseek-ai-deepseek-v4-pro-0813.json",
+        "readme": "https://static.atlascloud.ai/model/readme/deepseek-ai-deepseek-v3.2-exp.md",
+        "organization": "DEEPSEEK",
+        "example": "https://static.atlascloud.ai/model/example/deepseek-ai-deepseek-v3.2-exp.json",
+        "priority": 90047,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 393216,
+        "avgTotalTPS": "22.56",
+        "avgLatency": "0.26",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "1.32",
+            "output_price": "3.96",
+            "cache_price": "0.132"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "1.32",
+            "output_price": "3.96",
+            "cache_price": "0.132"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "tools",
+          "structured_outputs"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "architectureType": "Mixture-of-Experts (MoE)"
+      },
       {
         "uuid": "ms-quhtbofvn503",
         "model": "xai/grok-4.6",
@@ -19,7 +214,7 @@
         "readme": "https://static.atlascloud.ai/model/readme/grok-3.md",
         "organization": "XAI",
         "example": "https://static.atlascloud.ai/model/example/grok-3.json",
-        "priority": 190035,
+        "priority": 90046,
         "categories": [
           "LLM"
         ],
@@ -81,79 +276,6 @@
         "supported_protocols": [
           "openai.chat.completions"
         ]
-      },
-      {
-        "uuid": "ms-snej5el2y8yw",
-        "model": "deepseek-ai/deepseek-v4-pro-0813",
-        "type": "Text",
-        "displayName": "DeepSeek V4 Pro 0813",
-        "profile": "DeepSeek V4 Pro is a state-of-the-art large language model combining efficient sparse attention, strong reasoning, and integrated agent capabilities for robust long-context understanding and versatile AI applications.",
-        "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.2-exp.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
-        "background": "https://static.atlascloud.ai/model/background/deepseek-ai-deepseek-v4-pro-0813.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/1814eb73-b21a-4830-9191-4efe453e2f5a.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/deepseek-ai-deepseek-v4-pro-0813.json",
-        "readme": "https://static.atlascloud.ai/model/readme/deepseek-ai-deepseek-v3.2-exp.md",
-        "organization": "DEEPSEEK",
-        "example": "https://static.atlascloud.ai/model/example/deepseek-ai-deepseek-v3.2-exp.json",
-        "priority": 188889,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 1048576,
-        "maxCompletionTokens": 393216,
-        "avgTotalTPS": "22.56",
-        "avgLatency": "0.26",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.32",
-            "output_price": "3.96",
-            "cache_price": "0.132"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.32",
-            "output_price": "3.96",
-            "cache_price": "0.132"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_sampling_parameters": [
-          "temperature",
-          "top_p",
-          "top_k",
-          "min_p",
-          "frequency_penalty",
-          "presence_penalty",
-          "repetition_penalty",
-          "stop",
-          "seed",
-          "max_tokens",
-          "logit_bias"
-        ],
-        "supported_features": [
-          "json_mode",
-          "tools",
-          "structured_outputs"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "architectureType": "Mixture-of-Experts (MoE)"
       },
       {
         "uuid": "ms-5eed25000003",
@@ -21661,6 +21783,198 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-prodvis1",
+        "model": "atlascloud/studio/product-visuals",
+        "type": "Image",
+        "displayName": "Product Visuals",
+        "profile": "A Workflow template: one product shot becomes a full set of studio-grade product visuals — scene, lighting and composition planned per image, then rendered as stills in your chosen ratio and resolution. Priced per image; a failed run is not charged.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-product-visuals.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-product-visuals.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-product-visuals-v3.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-product-visuals.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-product-visuals.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-product-visuals.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "IMAGE_TO_IMAGE",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.027"
+          },
+          "origin": {
+            "base_price": "0.027"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-foodmo1",
+        "model": "atlascloud/studio/food-motion",
+        "type": "Video",
+        "displayName": "Food Motion",
+        "profile": "A Workflow template: one food or drink shot becomes a motion-driven product film. It reads the packaging, picks the sensory beats (pour, splash, steam, crunch), builds white-background reference sheets for identity, then renders with Seedance 2.5 — pick length (4-30s), ratio, resolution and audio. Add a model shot to get a tasting cut. Priced by duration; a failed run is not charged.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-food-motion.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-food-motion.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-food-motion-v2.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-food-motion.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-food-motion.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-food-motion.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "IMAGE_TO_VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.182"
+          },
+          "origin": {
+            "base_price": "0.182"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-tryon01",
+        "model": "atlascloud/studio/virtual-try-on",
+        "type": "Video",
+        "displayName": "Virtual Try-On",
+        "profile": "A Workflow template: one garment or accessory shot becomes a try-on film. It reads structure and wearing logic, builds product and model reference sheets, locks the fit with a try-on still, then renders with Seedance 2.5 — 55% pure try-on, 30% lifestyle, 15% fabric detail. Bring your own model shot or let it cast one. Priced by duration; a failed run is not charged.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-virtual-try-on.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-virtual-try-on.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-virtual-try-on-v3.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-virtual-try-on.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-virtual-try-on.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-virtual-try-on.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "IMAGE_TO_VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.546"
+          },
+          "origin": {
+            "base_price": "0.546"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-ugcad2",
+        "model": "atlascloud/studio/ugc-ad",
+        "type": "Video",
+        "displayName": "UGC Ad",
+        "profile": "A Workflow template: a presenter shot plus a product shot become a lip-synced UGC ad with generated voice-over. Billed once per run; a failed run is not charged.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-ugc-ad.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-ugc-ad.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-ugc-ad-v2.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-ugc-ad.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-ugc-ad.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-ugc-ad.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "IMAGE_TO_VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.208"
+          },
+          "origin": {
+            "base_price": "0.208"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-trendrx",
+        "model": "atlascloud/studio/trend-remix",
+        "type": "Video",
+        "displayName": "Trend Remix",
+        "profile": "A Workflow template: feed it one product shot and a reference video that is already working. It reads the reference for structure, pacing, camera language and edit rhythm, then rewrites the whole thing around your product — borrowing the method, never copying the frames. Renders with Seedance 2.5; pick length, ratio, resolution and audio. Priced by duration; a failed run is not charged.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-trend-remix.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-trend-remix.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-trend-remix-v2.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-trend-remix.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-trend-remix.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-trend-remix.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "VIDEO_TO_VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.312"
+          },
+          "origin": {
+            "base_price": "0.312"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-tvcmakr",
+        "model": "atlascloud/studio/tvc-maker",
+        "type": "Video",
+        "displayName": "TVC Maker",
+        "profile": "A Workflow template: one product shot plus a short brand brief becomes a premium commercial. It works through insight, concept, storyline, an audio-visual script and key frames, then renders with Seedance 2.5 — pick length, ratio, resolution and audio. Priced by duration; a failed run is not charged.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-tvc-maker.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-tvc-maker.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-tvc-maker-v3.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-tvc-maker.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-tvc-maker.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-tvc-maker.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "IMAGE_TO_VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.106"
+          },
+          "origin": {
+            "base_price": "0.106"
           }
         }
       },
