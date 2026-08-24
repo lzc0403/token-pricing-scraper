@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-24T03:22:24",
+  "fetched_at": "2026-08-24T03:35:38",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -20694,86 +20694,6 @@
         }
       },
       {
-        "uuid": "ms-m8n1x8h8h7e2",
-        "model": "google/imagen3",
-        "type": "Image",
-        "displayName": "Imagen3",
-        "profile": "Google's highest quality text-to-image model, capable of generating images with detail, rich lighting and beauty.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-imagen3.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-imagen3.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/28748ce8-541a-4e26-bc15-a908fee235b2.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-imagen3.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-imagen3.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-imagen3.json",
-        "priority": 427,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2bsjfak4vb5k",
-        "familyName": "Imagen",
-        "familyDisplayName": "Imagen Image API for Rich Lighting and Detail",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.04"
-          },
-          "origin": {
-            "base_price": "0.04"
-          }
-        }
-      },
-      {
-        "uuid": "ms-z7w4p6z4b5o0",
-        "model": "google/imagen3-fast",
-        "type": "Image",
-        "displayName": "Image3 Fast",
-        "profile": "Google's highest quality text-to-image model, capable of generating images with detail, rich lighting and beauty.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-imagen3-fast.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-imagen3-fast.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a79f5b4e-0340-4a96-96a6-10af063e6564.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-imagen3-fast.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-imagen3-fast.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-imagen3-fast.json",
-        "priority": 417,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2bsjfak4vb5k",
-        "familyName": "Imagen",
-        "familyDisplayName": "Imagen Image API for Rich Lighting and Detail",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.02"
-          },
-          "origin": {
-            "base_price": "0.02"
-          }
-        }
-      },
-      {
         "uuid": "ms-y5y7w4q5h7a9",
         "model": "atlascloud/qwen-image/text-to-image",
         "type": "Image",
@@ -20811,46 +20731,6 @@
           },
           "origin": {
             "base_price": "0.035"
-          }
-        }
-      },
-      {
-        "uuid": "ms-v5k6u8w4w7n6",
-        "model": "google/imagen4-fast",
-        "type": "Image",
-        "displayName": "Imagen4 Fast",
-        "profile": "Google's Imagen 4 flagship model.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-imagen4-fast.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-imagen4-fast.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/c43f05eb-395f-4754-baa6-9b7f9ab2d4e9.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-imagen4-fast.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-imagen4-fast.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-imagen4-fast.json",
-        "priority": 402,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2bsjfak4vb5k",
-        "familyName": "Imagen",
-        "familyDisplayName": "Imagen Image API for Rich Lighting and Detail",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.02"
-          },
-          "origin": {
-            "base_price": "0.02"
           }
         }
       },
@@ -21005,86 +20885,6 @@
           },
           "origin": {
             "base_price": "0.02"
-          }
-        }
-      },
-      {
-        "uuid": "ms-r9w3v0j2r1q0",
-        "model": "google/imagen4-ultra",
-        "type": "Image",
-        "displayName": "Imagen4 Ultra",
-        "profile": "Google’s highest quality image generation model.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-imagen4-ultra.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-imagen4-ultra.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/bc1da4b9-75be-45f3-a902-8c58031868a9.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-imagen4-ultra.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-imagen4-ultra.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-imagen4-ultra.json",
-        "priority": 387,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2bsjfak4vb5k",
-        "familyName": "Imagen",
-        "familyDisplayName": "Imagen Image API for Rich Lighting and Detail",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.06"
-          },
-          "origin": {
-            "base_price": "0.06"
-          }
-        }
-      },
-      {
-        "uuid": "ms-r1w7x7l5f1o3",
-        "model": "google/imagen4",
-        "type": "Image",
-        "displayName": "Imagen4",
-        "profile": "Google's Imagen 4 flagship model.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-imagen4.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-imagen4.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/70acdfc8-6eb7-4ed7-9ee6-3a53daa58396.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-imagen4.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-imagen4.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-imagen4.json",
-        "priority": 386,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2bsjfak4vb5k",
-        "familyName": "Imagen",
-        "familyDisplayName": "Imagen Image API for Rich Lighting and Detail",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.04"
-          },
-          "origin": {
-            "base_price": "0.04"
           }
         }
       },

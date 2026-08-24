@@ -1,4 +1,4 @@
-## 🔔 Token 定价变动（2026-08-24 03:25:23）
+## 🔔 Token 定价变动（2026-08-24 03:38:43）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
@@ -8,10 +8,6 @@
 | GPT-5.6 Terra | openai | 输出 | 18 | 12 | USD |
 | GPT-5.6 Luna | openai | 输入 | 0.4 | 0.2 | USD |
 | GPT-5.6 Luna | openai | 输出 | 1.8 | 1.2 | USD |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.396894 | 0.526176 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 0.793788 | 1.05235 | USD |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.04886 | 0.0574 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.09772 | 0.1148 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.22 | USD |
 | DeepSeek V4 Flash | tencent | 输出 | 0.28 | 0.66 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.44 | USD |

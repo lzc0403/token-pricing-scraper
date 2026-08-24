@@ -5160,6 +5160,20 @@
   },
   {
     "source": "modelmesh",
+    "model_raw": "DeepSeek-V4-Flash-Vision-Exp",
+    "input": 1.5,
+    "output": 4.5,
+    "cache_hit": null,
+    "context": "1000K",
+    "condition": null,
+    "unit": "1M tokens",
+    "currency": "CNY",
+    "input_rmb": 1.5,
+    "output_rmb": 4.5,
+    "canonical": null
+  },
+  {
+    "source": "modelmesh",
     "model_raw": "DeepSeek-V4-Flash-0731",
     "input": 1.5,
     "output": 4.5,

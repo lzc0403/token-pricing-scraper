@@ -343,6 +343,7 @@ kimi,kimi-k2.7-code,6.5,27.0,1.3,"262,144 tokens",,1M tokens,CNY,6.5,27.0,Kimi K
 kimi,kimi-k2.7-code-highspeed,13.0,54.0,2.6,"262,144 tokens",,1M tokens,CNY,13.0,54.0,
 modelmesh,DeepSeek-V4-Pro-0813,4.5,13.5,,1000K,,1M tokens,CNY,4.5,13.5,
 modelmesh,DeepSeek-V4-Pro,3.0,6.0,,1000K,,1M tokens,CNY,3.0,6.0,DeepSeek V4 Pro
+modelmesh,DeepSeek-V4-Flash-Vision-Exp,1.5,4.5,,1000K,,1M tokens,CNY,1.5,4.5,
 modelmesh,DeepSeek-V4-Flash-0731,1.5,4.5,,1000K,,1M tokens,CNY,1.5,4.5,
 modelmesh,GLM-5.3,8.0,28.0,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.3
 modelmesh,Qwen3.8 27B,3.0,12.0,,1000K,,1M tokens,CNY,3.0,12.0,
