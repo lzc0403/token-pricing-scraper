@@ -22,40 +22,196 @@ from typing import Any, Dict, List, Optional, Tuple
 logger = logging.getLogger("tps.notify")
 
 
+SITE_URL = "https://lzc0403.github.io/token-pricing-scraper/"
+
+# 变动幅度达到该阈值（绝对值 %）的归入「重点变动」，其余进「其他变动」
+MAJOR_PCT = 30.0
+
+_FIELD_LABEL = {"input": "输入", "output": "输出", "cache": "缓存"}
+_CUR_SYMBOL = {"USD": "$", "CNY": "¥", "USDT": "$"}
+
+
 def _fmt_currency(v: Any, cur: str) -> str:
     if v is None:
         return "—"
-    return f"{v}{cur}" if cur else str(v)
+    sym = _CUR_SYMBOL.get(cur, cur)
+    try:
+        fv = float(v)
+    except (TypeError, ValueError):
+        return f"{sym}{v}"
+    s = f"{fv:.2f}".rstrip("0").rstrip(".") or "0"
+    return f"{sym}{s}"
 
 
-def _fmt_delta(d: Dict[str, Any]) -> str:
-    canon = d.get("canonical") or "?"
-    src = d.get("source") or "?"
-    field = "输入" if d.get("field") == "input" else "输出"
-    cur = d.get("currency") or ""
-    old_s = _fmt_currency(d.get("old"), cur)
-    new_s = _fmt_currency(d.get("new"), cur)
-    return f"- {canon} [{src}] {field}：{old_s} → {new_s}"
+def _pct(old: Any, new: Any) -> Optional[float]:
+    """涨跌幅百分比：(new-old)/old*100。无法计算返回 None。"""
+    try:
+        if old in (None, 0) or new is None:
+            return None
+        return (float(new) - float(old)) / float(old) * 100
+    except (TypeError, ValueError):
+        return None
+
+
+def _fmt_pct(p: Optional[float]) -> str:
+    if p is None:
+        return ""
+    arrow = "⬆️" if p > 0 else ("⬇️" if p < 0 else "➡️")
+    return f"{arrow}{'+' if p > 0 else ''}{p:.0f}%"
+
+
+def _group_key(d: Dict[str, Any]) -> tuple:
+    return (d.get("canonical") or "?", d.get("source") or "?")
+
+
+def _render_group(key: tuple, items: List[Dict[str, Any]], major: bool) -> List[str]:
+    """渲染单个模型的变动块。major=True 用多行块，False 折叠为单行。"""
+    canon, src = key
+    out: List[str] = []
+    parts: List[str] = []
+    for d in sorted(items, key=lambda x: x.get("field") or ""):
+        field = _FIELD_LABEL.get(d.get("field") or "", str(d.get("field")))
+        cur = d.get("currency") or ""
+        old_s = _fmt_currency(d.get("old"), cur)
+        new_s = _fmt_currency(d.get("new"), cur)
+        seg = f"{field} {old_s}→{new_s}"
+        pct = _pct(d.get("old"), d.get("new"))
+        if pct is not None and abs(pct) >= 1:
+            seg += f" {_fmt_pct(pct)}"
+        parts.append(seg)
+    if major:
+        out.append(f"■ {canon}｜{src}")
+        out.extend(f"   {p}" for p in parts)
+    else:
+        out.append(f"· {canon}｜{src}：{'；'.join(parts)}")
+    return out
+
+
+def _build_reminders(groups: Dict[tuple, List[Dict[str, Any]]]) -> List[str]:
+    """基于规则的场景提醒（只陈述可从数据推出的事实，不臆测）。"""
+    reminders: List[str] = []
+
+    # 规则1：同一模型同一来源出现同字段多条不同新价 → 峰谷双档
+    for key, items in groups.items():
+        by_field: Dict[str, List[Any]] = {}
+        for d in items:
+            f = str(d.get("field"))
+            by_field.setdefault(f, []).append(d.get("new"))
+        for f, news in by_field.items():
+            vals = {v for v in news if v is not None}
+            if len(vals) > 1:
+                label = _FIELD_LABEL.get(f, f)
+                reminders.append(
+                    f"{key[0]}［{key[1]}］{label}存在多个价位，"
+                    "疑似峰谷分时计费，注意调用时段"
+                )
+                break
+
+    # 规则2：出现 ≥50% 的大幅调价 → 建议核实
+    big = [
+        k
+        for k, items in groups.items()
+        if any(abs(_pct(d.get("old"), d.get("new")) or 0) >= 50 for d in items)
+    ]
+    if big:
+        names = "、".join(sorted({k[0] for k in big}))
+        reminders.append(
+            f"{names} 出现 ≥50% 大幅调价，建议到厂商官网核实是否长期生效"
+        )
+
+    # 规则3：全线降价 → 采购时机提示
+    pcts = [
+        _pct(d.get("old"), d.get("new"))
+        for items in groups.values()
+        for d in items
+    ]
+    valid = [p for p in pcts if p is not None]
+    if len(valid) >= 3 and all(p < 0 for p in valid):
+        reminders.append("本期监测源全线降价，成本敏感的批量任务可考虑此窗口放量")
+
+    return reminders
 
 
 def build_message(
     deltas: List[Dict[str, Any]], snapshot_date: str, keyword: Optional[str] = None
 ) -> str:
-    """构建纯文本播报消息。
+    """构建结构化播报消息（纯文本，兼容飞书 msg_type=text）。
 
-    keyword: 若给定，会在消息末尾追加。飞书自定义机器人若开启了
-    「自定义关键词」安全校验，消息正文必须包含设定的关键词，否则
-    webhook 返回 code:19024 (Key Words Not Found)。通过 `PRICE_KEYWORD`
-    环境变量可配置该关键词，未配置时默认追加「官网价格」四字。
+    版式：
+      1. 标题行（日期）
+      2. 今日概览：模型数 / 条目数 / 涨跌统计 / 最大变动
+      3. 重点变动：|涨跌幅| ≥ MAJOR_PCT% 的模型，逐字段多行展示
+      4. 其他变动：小幅变动折叠为单行
+      5. 场景提醒：峰谷双档识别 / 大幅调价核实 / 采购窗口等规则化提示
+      6. 站点链接 + 免责声明 + 关键词后缀（规避飞书 19024）
     """
     kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "官网价格")
+
+    groups: Dict[tuple, List[Dict[str, Any]]] = {}
+    for d in deltas:
+        groups.setdefault(_group_key(d), []).append(d)
+
+    def score(key: tuple) -> float:
+        return max(
+            (abs(_pct(d.get("old"), d.get("new")) or 0) for d in groups[key]),
+            default=0,
+        )
+
+    ordered = sorted(groups.keys(), key=lambda k: (-score(k), k))
+
+    # ---- 概览 ----
+    ups = sum(
+        1 for d in deltas if (_pct(d.get("old"), d.get("new")) or 0) > 0
+    )
+    downs = sum(
+        1 for d in deltas if (_pct(d.get("old"), d.get("new")) or 0) < 0
+    )
+    top_key = ordered[0] if ordered else None
+    top_line = ""
+    if top_key:
+        td = max(groups[top_key], key=lambda x: abs(_pct(x.get("old"), x.get("new")) or 0))
+        tp = _pct(td.get("old"), td.get("new"))
+        field = _FIELD_LABEL.get(td.get("field") or "", str(td.get("field")))
+        top_line = (
+            f"· 最大变动：{top_key[0]}［{top_key[1]}］{field} "
+            f"{_fmt_currency(td.get('old'), td.get('currency') or '')}"
+            f"→{_fmt_currency(td.get('new'), td.get('currency') or '')} {_fmt_pct(tp)}"
+        )
+
     lines = [
-        f"📊 Token 定价变动播报（{snapshot_date}）",
-        f"共 **{len(deltas)}** 处价格变动：",
+        f"📊 Token 定价日报（{snapshot_date}）",
         "",
+        "【今日概览】",
+        f"· 变动模型 {len(groups)} 个 / 变动条目 {len(deltas)} 处"
+        f"（涨价 {ups} · 降价 {downs}）",
     ]
-    lines.extend(_fmt_delta(d) for d in deltas)
+    if top_line:
+        lines.append(top_line)
     lines.append("")
+
+    # ---- 重点 / 其他变动 ----
+    major_groups = [k for k in ordered if score(k) >= MAJOR_PCT]
+    minor_groups = [k for k in ordered if score(k) < MAJOR_PCT]
+
+    if major_groups:
+        lines.append(f"【🔥 重点变动】（幅度 ≥{MAJOR_PCT:.0f}%，{len(major_groups)} 个模型）")
+        for k in major_groups:
+            lines.extend(_render_group(k, groups[k], major=True))
+        lines.append("")
+    if minor_groups:
+        lines.append(f"【其他变动】（{len(minor_groups)} 个模型）")
+        for k in minor_groups:
+            lines.extend(_render_group(k, groups[k], major=False))
+        lines.append("")
+
+    # ---- 场景提醒 ----
+    reminders = _build_reminders(groups)
+    if reminders:
+        lines.append("【💡 行动提醒】")
+        lines.extend(f"· {r}" for r in reminders)
+        lines.append("")
+
+    lines.append(f"完整对比与历史趋势：{SITE_URL}")
     lines.append("— 定价数据仅供参考，具体以厂商官网为准 —")
     lines.append(f"[关键词：{kw}]")
     return "\n".join(lines)

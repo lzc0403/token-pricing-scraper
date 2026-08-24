@@ -18,13 +18,54 @@ DELTAS = [
 
 def test_build_message_format():
     msg = notifier.build_message(DELTAS, "2026-08-22")
+    # 结构区段
+    assert "【今日概览】" in msg
+    assert "变动模型" in msg
     assert "2026-08-22" in msg
-    assert "GPT-5" in msg
-    assert "5.0USD → 4.0USD" in msg
-    assert "DeepSeek V4" in msg
-    assert "12.0CNY → 13.0CNY" in msg
+    # 模型分组展示（含来源与币种符号）
+    assert "GPT-5｜openai" in msg
+    assert "$5→$4" in msg
+    assert "DeepSeek V4｜deepseek" in msg
+    assert "¥12→¥13" in msg
+    # 涨跌幅符号
+    assert "%" in msg
+    # 站点链接
+    assert "token-pricing-scraper" in msg
     # 默认追加关键词「官网价格」，规避飞书 code:19024
     assert "官网价格" in msg
+
+
+def test_build_message_major_minor_split():
+    """大幅变动进重点区，小幅变动折叠。"""
+    deltas = [
+        {"canonical": "BigCut", "source": "openai", "field": "input", "old": 10.0, "new": 2.0, "currency": "USD"},   # -80%
+        {"canonical": "SmallMove", "source": "openai", "field": "output", "old": 1.0, "new": 1.1, "currency": "USD"},  # +10%
+    ]
+    msg = notifier.build_message(deltas, "2026-08-24")
+    assert "重点变动" in msg
+    assert "■ BigCut｜openai" in msg
+    assert "· SmallMove｜openai：" in msg
+
+
+def test_build_message_peak_reminder():
+    """同字段多个新价 → 峰谷分时提醒。"""
+    deltas = [
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "input", "old": 0.14, "new": 0.22, "currency": "USD"},
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "input", "old": 0.14, "new": 0.44, "currency": "USD"},
+    ]
+    msg = notifier.build_message(deltas, "2026-08-24")
+    assert "峰谷分时计费" in msg
+
+
+def test_build_message_all_down_reminder():
+    """全线降价 ≥3 条 → 采购窗口提醒。"""
+    deltas = [
+        {"canonical": "A", "source": "s", "field": "input", "old": 2.0, "new": 1.0, "currency": "CNY"},
+        {"canonical": "B", "source": "s", "field": "input", "old": 4.0, "new": 2.0, "currency": "CNY"},
+        {"canonical": "C", "source": "s", "field": "output", "old": 8.0, "new": 4.0, "currency": "CNY"},
+    ]
+    msg = notifier.build_message(deltas, "2026-08-24")
+    assert "全线降价" in msg and "放量" in msg
 
 
 def test_build_message_custom_keyword():
