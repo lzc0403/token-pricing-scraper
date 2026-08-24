@@ -143,17 +143,20 @@ def compare_previous(current_path: str, previous_path: str) -> List[Dict[str, An
     with open(previous_path, encoding="utf-8") as f:
         previous = json.load(f)
 
+    # 同一 (canonical, source) 下可能有多行不同计费口径（原厂直供闲时/高峰、
+    # 云商自建等，见 condition 字段），对比必须带上 condition 否则互相覆盖错位。
+    # 用 pop 消费，防止重复行被匹配两次。
     prev_idx: Dict[tuple, Dict[str, Any]] = {}
     for r in previous:
         if r.get("canonical"):
-            prev_idx[(r["canonical"], r["source"])] = r
+            prev_idx[(r["canonical"], r["source"], r.get("condition") or "")] = r
 
     deltas: List[Dict[str, Any]] = []
     for r in current:
         canon = r.get("canonical")
         if not canon:
             continue
-        prev = prev_idx.get((canon, r["source"]))
+        prev = prev_idx.pop((canon, r["source"], r.get("condition") or ""), None)
         if not prev:
             continue
         for field in ("input", "output"):
@@ -169,6 +172,7 @@ def compare_previous(current_path: str, previous_path: str) -> List[Dict[str, An
                         "old": old_val,
                         "new": new_val,
                         "currency": r.get("currency"),
+                        "condition": r.get("condition"),
                     }
                 )
     return deltas

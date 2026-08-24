@@ -30,6 +30,47 @@ MAJOR_PCT = 30.0
 _FIELD_LABEL = {"input": "输入", "output": "输出", "cache": "缓存"}
 _CUR_SYMBOL = {"USD": "$", "CNY": "¥", "USDT": "$"}
 
+# 来源 ID → 站点中文名（与站点页 SOURCE_LABELS 保持一致）
+SOURCE_LABELS = {
+    "tencent": "腾讯云国际",
+    "tencent_cn": "腾讯云CN",
+    "aliyun": "阿里云",
+    "aliyun_intl": "阿里云国际",
+    "aliyun_bailian": "阿里云百炼",
+    "volcengine": "火山引擎",
+    "volcengine_intl": "火山云海外",
+    "bigmodel": "智谱",
+    "zai": "智谱Z.ai",
+    "deepseek": "DeepSeek官网",
+    "deepseek_us": "DeepSeek海外官网",
+    "minimax": "MiniMax官网",
+    "kimi": "Kimi官网",
+    "openai": "OpenAI官网",
+    "anthropic": "Anthropic官网",
+    "google": "Google官网",
+    "openrouter": "OpenRouter",
+    "atlascloud": "AtlasCloud",
+    "modelmesh": "胜算云",
+}
+
+
+def _condition_label(condition: Any) -> str:
+    """计费口径 → 人类可读短标签。空/None 返回空串。"""
+    c = str(condition or "").strip()
+    if not c or c == "None":
+        return ""
+    # 常见口径映射；未识别的原文展示
+    mapping = {
+        "空闲时段 | 原厂直供": "原厂直供·闲时价",
+        "高峰时段 | 原厂直供": "原厂直供·高峰价",
+        "原厂直供": "原厂直供",
+        "腾讯云自建": "腾讯云自建",
+        "阿里云自部署": "阿里云自部署",
+        "火山引擎自部署": "火山引擎自部署",
+        "峰谷计费": "峰谷计费",
+    }
+    return mapping.get(c) or c
+
 
 def _fmt_currency(v: Any, cur: str) -> str:
     if v is None:
@@ -61,12 +102,21 @@ def _fmt_pct(p: Optional[float]) -> str:
 
 
 def _group_key(d: Dict[str, Any]) -> tuple:
-    return (d.get("canonical") or "?", d.get("source") or "?")
+    return (d.get("canonical") or "?", d.get("source") or "?", d.get("condition") or "")
+
+
+def _src_display(src: str, condition: Any) -> str:
+    """「站点名 + 计费口径」，如：腾讯云国际·原厂直供·闲时价 / 腾讯云国际·腾讯云自建。"""
+    site = SOURCE_LABELS.get(str(src), str(src))
+    cond = _condition_label(condition)
+    if not cond:
+        return site
+    return f"{site}·{cond}"
 
 
 def _render_group(key: tuple, items: List[Dict[str, Any]], major: bool) -> List[str]:
     """渲染单个模型的变动块。major=True 用多行块，False 折叠为单行。"""
-    canon, src = key
+    canon, src, _cond = key
     out: List[str] = []
     parts: List[str] = []
     for d in sorted(items, key=lambda x: x.get("field") or ""):
@@ -79,11 +129,12 @@ def _render_group(key: tuple, items: List[Dict[str, Any]], major: bool) -> List[
         if pct is not None and abs(pct) >= 1:
             seg += f" {_fmt_pct(pct)}"
         parts.append(seg)
+    disp = _src_display(str(src), key[2])
     if major:
-        out.append(f"■ {canon}｜{src}")
+        out.append(f"■ {canon}｜{disp}")
         out.extend(f"   {p}" for p in parts)
     else:
-        out.append(f"· {canon}｜{src}：{'；'.join(parts)}")
+        out.append(f"· {canon}｜{disp}：{'；'.join(parts)}")
     return out
 
 
@@ -102,7 +153,7 @@ def _build_reminders(groups: Dict[tuple, List[Dict[str, Any]]]) -> List[str]:
             if len(vals) > 1:
                 label = _FIELD_LABEL.get(f, f)
                 reminders.append(
-                    f"{key[0]}［{key[1]}］{label}存在多个价位，"
+                    f"{key[0]}（{_src_display(str(key[1]), key[2])}）{label}存在多个价位，"
                     "疑似峰谷分时计费，注意调用时段"
                 )
                 break
@@ -173,7 +224,7 @@ def build_message(
         tp = _pct(td.get("old"), td.get("new"))
         field = _FIELD_LABEL.get(td.get("field") or "", str(td.get("field")))
         top_line = (
-            f"· 最大变动：{top_key[0]}［{top_key[1]}］{field} "
+            f"· 最大变动：{top_key[0]}（{_src_display(str(top_key[1]), top_key[2])}）{field} "
             f"{_fmt_currency(td.get('old'), td.get('currency') or '')}"
             f"→{_fmt_currency(td.get('new'), td.get('currency') or '')} {_fmt_pct(tp)}"
         )

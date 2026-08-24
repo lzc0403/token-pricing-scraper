@@ -22,10 +22,10 @@ def test_build_message_format():
     assert "【今日概览】" in msg
     assert "变动模型" in msg
     assert "2026-08-22" in msg
-    # 模型分组展示（含来源与币种符号）
-    assert "GPT-5｜openai" in msg
+    # 模型分组展示（含来源中文名与币种符号）
+    assert "GPT-5｜OpenAI官网" in msg
     assert "$5→$4" in msg
-    assert "DeepSeek V4｜deepseek" in msg
+    assert "DeepSeek V4｜DeepSeek官网" in msg
     assert "¥12→¥13" in msg
     # 涨跌幅符号
     assert "%" in msg
@@ -33,6 +33,21 @@ def test_build_message_format():
     assert "token-pricing-scraper" in msg
     # 默认追加关键词「官网价格」，规避飞书 code:19024
     assert "官网价格" in msg
+
+
+def test_build_message_condition_display():
+    """同来源不同计费口径应分行展示且带可读口径标签。"""
+    deltas = [
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "input",
+         "old": 0.14, "new": 0.22, "currency": "USD", "condition": "空闲时段 | 原厂直供"},
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "input",
+         "old": 0.14, "new": 0.44, "currency": "USD", "condition": "腾讯云自建"},
+    ]
+    msg = notifier.build_message(deltas, "2026-08-24")
+    assert "腾讯云国际·原厂直供·闲时价" in msg
+    assert "腾讯云自建" in msg
+    # 不再出现内部 source id
+    assert "[tencent]" not in msg and "｜tencent" not in msg
 
 
 def test_build_message_major_minor_split():
@@ -43,8 +58,8 @@ def test_build_message_major_minor_split():
     ]
     msg = notifier.build_message(deltas, "2026-08-24")
     assert "重点变动" in msg
-    assert "■ BigCut｜openai" in msg
-    assert "· SmallMove｜openai：" in msg
+    assert "■ BigCut｜OpenAI官网" in msg
+    assert "· SmallMove｜OpenAI官网：" in msg
 
 
 def test_build_message_peak_reminder():
