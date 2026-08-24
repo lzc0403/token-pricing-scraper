@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-23 17:13:34
+> 生成时间：2026-08-24 03:25:23
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -20,22 +20,24 @@
 | DeepSeek V3.2 | atlascloud | 1.82 ¥ | 2.66 ¥ | 0.13 USD | USD | 0.26 USD / 0.38 USD | 163K |
 | DeepSeek V3.2 | tencent | 1.96 ¥ | 2.94 ¥ | 0.056 USD | USD | 0.28 USD / 0.42 USD | - |
 | DeepSeek V3.2 | volcengine_intl | 1.96 ¥ | 2.94 ¥ | 0.056 USD | USD | 0.28 USD / 0.42 USD | - |
+| DeepSeek V4 Flash | aliyun_bailian | 1 ¥ | 2 ¥ | 0.2 CNY | CNY | 1 CNY / 2 CNY | - |
 | DeepSeek V4 Flash | aliyun_intl | 3.08 ¥ | 9.24 ¥ | 0.044 USD | USD | 0.44 USD / 1.32 USD | - |
 | DeepSeek V4 Flash | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | 1.04858M |
 | DeepSeek V4 Flash | deepseek | 3 ¥ | 9 ¥ | 0.1 CNY | CNY | 3 CNY / 9 CNY | 1M |
 | DeepSeek V4 Flash | deepseek_us | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | 1M |
-| DeepSeek V4 Flash | openrouter | 0.34202 ¥ | 0.68404 ¥ | 0.009772 USD | USD | 0.04886 USD / 0.09772 USD | 1.04858M |
+| DeepSeek V4 Flash | openrouter | 0.4018 ¥ | 0.8036 ¥ | 0.01148 USD | USD | 0.0574 USD / 0.1148 USD | 1.04858M |
 | DeepSeek V4 Flash | tencent | 1.54 ¥ | 4.62 ¥ | 0.007 USD | USD | 0.22 USD / 0.66 USD | - |
 | DeepSeek V4 Flash | tencent | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | - |
 | DeepSeek V4 Flash | tencent | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | - |
 | DeepSeek V4 Flash | tencent_cn | 1 ¥ | 2 ¥ | 0.2 CNY | CNY | 1 CNY / 2 CNY | - |
 | DeepSeek V4 Flash | volcengine_intl | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | - |
+| DeepSeek V4 Pro | aliyun_bailian | 12 ¥ | 24 ¥ | 2.4 CNY | CNY | 12 CNY / 24 CNY | - |
 | DeepSeek V4 Pro | aliyun_intl | 9.24 ¥ | 27.72 ¥ | 0.132 USD | USD | 1.32 USD / 3.96 USD | - |
 | DeepSeek V4 Pro | atlascloud | 11.76 ¥ | 23.66 ¥ | 0.13 USD | USD | 1.68 USD / 3.38 USD | 1.04858M |
 | DeepSeek V4 Pro | deepseek | 9 ¥ | 27 ¥ | 0.3 CNY | CNY | 9 CNY / 27 CNY | 1M |
 | DeepSeek V4 Pro | deepseek_us | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | 1M |
 | DeepSeek V4 Pro | modelmesh | 3 ¥ | 6 ¥ | - | CNY | 3 CNY / 6 CNY | 1000K |
-| DeepSeek V4 Pro | openrouter | 2.77826 ¥ | 5.55652 ¥ | 0.033074 USD | USD | 0.396894 USD / 0.793788 USD | 1.04858M |
+| DeepSeek V4 Pro | openrouter | 3.68323 ¥ | 7.36646 ¥ | 0.043848 USD | USD | 0.526176 USD / 1.05235 USD | 1.04858M |
 | DeepSeek V4 Pro | tencent | 4.62 ¥ | 13.86 ¥ | 0.022 USD | USD | 0.66 USD / 1.98 USD | - |
 | DeepSeek V4 Pro | tencent | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | - |
 | DeepSeek V4 Pro | tencent | 12.18 ¥ | 24.36 ¥ | 0.145 USD | USD | 1.74 USD / 3.48 USD | - |
@@ -111,7 +113,6 @@
 | Kimi K2.7 Code | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
 | Kimi K2.7 Code | tencent | 6.65 ¥ | 28 ¥ | 0.19 USD | USD | 0.95 USD / 4 USD | - |
 | Kimi K2.7 Code | tencent_cn | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
-| Kimi K3 | aliyun_bailian | 20 ¥ | 100 ¥ | 4 CNY | CNY | 20 CNY / 100 CNY | - |
 | Kimi K3 | aliyun_intl | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | - |
 | Kimi K3 | atlascloud | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
 | Kimi K3 | kimi | 20 ¥ | 100 ¥ | 2 CNY | CNY | 20 CNY / 100 CNY | 1,048,576 tokens |
@@ -119,11 +120,13 @@
 | Kimi K3 | openrouter | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
 | Kimi K3 | tencent | 19.117 ¥ | 95.571 ¥ | 0.2731 USD | USD | 2.731 USD / 13.653 USD | - |
 | Kimi K3 | tencent_cn | 21.974 ¥ | 109.869 ¥ | 2.197 CNY | CNY | 21.974 CNY / 109.869 CNY | - |
+| MiniMax M2.7 | aliyun_bailian | 2.1 ¥ | 8.4 ¥ | 0.42 CNY | CNY | 2.1 CNY / 8.4 CNY | - |
 | MiniMax M2.7 | atlascloud | 2.1 ¥ | 8.4 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | 196K |
 | MiniMax M2.7 | minimax | 2.1 ¥ | 8.4 ¥ | 0.42 CNY | CNY | 2.1 CNY / 8.4 CNY | - |
 | MiniMax M2.7 | modelmesh | 2.1 ¥ | 8.4 ¥ | - | CNY | 2.1 CNY / 8.4 CNY | 200K |
 | MiniMax M2.7 | tencent | 2.1 ¥ | 8.4 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | - |
 | MiniMax M2.7 | tencent_cn | 2.197 ¥ | 8.79 ¥ | 0.439 CNY | CNY | 2.197 CNY / 8.79 CNY | - |
+| MiniMax M3 | aliyun_bailian | 4.2 ¥ | 16.8 ¥ | 0.84 CNY | CNY | 4.2 CNY / 16.8 CNY | - |
 | MiniMax M3 | atlascloud | 2.1 ¥ | 8.4 ¥ | 0.06 USD | USD | 0.3 USD / 1.2 USD | 524K |
 | MiniMax M3 | minimax | 2.1 ¥ | 8.4 ¥ | 0.42 CNY | CNY | 2.1 CNY / 8.4 CNY | ≤512K |
 | MiniMax M3 | minimax | 4.2 ¥ | 16.8 ¥ | 0.84 CNY | CNY | 4.2 CNY / 16.8 CNY | 512K~1 |
@@ -152,14 +155,10 @@
 | GPT-5.6 Terra | openai | 输出 | 18 | 12 | USD |
 | GPT-5.6 Luna | openai | 输入 | 0.4 | 0.2 | USD |
 | GPT-5.6 Luna | openai | 输出 | 1.8 | 1.2 | USD |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.413772 | 0.396894 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 0.827544 | 0.793788 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输入 | 1.188 | 1.122 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输出 | 3.564 | 3.366 | USD |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.06006 | 0.04886 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.12012 | 0.09772 | USD |
-| Kimi K2.6 | openrouter | 输入 | 0.5415 | 0.95 | USD |
-| Kimi K2.6 | openrouter | 输出 | 2.28 | 4 | USD |
+| DeepSeek V4 Pro | openrouter | 输入 | 0.396894 | 0.526176 | USD |
+| DeepSeek V4 Pro | openrouter | 输出 | 0.793788 | 1.05235 | USD |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.04886 | 0.0574 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.09772 | 0.1148 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.22 | USD |
 | DeepSeek V4 Flash | tencent | 输出 | 0.28 | 0.66 | USD |
 | DeepSeek V4 Flash | tencent | 输入 | 0.14 | 0.44 | USD |
@@ -181,12 +180,12 @@
 | --- | --- | ---: | --- |
 | openai | 成功 | 8 | 抓取 8 条 |
 | openrouter | 成功 | 38 | 抓取 38 条 |
-| deepseek_us | 成功 | 3 | 抓取 3 条 |
 | zai | 成功 | 13 | 抓取 13 条 |
+| deepseek_us | 成功 | 3 | 抓取 3 条 |
 | atlascloud | 成功 | 133 | 抓取 133 条 |
 | deepseek | 成功 | 3 | 抓取 3 条 |
 | aliyun | 成功 | 0 | 抓取 0 条 |
-| aliyun_bailian | 成功 | 43 | 抓取 43 条 |
+| aliyun_bailian | 成功 | 28 | 抓取 28 条 |
 | aliyun_intl | 成功 | 10 | 抓取 10 条 |
 | volcengine | 成功 | 18 | 抓取 18 条 |
 | volcengine_intl | 成功 | 5 | 抓取 5 条 |
@@ -195,4 +194,4 @@
 | bigmodel | 成功 | 15 | 抓取 15 条 |
 | minimax | 成功 | 4 | 抓取 4 条 |
 | kimi | 成功 | 5 | 抓取 5 条 |
-| modelmesh | 成功 | 64 | 抓取 64 条 |
+| modelmesh | 成功 | 63 | 抓取 63 条 |
