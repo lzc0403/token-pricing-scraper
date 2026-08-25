@@ -239,28 +239,50 @@ def build_message(
 # 因此卡片文案中必须出现 PRICE_KEYWORD 对应的关键词，否则仍会 19024。
 # ---------------------------------------------------------------------------
 
-_CARD_COL_WEIGHTS = (30, 26, 44)  # 模型 / 来源 / 变动 三栏宽度
+_CARD_COL_WEIGHTS = (32, 28, 40)  # 模型 / 来源 / 变动 三栏宽度
 
 
-def _md_cell(text: str) -> Dict[str, Any]:
+def _md_cell(text: str, align: str = "left") -> Dict[str, Any]:
     return {"tag": "markdown", "content": text}
 
 
-def _card_row(cells: List[str], bold: bool = False) -> Dict[str, Any]:
-    """一行三栏 column_set，模拟表格行。"""
+def _card_row(
+    cells: List[Any],
+    bg: str = "default",
+    weights: Tuple[int, int, int] = _CARD_COL_WEIGHTS,
+    center: bool = False,
+) -> Dict[str, Any]:
+    """一行多栏 column_set。cells 元素为 str（自动包 md）或已构造的 element dict。"""
     cols = []
-    for i, text in enumerate(cells):
-        content = f"**{text}**" if bold else text
-        cols.append(
-            {
-                "tag": "column",
-                "width": "weighted",
-                "weight": _CARD_COL_WEIGHTS[i],
-                "vertical_align": "center",
-                "elements": [_md_cell(content)],
-            }
-        )
-    return {"tag": "column_set", "flex_mode": "stretch", "background_style": "grey" if bold else "default", "columns": cols}
+    for i, item in enumerate(cells):
+        els = [item] if isinstance(item, dict) else [_md_cell(str(item))]
+        col: Dict[str, Any] = {
+            "tag": "column",
+            "width": "weighted",
+            "weight": weights[i] if i < len(weights) else weights[-1],
+            "vertical_align": "center",
+            "elements": els,
+        }
+        if bg != "default":
+            col["background_style"] = bg
+        if center:
+            col["horizontal_align"] = "center"
+        cols.append(col)
+    return {"tag": "column_set", "flex_mode": "stretch", "columns": cols}
+
+
+def _stat_card(num: str, label: str, accent: str = "") -> Dict[str, Any]:
+    """KPI 统计块的单元格内容：大号数字 + 小标签，居中。"""
+    num_txt = f"**{accent}{num}**"
+    return {
+        "tag": "column",
+        "width": "weighted",
+        "weight": 1,
+        "vertical_align": "center",
+        "horizontal_align": "center",
+        "background_style": "grey",
+        "elements": [_md_cell(f"{num_txt}<br>{label}")],
+    }
 
 
 def build_card(
@@ -268,8 +290,12 @@ def build_card(
 ) -> Dict[str, Any]:
     """构建飞书 interactive 卡片 payload。
 
-    版式：彩色头部（涨红/跌绿）→ 概览 → 表格（模型|来源|变动）→ 提醒
-    → 详情按钮 → 脚注（含关键词，规避 19024）。
+    视觉设计（对齐飞书官方卡片设计规范）：
+      1. 彩色头部：涨多红 / 跌多绿，标题含日期
+      2. KPI 统计行：4 个灰底数据卡（模型数 / 条目数 / 涨 / 跌），居中大字
+      3. 斑马纹三栏表格：表头灰底加粗，数据行灰白交替，按幅度降序
+      4. 提醒区：💡 前缀单行短语
+      5. 主按钮直达站点 + 灰色脚注（含关键词，规避 19024）
     """
     kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "官网价格")
 
@@ -289,26 +315,30 @@ def build_card(
     header_color = "red" if ups >= downs else "green"
 
     elements: List[Dict[str, Any]] = [
+        # -- KPI 统计行 --
         {
-            "tag": "div",
-            "text": {
-                "tag": "lark_md",
-                "content": (
-                    f"共 **{len(groups)}** 个模型 / **{len(deltas)}** 处变动"
-                    f"　<span class='wecom-red'>↑涨 {ups}</span> · ↓跌 {downs}"
-                ),
-            },
+            "tag": "column_set",
+            "flex_mode": "stretch",
+            "columns": [
+                _stat_card(str(len(groups)), "变动模型"),
+                _stat_card(str(len(deltas)), "变动条目"),
+                _stat_card(str(ups), "上涨", "🔺"),
+                _stat_card(str(downs), "下跌", "🔻"),
+            ],
         },
         {"tag": "hr"},
-        _card_row(["模型", "来源", "变动（入 / 出）"], bold=True),
+        # -- 表头 --
+        _card_row(["**模型**", "**来源**", "**变动（入 / 出）**"], bg="grey"),
     ]
 
-    for key in ordered:
+    # -- 斑马纹数据行 --
+    for idx, key in enumerate(ordered):
         canon, src, cond = key
         items = sorted(groups[key], key=lambda x: _FIELD_ORDER.get(x.get("field") or "", 9))
         cells_txt = "\n".join(_delta_cell(d) for d in items)
         disp = _src_display(str(src), cond)
-        elements.append(_card_row([canon, disp, cells_txt]))
+        bg = "grey" if idx % 2 == 0 else "default"
+        elements.append(_card_row([f"**{canon}**", disp, cells_txt], bg=bg))
 
     reminders = _build_reminders(groups)
     if reminders:
@@ -327,7 +357,7 @@ def build_card(
             "actions": [
                 {
                     "tag": "button",
-                    "text": {"tag": "plain_text", "content": "查看完整对比与趋势"},
+                    "text": {"tag": "plain_text", "content": "📊 查看完整对比与趋势图"},
                     "type": "primary",
                     "url": SITE_URL,
                 }
