@@ -106,6 +106,80 @@ def _group_key(d: Dict[str, Any]) -> tuple:
     return (d.get("canonical") or "?", d.get("source") or "?", d.get("condition") or "")
 
 
+# ---------------------------------------------------------------------------
+# 分时档位归并：区分「刊例价整体调整」与「分时结构调整」
+#
+# 同一 (模型, 来源) 下常有闲时/高峰两条计费口径。若两档同字段涨跌幅一致
+# （±_TIER_TOL_PP 百分点内且方向相同），说明只是刊例价变了、峰谷比例没动
+# —— 应合并为一条「刊例价调整」，而不是误报成两次独立涨价；
+# 若仅一档变动或两档幅度背离，则是峰谷价差结构本身在调整，需单独提示。
+# ---------------------------------------------------------------------------
+
+_TIER_TOL_PP = 3.0  # 各档涨跌幅一致性容差（百分点）
+
+
+def _is_tier(condition: Any) -> bool:
+    """该行是否属于分时档位（闲时/高峰/峰谷）。"""
+    c = str(condition or "")
+    return "闲" in c or "峰" in c
+
+
+def consolidate_tiers(deltas: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], List[str]]:
+    """归并分时档位，返回 (归并后的 deltas, 发生结构调整的模型名列表)。
+
+    - 各档涨跌幅一致 → 只保留闲时档为代表（标记 tier_sync=True），计数不重复
+    - 幅度背离或单档变动 → 全部保留，模型名记入结构性调整清单
+    """
+    by_cs: Dict[tuple, List[Dict[str, Any]]] = {}
+    for d in deltas:
+        by_cs.setdefault((d.get("canonical"), d.get("source")), []).append(d)
+
+    out: List[Dict[str, Any]] = []
+    structural: List[str] = []
+    for (canon, _src), items in by_cs.items():
+        tier_items = [d for d in items if _is_tier(d.get("condition"))]
+        plain = [d for d in items if not _is_tier(d.get("condition"))]
+        conds = sorted({str(d.get("condition")) for d in tier_items})
+        # 该模型在该来源下的档位总数（来自 store 对比阶段，含未变动档）
+        tier_n = max((int(d.get("tier_count") or 0) for d in items), default=0)
+        if len(conds) >= 2:
+            # 多档都有变动：逐字段比较各档涨跌幅是否一致
+            fields = {d.get("field") for d in tier_items}
+            synced = True
+            for f in fields:
+                ps = [
+                    _pct(d.get("old"), d.get("new"))
+                    for d in tier_items
+                    if d.get("field") == f
+                ]
+                ps = [p for p in ps if p is not None]
+                # 某字段只有一档有变动 → 价差结构在调整
+                if len(ps) == 1:
+                    synced = False
+                    break
+                if len(ps) >= 2 and (
+                    max(ps) - min(ps) > _TIER_TOL_PP or len({p > 0 for p in ps}) > 1
+                ):
+                    synced = False
+                    break
+            if synced:
+                # 刊例价整体调整：取闲时档作代表，避免重复计数
+                rep_cond = next((c for c in conds if "闲" in c), conds[0])
+                for d in tier_items:
+                    if str(d.get("condition")) == rep_cond:
+                        nd = dict(d)
+                        nd["tier_sync"] = True
+                        out.append(nd)
+                out.extend(plain)
+                continue
+            structural.append(str(canon))
+        elif tier_n >= 2 and len(conds) == 1:
+            # 模型确有多档但仅一档出现变动 → 峰谷价差结构调整
+            structural.append(str(canon))
+        out.extend(items)
+    return out, structural
+
+
 def _src_display(src: str, condition: Any) -> str:
     """「站点名 + 计费口径」，如：腾讯云国际·原厂·闲时 / 腾讯云国际·自建。"""
     site = SOURCE_LABELS.get(str(src), str(src))
@@ -116,7 +190,7 @@ def _src_display(src: str, condition: Any) -> str:
 
 
 def _delta_cell(d: Dict[str, Any]) -> str:
-    """单个字段变动单元格：`入 $10→$4 -60%`。"""
+    """单个字段变动单元格：`入 $10→$4 -60%`；刊例同调加「同调」标记。"""
     field = _FIELD_LABEL.get(d.get("field") or "", str(d.get("field")))
     cur = d.get("currency") or ""
     seg = f"{field} {_fmt_currency(d.get('old'), cur)}→{_fmt_currency(d.get('new'), cur)}"
@@ -124,7 +198,26 @@ def _delta_cell(d: Dict[str, Any]) -> str:
     if pct is not None and abs(pct) >= 1:
         arrow = "↑" if pct > 0 else "↓"
         seg += f" {arrow}{abs(pct):.0f}%"
+    if d.get("tier_sync"):
+        seg += "（刊例同调）"
     return seg
+
+
+def _prepare_groups(deltas: List[Dict[str, Any]]) -> Dict[tuple, List[Dict[str, Any]]]:
+    """归并分时档位后按 (模型, 来源, 口径) 分组。
+
+    tier_sync 的代表行（如闲时档）来源显示会带上「刊例同调」语义；
+    结构性调整的档位行打 tier_struct 标记供提醒规则使用。
+    """
+    consolidated, structural = consolidate_tiers(deltas)
+    struct_set = set(structural)
+    groups: Dict[tuple, List[Dict[str, Any]]] = {}
+    for d in consolidated:
+        if d.get("canonical") in struct_set:
+            d = dict(d)
+            d["tier_struct"] = True
+        groups.setdefault(_group_key(d), []).append(d)
+    return groups
 
 
 def _table_rows(groups: Dict[tuple, List[Dict[str, Any]]]) -> List[str]:
@@ -153,6 +246,13 @@ def _table_rows(groups: Dict[tuple, List[Dict[str, Any]]]) -> List[str]:
 def _build_reminders(groups: Dict[tuple, List[Dict[str, Any]]]) -> List[str]:
     """基于规则的场景提醒（只陈述可从数据推出的事实，不臆测）。"""
     reminders: List[str] = []
+
+    # 规则0：分时档位涨跌幅背离 / 单档变动 → 结构性调整
+    struct = sorted({k[0] for k, items in groups.items() if any(d.get("tier_struct") for d in items)})
+    if struct:
+        reminders.append(
+            "峰谷结构调整：" + "、".join(struct) + "（各时段价差变化，注意成本核算口径）"
+        )
 
     # 规则1：同一模型同一来源出现同字段多条不同新价 → 峰谷双档
     peak: List[str] = []
@@ -205,16 +305,15 @@ def build_message(
     """
     kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "官网价格")
 
-    groups: Dict[tuple, List[Dict[str, Any]]] = {}
-    for d in deltas:
-        groups.setdefault(_group_key(d), []).append(d)
+    groups = _prepare_groups(deltas)
+    consolidated: List[Dict[str, Any]] = [d for items in groups.values() for d in items]
 
-    ups = sum(1 for d in deltas if (_pct(d.get("old"), d.get("new")) or 0) > 0)
-    downs = sum(1 for d in deltas if (_pct(d.get("old"), d.get("new")) or 0) < 0)
+    ups = sum(1 for d in consolidated if (_pct(d.get("old"), d.get("new")) or 0) > 0)
+    downs = sum(1 for d in consolidated if (_pct(d.get("old"), d.get("new")) or 0) < 0)
 
     lines = [
         f"📊 Token 定价日报 {snapshot_date}",
-        f"变动 {len(groups)} 模型 / {len(deltas)} 处｜涨 {ups} · 跌 {downs}",
+        f"变动 {len(groups)} 模型 / {len(consolidated)} 处｜涨 {ups} · 跌 {downs}",
         "",
         "模型｜来源｜变动",
     ]
@@ -299,12 +398,11 @@ def build_card(
     """
     kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "官网价格")
 
-    groups: Dict[tuple, List[Dict[str, Any]]] = {}
-    for d in deltas:
-        groups.setdefault(_group_key(d), []).append(d)
+    groups = _prepare_groups(deltas)
+    consolidated: List[Dict[str, Any]] = [d for items in groups.values() for d in items]
 
-    ups = sum(1 for d in deltas if (_pct(d.get("old"), d.get("new")) or 0) > 0)
-    downs = sum(1 for d in deltas if (_pct(d.get("old"), d.get("new")) or 0) < 0)
+    ups = sum(1 for d in consolidated if (_pct(d.get("old"), d.get("new")) or 0) > 0)
+    downs = sum(1 for d in consolidated if (_pct(d.get("old"), d.get("new")) or 0) < 0)
 
     def score(key: tuple) -> float:
         return max((abs(_pct(d.get("old"), d.get("new")) or 0) for d in groups[key]), default=0)
@@ -321,7 +419,7 @@ def build_card(
             "flex_mode": "stretch",
             "columns": [
                 _stat_card(str(len(groups)), "变动模型"),
-                _stat_card(str(len(deltas)), "变动条目"),
+                _stat_card(str(len(consolidated)), "变动条目"),
                 _stat_card(str(ups), "上涨", "🔺"),
                 _stat_card(str(downs), "下跌", "🔻"),
             ],

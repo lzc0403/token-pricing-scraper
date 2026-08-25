@@ -159,6 +159,13 @@ def compare_previous(current_path: str, previous_path: str) -> List[Dict[str, An
         prev = prev_idx.pop((canon, r["source"], r.get("condition") or ""), None)
         if not prev:
             continue
+        # 该模型在该来源下共有几条不同计费口径（含未变动的），
+        # 供 notifier 区分「单档调价」与「刊例整体调整」。
+        tier_count = sum(
+            1
+            for x in current
+            if x.get("canonical") == canon and x.get("source") == r["source"]
+        )
         for field in ("input", "output"):
             old_val = prev.get(field)
             new_val = r.get(field)
@@ -173,6 +180,7 @@ def compare_previous(current_path: str, previous_path: str) -> List[Dict[str, An
                         "new": new_val,
                         "currency": r.get("currency"),
                         "condition": r.get("condition"),
+                        "tier_count": tier_count,
                     }
                 )
     return deltas

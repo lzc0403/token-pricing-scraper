@@ -221,3 +221,41 @@ def test_notify_no_deltas_returns_false(monkeypatch):
         ok = notifier.notify_price_changes([], "2026-08-22")
     assert ok is False
     assert called is False
+
+
+def test_consolidate_tiers_synced():
+    """闲时/高峰两档同比例变动 → 合并为一条刊例调整，不重复计数。"""
+    deltas = [
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "input",
+         "old": 1.0, "new": 2.0, "currency": "USD", "condition": "空闲时段 | 原厂直供"},
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "output",
+         "old": 2.0, "new": 4.0, "currency": "USD", "condition": "空闲时段 | 原厂直供"},
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "input",
+         "old": 2.0, "new": 4.0, "currency": "USD", "condition": "高峰时段 | 原厂直供"},
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "output",
+         "old": 4.0, "new": 8.0, "currency": "USD", "condition": "高峰时段 | 原厂直供"},
+    ]
+    out, structural = notifier.consolidate_tiers(deltas)
+    assert structural == []
+    # 只保留闲时档两条（入/出），高峰被归并
+    assert len(out) == 2
+    assert all(d["tier_sync"] for d in out)
+    msg = notifier.build_message(deltas, "2026-08-25")
+    assert "刊例同调" in msg
+    # 概览计数不重复：2 处而非 4 处
+    assert "2 处" in msg
+
+
+def test_consolidate_tiers_structural():
+    """仅一档变动 / 两档幅度背离 → 判定为峰谷结构调整并提醒。"""
+    deltas = [
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "input",
+         "old": 1.0, "new": 1.0, "currency": "USD", "condition": "空闲时段 | 原厂直供"},
+        {"canonical": "DS V4 Flash", "source": "tencent", "field": "output",
+         "old": 2.0, "new": 3.0, "currency": "USD", "condition": "高峰时段 | 原厂直供"},
+    ]
+    out, structural = notifier.consolidate_tiers(deltas)
+    assert structural == ["DS V4 Flash"]
+    assert len(out) == 2
+    msg = notifier.build_message(deltas, "2026-08-25")
+    assert "峰谷结构调整" in msg
