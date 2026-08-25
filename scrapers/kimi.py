@@ -1,9 +1,15 @@
 """Kimi 开放平台 Token 定价解析器。
 
-每个定价页（chat-k26 / chat-k25 / chat-k27-code）为一张定义式表格：
+定价页（chat-k3 / chat-k2.6 / chat-k2.5 / chat-k2.7-code）为一张定义式表格：
 首行表头（模型 / 计费单位 / 输入价格（缓存命中）/ 输入价格（缓存未命中）/
 输出价格 / 上下文窗口），其后每行一个模型。本解析器按表头关键词定位列，
-抽取缓存命中 / 输入 / 输出价格与上下文窗口。价格为人民币（CNY）。
+抽取缓存命中 / 输入 / 输出价格与上下文窗口。
+
+中英文双站兼容：
+- platform.kimi.com（中文站）：表头为中文，价格 CNY
+- platform.kimi.ai（国际站）：表头为英文（Model / Input Price (Cache Hit) /
+  Input Price (Cache Miss) / Output Price / Context Window），价格 USD
+两站表结构一致，仅表头语言不同；本解析器同时匹配中英文关键词。
 """
 
 from __future__ import annotations
@@ -31,20 +37,21 @@ class KimiScraper(BaseScraper):
 
         def idx_of(*keywords: str) -> int:
             for i, h in enumerate(header):
-                if any(kw in h for kw in keywords):
+                hl = h.lower()
+                if any(kw in h or kw in hl for kw in keywords):
                     return i
             return -1
 
-        i_model = idx_of("模型")
-        i_cache = idx_of("缓存命中")
+        i_model = idx_of("模型", "model")
+        i_cache = idx_of("缓存命中", "cache hit", "cache_hit")
         # 输入价 = 输入价格（缓存未命中）。注意 col「输入价格（缓存命中）」也含
         # 「输入价格」子串，若用 idx_of("输入价格") 会误匹配到缓存命中列，
         # 必须用「缓存未命中」精确匹配（排除缓存命中列）。
-        i_input = idx_of("缓存未命中")
+        i_input = idx_of("缓存未命中", "cache miss", "cache_miss")
         if i_input < 0:
-            i_input = idx_of("输入价格")
-        i_output = idx_of("输出价格")
-        i_ctx = idx_of("上下文")
+            i_input = idx_of("输入价格", "input price")
+        i_output = idx_of("输出价格", "output price")
+        i_ctx = idx_of("上下文", "context window", "context")
         if i_model < 0 or i_input < 0 or i_output < 0:
             return []
 

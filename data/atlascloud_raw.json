@@ -1,9 +1,131 @@
 {
-  "fetched_at": "2026-08-24T17:20:30",
+  "fetched_at": "2026-08-25T16:10:10",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
     "data": [
+      {
+        "uuid": "ms-aa8635403b7d",
+        "model": "alibaba/wan-3.0-prime/text-to-video",
+        "type": "Video",
+        "displayName": "Wan-3.0-Prime Text-to-video",
+        "profile": "All-in-one Wan3.0 renderer: cinematic, hyper-real video from a text prompt, up to 30s with smart-duration and adaptive aspect ratio.",
+        "logo": "https://static.atlascloud.ai/uploads/models/f4aed318-ffbe-4758-8ce0-9585d43157b5.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
+        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-3.0-prime-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/alibaba-wan-3.0-prime-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-3.0-prime-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-3.0-prime-text-to-video.md",
+        "organization": "QWEN",
+        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-3.0-prime-text-to-video.json",
+        "priority": 90051,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nom0wpb73yq",
+        "familyName": "wan-3.0",
+        "familyDisplayName": "Wan 3.0 API is Now Live on Atlas Cloud!",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.061"
+          },
+          "origin": {
+            "base_price": "0.068"
+          }
+        }
+      },
+      {
+        "uuid": "ms-18cb8c467b21",
+        "model": "alibaba/wan-3.0-prime/image-to-video",
+        "type": "Video",
+        "displayName": "Wan-3.0-Prime Image-to-video",
+        "profile": "Animate a first frame (optionally with a last frame) into a coherent clip, with native audio and smart-duration up to 30s.",
+        "logo": "https://static.atlascloud.ai/uploads/models/70589073-b40b-4c47-b2b9-e7f73f774543.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
+        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-3.0-prime-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/alibaba-wan-3.0-prime-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-3.0-prime-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-3.0-prime-image-to-video.md",
+        "organization": "QWEN",
+        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-3.0-prime-image-to-video.json",
+        "priority": 90051,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nom0wpb73yq",
+        "familyName": "wan-3.0",
+        "familyDisplayName": "Wan 3.0 API is Now Live on Atlas Cloud!",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.061"
+          },
+          "origin": {
+            "base_price": "0.068"
+          }
+        }
+      },
+      {
+        "uuid": "ms-ef5640749390",
+        "model": "alibaba/wan-3.0-prime/reference-to-video",
+        "type": "Video",
+        "displayName": "Wan-3.0-Prime Reference-to-video",
+        "profile": "All-in-One Reference: keep subjects consistent from any mix of reference images, videos, and audio; pixel-level identity/voice/space alignment.",
+        "logo": "https://static.atlascloud.ai/uploads/models/324059cd-9aa8-4747-9872-68f914c6da34.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
+        "background": "https://static.atlascloud.ai/model/background/alibaba-wan-3.0-prime-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/alibaba-wan-3.0-prime-reference-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/alibaba-wan-3.0-prime-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/alibaba-wan-3.0-prime-reference-to-video.md",
+        "organization": "QWEN",
+        "example": "https://static.atlascloud.ai/model/example/alibaba-wan-3.0-prime-reference-to-video.json",
+        "priority": 90051,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nom0wpb73yq",
+        "familyName": "wan-3.0",
+        "familyDisplayName": "Wan 3.0 API is Now Live on Atlas Cloud!",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.061"
+          },
+          "origin": {
+            "base_price": "0.068"
+          }
+        }
+      },
       {
         "uuid": "ms-41c3900d4644",
         "model": "alibaba/wan-3.0/text-to-video",
@@ -36,9 +158,9 @@
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.05"
+            "base_price": "0.04"
           },
           "origin": {
             "base_price": "0.05"
@@ -77,9 +199,9 @@
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.05"
+            "base_price": "0.04"
           },
           "origin": {
             "base_price": "0.05"
@@ -117,9 +239,9 @@
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.05"
+            "base_price": "0.04"
           },
           "origin": {
             "base_price": "0.05"
@@ -21811,10 +21933,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.027"
+            "base_price": "0.021"
           },
           "origin": {
-            "base_price": "0.027"
+            "base_price": "0.021"
           }
         }
       },

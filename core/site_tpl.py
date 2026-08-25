@@ -164,7 +164,12 @@ def _table_row(r: Dict[str, Any], *, kind: str, price_mode: str) -> str:
     src = r.get("source_label") or source_label(r.get("source"))
     ctx = r.get("context") or "—"
     cur = r.get("currency") or "—"
-    cache = _fmt_num(r.get("cache_hit"))
+    # 缓存命中价：峰谷计费行渲染「闲 X / 高 Y」双档（DeepSeek 官网缓存同样分忙闲时），
+    # 非峰谷行保持单值。双档均取原币种（缓存列与 input/output 展示口径一致）。
+    if r.get("peak_cache_low") is not None or r.get("peak_cache_high") is not None:
+        cache = _peak_duo(r.get("peak_cache_low"), r.get("peak_cache_high"))
+    else:
+        cache = _fmt_num(r.get("cache_hit"))
     canon = r.get("canonical") or ""
     sid = r.get("source") or ""
     cond = r.get("condition")

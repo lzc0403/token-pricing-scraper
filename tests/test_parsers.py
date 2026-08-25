@@ -32,6 +32,7 @@ FIXTURE_MAP = {
     "deepseek": ["deepseek.html"],
     "minimax": ["minimax.html"],
     "kimi": ["kimi1.html", "kimi2.html", "kimi3.html"],
+    "kimi_ai": ["kimi_ai.html"],
     "modelmesh": ["modelmesh.html"],
     "tencent_cn": ["tencent_cn.html"],
     "aliyun_bailian": ["aliyun_bailian.json"],
@@ -67,6 +68,20 @@ def test_deepseek_parses_v4_models():
     models = {r["model_raw"] for r in recs}
     assert "deepseek-v4-flash" in models
     assert "deepseek-v4-pro" in models
+
+
+def test_deepseek_cache_peak_dual():
+    """DeepSeek 官网改版后：缓存命中与输入/输出一样分「空闲/高峰」双档。"""
+    recs = _parse_source("deepseek")
+    flash = next(r for r in recs if r["model_raw"] == "deepseek-v4-flash")
+    assert flash.get("condition") == "峰谷计费"
+    # 输入：空闲 1.5 / 高峰 3.0（元/百万tokens，flash 档）
+    assert flash["peak_input_low"] == 1.5
+    assert flash["peak_input_high"] == 3.0
+    # 缓存命中同样双档：空闲 0.05 / 高峰 0.10
+    assert flash["peak_cache_low"] == 0.05
+    assert flash["peak_cache_high"] == 0.10
+    assert flash["cache_hit"] == 0.1  # 主字段 = 高峰档（官网基准价）
 
 
 def test_tencent_mainland_only():
@@ -131,6 +146,20 @@ def test_kimi_k26():
     recs = _parse_source("kimi")
     models = {r["model_raw"] for r in recs}
     assert "kimi-k2.6" in models
+
+
+def test_kimi_ai_english_header():
+    """kimi_ai（国际站 USD）：英文表头（Model / Input Price (Cache Hit) 等）须正确解析。"""
+    recs = _parse_source("kimi_ai")
+    assert recs, "kimi_ai 应解析出记录"
+    by_model = {r["model_raw"]: r for r in recs}
+    k3 = by_model.get("kimi-k3")
+    assert k3, "kimi-k3 应被解析"
+    # USD 定价：缓存命中 $0.30 / 未命中 $3.00 / 输出 $15.00
+    assert k3["cache_hit"] == 0.3
+    assert k3["input"] == 3.0
+    assert k3["output"] == 15.0
+    assert k3["context"] == "1,048,576 tokens"
 
 
 def test_modelmesh_cards():

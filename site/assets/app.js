@@ -725,7 +725,13 @@ const PEAK = __PEAK_DATA__;
   }
   function hourFloat(d){ return d.getHours() + d.getMinutes() / 60; }
   // 返回 'peak' | 'off'：peak/off 只定义其一，另一为补集
-  function periodOf(sched, h){
+  // weekend_off=true（DeepSeek 官方）：周六(6)/周日(0) 全天按空闲档计
+  function periodOf(sched, d){
+    var h = hourFloat(d);
+    if (sched.weekend_off){
+      var wd = d.getDay();
+      if (wd === 6 || wd === 0) return 'off';
+    }
     if (sched.peak){
       for (var i=0;i<sched.peak.length;i++){ var a=sched.peak[i][0],b=sched.peak[i][1]; if (h>=a && h<b) return 'peak'; }
       return 'off';
@@ -753,8 +759,7 @@ const PEAK = __PEAK_DATA__;
     var bj = bjNow();
     var hh = ('0' + bj.getHours()).slice(-2);
     var mm = ('0' + bj.getMinutes()).slice(-2);
-    var h = hourFloat(bj);
-    var ofPer = periodOf(SCHEDS.deepseek_official, h);
+    var ofPer = periodOf(SCHEDS.deepseek_official, bj);
 
     // 顶部时钟：各方当前档位
     var clock = document.getElementById('peak-clock');
@@ -764,7 +769,7 @@ const PEAK = __PEAK_DATA__;
       var seen = presentScheds();
       Object.keys(seen).forEach(function(k){
         var sc = SCHEDS[k]; if (!sc) return;
-        var p = periodOf(sc, h);
+        var p = periodOf(sc, bj);
         var isPeak = (p === 'peak');
         var label = isPeak ? sc.peak_label : sc.off_label;
         html += '<span class="pc-pill ' + (isPeak ? 'peak' : 'off') + '">' + who(k) + '：' + label + '</span>';
@@ -783,7 +788,7 @@ const PEAK = __PEAK_DATA__;
       var ofPeak = ofPeakRaw ? parseFloat(ofPeakRaw) : null;
       var schedKey = tr.getAttribute('data-sched');
       var chSched = schedKey ? SCHEDS[schedKey] : null;
-      var chPer = chSched ? periodOf(chSched, h) : 'flat';
+      var chPer = chSched ? periodOf(chSched, bj) : 'flat';
 
       var chPrice = (chPer === 'peak' && chPeak != null) ? chPeak : chOff;
       var ofPrice = (ofPer === 'peak' && ofPeak != null) ? ofPeak : ofOff;

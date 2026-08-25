@@ -134,6 +134,28 @@
   parser: kimi
   currency: CNY
   js: true
+  note: >-
+    Kimi 官方中文站（platform.kimi.com，CNY 结算），模型定价入口
+    /docs/pricing/chat。各模型子页（chat-k3 / chat-k26 / chat-k25 /
+    chat-k27-code）为定义式表格：模型 / 计费单位 / 输入价格（缓存命中）/
+    输入价格（缓存未命中）/ 输出价格 / 上下文窗口。与 kimi_ai（国际站 USD）区分展示。
+
+- id: kimi_ai
+  name: Kimi国际站
+  url: https://platform.kimi.ai/docs/pricing/chat
+  urls:
+    - https://platform.kimi.ai/docs/pricing/chat-k3
+    - https://platform.kimi.ai/docs/pricing/chat-k26
+    - https://platform.kimi.ai/docs/pricing/chat-k25
+    - https://platform.kimi.ai/docs/pricing/chat-k27-code
+  parser: kimi
+  currency: USD
+  js: true
+  note: >-
+    Kimi 官方国际站（platform.kimi.ai，USD 结算），模型定价入口
+    /docs/pricing/chat。子页结构与中文站一致，表头为英文（Model / Unit /
+    Input Price (Cache Hit) / Input Price (Cache Miss) / Output Price /
+    Context Window），解析器已兼容双语表头。与 kimi（国内站 CNY）区分展示。
 
 - id: modelmesh
   name: 胜算云

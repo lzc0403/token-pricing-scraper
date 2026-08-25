@@ -152,13 +152,14 @@ def consolidate_tiers(deltas: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]
                     for d in tier_items
                     if d.get("field") == f
                 ]
-                ps = [p for p in ps if p is not None]
+                ps_clean: List[float] = [p for p in ps if p is not None]
                 # 某字段只有一档有变动 → 价差结构在调整
-                if len(ps) == 1:
+                if len(ps_clean) == 1:
                     synced = False
                     break
-                if len(ps) >= 2 and (
-                    max(ps) - min(ps) > _TIER_TOL_PP or len({p > 0 for p in ps}) > 1
+                if len(ps_clean) >= 2 and (
+                    max(ps_clean) - min(ps_clean) > _TIER_TOL_PP
+                    or len({p > 0 for p in ps_clean}) > 1
                 ):
                     synced = False
                     break

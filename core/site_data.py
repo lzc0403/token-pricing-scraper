@@ -23,6 +23,7 @@ SOURCE_LABELS: Dict[str, str] = {
     "deepseek": "DeepSeek",
     "minimax": "MiniMax",
     "kimi": "Kimi",
+    "kimi_ai": "Kimi国际站",
     "modelmesh": "胜算云",
     "openai": "OpenAI",
     "anthropic": "Anthropic",
@@ -136,9 +137,12 @@ OVERSEAS_VENDOR_ORDER: List[str] = [
 # source_id → 厂商分组 id（官方表/渠道表聚合用）
 SOURCE_VENDOR: Dict[str, str] = {
     "deepseek": "deepseek",
+    "deepseek_us": "deepseek",
     "aliyun": "qwen",
     "bigmodel": "glm",
+    "zai": "glm",
     "kimi": "kimi",
+    "kimi_ai": "kimi",
     "minimax": "minimax",
     "volcengine": "doubao",
     "openai": "openai",
@@ -374,6 +378,8 @@ def _is_official_any_currency(canon: str, r: Dict[str, Any]) -> bool:
         return True
     if str(canon).startswith("GLM") and src in ("bigmodel", "zai"):
         return True
+    if str(canon).startswith("Kimi") and src in ("kimi", "kimi_ai"):
+        return True
     return _is_official_row(canon, r)
 
 
@@ -447,18 +453,23 @@ def _split_condition(cond: Optional[str]) -> Tuple[Optional[str], Optional[str],
 # 与 DeepSeek 官方相反（如阿里云国际站：闲时 22:00-08:00，其余忙时），导致同一
 # 时刻两边档位可能错位（08-09/12-14/18-22 错峰时段一方闲、一方忙）。
 # peak/off 用 [[起,止), ...] 的小时区间表达；二者只定义其一，另一为补集。
+# weekend_off=True：周六/周日（北京时间）全天按空闲档计（DeepSeek 官网周末全天闲时）。
 PEAK_SCHEDULES = {
-    # DeepSeek 官方（国内/英文站）：高峰 09:00-12:00、14:00-18:00，其余空闲
+    # DeepSeek 官方（国内/英文站）：高峰 09:00-12:00、14:00-18:00，其余空闲；
+    # 周六、周日全天空闲（周末休息日全时段闲时定价）。
     "deepseek_official": {
         "tz_offset": 8, "tz_label": "北京时间 (UTC+8)",
         "peak": [[9, 12], [14, 18]], "off": None,
         "peak_label": "高峰", "off_label": "空闲",
+        "weekend_off": True,
     },
-    # 阿里云国际站 Model Studio：闲时 22:00-次日08:00，其余忙时（同样 UTC+8）
+    # 阿里云国际站 Model Studio：闲时 22:00-次日08:00，其余忙时（同样 UTC+8）；
+    # 周末无额外全天空闲规则（官方未声明），按小时窗口正常判档。
     "aliyun_intl": {
         "tz_offset": 8, "tz_label": "北京时间 (UTC+8)",
         "peak": None, "off": [[22, 24], [0, 8]],
         "peak_label": "忙时", "off_label": "空闲",
+        "weekend_off": False,
     },
 }
 
