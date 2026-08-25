@@ -2,7 +2,7 @@ name: Token Pricing Scraper
 
 on:
   schedule:
-    - cron: '0 17 * * *'      # 每天 17:00 UTC = 北京时间次日 01:00（凌晨1点）
+    - cron: '0 2 * * *'      # 每天 02:00 UTC = 北京时间 10:00（每日早晨发布）
   workflow_dispatch: {}
 
 permissions:
