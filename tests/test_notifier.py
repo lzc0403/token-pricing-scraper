@@ -259,3 +259,85 @@ def test_consolidate_tiers_structural():
     assert len(out) == 2
     msg = notifier.build_message(deltas, "2026-08-25")
     assert "峰谷结构调整" in msg
+
+
+# ---------------------------------------------------------------------------
+# 官网基准行情判别
+# ---------------------------------------------------------------------------
+
+def test_official_source_mirror():
+    """notifier 的官网源判定必须与 site_data 展示口径镜像一致，防止漂移。"""
+    from core.site_data import OFFICIAL_SOURCE, _is_official_any_currency
+
+    # 逐条对照 site_data 的判定：site_data 认为是官方的，notifier 也必须是
+    for canon, src in OFFICIAL_SOURCE.items():
+        assert notifier.is_official_source(canon, src), (canon, src)
+    # 多币种厂商双站
+    for canon, src in [
+        ("DeepSeek V4 Flash", "deepseek"), ("DeepSeek V4 Flash", "deepseek_us"),
+        ("GLM-5.2", "bigmodel"), ("GLM-5.2", "zai"),
+        ("Kimi K3", "kimi"), ("Kimi K3", "kimi_ai"),
+    ]:
+        assert notifier.is_official_source(canon, src), (canon, src)
+    # 渠道源不能误判
+    for canon, src in [("DeepSeek V4 Flash", "tencent"), ("GLM-5.2", "openrouter")]:
+        assert not notifier.is_official_source(canon, src), (canon, src)
+    # site_data 官方行 ↔ notifier 判定一致（抽样真实结构）
+    row = {"source": "deepseek"}
+    assert _is_official_any_currency("DeepSeek V4 Pro", row)
+
+
+def test_market_alert_official_lead():
+    """官网调价 + 渠道未跟进 → 市场行情警报。"""
+    deltas = [
+        # DeepSeek 官网 input 从 0.14 上浮到 0.22
+        {"canonical": "DeepSeek V4 Flash", "source": "deepseek", "field": "input",
+         "old": 1.0, "new": 1.57, "currency": "CNY"},
+        # 腾讯云渠道没动（不在 deltas 中）
+    ]
+    msg = notifier.build_message(deltas, "2026-08-25")
+    assert "市场行情" in msg
+    assert "渠道未跟进" in msg
+
+
+def test_market_quiet_when_channel_follows():
+    """官网调价 + 渠道同幅跟进 → 正常播报，不发市场行情警报，行标「跟进官网」。"""
+    deltas = [
+        {"canonical": "DeepSeek V4 Flash", "source": "deepseek", "field": "input",
+         "old": 1.0, "new": 1.57, "currency": "CNY"},   # +57%
+        {"canonical": "DeepSeek V4 Flash", "source": "tencent_cn", "field": "input",
+         "old": 1.0, "new": 1.6, "currency": "CNY"},    # +60%，±10pp 内视为跟进
+    ]
+    msg = notifier.build_message(deltas, "2026-08-25")
+    assert "市场行情" not in msg
+    assert "跟进官网" in msg
+
+
+def test_market_alert_cross_currency():
+    """跨币种可比：CNY 官网涨、USD 渠道同幅跟 → 不报警；背离则报。"""
+    # 同幅（+50% vs +52%）：不报
+    synced = [
+        {"canonical": "DeepSeek V4 Flash", "source": "deepseek", "field": "input",
+         "old": 2.0, "new": 3.0, "currency": "CNY"},     # +50%
+        {"canonical": "DeepSeek V4 Flash", "source": "tencent", "field": "input",
+         "old": 0.28, "new": 0.426, "currency": "USD"},  # +52%
+    ]
+    assert "市场行情" not in notifier.build_message(synced, "2026-08-25")
+    # 背离（+50% vs -30%）：报警
+    diverged = [
+        {"canonical": "DeepSeek V4 Flash", "source": "deepseek", "field": "input",
+         "old": 2.0, "new": 3.0, "currency": "CNY"},
+        {"canonical": "DeepSeek V4 Flash", "source": "tencent", "field": "input",
+         "old": 1.0, "new": 0.7, "currency": "USD"},
+    ]
+    assert "市场行情" in notifier.build_message(diverged, "2026-08-25")
+
+
+def test_channel_own_change_no_alert():
+    """渠道自己乱调价（无官网变动）→ 不触发市场行情警报。"""
+    deltas = [
+        {"canonical": "DeepSeek V4 Flash", "source": "tencent", "field": "input",
+         "old": 0.14, "new": 0.44, "currency": "USD"},
+    ]
+    msg = notifier.build_message(deltas, "2026-08-25")
+    assert "市场行情" not in msg

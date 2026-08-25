@@ -181,6 +181,106 @@ def consolidate_tiers(deltas: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]
     return out, structural
 
 
+# ---------------------------------------------------------------------------
+# 官网基准（市场行情锚点）
+#
+# 永远以大模型厂商官网原价为行情基准：
+#   - 官网调价 + 渠道未跟进 → 「市场行情」强提醒：价差扩大，渠道报价即将过期；
+#   - 官网调价 + 渠道同幅跟进 → 渠道行标「跟进官网」，不再重复报警
+#     （即"官网正式调价的第二天，渠道跟上了就恢复正常"）。
+# 判定按换算后的涨跌幅百分比比较，天然跨币种可比（CNY 官网 vs USD 渠道）。
+# ---------------------------------------------------------------------------
+
+# 多币种厂商的官方源集合（与 site_data._is_official_any_currency 同口径镜像，
+# 由 test_notifier_official_source_mirror 保证两处不漂移）
+_OFFICIAL_SOURCES_ANY: Dict[str, Tuple[str, ...]] = {
+    "DeepSeek": ("deepseek", "deepseek_us"),
+    "GLM": ("bigmodel", "zai"),
+    "Kimi": ("kimi", "kimi_ai"),
+}
+
+# 单一官方源厂商（canonical 前缀 → source id），与 site_data.OFFICIAL_SOURCE 镜像
+_OFFICIAL_SINGLE: Tuple[Tuple[str, str], ...] = (
+    ("MiniMax", "minimax"),
+    ("Qwen", "aliyun"),
+    ("Doubao", "volcengine"),
+    ("GPT", "openai"),
+)
+
+# 官网 vs 渠道涨跌幅一致性容差（百分点）：同字段百分比差在此范围内视为「跟进」
+_FOLLOW_TOL_PP = 10.0
+
+
+def is_official_source(canonical: Any, source: Any) -> bool:
+    """该 (模型, 来源) 是否为厂商官网原价（不分币种）。"""
+    canon = str(canonical or "")
+    src = str(source or "")
+    for prefix, sources in _OFFICIAL_SOURCES_ANY.items():
+        if canon.startswith(prefix) and src in sources:
+            return True
+    for prefix, src_id in _OFFICIAL_SINGLE:
+        if canon.startswith(prefix) and src == src_id:
+            return True
+    return False
+
+
+def _market_analysis(deltas: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """官网基准行情分析：标注每条 delta 的市场语义。
+
+    对每条官网源 delta，找该模型所有渠道源的变动做参照：
+      - 渠道无同字段变动，或幅度与官网背离超容差 → 标 official_lead=True
+        （渠道未跟进，价差扩大，属市场行情变化）
+      - 存在渠道源与官网同幅变动 → 该渠道行标 follows_official=True
+        （渠道已同步跟进官网新价，正常播报不额外报警）
+
+    返回浅拷贝标注后的列表（不修改入参）。
+    """
+    # 索引：模型 → {field: [(source, pct), ...]}（仅渠道源变动）
+    channel_moves: Dict[str, Dict[str, List[Tuple[str, float]]]] = {}
+    for d in deltas:
+        canon = str(d.get("canonical") or "")
+        if is_official_source(canon, d.get("source")):
+            continue
+        p = _pct(d.get("old"), d.get("new"))
+        if p is None:
+            continue
+        channel_moves.setdefault(canon, {}).setdefault(str(d.get("field")), []).append(
+            (str(d.get("source")), p)
+        )
+
+    out: List[Dict[str, Any]] = []
+    for d in deltas:
+        nd = dict(d)
+        canon = str(nd.get("canonical") or "")
+        field = str(nd.get("field"))
+        if is_official_source(canon, nd.get("source")):
+            p = _pct(nd.get("old"), nd.get("new"))
+            if p is None:
+                out.append(nd)
+                continue
+            moves = channel_moves.get(canon, {}).get(field, [])
+            # 官网行：存在任一渠道同幅变动 → 视为已被跟进，不发行情警报；
+            # 渠道没动或幅度背离 → 官网领先，价差扩大，发市场行情提醒
+            followed = any(abs(p - cp) <= _FOLLOW_TOL_PP for _, cp in moves)
+            nd["official_lead"] = not followed
+        else:
+            p = _pct(nd.get("old"), nd.get("new"))
+            # 渠道行：该模型该字段有官网变动且本渠道与之同幅 → 标记跟进
+            official_ps = [
+                _pct(x.get("old"), x.get("new"))
+                for x in deltas
+                if str(x.get("canonical")) == canon
+                and str(x.get("field")) == field
+                and is_official_source(canon, x.get("source"))
+            ]
+            official_ps = [x for x in official_ps if x is not None]
+            nd["follows_official"] = bool(
+                p is not None and any(abs(p - op) <= _FOLLOW_TOL_PP for op in official_ps)
+            )
+        out.append(nd)
+    return out
+
+
 def _src_display(src: str, condition: Any) -> str:
     """「站点名 + 计费口径」，如：腾讯云国际·原厂·闲时 / 腾讯云国际·自建。"""
     site = SOURCE_LABELS.get(str(src), str(src))
@@ -201,6 +301,8 @@ def _delta_cell(d: Dict[str, Any]) -> str:
         seg += f" {arrow}{abs(pct):.0f}%"
     if d.get("tier_sync"):
         seg += "（刊例同调）"
+    elif d.get("follows_official"):
+        seg += "（跟进官网）"
     return seg
 
 
@@ -208,8 +310,10 @@ def _prepare_groups(deltas: List[Dict[str, Any]]) -> Dict[tuple, List[Dict[str, 
     """归并分时档位后按 (模型, 来源, 口径) 分组。
 
     tier_sync 的代表行（如闲时档）来源显示会带上「刊例同调」语义；
-    结构性调整的档位行打 tier_struct 标记供提醒规则使用。
+    结构性调整的档位行打 tier_struct 标记供提醒规则使用；
+    官网基准分析先行：official_lead / follows_official 标记随行携带。
     """
+    deltas = _market_analysis(deltas)
     consolidated, structural = consolidate_tiers(deltas)
     struct_set = set(structural)
     groups: Dict[tuple, List[Dict[str, Any]]] = {}
@@ -247,6 +351,20 @@ def _table_rows(groups: Dict[tuple, List[Dict[str, Any]]]) -> List[str]:
 def _build_reminders(groups: Dict[tuple, List[Dict[str, Any]]]) -> List[str]:
     """基于规则的场景提醒（只陈述可从数据推出的事实，不臆测）。"""
     reminders: List[str] = []
+
+    # 规则0a：官网调价而渠道未跟进 → 市场行情警报（官网是定价锚点）
+    lead = sorted(
+        {
+            (k[0], k[1])
+            for k, items in groups.items()
+            if any(d.get("official_lead") for d in items)
+        }
+    )
+    for canon, src in lead:
+        site = SOURCE_LABELS.get(src, src)
+        reminders.append(
+            f"🚨 市场行情：{canon} 官网调价，渠道未跟进（{site} 报价或即将过期，注意比价）"
+        )
 
     # 规则0：分时档位涨跌幅背离 / 单档变动 → 结构性调整
     struct = sorted({k[0] for k, items in groups.items() if any(d.get("tier_struct") for d in items)})
