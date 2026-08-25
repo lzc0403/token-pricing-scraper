@@ -111,7 +111,7 @@ def test_payload_wecom():
 
 
 def test_send_webhook_logs_19024(monkeypatch):
-    """飞书返回 code:19024 时应记录关键词未命中警告。"""
+    """飞书返回 code:19024 时应判为失败并记录关键词未命中警告。"""
     body = json.dumps({"code": 19024, "msg": "Key Words Not Found"})
 
     class FakeResp:
@@ -130,12 +130,53 @@ def test_send_webhook_logs_19024(monkeypatch):
     with mock.patch.object(
         notifier.urllib.request, "urlopen",
         lambda *a, **k: FakeResp(body),
-    ), mock.patch.object(notifier.logger, "warning") as warn, mock.patch.object(
-        notifier.logger, "info"
-    ) as info:
+    ), mock.patch.object(notifier.logger, "warning") as warn:
         ok = notifier.send_webhook("hi", "https://example.com/hook", "feishu")
-    assert ok is True  # 网络层未被判定为失败，仅记录警告
+    assert ok is False
     assert any("19024" in str(c[0][0]) for c in warn.call_args_list if c and c[0])
+
+
+def test_build_card_structure():
+    """interactive 卡片：涨红头部、三栏表格、脚注含关键词。"""
+    card = notifier.build_card(DELTAS, "2026-08-22")
+    assert card["msg_type"] == "interactive"
+    header = card["card"]["header"]
+    assert header["template"] in ("red", "green")
+    assert "Token 定价日报" in header["title"]["content"]
+    # 脚注含关键词（规避 19024）
+    note = [e for e in card["card"]["elements"] if e.get("tag") == "note"]
+    assert note and "官网价格" in note[0]["elements"][0]["content"]
+    # 表格行包含模型与来源中文名
+    md_texts = [
+        el.get("content", "")
+        for row in card["card"]["elements"] if row.get("tag") == "column_set"
+        for col in row.get("columns", [])
+        for el in col.get("elements", [])
+    ]
+    assert any("GPT-5" in t for t in md_texts)
+    assert any("OpenAI官网" in t for t in md_texts)
+
+
+def test_notify_feishu_prefers_card(monkeypatch):
+    """飞书渠道应走卡片优先路径，携带纯文本兜底。"""
+    monkeypatch.setenv("FEISHU_WEBHOOK_URL", "https://example.com/hook")
+    seen: dict = {}
+    with mock.patch.object(notifier, "_send_feishu_card",
+                           lambda card, msg, url: seen.setdefault("ok", True)):
+        ok = notifier.notify_price_changes(DELTAS, "2026-08-22")
+    assert ok is True and seen.get("ok")
+
+
+def test_send_feishu_card_fallback_to_text(monkeypatch):
+    """卡片被拒时自动降级为纯文本重发。"""
+    responses = iter([
+        (False, "bad request"),          # 卡片网络失败
+        (True, '{"code":0,"msg":"success"}'),  # text 成功
+    ])
+    with mock.patch.object(notifier, "_post", lambda url, data: next(responses)), \
+         mock.patch.object(notifier.logger, "warning"):
+        ok = notifier._send_feishu_card({"msg_type": "interactive"}, "hi", "https://example.com/hook")
+    assert ok is True
 
 
 def test_notify_skips_without_webhook(monkeypatch):
@@ -153,17 +194,17 @@ def test_notify_sends_when_configured(monkeypatch):
     monkeypatch.setenv("FEISHU_WEBHOOK_URL", "https://example.com/hook")
     sent: dict = {}
 
-    def fake_send(msg: str, url: str, wh_type: str) -> bool:
+    def fake_card(card, msg, url) -> bool:
         sent["msg"] = msg
+        sent["card"] = card
         sent["url"] = url
-        sent["type"] = wh_type
         return True
 
-    with mock.patch.object(notifier, "send_webhook", fake_send):
+    with mock.patch.object(notifier, "_send_feishu_card", fake_card):
         ok = notifier.notify_price_changes(DELTAS, "2026-08-22")
     assert ok is True
     assert sent["url"] == "https://example.com/hook"
-    assert sent["type"] == "feishu"
+    assert sent["card"]["msg_type"] == "interactive"
     assert "GPT-5" in sent["msg"]
 
 

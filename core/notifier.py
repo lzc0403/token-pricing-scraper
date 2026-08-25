@@ -231,6 +231,139 @@ def build_message(
     return "\n".join(lines)
 
 
+# ---------------------------------------------------------------------------
+# 飞书消息卡片（msg_type=interactive）
+#
+# 合法类型之一；官方规则：自定义关键词对卡片内的文本值同样生效
+# （title.content / markdown / plain_text 均会被扫描）。
+# 因此卡片文案中必须出现 PRICE_KEYWORD 对应的关键词，否则仍会 19024。
+# ---------------------------------------------------------------------------
+
+_CARD_COL_WEIGHTS = (30, 26, 44)  # 模型 / 来源 / 变动 三栏宽度
+
+
+def _md_cell(text: str) -> Dict[str, Any]:
+    return {"tag": "markdown", "content": text}
+
+
+def _card_row(cells: List[str], bold: bool = False) -> Dict[str, Any]:
+    """一行三栏 column_set，模拟表格行。"""
+    cols = []
+    for i, text in enumerate(cells):
+        content = f"**{text}**" if bold else text
+        cols.append(
+            {
+                "tag": "column",
+                "width": "weighted",
+                "weight": _CARD_COL_WEIGHTS[i],
+                "vertical_align": "center",
+                "elements": [_md_cell(content)],
+            }
+        )
+    return {"tag": "column_set", "flex_mode": "stretch", "background_style": "grey" if bold else "default", "columns": cols}
+
+
+def build_card(
+    deltas: List[Dict[str, Any]], snapshot_date: str, keyword: Optional[str] = None
+) -> Dict[str, Any]:
+    """构建飞书 interactive 卡片 payload。
+
+    版式：彩色头部（涨红/跌绿）→ 概览 → 表格（模型|来源|变动）→ 提醒
+    → 详情按钮 → 脚注（含关键词，规避 19024）。
+    """
+    kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "官网价格")
+
+    groups: Dict[tuple, List[Dict[str, Any]]] = {}
+    for d in deltas:
+        groups.setdefault(_group_key(d), []).append(d)
+
+    ups = sum(1 for d in deltas if (_pct(d.get("old"), d.get("new")) or 0) > 0)
+    downs = sum(1 for d in deltas if (_pct(d.get("old"), d.get("new")) or 0) < 0)
+
+    def score(key: tuple) -> float:
+        return max((abs(_pct(d.get("old"), d.get("new")) or 0) for d in groups[key]), default=0)
+
+    ordered = sorted(groups.keys(), key=lambda k: (-score(k), k))
+
+    # 中文市场惯例：涨红跌绿
+    header_color = "red" if ups >= downs else "green"
+
+    elements: List[Dict[str, Any]] = [
+        {
+            "tag": "div",
+            "text": {
+                "tag": "lark_md",
+                "content": (
+                    f"共 **{len(groups)}** 个模型 / **{len(deltas)}** 处变动"
+                    f"　<span class='wecom-red'>↑涨 {ups}</span> · ↓跌 {downs}"
+                ),
+            },
+        },
+        {"tag": "hr"},
+        _card_row(["模型", "来源", "变动（入 / 出）"], bold=True),
+    ]
+
+    for key in ordered:
+        canon, src, cond = key
+        items = sorted(groups[key], key=lambda x: _FIELD_ORDER.get(x.get("field") or "", 9))
+        cells_txt = "\n".join(_delta_cell(d) for d in items)
+        disp = _src_display(str(src), cond)
+        elements.append(_card_row([canon, disp, cells_txt]))
+
+    reminders = _build_reminders(groups)
+    if reminders:
+        elements.append({"tag": "hr"})
+        elements.append(
+            {
+                "tag": "div",
+                "text": {"tag": "lark_md", "content": "\n".join(f"💡 {r}" for r in reminders)},
+            }
+        )
+
+    elements.append({"tag": "hr"})
+    elements.append(
+        {
+            "tag": "action",
+            "actions": [
+                {
+                    "tag": "button",
+                    "text": {"tag": "plain_text", "content": "查看完整对比与趋势"},
+                    "type": "primary",
+                    "url": SITE_URL,
+                }
+            ],
+        }
+    )
+    elements.append(
+        {
+            "tag": "note",
+            "elements": [
+                {
+                    "tag": "plain_text",
+                    "content": (
+                        f"{snapshot_date} · 数据仅供参考，以厂商官网价格为准 · [关键词：{kw}]"
+                    ),
+                }
+            ],
+        }
+    )
+
+    return {
+        "msg_type": "interactive",
+        "card": {
+            "config": {"wide_screen_mode": True},
+            "header": {
+                "template": header_color,
+                "title": {
+                    "tag": "plain_text",
+                    "content": f"📊 Token 定价日报 · {snapshot_date}",
+                },
+            },
+            "elements": elements,
+        },
+    }
+
+
 def _webhook_config() -> Optional[Tuple[str, str]]:
     """返回 (url, type)；type ∈ {feishu, wecom}。未配置返回 None。"""
     feishu = os.environ.get("FEISHU_WEBHOOK_URL")
@@ -249,16 +382,14 @@ def _webhook_config() -> Optional[Tuple[str, str]]:
 def _payload(msg: str, wh_type: str) -> Dict[str, Any]:
     if wh_type == "wecom":
         return {"msgtype": "markdown", "markdown": {"content": msg}}
-    # 飞书必须用 msg_type="text"（合法类型仅 text/post/image/share_chat/interactive）。
+    # 飞书必须用合法 msg_type（text/post/image/share_chat/interactive）。
     # 关键坑：非标准 msg_type="markdown" 时，飞书的自定义关键词校验不扫描
     # content.text（官方文档：关键词只对 text/title 类文本参数值生效），
     # 会导致消息必带关键词仍返回 code:19024 Key Words Not Found。
     return {"msg_type": "text", "content": {"text": msg}}
 
 
-def send_webhook(msg: str, url: str, wh_type: str) -> bool:
-    """POST markdown 消息到 webhook，返回是否成功。"""
-    data = json.dumps(_payload(msg, wh_type)).encode("utf-8")
+def _post(url: str, data: bytes) -> Tuple[bool, str]:
     req = urllib.request.Request(
         url,
         data=data,
@@ -268,18 +399,45 @@ def send_webhook(msg: str, url: str, wh_type: str) -> bool:
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
             body = resp.read().decode("utf-8", "ignore")
-        logger.info("webhook 推送成功（%s）：%s", wh_type, body[:120])
-        # 飞书 19024 = 自定义关键词未命中，需在机器人安全设置中补充关键词
-        if wh_type == "feishu" and '"code":19024' in body.replace(" ", ""):
-            logger.warning(
-                "飞书 webhook 被拒（code:19024 = 自定义关键词未命中）。"
-                "请将机器人【安全设置-自定义关键词】设为消息中包含的词（如「官网价格」/「Token」），"
-                "或通过 PRICE_KEYWORD 环境变量在消息末尾追加关键词。"
-            )
-        return True
+        return True, body
     except Exception as exc:  # 网络/格式异常不应中断抓取主流程
-        logger.warning("webhook 推送失败（%s）：%s", wh_type, exc)
-        return False
+        logger.warning("webhook 推送失败：%s", exc)
+        return False, str(exc)
+
+
+def _send_feishu(msg: str, url: str) -> bool:
+    """飞书发送纯文本（msg_type=text）。"""
+    ok, body = _post(url, json.dumps(_payload(msg, "feishu")).encode("utf-8"))
+    if ok and '"code":0' in body.replace(" ", ""):
+        logger.info("webhook 推送成功（feishu）：%s", body[:120])
+        return True
+    if '"code":19024' in body.replace(" ", ""):
+        logger.warning(
+            "飞书 webhook 被拒（code:19024 = 自定义关键词未命中）。"
+            "请将机器人【安全设置-自定义关键词】设为消息中包含的词（如「官网价格」），"
+            "或通过 PRICE_KEYWORD 环境变量配置。"
+        )
+    return False
+
+
+def _send_feishu_card(card: Dict[str, Any], fallback_msg: str, url: str) -> bool:
+    """飞书发送：优先 interactive 卡片，失败自动降级为纯文本兜底。"""
+    ok, body = _post(url, json.dumps(card, ensure_ascii=False).encode("utf-8"))
+    if ok and '"code":0' in body.replace(" ", ""):
+        logger.info("webhook 推送成功（feishu card）：%s", body[:120])
+        return True
+    logger.warning("feishu 卡片推送未成功（%s），降级为纯文本", body[:120])
+    return _send_feishu(fallback_msg, url)
+
+
+def send_webhook(msg: str, url: str, wh_type: str) -> bool:
+    """POST 消息到 webhook，返回是否成功。"""
+    if wh_type == "feishu":
+        return _send_feishu(msg, url)
+    ok, body = _post(url, json.dumps(_payload(msg, wh_type)).encode("utf-8"))
+    if ok:
+        logger.info("webhook 推送成功（%s）：%s", wh_type, body[:120])
+    return ok
 
 
 def notify_price_changes(deltas: List[Dict[str, Any]], snapshot_date: str) -> bool:
@@ -299,4 +457,7 @@ def notify_price_changes(deltas: List[Dict[str, Any]], snapshot_date: str) -> bo
         return False
     url, wh_type = cfg
     msg = build_message(deltas, snapshot_date)
+    if wh_type == "feishu":
+        card = build_card(deltas, snapshot_date)
+        return _send_feishu_card(card, msg, url)
     return send_webhook(msg, url, wh_type)
