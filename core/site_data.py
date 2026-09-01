@@ -364,6 +364,23 @@ def _is_official_row(canon: str, r: Dict[str, Any]) -> bool:
     return bool(official and str(r.get("source") or "") == official)
 
 
+def _is_domestic_official(canon: str, r: Dict[str, Any]) -> bool:
+    """国内厂商官方源判定（用于「国内厂商官方定价」表/溢价基准对照）。
+
+    仅国内厂商（DeepSeek / Qwen / GLM / Kimi / MiniMax / Doubao）的官网源算
+    「国内官方」，海外大模型（OpenAI / Anthropic / Google / xAI 等）的 USD
+    官方行不计入——它们走 _overseas_official_rows() 单独渲染。
+
+    例：deepseek_us 视为国内（DeepSeek 海外官网归国内官方表，SOURCE_VENDOR
+    映射为 deepseek 属 DOMESTIC_VENDOR_ORDER）；openai 不算国内（属 OVERSEAS）。
+    """
+    if not _is_official_row(canon, r):
+        return False
+    src = str(r.get("source") or "")
+    vendor = SOURCE_VENDOR.get(src, src)
+    return vendor in DOMESTIC_VENDOR_ORDER
+
+
 def _is_official_any_currency(canon: str, r: Dict[str, Any]) -> bool:
     """官网源（不分币种）识别：厂商国内站(CNY)与海外站(USD)均视为官网官方标价。
 
@@ -929,9 +946,13 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
             x["channel_peak_in"] = ch_peak
             x["peak_sched"] = _source_peak_schedule(x.get("source"), x.get("canonical"))
 
-        # 官方：官网源（保留原计费币种）。CNY 官网 → 国内官方表；USD 官网（如 DeepSeek 英文站）→ 海外官方表。
-        official_cny = [x for x in norm if x["is_official"] and str(x["currency"]).upper() != "USD"]
-        official_usd = [x for x in norm if x["is_official"] and str(x["currency"]).upper() == "USD"]
+        # 官方：仅国内厂商官网源进入「国内厂商官方定价」表。海外大模型（OpenAI/
+        # Anthropic/Google/xAI）的 USD 官方行不进此处，由 _overseas_official_rows()
+        # 单独渲染为「海外大模型官方定价」专区。CNY 官网 → 国内官方表；USD 官网
+        # （如 DeepSeek 英文站）→ 仍归国内官方表，SOURCE_VENDOR 把 deepseek_us
+        # 映射为 deepseek 属 DOMESTIC_VENDOR_ORDER。
+        official_cny = [x for x in norm if _is_domestic_official(c, x) and str(x["currency"]).upper() != "USD"]
+        official_usd = [x for x in norm if _is_domestic_official(c, x) and str(x["currency"]).upper() == "USD"]
         # DeepSeek 英文站（deepseek_us, USD）也是官方标价，进海外区；其余厂商 USD 行若已化为 CNY 官网则去重
         for x in official_usd:
             already_cny = any(
