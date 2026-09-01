@@ -29,6 +29,7 @@
 
 - **数据依赖型测试必须用 fixture，不要读真实 data/**：读 data/watchlist.json 会在源线上 0 条时 flaky（CI 干净环境必挂）。
 - `tests/test_parsers.py::test_watchlist_all_configured_targets_matched` 断言 models.yml 每个 canonical 都要能命中；**新增 canonical 必须同步在该测试补 synthetic record**（`recs.append({"model_raw": ...})`）。
+- **本地探测抓取会污染 data/**：手动调 `scraper.parse(scraper.fetch_url(...))`（绕开 `run()`）时，openrouter/atlascloud 的 `parse()` 内部仍会写 `data/*_raw.json` 缓存。探测完必须 `git checkout -- data/` 还原，否则违背「本机不产生权威数据」铁律。
 
 ## 双币种官方识别
 
