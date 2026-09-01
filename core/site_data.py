@@ -964,7 +964,12 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         official_rows.extend(official_cny)
 
         # 渠道：非官网。按「结算币种」分区：USD 进海外面板；CNY 进国内面板。
+        # 「同类报价」语义：同一模型需 ≥2 家渠道才有横向对比价值。仅 1 家的行
+        # 不进渠道表（多为海外大模型只有 OpenRouter 一家报价，无第二家可比），
+        # 避免出现无法对比的孤行。渠道家数回升到 2 家时该模型自动回归。
         channels = [x for x in norm if not x["is_official"]]
+        if len({x["source"] for x in channels}) < 2:
+            channels = []
         d_ch = [x for x in channels if str(x["currency"]).upper() != "USD"]
         o_ch = [x for x in channels if str(x["currency"]).upper() == "USD"]
         d_ch = sorted(d_ch, key=lambda x: (_price_key(x), x["source_label"], x["model"].lower()))
@@ -975,6 +980,10 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         # 图表：官网（国内 CNY）+ 国内渠道
         chart_rows = [x for x in official_cny if str(x["currency"]).upper() != "USD"] + d_ch
         chart_rows = sorted(chart_rows, key=lambda x: (0 if x["is_official"] else 1, _price_key(x)))
+        # 「价格对比」同样需 ≥2 条才有对比意义；仅 1 条（如只有官网价、或只有
+        # 一家渠道）的模型不进对比图表，避免出现一根孤零零的柱子。
+        if len(chart_rows) < 2:
+            continue
         chart[c] = [
             {
                 "source": r["source"],

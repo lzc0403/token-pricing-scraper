@@ -22,6 +22,14 @@
 - **官方表区域过滤铁律**：`OFFICIAL_SOURCE` 注册表同时含国内厂商（DeepSeek/GLM/Kimi/MiniMax/Qwen/Doubao）和海外大模型（GPT-5.x），但**不能简单用 `is_official` 判定哪行进哪张表**。海外大模型的 USD 官方行会错位进「国内厂商官方定价」。修法：`_build_site_data()` 用 `_is_domestic_official()`（在 `_is_official_row` 基础上加 `SOURCE_VENDOR[source] ∈ DOMESTIC_VENDOR_ORDER`）筛 `official_rows`；海外大模型官方行由 `_overseas_official_rows()` 单独渲染。
 - **`notifier.is_official_source` 与 `OFFICIAL_SOURCE` 解耦**：前者用 canonical 前缀映射（"GPT"→openai 等），后者用精确字典（"GPT-5.6 Sol"→"openai"）。改 `OFFICIAL_SOURCE` **不影响** notifier 市场行情基准对照；改 `_OFFICIAL_SINGLE`（notifier 自己的元组）**不影响**站点渲染。新增海外大模型家族（Anthropic/Google/Grok）的基准对照，需同时改 `OFFICIAL_SOURCE` + `_OFFICIAL_SINGLE` 两处。
 
+## 「没有对比数据就不显示」规则（2026-09-01，用户拍板）
+
+- **渠道表**：同一模型需 **≥2 家渠道**才进「渠道同类报价」表。仅 1 家的不渲染（多为海外大模型只有 OpenRouter 一家）。实现见 `site_data._build_site_data` 里 `channels` 取到后的 `len({x["source"]...}) < 2` 判空。家数回升到 2 家自动回归。
+- **对比图表**：`chart_rows` 需 **≥2 条**（官网价 + 至少一家渠道，或 ≥2 家渠道）才进 `chart[c]`。仅 1 条的跳过。
+- **图表下拉**：`_chart_section` 必须传 `list(data["chart"].keys())`，**不能传全量 `canons`**——否则下拉会出现选中后图表空白的型号。
+- 趋势图 `_trend_section` 内部有 `avail = [c for c in canons if c in series]` 过滤，传全量 canons 是安全的，不需改。
+- 通则：**任何「对比」语义的 UI（渠道表/对比图/下拉），数据源不足 2 条就不要渲染**，用户不要孤行/空白态。
+
 ## 促销价解析铁律（2026-09-01）
 
 厂商官网「限时折扣」会导致抓到**划线原价**而非实际扣费价，与 OpenRouter 差 100% 触发跨源告警。两个源的坑与解法：

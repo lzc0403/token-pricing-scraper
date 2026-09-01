@@ -702,7 +702,11 @@ def build_site(data_dir: str, out_path: Optional[str] = None) -> str:
     official_block = _official_section(data.get("official_rows") or [], bool(data.get("has_official")))
     overseas_block = _overseas_section(data.get("overseas_rows") or [], bool(data.get("has_overseas")))
     channel_block = _channel_section(data)
-    chart_block = _chart_section(canons, bool(data.get("chart")))
+    # 图表可选项只列「有对比数据」的模型（chart 的 key，已过滤掉仅 1 条数据的孤行），
+    # 不能传全量 canons——否则下拉里会出现选中后图表空白的型号（如海外大模型、
+    # 只有一家渠道的型号）。chart key 顺序即 canons 顺序，保持厂内旗舰优先。
+    chart_canons = list((data.get("chart") or {}).keys())
+    chart_block = _chart_section(chart_canons, bool(data.get("chart")))
     trend_block = _trend_section(data.get("history") or {}, canons)
 
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
