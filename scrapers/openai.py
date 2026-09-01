@@ -8,9 +8,13 @@
 页面含多个 tier 档位（standard / batch / flex / fast），默认展示 standard。
 每档 rows 形如：
 
-    [1, [[1, [[0, "gpt-5.6-sol"], [0,5],[0,0.5],[0,6.25],[0,30]], ...]]]
+    [1, [[1, [[0, "gpt-5.6-sol"], [0,4],[0,0.4],[0,5],[0,20]], ...]]]
 
-列：模型名 | 输入 | 缓存输入 | 缓存写入 | 输出（美元/百万 tokens）。
+列布局**随模型代次变化**，解析时必须按列数判断，不能硬编码索引：
+- GPT-5.4 及以上 **4 列**：模型名 | 输入 | 缓存输入 | 缓存写入 | 输出
+- GPT-5.2 及以下 **3 列**：模型名 | 输入 | 缓存输入 | 输出（无缓存写入）
+
+价格单位：美元 / 百万 tokens。缺项页面用 '-' 占位（如 gpt-5.5-pro 无缓存价）。
 
 旗舰区（gpt-5.6-sol/terra/luna）另带长文本档（>272K tokens）：
 - 短文本 ≤272K：sol 5/30、terra 2/12、luna 0.2/1.2
@@ -84,9 +88,14 @@ class OpenaiScraper(BaseScraper):
                 continue
             canon = _MIN_CANON[clean_raw]
             or_id = _OR_ID.get(clean_raw)
-            inp = self._to_float(prices[0])
-            out = self._to_float(prices[3])
-            cache = self._to_float(prices[1])
+            # 列布局随模型代次变化，output / cache_write 的索引不能硬编码：
+            #   GPT-5.4 及以上 4 列：[input, cached_input, cache_writes, output]
+            #   GPT-5.2 及以下 3 列：[input, cached_input, output]（无 cache writes）
+            inp = self._to_float(prices[0]) if len(prices) > 0 else None
+            cache = self._to_float(prices[1]) if len(prices) > 1 else None
+            out_idx = 3 if len(prices) >= 4 else 2
+            out = self._to_float(prices[out_idx]) if len(prices) > out_idx else None
+            cwrite = self._to_float(prices[2]) if len(prices) >= 4 else None
             if inp is None and out is None:
                 continue
             cond = "短文本 · ≤272K" if "5.6" in model_raw else "default"
@@ -95,6 +104,7 @@ class OpenaiScraper(BaseScraper):
                 input=inp,
                 output=out,
                 cache_hit=cache,
+                cache_write=cwrite,
                 context="1M",
                 condition=cond,
             )
@@ -109,6 +119,9 @@ class OpenaiScraper(BaseScraper):
                     input=long_p["input"],
                     output=long_p["output"],
                     cache_hit=long_p["cache_hit"],
+                    # 长档 cache_writes 页面抓不到（前端 JS 运行时注入），留 None；
+                    # 若后续能拿到，在 _LONG_CONTEXT_PRICES 补 cache_write 键即可。
+                    cache_write=long_p.get("cache_write"),
                     context="1M",
                     condition="长文本 · >272K",
                 )

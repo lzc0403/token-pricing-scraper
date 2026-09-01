@@ -257,6 +257,9 @@ class OpenrouterScraper(BaseScraper):
         inp = ov_inp if ov_inp is not None else _per_m(p.get("prompt"))
         out = ov_out if ov_out is not None else _per_m(p.get("completion"))
         cache = _per_m(p.get("input_cache_read"))
+        # 缓存写入价：OpenRouter 的 pricing.input_cache_write（per-token），
+        # 与 input_cache_read（缓存命中读取）是两种不同计费动作。
+        cwrite = _per_m(p.get("input_cache_write"))
         ctx = _fmt_ctx(m.get("context_length"))
         # 记录原始 per-token 便于二次验证；condition 留空（id/note 是内部备注，不对外展示）
         rec = self._rec(
@@ -264,6 +267,7 @@ class OpenrouterScraper(BaseScraper):
             input=inp,
             output=out,
             cache_hit=cache,
+            cache_write=cwrite,
             context=ctx,
             condition=None,
         )

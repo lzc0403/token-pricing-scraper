@@ -589,6 +589,7 @@ def _normalize_row(r: Dict[str, Any], canon: str, min_in: Optional[float], base_
         "input_rmb": in_rmb,
         "output_rmb": r.get("output_rmb"),
         "cache_hit": r.get("cache_hit"),
+        "cache_write": r.get("cache_write"),
         "input": r.get("input"),
         "output": r.get("output"),
         "currency": r.get("currency") or "",
@@ -655,6 +656,7 @@ def _overseas_official_rows(rate: float) -> List[Dict[str, Any]]:
                     "input_rmb": in_rmb,
                     "output_rmb": out_rmb,
                     "cache_hit": cache,
+                    "cache_write": model.get("cache_write"),
                     "currency": model.get("currency") or "USD",
                     "context": ctx_label,
                     "note": model.get("role") or "官方 API",
@@ -708,6 +710,7 @@ def _official_live_prices(watchlist: List[Dict[str, Any]]) -> Dict[str, Dict[str
             "input": float(inp),
             "output": float(outp),
             "cache_hit": r.get("cache_hit"),
+            "cache_write": r.get("cache_write"),
             "context": r.get("context"),
         }
     return out

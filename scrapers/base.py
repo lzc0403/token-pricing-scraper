@@ -176,6 +176,7 @@ class BaseScraper(abc.ABC):
             "input": None,
             "output": None,
             "cache_hit": None,
+            "cache_write": None,
             "context": None,
             "condition": None,
             "unit": DEFAULT_UNIT,
@@ -190,14 +191,22 @@ class BaseScraper(abc.ABC):
         cache_hit: Optional[float] = None,
         context: Optional[str] = None,
         condition: Optional[str] = None,
+        cache_write: Optional[float] = None,
     ) -> Dict[str, Any]:
-        """构造一条标准记录（自动填充 source / currency / unit）。"""
+        """构造一条标准记录（自动填充 source / currency / unit）。
+
+        cache_write：缓存写入价（把 prompt 写入缓存的计费），与 cache_hit
+        （缓存命中读取价）是两种不同计费动作。目前仅 OpenAI 官网（定价表第 3 列
+        「Cache writes」）与 OpenRouter（pricing.input_cache_write）提供，
+        其余源保持 None。放在末尾作关键字参数，兼容既有位置参数调用。
+        """
         return {
             "source": self.source_id,
             "model_raw": model_raw,
             "input": input,
             "output": output,
             "cache_hit": cache_hit,
+            "cache_write": cache_write,
             "context": context,
             "condition": condition,
             "unit": DEFAULT_UNIT,
