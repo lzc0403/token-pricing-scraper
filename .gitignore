@@ -36,6 +36,8 @@ htmlcov/
 # 本地临时分析报告（非项目交付物）
 20260812-MCP协议-深度分析报告.md
 前端审查报告.html
+# 一次性渲染预览稿（outputs/ 下其余文件是有意入库的交付物）
+outputs/*preview*.html
 
 # Local secrets / temp
 *.local
