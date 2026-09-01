@@ -177,6 +177,7 @@ def test_watchlist_all_configured_targets_matched():
     recs.append({"model_raw": "kimi-k3"})
     recs.append({"model_raw": "qwen3.8-max"})
     recs.append({"model_raw": "GLM-5.3"})
+    recs.append({"model_raw": "GLM-5.3-Flash"})
     _, watch = matcher.build_watchlist(recs, MODELS_CFG)
     canons = {r["canonical"] for r in watch}
     targets = {m["canonical"] for m in MODELS_CFG["models"]}

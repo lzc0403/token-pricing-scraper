@@ -4,15 +4,19 @@
 （Z.AI DEVELOPER DOCUMENT，官方定价页，全站 USD）
 
 页面含多张表：
-- table 0：Text Models，表头 `Model | Input | Cached Input | Cached Input Storage | Output`
+- Latest Models：表头 `Model | Input | Cached Input | Cached Input Storage | Output`
+- Text Models：同上表头
 - 其余：Vision / Tools / Image / Video / Audio / Agents，均非文本 LLM 定价，忽略。
 
 只取文本模型表（表头含 Model + Input + Output 且 Input 列值为美元价格）。
 价格为美元（USD）/ 百万 tokens。
 
-收录范围：GLM 系列文本模型（GLM-5.2 / 5.1 / 5 / 5-Turbo / 4.7 / 4.6 / 4.5 / 4.5-Air 等）。
-GLM-5.3 目前仅 GLM Coding Plan 订阅提供，标准 API 未开放，定价页无 → 抓不到属正常，
-如后续上线会自动收录。
+收录范围：GLM 系列文本模型（GLM-5.3 / 5.3-Flash / 5.2 / 5.1 / 5 / 4.7 / 4.6 / 4.5 等）。
+
+**限时促销价处理**：页面以 `<del>划线原价</del> 促销价` 呈现（如 GLM-5.3-Flash 的
+`<del>$0.15</del> $0.075`）。取单元格文本时必须排除 `<del>`，否则会抓到划线原价，
+与 OpenRouter 的实际扣费价（$0.075）差 100% 并触发跨源审计告警。
+促销结束后 `<del>` 消失，同一逻辑自然回落到原价，无需改动。
 
 GLM 系列 condition 留空（无来源类型区分，价格即智谱官方国际站原价）。
 """
@@ -36,7 +40,7 @@ class ZaiScraper(BaseScraper):
 
         for table in sel.css("table"):
             header_cells = [
-                c.xpath("string(.)").get(default="").strip()
+                _cell_text(c)
                 for c in table.css("tr:first-child td,th")
             ]
             hj = " ".join(header_cells).lower()
@@ -59,10 +63,7 @@ class ZaiScraper(BaseScraper):
                 continue
 
             for row in table.css("tr")[1:]:
-                cells = [
-                    c.xpath("string(.)").get(default="").strip()
-                    for c in row.css("td,th")
-                ]
+                cells = [_cell_text(c) for c in row.css("td,th")]
                 if len(cells) <= max(i_model, i_input, i_cache, i_output):
                     continue
                 raw_model = cells[i_model].strip()
@@ -91,6 +92,17 @@ class ZaiScraper(BaseScraper):
                 )
 
         return records
+
+
+def _cell_text(cell) -> str:
+    """取单元格文本，排除 `<del>`（划线原价）内的内容。
+
+    Z.AI 促销单元格形如 `<td><del>$0.15</del> $0.075</td>`：`<del>` 是划线原价，
+    后面裸文本才是实际扣费价。用 `string(.)` 会得到 `$0.15 $0.075`，
+    `clean_price` 取首个数字 → 错抓成原价。
+    """
+    parts = cell.xpath(".//text()[not(ancestor::del)]").getall()
+    return "".join(parts).strip()
 
 
 def _is_vision(name: str) -> bool:

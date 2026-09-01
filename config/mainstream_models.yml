@@ -185,6 +185,24 @@ sections:
         unit: per_million_tokens
         source_url: https://open.bigmodel.cn/pricing
         verified_at: '2026-08-20T12:00:00+08:00'
+      - canonical: GLM-5.3-Flash
+        display_name: GLM-5.3-Flash
+        api_id: null
+        openrouter_id: z-ai/glm-5.3-flash
+        role: 高频 Flash · 官网限时 5 折（约两周）
+        availability: official
+        modality: text
+        context_tokens: 1048576
+        pricing_kind: paid
+        pricing:
+          tiers:
+          - condition: default
+            input_price: 0.4
+            output_price: 1.4
+        currency: CNY
+        unit: per_million_tokens
+        source_url: https://open.bigmodel.cn/pricing
+        verified_at: '2026-09-01T13:40:00+08:00'
     - id: kimi
       name: Kimi
       source_id: kimi

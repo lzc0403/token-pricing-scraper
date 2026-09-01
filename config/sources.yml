@@ -99,7 +99,7 @@
   parser: zai
   currency: USD
   js: false
-  note: 智谱海外站 Z.AI（docs.z.ai，USD 结算）官方定价页。仅取文本模型表（Model/Input/Cached Input/Output），收录 GLM 系列。GLM-5.3 目前仅 Coding Plan 订阅提供、标准 API 未开放，定价页暂无，上线后自动收录。
+  note: 智谱海外站 Z.AI（docs.z.ai，USD 结算）官方定价页。取 Latest Models + Text Models 两张文本表，收录 GLM 系列（GLM-5.3 / GLM-5.3-Flash / 5.2 / 5.1 / 5 / 4.7 …）。页面限时促销以 `<del>原价</del> 促销价` 呈现，解析器排除 `<del>` 取实际扣费价（与 OpenRouter 一致）。
 
 - id: deepseek
   name: DeepSeek

@@ -266,14 +266,14 @@ def _market_analysis(deltas: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         else:
             p = _pct(nd.get("old"), nd.get("new"))
             # 渠道行：该模型该字段有官网变动且本渠道与之同幅 → 标记跟进
-            official_ps = [
+            _raw_ps = [
                 _pct(x.get("old"), x.get("new"))
                 for x in deltas
                 if str(x.get("canonical")) == canon
                 and str(x.get("field")) == field
                 and is_official_source(canon, x.get("source"))
             ]
-            official_ps = [x for x in official_ps if x is not None]
+            official_ps: List[float] = [x for x in _raw_ps if x is not None]
             nd["follows_official"] = bool(
                 p is not None and any(abs(p - op) <= _FOLLOW_TOL_PP for op in official_ps)
             )

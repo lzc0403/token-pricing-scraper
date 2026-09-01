@@ -18,6 +18,8 @@ models:
     aliases: [GLM-5.2, glm-5.2]
   - canonical: GLM-5.3
     aliases: [GLM-5.3, glm-5.3]
+  - canonical: GLM-5.3-Flash
+    aliases: [GLM-5.3-Flash, glm-5.3-flash, GLM 5.3 Flash, z-ai/glm-5.3-flash, zai-org/glm-5.3-flash]
   - canonical: Kimi K2.6
     aliases: [kimi-k2.6, Kimi K2.6]
   - canonical: Kimi K2.7 Code

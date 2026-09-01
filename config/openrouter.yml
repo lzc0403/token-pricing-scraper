@@ -94,6 +94,12 @@ whitelist:
   - id: moonshotai/kimi-k3
     model: Kimi K3
     note: 新品跟进
+  - id: z-ai/glm-5.3
+    model: GLM-5.3
+    note: 2026-08 旗舰 · 1M 上下文
+  - id: z-ai/glm-5.3-flash
+    model: GLM-5.3-Flash
+    note: 2026-08 高频 Flash · 官网限时 5 折至 2026-09-09（$0.15/$0.50 → $0.075/$0.25）
 
 # 二次验证阈值
 verify:
