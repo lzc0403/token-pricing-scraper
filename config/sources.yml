@@ -178,6 +178,45 @@
     旗舰区（5.6 系列）区分短文本（≤272K）与长文本（>272K）双档价格。
     canonical 由 openrouter.yml 白名单同 id 映射（source=openai 特殊通道）。
 
+- id: anthropic
+  name: Anthropic
+  url: https://platform.claude.com/docs/en/about-claude/pricing
+  parser: anthropic
+  currency: USD
+  js: false
+  note: >-
+    Anthropic 官方定价页（platform.claude.com，USD；原 docs.anthropic.com 301 到此）。
+    主定价表 6 列：Model / Base Input / 5m Cache Writes / 1h Cache Writes /
+    Cache Hits / Output。取 5m 缓存写入档为 cache_write、Cache Hits 为 cache_hit。
+    收录 Claude Fable 5 / Opus 5 / Opus 4.5-4.8 / Sonnet 5 / Sonnet 4.5-4.6 /
+    Haiku 4.5，退役与限量模型跳过。canonical 由 openrouter.yml 白名单同 id 映射。
+
+- id: gemini
+  name: Google Gemini
+  url: https://ai.google.dev/gemini-api/docs/pricing
+  parser: gemini
+  currency: USD
+  js: false
+  note: >-
+    Google Gemini API 官方定价页（ai.google.dev，USD）。每模型一个 h2 标题、
+    h3 分档（Standard/Batch/Flex/Priority），只取 Standard 档 Paid Tier 列。
+    促销单元格形如「$0.75 through December 31, 2026.$1.50 starting January 1, 2027.」，
+    解析器按日期取当前生效价（促销未过期取促销价，过期取标准价）。
+    收录 Gemini 3.7 Flash / 3.5 Flash / 2.5 Pro / 2.5 Flash；Gemini 3.5 Pro
+    官网已无独立条目，继续由 mainstream_models.yml 静态价提供。
+
+- id: grok
+  name: xAI Grok
+  url: https://docs.x.ai/docs/models
+  parser: grok
+  currency: USD
+  js: false
+  note: >-
+    xAI 官方模型页（docs.x.ai，USD）。模型数据内嵌于 globalThis.__XAI_PUBLIC_MODELS__
+    JSON（price / 10000 = USD per 1M tokens）。收录 Grok 4.6，标准档与长上下文档
+    （prompt ≥200K 全量按高档计）分列，缓存命中价单列。官网无缓存写入价字段，
+    cache_write 恒为 None。canonical 由 openrouter.yml 白名单同 id 映射。
+
 - id: openrouter
   name: OpenRouter
   url: https://openrouter.ai/api/v1/models?sort=top-weekly

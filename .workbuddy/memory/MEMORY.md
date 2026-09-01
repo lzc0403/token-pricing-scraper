@@ -22,6 +22,16 @@
 - **官方表区域过滤铁律**：`OFFICIAL_SOURCE` 注册表同时含国内厂商（DeepSeek/GLM/Kimi/MiniMax/Qwen/Doubao）和海外大模型（GPT-5.x），但**不能简单用 `is_official` 判定哪行进哪张表**。海外大模型的 USD 官方行会错位进「国内厂商官方定价」。修法：`_build_site_data()` 用 `_is_domestic_official()`（在 `_is_official_row` 基础上加 `SOURCE_VENDOR[source] ∈ DOMESTIC_VENDOR_ORDER`）筛 `official_rows`；海外大模型官方行由 `_overseas_official_rows()` 单独渲染。
 - **`notifier.is_official_source` 与 `OFFICIAL_SOURCE` 解耦**：前者用 canonical 前缀映射（"GPT"→openai 等），后者用精确字典（"GPT-5.6 Sol"→"openai"）。改 `OFFICIAL_SOURCE` **不影响** notifier 市场行情基准对照；改 `_OFFICIAL_SINGLE`（notifier 自己的元组）**不影响**站点渲染。新增海外大模型家族（Anthropic/Google/Grok）的基准对照，需同时改 `OFFICIAL_SOURCE` + `_OFFICIAL_SINGLE` 两处。
 
+## 海外官方源与 cache_write（2026-09-02）
+
+- **五源白名单通道**：`main.py` `_WHITELIST_SOURCES = ("openrouter","openai","anthropic","gemini","grok")`。海外官网源 scraper 记录自带 `openrouter_id`，复用 openrouter.yml 白名单映射 canonical。**新增海外官方源时：①sources.yml 注册 ②写 scrapers/<parser>.py ③记录带 openrouter_id ④OFFICIAL_SOURCE 补 canonical 映射 ⑤notifier._OFFICIAL_SINGLE 补前缀 ⑥SOURCE_VENDOR/OVERSEAS_VENDOR_ORDER 补 vendor**。
+- **cache_write 字段**：`_rec()`/PRICE_FIELDS 全链路支持。OpenAI 4 列表 `prices[2]`、OpenRouter `input_cache_write`。长上下文档抓不到的留 None（`long_p.get("cache_write")`）。
+- **OpenAI 列布局随代次变化**：GPT-5.4+ 4 列（含 cache writes），GPT-5.2- 3 列。output 索引按 `len(prices)` 动态定（4→[3]，3→[2]），禁止硬编码。
+- **Gemini 促销价陷阱**：Paid Tier 单元格「$0.75 through <日期>.$1.50 starting <日期>.」，`_effective_price()` 按日期判断取当前生效价（与 zai/bigmodel 的促销解析铁律同属「取实际扣费价」家族，但这里没有 del 标记，必须解析日期）。
+- **Gemini 3.5 Pro 官网已无独立条目**（被 3.1 Pro Preview 取代），该 canonical 继续靠 mainstream_models.yml 静态价。
+- **Grok 官网**：`globalThis.__XAI_PUBLIC_MODELS__` JSON，price/10000 = USD/1M；页面有重复模型对象，按 (档位, name) 去重；无 cache_write 字段。
+- Anthropic 1h cache write（2× input）不收录，只取 5m 档（1.25× input）作 cache_write。
+
 ## 「没有对比数据就不显示」规则（2026-09-01，用户拍板）
 
 - **渠道表**：同一模型需 **≥2 家渠道**才进「渠道同类报价」表。仅 1 家的不渲染（多为海外大模型只有 OpenRouter 一家）。实现见 `site_data._build_site_data` 里 `channels` 取到后的 `len({x["source"]...}) < 2` 判空。家数回升到 2 家自动回归。

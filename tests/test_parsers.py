@@ -38,6 +38,9 @@ FIXTURE_MAP = {
     "aliyun_bailian": ["aliyun_bailian.json"],
     "volcengine_intl": ["volcengine_intl.html"],
     "zai": ["zai.html"],
+    "anthropic": ["anthropic.html"],
+    "gemini": ["gemini.html"],
+    "grok": ["grok.html"],
 }
 
 
@@ -491,3 +494,56 @@ def test_zai_condition_none():
     recs = _parse_source("zai")
     for r in recs:
         assert r["condition"] is None, f"{r['model_raw']} condition 应为 None"
+
+
+# ---------------------------------------------------------------------------
+# 海外厂商官网源（anthropic / gemini / grok）
+# ---------------------------------------------------------------------------
+
+
+def test_anthropic_official_pricing():
+    """Anthropic 官网：Opus 5 = $5/$25，5m cache write $6.25，cache hit $0.5。"""
+    recs = _parse_source("anthropic")
+    assert len(recs) >= 10
+    opus = next(r for r in recs if r["model_raw"] == "Claude Opus 5")
+    assert opus["input"] == 5.0
+    assert opus["output"] == 25.0
+    assert opus["cache_hit"] == 0.5
+    assert opus["cache_write"] == 6.25
+    assert opus["openrouter_id"] == "anthropic/claude-opus-5"
+    # 退役/限量模型不收录
+    names = {r["model_raw"] for r in recs}
+    assert "Claude Opus 4.1" not in names
+    assert all(r["model_raw"] in {
+        "Claude Fable 5", "Claude Opus 5", "Claude Opus 4.8", "Claude Opus 4.7",
+        "Claude Opus 4.6", "Claude Opus 4.5", "Claude Sonnet 5",
+        "Claude Sonnet 4.6", "Claude Sonnet 4.5", "Claude Haiku 4.5",
+    } for r in recs)
+
+
+def test_gemini_promo_price_effective():
+    """Gemini 官网：3.7 Flash 促销期 $0.75/$3.75（through 2026-12-31 未过期）。"""
+    recs = _parse_source("gemini")
+    assert len(recs) == 4
+    f37 = next(r for r in recs if r["model_raw"] == "Gemini 3.7 Flash")
+    assert f37["input"] == 0.75  # 促销价生效中，非标准价 $1.50
+    assert f37["output"] == 3.75
+    assert f37["openrouter_id"] == "google/gemini-3.7-flash"
+    p25 = next(r for r in recs if r["model_raw"] == "Gemini 2.5 Pro")
+    assert p25["input"] == 2.5
+    assert p25["output"] == 15.0
+
+
+def test_grok_official_dual_tier():
+    """Grok 官网：4.6 标准档 $2/$6，长上下文档 $4/$12，缓存 $0.5/$1.0。"""
+    recs = _parse_source("grok")
+    std = next(r for r in recs if r.get("condition") == "default")
+    assert std["input"] == 2.0
+    assert std["output"] == 6.0
+    assert std["cache_hit"] == 0.5
+    assert std["openrouter_id"] == "x-ai/grok-4.6"
+    longr = next(r for r in recs if "长上下文" in str(r.get("condition") or ""))
+    assert longr["input"] == 4.0
+    assert longr["output"] == 12.0
+    # 官网无缓存写入价字段
+    assert all(r.get("cache_write") is None for r in recs)

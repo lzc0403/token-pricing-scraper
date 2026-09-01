@@ -205,6 +205,9 @@ _OFFICIAL_SINGLE: Tuple[Tuple[str, str], ...] = (
     ("Qwen", "aliyun"),
     ("Doubao", "volcengine"),
     ("GPT", "openai"),
+    ("Claude", "anthropic"),
+    ("Gemini", "gemini"),
+    ("Grok", "grok"),
 )
 
 # 官网 vs 渠道涨跌幅一致性容差（百分点）：同字段百分比差在此范围内视为「跟进」

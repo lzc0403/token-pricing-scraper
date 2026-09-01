@@ -136,7 +136,9 @@ def main(argv: List[str] | None = None) -> int:
     print("== 汇率换算 / 模型匹配 ==")
     currency.enrich(records)
 
-    # OpenRouter / OpenAI 官网白名单模型强制 canonical（热门主力即使不在 models.yml 也要进页面）
+    # OpenRouter / 海外厂商官网白名单模型强制 canonical（热门主力即使不在 models.yml 也要进页面）
+    # 海外官网源（openai/anthropic/gemini/grok）的记录自带 openrouter_id，复用同一白名单映射。
+    _WHITELIST_SOURCES = ("openrouter", "openai", "anthropic", "gemini", "grok")
     try:
         or_rules = _load_yaml(os.path.join(CONFIG_DIR, "openrouter.yml")) or {}
         id_to_canon = {
@@ -145,7 +147,7 @@ def main(argv: List[str] | None = None) -> int:
             if w.get("id") and w.get("model")
         }
         for r in records:
-            if r.get("source") in ("openrouter", "openai") and r.get("openrouter_id") in id_to_canon:
+            if r.get("source") in _WHITELIST_SOURCES and r.get("openrouter_id") in id_to_canon:
                 r["canonical"] = id_to_canon[r["openrouter_id"]]
     except Exception as _exc:
         print(f"  [warn] openrouter whitelist canonical: {_exc}")
@@ -154,7 +156,7 @@ def main(argv: List[str] | None = None) -> int:
     # 合并：matcher 命中 + 白名单已写 canonical 的记录
     seen = {(r.get("source"), r.get("model_raw"), r.get("input"), r.get("output")) for r in watchlist}
     for r in annotated:
-        if r.get("source") in ("openrouter", "openai") and r.get("canonical"):
+        if r.get("source") in _WHITELIST_SOURCES and r.get("canonical"):
             key = (r.get("source"), r.get("model_raw"), r.get("input"), r.get("output"))
             if key not in seen:
                 watchlist.append(r)

@@ -65,6 +65,24 @@ OFFICIAL_SOURCE: Dict[str, str] = {
     "GPT-5.6 Luna": "openai",
     "GPT-5.5": "openai",
     "GPT-5.5 Pro": "openai",
+    # Anthropic 官方（platform.claude.com，USD）
+    "Claude Fable 5": "anthropic",
+    "Claude Opus 5": "anthropic",
+    "Claude Opus 4.8": "anthropic",
+    "Claude Opus 4.7": "anthropic",
+    "Claude Opus 4.6": "anthropic",
+    "Claude Opus 4.5": "anthropic",
+    "Claude Sonnet 5": "anthropic",
+    "Claude Sonnet 4.6": "anthropic",
+    "Claude Sonnet 4.5": "anthropic",
+    "Claude Haiku 4.5": "anthropic",
+    # Google Gemini 官方（ai.google.dev，USD）
+    "Gemini 3.7 Flash": "gemini",
+    "Gemini 3.5 Flash": "gemini",
+    "Gemini 2.5 Pro": "gemini",
+    "Gemini 2.5 Flash": "gemini",
+    # xAI Grok 官方（docs.x.ai，USD）
+    "Grok 4.6": "grok",
 }
 
 # 渠道源：非官网聚合/转售渠道
@@ -130,6 +148,7 @@ OVERSEAS_VENDOR_ORDER: List[str] = [
     "openai",
     "anthropic",
     "google",
+    "grok",
     "aliyun_intl",
     "atlascloud",
 ]
@@ -148,6 +167,8 @@ SOURCE_VENDOR: Dict[str, str] = {
     "openai": "openai",
     "anthropic": "anthropic",
     "google": "google",
+    "gemini": "google",
+    "grok": "grok",
     "aliyun_intl": "aliyun_intl",
     "atlascloud": "atlascloud",
 }
