@@ -1,9 +1,386 @@
 {
-  "fetched_at": "2026-08-26T18:06:44",
+  "fetched_at": "2026-09-02T06:38:55",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
     "data": [
+      {
+        "uuid": "ms-03f197ce612a",
+        "model": "minimax/h3-max/text-to-video",
+        "type": "Video",
+        "displayName": "MiniMax H3 Max Text-to-Video",
+        "profile": "MiniMax H3 Max text-to-video: generate a cinematic video from a text prompt. Supports 480P、768P, 5-15s., and 16:9/9:16/1:1/adaptive aspect ratios.",
+        "logo": "https://static.atlascloud.ai/uploads/models/d4817832-e513-4ab1-92cb-f3bd2c64bd18.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-max-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-max-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-max-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-max-text-to-video.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-max-text-to-video.json",
+        "priority": 90055,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2n8o4bdx2yyz",
+        "familyName": "minimax-h3",
+        "familyDisplayName": "MiniMax H3 API for Video Generation and Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "95",
+          "actual": {
+            "base_price": "0.048",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.05",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-8d0153fa9d4e",
+        "model": "minimax/h3-max/image-to-video",
+        "type": "Video",
+        "displayName": "MiniMax H3 Max Image-to-Video",
+        "profile": "MiniMax H3 Max image-to-video: animate a first-frame image (optionally with a last frame) driven by a text prompt. Supports 480P、768P, 5-15s.",
+        "logo": "https://static.atlascloud.ai/uploads/models/d4817832-e513-4ab1-92cb-f3bd2c64bd18.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-max-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-max-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-max-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-max-image-to-video.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-max-image-to-video.json",
+        "priority": 90055,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2n8o4bdx2yyz",
+        "familyName": "minimax-h3",
+        "familyDisplayName": "MiniMax H3 API for Video Generation and Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "95",
+          "actual": {
+            "base_price": "0.048",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.05",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-2afd76c3123e",
+        "model": "minimax/h3-developer/text-to-video",
+        "type": "Video",
+        "displayName": "MiniMax H3-Developer Text-to-Video",
+        "profile": "MiniMax H3-Developer self-hosted text-to-video: generate a video (with audio) from a text prompt. Supports 480P/768P/2K, 16:9/9:16/1:1 aspect ratios.",
+        "logo": "https://static.atlascloud.ai/uploads/models/44f2bd14-41cb-487b-9f16-4cf45a1e5d85.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-developer-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-developer-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-developer-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-developer-text-to-video.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-developer-text-to-video.json",
+        "priority": 90052,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2n8o4bdx2yyz",
+        "familyName": "minimax-h3",
+        "familyDisplayName": "MiniMax H3 API for Video Generation and Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "40",
+          "actual": {
+            "base_price": "0.02",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.05",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-675ebdfde4c5",
+        "model": "minimax/h3-developer/image-to-video",
+        "type": "Video",
+        "displayName": "MiniMax H3-Developer Image-to-Video",
+        "profile": "MiniMax H3-Developer self-hosted image-to-video: animate a first-frame image (optionally a last frame) driven by a text prompt, with generated audio. Supports 480P/768P/2K.",
+        "logo": "https://static.atlascloud.ai/uploads/models/7fd7ec41-026f-48c1-8573-1419ac8918b3.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-developer-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-developer-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-developer-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-developer-image-to-video.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-developer-image-to-video.json",
+        "priority": 90052,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2n8o4bdx2yyz",
+        "familyName": "minimax-h3",
+        "familyDisplayName": "MiniMax H3 API for Video Generation and Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "40",
+          "actual": {
+            "base_price": "0.02",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.05",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-ffc53c98a291",
+        "model": "minimax/h3-developer/reference-to-video",
+        "type": "Video",
+        "displayName": "MiniMax H3-Developer Reference-to-Video",
+        "profile": "MiniMax H3-Developer self-hosted reference-to-video: generate a video that keeps the subject from one or more reference images/videos, driven by a text prompt, with generated audio. Supports 480P768P/2K.",
+        "logo": "https://static.atlascloud.ai/uploads/models/d4817832-e513-4ab1-92cb-f3bd2c64bd18.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-developer-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-developer-reference-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-developer-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-developer-reference-to-video.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-developer-reference-to-video.json",
+        "priority": 90052,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2n8o4bdx2yyz",
+        "familyName": "minimax-h3",
+        "familyDisplayName": "MiniMax H3 API for Video Generation and Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "40",
+          "actual": {
+            "base_price": "0.02",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.05",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-sd47edseq001",
+        "model": "bytedance/seedream-v4.7/edit-sequential",
+        "type": "Image",
+        "displayName": "Seedream v4.7 Edit Sequential",
+        "profile": "ByteDance Seedream 4.7 image editing model with batch generation support. Produce a coherent set of edited images from reference inputs.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v4.7-edit-sequential.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v4.7-edit-sequential.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v4.7-edit-sequential.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v4.7-edit-sequential.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v4.7-edit-sequential.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v4.7-edit-sequential.json",
+        "priority": 90051,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2oicxjv8ontc",
+        "familyName": "seedream-4.7",
+        "familyDisplayName": "Seedream 4.7 API",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.03"
+          },
+          "origin": {
+            "base_price": "0.03"
+          }
+        }
+      },
+      {
+        "uuid": "ms-sd47edit0001",
+        "model": "bytedance/seedream-v4.7/edit",
+        "type": "Image",
+        "displayName": "Seedream v4.7 Edit",
+        "profile": "ByteDance Seedream 4.7 image editing model. Executes edit instructions precisely while preserving identity, lighting and local structure of the source image.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v4.7-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v4.7-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v4.7-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v4.7-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v4.7-edit.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v4.7-edit.json",
+        "priority": 90051,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2oicxjv8ontc",
+        "familyName": "seedream-4.7",
+        "familyDisplayName": "Seedream 4.7 API",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.03"
+          },
+          "origin": {
+            "base_price": "0.03"
+          }
+        }
+      },
+      {
+        "uuid": "ms-sd47seq00001",
+        "model": "bytedance/seedream-v4.7/sequential",
+        "type": "Image",
+        "displayName": "Seedream v4.7 Sequential",
+        "profile": "ByteDance Seedream 4.7 with batch generation support. Generate a set of coherent images in a single request.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v4.7-sequential.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v4.7-sequential.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v4.7-sequential.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v4.7-sequential.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v4.7-sequential.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v4.7-sequential.json",
+        "priority": 90051,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2oicxjv8ontc",
+        "familyName": "seedream-4.7",
+        "familyDisplayName": "Seedream 4.7 API",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.03"
+          },
+          "origin": {
+            "base_price": "0.03"
+          }
+        }
+      },
+      {
+        "uuid": "ms-sd47base0001",
+        "model": "bytedance/seedream-v4.7/text-to-image",
+        "type": "Image",
+        "displayName": "Seedream v4.7 Text-to-Image",
+        "profile": "ByteDance Seedream 4.7 image generation model. Balanced gains in image quality, aesthetics and instruction following, at the efficiency and cost profile of the 4.0 generation.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v4.7-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v4.7-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v4.7-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v4.7-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v4.7-text-to-image.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v4.7-text-to-image.json",
+        "priority": 90051,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2oicxjv8ontc",
+        "familyName": "seedream-4.7",
+        "familyDisplayName": "Seedream 4.7 API",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.03"
+          },
+          "origin": {
+            "base_price": "0.03"
+          }
+        }
+      },
       {
         "uuid": "ms-aa8635403b7d",
         "model": "alibaba/wan-3.0-prime/text-to-video",
@@ -431,12 +808,12 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
             "base_price": "0.134"
           },
           "origin": {
-            "base_price": "0.134"
+            "base_price": "0.167"
           }
         }
       },
@@ -472,12 +849,12 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
             "base_price": "0.134"
           },
           "origin": {
-            "base_price": "0.134"
+            "base_price": "0.167"
           }
         }
       },
@@ -513,12 +890,12 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
             "base_price": "0.134"
           },
           "origin": {
-            "base_price": "0.134"
+            "base_price": "0.167"
           }
         }
       },
@@ -690,6 +1067,80 @@
             "base_price": "0.04"
           }
         }
+      },
+      {
+        "uuid": "ms-b398b82lqu3p",
+        "model": "deepseek-ai/deepseek-v4-flash-vision-exp",
+        "type": "Text",
+        "displayName": "DeepSeek V4 Flash Vision Exp",
+        "profile": "Experimental multimodal model optimized for fast visual understanding and reasoning.",
+        "logo": "https://static.atlascloud.ai/model/logo/deepseek-ai-deepseek-v3.2-exp.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/DEEPSEEK.png",
+        "background": "https://static.atlascloud.ai/model/background/deepseek-ai-deepseek-v4-flash-vision-exp.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/63c708b2-631e-424f-b28a-c40d9a4e44a8.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/deepseek-ai-deepseek-v4-flash-vision-exp.json",
+        "readme": "https://static.atlascloud.ai/model/readme/deepseek-ai-deepseek-v3.2-exp.md",
+        "organization": "DEEPSEEK",
+        "example": "https://static.atlascloud.ai/model/example/deepseek-ai-deepseek-v3.2-exp.json",
+        "priority": 90041,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 65536,
+        "avgTotalTPS": "22.56",
+        "avgLatency": "0.26",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "0.44",
+            "output_price": "1.32",
+            "cache_price": "0.028"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0.44",
+            "output_price": "1.32",
+            "cache_price": "0.028"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "tools",
+          "structured_outputs"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "architectureType": "Mixture-of-Experts (MoE)"
       },
       {
         "uuid": "ms-f6f13ad1b76b",
@@ -1353,10 +1804,12 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.1"
+            "base_price": "0.08",
+            "unit": "second"
           },
           "origin": {
-            "base_price": "0.1"
+            "base_price": "0.08",
+            "unit": "second"
           }
         }
       },
@@ -1393,10 +1846,12 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.1"
+            "base_price": "0.08",
+            "unit": "second"
           },
           "origin": {
-            "base_price": "0.1"
+            "base_price": "0.08",
+            "unit": "second"
           }
         }
       },
@@ -1433,121 +1888,12 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.1"
+            "base_price": "0.08",
+            "unit": "second"
           },
           "origin": {
-            "base_price": "0.1"
-          }
-        }
-      },
-      {
-        "uuid": "ms-01i7f1fdzlzl",
-        "model": "reve-ai/reve-2.1/remix",
-        "type": "Image",
-        "displayName": "Reve 2.1 Remix",
-        "profile": "Reve 2.1 Remix composes one to six reference images with a natural-language prompt into a single coherent image at native 4K, blending subject, style, and background while keeping references consistent.",
-        "logo": "https://static.atlascloud.ai/model/logo/reve-ai-reve-2.1-remix.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/REVE AI.png",
-        "background": "https://static.atlascloud.ai/model/background/reve-ai-reve-2.1-remix.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/reve-ai-reve-2.1-remix.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/reve-ai-reve-2.1-remix.json",
-        "readme": "https://static.atlascloud.ai/model/readme/reve-ai-reve-2.1-remix.md",
-        "organization": "REVE AI",
-        "example": "https://static.atlascloud.ai/model/example/reve-ai-reve-2.1-remix.json",
-        "priority": 90036,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2mw38gqcq8p7",
-        "familyName": "Reve",
-        "familyDisplayName": "Reve API: Layout-First 4K Image Generation",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.24"
-          },
-          "origin": {
-            "base_price": "0.24"
-          }
-        }
-      },
-      {
-        "uuid": "ms-kc1nyl63x4ov",
-        "model": "reve-ai/reve-2.1/edit",
-        "type": "Image",
-        "displayName": "Reve 2.1 Edit",
-        "profile": "Reve 2.1 Edit applies precise, instruction-driven, element-level edits to a single input image at native 4K, changing targeted regions while preserving the rest of the scene.",
-        "logo": "https://static.atlascloud.ai/model/logo/reve-ai-reve-2.1-edit.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/REVE AI.png",
-        "background": "https://static.atlascloud.ai/model/background/reve-ai-reve-2.1-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/reve-ai-reve-2.1-edit.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/reve-ai-reve-2.1-edit.json",
-        "readme": "https://static.atlascloud.ai/model/readme/reve-ai-reve-2.1-edit.md",
-        "organization": "REVE AI",
-        "example": "https://static.atlascloud.ai/model/example/reve-ai-reve-2.1-edit.json",
-        "priority": 90036,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2mw38gqcq8p7",
-        "familyName": "Reve",
-        "familyDisplayName": "Reve API: Layout-First 4K Image Generation",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.24"
-          },
-          "origin": {
-            "base_price": "0.24"
-          }
-        }
-      },
-      {
-        "uuid": "ms-3zog6i7dqq3f",
-        "model": "reve-ai/reve-2.1/text-to-image",
-        "type": "Image",
-        "displayName": "Reve 2.1 Text-to-Image",
-        "profile": "Reve 2.1 is a layout-first text-to-image model that turns natural-language prompts into sharp, production-ready images at native 4K, with best-in-class typography and high prompt adherence.",
-        "logo": "https://static.atlascloud.ai/model/logo/reve-ai-reve-2.1-text-to-image.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/REVE AI.png",
-        "background": "https://static.atlascloud.ai/model/background/reve-ai-reve-2.1-text-to-image.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/reve-ai-reve-2.1-text-to-image.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/reve-ai-reve-2.1-text-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/reve-ai-reve-2.1-text-to-image.md",
-        "organization": "REVE AI",
-        "example": "https://static.atlascloud.ai/model/example/reve-ai-reve-2.1-text-to-image.json",
-        "priority": 90036,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2mw38gqcq8p7",
-        "familyName": "Reve",
-        "familyDisplayName": "Reve API: Layout-First 4K Image Generation",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.24"
-          },
-          "origin": {
-            "base_price": "0.24"
+            "base_price": "0.08",
+            "unit": "second"
           }
         }
       },
@@ -2702,6 +3048,85 @@
         }
       },
       {
+        "uuid": "ms-vwk9mdho5c45",
+        "model": "zai-org/glm-5.3-flash",
+        "type": "Text",
+        "displayName": "GLM 5.3 Flash",
+        "profile": "Fast, efficient GLM model optimized for low-latency reasoning and high-throughput AI tasks.",
+        "logo": "https://static.atlascloud.ai/model/logo/zai-org-glm-4.6.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ZHIPUAI.png",
+        "background": "https://static.atlascloud.ai/model/background/zai-org-glm-5.3-flash.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/d1838851-b8af-480f-bc9b-1ee715ab5e5b.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/zai-org-glm-5.3-flash.json",
+        "readme": "https://static.atlascloud.ai/model/readme/zai-org-glm-5.2.md",
+        "organization": "ZHIPUAI",
+        "example": "https://static.atlascloud.ai/model/example/zai-org-glm-4.6.json",
+        "priority": 90025,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 131072,
+        "avgTotalTPS": "34.49",
+        "avgLatency": "0.70",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "0.15",
+            "output_price": "0.5",
+            "cache_price": "0.03"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0.15",
+            "output_price": "0.5",
+            "cache_price": "0.03"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "tools",
+          "reasoning",
+          "structured_outputs"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "totalParameters": "744B",
+        "activeParameters": "40B",
+        "architectureType": "Hybrid Transformer with high-sparsity MoE",
+        "knowledgeCutoff": "June 2025"
+      },
+      {
         "uuid": "ms-pdxmg9mn6cmx",
         "model": "zai-org/glm-5.3",
         "type": "Text",
@@ -2725,24 +3150,24 @@
           "NEW",
           "HOT"
         ],
-        "contextLength": 1048576,
+        "contextLength": 262144,
         "maxCompletionTokens": 131072,
         "avgTotalTPS": "34.49",
         "avgLatency": "0.70",
-        "display_console": false,
+        "display_console": true,
         "price": {
-          "discount": "90",
+          "discount": "100",
           "actual": {
             "type": "flat",
-            "input_price": "1.638",
-            "output_price": "5.148",
-            "cache_price": "0.304"
+            "input_price": "1.4",
+            "output_price": "4.4",
+            "cache_price": "0.26"
           },
           "origin": {
             "type": "flat",
-            "input_price": "1.82",
-            "output_price": "5.72",
-            "cache_price": "0.338"
+            "input_price": "1.4",
+            "output_price": "4.4",
+            "cache_price": "0.26"
           }
         },
         "input_modalities": [
@@ -3391,6 +3816,47 @@
           },
           "origin": {
             "base_price": "0.12"
+          }
+        }
+      },
+      {
+        "uuid": "ms-minimax-speech-26-hd",
+        "model": "minimax/speech-2.6-hd",
+        "type": "Audio",
+        "displayName": "MiniMax Speech 2.6 HD",
+        "profile": "MiniMax text-to-speech (HD): natural, high-fidelity speech from text with selectable preset voices, speed, volume and pitch.",
+        "logo": "https://static.atlascloud.ai/uploads/models/d13ad7fa-d300-49bf-ad3e-8628d13c98e7.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-speech-2.6-hd.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-speech-2.6-hd.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-speech-2.6-hd.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-speech-2.6-hd.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-speech-2.6-hd.json",
+        "priority": 90000,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2er4petbfz1y",
+        "familyName": "minimax-m2.1",
+        "familyDisplayName": "MiniMax API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.08"
+          },
+          "origin": {
+            "base_price": "0.1"
           }
         }
       },
@@ -8085,88 +8551,6 @@
         "knowledgeCutoff": "June 2025"
       },
       {
-        "uuid": "ms-9qxr3329ky74",
-        "model": "zai-org/glm-5-turbo",
-        "type": "Text",
-        "displayName": "GLM 5 Turbo",
-        "profile": "GLM-5 Turbo is Z.AI’s latest flagship model, featuring upgrades in two key areas: enhanced programming capabilities and more stable multi-step reasoning/execution. It demonstrates significant improvements in executing complex agent tasks while delivering more natural conversational experiences and superior front-end aesthetics.",
-        "logo": "https://static.atlascloud.ai/model/logo/zai-org-glm-4.6.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ZHIPUAI.png",
-        "background": "https://static.atlascloud.ai/model/background/zai-org-glm-5-turbo.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/d7b28aed-4479-420d-8ec4-331947285783.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/zai-org-glm-5-turbo.json",
-        "readme": "https://static.atlascloud.ai/model/readme/zai-org-glm-4.6.md",
-        "organization": "ZHIPUAI",
-        "example": "https://static.atlascloud.ai/model/example/zai-org-glm-4.6.json",
-        "priority": 33000,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "familyUUID": "mf-2ek4nw45btza",
-        "familyName": "glm",
-        "familyDisplayName": "GLM API for Autonomous Task Execution",
-        "parentFamilyUUID": "mf-2l7xucr55w1y",
-        "parentFamilyName": "z-ai",
-        "parentFamilyDisplayName": "Z.ai API for Top Open-Source GLM Coding",
-        "contextLength": 262144,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "34.49",
-        "avgLatency": "0.70",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.2",
-            "output_price": "4",
-            "cache_price": "0.24"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.2",
-            "output_price": "4",
-            "cache_price": "0.24"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_sampling_parameters": [
-          "temperature",
-          "top_p",
-          "top_k",
-          "min_p",
-          "frequency_penalty",
-          "presence_penalty",
-          "repetition_penalty",
-          "stop",
-          "seed",
-          "max_tokens",
-          "logit_bias"
-        ],
-        "supported_features": [
-          "json_mode",
-          "reasoning",
-          "tools"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "totalParameters": "744B",
-        "activeParameters": "40B",
-        "architectureType": "Hybrid Transformer with high-sparsity MoE",
-        "knowledgeCutoff": "June 2025"
-      },
-      {
         "uuid": "ms-j67dgfrtzz2y",
         "model": "zai-org/glm-5",
         "type": "Text",
@@ -10207,10 +10591,10 @@
         "price": {
           "discount": "85",
           "actual": {
-            "base_price": "0.008"
+            "base_price": "0.007"
           },
           "origin": {
-            "base_price": "0.009"
+            "base_price": "0.008"
           }
         }
       },
@@ -10941,138 +11325,6 @@
             "base_price": "0.1"
           }
         }
-      },
-      {
-        "uuid": "ms-o6ysxtcgxhm0",
-        "model": "openai/gpt-5.2",
-        "type": "Text",
-        "displayName": "GPT 5.2",
-        "profile": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly to simple queries while spending more depth on complex tasks.\n\nBuilt for broad task coverage, GPT-5.2 delivers consistent gains across math, coding, sciende, and tool calling workloads, with more coherent long-form answers and improved tool-use reliability.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.2.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/14ad59f2-9be0-4dd2-bd5f-d5ceef2f6cfc.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.2.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.2.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.2.json",
-        "priority": 2807,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.75",
-            "output_price": "14",
-            "cache_price": "0.175"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.75",
-            "output_price": "14",
-            "cache_price": "0.175"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
-      },
-      {
-        "uuid": "ms-rt7cy31d9c8y",
-        "model": "openai/gpt-5.2-chat",
-        "type": "Text",
-        "displayName": "GPT 5.2 Chat",
-        "profile": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly to simple queries while spending more depth on complex tasks.\n\nBuilt for broad task coverage, GPT-5.2 delivers consistent gains across math, coding, sciende, and tool calling workloads, with more coherent long-form answers and improved tool-use reliability.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.2-chat.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/965490da-c778-4b08-967e-15845a91680d.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.2-chat.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.2-chat.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.2-chat.json",
-        "priority": 2807,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 128000,
-        "maxCompletionTokens": 16400,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.75",
-            "output_price": "14",
-            "cache_price": "0.175"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.75",
-            "output_price": "14",
-            "cache_price": "0.175"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
       },
       {
         "uuid": "ms-8x4q2ryw7zbk",
@@ -13631,336 +13883,6 @@
         ]
       },
       {
-        "uuid": "ms-9f2b7q8w1e3",
-        "model": "openai/gpt-5.1",
-        "type": "Text",
-        "displayName": "GPT 5.1",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.1.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/44230b74-29ae-4149-996b-5267c2be0485.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.1.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.1.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.1.json",
-        "priority": 2007,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
-      },
-      {
-        "uuid": "ms-4k6m2z9c7v5",
-        "model": "openai/gpt-5.1-chat",
-        "type": "Text",
-        "displayName": "GPT 5.1 Chat",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.1-chat.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a2131f36-ded6-442b-94e8-7239ded6a3ce.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.1-chat.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.1-chat.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.1-chat.json",
-        "priority": 2007,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 128000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
-      },
-      {
-        "uuid": "ms-1a8d3s6f0g2",
-        "model": "openai/gpt-5.1-codex",
-        "type": "Text",
-        "displayName": "GPT 5.1 Codex",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.1-codex.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/b47d528f-3eff-4209-960d-731f2402ed34.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.1-codex.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.1-codex.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.1-codex.json",
-        "priority": 2007,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
-      },
-      {
-        "uuid": "ms-7p4n5t2y8u1",
-        "model": "openai/gpt-5.1-codex-mini",
-        "type": "Text",
-        "displayName": "GPT 5.1 Codex mini",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.1-codex-mini.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/1d37243d-a3fd-46cd-aa33-8605dd4e7e73.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.1-codex-mini.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.1-codex-mini.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.1-codex-mini.json",
-        "priority": 2007,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.25",
-            "output_price": "2",
-            "cache_price": "0.025"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.25",
-            "output_price": "2",
-            "cache_price": "0.025"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
-      },
-      {
-        "uuid": "ms-a9k3d7p2wq8",
-        "model": "openai/gpt-5",
-        "type": "Text",
-        "displayName": "GPT 5",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/6ec399c6-92de-4ca8-a497-937a605a42bb.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.json",
-        "priority": 2007,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
-      },
-      {
         "uuid": "ms-phvtlm5hfkyy",
         "model": "openai/gpt-5.4-mini",
         "type": "Text",
@@ -14093,400 +14015,6 @@
         ]
       },
       {
-        "uuid": "ms-l4m8z2c9t1b",
-        "model": "openai/gpt-5-chat",
-        "type": "Text",
-        "displayName": "GPT 5 Chat",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5-chat.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/96726468-6efb-4ec8-8049-58296ce57fe3.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5-chat.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5-chat.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5-chat.json",
-        "priority": 2006,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 128000,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Optimized speed and low latency",
-          "Multimodal input support",
-          "Full tool support capabilities",
-          "Efficient reasoning with preamble"
-        ],
-        "useCases": [
-          "Real-time & embedded applications",
-          "High-throughput classification tasks",
-          "Dynamic interactive experiences",
-          "Cost-sensitive agentic solutions"
-        ]
-      },
-      {
-        "uuid": "ms-q7e2n5h9k3r",
-        "model": "openai/gpt-5-codex",
-        "type": "Text",
-        "displayName": "GPT 5 Codex",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5-codex.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/85345b8d-ebc3-4130-a11f-fa46b9a70665.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5-codex.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5-codex.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5-codex.json",
-        "priority": 2006,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Optimized speed and low latency",
-          "Multimodal input support",
-          "Full tool support capabilities",
-          "Efficient reasoning with preamble"
-        ],
-        "useCases": [
-          "Real-time & embedded applications",
-          "High-throughput classification tasks",
-          "Dynamic interactive experiences",
-          "Cost-sensitive agentic solutions"
-        ]
-      },
-      {
-        "uuid": "ms-v1b6p4s8m2j",
-        "model": "openai/gpt-5-mini",
-        "type": "Text",
-        "displayName": "GPT 5 mini",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5-mini.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/4d4c3f5b-9b45-44e3-a35e-7c56e3dbd19d.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5-mini.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5-mini.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5-mini.json",
-        "priority": 2006,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.25",
-            "output_price": "2",
-            "cache_price": "0.025"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.25",
-            "output_price": "2",
-            "cache_price": "0.025"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Optimized speed and low latency",
-          "Multimodal input support",
-          "Full tool support capabilities",
-          "Efficient reasoning with preamble"
-        ],
-        "useCases": [
-          "Real-time & embedded applications",
-          "High-throughput classification tasks",
-          "Dynamic interactive experiences",
-          "Cost-sensitive agentic solutions"
-        ]
-      },
-      {
-        "uuid": "ms-c3t9f6a1d7x",
-        "model": "openai/gpt-5-nano",
-        "type": "Text",
-        "displayName": "GPT 5 nano",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5-nano.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/bd6581e5-998c-4584-b15a-a00868d7ffda.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5-nano.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5-nano.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5-nano.json",
-        "priority": 2006,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.05",
-            "output_price": "0.4",
-            "cache_price": "0.005"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.05",
-            "output_price": "0.4",
-            "cache_price": "0.005"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Optimized speed and low latency",
-          "Multimodal input support",
-          "Full tool support capabilities",
-          "Efficient reasoning with preamble"
-        ],
-        "useCases": [
-          "Real-time & embedded applications",
-          "High-throughput classification tasks",
-          "Dynamic interactive experiences",
-          "Cost-sensitive agentic solutions"
-        ]
-      },
-      {
-        "uuid": "ms-p8r2k6w3z5n",
-        "model": "openai/gpt-5-pro",
-        "type": "Text",
-        "displayName": "GPT 5 pro",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5-pro.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/91b127bc-e7ce-40d1-8cd4-36e1dfffadc3.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5-pro.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5-pro.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5-pro.json",
-        "priority": 2006,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "15",
-            "output_price": "120"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "15",
-            "output_price": "120"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Optimized speed and low latency",
-          "Multimodal input support",
-          "Full tool support capabilities",
-          "Efficient reasoning with preamble"
-        ],
-        "useCases": [
-          "Real-time & embedded applications",
-          "High-throughput classification tasks",
-          "Dynamic interactive experiences",
-          "Cost-sensitive agentic solutions"
-        ]
-      },
-      {
-        "uuid": "ms-ljhco74x2f3x",
-        "model": "openai/gpt-4.1",
-        "type": "Text",
-        "displayName": "GPT 4.1",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4o.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-4.1.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/1a468c44-2b00-4b9a-a6e7-225e75d9fdbc.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-4.1.json",
-        "readme": "https://static.atlascloud.ai/model/readme/gpt-4o.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/gpt-4o.json",
-        "priority": 1509,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 1047576,
-        "maxCompletionTokens": 32768,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "2",
-            "output_price": "8",
-            "cache_price": "0.5"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "2",
-            "output_price": "8",
-            "cache_price": "0.5"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Native multimodality (text, audio, image)",
-          "High efficiency (2x speed, 0.5x cost)",
-          "Superior vision & multilingual",
-          "Real-time audio (232ms response)"
-        ],
-        "useCases": [
-          "Advanced analytics & data insights",
-          "Innovative content creation",
-          "Natural voice conversations",
-          "Complex problem solving"
-        ]
-      },
-      {
         "uuid": "ms-mb0fw04hpvu9",
         "model": "openai/gpt-image-2",
         "type": "Text",
@@ -14598,72 +14126,6 @@
             "input_price": "0.4",
             "output_price": "1.6",
             "cache_price": "0.1"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Low cost and latency",
-          "Strong multimodal reasoning",
-          "Improved long-context (128K)",
-          "Robust function calling"
-        ],
-        "useCases": [
-          "High-volume API applications",
-          "Real-time customer interaction",
-          "Large context processing tasks",
-          "Multilingual application support"
-        ]
-      },
-      {
-        "uuid": "ms-cgo5lufw06lk",
-        "model": "openai/gpt-4.1-nano",
-        "type": "Text",
-        "displayName": "GPT 4.1 nano",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4o-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-4.1-nano.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/4df8c02c-ff58-4761-bd71-8951fd0001ff.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-4.1-nano.json",
-        "readme": "https://static.atlascloud.ai/model/readme/gpt-4o-mini.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/gpt-4o-mini.json",
-        "priority": 1508,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 1047576,
-        "maxCompletionTokens": 32768,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.1",
-            "output_price": "0.4",
-            "cache_price": "0.025"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.1",
-            "output_price": "0.4",
-            "cache_price": "0.025"
           }
         },
         "input_modalities": [
@@ -14850,204 +14312,6 @@
           "Enterprise deployment planning",
           "Cutting-edge research applications",
           "Long-term AI strategy development"
-        ]
-      },
-      {
-        "uuid": "ms-j2yvruvwoz2f",
-        "model": "openai/gpt-4o",
-        "type": "Text",
-        "displayName": "GPT 4o",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-4o.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/b3c5ed7c-712a-4e4f-9abe-1b86f9a7696b.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-4o.json",
-        "readme": "https://static.atlascloud.ai/model/readme/gpt-4.1.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/gpt-4.1.json",
-        "priority": 1411,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 128000,
-        "maxCompletionTokens": 16384,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "2.5",
-            "output_price": "10",
-            "cache_price": "1.25"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "2.5",
-            "output_price": "10",
-            "cache_price": "1.25"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Top-tier coding (54.6% SWE-bench)",
-          "Excellent instruction following",
-          "1M token context window",
-          "Optimized for agentic workflows"
-        ],
-        "useCases": [
-          "Building agentic systems",
-          "Editing large codebases",
-          "Complex data extraction",
-          "Highly structured content generation"
-        ]
-      },
-      {
-        "uuid": "ms-pxm7y75dqatj",
-        "model": "openai/gpt-4o-mini",
-        "type": "Text",
-        "displayName": "GPT 4o mini",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-4o-mini.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/d4bf4c26-0ccf-4f04-a575-e66ce987baab.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-4o-mini.json",
-        "readme": "https://static.atlascloud.ai/model/readme/gpt-4.1-mini.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/gpt-4.1-mini.json",
-        "priority": 1410,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 128000,
-        "maxCompletionTokens": 16384,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.15",
-            "output_price": "0.6",
-            "cache_price": "0.075"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.15",
-            "output_price": "0.6",
-            "cache_price": "0.075"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Major coding & instruction gains",
-          "Massive 1M token context",
-          "Low latency (50% of GPT-4o) & cost (83% lower)",
-          "Excellent tool calling"
-        ],
-        "useCases": [
-          "Complex technical & coding problems",
-          "Large-scale document analysis",
-          "Chained API calls",
-          "Real-time interactive applications"
-        ]
-      },
-      {
-        "uuid": "ms-6o7zc2x45f1o",
-        "model": "openai/gpt-5.1-codex-max",
-        "type": "Text",
-        "displayName": "GPT 5.1 Codex max",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.1-codex-max.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/50c15268-ca5f-4a2a-8e5d-9c47e251a93b.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.1-codex-max.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.1-codex-max.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.1-codex-max.json",
-        "priority": 1007,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 400000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.25",
-            "output_price": "10",
-            "cache_price": "0.125"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
         ]
       },
       {
@@ -17657,334 +16921,6 @@
         ]
       },
       {
-        "uuid": "ms-0lynywo7wgjb",
-        "model": "openai/o3-pro",
-        "type": "Text",
-        "displayName": "GPT o3 pro",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/o1.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-o3-pro.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/111ca78c-be84-4b24-b451-57f399203269.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-o3-pro.json",
-        "readme": "https://static.atlascloud.ai/model/readme/o1.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/o1.json",
-        "priority": 505,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 100000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "20",
-            "output_price": "80"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "20",
-            "output_price": "80"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Advanced chain-of-thought reasoning",
-          "Expert-level performance (89th %ile Codeforces)",
-          "State-of-the-art safety & robustness",
-          "Production-ready with vision"
-        ],
-        "useCases": [
-          "Complex multi-step tasks",
-          "Scientific research & analysis",
-          "Advanced software engineering",
-          "Multimodal reasoning applications"
-        ]
-      },
-      {
-        "uuid": "ms-tzdprzey2aph",
-        "model": "openai/o4-mini",
-        "type": "Text",
-        "displayName": "GPT o4 mini",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/o1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-o4-mini.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/0af758e6-dcdd-429e-a2c7-cadcced38464.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-o4-mini.json",
-        "readme": "https://static.atlascloud.ai/model/readme/o1-mini.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/o1-mini.json",
-        "priority": 504,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 100000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.1",
-            "output_price": "4.4",
-            "cache_price": "0.55"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.1",
-            "output_price": "4.4",
-            "cache_price": "0.55"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Optimized STEM reasoning",
-          "Cost & speed efficiency (80% cheaper)",
-          "Complex code generation",
-          "Advanced problem solving"
-        ],
-        "useCases": [
-          "Coding & development tasks",
-          "Scientific & mathematical applications",
-          "Workflow management",
-          "Cost-effective agentic systems"
-        ]
-      },
-      {
-        "uuid": "ms-hl88f0ethz7a",
-        "model": "openai/o3-mini",
-        "type": "Text",
-        "displayName": "GPT o3 mini",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/o3.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-o3-mini.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/7ad9c456-f941-4527-8ea4-40974644ee1d.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-o3-mini.json",
-        "readme": "https://static.atlascloud.ai/model/readme/o3.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/o3.json",
-        "priority": 503,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 100000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "1.1",
-            "output_price": "4.4",
-            "cache_price": "0.55"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "1.1",
-            "output_price": "4.4",
-            "cache_price": "0.55"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "State-of-the-art reasoning",
-          "Full tool capabilities suite",
-          "Strong visual perception",
-          "Enhanced safety via deliberative alignment"
-        ],
-        "useCases": [
-          "High-level reasoning tasks",
-          "Advanced code generation",
-          "Multimodal problem solving",
-          "Agentic workflows with tools"
-        ]
-      },
-      {
-        "uuid": "ms-9ww40okskct7",
-        "model": "openai/o3",
-        "type": "Text",
-        "displayName": "GPT o3",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/o3-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-o3.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/52a70bde-1bde-42c4-ab0e-65e2ab3dea83.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-o3.json",
-        "readme": "https://static.atlascloud.ai/model/readme/o3-mini.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/o3-mini.json",
-        "priority": 502,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 100000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "2",
-            "output_price": "8",
-            "cache_price": "0.5"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "2",
-            "output_price": "8",
-            "cache_price": "0.5"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Exceptional STEM capabilities",
-          "Speed and cost-efficiency (24% faster)",
-          "Production-ready developer features",
-          "Configurable reasoning effort"
-        ],
-        "useCases": [
-          "Technical & scientific applications",
-          "Coding & software engineering",
-          "Logical problem-solving",
-          "Cost-sensitive high-throughput workloads"
-        ]
-      },
-      {
-        "uuid": "ms-hcmljtrf2ef3",
-        "model": "openai/o1",
-        "type": "Text",
-        "displayName": "GPT o1",
-        "profile": "Fastest, most cost-effective GPT model from OpenAI.",
-        "logo": "https://static.atlascloud.ai/model/logo/o4-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-o1.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/c48620d5-d101-4501-b758-a48341b5c03d.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-o1.json",
-        "readme": "https://static.atlascloud.ai/model/readme/o4-mini.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/o4-mini.json",
-        "priority": 501,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 100000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "15",
-            "output_price": "60",
-            "cache_price": "7.5"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "15",
-            "output_price": "60",
-            "cache_price": "7.5"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "High efficiency & low latency",
-          "Multimodality with vision",
-          "Full tool support with parallel calling",
-          "Enhanced safety & explainability"
-        ],
-        "useCases": [
-          "Real-time AI chatbots",
-          "Content generation & summarization",
-          "Edge computing & local deployment",
-          "Educational & programming assistance"
-        ]
-      },
-      {
         "uuid": "ms-3qx5bdxkoo2w",
         "model": "qwen/qwen3-vl-235b-a22b-thinking",
         "type": "Text",
@@ -18237,6 +17173,124 @@
             "base_price": "0.02"
           }
         }
+      },
+      {
+        "uuid": "ms-hcxtrzec43xh",
+        "model": "anthropic/claude-opus-5-aws",
+        "type": "Text",
+        "displayName": "Claude Opus 5 AWS",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-5-aws.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/a1cfccf3-b867-4340-8252-74abc27b6c60.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-5-aws.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
+        "priority": 474,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 1000000,
+        "maxCompletionTokens": 128000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "25",
+            "cache_creation_price": "6.25",
+            "cache_creation_1h_price": "10",
+            "cache_price": "0.5"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "25",
+            "cache_creation_price": "6.25",
+            "cache_creation_1h_price": "10",
+            "cache_price": "0.5"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
+        "uuid": "ms-xtw1zqeghkzq",
+        "model": "anthropic/claude-sonnet-5-aws",
+        "type": "Text",
+        "displayName": "Claude Sonnet 5 AWS",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-sonnet-5-aws.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/a1cfccf3-b867-4340-8252-74abc27b6c60.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-sonnet-5-aws.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
+        "priority": 474,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 1000000,
+        "maxCompletionTokens": 128000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "2",
+            "output_price": "10",
+            "cache_creation_price": "2.5",
+            "cache_creation_1h_price": "4",
+            "cache_price": "0.2"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "2",
+            "output_price": "10",
+            "cache_creation_price": "2.5",
+            "cache_creation_1h_price": "4",
+            "cache_price": "0.2"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
       },
       {
         "uuid": "ms-wyx5kdte4rzq",
@@ -19164,85 +18218,6 @@
             "cache_creation_price": "6.25",
             "cache_creation_1h_price": "10",
             "cache_price": "0.5"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
-        "uuid": "ms-k7m2n9p4q8r3",
-        "model": "anthropic/claude-sonnet-4-20250514",
-        "type": "Text",
-        "displayName": "Claude Sonnet 4 20250514",
-        "profile": "",
-        "logo": "https://static.atlascloud.ai/model/logo/claude-sonnet-4-20250514.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
-        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-sonnet-4-20250514.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/b57d5088-e71c-4685-8c08-21e463a42a29.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-sonnet-4-20250514.json",
-        "readme": "https://static.atlascloud.ai/model/readme/claude-sonnet-4-20250514.md",
-        "organization": "ANTHROPIC",
-        "example": "https://static.atlascloud.ai/model/example/claude-sonnet-4-20250514.json",
-        "priority": 474,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 64000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "tiered_price": true,
-          "actual": {
-            "type": "flat",
-            "input_price": "3",
-            "output_price": "15",
-            "cache_creation_price": "3.75",
-            "cache_creation_1h_price": "6",
-            "cache_price": "0.3",
-            "prompt_thresholds": [
-              {
-                "threshold": 200000,
-                "input_price": "6",
-                "cache_creation_price": "7.5",
-                "cache_creation_1h_price": "12",
-                "cache_price": "0.6",
-                "output_price": "22.5"
-              }
-            ]
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "3",
-            "output_price": "15",
-            "cache_creation_price": "3.75",
-            "cache_creation_1h_price": "6",
-            "cache_price": "0.3",
-            "prompt_thresholds": [
-              {
-                "threshold": 200000,
-                "input_price": "6",
-                "cache_creation_price": "7.5",
-                "cache_creation_1h_price": "12",
-                "cache_price": "0.6",
-                "output_price": "22.5"
-              }
-            ]
           }
         },
         "input_modalities": [
@@ -21909,6 +20884,206 @@
         }
       },
       {
+        "uuid": "ms-32p909y6z67y",
+        "model": "google/gemini-omni-1.1-flash/video-extend",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Video Extend",
+        "profile": "A natively multimodal Google DeepMind model that continues an existing clip with a seamlessly matched 3-to-10-second extension, chainable to grow a single shot up to a total of 40 seconds of coherent video with native audio.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-video-extend.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-video-extend.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-video-extend.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-video-extend.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-video-extend.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-video-extend.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "VIDEO-EXTEND",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Gemini Omni Flash API for Conversational Video Editing",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.037"
+          },
+          "origin": {
+            "base_price": "0.041"
+          }
+        }
+      },
+      {
+        "uuid": "ms-2dvzkej5h59w",
+        "model": "google/gemini-omni-1.1-flash/video-edit",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Video Edit",
+        "profile": "A natively multimodal Google DeepMind model that applies a text-instructed edit to an existing video - adding, removing, replacing, or restyling elements with native audio - while preserving everything the prompt does not mention.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-video-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-video-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-video-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-video-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-video-edit.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-video-edit.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "VIDEO-EDIT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Gemini Omni Flash API for Conversational Video Editing",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.037"
+          },
+          "origin": {
+            "base_price": "0.041"
+          }
+        }
+      },
+      {
+        "uuid": "ms-w2qdbq6cnlwg",
+        "model": "google/gemini-omni-1.1-flash/reference-to-video",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Reference-to-Video",
+        "profile": "A natively multimodal Google DeepMind model that generates cinematic, natively sound-enabled videos from a text prompt plus up to 10 reference images and 3 reference video clips, keeping a character, product, or art direction consistent across generations.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-reference-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-reference-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-reference-to-video.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-reference-to-video.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "REFERENCE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Gemini Omni Flash API for Conversational Video Editing",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.037"
+          },
+          "origin": {
+            "base_price": "0.041"
+          }
+        }
+      },
+      {
+        "uuid": "ms-mhjns33jtw4y",
+        "model": "google/gemini-omni-1.1-flash/image-to-video",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Image-to-Video",
+        "profile": "A natively multimodal Google DeepMind model that animates a still image into a cinematic, natively sound-enabled clip from a text prompt, optionally interpolating to a supplied last frame for precise shot start and end control.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-image-to-video.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Gemini Omni Flash API for Conversational Video Editing",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.039"
+          },
+          "origin": {
+            "base_price": "0.043"
+          }
+        }
+      },
+      {
+        "uuid": "ms-vsj4fls3dukk",
+        "model": "google/gemini-omni-1.1-flash/text-to-video",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Text-to-Video",
+        "profile": "A natively multimodal Google DeepMind model that turns a single text prompt into a cinematic clip with synchronized native audio, with control over duration, aspect ratio, and output resolution from a fast 360p draft up to 4K.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-text-to-video.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Gemini Omni Flash API for Conversational Video Editing",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.037"
+          },
+          "origin": {
+            "base_price": "0.041"
+          }
+        }
+      },
+      {
         "uuid": "ms-coze-prodvis1",
         "model": "atlascloud/studio/product-visuals",
         "type": "Image",
@@ -22216,47 +21391,6 @@
           },
           "origin": {
             "base_price": "0.15"
-          }
-        }
-      },
-      {
-        "uuid": "ms-minimax-speech-26-hd",
-        "model": "minimax/speech-2.6-hd",
-        "type": "Audio",
-        "displayName": "MiniMax Speech 2.6 HD",
-        "profile": "MiniMax text-to-speech (HD): natural, high-fidelity speech from text with selectable preset voices, speed, volume and pitch.",
-        "logo": "https://static.atlascloud.ai/model/logo/minimax-speech-2.6-hd.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
-        "background": "https://static.atlascloud.ai/model/background/minimax-speech-2.6-hd.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-speech-2.6-hd.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/minimax-speech-2.6-hd.json",
-        "readme": "https://static.atlascloud.ai/model/readme/minimax-speech-2.6-hd.md",
-        "organization": "MINIMAX",
-        "example": "https://static.atlascloud.ai/model/example/minimax-speech-2.6-hd.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-SPEECH"
-        ],
-        "tags": [
-          "TEXT-TO-SPEECH",
-          "AUDIO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
-        "display_console": true,
-        "price": {
-          "discount": "80",
-          "actual": {
-            "base_price": "0.08"
-          },
-          "origin": {
-            "base_price": "0.1"
           }
         }
       },

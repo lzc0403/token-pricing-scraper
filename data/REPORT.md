@@ -1,20 +1,30 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-08-26 18:10:09
+> 生成时间：2026-09-02 06:42:27
 
 ## 一、目标模型跨源对照（已换算人民币）
 
 | 模型 | 源 | 输入¥ | 输出¥ | 缓存命中 | 货币 | 原始价(输入/输出) | 上下文 |
 | --- | --- | ---: | ---: | ---: | --- | --- | --- |
+| Claude Fable 5 | anthropic | 70 ¥ | 350 ¥ | 1 USD | USD | 10 USD / 50 USD | 200K |
 | Claude Fable 5 | openrouter | 70 ¥ | 350 ¥ | 1 USD | USD | 10 USD / 50 USD | 1M |
+| Claude Haiku 4.5 | anthropic | 7 ¥ | 35 ¥ | 0.1 USD | USD | 1 USD / 5 USD | 200K |
 | Claude Haiku 4.5 | openrouter | 7 ¥ | 35 ¥ | 0.1 USD | USD | 1 USD / 5 USD | 200K |
+| Claude Opus 4.5 | anthropic | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 200K |
 | Claude Opus 4.5 | openrouter | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 200K |
+| Claude Opus 4.6 | anthropic | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 200K |
 | Claude Opus 4.6 | openrouter | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 1M |
+| Claude Opus 4.7 | anthropic | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 200K |
 | Claude Opus 4.7 | openrouter | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 1M |
+| Claude Opus 4.8 | anthropic | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 200K |
 | Claude Opus 4.8 | openrouter | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 1M |
+| Claude Opus 5 | anthropic | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 200K |
 | Claude Opus 5 | openrouter | 35 ¥ | 175 ¥ | 0.5 USD | USD | 5 USD / 25 USD | 1M |
+| Claude Sonnet 4.5 | anthropic | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 200K |
 | Claude Sonnet 4.5 | openrouter | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1M |
+| Claude Sonnet 4.6 | anthropic | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 200K |
 | Claude Sonnet 4.6 | openrouter | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1M |
+| Claude Sonnet 5 | anthropic | 14 ¥ | 70 ¥ | 0.2 USD | USD | 2 USD / 10 USD | 200K |
 | Claude Sonnet 5 | openrouter | 14 ¥ | 70 ¥ | 0.2 USD | USD | 2 USD / 10 USD | 1M |
 | DeepSeek V3.2 | aliyun_bailian | 2 ¥ | 3 ¥ | 0.4 CNY | CNY | 2 CNY / 3 CNY | - |
 | DeepSeek V3.2 | atlascloud | 1.82 ¥ | 2.66 ¥ | 0.13 USD | USD | 0.26 USD / 0.38 USD | 163K |
@@ -25,7 +35,7 @@
 | DeepSeek V4 Flash | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | 1.04858M |
 | DeepSeek V4 Flash | deepseek | 3 ¥ | 9 ¥ | 0.1 CNY | CNY | 3 CNY / 9 CNY | 1M |
 | DeepSeek V4 Flash | deepseek_us | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | 1M |
-| DeepSeek V4 Flash | openrouter | 0.5782 ¥ | 1.1564 ¥ | 0.01652 USD | USD | 0.0826 USD / 0.1652 USD | 1.04858M |
+| DeepSeek V4 Flash | openrouter | 0.620242 ¥ | 1.24048 ¥ | 0.017721 USD | USD | 0.088606 USD / 0.177212 USD | 1.04858M |
 | DeepSeek V4 Flash | tencent | 1.54 ¥ | 4.62 ¥ | 0.007 USD | USD | 0.22 USD / 0.66 USD | - |
 | DeepSeek V4 Flash | tencent | 3.08 ¥ | 9.24 ¥ | 0.014 USD | USD | 0.44 USD / 1.32 USD | - |
 | DeepSeek V4 Flash | tencent | 1.54 ¥ | 4.62 ¥ | 0.007 USD | USD | 0.22 USD / 0.66 USD | - |
@@ -38,8 +48,7 @@
 | DeepSeek V4 Pro | atlascloud | 11.76 ¥ | 23.66 ¥ | 0.13 USD | USD | 1.68 USD / 3.38 USD | 1.04858M |
 | DeepSeek V4 Pro | deepseek | 9 ¥ | 27 ¥ | 0.3 CNY | CNY | 9 CNY / 27 CNY | 1M |
 | DeepSeek V4 Pro | deepseek_us | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | 1M |
-| DeepSeek V4 Pro | modelmesh | 4.5 ¥ | 13.5 ¥ | - | CNY | 4.5 CNY / 13.5 CNY | 1000K |
-| DeepSeek V4 Pro | openrouter | 6.09 ¥ | 12.18 ¥ | 0.0725 USD | USD | 0.87 USD / 1.74 USD | 1.04858M |
+| DeepSeek V4 Pro | openrouter | 7.29582 ¥ | 14.5916 ¥ | 0.086855 USD | USD | 1.04226 USD / 2.08452 USD | 1.04858M |
 | DeepSeek V4 Pro | tencent | 4.62 ¥ | 13.86 ¥ | 0.022 USD | USD | 0.66 USD / 1.98 USD | - |
 | DeepSeek V4 Pro | tencent | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | - |
 | DeepSeek V4 Pro | tencent | 4.62 ¥ | 13.86 ¥ | 0.022 USD | USD | 0.66 USD / 1.98 USD | - |
@@ -47,7 +56,7 @@
 | DeepSeek V4 Pro | tencent | 12.18 ¥ | 24.36 ¥ | 0.145 USD | USD | 1.74 USD / 3.48 USD | - |
 | DeepSeek V4 Pro | tencent_cn | 12 ¥ | 24 ¥ | 1 CNY | CNY | 12 CNY / 24 CNY | - |
 | DeepSeek V4 Pro | volcengine_intl | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | - |
-| DeepSeek V4 Pro 0813 | openrouter | 7.854 ¥ | 23.562 ¥ | 0.0374 USD | USD | 1.122 USD / 3.366 USD | 1.04858M |
+| DeepSeek V4 Pro 0813 | openrouter | 7.8078 ¥ | 23.4234 ¥ | 0.03718 USD | USD | 1.1154 USD / 3.3462 USD | 1.04858M |
 | Doubao Seed 2.1 Pro | atlascloud | 6.3 ¥ | 31.5 ¥ | 0.18 USD | USD | 0.9 USD / 4.5 USD | 262K |
 | Doubao Seed 2.1 Pro | modelmesh | 6 ¥ | 30 ¥ | - | CNY | 6 CNY / 30 CNY | 256K |
 | Doubao Seed 2.1 Pro | volcengine | 6 ¥ | 30 ¥ | 1.2 CNY | CNY | 6 CNY / 30 CNY | - |
@@ -73,19 +82,26 @@
 | GLM-5.2 | atlascloud | 8.82 ¥ | 27.72 ¥ | 0.234 USD | USD | 1.26 USD / 3.96 USD | 1.04858M |
 | GLM-5.2 | bigmodel | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.2 | openrouter | 8.33 ¥ | 26.18 ¥ | 0.221 USD | USD | 1.19 USD / 3.74 USD | 1.04858M |
+| GLM-5.2 | openrouter | 6.762 ¥ | 21.252 ¥ | 0.1932 USD | USD | 0.966 USD / 3.036 USD | 1.04858M |
 | GLM-5.2 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | tencent_cn | 10.254 ¥ | 32.2282 ¥ | 1.9044 CNY | CNY | 10.254 CNY / 32.2282 CNY | - |
 | GLM-5.2 | volcengine_intl | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
 | GLM-5.2 | zai | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
 | GLM-5.3 | aliyun_bailian | 8 ¥ | 28 ¥ | 1.6 CNY | CNY | 8 CNY / 28 CNY | - |
-| GLM-5.3 | atlascloud | 11.466 ¥ | 36.036 ¥ | 0.304 USD | USD | 1.638 USD / 5.148 USD | 1.04858M |
+| GLM-5.3 | atlascloud | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | 262K |
 | GLM-5.3 | bigmodel | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.3 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.3 | openrouter | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | 1.04858M |
+| GLM-5.3 | openrouter | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | 1.31072M |
 | GLM-5.3 | tencent | 7.7812 ¥ | 27.2349 ¥ | 0.2779 USD | USD | 1.1116 USD / 3.8907 USD | - |
 | GLM-5.3 | tencent_cn | 10.0752 ¥ | 31.665 ¥ | 1.87112 CNY | CNY | 10.0752 CNY / 31.665 CNY | - |
 | GLM-5.3 | zai | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
+| GLM-5.3-Flash | atlascloud | 1.05 ¥ | 3.5 ¥ | 0.03 USD | USD | 0.15 USD / 0.5 USD | 1.04858M |
+| GLM-5.3-Flash | bigmodel | 0.4 ¥ | 1.4 ¥ | - | CNY | 0.4 CNY / 1.4 CNY | - |
+| GLM-5.3-Flash | modelmesh | 0.4 ¥ | 1.4 ¥ | - | CNY | 0.4 CNY / 1.4 CNY | 1000K |
+| GLM-5.3-Flash | openrouter | 0.525 ¥ | 1.75 ¥ | 0.015 USD | USD | 0.075 USD / 0.25 USD | 1.31072M |
+| GLM-5.3-Flash | tencent | 0.77812 ¥ | 2.72349 ¥ | 0.03196 USD | USD | 0.11116 USD / 0.38907 USD | - |
+| GLM-5.3-Flash | tencent_cn | 1.07949 ¥ | 3.5983 ¥ | 0.215898 CNY | CNY | 1.07949 CNY / 3.5983 CNY | - |
+| GLM-5.3-Flash | zai | 0.525 ¥ | 1.75 ¥ | 0.015 USD | USD | 0.075 USD / 0.25 USD | - |
 | GPT-4o | openrouter | 17.5 ¥ | 70 ¥ | 1.25 USD | USD | 2.5 USD / 10 USD | 128K |
 | GPT-5 | openrouter | 8.75 ¥ | 70 ¥ | 0.125 USD | USD | 1.25 USD / 10 USD | 400K |
 | GPT-5.5 | openai | 35 ¥ | 210 ¥ | 0.5 USD | USD | 5 USD / 30 USD | 1M |
@@ -100,9 +116,16 @@
 | GPT-5.6 Terra | openai | 14 ¥ | 84 ¥ | 0.2 USD | USD | 2 USD / 12 USD | 1M |
 | GPT-5.6 Terra | openai | 28 ¥ | 126 ¥ | 0.4 USD | USD | 4 USD / 18 USD | 1M |
 | GPT-5.6 Terra | openrouter | 14 ¥ | 84 ¥ | 0.2 USD | USD | 2 USD / 12 USD | 1.05M |
+| Gemini 2.5 Flash | gemini | 7 ¥ | 17.5 ¥ | 0.03 USD | USD | 1 USD / 2.5 USD | 1M |
 | Gemini 2.5 Flash | openrouter | 2.1 ¥ | 17.5 ¥ | 0.03 USD | USD | 0.3 USD / 2.5 USD | 1.04858M |
+| Gemini 2.5 Pro | gemini | 17.5 ¥ | 105 ¥ | 0.125 USD | USD | 2.5 USD / 15 USD | 1M |
 | Gemini 2.5 Pro | openrouter | 8.75 ¥ | 70 ¥ | 0.125 USD | USD | 1.25 USD / 10 USD | 1.04858M |
-| Gemini 3.7 Flash | openrouter | 2.625 ¥ | 13.125 ¥ | 0.0375 USD | USD | 0.375 USD / 1.875 USD | 1.04858M |
+| Gemini 3.5 Flash | gemini | 10.5 ¥ | 63 ¥ | 0.15 USD | USD | 1.5 USD / 9 USD | 1M |
+| Gemini 3.5 Flash | openrouter | 10.5 ¥ | 63 ¥ | 0.15 USD | USD | 1.5 USD / 9 USD | 1.04858M |
+| Gemini 3.7 Flash | gemini | 5.25 ¥ | 26.25 ¥ | 0.075 USD | USD | 0.75 USD / 3.75 USD | 1M |
+| Gemini 3.7 Flash | openrouter | 5.25 ¥ | 26.25 ¥ | 0.075 USD | USD | 0.75 USD / 3.75 USD | 1.04858M |
+| Grok 4.6 | grok | 14 ¥ | 42 ¥ | 0.5 USD | USD | 2 USD / 6 USD | 500K |
+| Grok 4.6 | grok | 28 ¥ | 84 ¥ | 1 USD | USD | 4 USD / 12 USD | 500K |
 | Grok 4.6 | openrouter | 14 ¥ | 42 ¥ | 0.5 USD | USD | 2 USD / 6 USD | 500K |
 | Kimi K2.6 | aliyun_bailian | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
 | Kimi K2.6 | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
@@ -120,6 +143,7 @@
 | Kimi K2.7 Code | modelmesh | 6.5 ¥ | 27 ¥ | - | CNY | 6.5 CNY / 27 CNY | 256K |
 | Kimi K2.7 Code | tencent | 6.65 ¥ | 28 ¥ | 0.19 USD | USD | 0.95 USD / 4 USD | - |
 | Kimi K2.7 Code | tencent_cn | 6.5 ¥ | 27 ¥ | 1.3 CNY | CNY | 6.5 CNY / 27 CNY | - |
+| Kimi K3 | aliyun_bailian | 20 ¥ | 100 ¥ | 4 CNY | CNY | 20 CNY / 100 CNY | - |
 | Kimi K3 | aliyun_intl | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | - |
 | Kimi K3 | atlascloud | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
 | Kimi K3 | kimi | 20 ¥ | 100 ¥ | 2 CNY | CNY | 20 CNY / 100 CNY | 1,048,576 tokens |
@@ -157,34 +181,43 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.790308 | 0.87 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 1.58062 | 1.74 | USD |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.088606 | 0.0826 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.177212 | 0.1652 | USD |
+| Gemini 3.7 Flash | openrouter | 输入 | 0.375 | 0.75 | USD |
+| Gemini 3.7 Flash | openrouter | 输出 | 1.875 | 3.75 | USD |
+| DeepSeek V4 Pro | openrouter | 输入 | 0.87 | 1.04226 | USD |
+| DeepSeek V4 Pro | openrouter | 输出 | 1.74 | 2.08452 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输入 | 1.122 | 1.1154 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输出 | 3.366 | 3.3462 | USD |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.0826 | 0.088606 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.1652 | 0.177212 | USD |
+| GLM-5.2 | openrouter | 输入 | 1.19 | 0.966 | USD |
+| GLM-5.2 | openrouter | 输出 | 3.74 | 3.036 | USD |
+| GLM-5.3 | atlascloud | 输入 | 1.638 | 1.4 | USD |
+| GLM-5.3 | atlascloud | 输出 | 5.148 | 4.4 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| DeepSeek V4 Pro | modelmesh | 输入 | 3 | 4.5 | CNY |
-| DeepSeek V4 Pro | modelmesh | 输出 | 6 | 13.5 | CNY |
 
 ## 三、抓取状态
 
 | 源 | 状态 | 记录数 | 说明 |
 | --- | --- | ---: | --- |
+| openai | 成功 | 8 | 抓取 8 条 |
+| zai | 成功 | 13 | 抓取 13 条 |
+| anthropic | 成功 | 10 | 抓取 10 条 |
 | deepseek_us | 成功 | 3 | 抓取 3 条 |
+| openrouter | 成功 | 41 | 抓取 41 条 |
+| grok | 成功 | 2 | 抓取 2 条 |
+| gemini | 成功 | 4 | 抓取 4 条 |
+| atlascloud | 成功 | 113 | 抓取 113 条 |
 | deepseek | 成功 | 3 | 抓取 3 条 |
 | aliyun | 成功 | 0 | 抓取 0 条 |
-| aliyun_bailian | 成功 | 28 | 抓取 28 条 |
-| zai | 成功 | 13 | 抓取 13 条 |
-| openai | 成功 | 8 | 抓取 8 条 |
-| openrouter | 成功 | 38 | 抓取 38 条 |
-| atlascloud | 成功 | 133 | 抓取 133 条 |
+| aliyun_bailian | 成功 | 34 | 抓取 34 条 |
 | aliyun_intl | 成功 | 10 | 抓取 10 条 |
 | volcengine | 成功 | 18 | 抓取 18 条 |
 | volcengine_intl | 成功 | 5 | 抓取 5 条 |
-| tencent | 成功 | 37 | 抓取 37 条 |
-| tencent_cn | 成功 | 28 | 抓取 28 条 |
-| bigmodel | 成功 | 15 | 抓取 15 条 |
+| tencent | 成功 | 39 | 抓取 39 条 |
+| tencent_cn | 成功 | 30 | 抓取 30 条 |
+| bigmodel | 成功 | 24 | 抓取 24 条 |
 | minimax | 成功 | 4 | 抓取 4 条 |
-| kimi | 成功 | 5 | 抓取 5 条 |
-| kimi_ai | 成功 | 5 | 抓取 5 条 |
+| kimi | 成功 | 4 | 抓取 4 条 |
+| kimi_ai | 成功 | 4 | 抓取 4 条 |
 | modelmesh | 成功 | 64 | 抓取 64 条 |
