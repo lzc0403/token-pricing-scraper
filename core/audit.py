@@ -359,7 +359,9 @@ def _check_sources(
         # 返回体是 JSON 而非 HTML，静态 HTML 核对不适用，整个 Tier2 跳过
         # （避免 PRICE_NOT_FOUND / MODEL_NOT_FOUND 误报淹没报告）。
         url = src.get("url") or (src.get("urls") or [""])[0]
-        if src.get("cache_path") or (url and re.search(r"\.json(\?|$)|/api/", url)):
+        if src.get("cache_path") or src.get("tier2_skip") or (
+            url and re.search(r"\.json(\?|$)|/api/", url)
+        ):
             continue
         if not url:
             continue

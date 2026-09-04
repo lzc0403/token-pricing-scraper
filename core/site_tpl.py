@@ -446,6 +446,13 @@ def _mainstream_section(
         # 价格：紧凑单行，标签+数值内联，竖线分隔（无边框格子）
         has_price = isinstance(inp, (int, float)) and isinstance(out, (int, float))
         cache_val = _fmt_num(cache_input) if isinstance(cache_input, (int, float)) else ""
+        # Gemini 缓存存储价（$/1M tokens/小时，取首档促销期值）：官方「缓存创建」
+        # 类成本按小时计费，与按 token 的缓存命中分属不同维度，追加展示。
+        store_val = ""
+        if tiers and isinstance(tiers[0], dict):
+            _sv = tiers[0].get("cache_storage_price")
+            if isinstance(_sv, (int, float)):
+                store_val = _fmt_num(_sv)
         if has_price:
             sep = '<span class="ms-sep">|</span>'
             price_html = (
@@ -458,6 +465,12 @@ def _mainstream_section(
                 price_html += (
                     f'{sep}'
                     f'<span class="ms-pair"><span class="ms-plabel">缓存命中</span><span class="ms-pval">{cache_val}</span></span>'
+                )
+            if store_val:
+                price_html += (
+                    f'{sep}'
+                    f'<span class="ms-pair"><span class="ms-plabel">缓存存储<span class="ms-unit">/时</span></span>'
+                    f'<span class="ms-pval">{store_val}</span></span>'
                 )
             price_html += '</div>'
         else:

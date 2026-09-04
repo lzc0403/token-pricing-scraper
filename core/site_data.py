@@ -76,11 +76,10 @@ OFFICIAL_SOURCE: Dict[str, str] = {
     "Claude Sonnet 4.6": "anthropic",
     "Claude Sonnet 4.5": "anthropic",
     "Claude Haiku 4.5": "anthropic",
-    # Google Gemini 官方（ai.google.dev，USD）
+    # Google Gemini 官方（ai.google.dev，USD）——只收 3.8/3.7/3.6 Flash
+    "Gemini 3.8 Flash": "gemini",
     "Gemini 3.7 Flash": "gemini",
-    "Gemini 3.5 Flash": "gemini",
-    "Gemini 2.5 Pro": "gemini",
-    "Gemini 2.5 Flash": "gemini",
+    "Gemini 3.6 Flash": "gemini",
     # xAI Grok 官方（docs.x.ai，USD）
     "Grok 4.6": "grok",
 }
@@ -129,8 +128,9 @@ MAINSTREAM_SORT_ORDER: List[str] = [
     "Claude Sonnet 4.6",
     "Claude Sonnet 4.5",
     "Claude Haiku 4.5",
-    "Gemini 3.5 Pro",
-    "Gemini 3.5 Flash",
+    "Gemini 3.8 Flash",
+    "Gemini 3.7 Flash",
+    "Gemini 3.6 Flash",
 ]
 
 # 国内厂商顺序（与 config/mainstream_models.yml 目录一致）
@@ -207,10 +207,9 @@ MODEL_ORDER: List[str] = [
     "Claude Sonnet 4.5",
     "Claude Haiku 4.5",
     "Claude 5",
-    "Gemini 3.5 Pro",
-    "Gemini 3.5 Flash",
-    "Gemini 2.5 Pro",
-    "Gemini 2.5 Flash",
+    "Gemini 3.8 Flash",
+    "Gemini 3.7 Flash",
+    "Gemini 3.6 Flash",
 ]
 
 # 国内模型（筛选用：仅国内模型）
@@ -423,6 +422,19 @@ def _is_official_any_currency(canon: str, r: Dict[str, Any]) -> bool:
 
 def _is_channel_row(r: Dict[str, Any]) -> bool:
     return str(r.get("source") or "") in CHANNEL_SOURCES
+
+
+# 海外厂商模型的 canonical 前缀。口径：**海外大模型不存在「渠道价」**——
+# 只有国内大模型（DeepSeek / GLM / Kimi / MiniMax / 通义 / 豆包）才有云厂商
+# 或聚合站的渠道报价。OpenAI / Anthropic / Google / xAI 的模型只有官方 API 价，
+# 其在 OpenRouter、AtlasCloud 等聚合站的挂牌价属于「同一官方价的转售入口」，
+# 不是渠道报价，因此不进渠道表、不参与渠道比价。
+_OVERSEAS_CANON_PREFIXES = ("GPT", "Claude", "Gemini", "Grok")
+
+
+def _is_overseas_model(canon: Any) -> bool:
+    """该 canonical 是否属于海外厂商模型（无渠道价）。"""
+    return str(canon or "").startswith(_OVERSEAS_CANON_PREFIXES)
 
 
 def _sort_canons(canons: List[str]) -> List[str]:
@@ -803,7 +815,13 @@ def _build_mainstream_sections(
                 model["display_tier"] = tiers[0] if tiers else {}
                 model["context_label"] = _context_label(model.get("context_tokens"))
                 model["source_label"] = source_label(vendor.get("source_id") or vendor.get("id"))
-                model["has_channel_price"] = model.get("canonical") in channel_canons
+                # 海外大模型无渠道价：has_channel 只对国内模型有效。
+                # 海外模型（GPT/Claude/Gemini/Grok）即使 prices.json 里有
+                # OpenRouter 等聚合站行，也不显示「渠道✓」。
+                model["has_channel_price"] = (
+                    model.get("canonical") in channel_canons
+                    and not _is_overseas_model(model.get("canonical"))
+                )
                 model["tier_count"] = len(tiers)
     return rendered
 
@@ -991,9 +1009,14 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         # 「同类报价」语义：同一模型需 ≥2 家渠道才有横向对比价值。仅 1 家的行
         # 不进渠道表（多为海外大模型只有 OpenRouter 一家报价，无第二家可比），
         # 避免出现无法对比的孤行。渠道家数回升到 2 家时该模型自动回归。
-        channels = [x for x in norm if not x["is_official"]]
-        if len({x["source"] for x in channels}) < 2:
+        # 海外大模型无渠道价：其聚合站挂牌价（OpenRouter 等）不是渠道报价，
+        # 不进渠道表（用户口径：只有国内大模型才存在渠道价）。
+        if _is_overseas_model(c):
             channels = []
+        else:
+            channels = [x for x in norm if not x["is_official"]]
+            if len({x["source"] for x in channels}) < 2:
+                channels = []
         d_ch = [x for x in channels if str(x["currency"]).upper() != "USD"]
         o_ch = [x for x in channels if str(x["currency"]).upper() == "USD"]
         d_ch = sorted(d_ch, key=lambda x: (_price_key(x), x["source_label"], x["model"].lower()))

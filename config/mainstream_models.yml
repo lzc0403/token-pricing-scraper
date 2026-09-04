@@ -708,53 +708,11 @@ sections:
       name: Google Gemini
       source_id: google
       models:
-      - canonical: Gemini 3.5 Pro
-        display_name: Gemini 3.5 Pro
-        api_id: gemini-3.5-pro
-        openrouter_id: google/gemini-3.5-pro
-        role: 旗舰 · 官方 API · 2M上下文
-        availability: tracking
-        modality: text
-        context_tokens: 2000000
-        pricing_kind: paid
-        pricing:
-          tiers:
-          - condition: 官方定价待确认
-            input_price: 1.25
-            output_price: 5.0
-        currency: USD
-        unit: per_million_tokens
-        source_url: https://ai.google.dev/pricing
-        verified_at: '2026-07-19T14:30:00+08:00'
-        featured: true
-      - canonical: Gemini 3.5 Flash
-        display_name: Gemini 3.5 Flash
-        api_id: gemini-3.5-flash
-        openrouter_id: google/gemini-3.5-flash
-        role: 轻量高速 · 官方 API
-        availability: official
-        modality: text
-        context_tokens: 1048576
-        pricing_kind: paid
-        pricing:
-          tiers:
-          - condition: default
-            input_price: 1.5
-            output_price: 9.0
-            cache_input_price: 0.15
-          - condition: 缓存命中
-            input_price: 0.15
-            output_price: 9.0
-        currency: USD
-        unit: per_million_tokens
-        source_url: https://ai.google.dev/pricing
-        verified_at: '2026-07-19T14:30:00+08:00'
-        featured: true
-      - canonical: Gemini 3.7 Flash
-        display_name: Gemini 3.7 Flash
-        api_id: gemini-3.7-flash
-        openrouter_id: google/gemini-3.7-flash
-        role: 主力 · 官方 API · 2026-08 发布 · 限时价至 2026-12-31
+      - canonical: Gemini 3.8 Flash
+        display_name: Gemini 3.8 Flash
+        api_id: gemini-3.8-flash
+        openrouter_id: google/gemini-3.8-flash
+        role: 最新主力 · 长程软件工程/Agent · 2026-09-02 GA · 限时价至 2026-12-31
         availability: official
         modality: text
         context_tokens: 1048576
@@ -765,17 +723,75 @@ sections:
             input_price: 0.75
             output_price: 3.75
             cache_input_price: 0.075
+            cache_storage_price: 0.5
             effective_to: '2026-12-31'
           - condition: 标准价 · 自 2027-01-01
             input_price: 1.5
             output_price: 7.5
             cache_input_price: 0.15
+            cache_storage_price: 1.0
             effective_from: '2027-01-01'
         currency: USD
         unit: per_million_tokens
-        source_url: https://ai.google.dev/pricing
-        verified_at: '2026-08-15T00:00:00+08:00'
+        source_url: https://ai.google.dev/gemini-api/docs/pricing
+        verified_at: '2026-09-05T00:00:00+08:00'
         featured: true
+      - canonical: Gemini 3.7 Flash
+        display_name: Gemini 3.7 Flash
+        api_id: gemini-3.7-flash
+        openrouter_id: google/gemini-3.7-flash
+        role: 主力 · 官方 API · 限时价至 2026-12-31
+        availability: official
+        modality: text
+        context_tokens: 1048576
+        pricing_kind: paid
+        pricing:
+          tiers:
+          - condition: 限时价 · 至 2026-12-31
+            input_price: 0.75
+            output_price: 3.75
+            cache_input_price: 0.075
+            cache_storage_price: 0.5
+            effective_to: '2026-12-31'
+          - condition: 标准价 · 自 2027-01-01
+            input_price: 1.5
+            output_price: 7.5
+            cache_input_price: 0.15
+            cache_storage_price: 1.0
+            effective_from: '2027-01-01'
+        currency: USD
+        unit: per_million_tokens
+        source_url: https://ai.google.dev/gemini-api/docs/pricing
+        verified_at: '2026-09-05T00:00:00+08:00'
+        featured: true
+      - canonical: Gemini 3.6 Flash
+        display_name: Gemini 3.6 Flash
+        api_id: gemini-3.6-flash
+        openrouter_id: google/gemini-3.6-flash
+        role: 主力 · 官方 API · 限时价至 2026-12-31
+        availability: official
+        modality: text
+        context_tokens: 1048576
+        pricing_kind: paid
+        pricing:
+          tiers:
+          - condition: 限时价 · 至 2026-12-31
+            input_price: 0.75
+            output_price: 3.75
+            cache_input_price: 0.075
+            cache_storage_price: 0.5
+            effective_to: '2026-12-31'
+          - condition: 标准价 · 自 2027-01-01
+            input_price: 1.5
+            output_price: 7.5
+            cache_input_price: 0.15
+            cache_storage_price: 1.0
+            effective_from: '2027-01-01'
+        currency: USD
+        unit: per_million_tokens
+        source_url: https://ai.google.dev/gemini-api/docs/pricing
+        verified_at: '2026-09-05T00:00:00+08:00'
+
     - id: grok
       name: xAI Grok
       source_id: grok

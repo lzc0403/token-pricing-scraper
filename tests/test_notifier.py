@@ -341,3 +341,88 @@ def test_channel_own_change_no_alert():
     ]
     msg = notifier.build_message(deltas, "2026-08-25")
     assert "市场行情" not in msg
+
+
+# ---------------------------------------------------------------------------
+# 官方调价预警（无条件列出，供人工跟进）
+# ---------------------------------------------------------------------------
+
+_OFFICIAL_DELTAS = [
+    # OpenAI 官方：输入 +25%（OpenRouter 同步）、缓存写入 +20%（无渠道同步）
+    {"canonical": "GPT-5.6 Sol", "source": "openai", "field": "input",
+     "old": 4.0, "new": 5.0, "currency": "USD"},
+    {"canonical": "GPT-5.6 Sol", "source": "openai", "field": "cache_write",
+     "old": 5.0, "new": 6.0, "currency": "USD"},
+    {"canonical": "GPT-5.6 Sol", "source": "openrouter", "field": "input",
+     "old": 4.0, "new": 5.0, "currency": "USD"},
+    # 渠道独立调价（非官方，不应进预警区）
+    {"canonical": "GLM-5.2", "source": "tencent_cn", "field": "input",
+     "old": 8.0, "new": 7.0, "currency": "CNY",
+     "condition": "原厂直供"},
+]
+
+
+def test_official_alerts_only_official_sources():
+    """预警区只含官方源调价，渠道自有变动不进。"""
+    alerts = notifier._official_price_alerts(_OFFICIAL_DELTAS)
+    assert [a["canonical"] for a in alerts] == ["GPT-5.6 Sol"]
+    assert alerts[0]["source_label"] == "OpenAI官网"
+
+
+def test_official_alerts_sorted_by_magnitude():
+    """多个官方调价按最大幅度降序。"""
+    deltas = _OFFICIAL_DELTAS + [
+        {"canonical": "Claude Opus 5", "source": "anthropic", "field": "input",
+         "old": 5.0, "new": 4.0, "currency": "USD"},  # -20%
+        {"canonical": "DeepSeek V4 Pro", "source": "deepseek", "field": "output",
+         "old": 24.0, "new": 30.0, "currency": "CNY"},  # +25%
+    ]
+    alerts = notifier._official_price_alerts(deltas)
+    assert [a["canonical"] for a in alerts][0] in ("GPT-5.6 Sol", "DeepSeek V4 Pro")
+    assert alerts[0]["max_pct"] >= alerts[-1]["max_pct"]
+
+
+def test_official_alert_follow_status_is_field_level():
+    """跟进状态按字段判定：输入已同步、缓存写入未同步。"""
+    alerts = notifier._official_price_alerts(_OFFICIAL_DELTAS)
+    items = {it["field"]: it for it in alerts[0]["items"]}
+    assert items["input"]["followed"] is True
+    assert items["input"]["followers"] == ["OpenRouter"]
+    assert items["cache_write"]["followed"] is False
+    assert items["cache_write"]["followers"] == []
+
+
+def test_official_alert_block_in_message():
+    """纯文本日报含置顶官方调价区块。"""
+    msg = notifier.build_message(_OFFICIAL_DELTAS, "2026-09-02")
+    assert "官方调价（1 个模型，需跟进）" in msg
+    assert "GPT-5.6 Sol · OpenAI官网" in msg
+    assert "缓存写入 $5→$6 ↑20%" in msg
+    # 区块在总表之前（置顶）
+    assert msg.index("官方调价") < msg.index("模型｜来源｜变动")
+
+
+def test_official_alert_block_in_card():
+    """飞书卡片在 KPI 之后、总表之前插入预警区。"""
+    card = notifier.build_card(_OFFICIAL_DELTAS, "2026-09-02")["card"]
+    contents = [
+        e.get("text", {}).get("content", "")
+        for e in card.get("elements", [])
+        if isinstance(e, dict) and e.get("tag") == "div"
+    ]
+    assert any("官方调价（1 个模型，需跟进）" in c for c in contents)
+    assert any("缓存写入 $5→$6 ↑20%｜渠道同步：未见" in c for c in contents)
+
+
+def test_no_official_change_no_alert_block():
+    """无官方调价时不应出现预警区，且总表表头照常输出。"""
+    deltas = [
+        {"canonical": "GLM-5.2", "source": "tencent_cn", "field": "input",
+         "old": 8.0, "new": 7.0, "currency": "CNY", "condition": "原厂直供"},
+    ]
+    msg = notifier.build_message(deltas, "2026-09-02")
+    assert "官方调价" not in msg
+    assert "模型｜来源｜变动" in msg
+    card = notifier.build_card(deltas, "2026-09-02")["card"]
+    assert all("官方调价" not in json.dumps(e, ensure_ascii=False)
+               for e in card.get("elements", []))

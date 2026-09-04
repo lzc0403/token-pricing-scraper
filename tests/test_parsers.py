@@ -522,16 +522,51 @@ def test_anthropic_official_pricing():
 
 
 def test_gemini_promo_price_effective():
-    """Gemini 官网：3.7 Flash 促销期 $0.75/$3.75（through 2026-12-31 未过期）。"""
+    """Gemini 官网：促销期取 $0.75/$3.75（through 2026-12-31 未过期）。"""
     recs = _parse_source("gemini")
-    assert len(recs) == 4
+    names = {r["model_raw"] for r in recs}
+    assert {"Gemini 3.8 Flash", "Gemini 3.7 Flash", "Gemini 3.6 Flash"} == names
+    # 收录口径：Gemini 只留 3.8/3.7/3.6，旧版（3.5/2.5）一律不收录
+    assert not {"Gemini 3.5 Flash", "Gemini 2.5 Pro", "Gemini 2.5 Flash", "Gemini 3.5 Pro"} & names
     f37 = next(r for r in recs if r["model_raw"] == "Gemini 3.7 Flash")
     assert f37["input"] == 0.75  # 促销价生效中，非标准价 $1.50
     assert f37["output"] == 3.75
     assert f37["openrouter_id"] == "google/gemini-3.7-flash"
-    p25 = next(r for r in recs if r["model_raw"] == "Gemini 2.5 Pro")
-    assert p25["input"] == 2.5
-    assert p25["output"] == 15.0
+    # 3.8 Flash（2026-09 GA）与 3.7 同价，同为促销期
+    f38 = next(r for r in recs if r["model_raw"] == "Gemini 3.8 Flash")
+    assert f38["input"] == 0.75
+    assert f38["output"] == 3.75
+    assert f38["cache_hit"] == 0.075
+    assert f38["openrouter_id"] == "google/gemini-3.8-flash"
+
+
+def test_gemini_promo_effective_not_standard():
+    """促销段取**当前生效的促销价**，不是标准价（标准价 $1.50/$7.50 在 2027-01 才生效）。
+
+    历史 bug 教训（已修 + 模型已下架）：2.5 Pro 曾取 $2.50/>200k 档导致与
+    缓存价（≤200k 档）混搭；2.5 Flash 曾把输入价取成音频档 $1.00。现 Gemini
+    只收 3.8/3.7/3.6（3.x 无多档位并列，仅促销段），此回归测试保住「取生效价」
+    的语义。
+    """
+    recs = _parse_source("gemini")
+    f36 = next(r for r in recs if r["model_raw"] == "Gemini 3.6 Flash")
+    assert f36["input"] == 0.75     # 促销价，非 1.5 标准价
+    assert f36["output"] == 3.75    # 促销价，非 7.5 标准价
+    assert f36["cache_hit"] == 0.075
+    # 所有在册 3.x 模型输入/输出一致（同一促销档）
+    for r in recs:
+        assert r["input"] == 0.75 and r["output"] == 3.75
+
+
+def test_gemini_cache_storage_price():
+    """缓存存储价单独落 cache_storage（$/1M tokens/小时），不混入 cache_write。"""
+    recs = _parse_source("gemini")
+    f38 = next(r for r in recs if r["model_raw"] == "Gemini 3.8 Flash")
+    assert f38["cache_storage"] == 0.5   # 促销期 storage 价
+    f37 = next(r for r in recs if r["model_raw"] == "Gemini 3.7 Flash")
+    assert f37["cache_storage"] == 0.5
+    # Google 无按 token 的缓存写入价
+    assert all(r.get("cache_write") is None for r in recs)
 
 
 def test_grok_official_dual_tier():

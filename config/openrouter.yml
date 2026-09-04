@@ -64,17 +64,17 @@ whitelist:
   - id: anthropic/claude-haiku-4.5
     model: Claude Haiku 4.5
     note: Claude 高频
-  - id: google/gemini-2.5-pro
-    model: Gemini 2.5 Pro
     note: Gemini 旗舰
-  - id: google/gemini-2.5-flash
-    model: Gemini 2.5 Flash
     note: Gemini 高频
+  - id: google/gemini-3.8-flash
+    model: Gemini 3.8 Flash
+    note: 2026-09 最新 Flash 主力（gemini 官方源映射需要）
+  - id: google/gemini-3.6-flash
+    model: Gemini 3.6 Flash
+    note: 2026-09 新增（gemini 官方源映射需要）
   - id: google/gemini-3.7-flash
     model: Gemini 3.7 Flash
     note: 2026-08 新 Flash 主力
-  - id: google/gemini-3.5-flash
-    model: Gemini 3.5 Flash
     note: Gemini 主力（gemini 官方源映射需要）
   - id: x-ai/grok-4.6
     model: Grok 4.6

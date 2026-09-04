@@ -27,9 +27,9 @@ SITE_URL = "https://lzc0403.github.io/token-pricing-scraper/"
 # 变动幅度达到该阈值（绝对值 %）的归入「重点变动」，其余进「其他变动」
 MAJOR_PCT = 30.0
 
-_FIELD_LABEL = {"input": "入", "output": "出", "cache": "缓存"}
+_FIELD_LABEL = {"input": "入", "output": "出", "cache": "缓存", "cache_hit": "缓存命中", "cache_write": "缓存写入"}
 _CUR_SYMBOL = {"USD": "$", "CNY": "¥", "USDT": "$"}
-_FIELD_ORDER = {"input": 0, "output": 1, "cache": 2}
+_FIELD_ORDER = {"input": 0, "output": 1, "cache_hit": 2, "cache_write": 3, "cache": 4}
 
 # 来源 ID → 站点中文名（与站点页 SOURCE_LABELS 保持一致）
 SOURCE_LABELS = {
@@ -49,9 +49,20 @@ SOURCE_LABELS = {
     "openai": "OpenAI官网",
     "anthropic": "Anthropic官网",
     "google": "Google官网",
+    "gemini": "Gemini官网",
+    "grok": "Grok官网",
     "openrouter": "OpenRouter",
     "atlascloud": "AtlasCloud",
     "modelmesh": "胜算云",
+}
+
+# 官方调价预警区块用的字段中文全称（区分缓存命中/写入两种计费动作）
+_FIELD_CN = {
+    "input": "输入",
+    "output": "输出",
+    "cache_hit": "缓存命中",
+    "cache_write": "缓存写入",
+    "cache": "缓存",
 }
 
 
@@ -284,6 +295,89 @@ def _market_analysis(deltas: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return out
 
 
+def _official_price_alerts(
+    deltas: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """官方调价预警：厂商官网价格发生变动的所有条目（供人工跟进处理）。
+
+    与 `_market_analysis` 的「市场行情」规则（仅渠道未跟进才报警）**职责不同**：
+    这里无条件列出每一条官方调价——官方价是定价锚点，任何调整都需要人工确认
+    是否同步更新内部比价口径、成本核算与采购决策。渠道是否同步跟进只作为
+    附加状态展示，不决定是否提醒。
+
+    返回按最大幅度降序的列表，每项：
+        {
+          "canonical": 模型名,
+          "source": 官方源 id,
+          "source_label": 官方源中文名,
+          "condition": 计费口径,
+          "max_pct": 该模型本次官方调价的最大绝对幅度（%），
+          "items": [ {field, field_cn, old, new, pct, currency,
+                      followed, followers}, ... ]  按字段序排列
+        }
+
+    followed：存在渠道源同字段、同幅度（≤_FOLLOW_TOL_PP）变动 → 已跟进；
+    否则为 False（渠道未动或幅度背离；注意 deltas 只含变动记录，无法区分
+    「渠道存在但未调价」与「该模型无此渠道」两种情况，故措辞为未见同步）。
+    """
+    # 索引：模型 → {field: [(source, pct), ...]}（仅非官方源变动）
+    channel_moves: Dict[str, Dict[str, List[Tuple[str, float]]]] = {}
+    for d in deltas:
+        canon = str(d.get("canonical") or "")
+        if is_official_source(canon, d.get("source")):
+            continue
+        p = _pct(d.get("old"), d.get("new"))
+        if p is None:
+            continue
+        channel_moves.setdefault(canon, {}).setdefault(str(d.get("field")), []).append(
+            (str(d.get("source")), p)
+        )
+
+    grouped: Dict[tuple, List[Dict[str, Any]]] = {}
+    for d in deltas:
+        canon = str(d.get("canonical") or "")
+        src = str(d.get("source") or "")
+        if not is_official_source(canon, d.get("source")):
+            continue
+        p = _pct(d.get("old"), d.get("new"))
+        if p is None:
+            continue  # 新增/下架等无幅度变动不属「调价」
+        field = str(d.get("field"))
+        moves = channel_moves.get(canon, {}).get(field, [])
+        followers = sorted(
+            SOURCE_LABELS.get(s, s) for s, cp in moves if abs(p - cp) <= _FOLLOW_TOL_PP
+        )
+        key = (canon, src, str(d.get("condition") or ""))
+        grouped.setdefault(key, []).append(
+            {
+                "field": field,
+                "field_cn": _FIELD_CN.get(field, field),
+                "old": d.get("old"),
+                "new": d.get("new"),
+                "pct": p,
+                "currency": str(d.get("currency") or ""),
+                "followed": bool(followers),
+                "followers": followers,
+            }
+        )
+
+    out: List[Dict[str, Any]] = []
+    for (canon, src, cond), items in grouped.items():
+        items.sort(key=lambda x: _FIELD_ORDER.get(x["field"], 9))
+        out.append(
+            {
+                "canonical": canon,
+                "source": src,
+                "source_label": SOURCE_LABELS.get(src, src),
+                "condition": cond,
+                "max_pct": max(abs(i["pct"]) for i in items),
+                "items": items,
+            }
+        )
+    out.sort(key=lambda x: (-x["max_pct"], x["canonical"]))
+    return out
+
+
 def _src_display(src: str, condition: Any) -> str:
     """「站点名 + 计费口径」，如：腾讯云国际·原厂·闲时 / 腾讯云国际·自建。"""
     site = SOURCE_LABELS.get(str(src), str(src))
@@ -307,6 +401,32 @@ def _delta_cell(d: Dict[str, Any]) -> str:
     elif d.get("follows_official"):
         seg += "（跟进官网）"
     return seg
+
+
+def _official_alert_lines(alerts: List[Dict[str, Any]]) -> List[str]:
+    """官方调价预警 → 纯文本行（供 build_message 使用）。
+
+    跟进状态按**字段**标注（同一模型可能输入价已同步、缓存写入价未同步），
+    避免模型级笼统结论误导跟进判断：
+
+        • GPT-5.6 Sol · OpenAI官网
+          ├ 输入 $4→$5 ↑25%｜渠道同步：OpenRouter
+          └ 缓存写入 $5→$6 ↑20%｜渠道同步：未见（比价口径需人工确认）
+    """
+    lines: List[str] = []
+    for a in alerts:
+        lines.append(f"• {a['canonical']} · {a['source_label']}")
+        for idx, it in enumerate(a["items"]):
+            arrow = "↑" if it["pct"] > 0 else "↓"
+            branch = "└" if idx == len(a["items"]) - 1 else "├"
+            follow = "、".join(it["followers"]) if it["followers"] else "未见（需人工确认）"
+            lines.append(
+                f"    {branch} {it['field_cn']} "
+                f"{_fmt_currency(it['old'], it['currency'])}"
+                f"→{_fmt_currency(it['new'], it['currency'])}"
+                f" {arrow}{abs(it['pct']):.0f}%｜渠道同步：{follow}"
+            )
+    return lines
 
 
 def _prepare_groups(deltas: List[Dict[str, Any]]) -> Dict[tuple, List[Dict[str, Any]]]:
@@ -433,12 +553,19 @@ def build_message(
     ups = sum(1 for d in consolidated if (_pct(d.get("old"), d.get("new")) or 0) > 0)
     downs = sum(1 for d in consolidated if (_pct(d.get("old"), d.get("new")) or 0) < 0)
 
+    # 官方调价预警置顶：官方价是定价锚点，所有调整都必须人工跟进确认
+    alerts = _official_price_alerts(deltas)
+
     lines = [
         f"📊 Token 定价日报 {snapshot_date}",
         f"变动 {len(groups)} 模型 / {len(consolidated)} 处｜涨 {ups} · 跌 {downs}",
         "",
-        "模型｜来源｜变动",
     ]
+    if alerts:
+        lines.append(f"🏛️ 官方调价（{len(alerts)} 个模型，需跟进）")
+        lines.extend(_official_alert_lines(alerts))
+        lines.append("")
+    lines.append("模型｜来源｜变动")
     lines.extend(_table_rows(groups))
 
     reminders = _build_reminders(groups)
@@ -514,14 +641,17 @@ def build_card(
     视觉设计（对齐飞书官方卡片设计规范）：
       1. 彩色头部：涨多红 / 跌多绿，标题含日期
       2. KPI 统计行：4 个灰底数据卡（模型数 / 条目数 / 涨 / 跌），居中大字
-      3. 斑马纹三栏表格：表头灰底加粗，数据行灰白交替，按幅度降序
-      4. 提醒区：💡 前缀单行短语
-      5. 主按钮直达站点 + 灰色脚注（含关键词，规避 19024）
+      3. 官方调价预警区（置顶）：🏛️ 每个官方源调价明细 + 渠道跟进状态
+      4. 斑马纹三栏表格：表头灰底加粗，数据行灰白交替，按幅度降序
+      5. 提醒区：💡 前缀单行短语
+      6. 主按钮直达站点 + 灰色脚注（含关键词，规避 19024）
     """
     kw = keyword if keyword else os.environ.get("PRICE_KEYWORD", "官网价格")
 
     groups = _prepare_groups(deltas)
     consolidated: List[Dict[str, Any]] = [d for items in groups.values() for d in items]
+    # 官方调价预警置顶：官方价是定价锚点，所有调整都必须人工跟进确认
+    alerts = _official_price_alerts(deltas)
 
     ups = sum(1 for d in consolidated if (_pct(d.get("old"), d.get("new")) or 0) > 0)
     downs = sum(1 for d in consolidated if (_pct(d.get("old"), d.get("new")) or 0) < 0)
@@ -546,10 +676,27 @@ def build_card(
                 _stat_card(str(downs), "下跌", "🔻"),
             ],
         },
-        {"tag": "hr"},
-        # -- 表头 --
-        _card_row(["**模型**", "**来源**", "**变动（入 / 出）**"], bg="grey"),
     ]
+
+    # -- 官方调价预警区（置顶，KPI 之后、总表之前）--
+    if alerts:
+        elements.append({"tag": "hr"})
+        alert_md = [f"**🏛️ 官方调价（{len(alerts)} 个模型，需跟进）**"]
+        # 模型名顶格，明细行统一全角缩进（飞书 markdown 会吃掉 ASCII 前导空格）
+        alert_md.extend(
+            ln if ln.startswith("•") else f"　　{ln.lstrip()}"
+            for ln in _official_alert_lines(alerts)
+        )
+        elements.append(
+            {
+                "tag": "div",
+                "text": {"tag": "lark_md", "content": "\n".join(alert_md)},
+            }
+        )
+
+    # -- 表头 --
+    elements.append({"tag": "hr"})
+    elements.append(_card_row(["**模型**", "**来源**", "**变动（入 / 出）**"], bg="grey"))
 
     # -- 斑马纹数据行 --
     for idx, key in enumerate(ordered):

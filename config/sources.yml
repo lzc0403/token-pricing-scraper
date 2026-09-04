@@ -202,8 +202,8 @@
     h3 分档（Standard/Batch/Flex/Priority），只取 Standard 档 Paid Tier 列。
     促销单元格形如「$0.75 through December 31, 2026.$1.50 starting January 1, 2027.」，
     解析器按日期取当前生效价（促销未过期取促销价，过期取标准价）。
-    收录 Gemini 3.7 Flash / 3.5 Flash / 2.5 Pro / 2.5 Flash；Gemini 3.5 Pro
-    官网已无独立条目，继续由 mainstream_models.yml 静态价提供。
+    收录口径（2026-09 起）：Gemini 只保留 3.8 / 3.7 / 3.6 Flash 三个在售主力，
+    其余（3.5 Pro / 3.5 Flash / 2.5 Pro / 2.5 Flash）已下架不收录。
 
 - id: grok
   name: xAI Grok
@@ -211,6 +211,10 @@
   parser: grok
   currency: USD
   js: false
+  # 价格存于内嵌 JSON 且原始值为 price/10000 换算前整数（如 120000 → $12），
+  # 与可见文本/解析后数值无法直接比对 → Tier2 静态文本核对不适用，跳过
+  #（与 openrouter/aliyun_bailian 的 cache/API 型跳过同理）。
+  tier2_skip: true
   note: >-
     xAI 官方模型页（docs.x.ai，USD）。模型数据内嵌于 globalThis.__XAI_PUBLIC_MODELS__
     JSON（price / 10000 = USD per 1M tokens）。收录 Grok 4.6，标准档与长上下文档

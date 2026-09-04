@@ -16,6 +16,7 @@ PRICE_FIELDS = [
     "output",
     "cache_hit",
     "cache_write",
+    "cache_storage",
     "context",
     "condition",
     "unit",
