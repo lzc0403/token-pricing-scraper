@@ -105,3 +105,12 @@ GLM-5.3 / GLM-5.3-Flash 已同时加入 `openrouter.yml` 白名单（`z-ai/glm-5
 - 代码审计（2026-08-20）：0 致命 / 2 高 / 6 中 / 5 低，三阶段改进计划已全部落地（CI lint、补测试、mypy、Jinja2、每日抓取、历史趋势图、价格推送）。
 
 详见 README + docs/{architecture,openrouter,runbook,handoff}.md + AGENTS.md
+
+## Gemini 收录口径与海外渠道价铁律（2026-09-05 用户拍板）
+
+- **Gemini 只保留 3.6 / 3.7 / 3.8 Flash**；3.5 Pro / 3.5 Flash / 2.5 Pro / 2.5 Flash 全站下架（目录、openrouter 白名单、scrapers/gemini.py `_MODEL_OR_ID`、site_data 的 OFFICIAL_SOURCE/MODEL_ORDER/排序表、sources.yml note 六处同步）。改 scrapers/gemini.py 收录范围时务必同步 site_data 列表，否则卡片与数据层不一致。
+- **海外大模型（canonical 前缀 GPT/Claude/Gemini/Grok）一律无渠道价**：`site_data._is_overseas_model()` 判定，渠道表不产生行、主流卡片 `has_channel_price` 恒 False（标「无渠道」）。只有国内大模型有渠道价。
+- **Gemini「缓存创建」= cache_storage**（$/1M tokens/小时，官方无按 token cache write）。字段全链路：gemini.py `_storage_price()` → store.PRICE_FIELDS `cache_storage` → 主流卡片「缓存存储/时」。促销期同样按日期取生效值。
+- **国内厂商（DeepSeek/智谱等）cache_write 缺失是官方事实**（只分 CACHE HIT/MISS，写入按输入价），禁止编造；Google/Grok/DeepSeek 同理。
+- **多档位单元格取「基准档首个价格」**（`_effective_price` 无促销时取 prices[0]）：2.5 Pro 曾因取末位导致输入输出用 >200k 档、缓存用 ≤200k 档的混搭；2.5 Flash 曾抓成音频档 $1.0（文本 $0.3）。3.x 只有促销段无多档位，此规则防未来回潮。
+- **grok 源 `tier2_skip: true`**：价格藏 `__XAI_PUBLIC_MODELS__` JSON 且原始值为 price/10000 换算前整数，audit Tier2 静态文本核对结构性不适用（audit.py 已识别 `tier2_skip` 字段）。同类源照此办理。
