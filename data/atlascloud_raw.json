@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-03T06:41:01",
+  "fetched_at": "2026-09-04T06:45:56",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -1253,9 +1253,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.022"
+            "base_price": "0.018"
           },
           "origin": {
             "base_price": "0.022"
@@ -2393,9 +2393,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.045"
+            "base_price": "0.036"
           },
           "origin": {
             "base_price": "0.045"
@@ -2434,9 +2434,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.045"
+            "base_price": "0.036"
           },
           "origin": {
             "base_price": "0.045"
@@ -3027,9 +3027,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "70",
+          "discount": "20",
           "actual": {
-            "base_price": "0.039"
+            "base_price": "0.011"
           },
           "origin": {
             "base_price": "0.056"
@@ -3067,9 +3067,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "70",
+          "discount": "20",
           "actual": {
-            "base_price": "0.039"
+            "base_price": "0.011"
           },
           "origin": {
             "base_price": "0.056"
@@ -3108,9 +3108,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "70",
+          "discount": "20",
           "actual": {
-            "base_price": "0.039"
+            "base_price": "0.011"
           },
           "origin": {
             "base_price": "0.056"
@@ -7152,9 +7152,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "80",
+          "discount": "30",
           "actual": {
-            "base_price": "0.072"
+            "base_price": "0.027"
           },
           "origin": {
             "base_price": "0.09"
@@ -7192,9 +7192,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "80",
+          "discount": "30",
           "actual": {
-            "base_price": "0.072"
+            "base_price": "0.027"
           },
           "origin": {
             "base_price": "0.09"
@@ -7233,9 +7233,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "80",
+          "discount": "30",
           "actual": {
-            "base_price": "0.072"
+            "base_price": "0.027"
           },
           "origin": {
             "base_price": "0.09"

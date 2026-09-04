@@ -1,14 +1,14 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-09-03 06:44:38
+> 生成时间：2026-09-04 06:49:26
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
-- 校验记录总数：**160**
-- 可疑项总数：**90**（high 1 / med 33 / low 56）
-- Tier1 结构性校验可疑：**33**
-- Tier2 源页面核对可疑：**57**
+- 校验记录总数：**170**
+- 可疑项总数：**101**（high 1 / med 34 / low 66）
+- Tier1 结构性校验可疑：**34**
+- Tier2 源页面核对可疑：**67**
 
 ## 二、核对维度
 
@@ -47,6 +47,7 @@
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.1 | 缓存/输入比率(22%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.1 | 缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.2 | 缓存/输入比率(25%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
+| med | T1 | CACHE_RATIO_ANOMALY | openrouter | GLM-5.3 | 缓存/输入比率(10%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.3 | 缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | Kimi K2.6 | 缓存/输入比率(20%) 偏离同模型基准(17%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | Kimi K2.7 Code | 缓存/输入比率(17%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
@@ -86,9 +87,19 @@
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M2.7 | SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | Doubao Seed 2.1 Pro | SPA 源静态 HTML 未含模型名「Doubao-Seed-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | Doubao Seed 2.1 Turbo | SPA 源静态 HTML 未含模型名「Doubao-Seed-」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | GLM-5.2 | SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | GLM-5.3 | SPA 源静态 HTML 未含模型名「GLM-5.3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | GLM-5.3-Flash | SPA 源静态 HTML 未含模型名「GLM-5.3-Flas」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | Kimi K2.6 | SPA 源静态 HTML 未含模型名「Kimi K2.6」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | Kimi K2.7 Code | SPA 源静态 HTML 未含模型名「Kimi K2.7 Co」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | Kimi K3 | SPA 源静态 HTML 未含模型名「Kimi K3」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | MiniMax M2.7 | SPA 源静态 HTML 未含模型名「MiniMax M2.7」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax M3」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | Qwen3.7 Max | SPA 源静态 HTML 未含模型名「Qwen3.7-Max」，需 Playwright 渲染核对 |
+| low | T2 | SPA_NEED_RENDER | modelmesh | Qwen3.7 Plus | SPA 源静态 HTML 未含模型名「Qwen3.7-Plus」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | Qwen3.8 Max | SPA 源静态 HTML 未含模型名「Qwen3.8-Max」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V3.2 | SPA 源静态 HTML 未含模型名「Deepseek-v3.」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |

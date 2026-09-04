@@ -17,8 +17,8 @@ aliyun_intl,glm-5.1,1.4,4.4,0.26,,,,1M tokens,USD,9.8,30.8,GLM-5.1,no
 aliyun_intl,glm-5.2,1.4,4.4,0.28,,,,1M tokens,USD,9.8,30.8,GLM-5.2,no
 aliyun_intl,kimi-k2.7-code,0.95,4.0,0.19,,,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
 aliyun_intl,kimi-k3,3.0,15.0,0.3,,,,1M tokens,USD,21.0,105.0,Kimi K3,no
-aliyun_intl,qwen3.7-max,2.5,7.5,0.5,,,,1M tokens,USD,17.5,52.5,Qwen3.7 Max,yes
-aliyun_intl,qwen3.7-plus,0.4,1.6,0.08,,,,1M tokens,USD,2.8,11.2,Qwen3.7 Plus,yes
+aliyun_intl,qwen3.7-max,2.5,7.5,0.5,,,,1M tokens,USD,17.5,52.5,Qwen3.7 Max,no
+aliyun_intl,qwen3.7-plus,0.4,1.6,0.08,,,,1M tokens,USD,2.8,11.2,Qwen3.7 Plus,no
 aliyun_intl,qwen3.8-max,2.0,6.0,0.25,,,,1M tokens,USD,14.0,42.0,Qwen3.8 Max,no
 anthropic,Claude Fable 5,10.0,50.0,1.0,12.5,200K,,1M tokens,USD,70.0,350.0,Claude Fable 5,yes
 anthropic,Claude Haiku 4.5,1.0,5.0,0.1,1.25,200K,,1M tokens,USD,7.0,35.0,Claude Haiku 4.5,yes
@@ -45,8 +45,8 @@ atlascloud,Kimi K2.7 Code,0.95,4.0,0.16,,262K,,1M tokens,USD,6.65,28.0,Kimi K2.7
 atlascloud,Kimi K3,3.0,15.0,0.3,,1.04858M,,1M tokens,USD,21.0,105.0,Kimi K3,no
 atlascloud,MiniMax M2.7,0.3,1.2,0.06,,196K,,1M tokens,USD,2.1,8.4,MiniMax M2.7,yes
 atlascloud,MiniMax M3,0.3,1.2,0.06,,524K,,1M tokens,USD,2.1,8.4,MiniMax M3,yes
-atlascloud,Qwen3.7 Max,2.5,7.5,0.5,,1M,,1M tokens,USD,17.5,52.5,Qwen3.7 Max,yes
-atlascloud,Qwen3.7 Plus,0.4,1.6,0.08,,1M,,1M tokens,USD,2.8,11.2,Qwen3.7 Plus,yes
+atlascloud,Qwen3.7 Max,2.5,7.5,0.5,,1M,,1M tokens,USD,17.5,52.5,Qwen3.7 Max,no
+atlascloud,Qwen3.7 Plus,0.4,1.6,0.08,,1M,,1M tokens,USD,2.8,11.2,Qwen3.7 Plus,no
 atlascloud,Qwen3.8 Max,2.0,6.0,0.25,,1M,,1M tokens,USD,14.0,42.0,Qwen3.8 Max,no
 bigmodel,GLM-4.7,2.0,8.0,,,,"输入长度 [0, 32)输出长度 [0, 0.2)",1M tokens,CNY,2.0,8.0,GLM-4.7,yes
 bigmodel,GLM-5.1,6.0,24.0,,,,"输入长度 [0, 32)",1M tokens,CNY,6.0,24.0,GLM-5.1,no
@@ -72,9 +72,19 @@ kimi_ai,kimi-k3,3.0,15.0,0.3,,"1,048,576 tokens",,1M tokens,USD,21.0,105.0,Kimi 
 minimax,MiniMax-M2.7,2.1,8.4,0.42,,,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
 minimax,MiniMax-M3,2.1,8.4,0.42,,≤512K,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
 minimax,MiniMax-M3,4.2,16.8,0.84,,512K~1,,1M tokens,CNY,4.2,16.8,MiniMax M3,no
+modelmesh,Doubao-Seed-2.1-pro,6.0,30.0,,,256K,,1M tokens,CNY,6.0,30.0,Doubao Seed 2.1 Pro,yes
+modelmesh,Doubao-Seed-2.1-turbo,3.0,15.0,,,256K,,1M tokens,CNY,3.0,15.0,Doubao Seed 2.1 Turbo,yes
+modelmesh,GLM-5.1,6.0,24.0,,,200K,,1M tokens,CNY,6.0,24.0,GLM-5.1,no
+modelmesh,GLM-5.2,8.0,28.0,,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.2,no
 modelmesh,GLM-5.3,8.0,28.0,,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.3,no
 modelmesh,GLM-5.3-Flash,0.4,1.4,,,1000K,,1M tokens,CNY,0.4,1.4,GLM-5.3-Flash,yes
+modelmesh,Kimi K2.6,6.5,27.0,,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
+modelmesh,Kimi K2.7 Code,6.5,27.0,,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code,yes
 modelmesh,Kimi K3,20.0,100.0,,,1000K,,1M tokens,CNY,20.0,100.0,Kimi K3,no
+modelmesh,MiniMax M2.7,2.1,8.4,,,200K,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
+modelmesh,MiniMax M3,2.1,8.4,,,1000K,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
+modelmesh,Qwen3.7-Max,6.0,18.0,,,1000K,,1M tokens,CNY,6.0,18.0,Qwen3.7 Max,yes
+modelmesh,Qwen3.7-Plus,1.6,6.4,,,1000K,,1M tokens,CNY,1.6,6.4,Qwen3.7 Plus,yes
 modelmesh,Qwen3.8-Max,12.0,36.0,,,1000K,,1M tokens,CNY,12.0,36.0,Qwen3.8 Max,yes
 openai,gpt-5.5 (<272K context length),5.0,30.0,0.5,,1M,default,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openai,gpt-5.5-pro (<272K context length),30.0,180.0,,,1M,default,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
@@ -98,7 +108,7 @@ openrouter,DeepSeek V4 Flash,0.088606,0.177212,0.017721,,1.04858M,,1M tokens,USD
 openrouter,DeepSeek V4 Pro,1.04226,2.08452,0.086855,,1.04858M,,1M tokens,USD,7.29582,14.59164,DeepSeek V4 Pro,no
 openrouter,DeepSeek V4 Pro 0813,1.1154,3.3462,0.03718,,1.04858M,,1M tokens,USD,7.8078,23.4234,DeepSeek V4 Pro 0813,yes
 openrouter,GLM 5.2,0.966,3.036,0.1932,,1.04858M,,1M tokens,USD,6.762,21.252,GLM-5.2,no
-openrouter,GLM-5.3,1.4,4.4,0.26,,1.31072M,,1M tokens,USD,9.8,30.8,GLM-5.3,no
+openrouter,GLM-5.3,1.4,4.4,0.14,,1.31072M,,1M tokens,USD,9.8,30.8,GLM-5.3,no
 openrouter,GLM-5.3-Flash,0.075,0.25,0.015,,1.31072M,,1M tokens,USD,0.525,1.75,GLM-5.3-Flash,no
 openrouter,GPT-4o,2.5,10.0,1.25,,128K,,1M tokens,USD,17.5,70.0,GPT-4o,yes
 openrouter,GPT-5,1.25,10.0,0.125,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
