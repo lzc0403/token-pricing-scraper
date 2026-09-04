@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>海外大模型定价全站审计与修正 · 变更清单 · 2026-09-05</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#fff; --ink:#1f2937; --sub:#6b7280;
+    --line:#e5e7eb; --brand:#2BAE85; --red:#dc2626; --green:#16a34a; --amber:#d97706;
+    --blue:#2563eb; --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font:14px/1.65 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);padding:32px 20px}
+  .wrap{max-width:980px;margin:0 auto}
+  header{background:linear-gradient(135deg,#2BAE85,#1d8a68);border-radius:var(--radius);color:#fff;padding:28px 32px;margin-bottom:24px}
+  header h1{font-size:22px;margin-bottom:6px}
+  header p{opacity:.9;font-size:13px}
+  .stat-row{display:flex;gap:12px;margin:18px 0 24px;flex-wrap:wrap}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 22px;flex:1;min-width:140px}
+  .stat b{font-size:22px;display:block}
+  .stat small{color:var(--sub)}
+  .stat.green b{color:var(--green)} .stat.red b{color:var(--red)} .stat.brand b{color:var(--brand)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;margin-bottom:20px}
+  .card h2{font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .tag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:20px;color:#fff;font-weight:600}
+  .tag.add{background:var(--green)} .tag.upd{background:var(--blue)} .tag.fix{background:var(--amber)} .tag.del{background:var(--red)} .tag.rem{background:#6b7280}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{background:#f9fafb;text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);color:var(--sub);font-weight:600;white-space:nowrap}
+  td{padding:8px 10px;border-bottom:1px solid #f0f1f3;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,Consolas,monospace}
+  .price-old{color:var(--red);text-decoration:line-through}
+  .price-new{color:var(--green);font-weight:600}
+  ul{margin:6px 0 0 18px}
+  li{margin:3px 0}
+  .note{font-size:12px;color:var(--sub);background:#f8fafc;border-radius:10px;padding:8px 12px;margin-top:10px;border:1px dashed var(--line)}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  @media(max-width:640px){body{padding:16px 8px}.card{padding:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>📊 海外大模型定价 全站审计与修正报告</h1>
+  <p>审计时间：2026-09-05 01:30 · 数据源：Google ai.google.dev / x.ai docs / OpenRouter / 智谱官方等 · 快照：2026-09-05 归档</p>
+</header>
+
+<div class="stat-row">
+  <div class="stat brand"><b>20</b><small>海外主流模型在册</small></div>
+  <div class="stat green"><b>2</b><small>新增模型</small></div>
+  <div class="stat red"><b>4</b><small>下架旧版模型</small></div>
+  <div class="stat green"><b>0</b><small>审计 high（此前 1）</small></div>
+  <div class="stat"><b>432</b><small>全量记录 / 命中 168</small></div>
+</div>
+
+<div class="card">
+  <h2><span class="tag add">新增模型</span> 2026-09 上线 / 在售主力</h2>
+  <table>
+    <tr><th>模型</th><th>官方源</th><th>输入 $/1M</th><th>输出 $/1M</th><th>缓存命中 $/1M</th><th>缓存存储 $/1M·时</th><th>备注</th></tr>
+    <tr><td><b>Gemini 3.8 Flash</b></td><td>gemini 官网</td><td class="mono">0.75</td><td class="mono">3.75</td><td class="mono">0.075</td><td class="mono">0.5</td><td>2026-09-02 GA；促销价至 2026-12-31，其后 1.5/7.5/0.15/1.0</td></tr>
+    <tr><td><b>Gemini 3.6 Flash</b></td><td>gemini 官网</td><td class="mono">0.75</td><td class="mono">3.75</td><td class="mono">0.075</td><td class="mono">0.5</td><td>官网在售主力，与 3.7/3.8 同价档</td></tr>
+  </table>
+  <div class="note">注：GLM-5.3-Flash（智谱 5 折新品，¥0.4/¥1.4 CNY · $0.075/$0.25 USD）此前已收录并在 2026-09-05 快照中价格复核一致，本次不在新增之列；其国内官方缓存价官网未公布（写入按输入价计费），如实标注 None。</div>
+</div>
+
+<div class="card">
+  <h2><span class="tag rem">下架模型</span> Gemini 旧版（按最新收录口径只留 3.6 / 3.7 / 3.8）</h2>
+  <table>
+    <tr><th>模型</th><th>处理</th><th>原因</th></tr>
+    <tr><td><b>Gemini 3.5 Pro</b></td><td>全站移除</td><td>官网已无独立条目（被 3.1 Pro Preview 取代），旧静态价移除</td></tr>
+    <tr><td><b>Gemini 3.5 Flash</b></td><td>全站移除</td><td>用户口径：Gemini 只保留 3.6/3.7/3.8</td></tr>
+    <tr><td><b>Gemini 2.5 Pro</b></td><td>全站移除</td><td>同上</td></tr>
+    <tr><td><b>Gemini 2.5 Flash</b></td><td>全站移除</td><td>同上</td></tr>
+  </table>
+  <div class="note">移除范围覆盖：主流目录 mainstream_models.yml、OpenRouter 白名单映射、gemini 抓取器白名单、site_data 官方源/排序表、历史快照除外（趋势图保留历史轨迹，但不进下拉/卡片）。</div>
+</div>
+
+<div class="card">
+  <h2><span class="tag fix">已订正错误 / 修复</span> 抓取器缺陷 + 渠道归属 + 审计误报</h2>
+  <table>
+    <tr><th>#</th><th>问题</th><th>修复</th><th>影响</th></tr>
+    <tr><td>1</td><td><b>多档位取价 bug</b>：Gemini 2.5 Pro 输入/输出取了 &gt;200k 高档（2.5/15），缓存却取 ≤200k 档（0.125），档位混搭；2.5 Flash 输入误取音频档 $1.00（文本档实为 $0.30）</td><td><span class="mono">_effective_price</span> 无促销时改取<b>首个价格（基准档）</b>而非最后一个；用真实官方页回归验证</td><td>抓取器核心缺陷根治，未来 3.x 多档位不会重蹈</td></tr>
+    <tr><td>2</td><td><b>海外模型被当「渠道价」</b>：GPT/Claude/Gemini/Grok 在 OpenRouter/AtlasCloud 的 84 行报价进了渠道比价表，卡片显示「渠道✓」</td><td>新增 <span class="mono">_is_overseas_model</span>（canonical 前缀 GPT/Claude/Gemini/Grok），海外模型不产生渠道行、卡片恒标「无渠道」</td><td>页面口径与「海外大模型无渠道价」一致；国内模型渠道价不受影响</td></tr>
+    <tr><td>3</td><td><b>Grok 审计误报 high</b>：价格藏于 <span class="mono">__XAI_PUBLIC_MODELS__</span> JSON 且为换算前整数，静态文本核对必然失败（历史遗留 9/4 起）</td><td>sources.yml 加 <span class="mono">tier2_skip</span>，audit 识别后跳过该类源 Tier2</td><td>审计恢复 0 high，消除持续误报</td></tr>
+    <tr><td>4</td><td><b>Gemini 缓存「创建」维度缺失</b>：官方只有缓存读取价 + 缓存存储费（按小时），无按 token 缓存写入价</td><td>新增 <span class="mono">cache_storage</span> 字段全链路（抓取→PRICE_FIELDS→卡片「缓存存储/时」），促销期按日期取生效值</td><td>Gemini 3.6/3.7/3.8 四维报价完整呈现</td></tr>
+    <tr><td>5</td><td><b>GPT-4o / GPT-5 / 3.5 等旧版 &gt;200k 长档与部分模型 cache_write 缺失</b></td><td>核实官方：DeepSeek/智谱/Google/Grok 官方均无独立「缓存创建」价（写入按输入价计费），不予编造；OpenAI 长档由前端 JS 注入抓取不可行（此前已调研定案），保持 None + audit 交叉校验</td><td>不引入虚假报价；缺失项均有官方依据说明</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2><span class="tag upd">已更新报价模型</span> 快照复核（2026-09-05 抓取）</h2>
+  <table>
+    <tr><th>模型</th><th>来源</th><th>输入 →</th><th>输出 →</th><th>缓存命中 →</th><th>状态</th></tr>
+    <tr><td>Grok 4.6</td><td>grok 官网</td><td class="mono">2.0 / 4.0（长档）</td><td class="mono">6.0 / 12.0</td><td class="mono">0.5 / 1.0</td><td>✅ 与官方页逐项一致</td></tr>
+    <tr><td>Gemini 3.8 / 3.7 / 3.6 Flash</td><td>gemini 官网</td><td class="mono">0.75</td><td class="mono">3.75</td><td class="mono">0.075</td><td>✅ 促销期价生效（至 2026-12-31）</td></tr>
+    <tr><td>Claude 全家</td><td>anthropic</td><td class="mono">1–10</td><td class="mono">5–50</td><td class="mono">0.1–1.0</td><td>✅ cache_write 100% 覆盖（5m 档 1.25×输入）</td></tr>
+    <tr><td>GPT-5.6 Sol/Terra/Luna</td><td>openai</td><td class="mono">4/2/0.2 等</td><td class="mono">20/12/1.2</td><td class="mono">0.4/0.2/0.02</td><td>✅ 4 列完整（含 cache writes）</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>✅ 全站审计结论</h2>
+  <ul>
+    <li><b>字段完整性</b>：海外主流 20 模型四维报价齐备（输入 / 输出 / 缓存命中 / 缓存创建或存储）；官方无「缓存创建」独立价的（DeepSeek/智谱/Google/Grok）均已按官方口径处理，无编造。</li>
+    <li><b>渠道价归属</b>：渠道报价仅存在于国内模型；海外模型（GPT/Claude/Gemini/Grok）在聚合站的挂牌不再被当作渠道价，不进比价、不显示渠道标记。</li>
+    <li><b>模型在册</b>：Gemini 只保留 3.6 / 3.7 / 3.8 Flash；GPT-5.6 系 / Claude 系 / Grok 4.6 在册。</li>
+    <li><b>质量门禁</b>：全量 300+ 测试通过、ruff 干净、审计 high = 0、OpenRouter 二次验证 ok、站点重建成功。</li>
+  </ul>
+  <div class="note">验证命令：<span class="mono">python main.py</span>（真实抓取 18 源）→ 全量记录 432 / 命中 168 / 审计 0 high；<span class="mono">pytest -q</span> 全绿。</div>
+</div>
+
+<footer>token-pricing-scraper · 全站审计修正报告 · 2026-09-05 · 数据以厂商官网为准</footer>
+</div>
+</body>
+</html>

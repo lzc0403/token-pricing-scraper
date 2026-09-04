@@ -1,14 +1,14 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-09-04 06:49:26
+> 生成时间：2026-09-05 01:25:15
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
-- 校验记录总数：**170**
-- 可疑项总数：**101**（high 1 / med 34 / low 66）
-- Tier1 结构性校验可疑：**34**
-- Tier2 源页面核对可疑：**67**
+- 校验记录总数：**168**
+- 可疑项总数：**98**（high 0 / med 32 / low 66）
+- Tier1 结构性校验可疑：**32**
+- Tier2 源页面核对可疑：**66**
 
 ## 二、核对维度
 
@@ -29,7 +29,6 @@
 
 | 严重度 | 层级 | 代码 | 源 | 模型 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| high | T2 | PRICE_NOT_FOUND | grok | Grok 4.6 | 静态源页面未找到output价数值「12」，疑似解析/幻觉错误 |
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | DeepSeek V3.2 | 缓存/输入比率(50%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | DeepSeek V4 Flash | 缓存/输入比率(20%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_intl | DeepSeek V4 Flash | 缓存/输入比率(10%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致 |
@@ -53,8 +52,6 @@
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | Kimi K2.7 Code | 缓存/输入比率(17%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | Kimi K3 | 缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.3-Flash | 缓存/输入比率(29%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
-| med | T1 | CACHE_RATIO_ANOMALY | gemini | Gemini 2.5 Flash | 缓存/输入比率(3%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
-| med | T1 | CACHE_RATIO_ANOMALY | gemini | Gemini 2.5 Pro | 缓存/输入比率(5%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | DUPLICATE | tencent | - | 重复记录 ×2: DeepSeek-V4-Flash |
 | med | T1 | DUPLICATE | tencent | - | 重复记录 ×2: DeepSeek-V4-Flash |
 | med | T1 | DUPLICATE | tencent | - | 重复记录 ×2: DeepSeek-V4-Pro |

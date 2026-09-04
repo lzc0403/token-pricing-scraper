@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-04T06:45:56",
+  "fetched_at": "2026-09-05T01:22:22",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -85,6 +85,206 @@
           "origin": {
             "base_price": "0.05",
             "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-32p909y6z67y",
+        "model": "google/gemini-omni-1.1-flash/video-extend",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Video Extend",
+        "profile": "A natively multimodal Google DeepMind model that continues an existing clip with a seamlessly matched 3-to-10-second extension, chainable to grow a single shot up to a total of 40 seconds of coherent video with native audio.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-video-extend.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-video-extend.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-video-extend.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-video-extend.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-video-extend.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-video-extend.json",
+        "priority": 90053,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "VIDEO-EXTEND",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.037"
+          },
+          "origin": {
+            "base_price": "0.041"
+          }
+        }
+      },
+      {
+        "uuid": "ms-2dvzkej5h59w",
+        "model": "google/gemini-omni-1.1-flash/video-edit",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Video Edit",
+        "profile": "A natively multimodal Google DeepMind model that applies a text-instructed edit to an existing video - adding, removing, replacing, or restyling elements with native audio - while preserving everything the prompt does not mention.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-video-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-video-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-video-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-video-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-video-edit.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-video-edit.json",
+        "priority": 90053,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "VIDEO-EDIT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.037"
+          },
+          "origin": {
+            "base_price": "0.041"
+          }
+        }
+      },
+      {
+        "uuid": "ms-w2qdbq6cnlwg",
+        "model": "google/gemini-omni-1.1-flash/reference-to-video",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Reference-to-Video",
+        "profile": "A natively multimodal Google DeepMind model that generates cinematic, natively sound-enabled videos from a text prompt plus up to 10 reference images and 3 reference video clips, keeping a character, product, or art direction consistent across generations.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-reference-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-reference-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-reference-to-video.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-reference-to-video.json",
+        "priority": 90053,
+        "categories": null,
+        "tags": [
+          "REFERENCE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.037"
+          },
+          "origin": {
+            "base_price": "0.041"
+          }
+        }
+      },
+      {
+        "uuid": "ms-mhjns33jtw4y",
+        "model": "google/gemini-omni-1.1-flash/image-to-video",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Image-to-Video",
+        "profile": "A natively multimodal Google DeepMind model that animates a still image into a cinematic, natively sound-enabled clip from a text prompt, optionally interpolating to a supplied last frame for precise shot start and end control.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-image-to-video.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-image-to-video.json",
+        "priority": 90053,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.039"
+          },
+          "origin": {
+            "base_price": "0.043"
+          }
+        }
+      },
+      {
+        "uuid": "ms-vsj4fls3dukk",
+        "model": "google/gemini-omni-1.1-flash/text-to-video",
+        "type": "Video",
+        "displayName": "Gemini Omni 1.1 Flash Text-to-Video",
+        "profile": "A natively multimodal Google DeepMind model that turns a single text prompt into a cinematic clip with synchronized native audio, with control over duration, aspect ratio, and output resolution from a fast 360p draft up to 4K.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-text-to-video.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-text-to-video.json",
+        "priority": 90053,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2kfgui1jyt27",
+        "familyName": "gemini-omni",
+        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.037"
+          },
+          "origin": {
+            "base_price": "0.041"
           }
         }
       },
@@ -622,6 +822,130 @@
           },
           "origin": {
             "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-h10tyt9jrpyj",
+        "model": "microsoft/mai-image-2.5-pro/edit",
+        "type": "Image",
+        "displayName": "MAI-Image-2.5-Pro Edit",
+        "profile": "Microsoft AI's highest-fidelity image-to-image editing model, making surgical, instruction-driven edits to existing images while preserving composition, material realism, and subject identity.",
+        "logo": "https://static.atlascloud.ai/model/logo/microsoft-mai-image-2.5-pro-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MICROSOFT.png",
+        "background": "https://static.atlascloud.ai/model/background/microsoft-mai-image-2.5-pro-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/microsoft-mai-image-2.5-pro-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/microsoft-mai-image-2.5-pro-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/microsoft-mai-image-2.5-pro-edit.md",
+        "organization": "MICROSOFT",
+        "example": "https://static.atlascloud.ai/model/example/microsoft-mai-image-2.5-pro-edit.json",
+        "priority": 90048,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2lb07tikhb3i",
+        "familyName": "mai-image-2.5",
+        "familyDisplayName": "MAI Image 2.5 API for Accurate In-image Text",
+        "parentFamilyUUID": "mf-2lb1533ty437",
+        "parentFamilyName": "microsoft",
+        "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.131",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.131",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-lv0vood4ndtd",
+        "model": "microsoft/mai-image-2.5-pro/text-to-image",
+        "type": "Image",
+        "displayName": "MAI-Image-2.5-Pro Text-to-image",
+        "profile": "Microsoft AI's highest-fidelity text-to-image model, generating photorealistic, visually dense scenes from natural language with strong object and character consistency and accurate in-image text.",
+        "logo": "https://static.atlascloud.ai/model/logo/microsoft-mai-image-2.5-pro-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MICROSOFT.png",
+        "background": "https://static.atlascloud.ai/model/background/microsoft-mai-image-2.5-pro-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/microsoft-mai-image-2.5-pro-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/microsoft-mai-image-2.5-pro-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/microsoft-mai-image-2.5-pro-text-to-image.md",
+        "organization": "MICROSOFT",
+        "example": "https://static.atlascloud.ai/model/example/microsoft-mai-image-2.5-pro-text-to-image.json",
+        "priority": 90048,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2lb07tikhb3i",
+        "familyName": "mai-image-2.5",
+        "familyDisplayName": "MAI Image 2.5 API for Accurate In-image Text",
+        "parentFamilyUUID": "mf-2lb1533ty437",
+        "parentFamilyName": "microsoft",
+        "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.12",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.12",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-qs81ondyxp4p",
+        "model": "microsoft/mai-image-2.5-flash/edit",
+        "type": "Image",
+        "displayName": "MAI-Image-2.5-Flash Edit",
+        "profile": "Microsoft's fast, cost-optimized image-to-image editing model, enabling precise edits to existing images at significantly lower cost than the standard MAI-Image-2.5 Edit.",
+        "logo": "https://static.atlascloud.ai/model/logo/microsoft-mai-image-2.5-flash-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MICROSOFT.png",
+        "background": "https://static.atlascloud.ai/model/background/microsoft-mai-image-2.5-flash-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/56e752fa-7907-462d-8c07-6dc39f433867.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/microsoft-mai-image-2.5-flash-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/microsoft-mai-image-2.5-flash-edit.md",
+        "organization": "MICROSOFT",
+        "example": "https://static.atlascloud.ai/model/example/microsoft-mai-image-2.5-flash-edit.json",
+        "priority": 90048,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2lb07tikhb3i",
+        "familyName": "mai-image-2.5",
+        "familyDisplayName": "MAI Image 2.5 API for Accurate In-image Text",
+        "parentFamilyUUID": "mf-2lb1533ty437",
+        "parentFamilyName": "microsoft",
+        "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.038"
+          },
+          "origin": {
+            "base_price": "0.038"
           }
         }
       },
@@ -5080,6 +5404,115 @@
         "architectureType": "Mixture-of-Experts (MoE)"
       },
       {
+        "uuid": "ms-seedasr20",
+        "model": "bytedance/seed-asr-2.0",
+        "type": "Audio",
+        "displayName": "Seed ASR 2.0",
+        "profile": "BytePlus Seed Speech recording-file recognition (ASR 2.0): transcribe an audio file to text with punctuation, ITN, sentence segmentation, speaker diarization, and 51-language support.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seed-asr-2.0.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seed-asr-2.0.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seed-asr-2.0.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seed-asr-2.0.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seed-asr-2.0.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seed-asr-2.0.json",
+        "priority": 80048,
+        "categories": [
+          "SPEECH-TO-TEXT"
+        ],
+        "tags": [
+          "SPEECH-TO-TEXT",
+          "ASR",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.002"
+          },
+          "origin": {
+            "base_price": "0.002"
+          }
+        }
+      },
+      {
+        "uuid": "ms-16d572ad084e",
+        "model": "tripo-h3.1/text-to-3d",
+        "type": "Image",
+        "displayName": "Tripo H3.1 Text-to-3D",
+        "profile": "Generate 3D models from text descriptions using Tripo H3.1.",
+        "logo": "https://static.atlascloud.ai/uploads/models/255a25e0-d1b9-41db-9cd7-6a296c39e7ad.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/TRIPO.png",
+        "background": "https://static.atlascloud.ai/model/background/tripo-h3.1-text-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/tripo-h3.1-text-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/tripo-h3.1-text-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/tripo-h3.1-text-to-3d.md",
+        "organization": "TRIPO",
+        "example": "https://static.atlascloud.ai/model/example/tripo-h3.1-text-to-3d.json",
+        "priority": 80040,
+        "categories": [
+          "TEXT-TO-3D"
+        ],
+        "tags": [
+          "TEXT-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2mx3bmcz1hmz",
+        "familyName": "Tripo",
+        "familyDisplayName": "Tripo API for Production-Ready 3D Models",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.1"
+          },
+          "origin": {
+            "base_price": "0.1"
+          }
+        }
+      },
+      {
+        "uuid": "ms-d5190f33e1c0",
+        "model": "tripo-h3.1/image-to-3d",
+        "type": "Image",
+        "displayName": "Tripo H3.1 Image-to-3D",
+        "profile": "Generate high-quality 3D models from a single image using Tripo H3.1.",
+        "logo": "https://static.atlascloud.ai/uploads/models/8c2de89e-6e26-434a-ba3f-f91bea8af32d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/TRIPO.png",
+        "background": "https://static.atlascloud.ai/model/background/tripo-h3.1-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/tripo-h3.1-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/tripo-h3.1-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/tripo-h3.1-image-to-3d.md",
+        "organization": "TRIPO",
+        "example": "https://static.atlascloud.ai/model/example/tripo-h3.1-image-to-3d.json",
+        "priority": 80040,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2mx3bmcz1hmz",
+        "familyName": "Tripo",
+        "familyDisplayName": "Tripo API for Production-Ready 3D Models",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.1"
+          },
+          "origin": {
+            "base_price": "0.1"
+          }
+        }
+      },
+      {
         "uuid": "ms-minimaxmusic26",
         "model": "minimax/music-2.6",
         "type": "Audio",
@@ -5117,6 +5550,80 @@
           },
           "origin": {
             "base_price": "0.15"
+          }
+        }
+      },
+      {
+        "uuid": "ms-c353f848de81",
+        "model": "nvidia/cosmos-3-super/image-to-video",
+        "type": "Video",
+        "displayName": "Nvidia Cosmos 3 Super Image-to-Video",
+        "profile": "Cosmos3 is a collection of Omnimodal world models capable of generating dynamic, high-quality video, image, audio, and action commands from combinations of text, image, video, and action trajectory inputs.",
+        "logo": "https://static.atlascloud.ai/uploads/models/fc3b8b8b-04f6-443c-9047-70f92e823f92.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/nvidia-cosmos-3-super-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/nvidia-cosmos-3-super-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/nvidia-cosmos-3-super-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/nvidia-cosmos-3-super-image-to-video.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/nvidia-cosmos-3-super-image-to-video.json",
+        "priority": 80000,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2mg02j6xc8e9",
+        "familyName": "nvidia-cosmos",
+        "familyDisplayName": "Nvidia Cosmos API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.055"
+          },
+          "origin": {
+            "base_price": "0.055"
+          }
+        }
+      },
+      {
+        "uuid": "ms-e266db0e2c6b",
+        "model": "nvidia/cosmos-3-super/text-to-image",
+        "type": "Image",
+        "displayName": "Nvidia Cosmos 3 Super Text-to-Image",
+        "profile": "Cosmos3 is a collection of Omnimodal world models capable of generating dynamic, high-quality video, image, audio, and action commands from combinations of text, image, video, and action trajectory inputs.",
+        "logo": "https://static.atlascloud.ai/uploads/models/52400d95-bf61-46a7-9e9a-764cf0e2e58f.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/nvidia-cosmos-3-super-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/nvidia-cosmos-3-super-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/nvidia-cosmos-3-super-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/nvidia-cosmos-3-super-text-to-image.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/nvidia-cosmos-3-super-text-to-image.json",
+        "priority": 80000,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2mg02j6xc8e9",
+        "familyName": "nvidia-cosmos",
+        "familyDisplayName": "Nvidia Cosmos API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.044"
+          },
+          "origin": {
+            "base_price": "0.044"
           }
         }
       },
@@ -20954,206 +21461,6 @@
         }
       },
       {
-        "uuid": "ms-32p909y6z67y",
-        "model": "google/gemini-omni-1.1-flash/video-extend",
-        "type": "Video",
-        "displayName": "Gemini Omni 1.1 Flash Video Extend",
-        "profile": "A natively multimodal Google DeepMind model that continues an existing clip with a seamlessly matched 3-to-10-second extension, chainable to grow a single shot up to a total of 40 seconds of coherent video with native audio.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-video-extend.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-video-extend.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-video-extend.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-video-extend.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-video-extend.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-video-extend.json",
-        "priority": 100,
-        "categories": [
-          "VIDEO-TO-VIDEO"
-        ],
-        "tags": [
-          "VIDEO-TO-VIDEO",
-          "VIDEO-EXTEND",
-          "NEW"
-        ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "90",
-          "actual": {
-            "base_price": "0.037"
-          },
-          "origin": {
-            "base_price": "0.041"
-          }
-        }
-      },
-      {
-        "uuid": "ms-2dvzkej5h59w",
-        "model": "google/gemini-omni-1.1-flash/video-edit",
-        "type": "Video",
-        "displayName": "Gemini Omni 1.1 Flash Video Edit",
-        "profile": "A natively multimodal Google DeepMind model that applies a text-instructed edit to an existing video - adding, removing, replacing, or restyling elements with native audio - while preserving everything the prompt does not mention.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-video-edit.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-video-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-video-edit.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-video-edit.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-video-edit.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-video-edit.json",
-        "priority": 100,
-        "categories": [
-          "VIDEO-TO-VIDEO"
-        ],
-        "tags": [
-          "VIDEO-TO-VIDEO",
-          "VIDEO-EDIT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "90",
-          "actual": {
-            "base_price": "0.037"
-          },
-          "origin": {
-            "base_price": "0.041"
-          }
-        }
-      },
-      {
-        "uuid": "ms-w2qdbq6cnlwg",
-        "model": "google/gemini-omni-1.1-flash/reference-to-video",
-        "type": "Video",
-        "displayName": "Gemini Omni 1.1 Flash Reference-to-Video",
-        "profile": "A natively multimodal Google DeepMind model that generates cinematic, natively sound-enabled videos from a text prompt plus up to 10 reference images and 3 reference video clips, keeping a character, product, or art direction consistent across generations.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-reference-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-reference-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-reference-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-reference-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-reference-to-video.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-reference-to-video.json",
-        "priority": 100,
-        "categories": null,
-        "tags": [
-          "REFERENCE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "90",
-          "actual": {
-            "base_price": "0.037"
-          },
-          "origin": {
-            "base_price": "0.041"
-          }
-        }
-      },
-      {
-        "uuid": "ms-mhjns33jtw4y",
-        "model": "google/gemini-omni-1.1-flash/image-to-video",
-        "type": "Video",
-        "displayName": "Gemini Omni 1.1 Flash Image-to-Video",
-        "profile": "A natively multimodal Google DeepMind model that animates a still image into a cinematic, natively sound-enabled clip from a text prompt, optionally interpolating to a supplied last frame for precise shot start and end control.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-image-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-image-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-image-to-video.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-image-to-video.json",
-        "priority": 100,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "90",
-          "actual": {
-            "base_price": "0.039"
-          },
-          "origin": {
-            "base_price": "0.043"
-          }
-        }
-      },
-      {
-        "uuid": "ms-vsj4fls3dukk",
-        "model": "google/gemini-omni-1.1-flash/text-to-video",
-        "type": "Video",
-        "displayName": "Gemini Omni 1.1 Flash Text-to-Video",
-        "profile": "A natively multimodal Google DeepMind model that turns a single text prompt into a cinematic clip with synchronized native audio, with control over duration, aspect ratio, and output resolution from a fast 360p draft up to 4K.",
-        "logo": "https://static.atlascloud.ai/model/logo/google-gemini-omni-1.1-flash-text-to-video.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
-        "background": "https://static.atlascloud.ai/model/background/google-gemini-omni-1.1-flash-text-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/google-gemini-omni-1.1-flash-text-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-omni-1.1-flash-text-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/google-gemini-omni-1.1-flash-text-to-video.md",
-        "organization": "GOOGLE",
-        "example": "https://static.atlascloud.ai/model/example/google-gemini-omni-1.1-flash-text-to-video.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-VIDEO"
-        ],
-        "tags": [
-          "TEXT-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
-        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
-        "parentFamilyName": "google",
-        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
-        "display_console": true,
-        "price": {
-          "discount": "90",
-          "actual": {
-            "base_price": "0.037"
-          },
-          "origin": {
-            "base_price": "0.041"
-          }
-        }
-      },
-      {
         "uuid": "ms-coze-prodvis1",
         "model": "atlascloud/studio/product-visuals",
         "type": "Image",
@@ -21625,80 +21932,6 @@
         }
       },
       {
-        "uuid": "ms-16d572ad084e",
-        "model": "tripo-h3.1/text-to-3d",
-        "type": "Image",
-        "displayName": "Tripo H3.1 Text-to-3D",
-        "profile": "Generate 3D models from text descriptions using Tripo H3.1.",
-        "logo": "https://static.atlascloud.ai/uploads/models/255a25e0-d1b9-41db-9cd7-6a296c39e7ad.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/TRIPO.png",
-        "background": "https://static.atlascloud.ai/model/background/tripo-h3.1-text-to-3d.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/tripo-h3.1-text-to-3d.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/tripo-h3.1-text-to-3d.json",
-        "readme": "https://static.atlascloud.ai/model/readme/tripo-h3.1-text-to-3d.md",
-        "organization": "TRIPO",
-        "example": "https://static.atlascloud.ai/model/example/tripo-h3.1-text-to-3d.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-3D"
-        ],
-        "tags": [
-          "TEXT-TO-3D",
-          "NEW"
-        ],
-        "familyUUID": "mf-2mx3bmcz1hmz",
-        "familyName": "Tripo",
-        "familyDisplayName": "Tripo API for Production-Ready 3D Models",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.1"
-          },
-          "origin": {
-            "base_price": "0.1"
-          }
-        }
-      },
-      {
-        "uuid": "ms-d5190f33e1c0",
-        "model": "tripo-h3.1/image-to-3d",
-        "type": "Image",
-        "displayName": "Tripo H3.1 Image-to-3D",
-        "profile": "Generate high-quality 3D models from a single image using Tripo H3.1.",
-        "logo": "https://static.atlascloud.ai/uploads/models/8c2de89e-6e26-434a-ba3f-f91bea8af32d.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/TRIPO.png",
-        "background": "https://static.atlascloud.ai/model/background/tripo-h3.1-image-to-3d.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/tripo-h3.1-image-to-3d.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/tripo-h3.1-image-to-3d.json",
-        "readme": "https://static.atlascloud.ai/model/readme/tripo-h3.1-image-to-3d.md",
-        "organization": "TRIPO",
-        "example": "https://static.atlascloud.ai/model/example/tripo-h3.1-image-to-3d.json",
-        "priority": 100,
-        "categories": [
-          "IMAGE-TO-3D"
-        ],
-        "tags": [
-          "IMAGE-TO-3D",
-          "NEW"
-        ],
-        "familyUUID": "mf-2mx3bmcz1hmz",
-        "familyName": "Tripo",
-        "familyDisplayName": "Tripo API for Production-Ready 3D Models",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.1"
-          },
-          "origin": {
-            "base_price": "0.1"
-          }
-        }
-      },
-      {
         "uuid": "ms-de3d5a1ee29d",
         "model": "ltx-2.3-quality/text-to-video",
         "type": "Video",
@@ -21810,80 +22043,6 @@
         }
       },
       {
-        "uuid": "ms-c353f848de81",
-        "model": "nvidia/cosmos-3-super/image-to-video",
-        "type": "Video",
-        "displayName": "Nvidia Cosmos 3 Super Image-to-Video",
-        "profile": "Cosmos3 is a collection of Omnimodal world models capable of generating dynamic, high-quality video, image, audio, and action commands from combinations of text, image, video, and action trajectory inputs.",
-        "logo": "https://static.atlascloud.ai/uploads/models/fc3b8b8b-04f6-443c-9047-70f92e823f92.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
-        "background": "https://static.atlascloud.ai/model/background/nvidia-cosmos-3-super-image-to-video.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/nvidia-cosmos-3-super-image-to-video.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/nvidia-cosmos-3-super-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/nvidia-cosmos-3-super-image-to-video.md",
-        "organization": "",
-        "example": "https://static.atlascloud.ai/model/example/nvidia-cosmos-3-super-image-to-video.json",
-        "priority": 100,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2mg02j6xc8e9",
-        "familyName": "nvidia-cosmos",
-        "familyDisplayName": "Nvidia Cosmos API",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.055"
-          },
-          "origin": {
-            "base_price": "0.055"
-          }
-        }
-      },
-      {
-        "uuid": "ms-e266db0e2c6b",
-        "model": "nvidia/cosmos-3-super/text-to-image",
-        "type": "Image",
-        "displayName": "Nvidia Cosmos 3 Super Text-to-Image",
-        "profile": "Cosmos3 is a collection of Omnimodal world models capable of generating dynamic, high-quality video, image, audio, and action commands from combinations of text, image, video, and action trajectory inputs.",
-        "logo": "https://static.atlascloud.ai/uploads/models/52400d95-bf61-46a7-9e9a-764cf0e2e58f.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
-        "background": "https://static.atlascloud.ai/model/background/nvidia-cosmos-3-super-text-to-image.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/nvidia-cosmos-3-super-text-to-image.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/nvidia-cosmos-3-super-text-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/nvidia-cosmos-3-super-text-to-image.md",
-        "organization": "",
-        "example": "https://static.atlascloud.ai/model/example/nvidia-cosmos-3-super-text-to-image.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2mg02j6xc8e9",
-        "familyName": "nvidia-cosmos",
-        "familyDisplayName": "Nvidia Cosmos API",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.044"
-          },
-          "origin": {
-            "base_price": "0.044"
-          }
-        }
-      },
-      {
         "uuid": "ms-2932a9275379",
         "model": "ideogram/v4/turbo/text-to-image",
         "type": "Image",
@@ -21954,41 +22113,6 @@
           },
           "origin": {
             "base_price": "0.025"
-          }
-        }
-      },
-      {
-        "uuid": "ms-seedasr20",
-        "model": "bytedance/seed-asr-2.0",
-        "type": "Audio",
-        "displayName": "Seed ASR 2.0",
-        "profile": "BytePlus Seed Speech recording-file recognition (ASR 2.0): transcribe an audio file to text with punctuation, ITN, sentence segmentation, speaker diarization, and 51-language support.",
-        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seed-asr-2.0.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
-        "background": "https://static.atlascloud.ai/model/background/bytedance-seed-asr-2.0.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seed-asr-2.0.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seed-asr-2.0.json",
-        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seed-asr-2.0.md",
-        "organization": "BYTEDANCE",
-        "example": "https://static.atlascloud.ai/model/example/bytedance-seed-asr-2.0.json",
-        "priority": 100,
-        "categories": [
-          "SPEECH-TO-TEXT"
-        ],
-        "tags": [
-          "SPEECH-TO-TEXT",
-          "ASR",
-          "NEW"
-        ],
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.002"
-          },
-          "origin": {
-            "base_price": "0.002"
           }
         }
       },
@@ -22176,46 +22300,6 @@
           },
           "origin": {
             "base_price": "0.013"
-          }
-        }
-      },
-      {
-        "uuid": "ms-qs81ondyxp4p",
-        "model": "microsoft/mai-image-2.5-flash/edit",
-        "type": "Image",
-        "displayName": "MAI-Image-2.5-Flash Edit",
-        "profile": "Microsoft's fast, cost-optimized image-to-image editing model, enabling precise edits to existing images at significantly lower cost than the standard MAI-Image-2.5 Edit.",
-        "logo": "https://static.atlascloud.ai/model/logo/microsoft-mai-image-2.5-flash-edit.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MICROSOFT.png",
-        "background": "https://static.atlascloud.ai/model/background/microsoft-mai-image-2.5-flash-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/56e752fa-7907-462d-8c07-6dc39f433867.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/microsoft-mai-image-2.5-flash-edit.json",
-        "readme": "https://static.atlascloud.ai/model/readme/microsoft-mai-image-2.5-flash-edit.md",
-        "organization": "MICROSOFT",
-        "example": "https://static.atlascloud.ai/model/example/microsoft-mai-image-2.5-flash-edit.json",
-        "priority": 100,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2lb07tikhb3i",
-        "familyName": "mai-image-2.5",
-        "familyDisplayName": "MAI Image 2.5 API for Accurate In-image Text",
-        "parentFamilyUUID": "mf-2lb1533ty437",
-        "parentFamilyName": "microsoft",
-        "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.038"
-          },
-          "origin": {
-            "base_price": "0.038"
           }
         }
       },

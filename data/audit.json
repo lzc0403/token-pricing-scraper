@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-04 06:49:26",
+  "generated_at": "2026-09-05 01:25:15",
   "stats": {
-    "total": 170,
-    "suspects": 101,
-    "high": 1,
-    "med": 34,
+    "total": 168,
+    "suspects": 98,
+    "high": 0,
+    "med": 32,
     "low": 66,
-    "tier1": 34,
-    "tier2": 67,
+    "tier1": 32,
+    "tier2": 66,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -130,19 +130,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Flash",
-        "input": 0.088606,
-        "output": 0.177212,
-        "cache_hit": 0.017721,
+        "input": 0.08806,
+        "output": 0.17612,
+        "cache_hit": 0.017612,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-flash",
-        "openrouter_prompt_per_token": "0.000000088606",
-        "openrouter_completion_per_token": "0.000000177212",
-        "input_rmb": 0.620242,
-        "output_rmb": 1.240484,
+        "openrouter_prompt_per_token": "0.00000008806",
+        "openrouter_completion_per_token": "0.00000017612",
+        "input_rmb": 0.61642,
+        "output_rmb": 1.23284,
         "canonical": "DeepSeek V4 Flash",
         "is_lowest_input": "yes"
       }
@@ -289,19 +289,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 1.04226,
-        "output": 2.08452,
-        "cache_hit": 0.086855,
+        "input": 1.011984,
+        "output": 2.023968,
+        "cache_hit": 0.084332,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.00000104226",
-        "openrouter_completion_per_token": "0.00000208452",
-        "input_rmb": 7.29582,
-        "output_rmb": 14.59164,
+        "openrouter_prompt_per_token": "0.000001011984",
+        "openrouter_completion_per_token": "0.000002023968",
+        "input_rmb": 7.083888,
+        "output_rmb": 14.167776,
         "canonical": "DeepSeek V4 Pro",
         "is_lowest_input": "no"
       }
@@ -594,56 +594,6 @@
         "input_rmb": 0.77812,
         "output_rmb": 2.72349,
         "canonical": "GLM-5.3-Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "gemini",
-      "canonical": "Gemini 2.5 Flash",
-      "msg": "缓存/输入比率(3%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "gemini",
-        "model_raw": "Gemini 2.5 Flash",
-        "input": 1.0,
-        "output": 2.5,
-        "cache_hit": 0.03,
-        "cache_write": null,
-        "context": "1M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "google/gemini-2.5-flash",
-        "input_rmb": 7.0,
-        "output_rmb": 17.5,
-        "canonical": "Gemini 2.5 Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "gemini",
-      "canonical": "Gemini 2.5 Pro",
-      "msg": "缓存/输入比率(5%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "gemini",
-        "model_raw": "Gemini 2.5 Pro",
-        "input": 2.5,
-        "output": 15.0,
-        "cache_hit": 0.125,
-        "cache_write": null,
-        "context": "1M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "google/gemini-2.5-pro",
-        "input_rmb": 17.5,
-        "output_rmb": 105.0,
-        "canonical": "Gemini 2.5 Pro",
         "is_lowest_input": "no"
       }
     },
@@ -982,20 +932,6 @@
       "record": {
         "model_raw": "GLM-5.3-Flash",
         "url": "https://open.bigmodel.cn/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "PRICE_NOT_FOUND",
-      "severity": "high",
-      "source": "grok",
-      "canonical": "Grok 4.6",
-      "msg": "静态源页面未找到output价数值「12」，疑似解析/幻觉错误",
-      "record": {
-        "model_raw": "grok-4.6",
-        "field": "output",
-        "value": "12",
-        "url": "https://docs.x.ai/docs/models"
       }
     },
     {
