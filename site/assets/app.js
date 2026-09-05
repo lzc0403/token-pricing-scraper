@@ -264,8 +264,10 @@ const PEAK = __PEAK_DATA__;
 
   function renderModelDetail(canonical){
     setRegionLayout(canonical);
-    // 联动历史价格趋势：切到该模型（有快照时）
-    if (canonical && window.__setTrendModel) window.__setTrendModel(canonical);
+    // 联动历史价格趋势：切到该模型（有快照时）；异常不阻断详情渲染
+    if (canonical && window.__setTrendModel){
+      try { window.__setTrendModel(canonical); } catch (e) {}
+    }
     var body = document.getElementById('detailBody');
     var sec = document.getElementById('model-detail');
     if (!body) return;
@@ -738,11 +740,15 @@ const PEAK = __PEAK_DATA__;
   bindChips();
   setRate(7.0);
   if (sel) draw(sel.value);
+
+  // 暴露状态给后续独立 IIFE（趋势图 valOf 需 state.rate 做 USD→CNY 换算）
+  window.__appState = state;
 })();
 
 /* ===== 历史价格趋势图 ===== */
 (function(){
   var HIST = (SITE_DATA && SITE_DATA.history) || {};
+  var state = (window.__appState || { rate: 7.0 });
   var dates = HIST.dates || [];
   var series = HIST.series || {};
   if (dates.length < 2) return;  // 不足 2 点不渲染（HTML 已显示占位）
