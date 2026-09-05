@@ -252,7 +252,18 @@ const PEAK = __PEAK_DATA__;
     if (row.cache_write != null) return '<td class="num">' + fmtNum(row.cache_write) + '</td>';
     return '<td class="num na">—</td>';
   }
+  // 海外大模型无国内同类数据：点选海外模型时收起「国内厂商官方定价」表
+  // 与「国内价格对比」图；点国内模型 / 未选中时恢复展示。
+  function setRegionLayout(canonical){
+    var overseas = !!(canonical && /^(GPT|Claude|Gemini|Grok)/.test(canonical));
+    var targets = document.querySelectorAll('.block-official, .chart-card');
+    for (var i = 0; i < targets.length; i++){
+      targets[i].style.display = overseas ? 'none' : '';
+    }
+  }
+
   function renderModelDetail(canonical){
+    setRegionLayout(canonical);
     var body = document.getElementById('detailBody');
     var sec = document.getElementById('model-detail');
     if (!body) return;
