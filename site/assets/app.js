@@ -264,6 +264,8 @@ const PEAK = __PEAK_DATA__;
 
   function renderModelDetail(canonical){
     setRegionLayout(canonical);
+    // 联动历史价格趋势：切到该模型（有快照时）
+    if (canonical && window.__setTrendModel) window.__setTrendModel(canonical);
     var body = document.getElementById('detailBody');
     var sec = document.getElementById('model-detail');
     if (!body) return;
@@ -809,6 +811,14 @@ const PEAK = __PEAK_DATA__;
       }
     });
   }
+
+  // 供主流卡片点击联动：选模型 → 趋势图切到该模型并重绘
+  window.__setTrendModel = function(canon){
+    if (!tSel || !canon) return;
+    if (!series[canon]) return;   // 该模型暂无历史快照
+    tSel.value = canon;
+    drawTrend(canon);
+  };
 
   if (tSel){
     tSel.addEventListener('change', function(e){ drawTrend(e.target.value); });

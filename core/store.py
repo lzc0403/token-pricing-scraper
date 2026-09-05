@@ -328,6 +328,213 @@ def build_official_changes(
     return sub
 
 
+def _diff_official_rows(
+    prev_rows: List[Dict[str, Any]], cur_rows: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+    """对比两份 prices 行集，返回官方源行的字段变化（供事件日志 / 前端）。
+
+    与 build_official_changes 口径一致：仅官方源（_OFFICIAL_SOURCE_IDS），
+    字段 input/output/cache_write/cache_hit/cache_storage，变化 <1% 视为抖动。
+    """
+    cur_idx: Dict[tuple, Dict[str, Any]] = {}
+    for r in cur_rows:
+        if not r.get("canonical") or not _is_official_row(r.get("source")):
+            continue
+        k = (r["canonical"], r["source"], str(r.get("condition") or ""))
+        cur_idx[k] = r
+    prev_idx: Dict[tuple, Dict[str, Any]] = {}
+    for r in prev_rows:
+        if not r.get("canonical") or not _is_official_row(r.get("source")):
+            continue
+        k = (r["canonical"], r["source"], str(r.get("condition") or ""))
+        prev_idx[k] = r
+
+    _FIELD_CN = {"input": "输入", "output": "输出", "cache_write": "缓存创建",
+                 "cache_hit": "缓存读取", "cache_storage": "缓存存储"}
+    _SOURCE_LBL = {
+        "deepseek": "DeepSeek官网", "deepseek_us": "DeepSeek海外官网",
+        "bigmodel": "智谱", "zai": "智谱Z.ai",
+        "kimi": "Kimi官网", "kimi_ai": "Kimi国际站",
+        "minimax": "MiniMax官网",
+        "aliyun": "阿里云通义", "volcengine": "火山引擎豆包",
+        "openai": "OpenAI官网", "anthropic": "Anthropic官网",
+        "gemini": "Gemini官网", "grok": "Grok官网",
+    }
+
+    def _pct(o, n):
+        try:
+            if o is None or n is None or o == 0:
+                return None
+            return round((float(n) - float(o)) / float(o) * 100, 2)
+        except (TypeError, ValueError):
+            return None
+
+    changes: List[Dict[str, Any]] = []
+    for k, cur in cur_idx.items():
+        prev = prev_idx.get(k)
+        if prev is None:
+            continue  # 新增行 → 不在调价事件范围（新品由 new_models 记录）
+        for field in ("input", "output", "cache_write", "cache_hit", "cache_storage"):
+            old_v, new_v = prev.get(field), cur.get(field)
+            if old_v == new_v or old_v is None or new_v is None:
+                continue
+            pct = _pct(old_v, new_v)
+            if abs(pct or 0) < 1:
+                continue
+            changes.append({
+                "canonical": cur["canonical"],
+                "source": cur["source"],
+                "source_label": _SOURCE_LBL.get(cur["source"], cur["source"]),
+                "field": field,
+                "field_cn": _FIELD_CN.get(field, field),
+                "old": old_v,
+                "new": new_v,
+                "pct": pct,
+                "currency": cur.get("currency"),
+            })
+    changes.sort(key=lambda x: -abs(x.get("pct") or 0))
+    return changes
+
+
+def backfill_official_change_log(data_dir: str, keep_days: int = 120) -> Dict[str, Any]:
+    """按 history 相邻快照**逐日 diff** 官方源行，把调价事件回填进日志。
+
+    - 首次运行：把已有 history 内全部调价事件（08-22→09-05 等）一次性落盘，
+      date 与各快照日期一致 → 与历史价格趋势精确对应。
+    - 日常运行：仅新增今日快照对应的变化（已存在的对自动去重跳过）。
+    """
+    hist_dir = os.path.join(data_dir, "history")
+    files = sorted(glob.glob(os.path.join(hist_dir, "*.json")))
+    if len(files) < 2:
+        return {"events": [], "total": 0}
+
+    # 预读事件做去重（与 append_official_change_log 共用文件）
+    log_path = os.path.join(data_dir, "price_change_log.json")
+    events: List[Dict[str, Any]] = []
+    if os.path.exists(log_path):
+        try:
+            with open(log_path, encoding="utf-8") as f:
+                _d = json.load(f)
+            if isinstance(_d, dict) and isinstance(_d.get("events"), list):
+                events = _d["events"]
+        except (OSError, json.JSONDecodeError, ValueError):
+            events = []
+    seen = {(_e.get("date"), _e.get("canonical"), _e.get("source"), _e.get("field"))
+            for _e in events}
+
+    _FIELD_CN = {"input": "输入", "output": "输出", "cache_write": "缓存创建",
+                 "cache_hit": "缓存读取", "cache_storage": "缓存存储"}
+
+    for i in range(1, len(files)):
+        date_str = os.path.splitext(os.path.basename(files[i]))[0]
+        try:
+            with open(files[i - 1], encoding="utf-8") as f:
+                prev_rows = json.load(f)
+            with open(files[i], encoding="utf-8") as f:
+                cur_rows = json.load(f)
+        except (OSError, json.JSONDecodeError, ValueError):
+            continue
+        changes = _diff_official_rows(prev_rows, cur_rows)
+        for ch in changes:
+            key = (date_str, ch["canonical"], ch["source"], ch["field"])
+            if key in seen:
+                continue
+            seen.add(key)
+            ch = dict(ch)
+            ch["date"] = date_str
+            ch["field_cn"] = _FIELD_CN.get(ch["field"], ch["field"])
+            events.append(ch)
+
+    # 裁剪超期
+    try:
+        from datetime import datetime, timedelta
+        if files:
+            last_date = os.path.splitext(os.path.basename(files[-1]))[0]
+            cutoff = datetime.strptime(last_date, "%Y-%m-%d") - timedelta(days=keep_days)
+            cutoff_s = cutoff.strftime("%Y-%m-%d")
+            events = [e for e in events if str(e.get("date") or "") >= cutoff_s]
+    except (ValueError, TypeError):
+        pass
+
+    events.sort(key=lambda e: str(e.get("date") or ""))
+    try:
+        with open(log_path, "w", encoding="utf-8") as f:
+            json.dump({"events": events, "total": len(events)},
+                      f, ensure_ascii=False, indent=2)
+    except OSError:
+        pass
+    return {"events": events, "total": len(events)}
+
+
+def append_official_change_log(
+    data_dir: str,
+    changes: List[Dict[str, Any]],
+    generated_at: str,
+    keep_days: int = 120,
+) -> Dict[str, Any]:
+    """官方调价**事件日志**（append-only 落盘，与 history 每日快照互补）。
+
+    - history/*.json       ：每日全量快照（价格本身的历史，供趋势图）
+    - price_change_log.json：检出「调价事件」的追加记录（哪天哪个模型哪个字段
+      从多少调到多少），只增不删，供审计 / 复盘。
+
+    同一天同一 (canonical, source, field) 的重复检出只保留一次；
+    超过 keep_days 的旧事件自动裁剪，避免无限增长。
+
+    Returns:
+        {"events": [...], "total": N}
+    """
+    log_path = os.path.join(data_dir, "price_change_log.json")
+    events: List[Dict[str, Any]] = []
+    if os.path.exists(log_path):
+        try:
+            with open(log_path, encoding="utf-8") as f:
+                _d = json.load(f)
+            if isinstance(_d, dict) and isinstance(_d.get("events"), list):
+                events = _d["events"]
+        except (OSError, json.JSONDecodeError, ValueError):
+            events = []
+
+    # 按 (date, canonical, source, field) 去重
+    seen = {(_e.get("date"), _e.get("canonical"), _e.get("source"), _e.get("field"))
+            for _e in events}
+    for ch in changes or []:
+        key = (generated_at, ch.get("canonical"), ch.get("source"), ch.get("field"))
+        if key in seen:
+            continue
+        seen.add(key)
+        events.append({
+            "date": generated_at,
+            "canonical": ch.get("canonical"),
+            "source": ch.get("source"),
+            "source_label": ch.get("source_label"),
+            "field": ch.get("field"),
+            "field_cn": ch.get("field_cn") or ch.get("field"),
+            "old": ch.get("old"),
+            "new": ch.get("new"),
+            "pct": ch.get("pct"),
+            "currency": ch.get("currency"),
+        })
+
+    # 裁剪超期事件
+    try:
+        from datetime import datetime, timedelta
+        cutoff = datetime.strptime(generated_at, "%Y-%m-%d") - timedelta(days=keep_days)
+        cutoff_s = cutoff.strftime("%Y-%m-%d")
+        events = [e for e in events if str(e.get("date") or "") >= cutoff_s]
+    except (ValueError, TypeError):
+        pass
+
+    events.sort(key=lambda e: str(e.get("date") or ""))
+    try:
+        with open(log_path, "w", encoding="utf-8") as f:
+            json.dump({"events": events, "total": len(events)},
+                      f, ensure_ascii=False, indent=2)
+    except OSError:
+        pass
+    return {"events": events, "total": len(events)}
+
+
 def compare_previous(current_path: str, previous_path: str) -> List[Dict[str, Any]]:
     """对比本次与历史（已提交）prices.json，返回 watchlist 模型的价格变动。
 

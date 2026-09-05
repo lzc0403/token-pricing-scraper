@@ -186,9 +186,12 @@ def main(argv: List[str] | None = None) -> int:
         _oc_path = os.path.join(DATA_DIR, "official_changes.json")
         with open(_oc_path, "w", encoding="utf-8") as _f:
             _json.dump(oc, _f, ensure_ascii=False, indent=2)
+        # 调价事件逐日回填落盘（price_change_log.json，append-only，与历史快照对应）
+        _pl = store.backfill_official_change_log(DATA_DIR)
         if oc.get("changes") or oc.get("new_models"):
-            logger.info("官方变动: 调价 %d 条 / 新增 %d 条",
-                        len(oc.get("changes") or []), len(oc.get("new_models") or []))
+            logger.info("官方变动: 调价 %d 条 / 新增 %d 条 / 事件日志累计 %d 条",
+                        len(oc.get("changes") or []), len(oc.get("new_models") or []),
+                        _pl.get("total") or 0)
     except OSError as e:
         logger.warning("写官方变动检测失败: %s", e)
     if has_prev:

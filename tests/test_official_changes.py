@@ -155,3 +155,52 @@ def test_build_model_details_gemini_storage():
     assert r["cache_storage"] == 0.5
     # Google 没有按 token cache_write，确认如实空
     assert r["cache_write"] is None
+
+
+# ============================================================
+# 官方调价事件日志（append-only / 逐日 diff 回填）
+# ============================================================
+
+def test_backfill_official_change_log_detects_change(tmp_path):
+    """相邻快照的官方源价格变化应逐日回填，且重复运行幂等。"""
+    hist = tmp_path / "history"
+    hist.mkdir()
+    make = lambda inp: make_row("Gemini 3.8 Flash", "gemini", None,
+                                input=inp, output=3.75, cache_hit=0.075,
+                                cache_storage=0.5, currency="USD")
+    (hist / "2026-09-04.json").write_text(
+        json.dumps([make(1.0)], ensure_ascii=False), encoding="utf-8")
+    (hist / "2026-09-05.json").write_text(
+        json.dumps([make(0.75)], ensure_ascii=False), encoding="utf-8")
+
+    from core.store import backfill_official_change_log
+    pl = backfill_official_change_log(str(tmp_path))
+    assert pl["total"] == 1
+    e = pl["events"][0]
+    assert e["date"] == "2026-09-05"
+    assert e["canonical"] == "Gemini 3.8 Flash"
+    assert e["field_cn"] == "输入"
+    assert e["old"] == 1.0 and e["new"] == 0.75 and e["pct"] == -25.0
+    # 幂等：再跑不再重复
+    pl2 = backfill_official_change_log(str(tmp_path))
+    assert pl2["total"] == 1
+
+
+def test_backfill_official_change_log_skips_channels_and_noop(tmp_path):
+    """渠道源变化不进事件日志；官方价未变时无事件。"""
+    hist = tmp_path / "history"
+    hist.mkdir()
+    (hist / "2026-09-04.json").write_text(
+        json.dumps([
+            make_row("GPT-5.6 Sol", "openrouter", None, input=88, output=88, currency="USD"),
+            make_row("GPT-5.6 Sol", "openai", None, input=4.0, output=20.0, currency="USD"),
+        ], ensure_ascii=False), encoding="utf-8")
+    (hist / "2026-09-05.json").write_text(
+        json.dumps([
+            make_row("GPT-5.6 Sol", "openrouter", None, input=99, output=99, currency="USD"),
+            make_row("GPT-5.6 Sol", "openai", None, input=4.0, output=20.0, currency="USD"),
+        ], ensure_ascii=False), encoding="utf-8")
+
+    from core.store import backfill_official_change_log
+    pl = backfill_official_change_log(str(tmp_path))
+    assert pl["total"] == 0  # openrouter 渠道源被过滤；openai 官方价未变
