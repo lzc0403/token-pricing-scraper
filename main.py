@@ -177,6 +177,20 @@ def main(argv: List[str] | None = None) -> int:
     snap = store.archive_snapshot(DATA_DIR)
     if snap:
         logger.info("归档快照: %s", snap)
+    # 官方源价格调价 + 新模型检测（驱动页面顶部横幅与新品角标）
+    from datetime import date as _d
+    _today_iso = _d.today().isoformat()
+    oc = store.build_official_changes(DATA_DIR, lookback_days=7, today_iso=_today_iso)
+    try:
+        import json as _json
+        _oc_path = os.path.join(DATA_DIR, "official_changes.json")
+        with open(_oc_path, "w", encoding="utf-8") as _f:
+            _json.dump(oc, _f, ensure_ascii=False, indent=2)
+        if oc.get("changes") or oc.get("new_models"):
+            logger.info("官方变动: 调价 %d 条 / 新增 %d 条",
+                        len(oc.get("changes") or []), len(oc.get("new_models") or []))
+    except OSError as e:
+        logger.warning("写官方变动检测失败: %s", e)
     if has_prev:
         deltas = store.compare_previous(os.path.join(DATA_DIR, "prices.json"), prev_tmp)
         # 临时备份删除失败（如沙箱回收站不可用）不应中断主流程；残留文件由 .gitignore 兜底

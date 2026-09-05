@@ -28,6 +28,8 @@ SOURCE_LABELS: Dict[str, str] = {
     "openai": "OpenAI",
     "anthropic": "Anthropic",
     "google": "Google",
+    "gemini": "Gemini官网",
+    "grok": "Grok官网",
     "openrouter": "OpenRouter",
     "aliyun_intl": "阿里云国际",
     "aliyun_bailian": "阿里云百炼",
@@ -623,6 +625,7 @@ def _normalize_row(r: Dict[str, Any], canon: str, min_in: Optional[float], base_
         "output_rmb": r.get("output_rmb"),
         "cache_hit": r.get("cache_hit"),
         "cache_write": r.get("cache_write"),
+        "cache_storage": r.get("cache_storage"),
         "input": r.get("input"),
         "output": r.get("output"),
         "currency": r.get("currency") or "",
@@ -794,10 +797,104 @@ def _hydrate_catalog_prices(
                     )
 
 
+def _tier_label(condition: Any) -> str:
+    """档位展示名：None / default → 「标准档」；其余沿用原始 condition。"""
+    c = str(condition or "").strip()
+    if not c or c.lower() in ("none", "default"):
+        return "标准档"
+    return c
+
+
+def _load_official_changes(data_dir: str) -> Dict[str, Any]:
+    """读取 data/official_changes.json（CI 抓取时产出的官方调价 / 新品检测结果）。
+
+    文件缺失或格式非法时返回空结构——页面降级为「无近期调价」，不报错。
+    结构：
+        {
+          "generated_at": "YYYY-MM-DD",
+          "lookback_days": 7,
+          "changes": [ {canonical, source, source_label, field, old, new, pct, date} ],
+          "new_models": [ {canonical, source, source_label, date} ]
+        }
+    """
+    import os
+    empty: Dict[str, Any] = {
+        "generated_at": None,
+        "lookback_days": 0,
+        "changes": [],
+        "new_models": [],
+    }
+    path = os.path.join(data_dir, "official_changes.json")
+    if not os.path.exists(path):
+        return empty
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError, ValueError):
+        return empty
+    if not isinstance(data, dict):
+        return empty
+    return {
+        "generated_at": data.get("generated_at"),
+        "lookback_days": data.get("lookback_days") or 0,
+        "changes": data.get("changes") or [],
+        "new_models": data.get("new_models") or [],
+    }
+
+
+def _build_model_details(norm: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """按 canonical 聚合「模型详情」——4 维报价 + 分档 + 缓存存储。
+
+    供详情面板渲染：点击任一模型卡片，展示该模型在各来源下的
+    输入 / 输出 / 缓存创建 / 缓存读取（含多档）以及上下文、币种。
+
+    口径说明：
+    - Anthropic 官方缓存写入分 5m（1.25× 输入）与 1h（2× 输入）两档，
+      1h 档为官方公开规则，数据层派生展示（cache_write_1h），不写回抓取数据。
+    - Google「缓存创建」= 缓存存储（$/1M tokens/小时），落在 cache_storage。
+    - OpenAI 长档（>272K）cache_writes 官网前端注入抓不到，如实为 None。
+    """
+    details: Dict[str, Dict[str, Any]] = {}
+    for r in norm:
+        canon = str(r.get("canonical") or "")
+        if not canon:
+            continue
+        d = details.setdefault(canon, {"canonical": canon, "rows": []})
+        row: Dict[str, Any] = {
+            "source": r.get("source"),
+            "source_label": r.get("source_label"),
+            "tier": _tier_label(r.get("condition")),
+            "input": r.get("input"),
+            "output": r.get("output"),
+            "cache_write": r.get("cache_write"),
+            "cache_hit": r.get("cache_hit"),
+            "cache_storage": r.get("cache_storage"),
+            "context": r.get("context"),
+            "currency": r.get("currency"),
+        }
+        # Anthropic：缓存写入双档（5m = 1.25×输入，1h = 2×输入，官方规则）
+        if str(r.get("source")) == "anthropic" and isinstance(r.get("input"), (int, float)):
+            row["cache_write_5m"] = r.get("cache_write")
+            row["cache_write_1h"] = round(float(r["input"]) * 2, 6)
+        d["rows"].append(row)
+
+    # 排序：官方源优先，其次按来源名、档位名
+    for d in details.values():
+        d["rows"].sort(
+            key=lambda x: (
+                0 if _is_official_row(d["canonical"], {"source": x.get("source")}) else 1,
+                str(x.get("source_label") or ""),
+                str(x.get("tier") or ""),
+            )
+        )
+    return details
+
+
 def _build_mainstream_sections(
     catalog: Dict[str, Any],
     channel_canons: set,
     watchlist: Optional[List[Dict[str, Any]]] = None,
+    new_models: Optional[set] = None,
 ) -> Dict[str, List[Dict[str, Any]]]:
     """构建国内/海外主流卡片专区数据，附加展示字段。
 
@@ -822,7 +919,11 @@ def _build_mainstream_sections(
                     model.get("canonical") in channel_canons
                     and not _is_overseas_model(model.get("canonical"))
                 )
+                # 新品标记：CI 检测到的新模型置顶 + 打「新品」标（7 天内）
+                model["is_new"] = bool(new_models and model.get("canonical") in new_models)
                 model["tier_count"] = len(tiers)
+            # 厂内排序：新品置顶，其余保持目录原始顺序（稳定排序）
+            vendor["models"].sort(key=lambda m: (0 if m.get("is_new") else 1))
     return rendered
 
 
@@ -921,6 +1022,7 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
     channel_domestic: List[Dict[str, Any]] = []
     channel_overseas: List[Dict[str, Any]] = []
     chart: Dict[str, List[Dict[str, Any]]] = {}
+    all_norm: List[Dict[str, Any]] = []  # 全模型规范化行（详情面板数据源）
 
     for c in canons:
         rows = by_canon.get(c, [])
@@ -950,6 +1052,7 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
                     official_inputs.append(v)
         base_in = min(official_inputs) if official_inputs else None
         norm = [_normalize_row(r, c, min_in, base_in) for r in rows]
+        all_norm.extend(norm)  # 累积全模型规范化行，供模型详情面板聚合
 
         # 峰谷动态比价：提取官方「闲/高」两档基准价 + 渠道「闲/高」两档价，
         # 供前端按当前北京时间所在时段实时切换溢价基准。
@@ -1080,8 +1183,10 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
     try:
         catalog = mainstream_catalog.load_catalog(_CATALOG_PATH)
         catalog_all_canons = mainstream_catalog.catalog_canons(catalog)
+        _oc = _load_official_changes(data_dir)
+        _new_set = {str(x.get("canonical")) for x in _oc.get("new_models", [])}
         mainstream_sections = _build_mainstream_sections(
-            catalog, set(canons), watchlist=watchlist
+            catalog, set(canons), watchlist=watchlist, new_models=_new_set
         )
         has_domestic_mainstream = bool(mainstream_sections.get("domestic"))
         has_overseas_mainstream = bool(mainstream_sections.get("overseas"))
@@ -1138,6 +1243,8 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         "tracking": tracking,
         "has_tracking": bool(tracking),
         "mainstream_sections": mainstream_sections,
+        "model_details": _build_model_details(all_norm),
+        "official_changes": _load_official_changes(data_dir),
         "has_domestic_mainstream": has_domestic_mainstream,
         "has_overseas_mainstream": has_overseas_mainstream,
         "history": _load_history(data_dir),

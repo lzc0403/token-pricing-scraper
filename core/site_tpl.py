@@ -496,9 +496,11 @@ def _mainstream_section(
             else '<span data-empty-state="no-channel-price" class="ms-channel-empty">无渠道</span>'
         )
         hot_badge = '<span class="ms-featured">热</span>' if featured else ""
+        new_badge = '<span class="ms-new" title="新上架 / 新收录，自动置顶">🆕 新品</span>' if model.get("is_new") else ""
         availability = model.get("availability")
         is_pending = availability not in ("official", "preview")
         tracking_badge = '<span class="ms-tracking" title="官网定价尚未抓取，以下为渠道参考价">待补</span>' if is_pending else ""
+        new_badge = new_badge if not is_pending else ""  # 待补模型不标新品（无官方价）
 
         all_cards.append(
             f'<article class="model-pick" data-canonical="{_esc_attr(canon)}" '
@@ -508,7 +510,7 @@ def _mainstream_section(
             f'tabindex="0" role="button" aria-label="筛选 {_esc(display)}">'
             f'<span class="ms-vendor-stripe" data-vendor="{_esc_attr(vid)}" aria-hidden="true"></span>'
             f'<div class="ms-model-head">'
-            f'<span class="ms-model-name">{_esc(display)}{hot_badge}{tracking_badge}</span>'
+            f'<span class="ms-model-name">{_esc(display)}{hot_badge}{new_badge}{tracking_badge}</span>'
             f'</div>'
             f'<div class="ms-role">{_esc(vname)} · {_esc(role_text)}</div>'
             f"{price_html}"
@@ -679,6 +681,63 @@ def _chart_section(canons: List[str], has_data: bool) -> str:
     </section>"""
 
 
+def _price_alert_bar(changes: List[Dict[str, Any]], generated_at: Any) -> str:
+    """官方调价提醒横幅（页面顶部）。有近期官方价调整才渲染；可手动关闭。"""
+    if not changes:
+        return ""
+    items = []
+    for ch in changes[:5]:
+        canon = _esc(ch.get("canonical") or "")
+        label = _esc(ch.get("source_label") or ch.get("source") or "")
+        fld = _esc(ch.get("field_cn") or ch.get("field") or "")
+        old_v = ch.get("old")
+        new_v = ch.get("new")
+        pct = ch.get("pct")
+        pct_txt = ""
+        if pct is not None:
+            try:
+                fp = float(pct)
+                arrow = "↑" if fp > 0 else "↓"
+                pct_txt = f" {arrow}{abs(fp):.0f}%"
+            except (TypeError, ValueError):
+                pass
+        cur = _esc(ch.get("currency") or "")
+        items.append(
+            f'<span class="alert-item">{_esc(canon)} · {label} · {fld} '
+            f'{old_v}→{new_v} {cur}{pct_txt}</span>'
+        )
+    date_txt = f"（{generated_at} 检测）" if generated_at else ""
+    return (
+        '<div class="price-alert" id="priceAlert" role="alert">'
+        '<span class="alert-title">🚨 官方调价提醒</span>'
+        + "".join(items)
+        + f'<button type="button" class="alert-close" id="priceAlertClose" aria-label="关闭">×</button>'
+        f'<div class="alert-foot">{date_txt} 以厂商官网最新报价为准，已同步更新本页</div>'
+        '</div>'
+    )
+
+
+def _detail_panel_section() -> str:
+    """模型详情面板（MODEL DETAIL）。
+
+    默认空态提示；点击卡片后由前端 JS 从 SITE_DATA.model_details 取该模型
+    4 维分档报价渲染（输入/输出/缓存创建/缓存读取，含多档与缓存存储）。
+    """
+    return """
+    <section class="block-card block-detail" aria-labelledby="detail-title">
+      <div class="block-head">
+        <div>
+          <div class="block-kicker">MODEL DETAIL</div>
+          <h2 id="detail-title" class="block-title">模型详情 · 4 维分档报价</h2>
+          <p class="block-desc">点击上方任一模型卡片，查看该模型的 输入 / 输出 / 缓存创建 / 缓存读取 分档报价与上下文、币种。官方价是定价锚点，渠道价仅作对照。</p>
+        </div>
+      </div>
+      <div id="detailBody" class="detail-body">
+        <div class="detail-empty" id="detailEmpty">👈 请选择上方一张模型卡片，查看它的完整 4 维分档报价</div>
+      </div>
+    </section>"""
+
+
 def build_site(data_dir: str, out_path: Optional[str] = None) -> str:
     if out_path is None:
         out_path = os.path.join(
@@ -712,6 +771,9 @@ def build_site(data_dir: str, out_path: Optional[str] = None) -> str:
     overseas_ms = _mainstream_section(
         "overseas", "海外主流大模型", ms.get("overseas") or [], accent="overseas"
     )
+    oc = data.get("official_changes") or {}
+    detail_panel = _detail_panel_section()
+    alert_bar = _price_alert_bar(oc.get("changes") or [], oc.get("generated_at"))
     official_block = _official_section(data.get("official_rows") or [], bool(data.get("has_official")))
     overseas_block = _overseas_section(data.get("overseas_rows") or [], bool(data.get("has_overseas")))
     channel_block = _channel_section(data)
@@ -746,6 +808,8 @@ def build_site(data_dir: str, out_path: Optional[str] = None) -> str:
         filter_block=filter_block,
         domestic_ms=domestic_ms,
         overseas_ms=overseas_ms,
+        detail_panel=detail_panel,
+        alert_bar=alert_bar,
         official_block=official_block,
         overseas_block=overseas_block,
         channel_block=channel_block,

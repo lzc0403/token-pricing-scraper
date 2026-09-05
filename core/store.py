@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import glob
 import shutil
 from typing import Any, Dict, List, Optional
 
@@ -126,6 +127,205 @@ def archive_snapshot(out_dir: str, date_str: Optional[str] = None) -> Optional[s
     dst = os.path.join(hist_dir, f"{date_str}.json")
     shutil.copyfile(src, dst)
     return dst
+
+
+# 厂商官网（官方原价）来源 ID 集合——与 site_data._OFFICIAL_SOURCES_ANY + _OFFICIAL_SINGLE
+# 口径一致（含双币种双站：deepseek/deepseek_us、kimi/kimi_ai 等）。
+_OFFICIAL_SOURCE_IDS = {
+    "deepseek", "deepseek_us",        # DeepSeek 国内外官方站
+    "bigmodel", "zai",                 # 智谱 国内外官方站
+    "kimi", "kimi_ai",                 # Moonshot 国内外官方站
+    "minimax",                          # MiniMax 官方
+    "aliyun", "volcengine",             # 通义 / 豆包 厂商官网（云厂商主页价，非百炼/智能体代理）
+    "openai", "anthropic", "gemini", "grok",  # 海外四大
+}
+
+
+def _is_official_row(src: Any) -> bool:
+    return str(src or "") in _OFFICIAL_SOURCE_IDS
+
+
+def build_official_changes(
+    data_dir: str,
+    lookback_days: int = 7,
+    today_iso: Optional[str] = None,
+) -> Dict[str, Any]:
+    """基于历史快照与当前 prices.json，产出官方源价格调价 + 新模型清单。
+
+    写入 data/official_changes.json，供前端调价横幅与新品角标使用。
+
+    逻辑：
+      1. 当前 prices.json 与 N 天前的归档快照（取历史中第 N 天之前最近一份快照）对比
+         字段 input/output/cache_hit/cache_write/cache_storage
+      2. 仅保留 is_official 行（厂商官网原价）
+      3. 变化幅度 < 1% 的视为抓取抖动，过滤
+      4. 新增模型：当前 (canonical, source, condition) 出现在快照中「源不在白名单内
+         但当前已收录官方价」的情况
+
+    Args:
+        data_dir: data 目录（含 prices.json + history/）
+        lookback_days: 回溯天数（默认 7）
+        today_iso: 今日 YYYY-MM-DD；默认今日
+
+    Returns:
+        {
+          "generated_at": today_iso,
+          "lookback_days": N,
+          "changes": [ {canonical, source, source_label, field, field_cn, old, new, pct, date} ],
+          "new_models": [ {canonical, source, source_label, date} ]
+        }
+    """
+    from datetime import datetime
+    if today_iso is None:
+        today_iso = datetime.now().strftime("%Y-%m-%d")
+
+    sub = {
+        "generated_at": today_iso,
+        "lookback_days": lookback_days,
+        "changes": [],
+        "new_models": [],
+    }
+
+    prices_path = os.path.join(data_dir, "prices.json")
+    if not os.path.exists(prices_path):
+        return sub
+    try:
+        with open(prices_path, encoding="utf-8") as f:
+            cur_rows = json.load(f)
+    except (OSError, json.JSONDecodeError, ValueError):
+        return sub
+
+    cur_idx: Dict[tuple, Dict[str, Any]] = {}
+    for r in cur_rows:
+        if not r.get("canonical") or not _is_official_row(r.get("source")):
+            continue
+        k = (r["canonical"], r["source"], str(r.get("condition") or ""))
+        cur_idx[k] = r
+
+    # 取 N 天前最近一份快照作为对比基线
+    hist_dir = os.path.join(data_dir, "history")
+    if not os.path.isdir(hist_dir):
+        return sub
+    files = sorted(glob.glob(os.path.join(hist_dir, "*.json")))
+    # 排除今日自身（archive_snapshot 在 main.py 里先生成）
+    past = [f for f in files if os.path.basename(f) != f"{today_iso}.json"]
+    if not past:
+        return sub
+    baseline_path = past[max(0, len(past) - lookback_days)]
+    try:
+        with open(baseline_path, encoding="utf-8") as f:
+            prev_rows = json.load(f)
+    except (OSError, json.JSONDecodeError, ValueError):
+        return sub
+
+    prev_idx: Dict[tuple, Dict[str, Any]] = {}
+    for r in prev_rows:
+        if not r.get("canonical") or not _is_official_row(r.get("source")):
+            continue
+        k = (r["canonical"], r["source"], str(r.get("condition") or ""))
+        prev_idx[k] = r
+
+    # 持久化"首次出现日"映射（避免首次铺底时大量历史行被误标新品）。
+    # known_official.json: {canonical: {source: {condition: "YYYY-MM-DD"}}}，
+    # 嵌套结构避免 condition 中的 "|" 冲突。
+    known_path = os.path.join(data_dir, "known_official.json")
+    known_raw: Dict[str, Dict[str, Dict[str, str]]] = {}
+    if os.path.exists(known_path):
+        try:
+            with open(known_path, encoding="utf-8") as f:
+                known_raw = json.load(f)
+        except (OSError, json.JSONDecodeError, ValueError):
+            known_raw = {}
+
+    def _kkey(canon: str, src: str, cond: str) -> tuple:
+        return (canon, src, cond)
+
+    # 写回 known（持续累积），并标记本次新收录的行
+    today = today_iso
+    for k in cur_idx:
+        canon, src, cond = k
+        bucket = known_raw.setdefault(canon, {}).setdefault(src, {})
+        if cond not in bucket:
+            bucket[cond] = today
+    try:
+        with open(known_path, "w", encoding="utf-8") as f:
+            json.dump(known_raw, f, ensure_ascii=False, indent=2)
+    except OSError:
+        pass
+
+    # new_models：当前快照相对基线新增的 (canonical, source, condition)。
+    cur_keys = set(cur_idx)
+    prev_keys = set(prev_idx)
+    new_keys = cur_keys - prev_keys
+
+    # 前端按 (canonical, source) 二元键即可判定 is_new，无需 condition
+    # （同 canonical 同 source 多 condition 都视为同一品牌新上架）。
+    sub["known"] = {f"{canon}\u0001{src}": fs
+                    for canon, sm in known_raw.items()
+                    for src, cm in sm.items()
+                    for fs in cm.values()}
+
+    _FIELD_CN = {"input": "输入", "output": "输出", "cache_write": "缓存创建",
+                 "cache_hit": "缓存读取", "cache_storage": "缓存存储"}
+    SOURCE_LBL = {
+        "deepseek": "DeepSeek官网", "deepseek_us": "DeepSeek海外官网",
+        "bigmodel": "智谱", "zai": "智谱Z.ai",
+        "kimi": "Kimi官网", "kimi_ai": "Kimi国际站",
+        "minimax": "MiniMax官网",
+        "aliyun": "阿里云通义", "volcengine": "火山引擎豆包",
+        "openai": "OpenAI官网", "anthropic": "Anthropic官网",
+        "gemini": "Gemini官网", "grok": "Grok官网",
+    }
+
+    def _pct(o, n):
+        try:
+            if o is None or n is None or o == 0:
+                return None
+            return round((float(n) - float(o)) / float(o) * 100, 2)
+        except (TypeError, ValueError):
+            return None
+
+    for k, cur in cur_idx.items():
+        prev = prev_idx.get(k)
+        if k in new_keys:
+            sub["new_models"].append({
+                "canonical": cur["canonical"],
+                "source": cur["source"],
+                "source_label": SOURCE_LBL.get(cur["source"], cur["source"]),
+                "first_seen": known_raw.get(k[0], {}).get(k[1], {}).get(k[2], today_iso),
+                "date": today_iso,
+            })
+            if prev is None:
+                # 快照中无此行：跳过字段对比（已在 new_models 中声明）
+                continue
+        # 字段对比（仅在 prev 存在时进行）
+        for field in ("input", "output", "cache_write", "cache_hit", "cache_storage"):
+            old_v = prev.get(field)
+            new_v = cur.get(field)
+            if old_v == new_v:
+                continue
+            if old_v is None or new_v is None:
+                continue
+            pct = _pct(old_v, new_v)
+            if abs(pct or 0) < 1:
+                continue
+            sub["changes"].append({
+                "canonical": cur["canonical"],
+                "source": cur["source"],
+                "source_label": SOURCE_LBL.get(cur["source"], cur["source"]),
+                "field": field,
+                "field_cn": _FIELD_CN.get(field, field),
+                "old": old_v,
+                "new": new_v,
+                "pct": pct,
+                "currency": cur.get("currency"),
+                "date": today_iso,
+            })
+
+    # 调价按幅度降序，取前 30
+    sub["changes"].sort(key=lambda x: -abs(x.get("pct") or 0))
+    sub["changes"] = sub["changes"][:30]
+    return sub
 
 
 def compare_previous(current_path: str, previous_path: str) -> List[Dict[str, Any]]:

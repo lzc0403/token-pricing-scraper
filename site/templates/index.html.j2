@@ -31,10 +31,13 @@
           <p class="section-sub">DeepSeek 置顶 · 筛选可组合 · 官网与渠道分区</p>
         </div>
       </div>
+      {{ alert_bar | safe }}
+
       <div class="sec-metrics">{{ metrics_html | safe }}</div>
 
       {{ domestic_ms | safe }}
       {{ overseas_ms | safe }}
+      {{ detail_panel | safe }}
       {{ official_block | safe }}
       {{ overseas_block | safe }}
       {{ channel_block | safe }}

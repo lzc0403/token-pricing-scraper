@@ -227,6 +227,100 @@ const PEAK = __PEAK_DATA__;
   }
 
 
+  // FIX 3: Model card → render 4-dim detail panel & scroll to it
+  function escHtml(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function fmtNum(v){
+    if (v == null || isNaN(v)) return '';
+    if (Math.abs(v - Math.round(v)) < 1e-9) return String(Math.round(v));
+    return (Math.round(v * 10000) / 10000).toString();
+  }
+  function priceCell(v, cur){
+    if (v == null || v === '') return '<td class="num na">—</td>';
+    return '<td class="num">' + fmtNum(v) + (cur ? ' <span class="unit-hint">' + escHtml(cur) + '</span>' : '') + '</td>';
+  }
+  function cacheWriteCell(row){
+    // Anthropic 5m/1h 双档；其余单值 cache_write
+    if (row.cache_write_5m != null || row.cache_write_1h != null){
+      var s = '';
+      if (row.cache_write_5m != null) s += '5m ' + fmtNum(row.cache_write_5m);
+      if (row.cache_write_1h != null) s += (s ? ' / ' : '') + '1h ' + fmtNum(row.cache_write_1h);
+      return '<td class="num">' + s + '</td>';
+    }
+    if (row.cache_write != null) return '<td class="num">' + fmtNum(row.cache_write) + '</td>';
+    return '<td class="num na">—</td>';
+  }
+  function renderModelDetail(canonical){
+    var body = document.getElementById('detailBody');
+    var sec = document.getElementById('model-detail');
+    if (!body) return;
+    if (!canonical){
+      body.innerHTML = '<div class="detail-empty">👈 请选择上方一张模型卡片，查看它的完整 4 维分档报价</div>';
+      return;
+    }
+    var info = (SITE_DATA.model_details || {})[canonical];
+    if (!info || !info.rows || !info.rows.length){
+      body.innerHTML = '<div class="detail-empty">暂无「' + escHtml(canonical) + '」的报价明细。</div>';
+      return;
+    }
+    var rowHtml = info.rows.map(function(row){
+      var officialCls = (row.source && /deepseek|bigmodel|kimi|minimax|volcengine|openai|anthropic|gemini|grok|aliyun$|tencent$/.test(String(row.source))) ? ' row-official' : '';
+      var srcLbl = escHtml(row.source_label || row.source || '—');
+      var tier = escHtml(row.tier || '');
+      var cur = escHtml(row.currency || '');
+      var ctx = escHtml(row.context || '—');
+      var srcCell = row.tier
+        ? '<td><span class="row-src">' + srcLbl + '</span><br>' + tier + '</td>'
+        : '<td><span class="row-src">' + srcLbl + '</span></td>';
+      var storage = row.cache_storage != null
+        ? '<td class="num">' + fmtNum(row.cache_storage) + ' <span class="unit-hint">/1M·h</span></td>'
+        : '<td class="num na">—</td>';
+      return '<tr class="' + officialCls.trim() + '">' +
+        srcCell +
+        priceCell(row.input, cur) +
+        priceCell(row.output, cur) +
+        cacheWriteCell(row) +
+        priceCell(row.cache_hit, cur) +
+        storage +
+        '<td>' + ctx + '</td>' +
+        '<td>' + cur + '</td>' +
+        '</tr>';
+    }).join('');
+    var head = '<tr><th>来源 / 档位</th><th>输入</th><th>输出</th><th>缓存创建</th><th>缓存读取</th><th>缓存存储</th><th>上下文</th><th>币种</th></tr>';
+    var cur0 = (info.rows[0] || {}).currency || '';
+    var changes = (SITE_DATA.official_changes || {}).changes || [];
+    var chList = changes.filter(function(ch){ return ch.canonical === canonical; });
+    var changeBadge = '';
+    if (chList.length){
+      var c0 = chList[0];
+      var pctTxt = '';
+      if (c0.pct != null && !isNaN(c0.pct)){
+        var fp = Number(c0.pct);
+        pctTxt = (fp > 0 ? ' +' : ' ') + Math.round(fp) + '%';
+      }
+      changeBadge = '<span class="detail-alert-badge" title="' + escHtml((c0.date || '')) + '">📈 官方调价' + escHtml(pctTxt) + '</span>';
+    }
+    body.innerHTML =
+      '<div class="detail-head">' +
+        '<span class="detail-title-badge">' + escHtml(canonical) + '</span>' +
+        (changeBadge) +
+        '<span class="detail-vendor">官方价 + 渠道对照 · ' + escHtml(cur0) + ' / 1M tokens</span>' +
+      '</div>' +
+      '<div class="detail-table-wrap"><table class="detail-table">' +
+        '<thead>' + head + '</thead><tbody>' + rowHtml + '</tbody>' +
+      '</table></div>' +
+      '<p class="detail-note"><b>单位说明</b>：输入/输出/缓存创建/缓存读取 = $ 或 ¥ / 1M tokens；缓存存储（Gemini）= $ / 1M tokens / 小时。' +
+      'Anthropic 缓存创建分 5m（1.25× 输入）与 1h（2× 输入）两档；OpenAI 长档缓存创建官网前端注入，抓取不到记 —。' +
+      '官方价 = 定价锚点；渠道价为转售挂牌，仅供参考。</p>';
+    if (sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  function bindDetailDismiss(){
+    var btn = document.getElementById('detailDismiss');
+    if (btn) btn.addEventListener('click', function(){ renderModelDetail(''); });
+  }
+
   // FIX 2: Click model card → scroll to channel panel, switch tab, highlight row
   function scrollToChannelPanel(canonical){
     // 优先按模型卡片国籍选择面板：国内模型→domestic，海外模型→overseas
@@ -291,11 +385,21 @@ const PEAK = __PEAK_DATA__;
     } else {
       if (typeof closeSidebar === 'function') closeSidebar();
     }
-    // FIX 2: 跳转到渠道报价区
-    if (typeof scrollToChannelPanel === 'function') scrollToChannelPanel(canonical);
+    // FIX 3: 渲染模型详情面板（4 维分档报价）并滚动到位；不再强制跳渠道区
+    if (typeof renderModelDetail === 'function') renderModelDetail(canonical);
+  }
+
+  function bindPriceAlertClose(){
+    var closeBtn = document.getElementById('priceAlertClose');
+    if (!closeBtn) return;
+    closeBtn.addEventListener('click', function(){
+      var bar = document.getElementById('priceAlert');
+      if (bar) bar.style.display = 'none';
+    });
   }
 
   function bindModelCards(){
+    bindPriceAlertClose();
     document.querySelectorAll('.model-pick[data-canonical]').forEach(function(card){
       if (card.getAttribute('data-bound') === '1') return;
       card.setAttribute('data-bound','1');

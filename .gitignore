@@ -44,3 +44,4 @@ outputs/*preview*.html
 .env
 # main.py 汇率对比临时备份（写入后短暂存在，沙箱下可能删除失败残留）
 .prices.prev.json
+\.git.broken.*

@@ -331,6 +331,7 @@ footer .disc{color:var(--mute)}
 .ms-channel-empty{color:var(--mute);font-size:8px}
 .ms-featured{display:inline-block;font-size:7px;font-weight:800;color:#fff;background:var(--primary);padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle}
 .ms-tracking{display:inline-block;font-size:7px;font-weight:800;color:#b8860b;background:#fff8e7;padding:0 3px;border-radius:2px;margin-left:2px;vertical-align:middle;cursor:help}
+.ms-new{display:inline-block;font-size:7px;font-weight:800;color:#fff;background:#ff5a5f;padding:0 4px;border-radius:2px;margin-left:2px;vertical-align:middle;cursor:help}
 .ms-verified{color:var(--mute);font-size:8px}
 .ms-date-banner{font-size:8px;color:var(--mute);padding:2px 0 4px;letter-spacing:.02em;display:flex;align-items:center;justify-content:flex-end;gap:6px}
 .ms-date-banner .ms-unit-note{color:#94a3b8;font-weight:500;margin-left:6px}
@@ -392,3 +393,32 @@ tr[data-source="google"] .pill{background:#e8f8f2;border-color:#a7d8c4;color:#1a
   .trend-card .chart-controls{flex-wrap:wrap;gap:8px}
   .trend-card .chart-controls select{width:100%}
 }
+
+/* ===== 官方调价横幅 ===== */
+.price-alert{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;background:linear-gradient(90deg,#fff1f0,#fef6f5);border:1px solid #f5c6c4;border-left:4px solid #dc2626;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:13px;color:#7f1d1d}
+.price-alert .alert-title{font-weight:800;white-space:nowrap}
+.price-alert .alert-item{font-weight:600}
+.price-alert .alert-close{margin-left:auto;border:0;background:transparent;font-size:16px;cursor:pointer;color:#b91c1c;line-height:1}
+.price-alert .alert-foot{flex-basis:100%;font-size:11px;color:#9a6b6b}
+@media(max-width:768px){.price-alert{align-items:flex-start}.price-alert .alert-close{margin-left:0}}
+
+/* ===== 模型详情面板（4 维分档）===== */
+.block-detail .detail-body{margin-top:8px}
+.detail-empty{padding:26px 16px;text-align:center;color:var(--mute);font-size:13px;background:#fafbfc;border:1px dashed #d7dce1;border-radius:10px}
+.detail-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.detail-title-badge{font-size:14px;font-weight:800}
+.detail-vendor{font-size:11px;color:var(--mute);font-weight:600}
+.detail-alert-badge{font-size:11px;color:#b91c1c;background:#fff1f0;border:1px solid #f5c6c4;padding:1px 8px;border-radius:20px;font-weight:700}
+.detail-table-wrap{overflow-x:auto;border:1px solid #e5e7eb;border-radius:10px}
+.detail-table{width:100%;border-collapse:collapse;font-size:12px;min-width:640px}
+.detail-table th{background:#f6f8f7;text-align:left;padding:7px 10px;border-bottom:1px solid #e0e4e2;font-size:11px;color:#4b5563;white-space:nowrap}
+.detail-table td{padding:6px 10px;border-bottom:1px solid #f0f2f1;white-space:nowrap}
+.detail-table tr:last-child td{border-bottom:none}
+.detail-table .row-src{color:var(--mute);font-size:11px}
+.detail-table .row-official td{background:#f3fbf7}
+.detail-table td.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.detail-table .unit-hint{font-size:10px;color:#94a3b8;margin-left:2px}
+.detail-table .na{color:#c0c6c4}
+.detail-table td.missing{color:#c0c6c4}
+.detail-note{font-size:11px;color:var(--mute);margin-top:6px;line-height:1.5}
+.detail-note b{color:#4b5563}
