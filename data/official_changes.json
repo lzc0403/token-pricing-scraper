@@ -1,28 +1,192 @@
 {
   "generated_at": "2026-09-05",
   "lookback_days": 7,
-  "changes": [
-    {
-      "canonical": "GPT-5.6 Sol",
-      "source": "openai",
-      "source_label": "OpenAI官网",
-      "field": "input",
-      "field_cn": "输入",
-      "old": 5.0,
-      "new": 4.0,
-      "pct": -20.0,
-      "currency": "USD",
-      "date": "2026-09-04"
-    }
-  ],
+  "changes": [],
   "new_models": [
+    {
+      "canonical": "GLM-5.3-Flash",
+      "source": "zai",
+      "source_label": "智谱Z.ai",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Fable 5",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Opus 5",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Opus 4.8",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Opus 4.7",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Opus 4.6",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Opus 4.5",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Sonnet 5",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Sonnet 4.6",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Sonnet 4.5",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Claude Haiku 4.5",
+      "source": "anthropic",
+      "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Grok 4.6",
+      "source": "grok",
+      "source_label": "Grok官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Grok 4.6",
+      "source": "grok",
+      "source_label": "Grok官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
     {
       "canonical": "Gemini 3.8 Flash",
       "source": "gemini",
       "source_label": "Gemini官网",
       "first_seen": "2026-09-05",
       "date": "2026-09-05"
+    },
+    {
+      "canonical": "Gemini 3.7 Flash",
+      "source": "gemini",
+      "source_label": "Gemini官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Gemini 3.6 Flash",
+      "source": "gemini",
+      "source_label": "Gemini官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "GLM-5.3-Flash",
+      "source": "bigmodel",
+      "source_label": "智谱",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Kimi K3",
+      "source": "kimi_ai",
+      "source_label": "Kimi国际站",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Kimi K2.6",
+      "source": "kimi_ai",
+      "source_label": "Kimi国际站",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
+    },
+    {
+      "canonical": "Kimi K2.7 Code",
+      "source": "kimi_ai",
+      "source_label": "Kimi国际站",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-05"
     }
   ],
-  "known": {}
+  "known": {
+    "DeepSeek V4 Flash\u0001deepseek_us": "2026-09-05",
+    "DeepSeek V4 Flash\u0001deepseek": "2026-09-05",
+    "DeepSeek V4 Pro\u0001deepseek_us": "2026-09-05",
+    "DeepSeek V4 Pro\u0001deepseek": "2026-09-05",
+    "GLM-5.3-Flash\u0001zai": "2026-09-05",
+    "GLM-5.3-Flash\u0001bigmodel": "2026-09-05",
+    "GLM-5.3\u0001zai": "2026-09-05",
+    "GLM-5.3\u0001bigmodel": "2026-09-05",
+    "GLM-5.2\u0001zai": "2026-09-05",
+    "GLM-5.2\u0001bigmodel": "2026-09-05",
+    "GLM-5.1\u0001zai": "2026-09-05",
+    "GLM-5.1\u0001bigmodel": "2026-09-05",
+    "GLM-4.7\u0001zai": "2026-09-05",
+    "GLM-4.7\u0001bigmodel": "2026-09-05",
+    "GPT-5.6 Sol\u0001openai": "2026-09-05",
+    "GPT-5.6 Terra\u0001openai": "2026-09-05",
+    "GPT-5.6 Luna\u0001openai": "2026-09-05",
+    "GPT-5.5\u0001openai": "2026-09-05",
+    "GPT-5.5 Pro\u0001openai": "2026-09-05",
+    "Grok 4.6\u0001grok": "2026-09-05",
+    "Claude Fable 5\u0001anthropic": "2026-09-05",
+    "Claude Opus 5\u0001anthropic": "2026-09-05",
+    "Claude Opus 4.8\u0001anthropic": "2026-09-05",
+    "Claude Opus 4.7\u0001anthropic": "2026-09-05",
+    "Claude Opus 4.6\u0001anthropic": "2026-09-05",
+    "Claude Opus 4.5\u0001anthropic": "2026-09-05",
+    "Claude Sonnet 5\u0001anthropic": "2026-09-05",
+    "Claude Sonnet 4.6\u0001anthropic": "2026-09-05",
+    "Claude Sonnet 4.5\u0001anthropic": "2026-09-05",
+    "Claude Haiku 4.5\u0001anthropic": "2026-09-05",
+    "Gemini 3.8 Flash\u0001gemini": "2026-09-05",
+    "Gemini 3.7 Flash\u0001gemini": "2026-09-05",
+    "Gemini 3.6 Flash\u0001gemini": "2026-09-05",
+    "Doubao Seed 2.1 Pro\u0001volcengine": "2026-09-05",
+    "Doubao Seed 2.1 Turbo\u0001volcengine": "2026-09-05",
+    "MiniMax M3\u0001minimax": "2026-09-05",
+    "MiniMax M2.7\u0001minimax": "2026-09-05",
+    "Kimi K3\u0001kimi": "2026-09-05",
+    "Kimi K3\u0001kimi_ai": "2026-09-05",
+    "Kimi K2.6\u0001kimi": "2026-09-05",
+    "Kimi K2.6\u0001kimi_ai": "2026-09-05",
+    "Kimi K2.7 Code\u0001kimi": "2026-09-05",
+    "Kimi K2.7 Code\u0001kimi_ai": "2026-09-05"
+  }
 }
