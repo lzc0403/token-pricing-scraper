@@ -179,7 +179,7 @@ def build_official_changes(
     if today_iso is None:
         today_iso = datetime.now().strftime("%Y-%m-%d")
 
-    sub = {
+    sub: Dict[str, Any] = {
         "generated_at": today_iso,
         "lookback_days": lookback_days,
         "changes": [],
@@ -236,9 +236,6 @@ def build_official_changes(
                 known_raw = json.load(f)
         except (OSError, json.JSONDecodeError, ValueError):
             known_raw = {}
-
-    def _kkey(canon: str, src: str, cond: str) -> tuple:
-        return (canon, src, cond)
 
     # 写回 known（持续累积），并标记本次新收录的行
     today = today_iso
@@ -299,6 +296,8 @@ def build_official_changes(
                 # 快照中无此行：跳过字段对比（已在 new_models 中声明）
                 continue
         # 字段对比（仅在 prev 存在时进行）
+        if prev is None:
+            continue
         for field in ("input", "output", "cache_write", "cache_hit", "cache_storage"):
             old_v = prev.get(field)
             new_v = cur.get(field)
@@ -670,6 +669,13 @@ def build_channel_follow(data_dir: str) -> List[Dict[str, Any]]:
                 after = _field_value(cur_rows, canon, src, field)
             if before is None:
                 continue  # 无对比基线（渠道新增该模型）
+            if after is None:
+                # 渠道在调价后下架该模型 → 未跟进
+                channels.append({
+                    "source": src, "before": before, "after": None,
+                    "pct": None, "status": "未跟进",
+                })
+                continue
             ch_pct = _pct(before, after)
             if ch_pct is None:
                 continue
@@ -679,8 +685,6 @@ def build_channel_follow(data_dir: str) -> List[Dict[str, Any]]:
                 status = "已跟进" if abs(ch_pct - official_pct) <= _CHANNEL_FOLLOW_TOL_PP else "幅度背离"
             else:
                 status = "未跟进"
-            if after is None:
-                status = "未跟进"  # 调价后渠道下架该模型
             channels.append({
                 "source": src,
                 "before": before,
@@ -696,6 +700,7 @@ def build_channel_follow(data_dir: str) -> List[Dict[str, Any]]:
                 "official_pct": official_pct,
                 "official_old": ev.get("old"),
                 "official_new": ev.get("new"),
+                "currency": ev.get("currency"),
                 "channels": channels,
             })
     return results

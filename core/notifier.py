@@ -847,13 +847,13 @@ def _channel_follow_message(
     for r in results:
         canon = str(r.get("canonical") or "")
         field_cn = str(r.get("field_cn") or r.get("field") or "")
-        cur = str(r.get("currency") or "") if "currency" in r else ""
+        cur = str(r.get("currency") or "")
         old_v, new_v = r.get("official_old"), r.get("official_new")
         pct = r.get("official_pct")
         arrow = ""
         if pct is not None:
             arrow = "↑" if pct > 0 else "↓"
-        seg = f"• {canon} · {field_cn} {old_v}→{new_v}{arrow}{abs(pct):.0f}%"
+        seg = f"• {canon} · {field_cn} {old_v}→{new_v}{arrow}{abs(pct or 0):.0f}%"
         lines.append(seg)
         by_status: Dict[str, List[str]] = {}
         for c in r.get("channels") or []:
