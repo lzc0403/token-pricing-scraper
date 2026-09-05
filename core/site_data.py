@@ -805,6 +805,25 @@ def _tier_label(condition: Any) -> str:
     return c
 
 
+def _load_channel_follow(data_dir: str) -> List[Dict[str, Any]]:
+    """读取 data/channel_follow.json（渠道跟进监督结果）。
+
+    缺失/非法时返回空列表——页面降级为「无监督结果」，不报错。
+    结构：[{canonical, field, field_cn, official_pct, official_old, official_new,
+            channels:[{source, before, after, pct, status}]}]
+    """
+    import os
+    path = os.path.join(data_dir, "channel_follow.json")
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError, ValueError):
+        return []
+    return data if isinstance(data, list) else []
+
+
 def _load_official_changes(data_dir: str) -> Dict[str, Any]:
     """读取 data/official_changes.json（CI 抓取时产出的官方调价 / 新品检测结果）。
 
@@ -1245,6 +1264,7 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         "mainstream_sections": mainstream_sections,
         "model_details": _build_model_details(all_norm),
         "official_changes": _load_official_changes(data_dir),
+        "channel_follow": _load_channel_follow(data_dir),
         "has_domestic_mainstream": has_domestic_mainstream,
         "has_overseas_mainstream": has_overseas_mainstream,
         "history": _load_history(data_dir),

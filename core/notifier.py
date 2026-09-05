@@ -837,6 +837,56 @@ def send_webhook(msg: str, url: str, wh_type: str) -> bool:
     return ok
 
 
+def _channel_follow_message(
+    results: List[Dict[str, Any]], snapshot_date: str
+) -> str:
+    """渠道跟进监督结果 → 纯文本消息。按状态分组，便于快速定位未跟进渠道。"""
+    lines: List[str] = [f"【报价监督 · 渠道跟进】{snapshot_date}"]
+    _MARK = {"已跟进": "✅", "幅度背离": "⚠️", "未跟进": "❌"}
+    _ORDER = ["已跟进", "幅度背离", "未跟进"]
+    for r in results:
+        canon = str(r.get("canonical") or "")
+        field_cn = str(r.get("field_cn") or r.get("field") or "")
+        cur = str(r.get("currency") or "") if "currency" in r else ""
+        old_v, new_v = r.get("official_old"), r.get("official_new")
+        pct = r.get("official_pct")
+        arrow = ""
+        if pct is not None:
+            arrow = "↑" if pct > 0 else "↓"
+        seg = f"• {canon} · {field_cn} {old_v}→{new_v}{arrow}{abs(pct):.0f}%"
+        lines.append(seg)
+        by_status: Dict[str, List[str]] = {}
+        for c in r.get("channels") or []:
+            by_status.setdefault(str(c.get("status") or "未跟进"), []).append(
+                str(c.get("source") or "")
+            )
+        for status in _ORDER:
+            srcs = by_status.get(status)
+            if not srcs:
+                continue
+            names = "、".join(SOURCE_LABELS.get(s, s) for s in srcs)
+            lines.append(f"  {_MARK[status]} {status}：{names}")
+    return "\n".join(lines)
+
+
+def notify_channel_follow(
+    results: List[Dict[str, Any]], snapshot_date: str
+) -> bool:
+    """渠道跟进监督结果飞书推送入口。
+
+    无结果或未配置 webhook 时静默返回 False，不阻断主流程。
+    """
+    if not results:
+        return False
+    cfg = _webhook_config()
+    if not cfg:
+        logger.info("未配置 webhook（FEISHU_WEBHOOK_URL/WECOM_WEBHOOK_URL），跳过渠道跟进监督推送")
+        return False
+    url, wh_type = cfg
+    msg = _channel_follow_message(results, snapshot_date)
+    return send_webhook(msg, url, wh_type)
+
+
 def notify_price_changes(deltas: List[Dict[str, Any]], snapshot_date: str) -> bool:
     """入口：有变动且配置了 webhook 时推送；否则静默返回 False。
 

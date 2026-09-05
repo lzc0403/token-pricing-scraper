@@ -188,10 +188,17 @@ def main(argv: List[str] | None = None) -> int:
             _json.dump(oc, _f, ensure_ascii=False, indent=2)
         # 调价事件逐日回填落盘（price_change_log.json，append-only，与历史快照对应）
         _pl = store.backfill_official_change_log(DATA_DIR)
+        # 渠道跟进监督：官方调价后国内渠道价是否同步调整（三态）
+        _follow = store.build_channel_follow(DATA_DIR)
+        try:
+            with open(os.path.join(DATA_DIR, "channel_follow.json"), "w", encoding="utf-8") as _ff:
+                _json.dump(_follow, _ff, ensure_ascii=False, indent=2)
+        except OSError as e:
+            logger.warning("写渠道跟进监督结果失败: %s", e)
         if oc.get("changes") or oc.get("new_models"):
-            logger.info("官方变动: 调价 %d 条 / 新增 %d 条 / 事件日志累计 %d 条",
+            logger.info("官方变动: 调价 %d 条 / 新增 %d 条 / 事件日志累计 %d 条 / 渠道监督 %d 项",
                         len(oc.get("changes") or []), len(oc.get("new_models") or []),
-                        _pl.get("total") or 0)
+                        _pl.get("total") or 0, len(_follow))
     except OSError as e:
         logger.warning("写官方变动检测失败: %s", e)
     if has_prev:
@@ -215,6 +222,14 @@ def main(argv: List[str] | None = None) -> int:
     from datetime import date as _today
 
     notifier.notify_price_changes(deltas, _today.today().strftime("%Y-%m-%d"))
+    # 渠道跟进监督结果推送（国内渠道是否随官方调价同步调整）
+    try:
+        import json as _json2
+        _cf_path = os.path.join(DATA_DIR, "channel_follow.json")
+        _cf = _json2.load(open(_cf_path, encoding="utf-8")) if os.path.exists(_cf_path) else []
+        notifier.notify_channel_follow(_cf, _today.today().strftime("%Y-%m-%d"))
+    except (OSError, ValueError) as e:
+        logger.warning("渠道跟进监督推送失败: %s", e)
 
     print("== 数据核对（防幻觉自我检查）==")
     audit_res = audit.run(DATA_DIR, sources_cfg=sources)

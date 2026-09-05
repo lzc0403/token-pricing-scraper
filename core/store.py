@@ -535,6 +535,172 @@ def append_official_change_log(
     return {"events": events, "total": len(events)}
 
 
+# 国外大模型 canonical 前缀（无渠道价，不做渠道跟进监督）
+_OVERSEAS_PREFIX = ("GPT", "Claude", "Gemini", "Grok")
+# 渠道跟进判定容差：渠道价相对官方调价幅度的允许偏差（百分点）
+_CHANNEL_FOLLOW_TOL_PP = 10.0
+# 渠道价视为「未动」的阈值（百分点，小于此视为未调整）
+_CHANNEL_NO_CHANGE_PP = 0.5
+
+_FIELD_CN = {"input": "输入", "output": "输出", "cache_write": "缓存创建",
+             "cache_hit": "缓存读取", "cache_storage": "缓存存储"}
+
+
+def _is_overseas(canon: Any) -> bool:
+    return str(canon or "").startswith(_OVERSEAS_PREFIX)
+
+
+def build_channel_follow(data_dir: str) -> List[Dict[str, Any]]:
+    """渠道跟进监督：官方调价后，国内渠道商报价是否同步调整（三态判定）。
+
+    依据需求「报价监督」：
+    - 官方原厂价发生调价（记于 price_change_log.json）
+    - 仅针对**国内大模型**（国外模型无渠道价，跳过）
+    - 对比每个渠道商在「调价日前 vs 调价日后」同一计费字段的价格变化，
+      输出三态结论：已跟进 / 未跟进 / 幅度背离
+
+    判定规则（可复现）：
+      设官方调价幅度 official_pct，渠道同期幅度 ch_pct：
+        1. |ch_pct| < 0.5%          → 未跟进（渠道未动）
+        2. 方向一致且 |ch_pct - official_pct| <= 10pp → 已跟进
+        3. 方向一致但 |ch_pct - official_pct| > 10pp  → 幅度背离
+        4. 方向相反                    → 未跟进
+        5. 调价日后渠道消失（下架该模型）→ 未跟进
+
+    Returns:
+        [ { canonical, field, field_cn, official_pct, official_old, official_new,
+            channels: [ {source, before, after, pct, status} ] } ]
+    """
+    # 读官方调价事件日志
+    log_path = os.path.join(data_dir, "price_change_log.json")
+    events: List[Dict[str, Any]] = []
+    if os.path.exists(log_path):
+        try:
+            with open(log_path, encoding="utf-8") as f:
+                _d = json.load(f)
+            if isinstance(_d, dict) and isinstance(_d.get("events"), list):
+                events = _d["events"]
+        except (OSError, json.JSONDecodeError, ValueError):
+            events = []
+
+    # 读历史快照（有序）+ 当前 prices.json
+    hist_dir = os.path.join(data_dir, "history")
+    snaps: Dict[str, List[Dict[str, Any]]] = {}
+    if os.path.isdir(hist_dir):
+        for fp in sorted(glob.glob(os.path.join(hist_dir, "*.json"))):
+            date_str = os.path.splitext(os.path.basename(fp))[0]
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    snaps[date_str] = json.load(f)
+            except (OSError, json.JSONDecodeError, ValueError):
+                continue
+
+    cur_path = os.path.join(data_dir, "prices.json")
+    cur_rows: List[Dict[str, Any]] = []
+    if os.path.exists(cur_path):
+        try:
+            with open(cur_path, encoding="utf-8") as f:
+                cur_rows = json.load(f)
+        except (OSError, json.JSONDecodeError, ValueError):
+            cur_rows = []
+
+    dates_sorted = sorted(snaps.keys())
+    if not events:
+        return []
+
+    def _channel_sources(canon: str) -> List[str]:
+        """该模型当前所有渠道源（非官方源）id 集合。"""
+        srcs = set()
+        for r in cur_rows:
+            if r.get("canonical") == canon and not _is_official_row(r.get("source")):
+                srcs.add(str(r["source"]))
+        return sorted(srcs)
+
+    def _field_value(rows: List[Dict[str, Any]], canon: str, source: str, field: str):
+        """取该 canonical+source 下 field 的首个非 None 值（优先 condition 为空/default）。"""
+        cand = [r for r in rows if r.get("canonical") == canon and r.get("source") == source]
+        if not cand:
+            return None
+        # 优先无 condition / default 的行
+        for r in cand:
+            cond = str(r.get("condition") or "")
+            if cond in ("", "None", "default"):
+                v = r.get(field)
+                if v is not None:
+                    return v
+        # 兜底取第一个非 None
+        for r in cand:
+            v = r.get(field)
+            if v is not None:
+                return v
+        return None
+
+    def _pct(o, n):
+        try:
+            if o is None or n is None or o == 0:
+                return None
+            return round((float(n) - float(o)) / float(o) * 100, 2)
+        except (TypeError, ValueError):
+            return None
+
+    results: List[Dict[str, Any]] = []
+    for ev in events:
+        canon = str(ev.get("canonical") or "")
+        field = str(ev.get("field") or "")
+        date_str = str(ev.get("date") or "")
+        official_pct = ev.get("pct")
+        # 仅国内模型 + 有幅度
+        if _is_overseas(canon) or official_pct is None:
+            continue
+        # 定位调价日前/后的快照
+        idx = dates_sorted.index(date_str) if date_str in dates_sorted else None
+        if idx is None:
+            continue
+        before_rows = snaps[dates_sorted[idx - 1]] if idx > 0 else None
+        after_rows = snaps[date_str]
+        if before_rows is None:
+            continue
+
+        channels = []
+        for src in _channel_sources(canon):
+            before = _field_value(before_rows, canon, src, field)
+            after = _field_value(after_rows, canon, src, field)
+            # after 缺失时用当前 prices.json 兜底（调价日为最新一天时快照可能尚未归档）
+            if after is None:
+                after = _field_value(cur_rows, canon, src, field)
+            if before is None:
+                continue  # 无对比基线（渠道新增该模型）
+            ch_pct = _pct(before, after)
+            if ch_pct is None:
+                continue
+            if abs(ch_pct) < _CHANNEL_NO_CHANGE_PP:
+                status = "未跟进"
+            elif (ch_pct > 0) == (official_pct > 0):
+                status = "已跟进" if abs(ch_pct - official_pct) <= _CHANNEL_FOLLOW_TOL_PP else "幅度背离"
+            else:
+                status = "未跟进"
+            if after is None:
+                status = "未跟进"  # 调价后渠道下架该模型
+            channels.append({
+                "source": src,
+                "before": before,
+                "after": after,
+                "pct": ch_pct,
+                "status": status,
+            })
+        if channels:
+            results.append({
+                "canonical": canon,
+                "field": field,
+                "field_cn": _FIELD_CN.get(field, field),
+                "official_pct": official_pct,
+                "official_old": ev.get("old"),
+                "official_new": ev.get("new"),
+                "channels": channels,
+            })
+    return results
+
+
 def compare_previous(current_path: str, previous_path: str) -> List[Dict[str, Any]]:
     """对比本次与历史（已提交）prices.json，返回 watchlist 模型的价格变动。
 

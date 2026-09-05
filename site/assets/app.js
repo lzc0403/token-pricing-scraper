@@ -280,15 +280,33 @@ const PEAK = __PEAK_DATA__;
       body.innerHTML = '<div class="detail-empty">暂无「' + escHtml(canonical) + '」的报价明细。</div>';
       return;
     }
+    // 渠道跟进监督索引：{(canonical, source): status}（取最严重状态）
+    var followList = (SITE_DATA.channel_follow || []);
+    var statusRank = {'已跟进': 0, '幅度背离': 1, '未跟进': 2};
+    var followMap = {};
+    followList.forEach(function(f){
+      if (f.canonical !== canonical) return;
+      (f.channels || []).forEach(function(c){
+        var key = f.canonical + '\u0000' + c.source;
+        var prev = followMap[key];
+        if (!prev || (statusRank[c.status] || 0) > (statusRank[prev] || 0)) followMap[key] = c.status;
+      });
+    });
+
     var rowHtml = info.rows.map(function(row){
       var officialCls = (row.source && /deepseek|bigmodel|kimi|minimax|volcengine|openai|anthropic|gemini|grok|aliyun$|tencent$/.test(String(row.source))) ? ' row-official' : '';
       var srcLbl = escHtml(row.source_label || row.source || '—');
       var tier = escHtml(row.tier || '');
       var cur = escHtml(row.currency || '');
       var ctx = escHtml(row.context || '—');
+      // 渠道跟进状态标记（仅渠道源；官方源不标）
+      var fs = followMap[canonical + '\u0000' + row.source];
+      var followBadge = fs
+        ? ' <span class="follow-badge follow-' + fs + '" title="官方调价后该渠道报价同步情况">' + fs + '</span>'
+        : '';
       var srcCell = row.tier
-        ? '<td><span class="row-src">' + srcLbl + '</span><br>' + tier + '</td>'
-        : '<td><span class="row-src">' + srcLbl + '</span></td>';
+        ? '<td><span class="row-src">' + srcLbl + '</span>' + followBadge + '<br>' + tier + '</td>'
+        : '<td><span class="row-src">' + srcLbl + '</span>' + followBadge + '</td>';
       var storage = row.cache_storage != null
         ? '<td class="num">' + fmtNum(row.cache_storage) + ' <span class="unit-hint">/1M·h</span></td>'
         : '<td class="num na">—</td>';
