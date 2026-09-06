@@ -4,13 +4,6 @@
   "changes": [],
   "new_models": [
     {
-      "canonical": "GLM-5.3-Flash",
-      "source": "zai",
-      "source_label": "智谱Z.ai",
-      "first_seen": "2026-09-05",
-      "date": "2026-09-06"
-    },
-    {
       "canonical": "GPT-5",
       "source": "openai",
       "source_label": "OpenAI官网",
@@ -18,16 +11,9 @@
       "date": "2026-09-06"
     },
     {
-      "canonical": "Grok 4.6",
-      "source": "grok",
-      "source_label": "Grok官网",
-      "first_seen": "2026-09-05",
-      "date": "2026-09-06"
-    },
-    {
-      "canonical": "Grok 4.6",
-      "source": "grok",
-      "source_label": "Grok官网",
+      "canonical": "GLM-5.3-Flash",
+      "source": "zai",
+      "source_label": "智谱Z.ai",
       "first_seen": "2026-09-05",
       "date": "2026-09-06"
     },
@@ -98,6 +84,20 @@
       "canonical": "Claude Haiku 4.5",
       "source": "anthropic",
       "source_label": "Anthropic官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-06"
+    },
+    {
+      "canonical": "Grok 4.6",
+      "source": "grok",
+      "source_label": "Grok官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-06"
+    },
+    {
+      "canonical": "Grok 4.6",
+      "source": "grok",
+      "source_label": "Grok官网",
       "first_seen": "2026-09-05",
       "date": "2026-09-06"
     },
