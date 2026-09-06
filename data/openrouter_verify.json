@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "fetched_at": "2026-09-05T06:31:22.046516+00:00",
-  "generated_at": "2026-09-05 06:35:16",
+  "fetched_at": "2026-09-06T04:12:58.180745+00:00",
+  "generated_at": "2026-09-06 12:16:29",
   "stats": {
     "raw_models": 431,
-    "parsed": 40,
-    "whitelist": 29,
+    "parsed": 39,
+    "whitelist": 28,
     "missing_whitelist": 0,
     "absent_api": 1,
     "suspects": 1,
@@ -26,12 +26,6 @@
     }
   ],
   "sample": [
-    {
-      "id": "openai/gpt-4o",
-      "model": "GPT-4o",
-      "input": 2.5,
-      "output": 10.0
-    },
     {
       "id": "openai/gpt-5",
       "model": "GPT-5",
@@ -115,6 +109,12 @@
       "model": "Claude Fable 5",
       "input": 10.0,
       "output": 50.0
+    },
+    {
+      "id": "anthropic/claude-haiku-4.5",
+      "model": "Claude Haiku 4.5",
+      "input": 1.0,
+      "output": 5.0
     }
   ]
 }

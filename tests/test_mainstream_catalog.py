@@ -708,7 +708,8 @@ def test_project_catalog_is_valid_and_has_required_vendors():
     assert {
         "Claude Fable 5", "Claude Opus 5", "Claude Opus 4.8", "Claude Sonnet 5", "Claude Haiku 4.5"
     } <= set(catalog_canons(catalog, "overseas"))
-    assert {"GPT-5.6 Sol", "GPT-5.6 Terra", "GPT-5.6 Luna", "GPT-4o"} <= set(catalog_canons(catalog, "overseas"))
+    assert {"GPT-5.6 Sol", "GPT-5.6 Terra", "GPT-5.6 Luna"} <= set(catalog_canons(catalog, "overseas"))
+    assert "GPT-4o" not in set(catalog_canons(catalog, "overseas"))
     assert {"Gemini 3.8 Flash", "Gemini 3.7 Flash", "Gemini 3.6 Flash"} <= set(catalog_canons(catalog, "overseas"))
     assert "Grok 4.6" in catalog_canons(catalog, "overseas")
     assert "Kimi K3" in catalog_canons(catalog, "domestic")

@@ -1,18 +1,17 @@
 # OpenRouter 二次验证报告
 
-- 时间：2026-09-05 06:35:16
-- 抓取时间：2026-09-05T06:31:22.046516+00:00
+- 时间：2026-09-06 12:16:29
+- 抓取时间：2026-09-06T04:12:58.180745+00:00
 - 结果：✅ 通过
 - 原始模型数：431
-- 解析条数：40
-- 白名单：29（缺失 0 / API 无 1）
+- 解析条数：39
+- 白名单：28（缺失 0 / API 无 1）
 - 可疑：1（high 0 / med 0 / low 1）
 
 ## 可疑项
 - [low] `OR_WHITELIST_ABSENT` openai/gpt-5.6 — 白名单模型当前 OpenRouter API 无此 id: openai/gpt-5.6
 
 ## 解析样本
-- GPT-4o (`openai/gpt-4o`) in=2.5 out=10.0
 - GPT-5 (`openai/gpt-5`) in=1.25 out=10.0
 - GPT-5.5 (`openai/gpt-5.5`) in=5.0 out=30.0
 - GPT-5.5 Pro (`openai/gpt-5.5-pro`) in=30.0 out=180.0
@@ -27,3 +26,4 @@
 - Claude Opus 4.5 (`anthropic/claude-opus-4.5`) in=5.0 out=25.0
 - Claude Opus 5 (`anthropic/claude-opus-5`) in=5.0 out=25.0
 - Claude Fable 5 (`anthropic/claude-fable-5`) in=10.0 out=50.0
+- Claude Haiku 4.5 (`anthropic/claude-haiku-4.5`) in=1.0 out=5.0

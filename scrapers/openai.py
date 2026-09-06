@@ -20,7 +20,7 @@
 - 短文本 ≤272K：sol 5/30、terra 2/12、luna 0.2/1.2
 - 长文本 >272K：sol 10/45、terra 4/18、luna 0.4/1.8
 
-收录范围：gpt-5.5 及以上（gpt-5.5 / gpt-5.5-pro / gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna），
+收录范围：gpt-5 及以上（gpt-5 / gpt-5.5 / gpt-5.5-pro / gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna），
 长短文本分档用 condition 区分（"短文本 · ≤272K" / "长文本 · >272K"）。
 """
 
@@ -43,8 +43,9 @@ _LONG_CONTEXT_PRICES: Dict[str, Dict[str, float]] = {
     "gpt-5.6-luna": {"input": 0.4, "output": 1.8, "cache_hit": 0.04},
 }
 
-# 只收录 GPT-5.5 及以上（name 可能带 "(<272K context length)" 后缀，剥离后匹配）
+# 只收录 GPT-5 及以上（name 可能带 "(<272K context length)" 后缀，剥离后匹配）
 _MIN_CANON = {
+    "gpt-5": "GPT-5",
     "gpt-5.5": "GPT-5.5",
     "gpt-5.5-pro": "GPT-5.5 Pro",
     "gpt-5.6-sol": "GPT-5.6 Sol",
@@ -55,6 +56,7 @@ _MIN_CANON = {
 # model_raw（清后缀小写）→ OpenRouter 精确 id（main.py 复用白名单 canonical 映射）。
 # 注意 gpt-5.6-sol 在 OpenRouter 的 id 是 openai/gpt-5.6（官网叫 sol，OpenRouter 无 -sol 后缀）。
 _OR_ID = {
+    "gpt-5": "openai/gpt-5",
     "gpt-5.5": "openai/gpt-5.5",
     "gpt-5.5-pro": "openai/gpt-5.5-pro",
     "gpt-5.6-sol": "openai/gpt-5.6",

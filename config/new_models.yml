@@ -36,14 +36,6 @@ models:
     aliases: [Claude 5, Claude-5, claude-5, Claude Sonnet 5, Claude Opus 5]
     note: 新一代 Claude 主线；Sonnet 5 已上榜，继续监听完整 Claude 5 线
 
-  - canonical: GPT-4o
-    family: OpenAI
-    region: overseas
-    status: active
-    priority: high
-    aliases: [GPT-4o, gpt-4o, GPT4o]
-    note: 海外主力长青模型，必须保留展示
-
   - canonical: GPT-5
     family: OpenAI
     region: overseas
@@ -58,4 +50,4 @@ checklist:
   - 同步补 models.yml 别名，保证 matcher 可命中
   - 海外官方参考价同步进 config/mainstream_models.yml（仅最主流）
   - 国内厂商官网 URL 若变，更新 sources.yml
-  - 重新 build_site 后检查：GPT-4o 等必须可见
+  - 重新 build_site 后检查：GPT-5 等必须可见

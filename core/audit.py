@@ -94,7 +94,6 @@ _CRITICAL_MODELS = frozenset(
         "GLM-5.2",
         "GLM-5.1",
         "Kimi K3",
-        "GPT-4o",
         "Claude Opus 5",
         "Gemini 3.7 Flash",
     }

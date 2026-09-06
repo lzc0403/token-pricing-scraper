@@ -13,9 +13,6 @@ output_modalities: [text]
 
 # 热门主力白名单（优先，顺序即展示优先级）
 whitelist:
-  - id: openai/gpt-4o
-    model: GPT-4o
-    note: 长青主流
   - id: openai/gpt-5
     model: GPT-5
     note: 旗舰

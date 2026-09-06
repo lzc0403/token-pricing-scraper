@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05",
+  "generated_at": "2026-09-06",
   "lookback_days": 7,
   "changes": [],
   "new_models": [
@@ -8,140 +8,147 @@
       "source": "zai",
       "source_label": "智谱Z.ai",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
+    },
+    {
+      "canonical": "GPT-5",
+      "source": "openai",
+      "source_label": "OpenAI官网",
+      "first_seen": "2026-09-06",
+      "date": "2026-09-06"
+    },
+    {
+      "canonical": "Grok 4.6",
+      "source": "grok",
+      "source_label": "Grok官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-06"
+    },
+    {
+      "canonical": "Grok 4.6",
+      "source": "grok",
+      "source_label": "Grok官网",
+      "first_seen": "2026-09-05",
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Fable 5",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Opus 5",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Opus 4.8",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Opus 4.7",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Opus 4.6",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Opus 4.5",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Sonnet 5",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Sonnet 4.6",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Sonnet 4.5",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Claude Haiku 4.5",
       "source": "anthropic",
       "source_label": "Anthropic官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
-    },
-    {
-      "canonical": "Grok 4.6",
-      "source": "grok",
-      "source_label": "Grok官网",
-      "first_seen": "2026-09-05",
-      "date": "2026-09-05"
-    },
-    {
-      "canonical": "Grok 4.6",
-      "source": "grok",
-      "source_label": "Grok官网",
-      "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Gemini 3.8 Flash",
       "source": "gemini",
       "source_label": "Gemini官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Gemini 3.7 Flash",
       "source": "gemini",
       "source_label": "Gemini官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Gemini 3.6 Flash",
       "source": "gemini",
       "source_label": "Gemini官网",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "GLM-5.3-Flash",
       "source": "bigmodel",
       "source_label": "智谱",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Kimi K3",
       "source": "kimi_ai",
       "source_label": "Kimi国际站",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Kimi K2.6",
       "source": "kimi_ai",
       "source_label": "Kimi国际站",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     },
     {
       "canonical": "Kimi K2.7 Code",
       "source": "kimi_ai",
       "source_label": "Kimi国际站",
       "first_seen": "2026-09-05",
-      "date": "2026-09-05"
+      "date": "2026-09-06"
     }
   ],
   "known": {
@@ -187,6 +194,7 @@
     "Kimi K2.6\u0001kimi": "2026-09-05",
     "Kimi K2.6\u0001kimi_ai": "2026-09-05",
     "Kimi K2.7 Code\u0001kimi": "2026-09-05",
-    "Kimi K2.7 Code\u0001kimi_ai": "2026-09-05"
+    "Kimi K2.7 Code\u0001kimi_ai": "2026-09-05",
+    "GPT-5\u0001openai": "2026-09-06"
   }
 }

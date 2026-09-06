@@ -119,7 +119,7 @@ MAINSTREAM_SORT_ORDER: List[str] = [
     "GPT-5.6 Sol",
     "GPT-5.6 Terra",
     "GPT-5.6 Luna",
-    "GPT-4o",
+    "GPT-5",
     "Claude Fable 5",
     "Claude Opus 5",
     "Claude Opus 4.8",
@@ -197,7 +197,6 @@ MODEL_ORDER: List[str] = [
     "GPT-5.6 Terra",
     "GPT-5.6 Luna",
     "GPT-5",
-    "GPT-4o",
     "Claude Fable 5",
     "Claude Opus 5",
     "Claude Opus 4.8",
@@ -946,7 +945,11 @@ def _build_mainstream_sections(
     return rendered
 
 
-def _load_history(data_dir: str, max_points: int = 90) -> Dict[str, Any]:
+def _load_history(
+    data_dir: str,
+    max_points: int = 90,
+    only_canons: Optional[set] = None,
+) -> Dict[str, Any]:
     """读取 data/history/*.json 快照，构建模型×渠道价格时间序列。
 
     每个快照文件名为 YYYY-MM-DD.json，内容为当日 prices.json 全量记录。
@@ -989,6 +992,9 @@ def _load_history(data_dir: str, max_points: int = 90) -> Dict[str, Any]:
             c = r.get("canonical")
             s = r.get("source")
             if not c or not s:
+                continue
+            # 只保留当前在册模型（下架模型如 GPT-4o 不内嵌到趋势数据）
+            if only_canons is not None and c not in only_canons:
                 continue
             series.setdefault(c, {}).setdefault(s, {})[date_str] = {
                 "input": r.get("input"),
@@ -1267,5 +1273,5 @@ def _build_site_data(data_dir: str) -> Dict[str, Any]:
         "channel_follow": _load_channel_follow(data_dir),
         "has_domestic_mainstream": has_domestic_mainstream,
         "has_overseas_mainstream": has_overseas_mainstream,
-        "history": _load_history(data_dir),
+        "history": _load_history(data_dir, only_canons=set(canons)),
     }

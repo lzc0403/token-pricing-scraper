@@ -150,7 +150,7 @@ def _table_row(r: Dict[str, Any], *, kind: str, price_mode: str) -> str:
         tags.append('<span class="tag tag-official">官网</span>')
     if r.get("region") == "overseas" or kind == "overseas":
         tags.append('<span class="tag tag-global">海外</span>')
-    if r.get("hot") or str(r.get("canonical") or "") == "GPT-4o":
+    if r.get("hot"):
         tags.append('<span class="tag tag-hot">主流</span>')
     if r.get("family") and r.get("region") == "overseas":
         tags.append(f'<span class="tag tag-family">{_esc(r["family"])}</span>')
@@ -528,7 +528,7 @@ def _mainstream_section(
     desc = (
         "官方 API 参考价 · 点击卡片可联动下方渠道筛选。证据不足的型号不在此展示。"
         if accent == "domestic"
-        else "OpenAI / Anthropic / Google / xAI 热门主力官方 API 参考价。仅展示 GPT-5 / GPT-4o / Claude / Gemini 等核心型号，不堆叠 mini / nano / lite 次级款。点击卡片联动海外渠道筛选。"
+        else "OpenAI / Anthropic / Google / xAI 热门主力官方 API 参考价。仅展示 GPT-5 / Claude / Gemini 等核心型号，不堆叠 mini / nano / lite 次级款。点击卡片联动海外渠道筛选。"
     )
     return f"""
     <section class="block-card block-mainstream {accent_class}" data-section="{section_id}-mainstream" aria-labelledby="{section_id}-mainstream-title">
