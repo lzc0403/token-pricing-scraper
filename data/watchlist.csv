@@ -104,11 +104,11 @@ openrouter,Claude Opus 5,5.0,25.0,0.5,6.25,,1M,,1M tokens,USD,35.0,175.0,Claude 
 openrouter,Claude Sonnet 4.5,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.5,yes
 openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.6,yes
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
-openrouter,DeepSeek V4 Flash,0.08162,0.16324,0.016324,,,1.04858M,,1M tokens,USD,0.57134,1.14268,DeepSeek V4 Flash,yes
-openrouter,DeepSeek V4 Pro,0.738282,1.476564,0.061524,,,1.04858M,,1M tokens,USD,5.167974,10.335948,DeepSeek V4 Pro,no
-openrouter,DeepSeek V4 Pro 0813,1.12068,3.36204,0.037356,,,1.04858M,,1M tokens,USD,7.84476,23.53428,DeepSeek V4 Pro 0813,yes
+openrouter,DeepSeek V4 Flash,0.088606,0.177212,0.017721,,,1.04858M,,1M tokens,USD,0.620242,1.240484,DeepSeek V4 Flash,yes
+openrouter,DeepSeek V4 Pro,1.04226,2.08452,0.086855,,,1.04858M,,1M tokens,USD,7.29582,14.59164,DeepSeek V4 Pro,no
+openrouter,DeepSeek V4 Pro 0813,1.1154,3.3462,0.03718,,,1.04858M,,1M tokens,USD,7.8078,23.4234,DeepSeek V4 Pro 0813,yes
 openrouter,GLM 5.2,0.966,3.036,0.1932,,,1.04858M,,1M tokens,USD,6.762,21.252,GLM-5.2,no
-openrouter,GLM-5.3,1.4,4.4,0.14,,,1.31072M,,1M tokens,USD,9.8,30.8,GLM-5.3,no
+openrouter,GLM-5.3,1.4,4.4,0.26,,,1.31072M,,1M tokens,USD,9.8,30.8,GLM-5.3,no
 openrouter,GLM-5.3-Flash,0.075,0.25,0.015,,,1.31072M,,1M tokens,USD,0.525,1.75,GLM-5.3-Flash,no
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
