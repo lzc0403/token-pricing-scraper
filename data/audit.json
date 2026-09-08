@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-07 06:52:53",
+  "generated_at": "2026-09-08 06:48:52",
   "stats": {
-    "total": 168,
-    "suspects": 97,
+    "total": 163,
+    "suspects": 92,
     "high": 0,
     "med": 31,
-    "low": 66,
+    "low": 61,
     "tier1": 31,
-    "tier2": 66,
+    "tier2": 61,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -289,19 +289,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 1.04226,
-        "output": 2.08452,
-        "cache_hit": 0.086855,
+        "input": 0.95526,
+        "output": 1.91052,
+        "cache_hit": 0.079605,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.00000104226",
-        "openrouter_completion_per_token": "0.00000208452",
-        "input_rmb": 7.29582,
-        "output_rmb": 14.59164,
+        "openrouter_prompt_per_token": "0.00000095526",
+        "openrouter_completion_per_token": "0.00000191052",
+        "input_rmb": 6.68682,
+        "output_rmb": 13.37364,
         "canonical": "DeepSeek V4 Pro",
         "is_lowest_input": "no"
       }
@@ -845,66 +845,6 @@
       "record": {
         "model_raw": "qwen3.8-max",
         "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "bigmodel",
-      "canonical": "GLM-4.7",
-      "msg": "SPA 源静态 HTML 未含模型名「GLM-4.7」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "GLM-4.7",
-        "url": "https://open.bigmodel.cn/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "bigmodel",
-      "canonical": "GLM-5.1",
-      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "GLM-5.1",
-        "url": "https://open.bigmodel.cn/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "bigmodel",
-      "canonical": "GLM-5.2",
-      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "GLM-5.2",
-        "url": "https://open.bigmodel.cn/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "bigmodel",
-      "canonical": "GLM-5.3",
-      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "GLM-5.3",
-        "url": "https://open.bigmodel.cn/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "bigmodel",
-      "canonical": "GLM-5.3-Flash",
-      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.3-Flas」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "GLM-5.3-Flash",
-        "url": "https://open.bigmodel.cn/pricing"
       }
     },
     {

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-07T06:49:07",
+  "fetched_at": "2026-09-08T06:45:12",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -29,7 +29,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -71,7 +71,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -113,7 +113,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -155,7 +155,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -197,7 +197,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -440,7 +440,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -483,7 +483,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -526,7 +526,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -1439,6 +1439,86 @@
         }
       },
       {
+        "uuid": "ms-b3wmh4gdvj78",
+        "model": "xai/grok-imagine-image-2.0-developer/edit",
+        "type": "Image",
+        "displayName": "Grok Imagine Image 2.0 Developer Edit",
+        "profile": "xAI Grok Imagine Image 2.0 edits up to three reference images with natural-language instructions at 1K or 2K resolution, with selectable low/medium quality tiers.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-image-2.0-developer-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-image-2.0-developer-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-image-2.0-developer-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-image-2.0-developer-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-image-2.0-developer-edit.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-image-2.0-developer-edit.json",
+        "priority": 90042,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.014"
+          },
+          "origin": {
+            "base_price": "0.04"
+          }
+        }
+      },
+      {
+        "uuid": "ms-iry2tnz0204s",
+        "model": "xai/grok-imagine-image-2.0-developer/text-to-image",
+        "type": "Image",
+        "displayName": "Grok Imagine Image 2.0 Developer Text-to-Image",
+        "profile": "xAI Grok Imagine Image 2.0 generates polished visuals from natural-language prompts at 1K or 2K resolution, with 14 aspect ratios and selectable low/medium quality tiers.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-image-2.0-developer-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-image-2.0-developer-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-image-2.0-developer-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-image-2.0-developer-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-image-2.0-developer-text-to-image.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-image-2.0-developer-text-to-image.json",
+        "priority": 90042,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.014"
+          },
+          "origin": {
+            "base_price": "0.04"
+          }
+        }
+      },
+      {
         "uuid": "ms-grokimg20t2i",
         "model": "xai/grok-imagine-image-2.0/text-to-image",
         "type": "Image",
@@ -2316,7 +2396,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -2358,7 +2438,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -2400,7 +2480,7 @@
         ],
         "familyUUID": "mf-2n8o4bdx2yyz",
         "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 API for 2K Video",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -7075,6 +7155,46 @@
         ]
       },
       {
+        "uuid": "ms-h5fj1i2aau5o",
+        "model": "xai/grok-imagine-video-v1.5-developer/reference-to-video",
+        "type": "Video",
+        "displayName": "Grok Imagine Video v1.5 Developer Reference-to-Video",
+        "profile": "xAI Grok Imagine Video v1.5 generates video guided by 1-7 reference images plus an optional reference voice, with native synchronized audio. Up to 15s at 480p or 720p.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-video-v1.5-developer-reference-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-video-v1.5-developer-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-video-v1.5-developer-reference-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-video-v1.5-developer-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-video-v1.5-developer-reference-to-video.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-video-v1.5-developer-reference-to-video.json",
+        "priority": 40073,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.028"
+          },
+          "origin": {
+            "base_price": "0.08"
+          }
+        }
+      },
+      {
         "uuid": "ms-grokv15r2v",
         "model": "xai/grok-imagine-video-v1.5/reference-to-video",
         "type": "Video",
@@ -7155,6 +7275,46 @@
         }
       },
       {
+        "uuid": "ms-iax3yojthbx1",
+        "model": "xai/grok-imagine-video-v1.5-developer/text-to-video",
+        "type": "Video",
+        "displayName": "Grok Imagine Video v1.5 Developer Text-to-Video",
+        "profile": "xAI Grok Imagine Video v1.5 generates video with native synchronized audio from a text prompt alone. Up to 15s at 480p, 720p, or 1080p.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-video-v1.5-developer-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-video-v1.5-developer-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-video-v1.5-developer-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-video-v1.5-developer-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-video-v1.5-developer-text-to-video.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-video-v1.5-developer-text-to-video.json",
+        "priority": 40072,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.028"
+          },
+          "origin": {
+            "base_price": "0.08"
+          }
+        }
+      },
+      {
         "uuid": "ms-grokv15t2v",
         "model": "xai/grok-imagine-video-v1.5/text-to-video",
         "type": "Video",
@@ -7228,6 +7388,46 @@
           "discount": "50",
           "actual": {
             "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.08"
+          }
+        }
+      },
+      {
+        "uuid": "ms-h7hdbt65amrr",
+        "model": "xai/grok-imagine-video-v1.5-developer/image-to-video",
+        "type": "Video",
+        "displayName": "Grok Imagine Video v1.5 Developer Image-to-Video",
+        "profile": "xAI Grok Imagine Video v1.5 animates a starting frame image with natural-language motion prompts at 480p/720p/1080P.",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-video-v1.5-developer-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-video-v1.5-developer-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-video-v1.5-developer-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-video-v1.5-developer-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-video-v1.5-developer-image-to-video.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-video-v1.5-developer-image-to-video.json",
+        "priority": 40071,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2k6x1vk9frdd",
+        "familyName": "grok-imagine-models",
+        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.028"
           },
           "origin": {
             "base_price": "0.08"
@@ -13942,33 +14142,33 @@
           "tiered_price": true,
           "actual": {
             "type": "flat",
-            "input_price": "2.5",
-            "output_price": "15",
-            "cache_creation_price": "3.125",
-            "cache_price": "0.25",
+            "input_price": "2",
+            "output_price": "12",
+            "cache_creation_price": "2.5",
+            "cache_price": "0.2",
             "prompt_thresholds": [
               {
                 "threshold": 272000,
-                "input_price": "5",
-                "cache_creation_price": "6.25",
-                "cache_price": "0.5",
-                "output_price": "22.5"
+                "input_price": "4",
+                "cache_creation_price": "5",
+                "cache_price": "0.4",
+                "output_price": "18"
               }
             ]
           },
           "origin": {
             "type": "flat",
-            "input_price": "2.5",
-            "output_price": "15",
-            "cache_creation_price": "3.125",
-            "cache_price": "0.25",
+            "input_price": "2",
+            "output_price": "12",
+            "cache_creation_price": "2.5",
+            "cache_price": "0.2",
             "prompt_thresholds": [
               {
                 "threshold": 272000,
-                "input_price": "5",
-                "cache_creation_price": "6.25",
-                "cache_price": "0.5",
-                "output_price": "22.5"
+                "input_price": "4",
+                "cache_creation_price": "5",
+                "cache_price": "0.4",
+                "output_price": "18"
               }
             ]
           }
@@ -14036,33 +14236,33 @@
           "tiered_price": true,
           "actual": {
             "type": "flat",
-            "input_price": "1",
-            "output_price": "6",
-            "cache_creation_price": "1.25",
-            "cache_price": "0.1",
+            "input_price": "0.2",
+            "output_price": "1.2",
+            "cache_creation_price": "0.25",
+            "cache_price": "0.02",
             "prompt_thresholds": [
               {
                 "threshold": 272000,
-                "input_price": "2",
-                "cache_creation_price": "2.5",
-                "cache_price": "0.2",
-                "output_price": "9"
+                "input_price": "0.4",
+                "cache_creation_price": "0.5",
+                "cache_price": "0.04",
+                "output_price": "1.8"
               }
             ]
           },
           "origin": {
             "type": "flat",
-            "input_price": "1",
-            "output_price": "6",
-            "cache_creation_price": "1.25",
-            "cache_price": "0.1",
+            "input_price": "0.2",
+            "output_price": "1.2",
+            "cache_creation_price": "0.25",
+            "cache_price": "0.02",
             "prompt_thresholds": [
               {
                 "threshold": 272000,
-                "input_price": "2",
-                "cache_creation_price": "2.5",
-                "cache_price": "0.2",
-                "output_price": "9"
+                "input_price": "0.4",
+                "cache_creation_price": "0.5",
+                "cache_price": "0.04",
+                "output_price": "1.8"
               }
             ]
           }
@@ -14212,33 +14412,33 @@
           "tiered_price": true,
           "actual": {
             "type": "flat",
-            "input_price": "2.5",
-            "output_price": "15",
-            "cache_creation_price": "3.125",
-            "cache_price": "0.25",
+            "input_price": "2",
+            "output_price": "12",
+            "cache_creation_price": "2.5",
+            "cache_price": "0.2",
             "prompt_thresholds": [
               {
                 "threshold": 272000,
-                "input_price": "5",
-                "cache_creation_price": "6.25",
-                "cache_price": "0.5",
-                "output_price": "22.5"
+                "input_price": "4",
+                "cache_creation_price": "5",
+                "cache_price": "0.4",
+                "output_price": "18"
               }
             ]
           },
           "origin": {
             "type": "flat",
-            "input_price": "2.5",
-            "output_price": "15",
-            "cache_creation_price": "3.125",
-            "cache_price": "0.25",
+            "input_price": "2",
+            "output_price": "12",
+            "cache_creation_price": "2.5",
+            "cache_price": "0.2",
             "prompt_thresholds": [
               {
                 "threshold": 272000,
-                "input_price": "5",
-                "cache_creation_price": "6.25",
-                "cache_price": "0.5",
-                "output_price": "22.5"
+                "input_price": "4",
+                "cache_creation_price": "5",
+                "cache_price": "0.4",
+                "output_price": "18"
               }
             ]
           }
@@ -14300,33 +14500,33 @@
           "tiered_price": true,
           "actual": {
             "type": "flat",
-            "input_price": "1",
-            "output_price": "6",
-            "cache_creation_price": "1.25",
-            "cache_price": "0.1",
+            "input_price": "0.2",
+            "output_price": "1.2",
+            "cache_creation_price": "0.25",
+            "cache_price": "0.02",
             "prompt_thresholds": [
               {
                 "threshold": 272000,
-                "input_price": "2",
-                "cache_creation_price": "2.5",
-                "cache_price": "0.2",
-                "output_price": "9"
+                "input_price": "0.4",
+                "cache_creation_price": "0.5",
+                "cache_price": "0.04",
+                "output_price": "1.8"
               }
             ]
           },
           "origin": {
             "type": "flat",
-            "input_price": "1",
-            "output_price": "6",
-            "cache_creation_price": "1.25",
-            "cache_price": "0.1",
+            "input_price": "0.2",
+            "output_price": "1.2",
+            "cache_creation_price": "0.25",
+            "cache_price": "0.02",
             "prompt_thresholds": [
               {
                 "threshold": 272000,
-                "input_price": "2",
-                "cache_creation_price": "2.5",
-                "cache_price": "0.2",
-                "output_price": "9"
+                "input_price": "0.4",
+                "cache_creation_price": "0.5",
+                "cache_price": "0.04",
+                "output_price": "1.8"
               }
             ]
           }
@@ -21856,6 +22056,196 @@
           },
           "origin": {
             "base_price": "0.106"
+          }
+        }
+      },
+      {
+        "uuid": "ms-81fdd3523387",
+        "model": "black-forest-labs/flux-3/image-to-video",
+        "type": "Video",
+        "displayName": "BLACKFORESTLABS FLUX 3 Image-to-Video",
+        "profile": "Generate a video that starts from an input image using FLUX 3.",
+        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
+        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-image-to-video.md",
+        "organization": "BLACK-FOREST-LABS",
+        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-image-to-video.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "IMAGE_TO_VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2djaqmk42iik",
+        "familyName": "flux",
+        "familyDisplayName": "Flux.2 Image Models",
+        "parentFamilyUUID": "mf-2l7qmbr9uow1",
+        "parentFamilyName": "black-forest-labs",
+        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.17"
+          },
+          "origin": {
+            "base_price": "0.17"
+          }
+        }
+      },
+      {
+        "uuid": "ms-151b29aaa3a0",
+        "model": "black-forest-labs/flux-3/extend-video",
+        "type": "Video",
+        "displayName": "BLACKFORESTLABS FLUX 3 Extend Video",
+        "profile": "Extend a video, continuing from the source clip final frames, using FLUX 3.",
+        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-extend-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
+        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-extend-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-extend-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-extend-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-extend-video.md",
+        "organization": "BLACK-FOREST-LABS",
+        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-extend-video.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "VIDEO_TO_VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2djaqmk42iik",
+        "familyName": "flux",
+        "familyDisplayName": "Flux.2 Image Models",
+        "parentFamilyUUID": "mf-2l7qmbr9uow1",
+        "parentFamilyName": "black-forest-labs",
+        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.41"
+          },
+          "origin": {
+            "base_price": "0.41"
+          }
+        }
+      },
+      {
+        "uuid": "ms-2dfdc82d2895",
+        "model": "black-forest-labs/flux-3/keyframes-to-video",
+        "type": "Video",
+        "displayName": "BLACKFORESTLABS FLUX 3 Keyframes to Video",
+        "profile": "Generate a video that hits the supplied keyframe images at exact frame positions using FLUX 3.",
+        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-keyframes-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
+        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-keyframes-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-keyframes-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-keyframes-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-keyframes-to-video.md",
+        "organization": "BLACK-FOREST-LABS",
+        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-keyframes-to-video.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "IMAGE_TO_VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2djaqmk42iik",
+        "familyName": "flux",
+        "familyDisplayName": "Flux.2 Image Models",
+        "parentFamilyUUID": "mf-2l7qmbr9uow1",
+        "parentFamilyName": "black-forest-labs",
+        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.17"
+          },
+          "origin": {
+            "base_price": "0.17"
+          }
+        }
+      },
+      {
+        "uuid": "ms-d7dfe4633a41",
+        "model": "black-forest-labs/flux-3/first-last-frame-to-video",
+        "type": "Video",
+        "displayName": "BLACKFORESTLABS FLUX 3 First & Last Frame to Video",
+        "profile": "Generate a video between a start frame and an end frame using FLUX 3.",
+        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-first-last-frame-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
+        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-first-last-frame-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-first-last-frame-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-first-last-frame-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-first-last-frame-to-video.md",
+        "organization": "BLACK-FOREST-LABS",
+        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-first-last-frame-to-video.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "IMAGE_TO_VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2djaqmk42iik",
+        "familyName": "flux",
+        "familyDisplayName": "Flux.2 Image Models",
+        "parentFamilyUUID": "mf-2l7qmbr9uow1",
+        "parentFamilyName": "black-forest-labs",
+        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.17"
+          },
+          "origin": {
+            "base_price": "0.17"
+          }
+        }
+      },
+      {
+        "uuid": "ms-54184cf051ce",
+        "model": "black-forest-labs/flux-3/text-to-video",
+        "type": "Video",
+        "displayName": "BLACKFORESTLABS FLUX 3 Text-to-Video",
+        "profile": "Generate a video (with audio) from a text prompt using FLUX 3.",
+        "logo": "https://static.atlascloud.ai/model/logo/black-forest-labs-flux-3-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BLACK-FOREST-LABS.png",
+        "background": "https://static.atlascloud.ai/model/background/black-forest-labs-flux-3-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/black-forest-labs-flux-3-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/black-forest-labs-flux-3-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/black-forest-labs-flux-3-text-to-video.md",
+        "organization": "BLACK-FOREST-LABS",
+        "example": "https://static.atlascloud.ai/model/example/black-forest-labs-flux-3-text-to-video.json",
+        "priority": 100,
+        "categories": null,
+        "tags": [
+          "TEXT_TO_VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2djaqmk42iik",
+        "familyName": "flux",
+        "familyDisplayName": "Flux.2 Image Models",
+        "parentFamilyUUID": "mf-2l7qmbr9uow1",
+        "parentFamilyName": "black-forest-labs",
+        "parentFamilyDisplayName": "Black Forest Labs Models on Atlas Cloud",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.17"
+          },
+          "origin": {
+            "base_price": "0.17"
           }
         }
       },

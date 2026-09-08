@@ -1,14 +1,14 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-09-07 06:52:53
+> 生成时间：2026-09-08 06:48:52
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
-- 校验记录总数：**168**
-- 可疑项总数：**97**（high 0 / med 31 / low 66）
+- 校验记录总数：**163**
+- 可疑项总数：**92**（high 0 / med 31 / low 61）
 - Tier1 结构性校验可疑：**31**
-- Tier2 源页面核对可疑：**66**
+- Tier2 源页面核对可疑：**61**
 
 ## 二、核对维度
 
@@ -69,11 +69,6 @@
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | Qwen3.7 Max | SPA 源静态 HTML 未含模型名「qwen3.7-max」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | Qwen3.7 Plus | SPA 源静态 HTML 未含模型名「qwen3.7-plus」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | Qwen3.8 Max | SPA 源静态 HTML 未含模型名「qwen3.8-max」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | bigmodel | GLM-4.7 | SPA 源静态 HTML 未含模型名「GLM-4.7」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.2 | SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.3 | SPA 源静态 HTML 未含模型名「GLM-5.3」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | bigmodel | GLM-5.3-Flash | SPA 源静态 HTML 未含模型名「GLM-5.3-Flas」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi | Kimi K2.6 | SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi | Kimi K2.7 Code | SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi | Kimi K3 | SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对 |
