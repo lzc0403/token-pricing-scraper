@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-09-08 06:48:51
+> 生成时间：2026-09-09 06:57:44
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -56,7 +56,7 @@
 | DeepSeek V4 Pro | tencent | 12.18 ¥ | 24.36 ¥ | 0.145 USD | USD | 1.74 USD / 3.48 USD | - |
 | DeepSeek V4 Pro | tencent_cn | 12 ¥ | 24 ¥ | 1 CNY | CNY | 12 CNY / 24 CNY | - |
 | DeepSeek V4 Pro | volcengine_intl | 9.24 ¥ | 27.72 ¥ | 0.044 USD | USD | 1.32 USD / 3.96 USD | - |
-| DeepSeek V4 Pro 0813 | openrouter | 7.3458 ¥ | 22.0374 ¥ | 0.03498 USD | USD | 1.0494 USD / 3.1482 USD | 1.04858M |
+| DeepSeek V4 Pro 0813 | openrouter | 4.05636 ¥ | 12.1691 ¥ | 0.018438 USD | USD | 0.57948 USD / 1.73844 USD | 1.04858M |
 | Doubao Seed 2.1 Pro | atlascloud | 6.3 ¥ | 31.5 ¥ | 0.18 USD | USD | 0.9 USD / 4.5 USD | 262K |
 | Doubao Seed 2.1 Pro | modelmesh | 6 ¥ | 30 ¥ | - | CNY | 6 CNY / 30 CNY | 256K |
 | Doubao Seed 2.1 Pro | volcengine | 6 ¥ | 30 ¥ | 1.2 CNY | CNY | 6 CNY / 30 CNY | - |
@@ -174,14 +174,10 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro | openrouter | 输入 | 1.04226 | 0.95526 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 2.08452 | 1.91052 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输入 | 1.1154 | 1.0494 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输出 | 3.3462 | 3.1482 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输入 | 1.0494 | 0.57948 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输出 | 3.1482 | 1.73844 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| Qwen3.7 Max | modelmesh | 输入 | 6 | 12 | CNY |
-| Qwen3.7 Max | modelmesh | 输出 | 18 | 36 | CNY |
 
 ## 三、抓取状态
 
@@ -189,14 +185,14 @@
 | --- | --- | ---: | --- |
 | openai | 成功 | 9 | 抓取 9 条 |
 | zai | 成功 | 13 | 抓取 13 条 |
-| deepseek_us | 成功 | 3 | 抓取 3 条 |
 | anthropic | 成功 | 10 | 抓取 10 条 |
 | grok | 成功 | 2 | 抓取 2 条 |
 | openrouter | 成功 | 39 | 抓取 39 条 |
-| deepseek | 成功 | 3 | 抓取 3 条 |
-| atlascloud | 成功 | 114 | 抓取 114 条 |
+| deepseek_us | 成功 | 3 | 抓取 3 条 |
+| atlascloud | 成功 | 115 | 抓取 115 条 |
 | aliyun | 成功 | 0 | 抓取 0 条 |
 | gemini | 成功 | 3 | 抓取 3 条 |
+| deepseek | 成功 | 3 | 抓取 3 条 |
 | aliyun_bailian | 成功 | 34 | 抓取 34 条 |
 | aliyun_intl | 成功 | 10 | 抓取 10 条 |
 | volcengine | 成功 | 18 | 抓取 18 条 |

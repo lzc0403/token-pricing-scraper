@@ -1,12 +1,12 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-09-08 06:48:52
+> 生成时间：2026-09-09 06:57:46
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
 - 校验记录总数：**163**
-- 可疑项总数：**92**（high 0 / med 31 / low 61）
+- 可疑项总数：**92**（high 0 / med 34 / low 58）
 - Tier1 结构性校验可疑：**31**
 - Tier2 源页面核对可疑：**61**
 
@@ -60,6 +60,9 @@
 | med | T1 | OPENAI_LONG_NO_OR | openai | GPT-5.6 Sol | OpenAI 硬编码长上下文价 GPT-5.6 Sol 无对应 OpenRouter 记录可交叉校验 |
 | med | T1 | OPENAI_LONG_DEV_CH | openai | GPT-5.6 Terra | OpenAI 长上下文input价(4.0) 与 OpenRouter 标准档(2.0) 偏差 100.0%，属渠道定价差异（OR 无长档可对标） |
 | med | T1 | OPENAI_LONG_DEV_CH | openai | GPT-5.6 Terra | OpenAI 长上下文output价(18.0) 与 OpenRouter 标准档(12.0) 偏差 50.0%，属渠道定价差异（OR 无长档可对标） |
+| med | T2 | SRC_UNREACHABLE | minimax | MiniMax M2.7 | 源页面抓取失败: https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise |
+| med | T2 | SRC_UNREACHABLE | minimax | MiniMax M3 | 源页面抓取失败: https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise |
+| med | T2 | SRC_UNREACHABLE | minimax | MiniMax M3 | 源页面抓取失败: https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | DeepSeek V4 Pro | SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | aliyun_intl | GLM-5.1 | SPA 源静态 HTML 未含模型名「glm-5.1」，需 Playwright 渲染核对 |
@@ -75,9 +78,6 @@
 | low | T2 | SPA_NEED_RENDER | kimi_ai | Kimi K2.6 | SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi_ai | Kimi K2.7 Code | SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi_ai | Kimi K3 | SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | minimax | MiniMax M2.7 | SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | Doubao Seed 2.1 Pro | SPA 源静态 HTML 未含模型名「Doubao-Seed-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | Doubao Seed 2.1 Turbo | SPA 源静态 HTML 未含模型名「Doubao-Seed-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | modelmesh | GLM-5.1 | SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对 |

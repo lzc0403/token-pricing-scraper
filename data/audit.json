@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-08 06:48:52",
+  "generated_at": "2026-09-09 06:57:46",
   "stats": {
     "total": 163,
     "suspects": 92,
     "high": 0,
-    "med": 31,
-    "low": 61,
+    "med": 34,
+    "low": 58,
     "tier1": 31,
     "tier2": 61,
     "tier1_high": 0,
@@ -921,38 +921,74 @@
     },
     {
       "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
+      "code": "SRC_UNREACHABLE",
+      "severity": "med",
       "source": "minimax",
       "canonical": "MiniMax M2.7",
-      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对",
+      "msg": "源页面抓取失败: https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise",
       "record": {
+        "source": "minimax",
         "model_raw": "MiniMax-M2.7",
-        "url": "https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise"
+        "input": 2.1,
+        "output": 8.4,
+        "cache_hit": 0.42,
+        "cache_write": null,
+        "context": null,
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "CNY",
+        "input_rmb": 2.1,
+        "output_rmb": 8.4,
+        "canonical": "MiniMax M2.7",
+        "is_lowest_input": "yes"
       }
     },
     {
       "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
+      "code": "SRC_UNREACHABLE",
+      "severity": "med",
       "source": "minimax",
       "canonical": "MiniMax M3",
-      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对",
+      "msg": "源页面抓取失败: https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise",
       "record": {
+        "source": "minimax",
         "model_raw": "MiniMax-M3",
-        "url": "https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise"
+        "input": 2.1,
+        "output": 8.4,
+        "cache_hit": 0.42,
+        "cache_write": null,
+        "context": "≤512K",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "CNY",
+        "input_rmb": 2.1,
+        "output_rmb": 8.4,
+        "canonical": "MiniMax M3",
+        "is_lowest_input": "yes"
       }
     },
     {
       "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
+      "code": "SRC_UNREACHABLE",
+      "severity": "med",
       "source": "minimax",
       "canonical": "MiniMax M3",
-      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对",
+      "msg": "源页面抓取失败: https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise",
       "record": {
+        "source": "minimax",
         "model_raw": "MiniMax-M3",
-        "url": "https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise"
+        "input": 4.2,
+        "output": 16.8,
+        "cache_hit": 0.84,
+        "cache_write": null,
+        "context": "512K~1",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "CNY",
+        "input_rmb": 4.2,
+        "output_rmb": 16.8,
+        "canonical": "MiniMax M3",
+        "is_lowest_input": "no"
       }
     },
     {
