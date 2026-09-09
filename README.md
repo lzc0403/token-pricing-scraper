@@ -15,6 +15,9 @@
 - **二次验证**：
   - 全源结构性 / 抽样核对 → `core/audit.py` → `data/audit_*`
   - OpenRouter 原始 JSON vs 解析价 → `core/openrouter_verify.py` → `data/openrouter_verify.*`
+- **新模型雷达（自动发现）**：`core/model_radar.py` 读 OpenRouter **全量**原始缓存，与已登记集合做差集，
+  找出近期上架但未收录的疑似旗舰 → `data/new_model_candidates.json` + 报告/issue 告警 + webhook 推送。
+  零额外网络请求、不写权威数据；**不自动改 config/**（登记属决策，告警附可直接粘贴的 YAML）。
 - **静态站点**：`core/site.py` 生成 `site/index.html`（筛选、Excel、国内/海外分页、新品雷达）
 - **GitHub Action**：定期抓取并提交 `data/` + `site/`
 
@@ -29,7 +32,8 @@ token 定价/
 │   ├── models.yml               # 国内目标模型别名（安全匹配：exact + 显式 prefix）
 │   ├── mainstream_models.yml    # 国内/海外主流模型官方目录（schema 校验）
 │   ├── openrouter.yml           # OpenRouter 白名单 + top-weekly 规则
-│   └── new_models.yml           # 新品主动跟进清单
+│   ├── new_models.yml           # 新品主动跟进清单（手工登记，雷达发现后在此确认）
+│   └── model_radar.yml          # 新模型雷达：关注厂商/观察窗口/旗舰阈值/噪声词
 ├── scrapers/
 │   ├── base.py
 │   ├── openrouter.py            # Models API 下载缓存 + 解析
@@ -39,6 +43,7 @@ token 定价/
 │   ├── mainstream_catalog.py    # 主流目录读取、schema 校验、可渲染过滤
 │   ├── audit.py                 # 抓取后全源核对
 │   ├── openrouter_verify.py     # OpenRouter 二次验证
+│   ├── model_radar.py           # 新模型雷达：全量差集 → 未登记候选告警
 │   ├── matcher.py / currency.py / store.py / report.py
 ├── data/
 │   ├── prices.* / watchlist.*

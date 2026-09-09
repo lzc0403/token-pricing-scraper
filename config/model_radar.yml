@@ -1,0 +1,91 @@
+# 新模型雷达（自动发现，配套 core/model_radar.py）
+#
+# 作用：把「新旗舰发布」的发现动作自动化——config/new_models.yml 是手工登记清单，
+# 没人登记就会漏抓（教训：GPT-6 Astra 2026-09-03 发布，漏抓 6 天）。
+#
+# 数据源：data/openrouter_raw.json —— OpenRouter /api/v1/models 的**全量**原始缓存
+#   （不只是 openrouter.yml 白名单子集）。雷达只读该文件：
+#   ✅ 零额外网络请求  ✅ 不抓取  ✅ 不写权威数据
+#
+# 产出：data/new_model_candidates.json + REPORT.md/issue_body.md 段落 + webhook 告警。
+# ⛔ 不自动改 config/：登记新模型属决策，需人工拍板，告警附可直接粘贴的 YAML 片段。
+
+enabled: true
+
+# 只看近 N 天内上架（OpenRouter created 字段）的模型
+lookback_days: 60
+# 同厂商候选里，输入价 >= 最高价 × 该比例 → 判为「疑似旗舰」
+flagship_ratio: 0.8
+# 输入价低于此值（USD / 1M tokens）的候选忽略（多为实验品/小模型）
+min_input_usd: 0.1
+
+# 关注的厂商前缀（OpenRouter id 的 vendor 段）
+providers:
+  - openai
+  - anthropic
+  - google
+  - x-ai
+  - deepseek
+  - moonshotai
+  - z-ai
+  - minimax
+  - qwen
+  - bytedance
+  - meta-llama
+  - mistralai
+
+# 厂商 → 站点 family 名（生成待登记 YAML 用）
+families:
+  openai: OpenAI
+  anthropic: Anthropic
+  google: Google
+  x-ai: xAI
+  deepseek: DeepSeek
+  moonshotai: Kimi
+  z-ai: GLM
+  minimax: MiniMax
+  qwen: 通义千问
+  bytedance: 豆包
+  meta-llama: Meta
+  mistralai: Mistral
+
+# 国内厂商（生成待登记 YAML 时 region 判定用）
+domestic_providers:
+  - deepseek
+  - moonshotai
+  - z-ai
+  - minimax
+  - qwen
+  - bytedance
+
+# 次级/非主力型号：id 或 name 命中任一词即跳过（热门精简，不批量塞 mini/nano/lite）
+noise_patterns:
+  # :batch 变体与「(batch)」后缀由 core/model_radar.py 直接按 id 规则剔除，
+  # 这里再兜一层名称级关键词（OpenRouter 展示名可能写成 "xxx (batch)"）。
+  - batch
+  - mini
+  - nano
+  - lite
+  - tiny
+  - micro
+  - free
+  - distill
+  - embed
+  - vision
+  - image
+  - audio
+  - speech
+  - tts
+  - moderation
+  - transcribe
+  - ocr
+  - guard
+  - safety
+  - rerank
+  - inpaint
+  - upscale
+  - preview
+  - beta
+  - alpha
+  - exp
+  - deprecated

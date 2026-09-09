@@ -908,3 +908,39 @@ def notify_price_changes(deltas: List[Dict[str, Any]], snapshot_date: str) -> bo
         card = build_card(deltas, snapshot_date)
         return _send_feishu_card(card, msg, url)
     return send_webhook(msg, url, wh_type)
+
+
+def _new_model_message(cands: List[Dict[str, Any]], snapshot_date: str) -> str:
+    """新模型雷达候选 → 纯文本消息（只报疑似旗舰，避免噪声刷屏）。"""
+    lines: List[str] = [f"【新模型雷达】{snapshot_date} 发现 {len(cands)} 个未登记候选"]
+    for c in cands:
+        inp = c.get("input_usd_per_m")
+        out = c.get("output_usd_per_m")
+        price = "—"
+        if inp is not None and out is not None:
+            price = f"${float(inp):g}/${float(out):g}"
+        lines.append(
+            f"• {c.get('name')}（{c.get('id')}）· {c.get('family') or c.get('provider')}"
+            f" · {c.get('created') or '?'} 上架 · {price}"
+        )
+    lines.append("→ 待人工确认后登记 config/new_models.yml 并补官网抓取/白名单")
+    return "\n".join(lines)
+
+
+def notify_new_models(res: Dict[str, Any], snapshot_date: str) -> bool:
+    """新模型雷达告警入口：有疑似旗舰候选且配置了 webhook 时推送。
+
+    雷达只负责「发现」，是否收录由人工拍板（收录范围/展示名/厂商归属需判断），
+    因此这里不自动改 config/，只推送结论 + 提示登记路径。
+    """
+    if not res:
+        return False
+    cands = [c for c in (res.get("candidates") or []) if c.get("flagship")]
+    if not cands:
+        return False
+    cfg = _webhook_config()
+    if not cfg:
+        logger.info("未配置 webhook（FEISHU_WEBHOOK_URL/WECOM_WEBHOOK_URL），跳过新模型雷达推送")
+        return False
+    url, wh_type = cfg
+    return send_webhook(_new_model_message(cands, snapshot_date), url, wh_type)

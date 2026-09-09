@@ -211,10 +211,33 @@ def main(argv: List[str] | None = None) -> int:
     else:
         deltas = []
 
+    print("== 新模型雷达 ==")
+    # 从 OpenRouter 全量原始缓存（data/openrouter_raw.json）与「已登记集合」做差集，
+    # 找出新上架但尚未收录的疑似旗舰模型 → 候选 JSON + 报告/issue 告警 + webhook 推送。
+    # 只读 data/、零额外网络请求；不自动改 config/（登记属决策，需人工拍板）。
+    radar_res: Dict[str, Any] = {}
+    try:
+        from core import model_radar
+
+        radar_res = model_radar.scan(DATA_DIR, CONFIG_DIR)
+        out_path = model_radar.write_output(DATA_DIR, radar_res)
+        _fs = model_radar.flagships(radar_res)
+        print(f"  扫描 {radar_res.get('scanned', 0)} 个模型 / 已登记 {radar_res.get('known_count', 0)}"
+              f" → 候选 {len(radar_res.get('candidates') or [])}（疑似旗舰 {len(_fs)}）")
+        for c in _fs:
+            print(f"    🆕 {c.get('name')}（{c.get('id')}）{c.get('created')} 上架 "
+                  f"${c.get('input_usd_per_m')}/${c.get('output_usd_per_m')}")
+        if out_path:
+            logger.info("雷达候选已写出: %s", out_path)
+    except Exception as exc:  # 雷达是辅助能力，失败不阻断主流程
+        logger.warning("新模型雷达失败: %s", exc)
+        radar_res = {}
+
     print("== 生成报告 ==")
     from datetime import datetime
     report_md, issue_body_md = report.build_report(
-        watchlist, deltas, scrape_status, generated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        watchlist, deltas, scrape_status, generated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        radar=radar_res,
     )
     report.write_outputs(DATA_DIR, report_md, issue_body_md)
 
@@ -222,6 +245,11 @@ def main(argv: List[str] | None = None) -> int:
     from datetime import date as _today
 
     notifier.notify_price_changes(deltas, _today.today().strftime("%Y-%m-%d"))
+    # 新模型雷达告警（仅疑似旗舰候选；未配置 webhook 则静默跳过）
+    try:
+        notifier.notify_new_models(radar_res, _today.today().strftime("%Y-%m-%d"))
+    except Exception as e:
+        logger.warning("新模型雷达推送失败: %s", e)
     # 渠道跟进监督结果推送（国内渠道是否随官方调价同步调整）
     try:
         import json as _json2
@@ -279,8 +307,12 @@ def main(argv: List[str] | None = None) -> int:
     site_path = site.build_site(DATA_DIR)
     print(f"  site -> {site_path}")
 
-    changed = len(deltas) > 0
-    print(f"== 完成 == 记录总数 {len(annotated)}，命中 {len(watchlist)}，变动 {len(deltas)}")
+    # changed 决定 CI 是否开 issue 告警：有价格变动**或**雷达发现新旗舰候选都要开
+    # （否则「只上新模型、没调价」的天数里，新模型告警会被静默吞掉）。
+    radar_hits = len([c for c in (radar_res.get("candidates") or []) if c.get("flagship")])
+    changed = len(deltas) > 0 or radar_hits > 0
+    print(f"== 完成 == 记录总数 {len(annotated)}，命中 {len(watchlist)}，变动 {len(deltas)}，"
+          f"新模型候选 {radar_hits}")
     print(f"changed={'true' if changed else 'false'}")
 
     if not args.dry_run:

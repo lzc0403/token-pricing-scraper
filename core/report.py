@@ -79,6 +79,7 @@ def build_report(
     deltas: List[Dict[str, Any]],
     scrape_status: Dict[str, Dict[str, Any]],
     generated_at: Optional[str] = None,
+    radar: Optional[Dict[str, Any]] = None,
 ) -> Tuple[str, str]:
     """构造 (REPORT.md, issue_body.md)。
 
@@ -87,6 +88,8 @@ def build_report(
         deltas: 价格变动项（来自 store.compare_previous）。
         scrape_status: 各源抓取状态 {source: {ok, count, error}}。
         generated_at: 可选的时间戳字符串。
+        radar: 新模型雷达结果（core.model_radar.scan 的返回值）；有候选时
+            追加「新模型雷达」段落，issue 里同样带上，保证告警可见。
     """
     if generated_at is None:
         generated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -100,13 +103,37 @@ def build_report(
     report.append(_build_delta_table(deltas))
     report.append("\n## 三、抓取状态\n")
     report.append(_build_status_section(scrape_status))
+    if radar:
+        # 雷达段落：新上架但未登记的模型（含可粘贴的 new_models.yml 片段）
+        try:
+            from core import model_radar as _radar
+
+            report.append(_radar.report_section(radar))
+        except Exception:
+            pass
     report_md = "\n".join(report)
 
-    # issue body：仅变动明细
-    if deltas:
+    # issue body：变动明细 + 新模型雷达告警
+    radar_md = ""
+    if radar and (radar.get("candidates") or []):
+        try:
+            from core import model_radar as _radar2
+
+            radar_md = _radar2.report_section(
+                radar, title="🆕 新模型雷达（未登记候选，待人工确认）"
+            )
+        except Exception:
+            radar_md = ""
+
+    if deltas or radar_md:
         issue = []
         issue.append("## 🔔 Token 定价变动（%s）\n" % generated_at)
-        issue.append(_build_delta_table(deltas))
+        if deltas:
+            issue.append(_build_delta_table(deltas))
+        else:
+            issue.append("本次无价格变动。\n")
+        if radar_md:
+            issue.append(radar_md)
         issue_body_md = "\n".join(issue)
     else:
         issue_body_md = "本周无 Token 定价变动。"
