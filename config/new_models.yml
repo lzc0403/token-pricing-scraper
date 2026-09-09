@@ -44,6 +44,14 @@ models:
     aliases: [GPT-6 Astra, gpt-6-astra, GPT-6-Astra, openai/gpt-6-astra]
     note: 2026-09-03 发布的新一代旗舰（$10/$50）；2026-09-09 已补官网抓取 + OpenRouter 白名单 + 静态参考价
 
+  - canonical: GPT-6 Astra Pro
+    family: OpenAI
+    region: overseas
+    status: active
+    priority: high
+    aliases: [GPT-6 Astra Pro, gpt-6-astra-pro, GPT-6-Astra-Pro, openai/gpt-6-astra-pro]
+    note: 2026-09-04 上架的旗舰 Pro 档（$10/$50）；官网定价页无条目，仅 OpenRouter 有真价，卡片标 preview
+
   - canonical: GPT-5
     family: OpenAI
     region: overseas

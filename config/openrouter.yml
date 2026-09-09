@@ -16,6 +16,9 @@ whitelist:
   - id: openai/gpt-6-astra
     model: GPT-6 Astra
     note: 2026-09-03 新旗舰
+  - id: openai/gpt-6-astra-pro
+    model: GPT-6 Astra Pro
+    note: 2026-09-04 旗舰 Pro 档；官网定价页暂无条目，取 OpenRouter API 真价
   - id: openai/gpt-5
     model: GPT-5
     note: 旗舰

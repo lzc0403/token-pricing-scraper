@@ -118,6 +118,7 @@ MAINSTREAM_SORT_ORDER: List[str] = [
     "Doubao Seed 2.1 Turbo",
     # 海外 — 各厂旗舰优先，同厂相邻
     "GPT-6 Astra",
+    "GPT-6 Astra Pro",
     "GPT-5.6 Sol",
     "GPT-5.6 Terra",
     "GPT-5.6 Luna",
@@ -196,6 +197,7 @@ MODEL_ORDER: List[str] = [
     "Seedance 2.0",
     # 海外最主流（只保留热门旗舰/主力）
     "GPT-6 Astra",
+    "GPT-6 Astra Pro",
     "GPT-5.6 Sol",
     "GPT-5.6 Terra",
     "GPT-5.6 Luna",

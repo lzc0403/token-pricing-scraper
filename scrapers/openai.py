@@ -23,6 +23,9 @@
 收录范围：gpt-5 及以上（gpt-5 / gpt-5.5 / gpt-5.5-pro / gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna /
 gpt-6-astra），长短文本分档用 condition 区分（"短文本 · ≤272K" / "长文本 · >272K"）。
 gpt-6-astra（2026-09-03 发布，新一代旗舰 $10/$50）页面上无长上下文分档行，只收标准档。
+注意：**gpt-6-astra-pro 官网定价页没有条目**（2026-09-09 核实：standard/flex 各档
+均无该行），只在 OpenRouter 上架。因此不在此登记（禁止编造官方价），
+它走 config/openrouter.yml 白名单 + mainstream_models.yml（availability: preview）。
 """
 
 from __future__ import annotations
