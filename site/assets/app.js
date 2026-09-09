@@ -152,6 +152,14 @@ const PEAK = __PEAK_DATA__;
       }
       empty.classList.toggle('is-show', rows.length > 0 && visible.length === 0);
     });
+    // 峰谷说明跟随数据：面板内无可见行时隐藏说明横幅（没有对比数据就不显示）
+    document.querySelectorAll('.market-panel').forEach(function(panel){
+      var note = panel.querySelector('.peak-note');
+      if (!note) return;
+      var rows = panel.querySelectorAll('tr.js-row');
+      var visible = panel.querySelectorAll('tr.js-row:not(.is-hidden)');
+      note.style.display = (rows.length > 0 && visible.length === 0) ? 'none' : '';
+    });
     updateSummary();
     updateVisibleCount(shown);
     maybeSyncChart();
@@ -420,6 +428,8 @@ const PEAK = __PEAK_DATA__;
     }
     // FIX 3: 渲染模型详情面板（4 维分档报价）并滚动到位；不再强制跳渠道区
     if (typeof renderModelDetail === 'function') renderModelDetail(canonical);
+    // FIX: 趋势图联动——点选模型后历史价格趋势自动切到该模型
+    if (window.__setTrendModel) window.__setTrendModel(canonical);
   }
 
   function bindPriceAlertClose(){
@@ -817,6 +827,26 @@ const PEAK = __PEAK_DATA__;
     });
 
     if (window.__trendChart) window.__trendChart.destroy();
+    // 空数据兜底：该模型在当前口径下没有任何有效数据点时，显示提示而非空白画布
+    var hasPoint = false;
+    datasets.forEach(function(ds){ ds.data.forEach(function(v){ if (v != null) hasPoint = true; }); });
+    var wrapEl = tCanvas.closest('.chart-wrap');
+    var emptyEl = document.getElementById('trendEmptyHint');
+    if (!hasPoint){
+      if (window.__trendChart){ window.__trendChart.destroy(); window.__trendChart = null; }
+      if (wrapEl && !emptyEl){
+        emptyEl = document.createElement('div');
+        emptyEl.id = 'trendEmptyHint';
+        emptyEl.className = 'trend-empty-mini';
+        emptyEl.textContent = '该模型暂无有效历史报价数据，请换一个模型或稍后再来。';
+        wrapEl.appendChild(emptyEl);
+      }
+      if (emptyEl) emptyEl.style.display = '';
+      tCanvas.style.display = 'none';
+      return;
+    }
+    if (emptyEl) emptyEl.style.display = 'none';
+    tCanvas.style.display = '';
     var ctx = tCanvas.getContext('2d');
     window.__trendChart = new Chart(ctx, {
       type: 'line',

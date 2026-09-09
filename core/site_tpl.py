@@ -318,6 +318,20 @@ def _official_section(rows: List[Dict[str, Any]], has: bool) -> str:
         empty_text="暂无厂商官网原价数据。",
         table_id="tbl-official",
     )
+    # DeepSeek 峰谷说明：官方表里有闲/高双档行时才渲染（含周末全天闲时政策）
+    official_has_peak = any(
+        r.get("peak_input_low") is not None or r.get("peak_input_high") is not None
+        for r in (rows or [])
+    )
+    peak_note = """
+      <div class="peak-note" id="peakNoteOfficial">
+        <strong>DeepSeek 峰谷计费</strong>
+        <span>
+          高峰 09:00–12:00、14:00–18:00（北京时间 UTC+8）全价，其余时段半价；
+          <b>周六、周日全天按闲时半价</b>。缓存命中价同样分忙/闲两档，
+          表内「闲 X / 高 Y」为双档合并展示，溢价比价以当前时段档位实时计算。
+        </span>
+      </div>""" if official_has_peak else ""
     # 官方区说明：国内厂商官网价（含人民币站 + 海外官方站的美元标价）
     return f"""
     <section class="block-card block-official" aria-labelledby="official-title">
@@ -329,6 +343,7 @@ def _official_section(rows: List[Dict[str, Any]], has: bool) -> str:
         </div>
         <span class="block-count">{len(rows)} 条</span>
       </div>
+      {peak_note}
       {table if has else '<div class="empty-mini">暂无厂商官网原价数据。</div>'}
     </section>"""
 
@@ -567,21 +582,27 @@ def _channel_section(data: Dict[str, Any]) -> str:
         empty_text="暂无海外渠道报价。",
         table_id="tbl-channel-overseas",
     )
-    # DeepSeek 峰谷定价说明：腾讯云国际站展示空闲/高峰双档合并价
+    # DeepSeek 峰谷定价说明：仅当海外渠道表里真有闲/高双档行时才渲染
+    # （「没有对比数据就不显示」：无峰谷行时不出说明，避免空表配峰谷横幅的错位）。
     has_peak = any(
         r.get("peak_input_low") is not None or r.get("peak_input_high") is not None
         for r in (data.get("channel_overseas") or [])
     )
-    # 峰谷说明：官方与阿里云国际站窗口相反，需标注错峰错位
+    # 峰谷说明：官方与阿里云国际站窗口相反，需标注错峰错位；
+    # DeepSeek 官方周末（周六/周日）全天按闲时半价（weekend_off）。
     peak_note = """
-        <div class="peak-note">
+        <div class="peak-note" id="peakNoteOverseas">
           <strong>峰谷计费说明</strong>
           <span>
-            <b>DeepSeek 官方</b>：高峰 09:00–12:00、14:00–18:00（北京时间 UTC+8）全价，其余空闲减半。
-            <b>阿里云国际站</b>：闲时 22:00–次日 08:00（同为 UTC+8）半价，其余忙时。
+            本表「闲/高」双档行的闲时档来自 <b>阿里云国际站</b>：闲时 22:00–次日 08:00（北京时间 UTC+8）半价，其余忙时。
+            <b>DeepSeek 官方</b>：高峰 09:00–12:00、14:00–18:00（UTC+8）全价，其余时段及<b>周六/周日全天</b>闲时半价（详见「国内厂商官方定价」区说明）。
             两者窗口相反，<b>08–09 / 12–14 / 18–22 错峰时段一边闲、一边忙</b>，下方溢价比价会按各自当前时段实时计算，请勿直接横向比「闲/高」两档。
           </span>
-        </div>"""
+        </div>""" if has_peak else ""
+    overseas_hint = (
+        "仅 USD 报价 · 不与国内合并；旁注人民币约价。"
+        + ("DeepSeek 峰谷价（闲/高双档）单行合并展示。" if has_peak else "")
+    )
     return f"""
     <section class="block-card block-channel" aria-labelledby="channel-title">
       <div class="block-head">
@@ -601,7 +622,7 @@ def _channel_section(data: Dict[str, Any]) -> str:
         {domestic}
       </div>
       <div id="panel-overseas" class="market-panel" role="tabpanel" aria-labelledby="tab-overseas" hidden>
-        <p class="panel-hint">仅 USD 报价 · 不与国内合并；旁注人民币约价。DeepSeek 峰谷价（闲/高双档）单行合并展示。</p>
+        <p class="panel-hint">{overseas_hint}</p>
         {peak_note}
         {overseas}
       </div>

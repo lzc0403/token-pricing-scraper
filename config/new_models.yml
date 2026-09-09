@@ -36,6 +36,14 @@ models:
     aliases: [Claude 5, Claude-5, claude-5, Claude Sonnet 5, Claude Opus 5]
     note: 新一代 Claude 主线；Sonnet 5 已上榜，继续监听完整 Claude 5 线
 
+  - canonical: GPT-6 Astra
+    family: OpenAI
+    region: overseas
+    status: active
+    priority: high
+    aliases: [GPT-6 Astra, gpt-6-astra, GPT-6-Astra, openai/gpt-6-astra]
+    note: 2026-09-03 发布的新一代旗舰（$10/$50）；2026-09-09 已补官网抓取 + OpenRouter 白名单 + 静态参考价
+
   - canonical: GPT-5
     family: OpenAI
     region: overseas

@@ -62,6 +62,7 @@ OFFICIAL_SOURCE: Dict[str, str] = {
     "Doubao Seed 2.1 Pro": "volcengine",
     "Doubao Seed 2.1 Turbo": "volcengine",
     # OpenAI 官方（developers.openai.com，USD）
+    "GPT-6 Astra": "openai",
     "GPT-5.6 Sol": "openai",
     "GPT-5.6 Terra": "openai",
     "GPT-5.6 Luna": "openai",
@@ -116,6 +117,7 @@ MAINSTREAM_SORT_ORDER: List[str] = [
     "Doubao Seed 2.1 Pro",
     "Doubao Seed 2.1 Turbo",
     # 海外 — 各厂旗舰优先，同厂相邻
+    "GPT-6 Astra",
     "GPT-5.6 Sol",
     "GPT-5.6 Terra",
     "GPT-5.6 Luna",
@@ -193,6 +195,7 @@ MODEL_ORDER: List[str] = [
     "Doubao Seed 2.1 Turbo",
     "Seedance 2.0",
     # 海外最主流（只保留热门旗舰/主力）
+    "GPT-6 Astra",
     "GPT-5.6 Sol",
     "GPT-5.6 Terra",
     "GPT-5.6 Luna",
