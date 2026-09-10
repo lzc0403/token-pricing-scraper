@@ -1,9 +1,169 @@
 {
-  "fetched_at": "2026-09-09T06:54:10",
+  "fetched_at": "2026-09-10T06:50:28",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
     "data": [
+      {
+        "uuid": "ms-gi25sunt2i",
+        "model": "openai/gpt-image-2.5-sunburst/text-to-image",
+        "type": "Image",
+        "displayName": "GPT Image 2.5 Sunburst Text-to-Image",
+        "profile": "GPT Image 2.5 Sunburst generates images from natural-language prompts with arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and first-class transparent backgrounds. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.",
+        "logo": "https://static.atlascloud.ai/uploads/models/a9a330bb-6b26-4bda-90fe-4864d8c0639f.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.5-sunburst-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/openai-gpt-image-2.5-sunburst-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.5-sunburst-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.5-sunburst-text-to-image.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-image-2.5-sunburst-text-to-image.json",
+        "priority": 90060,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ol9m2gf2d9w",
+        "familyName": "gpt-image-2.5",
+        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.004"
+          },
+          "origin": {
+            "base_price": "0.004"
+          }
+        }
+      },
+      {
+        "uuid": "ms-gi25sunedt",
+        "model": "openai/gpt-image-2.5-sunburst/edit",
+        "type": "Image",
+        "displayName": "GPT Image 2.5 Sunburst Edit",
+        "profile": "GPT Image 2.5 Sunburst Edit applies natural-language instructions to up to 16 reference images, with an optional mask, arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and transparent-background output. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.",
+        "logo": "https://static.atlascloud.ai/uploads/models/b9509f03-31dc-4c47-8807-350102e00588.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.5-sunburst-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/openai-gpt-image-2.5-sunburst-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.5-sunburst-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.5-sunburst-edit.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-image-2.5-sunburst-edit.json",
+        "priority": 90060,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ol9m2gf2d9w",
+        "familyName": "gpt-image-2.5",
+        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.006"
+          },
+          "origin": {
+            "base_price": "0.006"
+          }
+        }
+      },
+      {
+        "uuid": "ms-gi25flrt2i",
+        "model": "openai/gpt-image-2.5-flare/text-to-image",
+        "type": "Image",
+        "displayName": "GPT Image 2.5 Flare Text-to-Image",
+        "profile": "GPT Image 2.5 Flare generates images from natural-language prompts with arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and first-class transparent backgrounds. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.",
+        "logo": "https://static.atlascloud.ai/uploads/models/8027eb9e-e894-48ae-8ffb-41bad7c3aadb.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.5-flare-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/openai-gpt-image-2.5-flare-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.5-flare-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.5-flare-text-to-image.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-image-2.5-flare-text-to-image.json",
+        "priority": 90060,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ol9m2gf2d9w",
+        "familyName": "gpt-image-2.5",
+        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.004"
+          },
+          "origin": {
+            "base_price": "0.004"
+          }
+        }
+      },
+      {
+        "uuid": "ms-gi25flredt",
+        "model": "openai/gpt-image-2.5-flare/edit",
+        "type": "Image",
+        "displayName": "GPT Image 2.5 Flare Edit",
+        "profile": "GPT Image 2.5 Flare Edit applies natural-language instructions to up to 16 reference images, with an optional mask, arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and transparent-background output. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.",
+        "logo": "https://static.atlascloud.ai/uploads/models/3e20cc66-73a3-411a-ac61-3bf647a2eba4.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.5-flare-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/openai-gpt-image-2.5-flare-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.5-flare-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.5-flare-edit.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-image-2.5-flare-edit.json",
+        "priority": 90060,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ol9m2gf2d9w",
+        "familyName": "gpt-image-2.5",
+        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.006"
+          },
+          "origin": {
+            "base_price": "0.006"
+          }
+        }
+      },
       {
         "uuid": "ms-03f197ce612a",
         "model": "minimax/h3-max/text-to-video",
@@ -7826,10 +7986,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.009"
+            "base_price": "0.004"
           },
           "origin": {
-            "base_price": "0.009"
+            "base_price": "0.004"
           }
         }
       },
@@ -7867,10 +8027,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.01"
+            "base_price": "0.006"
           },
           "origin": {
-            "base_price": "0.01"
+            "base_price": "0.006"
           }
         }
       },
@@ -11575,10 +11735,10 @@
         "price": {
           "discount": "85",
           "actual": {
-            "base_price": "0.007"
+            "base_price": "0.003"
           },
           "origin": {
-            "base_price": "0.008"
+            "base_price": "0.004"
           }
         }
       },
@@ -11615,10 +11775,10 @@
         "price": {
           "discount": "85",
           "actual": {
-            "base_price": "0.008"
+            "base_price": "0.005"
           },
           "origin": {
-            "base_price": "0.009"
+            "base_price": "0.006"
           }
         }
       },

@@ -202,5 +202,10 @@
     "openai": {
       "default": "2026-09-06"
     }
+  },
+  "GPT-6 Astra": {
+    "openai": {
+      "default": "2026-09-10"
+    }
   }
 }

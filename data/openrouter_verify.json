@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "fetched_at": "2026-09-09T06:54:09.649524+00:00",
-  "generated_at": "2026-09-09 06:58:21",
+  "fetched_at": "2026-09-10T06:50:27.395888+00:00",
+  "generated_at": "2026-09-10 06:54:21",
   "stats": {
-    "raw_models": 431,
-    "parsed": 39,
-    "whitelist": 28,
+    "raw_models": 436,
+    "parsed": 41,
+    "whitelist": 30,
     "missing_whitelist": 0,
     "absent_api": 1,
     "suspects": 1,
@@ -26,6 +26,18 @@
     }
   ],
   "sample": [
+    {
+      "id": "openai/gpt-6-astra",
+      "model": "GPT-6 Astra",
+      "input": 10.0,
+      "output": 50.0
+    },
+    {
+      "id": "openai/gpt-6-astra-pro",
+      "model": "GPT-6 Astra Pro",
+      "input": 10.0,
+      "output": 50.0
+    },
     {
       "id": "openai/gpt-5",
       "model": "GPT-5",
@@ -103,18 +115,6 @@
       "model": "Claude Opus 5",
       "input": 5.0,
       "output": 25.0
-    },
-    {
-      "id": "anthropic/claude-fable-5",
-      "model": "Claude Fable 5",
-      "input": 10.0,
-      "output": 50.0
-    },
-    {
-      "id": "anthropic/claude-haiku-4.5",
-      "model": "Claude Haiku 4.5",
-      "input": 1.0,
-      "output": 5.0
     }
   ]
 }

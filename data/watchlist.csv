@@ -6,6 +6,7 @@ aliyun_bailian,glm-4.7,3.0,14.0,0.6,,,,,1M tokens,CNY,3.0,14.0,GLM-4.7,yes
 aliyun_bailian,glm-5.1,6.0,24.0,1.2,,,,,1M tokens,CNY,6.0,24.0,GLM-5.1,no
 aliyun_bailian,glm-5.2,8.0,28.0,1.6,,,,,1M tokens,CNY,8.0,28.0,GLM-5.2,no
 aliyun_bailian,glm-5.3,8.0,28.0,1.6,,,,,1M tokens,CNY,8.0,28.0,GLM-5.3,no
+aliyun_bailian,glm-5.3-flash,0.8,2.8,0.16,,,,,1M tokens,CNY,0.8,2.8,GLM-5.3-Flash,no
 aliyun_bailian,kimi-k2.6,6.5,27.0,1.3,,,,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
 aliyun_bailian,kimi-k2.7-code,6.5,27.0,1.3,,,,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code,yes
 aliyun_bailian,kimi-k3,20.0,100.0,4.0,,,,,1M tokens,CNY,20.0,100.0,Kimi K3,no
@@ -48,9 +49,7 @@ atlascloud,MiniMax M3,0.3,1.2,0.06,,,524K,,1M tokens,USD,2.1,8.4,MiniMax M3,yes
 atlascloud,Qwen3.7 Max,2.5,7.5,0.5,,,1M,,1M tokens,USD,17.5,52.5,Qwen3.7 Max,no
 atlascloud,Qwen3.7 Plus,0.4,1.6,0.08,,,1M,,1M tokens,USD,2.8,11.2,Qwen3.7 Plus,no
 atlascloud,Qwen3.8 Max,2.0,6.0,0.25,,,1M,,1M tokens,USD,14.0,42.0,Qwen3.8 Max,no
-deepseek,deepseek-v4-flash,3.0,9.0,0.1,,,1M,峰谷计费,1M tokens,CNY,3.0,9.0,DeepSeek V4 Flash,no
 deepseek,deepseek-v4-pro,9.0,27.0,0.3,,,1M,峰谷计费,1M tokens,CNY,9.0,27.0,DeepSeek V4 Pro,no
-deepseek_us,deepseek-v4-flash,0.44,1.32,0.014,,,1M,峰谷计费,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash,no
 deepseek_us,deepseek-v4-pro,1.32,3.96,0.044,,,1M,峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
 gemini,Gemini 3.6 Flash,0.75,3.75,0.075,,0.5,1M,,1M tokens,USD,5.25,26.25,Gemini 3.6 Flash,yes
 gemini,Gemini 3.7 Flash,0.75,3.75,0.075,,0.5,1M,,1M tokens,USD,5.25,26.25,Gemini 3.7 Flash,yes
@@ -71,7 +70,7 @@ modelmesh,Doubao-Seed-2.1-turbo,3.0,15.0,,,,256K,,1M tokens,CNY,3.0,15.0,Doubao 
 modelmesh,GLM-5.1,6.0,24.0,,,,200K,,1M tokens,CNY,6.0,24.0,GLM-5.1,no
 modelmesh,GLM-5.2,8.0,28.0,,,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.2,no
 modelmesh,GLM-5.3,8.0,28.0,,,,1000K,,1M tokens,CNY,8.0,28.0,GLM-5.3,no
-modelmesh,GLM-5.3-Flash,0.4,1.4,,,,1000K,,1M tokens,CNY,0.4,1.4,GLM-5.3-Flash,yes
+modelmesh,GLM-5.3-Flash,0.8,2.8,,,,1000K,,1M tokens,CNY,0.8,2.8,GLM-5.3-Flash,no
 modelmesh,Kimi K2.6,6.5,27.0,,,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.6,no
 modelmesh,Kimi K2.7 Code,6.5,27.0,,,,256K,,1M tokens,CNY,6.5,27.0,Kimi K2.7 Code,yes
 modelmesh,Kimi K3,20.0,100.0,,,,1000K,,1M tokens,CNY,20.0,100.0,Kimi K3,no
@@ -89,6 +88,7 @@ openai,gpt-5.6-sol,4.0,20.0,0.4,5.0,,1M,短文本 · ≤272K,1M tokens,USD,28.0,
 openai,gpt-5.6-sol,10.0,45.0,1.0,,,1M,长文本 · >272K,1M tokens,USD,70.0,315.0,GPT-5.6 Sol,no
 openai,gpt-5.6-terra,2.0,12.0,0.2,2.5,,1M,短文本 · ≤272K,1M tokens,USD,14.0,84.0,GPT-5.6 Terra,yes
 openai,gpt-5.6-terra,4.0,18.0,0.4,,,1M,长文本 · >272K,1M tokens,USD,28.0,126.0,GPT-5.6 Terra,no
+openai,gpt-6-astra,10.0,50.0,1.0,12.5,,1M,default,1M tokens,USD,70.0,350.0,GPT-6 Astra,yes
 openrouter,Claude Fable 5,10.0,50.0,1.0,12.5,,1M,,1M tokens,USD,70.0,350.0,Claude Fable 5,yes
 openrouter,Claude Haiku 4.5,1.0,5.0,0.1,1.25,,200K,,1M tokens,USD,7.0,35.0,Claude Haiku 4.5,yes
 openrouter,Claude Opus 4.5,5.0,25.0,0.5,6.25,,200K,,1M tokens,USD,35.0,175.0,Claude Opus 4.5,yes
@@ -101,15 +101,17 @@ openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Cla
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
 openrouter,DeepSeek V4 Flash,0.088606,0.177212,0.017721,,,1.04858M,,1M tokens,USD,0.620242,1.240484,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,0.95526,1.91052,0.079605,,,1.04858M,,1M tokens,USD,6.68682,13.37364,DeepSeek V4 Pro,no
-openrouter,DeepSeek V4 Pro 0813,0.57948,1.73844,0.018438,,,1.04858M,,1M tokens,USD,4.05636,12.16908,DeepSeek V4 Pro 0813,yes
+openrouter,DeepSeek V4 Pro 0813,1.0494,3.1482,0.03498,,,1.04858M,,1M tokens,USD,7.3458,22.0374,DeepSeek V4 Pro 0813,yes
 openrouter,GLM 5.2,0.966,3.036,0.1932,,,1.04858M,,1M tokens,USD,6.762,21.252,GLM-5.2,no
 openrouter,GLM-5.3,1.4,4.4,0.26,,,1.31072M,,1M tokens,USD,9.8,30.8,GLM-5.3,no
-openrouter,GLM-5.3-Flash,0.075,0.25,0.015,,,1.31072M,,1M tokens,USD,0.525,1.75,GLM-5.3-Flash,no
+openrouter,GLM-5.3-Flash,0.075,0.25,0.015,,,1.31072M,,1M tokens,USD,0.525,1.75,GLM-5.3-Flash,yes
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openrouter,GPT-5.5 Pro,30.0,180.0,,,,1.05M,,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
 openrouter,GPT-5.6 Luna,0.2,1.2,0.02,0.25,,1.05M,,1M tokens,USD,1.4,8.4,GPT-5.6 Luna,yes
 openrouter,GPT-5.6 Terra,2.0,12.0,0.2,2.5,,1.05M,,1M tokens,USD,14.0,84.0,GPT-5.6 Terra,yes
+openrouter,GPT-6 Astra,10.0,50.0,1.0,12.5,,1.05M,,1M tokens,USD,70.0,350.0,GPT-6 Astra,yes
+openrouter,GPT-6 Astra Pro,10.0,50.0,1.0,12.5,,1.05M,,1M tokens,USD,70.0,350.0,GPT-6 Astra Pro,yes
 openrouter,Gemini 3.6 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.6 Flash,yes
 openrouter,Gemini 3.7 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.7 Flash,yes
 openrouter,Gemini 3.8 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.8 Flash,yes
@@ -161,4 +163,4 @@ zai,GLM-4.7,0.6,2.2,0.11,,,,,1M tokens,USD,4.2,15.4,GLM-4.7,no
 zai,GLM-5.1,1.4,4.4,0.26,,,,,1M tokens,USD,9.8,30.8,GLM-5.1,no
 zai,GLM-5.2,1.4,4.4,0.26,,,,,1M tokens,USD,9.8,30.8,GLM-5.2,no
 zai,GLM-5.3,1.4,4.4,0.26,,,,,1M tokens,USD,9.8,30.8,GLM-5.3,no
-zai,GLM-5.3-Flash,0.075,0.25,0.015,,,,,1M tokens,USD,0.525,1.75,GLM-5.3-Flash,no
+zai,GLM-5.3-Flash,0.15,0.5,0.03,,,,,1M tokens,USD,1.05,3.5,GLM-5.3-Flash,no

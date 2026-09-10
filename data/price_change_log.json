@@ -1,4 +1,41 @@
 {
-  "events": [],
-  "total": 0
+  "events": [
+    {
+      "canonical": "GLM-5.3-Flash",
+      "source": "zai",
+      "source_label": "智谱Z.ai",
+      "field": "input",
+      "field_cn": "输入",
+      "old": 0.075,
+      "new": 0.15,
+      "pct": 100.0,
+      "currency": "USD",
+      "date": "2026-09-10"
+    },
+    {
+      "canonical": "GLM-5.3-Flash",
+      "source": "zai",
+      "source_label": "智谱Z.ai",
+      "field": "output",
+      "field_cn": "输出",
+      "old": 0.25,
+      "new": 0.5,
+      "pct": 100.0,
+      "currency": "USD",
+      "date": "2026-09-10"
+    },
+    {
+      "canonical": "GLM-5.3-Flash",
+      "source": "zai",
+      "source_label": "智谱Z.ai",
+      "field": "cache_hit",
+      "field_cn": "缓存读取",
+      "old": 0.015,
+      "new": 0.03,
+      "pct": 100.0,
+      "currency": "USD",
+      "date": "2026-09-10"
+    }
+  ],
+  "total": 3
 }
