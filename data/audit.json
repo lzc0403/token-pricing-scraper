@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-10 06:54:04",
+  "generated_at": "2026-09-11 06:54:13",
   "stats": {
-    "total": 165,
-    "suspects": 96,
+    "total": 168,
+    "suspects": 98,
     "high": 0,
-    "med": 35,
-    "low": 61,
-    "tier1": 35,
-    "tier2": 61,
+    "med": 34,
+    "low": 64,
+    "tier1": 34,
+    "tier2": 64,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -40,84 +40,9 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
-      "source": "aliyun_bailian",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "aliyun_bailian",
-        "model_raw": "deepseek-v4-flash",
-        "input": 1.0,
-        "output": 2.0,
-        "cache_hit": 0.2,
-        "cache_write": null,
-        "context": null,
-        "condition": "阿里云自部署",
-        "unit": "1M tokens",
-        "currency": "CNY",
-        "input_rmb": 1.0,
-        "output_rmb": 2.0,
-        "canonical": "DeepSeek V4 Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "atlascloud",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "atlascloud",
-        "model_raw": "DeepSeek V4 Flash",
-        "input": 0.14,
-        "output": 0.28,
-        "cache_hit": 0.028,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "input_rmb": 0.98,
-        "output_rmb": 1.96,
-        "canonical": "DeepSeek V4 Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "openrouter",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "DeepSeek V4 Flash",
-        "input": 0.088606,
-        "output": 0.177212,
-        "cache_hit": 0.017721,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "deepseek/deepseek-v4-flash",
-        "openrouter_prompt_per_token": "0.000000088606",
-        "openrouter_completion_per_token": "0.000000177212",
-        "input_rmb": 0.620242,
-        "output_rmb": 1.240484,
-        "canonical": "DeepSeek V4 Flash",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(3%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
@@ -141,7 +66,7 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(3%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
@@ -165,7 +90,7 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(3%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
@@ -189,7 +114,7 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(3%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
@@ -211,57 +136,9 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
-      "source": "tencent",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "tencent",
-        "model_raw": "DeepSeek-V4-Flash",
-        "input": 0.14,
-        "output": 0.28,
-        "cache_hit": 0.028,
-        "cache_write": null,
-        "context": null,
-        "condition": "腾讯云自建",
-        "unit": "1M tokens",
-        "currency": "USD",
-        "input_rmb": 0.98,
-        "output_rmb": 1.96,
-        "canonical": "DeepSeek V4 Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "tencent_cn",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "tencent_cn",
-        "model_raw": "DeepSeek-V4-Flash",
-        "input": 1.0,
-        "output": 2.0,
-        "cache_hit": 0.2,
-        "cache_write": null,
-        "context": null,
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "CNY",
-        "input_rmb": 1.0,
-        "output_rmb": 2.0,
-        "canonical": "DeepSeek V4 Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
       "source": "volcengine_intl",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(3%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "volcengine_intl",
         "model_raw": "deepseek-v4-flash",
@@ -299,42 +176,6 @@
         "currency": "CNY",
         "input_rmb": 12.0,
         "output_rmb": 24.0,
-        "canonical": "DeepSeek V4 Pro",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "aliyun_intl",
-      "canonical": "DeepSeek V4 Pro",
-      "msg": "缓存/输入比率(10%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "aliyun_intl",
-        "model_raw": "deepseek-v4-pro",
-        "input": 1.32,
-        "output": 3.96,
-        "cache_hit": 0.132,
-        "cache_write": null,
-        "context": null,
-        "condition": "阿里云自部署 | 峰谷计费",
-        "unit": "1M tokens",
-        "currency": "USD",
-        "peak_input_low": 0.66,
-        "peak_input_high": 1.32,
-        "peak_output_low": 1.98,
-        "peak_output_high": 3.96,
-        "peak_cache_low": 0.066,
-        "peak_cache_high": 0.132,
-        "input_rmb": 9.24,
-        "output_rmb": 27.72,
-        "peak_input_rmb_low": 4.62,
-        "peak_input_rmb_high": 9.24,
-        "peak_output_rmb_low": 13.86,
-        "peak_output_rmb_high": 27.72,
-        "peak_cache_rmb_low": 0.462,
-        "peak_cache_rmb_high": 0.924,
         "canonical": "DeepSeek V4 Pro",
         "is_lowest_input": "no"
       }
@@ -468,31 +309,7 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "GLM-5.1",
-      "msg": "缓存/输入比率(22%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "tencent",
-        "model_raw": "GLM-5.1",
-        "input": 0.84,
-        "output": 3.36,
-        "cache_hit": 0.182,
-        "cache_write": null,
-        "context": null,
-        "condition": "0 ≤ 输入长度 ＜ 32k",
-        "unit": "1M tokens",
-        "currency": "USD",
-        "input_rmb": 5.88,
-        "output_rmb": 23.52,
-        "canonical": "GLM-5.1",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "tencent",
-      "canonical": "GLM-5.1",
-      "msg": "缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(25%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "GLM-5.1",
@@ -516,7 +333,7 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "GLM-5.2",
-      "msg": "缓存/输入比率(25%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "GLM-5.2",
@@ -579,7 +396,7 @@
         "input_rmb": 0.77812,
         "output_rmb": 2.72349,
         "canonical": "GLM-5.3-Flash",
-        "is_lowest_input": "no"
+        "is_lowest_input": "yes"
       }
     },
     {
@@ -652,6 +469,72 @@
         "output_rmb": 100.0,
         "canonical": "Kimi K3",
         "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "kimi",
+      "canonical": null,
+      "msg": "重复记录 ×3: kimi-k2.6",
+      "record": {
+        "key": "kimi|kimi-k2.6|6.5|27.0"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "kimi",
+      "canonical": null,
+      "msg": "重复记录 ×3: kimi-k2.7-code",
+      "record": {
+        "key": "kimi|kimi-k2.7-code|6.5|27.0"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "kimi",
+      "canonical": null,
+      "msg": "重复记录 ×3: kimi-k3",
+      "record": {
+        "key": "kimi|kimi-k3|20.0|100.0"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "kimi_ai",
+      "canonical": null,
+      "msg": "重复记录 ×3: kimi-k2.6",
+      "record": {
+        "key": "kimi_ai|kimi-k2.6|0.95|4.0"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "kimi_ai",
+      "canonical": null,
+      "msg": "重复记录 ×3: kimi-k2.7-code",
+      "record": {
+        "key": "kimi_ai|kimi-k2.7-code|0.95|4.0"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "kimi_ai",
+      "canonical": null,
+      "msg": "重复记录 ×3: kimi-k3",
+      "record": {
+        "key": "kimi_ai|kimi-k3|3.0|15.0"
       }
     },
     {
@@ -827,108 +710,24 @@
       "tier": 2,
       "code": "SPA_NEED_RENDER",
       "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对",
+      "source": "kimi",
+      "canonical": "Kimi K2.6",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对",
       "record": {
-        "model_raw": "deepseek-v4-flash",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
+        "model_raw": "kimi-k2.6",
+        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
       }
     },
     {
       "tier": 2,
       "code": "SPA_NEED_RENDER",
       "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "DeepSeek V4 Pro",
-      "msg": "SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对",
+      "source": "kimi",
+      "canonical": "Kimi K2.6",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对",
       "record": {
-        "model_raw": "deepseek-v4-pro",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "GLM-5.1",
-      "msg": "SPA 源静态 HTML 未含模型名「glm-5.1」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "glm-5.1",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "GLM-5.2",
-      "msg": "SPA 源静态 HTML 未含模型名「glm-5.2」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "glm-5.2",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "Kimi K2.7 Code",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k2.7-code",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "Kimi K3",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k3",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "Qwen3.7 Max",
-      "msg": "SPA 源静态 HTML 未含模型名「qwen3.7-max」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "qwen3.7-max",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "Qwen3.7 Plus",
-      "msg": "SPA 源静态 HTML 未含模型名「qwen3.7-plus」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "qwen3.7-plus",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "aliyun_intl",
-      "canonical": "Qwen3.8 Max",
-      "msg": "SPA 源静态 HTML 未含模型名「qwen3.8-max」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "qwen3.8-max",
-        "url": "https://modelstudio.console.alibabacloud.com/ap-southeast-1?tab=doc#/doc/?type=model&url=prices"
+        "model_raw": "kimi-k2.6",
+        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
       }
     },
     {
@@ -952,6 +751,54 @@
       "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对",
       "record": {
         "model_raw": "kimi-k2.7-code",
+        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi",
+      "canonical": "Kimi K2.7 Code",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k2.7-code",
+        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi",
+      "canonical": "Kimi K2.7 Code",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k2.7-code",
+        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi",
+      "canonical": "Kimi K3",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k3",
+        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi",
+      "canonical": "Kimi K3",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k3",
         "url": "https://platform.kimi.com/docs/pricing/chat-k3"
       }
     },
@@ -984,10 +831,82 @@
       "code": "SPA_NEED_RENDER",
       "severity": "low",
       "source": "kimi_ai",
+      "canonical": "Kimi K2.6",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k2.6",
+        "url": "https://platform.kimi.ai/docs/pricing/chat"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi_ai",
+      "canonical": "Kimi K2.6",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.6」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k2.6",
+        "url": "https://platform.kimi.ai/docs/pricing/chat"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi_ai",
       "canonical": "Kimi K2.7 Code",
       "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对",
       "record": {
         "model_raw": "kimi-k2.7-code",
+        "url": "https://platform.kimi.ai/docs/pricing/chat"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi_ai",
+      "canonical": "Kimi K2.7 Code",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k2.7-code",
+        "url": "https://platform.kimi.ai/docs/pricing/chat"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi_ai",
+      "canonical": "Kimi K2.7 Code",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k2.7-co」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k2.7-code",
+        "url": "https://platform.kimi.ai/docs/pricing/chat"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi_ai",
+      "canonical": "Kimi K3",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k3",
+        "url": "https://platform.kimi.ai/docs/pricing/chat"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi_ai",
+      "canonical": "Kimi K3",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k3",
         "url": "https://platform.kimi.ai/docs/pricing/chat"
       }
     },

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-10T06:50:28",
+  "fetched_at": "2026-09-11T06:50:39",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -22112,6 +22112,256 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-zwicvlspjfdw",
+        "model": "microsoft/mai-image-2.6-flash/text-to-image",
+        "type": "Image",
+        "displayName": "MAI-Image-2.6-Flash Text-to-image",
+        "profile": "The fast, low-cost member of the MAI-Image-2.6 family, delivering the same photorealistic text-to-image quality as the flagship at less than half the cost for latency-sensitive, high-throughput production.",
+        "logo": "https://static.atlascloud.ai/model/logo/microsoft-mai-image-2.6-flash-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MICROSOFT.png",
+        "background": "https://static.atlascloud.ai/model/background/microsoft-mai-image-2.6-flash-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/microsoft-mai-image-2.6-flash-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/microsoft-mai-image-2.6-flash-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/microsoft-mai-image-2.6-flash-text-to-image.md",
+        "organization": "MICROSOFT",
+        "example": "https://static.atlascloud.ai/model/example/microsoft-mai-image-2.6-flash-text-to-image.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2oxtf09zdar8",
+        "familyName": "mai-image-2.6",
+        "familyDisplayName": "MAI Image 2.6",
+        "parentFamilyUUID": "mf-2lb1533ty437",
+        "parentFamilyName": "microsoft",
+        "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.04",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.044",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-vf4q01xuourq",
+        "model": "microsoft/mai-image-2.6-flash/edit",
+        "type": "Image",
+        "displayName": "MAI-Image-2.6-Flash Edit",
+        "profile": "The fast, low-cost member of the MAI-Image-2.6 family, delivering the same instruction-driven editing and multi-reference composition as the flagship at less than half the cost for latency-sensitive, high-volume workloads.",
+        "logo": "https://static.atlascloud.ai/model/logo/microsoft-mai-image-2.6-flash-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MICROSOFT.png",
+        "background": "https://static.atlascloud.ai/model/background/microsoft-mai-image-2.6-flash-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/microsoft-mai-image-2.6-flash-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/microsoft-mai-image-2.6-flash-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/microsoft-mai-image-2.6-flash-edit.md",
+        "organization": "MICROSOFT",
+        "example": "https://static.atlascloud.ai/model/example/microsoft-mai-image-2.6-flash-edit.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2oxtf09zdar8",
+        "familyName": "mai-image-2.6",
+        "familyDisplayName": "MAI Image 2.6",
+        "parentFamilyUUID": "mf-2lb1533ty437",
+        "parentFamilyName": "microsoft",
+        "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.043",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.047",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-btreij6sibv0",
+        "model": "microsoft/mai-image-2.6/text-to-image",
+        "type": "Image",
+        "displayName": "MAI-Image-2.6 Text-to-image",
+        "profile": "Microsoft AI's flagship text-to-image model, generating photorealistic, design-ready images from natural language with markedly improved in-image text rendering, model-directed aspect ratio selection, and optional web-grounded context.",
+        "logo": "https://static.atlascloud.ai/model/logo/microsoft-mai-image-2.6-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MICROSOFT.png",
+        "background": "https://static.atlascloud.ai/model/background/microsoft-mai-image-2.6-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/microsoft-mai-image-2.6-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/microsoft-mai-image-2.6-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/microsoft-mai-image-2.6-text-to-image.md",
+        "organization": "MICROSOFT",
+        "example": "https://static.atlascloud.ai/model/example/microsoft-mai-image-2.6-text-to-image.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2oxtf09zdar8",
+        "familyName": "mai-image-2.6",
+        "familyDisplayName": "MAI Image 2.6",
+        "parentFamilyUUID": "mf-2lb1533ty437",
+        "parentFamilyName": "microsoft",
+        "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.079",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.088",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-omntz68e4bmn",
+        "model": "microsoft/mai-image-2.6/edit",
+        "type": "Image",
+        "displayName": "MAI-Image-2.6 Edit",
+        "profile": "Microsoft AI's flagship image-to-image editing model, combining surgical instruction-driven edits with multi-reference composition across up to five images, ranked No. 1 for image editing on Artificial Analysis.",
+        "logo": "https://static.atlascloud.ai/model/logo/microsoft-mai-image-2.6-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MICROSOFT.png",
+        "background": "https://static.atlascloud.ai/model/background/microsoft-mai-image-2.6-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/microsoft-mai-image-2.6-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/microsoft-mai-image-2.6-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/microsoft-mai-image-2.6-edit.md",
+        "organization": "MICROSOFT",
+        "example": "https://static.atlascloud.ai/model/example/microsoft-mai-image-2.6-edit.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2oxtf09zdar8",
+        "familyName": "mai-image-2.6",
+        "familyDisplayName": "MAI Image 2.6",
+        "parentFamilyUUID": "mf-2lb1533ty437",
+        "parentFamilyName": "microsoft",
+        "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
+        "display_console": true,
+        "price": {
+          "discount": "90",
+          "actual": {
+            "base_price": "0.089"
+          },
+          "origin": {
+            "base_price": "0.099"
+          }
+        }
+      },
+      {
+        "uuid": "ms-ff7aff3cf2db",
+        "model": "minimax/h3-max-turbo/text-to-video",
+        "type": "Video",
+        "displayName": "MiniMax H3 Max Turbo Text-to-Video",
+        "profile": "MiniMax H3 Max Turbo text-to-video: generate a cinematic video from a text prompt. Supports 480P, 5-15s., and 16:9/9:16/1:1/adaptive aspect ratios.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-max-turbo-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-max-turbo-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-max-turbo-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-max-turbo-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-max-turbo-text-to-video.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-max-turbo-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2n8o4bdx2yyz",
+        "familyName": "minimax-h3",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "95",
+          "actual": {
+            "base_price": "0.024",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.025",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-82ebf95dea1e",
+        "model": "minimax/h3-max-turbo/image-to-video",
+        "type": "Video",
+        "displayName": "MiniMax H3 Max Turbo Image-to-Video",
+        "profile": "MiniMax H3 Max Turbo image-to-video: animate a first-frame image (optionally with a last frame) driven by a text prompt. Supports 480P, 5-15s.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-max-turbo-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-max-turbo-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-max-turbo-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-max-turbo-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-max-turbo-image-to-video.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-max-turbo-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2n8o4bdx2yyz",
+        "familyName": "minimax-h3",
+        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "95",
+          "actual": {
+            "base_price": "0.024",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.025",
+            "unit": "second"
           }
         }
       },
