@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-11 06:54:13",
+  "generated_at": "2026-09-12 06:46:24",
   "stats": {
     "total": 168,
-    "suspects": 98,
+    "suspects": 99,
     "high": 0,
-    "med": 34,
+    "med": 35,
     "low": 64,
-    "tier1": 34,
+    "tier1": 35,
     "tier2": 64,
     "tier1_high": 0,
     "gate": "pass"
@@ -214,19 +214,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 0.95526,
-        "output": 1.91052,
-        "cache_hit": 0.079605,
+        "input": 0.819366,
+        "output": 1.638732,
+        "cache_hit": 0.06828,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.00000095526",
-        "openrouter_completion_per_token": "0.00000191052",
-        "input_rmb": 6.68682,
-        "output_rmb": 13.37364,
+        "openrouter_prompt_per_token": "0.000000819366",
+        "openrouter_completion_per_token": "0.000001638732",
+        "input_rmb": 5.735562,
+        "output_rmb": 11.471124,
         "canonical": "DeepSeek V4 Pro",
         "is_lowest_input": "no"
       }
@@ -325,6 +325,33 @@
         "output_rmb": 27.44,
         "canonical": "GLM-5.1",
         "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "CACHE_RATIO_ANOMALY",
+      "severity": "med",
+      "source": "openrouter",
+      "canonical": "GLM-5.2",
+      "msg": "缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "record": {
+        "source": "openrouter",
+        "model_raw": "GLM 5.2",
+        "input": 0.6,
+        "output": 2.0,
+        "cache_hit": 0.15,
+        "cache_write": null,
+        "context": "1.04858M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "openrouter_id": "z-ai/glm-5.2",
+        "openrouter_prompt_per_token": "0.0000006",
+        "openrouter_completion_per_token": "0.000002",
+        "input_rmb": 4.2,
+        "output_rmb": 14.0,
+        "canonical": "GLM-5.2",
+        "is_lowest_input": "yes"
       }
     },
     {

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-11T06:50:39",
+  "fetched_at": "2026-09-12T06:42:30",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -35,9 +35,9 @@
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.004"
+            "base_price": "0.003"
           },
           "origin": {
             "base_price": "0.004"
@@ -75,9 +75,9 @@
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.006"
+            "base_price": "0.005"
           },
           "origin": {
             "base_price": "0.006"
@@ -115,9 +115,9 @@
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.004"
+            "base_price": "0.003"
           },
           "origin": {
             "base_price": "0.004"
@@ -155,9 +155,9 @@
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "80",
           "actual": {
-            "base_price": "0.006"
+            "base_price": "0.005"
           },
           "origin": {
             "base_price": "0.006"
@@ -22140,7 +22140,7 @@
         ],
         "familyUUID": "mf-2oxtf09zdar8",
         "familyName": "mai-image-2.6",
-        "familyDisplayName": "MAI Image 2.6",
+        "familyDisplayName": "mai-image-2.6 Photorealistic Image Generation",
         "parentFamilyUUID": "mf-2lb1533ty437",
         "parentFamilyName": "microsoft",
         "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
@@ -22182,7 +22182,7 @@
         ],
         "familyUUID": "mf-2oxtf09zdar8",
         "familyName": "mai-image-2.6",
-        "familyDisplayName": "MAI Image 2.6",
+        "familyDisplayName": "mai-image-2.6 Photorealistic Image Generation",
         "parentFamilyUUID": "mf-2lb1533ty437",
         "parentFamilyName": "microsoft",
         "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
@@ -22224,7 +22224,7 @@
         ],
         "familyUUID": "mf-2oxtf09zdar8",
         "familyName": "mai-image-2.6",
-        "familyDisplayName": "MAI Image 2.6",
+        "familyDisplayName": "mai-image-2.6 Photorealistic Image Generation",
         "parentFamilyUUID": "mf-2lb1533ty437",
         "parentFamilyName": "microsoft",
         "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
@@ -22266,7 +22266,7 @@
         ],
         "familyUUID": "mf-2oxtf09zdar8",
         "familyName": "mai-image-2.6",
-        "familyDisplayName": "MAI Image 2.6",
+        "familyDisplayName": "mai-image-2.6 Photorealistic Image Generation",
         "parentFamilyUUID": "mf-2lb1533ty437",
         "parentFamilyName": "microsoft",
         "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
