@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-12 06:46:24",
+  "generated_at": "2026-09-13 07:03:39",
   "stats": {
     "total": 168,
-    "suspects": 99,
+    "suspects": 97,
     "high": 0,
-    "med": 35,
+    "med": 33,
     "low": 64,
-    "tier1": 35,
+    "tier1": 33,
     "tier2": 64,
     "tier1_high": 0,
     "gate": "pass"
@@ -42,20 +42,20 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(2%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
-        "input": 0.22,
-        "output": 0.66,
-        "cache_hit": 0.007,
+        "input": 0.15,
+        "output": 0.6,
+        "cache_hit": 0.003,
         "cache_write": null,
         "context": null,
         "condition": "空闲时段 | 原厂直供",
         "unit": "1M tokens",
         "currency": "USD",
-        "input_rmb": 1.54,
-        "output_rmb": 4.62,
+        "input_rmb": 1.05,
+        "output_rmb": 4.2,
         "canonical": "DeepSeek V4 Flash",
         "is_lowest_input": "no"
       }
@@ -66,20 +66,20 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(2%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
-        "input": 0.44,
-        "output": 1.32,
-        "cache_hit": 0.014,
+        "input": 0.3,
+        "output": 1.2,
+        "cache_hit": 0.006,
         "cache_write": null,
         "context": null,
         "condition": "高峰时段 | 原厂直供",
         "unit": "1M tokens",
         "currency": "USD",
-        "input_rmb": 3.08,
-        "output_rmb": 9.24,
+        "input_rmb": 2.1,
+        "output_rmb": 8.4,
         "canonical": "DeepSeek V4 Flash",
         "is_lowest_input": "no"
       }
@@ -214,19 +214,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 0.819366,
-        "output": 1.638732,
-        "cache_hit": 0.06828,
+        "input": 1.6,
+        "output": 3.2,
+        "cache_hit": 0.135,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.000000819366",
-        "openrouter_completion_per_token": "0.000001638732",
-        "input_rmb": 5.735562,
-        "output_rmb": 11.471124,
+        "openrouter_prompt_per_token": "0.0000016",
+        "openrouter_completion_per_token": "0.0000032",
+        "input_rmb": 11.2,
+        "output_rmb": 22.4,
         "canonical": "DeepSeek V4 Pro",
         "is_lowest_input": "no"
       }
@@ -399,7 +399,7 @@
         "input_rmb": 7.7812,
         "output_rmb": 27.2349,
         "canonical": "GLM-5.3",
-        "is_lowest_input": "yes"
+        "is_lowest_input": "no"
       }
     },
     {
@@ -562,28 +562,6 @@
       "msg": "重复记录 ×3: kimi-k3",
       "record": {
         "key": "kimi_ai|kimi-k3|3.0|15.0"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "DUPLICATE",
-      "severity": "med",
-      "source": "tencent",
-      "canonical": null,
-      "msg": "重复记录 ×2: DeepSeek-V4-Flash",
-      "record": {
-        "key": "tencent|DeepSeek-V4-Flash|0.22|0.66"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "DUPLICATE",
-      "severity": "med",
-      "source": "tencent",
-      "canonical": null,
-      "msg": "重复记录 ×2: DeepSeek-V4-Flash",
-      "record": {
-        "key": "tencent|DeepSeek-V4-Flash|0.44|1.32"
       }
     },
     {

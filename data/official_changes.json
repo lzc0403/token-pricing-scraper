@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12",
+  "generated_at": "2026-09-13",
   "lookback_days": 7,
   "changes": [
     {
@@ -12,7 +12,7 @@
       "new": 0.15,
       "pct": 100.0,
       "currency": "USD",
-      "date": "2026-09-12"
+      "date": "2026-09-13"
     },
     {
       "canonical": "GLM-5.3-Flash",
@@ -24,7 +24,7 @@
       "new": 0.5,
       "pct": 100.0,
       "currency": "USD",
-      "date": "2026-09-12"
+      "date": "2026-09-13"
     },
     {
       "canonical": "GLM-5.3-Flash",
@@ -36,7 +36,7 @@
       "new": 0.03,
       "pct": 100.0,
       "currency": "USD",
-      "date": "2026-09-12"
+      "date": "2026-09-13"
     }
   ],
   "new_models": [
@@ -45,14 +45,7 @@
       "source": "openai",
       "source_label": "OpenAI官网",
       "first_seen": "2026-09-10",
-      "date": "2026-09-12"
-    },
-    {
-      "canonical": "GPT-5",
-      "source": "openai",
-      "source_label": "OpenAI官网",
-      "first_seen": "2026-09-06",
-      "date": "2026-09-12"
+      "date": "2026-09-13"
     }
   ],
   "known": {
