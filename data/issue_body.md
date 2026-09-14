@@ -1,19 +1,15 @@
-## 🔔 Token 定价变动（2026-09-13 07:03:38）
+## 🔔 Token 定价变动（2026-09-14 07:26:07）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.819366 | 1.6 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 1.63873 | 3.2 | USD |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.06678 | 0.04956 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.13356 | 0.09912 | USD |
-| Kimi K3 | openrouter | 输入 | 2.30273 | 2.64814 | USD |
-| Kimi K3 | openrouter | 输出 | 11.5502 | 13.2827 | USD |
-| GLM-5.3 | openrouter | 输入 | 1.4 | 1.092 | USD |
-| GLM-5.3 | openrouter | 输出 | 4.4 | 3.432 | USD |
-| DeepSeek V4 Flash | tencent | 输入 | 0.22 | 0.15 | USD |
-| DeepSeek V4 Flash | tencent | 输出 | 0.66 | 0.6 | USD |
-| DeepSeek V4 Flash | tencent | 输入 | 0.44 | 0.3 | USD |
-| DeepSeek V4 Flash | tencent | 输出 | 1.32 | 1.2 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输入 | 0.57816 | 0.9834 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输出 | 1.73448 | 2.9502 | USD |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.04956 | 0.088606 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.09912 | 0.177212 | USD |
+| GLM-5.3 | openrouter | 输入 | 1.092 | 1.4 | USD |
+| GLM-5.3 | openrouter | 输出 | 3.432 | 4.4 | USD |
+| GLM-5.2 | openrouter | 输入 | 0.6 | 0.6832 | USD |
+| GLM-5.2 | openrouter | 输出 | 2 | 2.1472 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
 
@@ -23,7 +19,7 @@
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `qwen/qwen3.8-2.4t-a95b`（Qwen3.8 2.4T A95B） | 通义千问 | 2026-08-12 | 31 天 | $2 | $6 | 疑似旗舰 |
+| `qwen/qwen3.8-2.4t-a95b`（Qwen3.8 2.4T A95B） | 通义千问 | 2026-08-12 | 32 天 | $2 | $6 | 疑似旗舰 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 

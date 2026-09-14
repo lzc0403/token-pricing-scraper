@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-13 07:03:39",
+  "generated_at": "2026-09-14 07:26:09",
   "stats": {
     "total": 168,
-    "suspects": 97,
+    "suspects": 96,
     "high": 0,
-    "med": 33,
+    "med": 32,
     "low": 64,
-    "tier1": 33,
+    "tier1": 32,
     "tier2": 64,
     "tier1_high": 0,
     "gate": "pass"
@@ -331,33 +331,6 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
-      "source": "openrouter",
-      "canonical": "GLM-5.2",
-      "msg": "缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "GLM 5.2",
-        "input": 0.6,
-        "output": 2.0,
-        "cache_hit": 0.15,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "z-ai/glm-5.2",
-        "openrouter_prompt_per_token": "0.0000006",
-        "openrouter_completion_per_token": "0.000002",
-        "input_rmb": 4.2,
-        "output_rmb": 14.0,
-        "canonical": "GLM-5.2",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
       "source": "tencent",
       "canonical": "GLM-5.2",
       "msg": "缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致",
@@ -399,7 +372,7 @@
         "input_rmb": 7.7812,
         "output_rmb": 27.2349,
         "canonical": "GLM-5.3",
-        "is_lowest_input": "no"
+        "is_lowest_input": "yes"
       }
     },
     {

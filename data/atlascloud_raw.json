@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-13T06:59:43",
+  "fetched_at": "2026-09-14T07:22:14",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -21263,6 +21263,40 @@
         }
       },
       {
+        "uuid": "ms-rmbg0a1b2c3",
+        "model": "atlascloud/remove-background",
+        "type": "Image",
+        "displayName": "Remove Background",
+        "profile": "Remove the background from a still image and return a transparent PNG, keeping the original subject and framing.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-remove-background.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-remove-background.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-remove-background.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-remove-background.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-remove-background.md",
+        "organization": "ATLASCLOUD",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-remove-background.json",
+        "priority": 392,
+        "categories": [
+          "IMAGE-TOOLS"
+        ],
+        "tags": [
+          "IMAGE-TOOLS",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.086"
+          },
+          "origin": {
+            "base_price": "0.086"
+          }
+        }
+      },
+      {
         "uuid": "ms-k9j6f1o6r5o2",
         "model": "black-forest-labs/flux-kontext-dev",
         "type": "Image",
@@ -22140,7 +22174,7 @@
         ],
         "familyUUID": "mf-2oxtf09zdar8",
         "familyName": "mai-image-2.6",
-        "familyDisplayName": "mai-image-2.6 Photorealistic Image Generation",
+        "familyDisplayName": "MAI Image 2.6 Photorealistic Image Generation",
         "parentFamilyUUID": "mf-2lb1533ty437",
         "parentFamilyName": "microsoft",
         "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
@@ -22182,7 +22216,7 @@
         ],
         "familyUUID": "mf-2oxtf09zdar8",
         "familyName": "mai-image-2.6",
-        "familyDisplayName": "mai-image-2.6 Photorealistic Image Generation",
+        "familyDisplayName": "MAI Image 2.6 Photorealistic Image Generation",
         "parentFamilyUUID": "mf-2lb1533ty437",
         "parentFamilyName": "microsoft",
         "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
@@ -22224,7 +22258,7 @@
         ],
         "familyUUID": "mf-2oxtf09zdar8",
         "familyName": "mai-image-2.6",
-        "familyDisplayName": "mai-image-2.6 Photorealistic Image Generation",
+        "familyDisplayName": "MAI Image 2.6 Photorealistic Image Generation",
         "parentFamilyUUID": "mf-2lb1533ty437",
         "parentFamilyName": "microsoft",
         "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
@@ -22266,7 +22300,7 @@
         ],
         "familyUUID": "mf-2oxtf09zdar8",
         "familyName": "mai-image-2.6",
-        "familyDisplayName": "mai-image-2.6 Photorealistic Image Generation",
+        "familyDisplayName": "MAI Image 2.6 Photorealistic Image Generation",
         "parentFamilyUUID": "mf-2lb1533ty437",
         "parentFamilyName": "microsoft",
         "parentFamilyDisplayName": "Microsoft Models on AtlasCloud |  MAI Image 2.5",
