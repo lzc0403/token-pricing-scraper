@@ -503,7 +503,7 @@
     "input_rmb": 6.566,
     "output_rmb": 20.636,
     "canonical": "GLM-5.2",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "atlascloud",
@@ -1789,21 +1789,21 @@
   {
     "source": "openrouter",
     "model_raw": "GLM 5.2",
-    "input": 0.6832,
-    "output": 2.1472,
-    "cache_hit": 0.12688,
+    "input": 1.4,
+    "output": 4.4,
+    "cache_hit": 0.14,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.2",
-    "openrouter_prompt_per_token": "0.0000006832",
-    "openrouter_completion_per_token": "0.0000021472",
-    "input_rmb": 4.7824,
-    "output_rmb": 15.0304,
+    "openrouter_prompt_per_token": "0.0000014",
+    "openrouter_completion_per_token": "0.0000044",
+    "input_rmb": 9.8,
+    "output_rmb": 30.8,
     "canonical": "GLM-5.2",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "openrouter",

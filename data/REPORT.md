@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-09-14 07:26:07
+> 生成时间：2026-09-15 07:02:38
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -73,7 +73,7 @@
 | GLM-5.2 | aliyun_bailian | 8 ¥ | 28 ¥ | 1.6 CNY | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.2 | atlascloud | 6.566 ¥ | 20.636 ¥ | 0.174 USD | USD | 0.938 USD / 2.948 USD | 1.04858M |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.2 | openrouter | 4.7824 ¥ | 15.0304 ¥ | 0.12688 USD | USD | 0.6832 USD / 2.1472 USD | 1.04858M |
+| GLM-5.2 | openrouter | 9.8 ¥ | 30.8 ¥ | 0.14 USD | USD | 1.4 USD / 4.4 USD | 1.04858M |
 | GLM-5.2 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | tencent_cn | 10.254 ¥ | 32.2282 ¥ | 1.9044 CNY | CNY | 10.254 CNY / 32.2282 CNY | - |
 | GLM-5.2 | volcengine_intl | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
@@ -179,14 +179,8 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro 0813 | openrouter | 输入 | 0.57816 | 0.9834 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输出 | 1.73448 | 2.9502 | USD |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.04956 | 0.088606 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.09912 | 0.177212 | USD |
-| GLM-5.3 | openrouter | 输入 | 1.092 | 1.4 | USD |
-| GLM-5.3 | openrouter | 输出 | 3.432 | 4.4 | USD |
-| GLM-5.2 | openrouter | 输入 | 0.6 | 0.6832 | USD |
-| GLM-5.2 | openrouter | 输出 | 2 | 2.1472 | USD |
+| GLM-5.2 | openrouter | 输入 | 0.6832 | 1.4 | USD |
+| GLM-5.2 | openrouter | 输出 | 2.1472 | 4.4 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
 
@@ -195,20 +189,20 @@
 | 源 | 状态 | 记录数 | 说明 |
 | --- | --- | ---: | --- |
 | openai | 成功 | 10 | 抓取 10 条 |
-| anthropic | 成功 | 10 | 抓取 10 条 |
-| deepseek_us | 成功 | 2 | 抓取 2 条 |
 | zai | 成功 | 13 | 抓取 13 条 |
-| openrouter | 成功 | 41 | 抓取 41 条 |
+| anthropic | 成功 | 10 | 抓取 10 条 |
 | grok | 成功 | 2 | 抓取 2 条 |
+| openrouter | 成功 | 41 | 抓取 41 条 |
+| deepseek_us | 成功 | 2 | 抓取 2 条 |
 | gemini | 成功 | 3 | 抓取 3 条 |
 | deepseek | 成功 | 2 | 抓取 2 条 |
-| atlascloud | 成功 | 115 | 抓取 115 条 |
 | aliyun | 成功 | 0 | 抓取 0 条 |
 | aliyun_bailian | 成功 | 35 | 抓取 35 条 |
+| atlascloud | 成功 | 115 | 抓取 115 条 |
 | aliyun_intl | 成功 | 0 | 抓取 0 条 |
 | volcengine | 成功 | 18 | 抓取 18 条 |
 | volcengine_intl | 成功 | 6 | 抓取 6 条 |
-| tencent | 成功 | 41 | 抓取 41 条 |
+| tencent | 成功 | 42 | 抓取 42 条 |
 | tencent_cn | 成功 | 32 | 抓取 32 条 |
 | bigmodel | 成功 | 0 | 抓取 0 条 |
 | minimax | 成功 | 4 | 抓取 4 条 |
@@ -222,7 +216,7 @@
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `qwen/qwen3.8-2.4t-a95b`（Qwen3.8 2.4T A95B） | 通义千问 | 2026-08-12 | 32 天 | $2 | $6 | 疑似旗舰 |
+| `qwen/qwen3.8-2.4t-a95b`（Qwen3.8 2.4T A95B） | 通义千问 | 2026-08-12 | 33 天 | $2 | $6 | 疑似旗舰 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 
