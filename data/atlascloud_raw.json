@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-15T06:58:49",
+  "fetched_at": "2026-09-16T07:00:10",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -29,7 +29,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
@@ -69,7 +69,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
@@ -109,7 +109,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
@@ -149,7 +149,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
@@ -3042,9 +3042,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "70",
+          "discount": "35",
           "actual": {
-            "base_price": "0.028"
+            "base_price": "0.014"
           },
           "origin": {
             "base_price": "0.04"
@@ -3082,9 +3082,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "70",
+          "discount": "35",
           "actual": {
-            "base_price": "0.028"
+            "base_price": "0.014"
           },
           "origin": {
             "base_price": "0.04"
@@ -7271,9 +7271,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "50",
+          "discount": "35",
           "actual": {
-            "base_price": "0.04"
+            "base_price": "0.028"
           },
           "origin": {
             "base_price": "0.08"
@@ -8684,9 +8684,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "50",
+          "discount": "35",
           "actual": {
-            "base_price": "0.04"
+            "base_price": "0.028"
           },
           "origin": {
             "base_price": "0.08"
@@ -8764,9 +8764,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "50",
+          "discount": "35",
           "actual": {
-            "base_price": "0.04"
+            "base_price": "0.028"
           },
           "origin": {
             "base_price": "0.08"
@@ -18117,7 +18117,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
@@ -18197,7 +18197,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
@@ -18237,7 +18237,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
@@ -18277,7 +18277,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "GPT Image 2.5 API: Sharper Detail, Precise Editing",
+        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
@@ -20454,9 +20454,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "50",
+          "discount": "35",
           "actual": {
-            "base_price": "0.07"
+            "base_price": "0.049"
           },
           "origin": {
             "base_price": "0.14"
@@ -20494,9 +20494,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "50",
+          "discount": "35",
           "actual": {
-            "base_price": "0.019"
+            "base_price": "0.013"
           },
           "origin": {
             "base_price": "0.038"
@@ -20819,9 +20819,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "50",
+          "discount": "35",
           "actual": {
-            "base_price": "0.07"
+            "base_price": "0.049"
           },
           "origin": {
             "base_price": "0.14"
@@ -20859,9 +20859,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "50",
+          "discount": "35",
           "actual": {
-            "base_price": "0.019"
+            "base_price": "0.013"
           },
           "origin": {
             "base_price": "0.038"
@@ -22388,6 +22388,7 @@
         "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-product-visuals.json",
         "priority": 100,
         "categories": null,
+        "version": "v0.0.17",
         "tags": [
           "IMAGE_TO_IMAGE",
           "NEW"
@@ -22420,6 +22421,7 @@
         "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-food-motion.json",
         "priority": 100,
         "categories": null,
+        "version": "v0.0.13",
         "tags": [
           "IMAGE_TO_VIDEO",
           "NEW"
@@ -22452,6 +22454,7 @@
         "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-virtual-try-on.json",
         "priority": 100,
         "categories": null,
+        "version": "v0.0.13",
         "tags": [
           "IMAGE_TO_VIDEO",
           "NEW"
@@ -22484,6 +22487,7 @@
         "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-ugc-ad.json",
         "priority": 100,
         "categories": null,
+        "version": "v0.0.8",
         "tags": [
           "IMAGE_TO_VIDEO",
           "NEW"
@@ -22516,6 +22520,7 @@
         "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-trend-remix.json",
         "priority": 100,
         "categories": null,
+        "version": "v0.0.16",
         "tags": [
           "VIDEO_TO_VIDEO",
           "NEW"
@@ -22548,6 +22553,7 @@
         "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-tvc-maker.json",
         "priority": 100,
         "categories": null,
+        "version": "v0.0.18",
         "tags": [
           "IMAGE_TO_VIDEO",
           "NEW"

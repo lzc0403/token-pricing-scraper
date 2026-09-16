@@ -1827,21 +1827,21 @@
   {
     "source": "openrouter",
     "model_raw": "GLM-5.3-Flash",
-    "input": 0.15,
-    "output": 0.5,
-    "cache_hit": 0.03,
+    "input": 0.1,
+    "output": 0.3333,
+    "cache_hit": 0.02,
     "cache_write": null,
     "context": "1.31072M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.3-flash",
-    "openrouter_prompt_per_token": "0.00000015",
-    "openrouter_completion_per_token": "0.0000005",
-    "input_rmb": 1.05,
-    "output_rmb": 3.5,
+    "openrouter_prompt_per_token": "0.0000001",
+    "openrouter_completion_per_token": "0.0000003333",
+    "input_rmb": 0.7,
+    "output_rmb": 2.3331,
     "canonical": "GLM-5.3-Flash",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
@@ -2363,7 +2363,7 @@
     "input_rmb": 0.77812,
     "output_rmb": 2.72349,
     "canonical": "GLM-5.3-Flash",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
@@ -2645,7 +2645,7 @@
     "cache_hit": 1.2,
     "cache_write": null,
     "context": null,
-    "condition": "输入长度 [0, 256]",
+    "condition": "输入长度 [0, 1024]",
     "unit": "1M tokens",
     "currency": "CNY",
     "input_rmb": 6.0,

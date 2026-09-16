@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15",
+  "generated_at": "2026-09-16",
   "lookback_days": 7,
   "changes": [
     {
@@ -12,7 +12,7 @@
       "new": 0.15,
       "pct": 100.0,
       "currency": "USD",
-      "date": "2026-09-15"
+      "date": "2026-09-16"
     },
     {
       "canonical": "GLM-5.3-Flash",
@@ -24,7 +24,7 @@
       "new": 0.5,
       "pct": 100.0,
       "currency": "USD",
-      "date": "2026-09-15"
+      "date": "2026-09-16"
     },
     {
       "canonical": "GLM-5.3-Flash",
@@ -36,7 +36,7 @@
       "new": 0.03,
       "pct": 100.0,
       "currency": "USD",
-      "date": "2026-09-15"
+      "date": "2026-09-16"
     }
   ],
   "new_models": [
@@ -45,7 +45,14 @@
       "source": "openai",
       "source_label": "OpenAI官网",
       "first_seen": "2026-09-10",
-      "date": "2026-09-15"
+      "date": "2026-09-16"
+    },
+    {
+      "canonical": "Doubao Seed 2.1 Pro",
+      "source": "volcengine",
+      "source_label": "火山引擎豆包",
+      "first_seen": "2026-09-16",
+      "date": "2026-09-16"
     }
   ],
   "known": {
@@ -82,7 +89,7 @@
     "Gemini 3.8 Flash\u0001gemini": "2026-09-05",
     "Gemini 3.7 Flash\u0001gemini": "2026-09-05",
     "Gemini 3.6 Flash\u0001gemini": "2026-09-05",
-    "Doubao Seed 2.1 Pro\u0001volcengine": "2026-09-05",
+    "Doubao Seed 2.1 Pro\u0001volcengine": "2026-09-16",
     "Doubao Seed 2.1 Turbo\u0001volcengine": "2026-09-05",
     "MiniMax M3\u0001minimax": "2026-09-05",
     "MiniMax M2.7\u0001minimax": "2026-09-05",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15 07:02:40",
+  "generated_at": "2026-09-16 07:03:46",
   "stats": {
     "total": 168,
     "suspects": 97,
@@ -423,7 +423,7 @@
         "input_rmb": 0.77812,
         "output_rmb": 2.72349,
         "canonical": "GLM-5.3-Flash",
-        "is_lowest_input": "yes"
+        "is_lowest_input": "no"
       }
     },
     {
