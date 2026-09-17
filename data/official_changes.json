@@ -1,58 +1,14 @@
 {
-  "generated_at": "2026-09-16",
+  "generated_at": "2026-09-17",
   "lookback_days": 7,
-  "changes": [
-    {
-      "canonical": "GLM-5.3-Flash",
-      "source": "zai",
-      "source_label": "智谱Z.ai",
-      "field": "input",
-      "field_cn": "输入",
-      "old": 0.075,
-      "new": 0.15,
-      "pct": 100.0,
-      "currency": "USD",
-      "date": "2026-09-16"
-    },
-    {
-      "canonical": "GLM-5.3-Flash",
-      "source": "zai",
-      "source_label": "智谱Z.ai",
-      "field": "output",
-      "field_cn": "输出",
-      "old": 0.25,
-      "new": 0.5,
-      "pct": 100.0,
-      "currency": "USD",
-      "date": "2026-09-16"
-    },
-    {
-      "canonical": "GLM-5.3-Flash",
-      "source": "zai",
-      "source_label": "智谱Z.ai",
-      "field": "cache_hit",
-      "field_cn": "缓存读取",
-      "old": 0.015,
-      "new": 0.03,
-      "pct": 100.0,
-      "currency": "USD",
-      "date": "2026-09-16"
-    }
-  ],
+  "changes": [],
   "new_models": [
-    {
-      "canonical": "GPT-6 Astra",
-      "source": "openai",
-      "source_label": "OpenAI官网",
-      "first_seen": "2026-09-10",
-      "date": "2026-09-16"
-    },
     {
       "canonical": "Doubao Seed 2.1 Pro",
       "source": "volcengine",
       "source_label": "火山引擎豆包",
       "first_seen": "2026-09-16",
-      "date": "2026-09-16"
+      "date": "2026-09-17"
     }
   ],
   "known": {

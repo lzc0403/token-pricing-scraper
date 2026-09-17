@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-16T07:00:10",
+  "fetched_at": "2026-09-17T06:55:39",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -1259,6 +1259,12 @@
           "NEW",
           "HOT"
         ],
+        "familyUUID": "mf-2bsoh80kj708",
+        "familyName": "deepseek",
+        "familyDisplayName": "DeepSeek API: Access V4, R1 & More Models with One OpenAI-Compatible Endpoint",
+        "parentFamilyUUID": "mf-2l826tbukl8m",
+        "parentFamilyName": "deepseek-ai",
+        "parentFamilyDisplayName": "DeepSeek AI Models on AtlasCloud",
         "contextLength": 1048576,
         "maxCompletionTokens": 393216,
         "avgTotalTPS": "22.56",
@@ -3636,7 +3642,7 @@
           "NEW",
           "HOT"
         ],
-        "contextLength": 262144,
+        "contextLength": 1048576,
         "maxCompletionTokens": 131072,
         "avgTotalTPS": "34.49",
         "avgLatency": "0.70",
