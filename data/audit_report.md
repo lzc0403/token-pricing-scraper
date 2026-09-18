@@ -1,6 +1,6 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-09-17 06:59:14
+> 生成时间：2026-09-18 06:56:17
 
 ## 一、核对统计
 
@@ -42,13 +42,13 @@
 | med | T1 | CACHE_RATIO_ANOMALY | tencent_cn | DeepSeek V4 Pro | 缓存/输入比率(8%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | GLM-4.7 | 缓存/输入比率(23%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.1 | 缓存/输入比率(25%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
-| med | T1 | CACHE_RATIO_ANOMALY | openrouter | GLM-5.2 | 缓存/输入比率(10%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.2 | 缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.3 | 缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.3-Flash | 缓存/输入比率(29%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | Kimi K2.6 | 缓存/输入比率(20%) 偏离同模型基准(17%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | Kimi K2.7 Code | 缓存/输入比率(17%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | Kimi K3 | 缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
+| med | T1 | CACHE_RATIO_ANOMALY | openrouter | Kimi K3 | 缓存/输入比率(12%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | DUPLICATE | kimi | - | 重复记录 ×3: kimi-k2.6 |
 | med | T1 | DUPLICATE | kimi | - | 重复记录 ×3: kimi-k2.7-code |
 | med | T1 | DUPLICATE | kimi | - | 重复记录 ×3: kimi-k3 |

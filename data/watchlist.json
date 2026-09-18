@@ -503,7 +503,7 @@
     "input_rmb": 6.566,
     "output_rmb": 20.636,
     "canonical": "GLM-5.2",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "atlascloud",
@@ -1812,21 +1812,21 @@
   {
     "source": "openrouter",
     "model_raw": "GLM 5.2",
-    "input": 1.4,
-    "output": 4.4,
-    "cache_hit": 0.14,
+    "input": 0.4875,
+    "output": 1.56,
+    "cache_hit": 0.091,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.2",
-    "openrouter_prompt_per_token": "0.0000014",
-    "openrouter_completion_per_token": "0.0000044",
-    "input_rmb": 9.8,
-    "output_rmb": 30.8,
+    "openrouter_prompt_per_token": "0.0000004875",
+    "openrouter_completion_per_token": "0.00000156",
+    "input_rmb": 3.4125,
+    "output_rmb": 10.92,
     "canonical": "GLM-5.2",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
@@ -2097,21 +2097,21 @@
   {
     "source": "openrouter",
     "model_raw": "Kimi K3",
-    "input": 3.0,
-    "output": 15.0,
-    "cache_hit": 0.3,
+    "input": 2.0,
+    "output": 11.2,
+    "cache_hit": 0.232,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "moonshotai/kimi-k3",
-    "openrouter_prompt_per_token": "0.000003",
-    "openrouter_completion_per_token": "0.000015",
-    "input_rmb": 21.0,
-    "output_rmb": 105.0,
+    "openrouter_prompt_per_token": "0.000002",
+    "openrouter_completion_per_token": "0.0000112",
+    "input_rmb": 14.0,
+    "output_rmb": 78.4,
     "canonical": "Kimi K3",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
@@ -2434,7 +2434,7 @@
     "input_rmb": 19.117,
     "output_rmb": 95.571,
     "canonical": "Kimi K3",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",

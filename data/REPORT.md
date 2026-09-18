@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-09-17 06:59:12
+> 生成时间：2026-09-18 06:56:15
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -73,7 +73,7 @@
 | GLM-5.2 | aliyun_bailian | 8 ¥ | 28 ¥ | 1.6 CNY | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.2 | atlascloud | 6.566 ¥ | 20.636 ¥ | 0.174 USD | USD | 0.938 USD / 2.948 USD | 1.04858M |
 | GLM-5.2 | modelmesh | 8 ¥ | 28 ¥ | - | CNY | 8 CNY / 28 CNY | 1000K |
-| GLM-5.2 | openrouter | 9.8 ¥ | 30.8 ¥ | 0.14 USD | USD | 1.4 USD / 4.4 USD | 1.04858M |
+| GLM-5.2 | openrouter | 3.4125 ¥ | 10.92 ¥ | 0.091 USD | USD | 0.4875 USD / 1.56 USD | 1.04858M |
 | GLM-5.2 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | tencent_cn | 10.254 ¥ | 32.2282 ¥ | 1.9044 CNY | CNY | 10.254 CNY / 32.2282 CNY | - |
 | GLM-5.2 | volcengine_intl | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
@@ -150,7 +150,7 @@
 | Kimi K3 | kimi_ai | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1,048,576 tokens |
 | Kimi K3 | kimi_ai | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1,048,576 tokens |
 | Kimi K3 | modelmesh | 20 ¥ | 100 ¥ | - | CNY | 20 CNY / 100 CNY | 1000K |
-| Kimi K3 | openrouter | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
+| Kimi K3 | openrouter | 14 ¥ | 78.4 ¥ | 0.232 USD | USD | 2 USD / 11.2 USD | 1.04858M |
 | Kimi K3 | tencent | 19.117 ¥ | 95.571 ¥ | 0.2731 USD | USD | 2.731 USD / 13.653 USD | - |
 | Kimi K3 | tencent_cn | 21.974 ¥ | 109.869 ¥ | 2.197 CNY | CNY | 21.974 CNY / 109.869 CNY | - |
 | MiniMax M2.7 | aliyun_bailian | 2.1 ¥ | 8.4 ¥ | 0.42 CNY | CNY | 2.1 CNY / 8.4 CNY | - |
@@ -179,10 +179,10 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| Kimi K3 | openrouter | 输入 | 2.64814 | 3 | USD |
-| Kimi K3 | openrouter | 输出 | 13.2827 | 15 | USD |
-| GLM-5.3-Flash | openrouter | 输入 | 0.1 | 0.09 | USD |
-| GLM-5.3-Flash | openrouter | 输出 | 0.3333 | 0.3 | USD |
+| Kimi K3 | openrouter | 输入 | 3 | 2 | USD |
+| Kimi K3 | openrouter | 输出 | 15 | 11.2 | USD |
+| GLM-5.2 | openrouter | 输入 | 1.4 | 0.4875 | USD |
+| GLM-5.2 | openrouter | 输出 | 4.4 | 1.56 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
 
@@ -191,19 +191,19 @@
 | 源 | 状态 | 记录数 | 说明 |
 | --- | --- | ---: | --- |
 | openai | 成功 | 10 | 抓取 10 条 |
-| zai | 成功 | 13 | 抓取 13 条 |
+| zai | 成功 | 14 | 抓取 14 条 |
 | anthropic | 成功 | 10 | 抓取 10 条 |
 | deepseek_us | 成功 | 2 | 抓取 2 条 |
+| openrouter | 成功 | 41 | 抓取 41 条 |
+| deepseek | 成功 | 2 | 抓取 2 条 |
 | grok | 成功 | 2 | 抓取 2 条 |
 | gemini | 成功 | 3 | 抓取 3 条 |
-| deepseek | 成功 | 2 | 抓取 2 条 |
-| openrouter | 成功 | 41 | 抓取 41 条 |
-| atlascloud | 成功 | 115 | 抓取 115 条 |
 | aliyun | 成功 | 0 | 抓取 0 条 |
+| atlascloud | 成功 | 116 | 抓取 116 条 |
 | aliyun_bailian | 成功 | 35 | 抓取 35 条 |
 | aliyun_intl | 成功 | 0 | 抓取 0 条 |
 | volcengine | 成功 | 18 | 抓取 18 条 |
-| volcengine_intl | 成功 | 6 | 抓取 6 条 |
+| volcengine_intl | 成功 | 7 | 抓取 7 条 |
 | tencent | 成功 | 42 | 抓取 42 条 |
 | tencent_cn | 成功 | 31 | 抓取 31 条 |
 | bigmodel | 成功 | 0 | 抓取 0 条 |
@@ -214,11 +214,11 @@
 
 ## 四、新模型雷达（待人工登记）
 
-扫描 OpenRouter 全量 444 个模型，发现 **1** 个未登记候选（疑似旗舰 **1** 个）：
+扫描 OpenRouter 全量 445 个模型，发现 **1** 个未登记候选（疑似旗舰 **1** 个）：
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `qwen/qwen3.8-2.4t-a95b`（Qwen3.8 2.4T A95B） | 通义千问 | 2026-08-12 | 35 天 | $2 | $6 | 疑似旗舰 |
+| `qwen/qwen3.8-2.4t-a95b`（Qwen3.8 2.4T A95B） | 通义千问 | 2026-08-12 | 36 天 | $2 | $6 | 疑似旗舰 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 
