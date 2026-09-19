@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18",
+  "generated_at": "2026-09-19",
   "lookback_days": 7,
   "changes": [],
   "new_models": [
@@ -8,7 +8,7 @@
       "source": "volcengine",
       "source_label": "火山引擎豆包",
       "first_seen": "2026-09-16",
-      "date": "2026-09-18"
+      "date": "2026-09-19"
     }
   ],
   "known": {

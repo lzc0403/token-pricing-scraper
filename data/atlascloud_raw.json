@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-18T06:52:39",
+  "fetched_at": "2026-09-19T06:51:56",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -18449,7 +18449,7 @@
         ],
         "familyUUID": "mf-2p7tmitzdkzv",
         "familyName": "meshy",
-        "familyDisplayName": "Meshy",
+        "familyDisplayName": "Meshy 7 Multi-View 3D Reconstruction",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -18526,7 +18526,7 @@
         ],
         "familyUUID": "mf-2p7tmitzdkzv",
         "familyName": "meshy",
-        "familyDisplayName": "Meshy",
+        "familyDisplayName": "Meshy 7 Multi-View 3D Reconstruction",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -18603,7 +18603,7 @@
         ],
         "familyUUID": "mf-2p7tmitzdkzv",
         "familyName": "meshy",
-        "familyDisplayName": "Meshy",
+        "familyDisplayName": "Meshy 7 Multi-View 3D Reconstruction",
         "display_console": true,
         "price": {
           "discount": "100",

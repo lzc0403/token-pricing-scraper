@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18 06:56:17",
+  "generated_at": "2026-09-19 06:55:39",
   "stats": {
     "total": 168,
     "suspects": 97,
@@ -214,21 +214,21 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 1.6,
-        "output": 3.2,
-        "cache_hit": 0.135,
+        "input": 0.564282,
+        "output": 1.128564,
+        "cache_hit": 0.047023,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.0000016",
-        "openrouter_completion_per_token": "0.0000032",
-        "input_rmb": 11.2,
-        "output_rmb": 22.4,
+        "openrouter_prompt_per_token": "0.000000564282",
+        "openrouter_completion_per_token": "0.000001128564",
+        "input_rmb": 3.949974,
+        "output_rmb": 7.899948,
         "canonical": "DeepSeek V4 Pro",
-        "is_lowest_input": "no"
+        "is_lowest_input": "yes"
       }
     },
     {
@@ -372,7 +372,7 @@
         "input_rmb": 7.7812,
         "output_rmb": 27.2349,
         "canonical": "GLM-5.3",
-        "is_lowest_input": "yes"
+        "is_lowest_input": "no"
       }
     },
     {
@@ -481,19 +481,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "Kimi K3",
-        "input": 2.0,
-        "output": 11.2,
-        "cache_hit": 0.232,
+        "input": 1.875,
+        "output": 10.5,
+        "cache_hit": 0.2175,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "moonshotai/kimi-k3",
-        "openrouter_prompt_per_token": "0.000002",
-        "openrouter_completion_per_token": "0.0000112",
-        "input_rmb": 14.0,
-        "output_rmb": 78.4,
+        "openrouter_prompt_per_token": "0.000001875",
+        "openrouter_completion_per_token": "0.0000105",
+        "input_rmb": 13.125,
+        "output_rmb": 73.5,
         "canonical": "Kimi K3",
         "is_lowest_input": "yes"
       }
