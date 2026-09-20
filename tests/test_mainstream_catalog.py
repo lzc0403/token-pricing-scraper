@@ -703,7 +703,7 @@ def test_project_catalog_is_valid_and_has_required_vendors():
     catalog = load_catalog(os.path.join(ROOT, "config", "mainstream_models.yml"))
     domestic = catalog["sections"]["domestic"]["vendors"]
     overseas = catalog["sections"]["overseas"]["vendors"]
-    assert [v["id"] for v in domestic] == ["deepseek", "qwen", "glm", "kimi", "minimax", "doubao"]
+    assert [v["id"] for v in domestic] == ["deepseek", "qwen", "glm", "kimi", "minimax", "mimo", "doubao"]
     assert [v["id"] for v in overseas] == ["openai", "anthropic", "google", "grok"]
     assert {
         "Claude Fable 5", "Claude Opus 5", "Claude Opus 4.8", "Claude Sonnet 5", "Claude Haiku 4.5"

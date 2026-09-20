@@ -213,8 +213,11 @@ _OFFICIAL_SOURCES_ANY: Dict[str, Tuple[str, ...]] = {
 # 单一官方源厂商（canonical 前缀 → source id），与 site_data.OFFICIAL_SOURCE 镜像
 _OFFICIAL_SINGLE: Tuple[Tuple[str, str], ...] = (
     ("MiniMax", "minimax"),
+    # Qwen3.8 Flash 官网价取百炼（Hologres 侧为其 1.2 倍加价口径），须先于通用 "Qwen"
+    ("Qwen3.8 Flash", "aliyun_bailian"),
     ("Qwen", "aliyun"),
     ("Doubao", "volcengine"),
+    ("MiMo", "mimo"),
     ("GPT", "openai"),
     ("Claude", "anthropic"),
     ("Gemini", "gemini"),

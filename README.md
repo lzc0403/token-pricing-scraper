@@ -8,7 +8,7 @@
 
 ## 功能特性
 
-- **数据源**：阿里云、火山引擎、腾讯云、智谱、DeepSeek、MiniMax、Kimi、胜算云（ModelMesh）、**OpenRouter**
+- **数据源**：阿里云、火山引擎、腾讯云、智谱、DeepSeek、MiniMax、Kimi、小米 MiMo、胜算云（ModelMesh）、**OpenRouter**
 - **统一记录**：`source / model_raw / input / output / cache_hit / context / currency / unit`
 - **汇率归一**：USD → CNY（运行时默认汇率可配置；网页端默认 **7.0** 可手动改）
 - **watchlist 匹配**：`config/models.yml` 别名匹配 + OpenRouter 白名单强制 canonical

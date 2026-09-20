@@ -25,7 +25,7 @@ def test_site_data_merges_catalog_canons_into_filters():
 def test_site_data_has_six_domestic_vendor_slots():
     data = site._build_site_data(os.path.join(ROOT, "data"))
     assert [v["id"] for v in data["mainstream_sections"]["domestic"]] == [
-        "deepseek", "qwen", "glm", "kimi", "minimax", "doubao"
+        "deepseek", "qwen", "glm", "kimi", "minimax", "mimo", "doubao"
     ]
 
 

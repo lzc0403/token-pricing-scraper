@@ -17,9 +17,11 @@
   currency: CNY
   js: false
   note: >-
-    Hologres 托管模型计费（中国站）。单表五列：输入 / 显式缓存创建 / 显式缓存命中 /
-    隐式缓存命中 / 输出，单位「元/千 Token」。解析时仅取中国内地区域（北京/上海/杭州/深圳），
-    缓存命中只取「隐式缓存命中」列，并按站点统一的「元/百万 Token」口径 ×1000。
+    Hologres 托管模型计费（中国站），单位「元/千 Token」，站点统一按「元/百万 Token」×1000 展示。
+    2026-09 页面改版：文本模型主表由 9 列（价格 5 列：输入 / 显式缓存创建 / 显式缓存命中 /
+    隐式缓存命中 / 输出）精简为 6 列（价格 2 列：输入 / 输出），缓存价改为在同页
+    「缓存计费说明」表中给出与输入单价的比率（隐式命中 = 输入单价 × 0.20）。
+    解析器兼容新旧两种版式；仅取中国内地区域（北京/上海/杭州/深圳），跳过新加坡等海外行。
 
 - id: aliyun_intl
   name: 阿里云国际站
@@ -44,7 +46,9 @@
     （doc id 2987148 = /model-studio/model-pricing）。静态帮助 JSON 含全量定价表
     （元/百万 tokens）。仅取国内（全球/大陆）价，跳过「国际/美国/日本」区域行。
     缓存命中价按用户给定规则 = 输入单价 × 20% 计算（页面仅标注「上下文缓存享有折扣」）。
-    覆盖 DeepSeek / GLM / Kimi / MiniMax 等转售模型；Qwen 仍由 aliyun（Hologres）源负责。
+    覆盖 DeepSeek / GLM / Kimi / MiniMax 等转售模型；Qwen 主流型号（3.7-Max/Plus）由
+    aliyun（Hologres）源负责，本源仅额外收录 qwen3.8-flash —— 该模型 2026-09 起在售，
+    Hologres 侧为其 1.2 倍加价口径，官方 API 原价以百炼为准，故由本源作为其官网价来源。
 
 - id: volcengine
   name: 火山引擎
@@ -156,6 +160,32 @@
     /docs/pricing/chat。子页结构与中文站一致，表头为英文（Model / Unit /
     Input Price (Cache Hit) / Input Price (Cache Miss) / Output Price /
     Context Window），解析器已兼容双语表头。与 kimi（国内站 CNY）区分展示。
+
+- id: mimo
+  name: 小米MiMo
+  url: https://platform.xiaomimimo.com/docs/zh-CN/pricing
+  parser: mimo
+  currency: CNY
+  js: true
+  note: >-
+    Xiaomi MiMo 开放平台 API 定价（国内站，CNY）。页面为 SPA（root 容器无服务端
+    渲染价格），需浏览器渲染。同一页面同时含「模型国内定价」(¥) 与「模型海外定价」
+    ($) 两张文本模型表，本源按价格单元格货币符号只取 ¥ 表；海外价由 mimo_intl 取
+    $ 表。页面单位即「元/百万 tokens」，与站点统一口径一致，不做换算。
+    仅收录 mimo-v2.5-pro / mimo-v2.5 两个文本模型：ASR 系列按输入音频时长计费、
+    TTS 系列限时免费，均非 token 计价，跳过。缓存写入官网标注「限时免费」，
+    故 cache_write 恒为 None。
+
+- id: mimo_intl
+  name: 小米MiMo海外
+  url: https://platform.xiaomimimo.com/docs/en-US/pricing
+  parser: mimo
+  currency: USD
+  js: true
+  note: >-
+    Xiaomi MiMo 开放平台英文站（en-US，USD 结算），与 mimo（国内站 CNY）同构：
+    同一页面含 ¥ 与 $ 两张定价表，本源只取 $ 表。与国内站区分展示，
+    便于对比同模型国内外价格。
 
 - id: modelmesh
   name: 胜算云

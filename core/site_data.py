@@ -37,6 +37,8 @@ SOURCE_LABELS: Dict[str, str] = {
     "atlascloud": "AtlasCloud",
     "volcengine_intl": "火山云海外",
     "zai": "智谱Z.ai",
+    "mimo": "小米MiMo",
+    "mimo_intl": "小米MiMo海外",
 }
 
 # 厂商官网（官方原价）来源
@@ -44,6 +46,7 @@ OFFICIAL_SOURCE: Dict[str, str] = {
     # DeepSeek 官方
     "DeepSeek V4 Pro": "deepseek",
     "DeepSeek V4 Flash": "deepseek",
+    "DeepSeek V4.1 Flash": "deepseek",
     "DeepSeek V3.2": "deepseek",
     # 智谱官方
     "GLM-5.1": "bigmodel",
@@ -58,6 +61,11 @@ OFFICIAL_SOURCE: Dict[str, str] = {
     # 通义千问官方（阿里云）
     "Qwen3.7 Max": "aliyun",
     "Qwen3.7 Plus": "aliyun",
+    # Qwen3.8-Flash 官方 API 原价取百炼（Hologres 侧为其 1.2 倍加价口径）
+    "Qwen3.8 Flash": "aliyun_bailian",
+    # 小米 MiMo 官方（platform.xiaomimimo.com）
+    "MiMo V2.5 Pro": "mimo",
+    "MiMo V2.5": "mimo",
     # 豆包官方（火山引擎）— volcengine 同时是渠道源，但对 Doubao 系列它是厂商官网价
     "Doubao Seed 2.1 Pro": "volcengine",
     "Doubao Seed 2.1 Turbo": "volcengine",
@@ -97,12 +105,14 @@ CHANNEL_SOURCES = {"modelmesh", "tencent", "tencent_cn", "openrouter", "volcengi
 # 展示时还会再套一层「厂商聚合」：同厂模型挨在一起，不跨厂穿插。
 MAINSTREAM_SORT_ORDER: List[str] = [
     # DeepSeek
+    "DeepSeek V4.1 Flash",
     "DeepSeek V4 Pro",
     "DeepSeek V4 Flash",
     "DeepSeek V3.2",
     # 通义千问
     "Qwen3.7 Max",
     "Qwen3.7 Plus",
+    "Qwen3.8 Flash",
     # 智谱
     "GLM-5.2",
     "GLM-5.1",
@@ -113,6 +123,9 @@ MAINSTREAM_SORT_ORDER: List[str] = [
     # MiniMax
     "MiniMax M3",
     "MiniMax M2.7",
+    # 小米 MiMo
+    "MiMo V2.5 Pro",
+    "MiMo V2.5",
     # 豆包
     "Doubao Seed 2.1 Pro",
     "Doubao Seed 2.1 Turbo",
@@ -145,6 +158,7 @@ DOMESTIC_VENDOR_ORDER: List[str] = [
     "glm",
     "kimi",
     "minimax",
+    "mimo",
     "doubao",
 ]
 
@@ -168,6 +182,8 @@ SOURCE_VENDOR: Dict[str, str] = {
     "kimi": "kimi",
     "kimi_ai": "kimi",
     "minimax": "minimax",
+    "mimo": "mimo",
+    "mimo_intl": "mimo",
     "volcengine": "doubao",
     "openai": "openai",
     "anthropic": "anthropic",
@@ -180,11 +196,13 @@ SOURCE_VENDOR: Dict[str, str] = {
 
 MODEL_ORDER: List[str] = [
     # 国内：同厂连续，厂内旗舰优先（与 MAINSTREAM_SORT_ORDER 对齐）
+    "DeepSeek V4.1 Flash",
     "DeepSeek V4 Pro",
     "DeepSeek V4 Flash",
     "DeepSeek V3.2",
     "Qwen3.7 Max",
     "Qwen3.7 Plus",
+    "Qwen3.8 Flash",
     "GLM-5.2",
     "GLM-5.1",
     "Kimi K3",
@@ -192,6 +210,8 @@ MODEL_ORDER: List[str] = [
     "Kimi K2.6",
     "MiniMax M3",
     "MiniMax M2.7",
+    "MiMo V2.5 Pro",
+    "MiMo V2.5",
     "Doubao Seed 2.1 Pro",
     "Doubao Seed 2.1 Turbo",
     "Seedance 2.0",

@@ -15,8 +15,10 @@ DeepSeek 来源类型区分：
 - 非 DeepSeek 模型（GLM / Kimi / MiniMax）condition=None。
 
 解析规则：
-- 仅取模型 ID 命中目标家族（deepseek / glm / kimi / minimax）的行；
-  Qwen 系列由 aliyun（Hologres）源负责，此处排除。
+- 仅取模型 ID 命中目标家族（deepseek / glm / kimi / minimax / qwen3.8-flash）的行；
+  Qwen 其余型号仍由 aliyun（Hologres）源负责，此处仅额外收录
+  **qwen3.8-flash**（2026-09 新增在售主力，Hologres 侧定价为其 1.2 倍加价口径，
+  官方 API 原价以百炼为准，故由本源作为该模型官网价来源）。
 - 跳过「国际 / 美国 / 日本」区域行，仅保留国内（全球 / 大陆，无区域标记或「全球」）价。
 - 模型 ID 去噪：剥离 kimi/ 与 MiniMax/ 命名空间前缀、日期快照（-2026-xx-xx）、
   -us / -preview / -exp / -fast / -highspeed 后缀，取基准名
@@ -38,7 +40,7 @@ from scrapers.base import BaseScraper, clean_price
 # 后缀清洗：日期快照 / 短快照号 / 区域或预览标记
 _SUFFIX = re.compile(r"-(?:\d{4}-\d{2}-\d{2}|\d{4}|us|preview|exp|fast|highspeed)$", re.IGNORECASE)
 _OVERSEAS_MARK = ("国际", "美国", "日本")
-_TARGET_PREFIX = ("deepseek", "glm", "kimi", "minimax")
+_TARGET_PREFIX = ("deepseek", "glm", "kimi", "minimax", "qwen3.8-flash")
 # 严格匹配「数字元」价格单元格（排除「原价2元 限时8折」「100万Token」等）
 _PRICE_CELL = re.compile(r"^\s*\d+(?:\.\d+)?\s*元\s*$")
 # 用户给定：缓存命中 = 输入单价 × 20%

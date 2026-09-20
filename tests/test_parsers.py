@@ -26,6 +26,8 @@ MODELS_CFG = yaml.safe_load(open(os.path.join(ROOT, "config", "models.yml")))
 # 每个源对应的 fixture 文件（kimi 为多 URL）
 FIXTURE_MAP = {
     "aliyun": ["aliyun.html"],
+    "mimo": ["mimo.html"],
+    "mimo_intl": ["mimo.html"],
     "volcengine": ["volcengine.html"],
     "tencent": ["tencent.html"],
     "bigmodel": ["bigmodel.html"],
@@ -113,6 +115,55 @@ def test_aliyun_qwen37_china_mainland():
     assert plus_rec["cache_hit"] == 0.48
 
 
+def test_aliyun_new_layout_reads_cache_ratio_from_doc_table():
+    """2026-09 改版兼容：主表取消缓存列后，缓存命中价由「缓存计费说明」表比率换算。
+
+    fixture aliyun_v2.html 为改版后的真实页面：文本主表仅「输入单价 / 输出单价」
+    两列，隐式缓存命中比率（输入单价 × 0.20）在同页说明表中给出。
+    """
+    src = SOURCES["aliyun"]
+    cls = _get_scraper_class(src["parser"])
+    inst = cls(src)
+    recs = [r for r in inst.parse(_load("aliyun_v2.html")) if r and r.get("model_raw")]
+    assert {r["model_raw"] for r in recs} == {"Qwen3.7-Max", "Qwen3.7-Plus"}
+    max_rec = next(r for r in recs if r["model_raw"] == "Qwen3.7-Max")
+    # 0.01440 元/千 -> 14.4 元/百万；缓存命中 = 14.4 × 0.20 = 2.88
+    assert max_rec["input"] == 14.4
+    assert max_rec["output"] == 43.2
+    assert max_rec["cache_hit"] == 2.88
+    plus_rec = next(r for r in recs if r["model_raw"] == "Qwen3.7-Plus")
+    assert plus_rec["input"] == 2.4
+    assert plus_rec["output"] == 9.6
+    assert plus_rec["cache_hit"] == 0.48
+
+
+def test_mimo_domestic_overseas_split_by_currency():
+    """MiMo 同一页面含 ¥ / $ 两张文本表：国内源只取 ¥ 表，海外源只取 $ 表。
+
+    ASR（按输入音频时长）与 TTS（限时免费）均非 token 计价，不得混入记录。
+    """
+    cn = _parse_source("mimo")
+    assert {r["model_raw"] for r in cn} == {"mimo-v2.5", "mimo-v2.5-pro"}
+    pro = next(r for r in cn if r["model_raw"] == "mimo-v2.5-pro")
+    # 官网国内价：命中缓存 0.025 / 未命中 3.00 / 输出 6.00（元/百万 tokens）
+    assert (pro["input"], pro["output"], pro["cache_hit"]) == (3.0, 6.0, 0.025)
+    assert pro["currency"] == "CNY"
+    lite = next(r for r in cn if r["model_raw"] == "mimo-v2.5")
+    assert (lite["input"], lite["output"], lite["cache_hit"]) == (1.0, 2.0, 0.02)
+
+    us = _parse_source("mimo_intl")
+    assert {r["model_raw"] for r in us} == {"mimo-v2.5", "mimo-v2.5-pro"}
+    pro_us = next(r for r in us if r["model_raw"] == "mimo-v2.5-pro")
+    # 官网海外价：0.0036 / 0.435 / 0.87（美元/百万 tokens）
+    assert (pro_us["input"], pro_us["output"], pro_us["cache_hit"]) == (0.435, 0.87, 0.0036)
+    assert pro_us["currency"] == "USD"
+    # 两源不得串档
+    assert {r["currency"] for r in cn} == {"CNY"}
+    assert {r["currency"] for r in us} == {"USD"}
+    names = {r["model_raw"] for r in cn + us}
+    assert not any("asr" in n or "tts" in n for n in names)
+
+
 def test_volcengine_doubao_rows():
     recs = _parse_source("volcengine")
     assert recs, "volcengine 应解析出记录"
@@ -181,6 +232,12 @@ def test_watchlist_all_configured_targets_matched():
     recs.append({"model_raw": "qwen3.8-max"})
     recs.append({"model_raw": "GLM-5.3"})
     recs.append({"model_raw": "GLM-5.3-Flash"})
+    # 2026-09 新增目标：DeepSeek 官网新 API 名 deepseek-flash（=V4.1-Flash）、
+    # 百炼在售 qwen3.8-flash；小米 MiMo 由 mimo 源与 tencent/modelmesh 渠道覆盖。
+    recs.append({"model_raw": "deepseek-flash"})
+    recs.append({"model_raw": "qwen3.8-flash"})
+    recs.append({"model_raw": "mimo-v2.5"})
+    recs.append({"model_raw": "mimo-v2.5-pro"})
     _, watch = matcher.build_watchlist(recs, MODELS_CFG)
     canons = {r["canonical"] for r in watch}
     targets = {m["canonical"] for m in MODELS_CFG["models"]}
@@ -319,13 +376,30 @@ def test_bailian_excludes_overseas_regions():
 
 
 def test_bailian_target_models_parsed():
-    """百炼应命中目标模型家族：deepseek / glm / kimi / minimax。"""
+    """百炼应命中目标模型家族：deepseek / glm / kimi / minimax / qwen3.8-flash。"""
     recs = _parse_source("aliyun_bailian")
     models = {r["model_raw"] for r in recs}
     for expected in ["deepseek-v4-flash", "deepseek-v4-pro", "deepseek-v3.2",
                      "kimi-k3", "kimi-k2.6", "kimi-k2.7-code",
-                     "glm-5.2", "glm-5.1", "minimax-m3", "minimax-m2.7"]:
+                     "glm-5.2", "glm-5.1", "minimax-m3", "minimax-m2.7",
+                     "qwen3.8-flash"]:
         assert expected in models, f"aliyun_bailian 缺少 {expected}"
+
+
+def test_bailian_qwen38_flash_uses_domestic_price_only():
+    """qwen3.8-flash 取国内（全球部署）官方原价 0.8 / 2.7，跳过「国际」部署行。
+
+    页面同型号按部署范围分片（全球 0.8/2.7、国际 1.094/3.427），
+    「国际」行被 _OVERSEAS_MARK 过滤，避免国际价覆盖国内官方价。
+    """
+    recs = _parse_source("aliyun_bailian")
+    flash = next(r for r in recs if r["model_raw"] == "qwen3.8-flash")
+    assert flash["input"] == 0.8
+    assert flash["output"] == 2.7
+    # 缓存命中 = 输入 × 20%
+    assert flash["cache_hit"] == 0.16
+    assert flash["currency"] == "CNY"
+    assert flash["input"] != 1.094
 
 
 def test_matcher_no_false_positive_glm5():
