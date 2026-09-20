@@ -129,5 +129,58 @@
         "status": "未跟进"
       }
     ]
+  },
+  {
+    "canonical": "Kimi K3",
+    "field": "input",
+    "field_cn": "输入",
+    "official_pct": -90.0,
+    "official_old": 3.0,
+    "official_new": 0.3,
+    "currency": "USD",
+    "channels": [
+      {
+        "source": "aliyun_bailian",
+        "before": 20.0,
+        "after": 20.0,
+        "pct": 0.0,
+        "status": "未跟进"
+      },
+      {
+        "source": "atlascloud",
+        "before": 3.0,
+        "after": 3.0,
+        "pct": 0.0,
+        "status": "未跟进"
+      },
+      {
+        "source": "modelmesh",
+        "before": 20.0,
+        "after": 20.0,
+        "pct": 0.0,
+        "status": "未跟进"
+      },
+      {
+        "source": "openrouter",
+        "before": 1.875,
+        "after": 1.7,
+        "pct": -9.33,
+        "status": "幅度背离"
+      },
+      {
+        "source": "tencent",
+        "before": 2.731,
+        "after": 2.731,
+        "pct": 0.0,
+        "status": "未跟进"
+      },
+      {
+        "source": "tencent_cn",
+        "before": 21.974,
+        "after": 21.974,
+        "pct": 0.0,
+        "status": "未跟进"
+      }
+    ]
   }
 ]

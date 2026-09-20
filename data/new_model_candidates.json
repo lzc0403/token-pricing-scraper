@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-19 06:55:37",
+  "generated_at": "2026-09-20 07:19:59",
   "enabled": true,
   "lookback_days": 60,
-  "scanned": 447,
-  "known_count": 229,
+  "scanned": 446,
+  "known_count": 230,
   "candidates": [
     {
       "id": "qwen/qwen3.8-2.4t-a95b",
@@ -12,13 +12,13 @@
       "family": "通义千问",
       "region": "domestic",
       "created": "2026-08-12",
-      "age_days": 37,
+      "age_days": 38,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 6.0,
       "context": "1.04858M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 37 天 · 通义千问 系候选最高价档"
+      "reason": "新上架 38 天 · 通义千问 系候选最高价档"
     }
   ],
   "flagship_count": 1

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-19T06:51:56",
+  "fetched_at": "2026-09-20T07:16:26",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -14753,6 +14753,94 @@
                 "cache_creation_price": "25",
                 "cache_price": "2",
                 "output_price": "75"
+              }
+            ]
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "coreStrengths": [
+          "Adaptive real-time reasoning",
+          "State-of-the-art performance",
+          "Reduced hallucinations significantly",
+          "Large context (256K-400K tokens)"
+        ],
+        "useCases": [
+          "Mission-critical enterprise applications",
+          "Advanced coding & development",
+          "Human-like content creation",
+          "AI agent & workflow automation"
+        ]
+      },
+      {
+        "uuid": "ms-vmad7umbf2hg",
+        "model": "openai/gpt-5.6-sol-codex",
+        "type": "Text",
+        "displayName": "GPT 5.6 Sol",
+        "profile": "High-intelligence model built for deep reasoning, ambitious problem-solving, and frontier AI workloads.",
+        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.6-sol-codex.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/951996e6-7717-4f92-9e0f-589ae214e856.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.6-sol-codex.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.4.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.4.json",
+        "priority": 2007,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1050000,
+        "maxCompletionTokens": 131072,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.76",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "tiered_price": true,
+          "actual": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "30",
+            "cache_creation_price": "6.25",
+            "cache_price": "0.5",
+            "prompt_thresholds": [
+              {
+                "threshold": 272000,
+                "input_price": "10",
+                "cache_creation_price": "12.5",
+                "cache_price": "1",
+                "output_price": "45"
+              }
+            ]
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "5",
+            "output_price": "30",
+            "cache_creation_price": "6.25",
+            "cache_price": "0.5",
+            "prompt_thresholds": [
+              {
+                "threshold": 272000,
+                "input_price": "10",
+                "cache_creation_price": "12.5",
+                "cache_price": "1",
+                "output_price": "45"
               }
             ]
           }

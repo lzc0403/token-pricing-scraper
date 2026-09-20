@@ -1,14 +1,27 @@
 {
-  "generated_at": "2026-09-19",
+  "generated_at": "2026-09-20",
   "lookback_days": 7,
-  "changes": [],
+  "changes": [
+    {
+      "canonical": "Kimi K3",
+      "source": "kimi_ai",
+      "source_label": "Kimi国际站",
+      "field": "input",
+      "field_cn": "输入",
+      "old": 3.0,
+      "new": 0.3,
+      "pct": -90.0,
+      "currency": "USD",
+      "date": "2026-09-20"
+    }
+  ],
   "new_models": [
     {
       "canonical": "Doubao Seed 2.1 Pro",
       "source": "volcengine",
       "source_label": "火山引擎豆包",
       "first_seen": "2026-09-16",
-      "date": "2026-09-19"
+      "date": "2026-09-20"
     }
   ],
   "known": {
