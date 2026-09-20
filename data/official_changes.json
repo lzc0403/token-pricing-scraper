@@ -17,6 +17,34 @@
   ],
   "new_models": [
     {
+      "canonical": "DeepSeek V4.1 Flash",
+      "source": "deepseek_us",
+      "source_label": "DeepSeek海外官网",
+      "first_seen": "2026-09-20",
+      "date": "2026-09-20"
+    },
+    {
+      "canonical": "DeepSeek V4.1 Flash",
+      "source": "deepseek",
+      "source_label": "DeepSeek官网",
+      "first_seen": "2026-09-20",
+      "date": "2026-09-20"
+    },
+    {
+      "canonical": "Qwen3.7 Max",
+      "source": "aliyun",
+      "source_label": "阿里云通义",
+      "first_seen": "2026-09-20",
+      "date": "2026-09-20"
+    },
+    {
+      "canonical": "Qwen3.7 Plus",
+      "source": "aliyun",
+      "source_label": "阿里云通义",
+      "first_seen": "2026-09-20",
+      "date": "2026-09-20"
+    },
+    {
       "canonical": "Doubao Seed 2.1 Pro",
       "source": "volcengine",
       "source_label": "火山引擎豆包",
@@ -69,6 +97,10 @@
     "Kimi K2.7 Code\u0001kimi": "2026-09-05",
     "Kimi K2.7 Code\u0001kimi_ai": "2026-09-05",
     "GPT-5\u0001openai": "2026-09-06",
-    "GPT-6 Astra\u0001openai": "2026-09-10"
+    "GPT-6 Astra\u0001openai": "2026-09-10",
+    "DeepSeek V4.1 Flash\u0001deepseek_us": "2026-09-20",
+    "DeepSeek V4.1 Flash\u0001deepseek": "2026-09-20",
+    "Qwen3.7 Max\u0001aliyun": "2026-09-20",
+    "Qwen3.7 Plus\u0001aliyun": "2026-09-20"
   }
 }

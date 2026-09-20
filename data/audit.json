@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-20 07:20:02",
+  "generated_at": "2026-09-20 08:53:49",
   "stats": {
-    "total": 156,
-    "suspects": 60,
-    "high": 0,
-    "med": 28,
-    "low": 32,
-    "tier1": 30,
-    "tier2": 30,
+    "total": 179,
+    "suspects": 73,
+    "high": 4,
+    "med": 29,
+    "low": 40,
+    "tier1": 31,
+    "tier2": 42,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -473,6 +473,30 @@
     },
     {
       "tier": 1,
+      "code": "CACHE_RATIO_ANOMALY",
+      "severity": "med",
+      "source": "atlascloud",
+      "canonical": "DeepSeek V4.1 Flash",
+      "msg": "缓存/输入比率(10%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "record": {
+        "source": "atlascloud",
+        "model_raw": "DeepSeek V4.1 Flash",
+        "input": 0.3,
+        "output": 1.2,
+        "cache_hit": 0.03,
+        "cache_write": null,
+        "context": "1.04858M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "input_rmb": 2.1,
+        "output_rmb": 8.4,
+        "canonical": "DeepSeek V4.1 Flash",
+        "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
       "code": "DUPLICATE",
       "severity": "med",
       "source": "kimi",
@@ -521,11 +545,11 @@
       "severity": "low",
       "source": null,
       "canonical": "DeepSeek V4 Flash",
-      "msg": "跨源输入价离散 12.0× (最低 0.25676 / 最高 3.08)，建议人工核对是否同规格模型",
+      "msg": "跨源输入价离散 12.1× (最低 0.2548 / 最高 3.08)，建议人工核对是否同规格模型",
       "record": {
-        "min": 0.25676,
+        "min": 0.2548,
         "max": 3.08,
-        "ratio": 12.0
+        "ratio": 12.1
       }
     },
     {
@@ -668,6 +692,62 @@
     },
     {
       "tier": 2,
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
+      "source": "aliyun",
+      "canonical": "Qwen3.7 Max",
+      "msg": "静态源页面未找到input价数值「14.4」，疑似解析/幻觉错误",
+      "record": {
+        "model_raw": "Qwen3.7-Max",
+        "field": "input",
+        "value": "14.4",
+        "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
+      "source": "aliyun",
+      "canonical": "Qwen3.7 Max",
+      "msg": "静态源页面未找到output价数值「43.2」，疑似解析/幻觉错误",
+      "record": {
+        "model_raw": "Qwen3.7-Max",
+        "field": "output",
+        "value": "43.2",
+        "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
+      "source": "aliyun",
+      "canonical": "Qwen3.7 Plus",
+      "msg": "静态源页面未找到input价数值「2.4」，疑似解析/幻觉错误",
+      "record": {
+        "model_raw": "Qwen3.7-Plus",
+        "field": "input",
+        "value": "2.4",
+        "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
+      "source": "aliyun",
+      "canonical": "Qwen3.7 Plus",
+      "msg": "静态源页面未找到output价数值「9.6」，疑似解析/幻觉错误",
+      "record": {
+        "model_raw": "Qwen3.7-Plus",
+        "field": "output",
+        "value": "9.6",
+        "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
+      }
+    },
+    {
+      "tier": 2,
       "code": "SPA_NEED_RENDER",
       "severity": "low",
       "source": "kimi",
@@ -736,6 +816,54 @@
       "record": {
         "model_raw": "kimi-k3",
         "url": "https://platform.kimi.ai/docs/pricing/chat"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "mimo",
+      "canonical": "MiMo V2.5",
+      "msg": "SPA 源静态 HTML 未含模型名「mimo-v2.5」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "mimo-v2.5",
+        "url": "https://platform.xiaomimimo.com/docs/zh-CN/pricing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "mimo",
+      "canonical": "MiMo V2.5 Pro",
+      "msg": "SPA 源静态 HTML 未含模型名「mimo-v2.5-pr」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "mimo-v2.5-pro",
+        "url": "https://platform.xiaomimimo.com/docs/zh-CN/pricing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "mimo_intl",
+      "canonical": "MiMo V2.5",
+      "msg": "SPA 源静态 HTML 未含模型名「mimo-v2.5」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "mimo-v2.5",
+        "url": "https://platform.xiaomimimo.com/docs/en-US/pricing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "mimo_intl",
+      "canonical": "MiMo V2.5 Pro",
+      "msg": "SPA 源静态 HTML 未含模型名「mimo-v2.5-pr」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "mimo-v2.5-pro",
+        "url": "https://platform.xiaomimimo.com/docs/en-US/pricing"
       }
     },
     {
@@ -772,6 +900,18 @@
       "record": {
         "model_raw": "MiniMax-M3",
         "url": "https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "DeepSeek V4.1 Flash",
+      "msg": "SPA 源静态 HTML 未含模型名「DeepSeek-V4.」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "DeepSeek-V4.1-Flash",
+        "url": "https://global.modelmesh.info/model"
       }
     },
     {
@@ -887,6 +1027,30 @@
       "code": "SPA_NEED_RENDER",
       "severity": "low",
       "source": "modelmesh",
+      "canonical": "MiMo V2.5",
+      "msg": "SPA 源静态 HTML 未含模型名「MiMo-V2.5」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "MiMo-V2.5",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "MiMo V2.5 Pro",
+      "msg": "SPA 源静态 HTML 未含模型名「MiMo-V2.5-Pr」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "MiMo-V2.5-Pro",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
       "canonical": "MiniMax M2.7",
       "msg": "SPA 源静态 HTML 未含模型名「MiniMax M2.7」，需 Playwright 渲染核对",
       "record": {
@@ -927,6 +1091,18 @@
       "msg": "SPA 源静态 HTML 未含模型名「Qwen3.7-Plus」，需 Playwright 渲染核对",
       "record": {
         "model_raw": "Qwen3.7-Plus",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "Qwen3.8 Flash",
+      "msg": "SPA 源静态 HTML 未含模型名「Qwen3.8-Flas」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Qwen3.8-Flash",
         "url": "https://global.modelmesh.info/model"
       }
     },

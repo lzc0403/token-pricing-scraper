@@ -1,20 +1,11 @@
-## 🔔 Token 定价变动（2026-09-20 07:19:59）
+## 🔔 Token 定价变动（2026-09-20 08:53:47）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.564282 | 0.422298 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 1.12856 | 0.844596 | USD |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.04732 | 0.03668 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.09464 | 0.07336 | USD |
-| Kimi K3 | openrouter | 输入 | 1.875 | 1.7 | USD |
-| Kimi K3 | openrouter | 输出 | 10.5 | 8.5 | USD |
-| GLM-5.3 | openrouter | 输入 | 0.91 | 0.896 | USD |
-| GLM-5.3 | openrouter | 输出 | 2.86 | 2.816 | USD |
-| GLM-5.2 | openrouter | 输入 | 0.5544 | 0.6496 | USD |
-| GLM-5.2 | openrouter | 输出 | 1.7424 | 2.0416 | USD |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.03668 | 0.0364 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.07336 | 0.0728 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
-| Kimi K3 | kimi_ai | 输入 | 3 | 0.3 | USD |
 
 ## 🆕 新模型雷达（未登记候选，待人工确认）
 
