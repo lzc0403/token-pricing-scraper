@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-20T08:49:37",
+  "fetched_at": "2026-09-21T07:26:00",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -5607,7 +5607,80 @@
         "input_modalities": [
           "text",
           "image",
-          "video"
+          "video",
+          "audio"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "gemini.generate",
+          "openai.chat.completions"
+        ],
+        "coreStrengths": [
+          "Preview experimental features",
+          "Performance testing capabilities",
+          "Early integration opportunities",
+          "Development feedback channel"
+        ],
+        "useCases": [
+          "Preview testing environments",
+          "Migration planning workflows",
+          "Capability exploration tasks",
+          "Release preparation activities"
+        ]
+      },
+      {
+        "uuid": "ms-spsmcuj86wwl",
+        "model": "google/gemini-3.8-flash",
+        "type": "Text",
+        "displayName": "Gemini 3.8 Flash",
+        "profile": "Fast and cost-efficient multimodal model designed for high-throughput applications, real-time interactions, and everyday AI tasks.",
+        "logo": "https://static.atlascloud.ai/model/logo/gemini-2.5-flash-lite-enterprise.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-gemini-3.8-flash.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/9f98b418-5aef-4603-8775-a0906b1c9edf.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-gemini-3.8-flash.json",
+        "readme": "https://static.atlascloud.ai/model/readme/gemini-2.5-flash-lite-enterprise.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/gemini-2.5-flash-lite-enterprise.json",
+        "priority": 88890,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 65536,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "type": "flat",
+            "input_price": "0.75",
+            "output_price": "3.75",
+            "cache_creation_price": "0.042",
+            "cache_price": "0.075"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "1.5",
+            "output_price": "7.5",
+            "cache_creation_price": "0.083",
+            "cache_price": "0.15"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image",
+          "video",
+          "audio"
         ],
         "output_modalities": [
           "text"

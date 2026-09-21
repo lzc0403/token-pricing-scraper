@@ -106,12 +106,12 @@ openrouter,Claude Opus 5,5.0,25.0,0.5,6.25,,1M,,1M tokens,USD,35.0,175.0,Claude 
 openrouter,Claude Sonnet 4.5,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.5,yes
 openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.6,yes
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
-openrouter,DeepSeek V4 Flash,0.0364,0.0728,0.00728,,,1.04858M,,1M tokens,USD,0.2548,0.5096,DeepSeek V4 Flash,yes
-openrouter,DeepSeek V4 Pro,0.422298,0.844596,0.035192,,,1.04858M,,1M tokens,USD,2.956086,5.912172,DeepSeek V4 Pro,yes
-openrouter,DeepSeek V4 Pro 0813,0.66,1.98,0.022,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro 0813,yes
-openrouter,DeepSeek V4.1 Flash,0.15,0.6,0.003,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,1.05,4.2,DeepSeek V4.1 Flash,no
+openrouter,DeepSeek V4 Flash,0.088606,0.177212,0.017721,,,1.04858M,,1M tokens,USD,0.620242,1.240484,DeepSeek V4 Flash,yes
+openrouter,DeepSeek V4 Pro,0.95526,1.91052,0.079605,,,1.04858M,,1M tokens,USD,6.68682,13.37364,DeepSeek V4 Pro,no
+openrouter,DeepSeek V4 Pro 0813,1.32,3.96,0.044,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro 0813,yes
+openrouter,DeepSeek V4.1 Flash,0.3,1.2,0.006,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,2.1,8.4,DeepSeek V4.1 Flash,no
 openrouter,GLM 5.2,0.6496,2.0416,0.12064,,,1.04858M,,1M tokens,USD,4.5472,14.2912,GLM-5.2,yes
-openrouter,GLM-5.3,0.896,2.816,0.1664,,,1.31072M,,1M tokens,USD,6.272,19.712,GLM-5.3,yes
+openrouter,GLM-5.3,0.91,2.86,0.169,,,1.31072M,,1M tokens,USD,6.37,20.02,GLM-5.3,yes
 openrouter,GLM-5.3-Flash,0.09,0.3,0.018,,,1.31072M,,1M tokens,USD,0.63,2.1,GLM-5.3-Flash,yes
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
@@ -134,9 +134,9 @@ tencent,DeepSeek-V4-Flash,0.3,1.2,0.006,,,,高峰时段 | 原厂直供,1M tokens
 tencent,DeepSeek-V4-Flash,0.22,0.66,0.007,,,,空闲时段 | 腾讯云自建,1M tokens,USD,1.54,4.62,DeepSeek V4 Flash,no
 tencent,DeepSeek-V4-Flash,0.44,1.32,0.014,,,,高峰时段 | 腾讯云自建,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash,no
 tencent,DeepSeek-V4-Flash,0.14,0.28,0.028,,,,腾讯云自建,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,no
-tencent,DeepSeek-V4-Pro,0.66,1.98,0.022,,,,空闲时段 | 原厂直供,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,no
+tencent,DeepSeek-V4-Pro,0.66,1.98,0.022,,,,空闲时段 | 原厂直供,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,yes
 tencent,DeepSeek-V4-Pro,1.32,3.96,0.044,,,,高峰时段 | 原厂直供,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
-tencent,DeepSeek-V4-Pro,0.66,1.98,0.022,,,,空闲时段 | 腾讯云自建,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,no
+tencent,DeepSeek-V4-Pro,0.66,1.98,0.022,,,,空闲时段 | 腾讯云自建,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,yes
 tencent,DeepSeek-V4-Pro,1.32,3.96,0.044,,,,高峰时段 | 腾讯云自建,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
 tencent,DeepSeek-V4-Pro,1.74,3.48,0.145,,,,腾讯云自建,1M tokens,USD,12.18,24.36,DeepSeek V4 Pro,no
 tencent,DeepSeek-V4.1-Flash,0.15,0.6,0.003,,,,空闲时段 | 原厂直供,1M tokens,USD,1.05,4.2,DeepSeek V4.1 Flash,no
