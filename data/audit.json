@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-21 07:30:37",
+  "generated_at": "2026-09-22 07:08:08",
   "stats": {
-    "total": 179,
-    "suspects": 97,
+    "total": 170,
+    "suspects": 91,
     "high": 4,
-    "med": 29,
-    "low": 64,
-    "tier1": 30,
-    "tier2": 67,
+    "med": 33,
+    "low": 54,
+    "tier1": 34,
+    "tier2": 57,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -283,6 +283,54 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
+      "source": "aliyun_bailian",
+      "canonical": "DeepSeek V4.1 Flash",
+      "msg": "缓存/输入比率(20%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "record": {
+        "source": "aliyun_bailian",
+        "model_raw": "deepseek-v4.1-flash",
+        "input": 2.0,
+        "output": 8.0,
+        "cache_hit": 0.4,
+        "cache_write": null,
+        "context": null,
+        "condition": "阿里云自部署",
+        "unit": "1M tokens",
+        "currency": "CNY",
+        "input_rmb": 2.0,
+        "output_rmb": 8.0,
+        "canonical": "DeepSeek V4.1 Flash",
+        "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "CACHE_RATIO_ANOMALY",
+      "severity": "med",
+      "source": "atlascloud",
+      "canonical": "DeepSeek V4.1 Flash",
+      "msg": "缓存/输入比率(10%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "record": {
+        "source": "atlascloud",
+        "model_raw": "DeepSeek V4.1 Flash",
+        "input": 0.3,
+        "output": 1.2,
+        "cache_hit": 0.03,
+        "cache_write": null,
+        "context": "1.04858M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "input_rmb": 2.1,
+        "output_rmb": 8.4,
+        "canonical": "DeepSeek V4.1 Flash",
+        "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "CACHE_RATIO_ANOMALY",
+      "severity": "med",
       "source": "atlascloud",
       "canonical": "GLM-4.7",
       "msg": "缓存/输入比率(23%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
@@ -379,6 +427,33 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
+      "source": "openrouter",
+      "canonical": "GLM-5.3-Flash",
+      "msg": "缓存/输入比率(33%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "record": {
+        "source": "openrouter",
+        "model_raw": "GLM-5.3-Flash",
+        "input": 0.15,
+        "output": 0.5,
+        "cache_hit": 0.05,
+        "cache_write": null,
+        "context": "1.31072M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "openrouter_id": "z-ai/glm-5.3-flash",
+        "openrouter_prompt_per_token": "0.00000015",
+        "openrouter_completion_per_token": "0.0000005",
+        "input_rmb": 1.05,
+        "output_rmb": 3.5,
+        "canonical": "GLM-5.3-Flash",
+        "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "CACHE_RATIO_ANOMALY",
+      "severity": "med",
       "source": "tencent",
       "canonical": "GLM-5.3-Flash",
       "msg": "缓存/输入比率(29%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
@@ -396,7 +471,7 @@
         "input_rmb": 0.77812,
         "output_rmb": 2.72349,
         "canonical": "GLM-5.3-Flash",
-        "is_lowest_input": "no"
+        "is_lowest_input": "yes"
       }
     },
     {
@@ -473,30 +548,6 @@
     },
     {
       "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "atlascloud",
-      "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(10%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "atlascloud",
-        "model_raw": "DeepSeek V4.1 Flash",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_hit": 0.03,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "input_rmb": 2.1,
-        "output_rmb": 8.4,
-        "canonical": "DeepSeek V4.1 Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
       "code": "DUPLICATE",
       "severity": "med",
       "source": "kimi",
@@ -515,6 +566,28 @@
       "msg": "重复记录 ×3: kimi-k3",
       "record": {
         "key": "kimi_ai|kimi-k3|0.3|15.0"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "modelmesh",
+      "canonical": null,
+      "msg": "重复记录 ×2: Kimi K3",
+      "record": {
+        "key": "modelmesh|Kimi K3|20.0|100.0"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "DUPLICATE",
+      "severity": "med",
+      "source": "modelmesh",
+      "canonical": null,
+      "msg": "重复记录 ×2: Qwen3.8-Max",
+      "record": {
+        "key": "modelmesh|Qwen3.8-Max|12.0|36.0"
       }
     },
     {
@@ -809,54 +882,6 @@
       "tier": 2,
       "code": "SPA_NEED_RENDER",
       "severity": "low",
-      "source": "mimo",
-      "canonical": "MiMo V2.5",
-      "msg": "SPA 源静态 HTML 未含模型名「mimo-v2.5」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "mimo-v2.5",
-        "url": "https://platform.xiaomimimo.com/docs/zh-CN/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "mimo",
-      "canonical": "MiMo V2.5 Pro",
-      "msg": "SPA 源静态 HTML 未含模型名「mimo-v2.5-pr」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "mimo-v2.5-pro",
-        "url": "https://platform.xiaomimimo.com/docs/zh-CN/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "mimo_intl",
-      "canonical": "MiMo V2.5",
-      "msg": "SPA 源静态 HTML 未含模型名「mimo-v2.5」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "mimo-v2.5",
-        "url": "https://platform.xiaomimimo.com/docs/en-US/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "mimo_intl",
-      "canonical": "MiMo V2.5 Pro",
-      "msg": "SPA 源静态 HTML 未含模型名「mimo-v2.5-pr」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "mimo-v2.5-pro",
-        "url": "https://platform.xiaomimimo.com/docs/en-US/pricing"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
       "source": "minimax",
       "canonical": "MiniMax M2.7",
       "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对",
@@ -930,18 +955,6 @@
       "code": "SPA_NEED_RENDER",
       "severity": "low",
       "source": "modelmesh",
-      "canonical": "GLM-5.1",
-      "msg": "SPA 源静态 HTML 未含模型名「GLM-5.1」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "GLM-5.1",
-        "url": "https://global.modelmesh.info/model"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "modelmesh",
       "canonical": "GLM-5.2",
       "msg": "SPA 源静态 HTML 未含模型名「GLM-5.2」，需 Playwright 渲染核对",
       "record": {
@@ -978,18 +991,6 @@
       "code": "SPA_NEED_RENDER",
       "severity": "low",
       "source": "modelmesh",
-      "canonical": "Kimi K2.6",
-      "msg": "SPA 源静态 HTML 未含模型名「Kimi K2.6」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "Kimi K2.6",
-        "url": "https://global.modelmesh.info/model"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "modelmesh",
       "canonical": "Kimi K2.7 Code",
       "msg": "SPA 源静态 HTML 未含模型名「Kimi K2.7 Co」，需 Playwright 渲染核对",
       "record": {
@@ -1014,70 +1015,10 @@
       "code": "SPA_NEED_RENDER",
       "severity": "low",
       "source": "modelmesh",
-      "canonical": "MiMo V2.5",
-      "msg": "SPA 源静态 HTML 未含模型名「MiMo-V2.5」，需 Playwright 渲染核对",
+      "canonical": "Kimi K3",
+      "msg": "SPA 源静态 HTML 未含模型名「Kimi K3」，需 Playwright 渲染核对",
       "record": {
-        "model_raw": "MiMo-V2.5",
-        "url": "https://global.modelmesh.info/model"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "modelmesh",
-      "canonical": "MiMo V2.5 Pro",
-      "msg": "SPA 源静态 HTML 未含模型名「MiMo-V2.5-Pr」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "MiMo-V2.5-Pro",
-        "url": "https://global.modelmesh.info/model"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "modelmesh",
-      "canonical": "MiniMax M2.7",
-      "msg": "SPA 源静态 HTML 未含模型名「MiniMax M2.7」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "MiniMax M2.7",
-        "url": "https://global.modelmesh.info/model"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "modelmesh",
-      "canonical": "MiniMax M3",
-      "msg": "SPA 源静态 HTML 未含模型名「MiniMax M3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "MiniMax M3",
-        "url": "https://global.modelmesh.info/model"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "modelmesh",
-      "canonical": "Qwen3.7 Max",
-      "msg": "SPA 源静态 HTML 未含模型名「Qwen3.7-Max」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "Qwen3.7-Max",
-        "url": "https://global.modelmesh.info/model"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "modelmesh",
-      "canonical": "Qwen3.7 Plus",
-      "msg": "SPA 源静态 HTML 未含模型名「Qwen3.7-Plus」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "Qwen3.7-Plus",
+        "model_raw": "Kimi K3",
         "url": "https://global.modelmesh.info/model"
       }
     },
@@ -1090,6 +1031,18 @@
       "msg": "SPA 源静态 HTML 未含模型名「Qwen3.8-Flas」，需 Playwright 渲染核对",
       "record": {
         "model_raw": "Qwen3.8-Flash",
+        "url": "https://global.modelmesh.info/model"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "modelmesh",
+      "canonical": "Qwen3.8 Max",
+      "msg": "SPA 源静态 HTML 未含模型名「Qwen3.8-Max」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "Qwen3.8-Max",
         "url": "https://global.modelmesh.info/model"
       }
     },

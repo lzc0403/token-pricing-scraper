@@ -1,10 +1,25 @@
 {
-  "generated_at": "2026-09-21 07:30:34",
+  "generated_at": "2026-09-22 07:08:06",
   "enabled": true,
   "lookback_days": 60,
-  "scanned": 446,
-  "known_count": 231,
+  "scanned": 445,
+  "known_count": 236,
   "candidates": [
+    {
+      "id": "x-ai/grok-4.7",
+      "name": "Grok 4.7",
+      "provider": "x-ai",
+      "family": "xAI",
+      "region": "overseas",
+      "created": "2026-09-21",
+      "age_days": 0,
+      "input_usd_per_m": 1.6,
+      "output_usd_per_m": 4.8,
+      "context": "500K",
+      "flagship": true,
+      "registered": false,
+      "reason": "新上架 0 天 · xAI 系候选最高价档"
+    },
     {
       "id": "qwen/qwen3.8-2.4t-a95b",
       "name": "Qwen3.8 2.4T A95B",
@@ -12,14 +27,14 @@
       "family": "通义千问",
       "region": "domestic",
       "created": "2026-08-12",
-      "age_days": 39,
+      "age_days": 40,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 6.0,
       "context": "1.04858M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 39 天 · 通义千问 系候选最高价档"
+      "reason": "新上架 40 天 · 通义千问 系候选最高价档"
     }
   ],
-  "flagship_count": 1
+  "flagship_count": 2
 }

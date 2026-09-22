@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21",
+  "generated_at": "2026-09-22",
   "lookback_days": 7,
   "changes": [
     {
@@ -12,7 +12,7 @@
       "new": 0.3,
       "pct": -90.0,
       "currency": "USD",
-      "date": "2026-09-21"
+      "date": "2026-09-22"
     }
   ],
   "new_models": [
@@ -21,35 +21,35 @@
       "source": "deepseek_us",
       "source_label": "DeepSeek海外官网",
       "first_seen": "2026-09-20",
-      "date": "2026-09-21"
+      "date": "2026-09-22"
     },
     {
       "canonical": "DeepSeek V4.1 Flash",
       "source": "deepseek",
       "source_label": "DeepSeek官网",
       "first_seen": "2026-09-20",
-      "date": "2026-09-21"
+      "date": "2026-09-22"
     },
     {
       "canonical": "Qwen3.7 Max",
       "source": "aliyun",
       "source_label": "阿里云通义",
       "first_seen": "2026-09-20",
-      "date": "2026-09-21"
+      "date": "2026-09-22"
     },
     {
       "canonical": "Qwen3.7 Plus",
       "source": "aliyun",
       "source_label": "阿里云通义",
       "first_seen": "2026-09-20",
-      "date": "2026-09-21"
+      "date": "2026-09-22"
     },
     {
       "canonical": "Doubao Seed 2.1 Pro",
       "source": "volcengine",
       "source_label": "火山引擎豆包",
       "first_seen": "2026-09-16",
-      "date": "2026-09-21"
+      "date": "2026-09-22"
     }
   ],
   "known": {

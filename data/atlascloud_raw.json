@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-21T07:26:00",
+  "fetched_at": "2026-09-22T07:03:37",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -18466,6 +18466,117 @@
         ]
       },
       {
+        "uuid": "ms-864b930d29bd",
+        "model": "hi3d/v3.0-master/image-to-3d",
+        "type": "Image",
+        "displayName": "HI3D v3.0 Master",
+        "profile": "HI3D v3.0 Master is the highest-fidelity tier: 2048³ geometry with a 5M-face budget, for hero assets and 3D printing where the mesh is the deliverable rather than a preview. Generation is deliberately slow — plan for tens of minutes, not seconds.",
+        "logo": "https://static.atlascloud.ai/model/logo/hi3d-v3.0-master-image-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/HI3D.png",
+        "background": "https://static.atlascloud.ai/model/background/hi3d-v3.0-master-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/hi3d-v3.0-master-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/hi3d-v3.0-master-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/hi3d-v3.0-master-image-to-3d.md",
+        "organization": "HI3D",
+        "example": "https://static.atlascloud.ai/model/example/hi3d-v3.0-master-image-to-3d.json",
+        "priority": 486,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pdsgogfcdkl",
+        "familyName": "hi3d",
+        "familyDisplayName": "Hi3D",
+        "display_console": true,
+        "price": {
+          "discount": "85",
+          "actual": {
+            "base_price": "0.017"
+          },
+          "origin": {
+            "base_price": "0.02"
+          }
+        }
+      },
+      {
+        "uuid": "ms-36684231f032",
+        "model": "hi3d/v3.0-quality/image-to-3d",
+        "type": "Image",
+        "displayName": "HI3D v3.0 Quality",
+        "profile": "HI3D v3.0 Quality is the Ultra3D generation at 2048³, resolving thin structures, sharp edges and surface detail that the 1536³ tiers smooth over. One image or up to four views in, a textured mesh out, with PBR maps and GLB/OBJ/STL/FBX/USDZ/3MF output.",
+        "logo": "https://static.atlascloud.ai/model/logo/hi3d-v3.0-quality-image-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/HI3D.png",
+        "background": "https://static.atlascloud.ai/model/background/hi3d-v3.0-quality-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/hi3d-v3.0-quality-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/hi3d-v3.0-quality-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/hi3d-v3.0-quality-image-to-3d.md",
+        "organization": "HI3D",
+        "example": "https://static.atlascloud.ai/model/example/hi3d-v3.0-quality-image-to-3d.json",
+        "priority": 485,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pdsgogfcdkl",
+        "familyName": "hi3d",
+        "familyDisplayName": "Hi3D",
+        "display_console": true,
+        "price": {
+          "discount": "85",
+          "actual": {
+            "base_price": "0.017"
+          },
+          "origin": {
+            "base_price": "0.02"
+          }
+        }
+      },
+      {
+        "uuid": "ms-cb901208538a",
+        "model": "hi3d/v2.1-pro/image-to-3d",
+        "type": "Image",
+        "displayName": "HI3D v2.1 Pro",
+        "profile": "HI3D v2.1 Pro reconstructs a textured 3D mesh from one image or up to four views at 1536³ Pro quality — the same geometry model as v2.1 Fast with a longer, higher-fidelity refinement pass. Outputs GLB/OBJ/STL/FBX/USDZ/3MF with optional PBR maps.",
+        "logo": "https://static.atlascloud.ai/model/logo/hi3d-v2.1-pro-image-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/HI3D.png",
+        "background": "https://static.atlascloud.ai/model/background/hi3d-v2.1-pro-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/hi3d-v2.1-pro-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/hi3d-v2.1-pro-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/hi3d-v2.1-pro-image-to-3d.md",
+        "organization": "HI3D",
+        "example": "https://static.atlascloud.ai/model/example/hi3d-v2.1-pro-image-to-3d.json",
+        "priority": 484,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pdsgogfcdkl",
+        "familyName": "hi3d",
+        "familyDisplayName": "Hi3D",
+        "display_console": true,
+        "price": {
+          "discount": "85",
+          "actual": {
+            "base_price": "0.017"
+          },
+          "origin": {
+            "base_price": "0.02"
+          }
+        }
+      },
+      {
         "uuid": "ms-sr070wadkahb",
         "model": "xai/grok-imagine-image/edit",
         "type": "Image",
@@ -18499,6 +18610,43 @@
           "discount": "100",
           "actual": {
             "base_price": "0.02"
+          },
+          "origin": {
+            "base_price": "0.02"
+          }
+        }
+      },
+      {
+        "uuid": "ms-b7b1dd7e8775",
+        "model": "hi3d/v2.1-fast/image-to-3d",
+        "type": "Image",
+        "displayName": "HI3D v2.1 Fast",
+        "profile": "HI3D v2.1 Fast turns one photo — or two to four views of the same object — into a textured 3D mesh at 1536³ resolution. The quickest and cheapest tier in the HI3D line, built on Math Magic's Sparc3D geometry model, with PBR textures and GLB/OBJ/STL/FBX/USDZ/3MF output.",
+        "logo": "https://static.atlascloud.ai/model/logo/hi3d-v2.1-fast-image-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/HI3D.png",
+        "background": "https://static.atlascloud.ai/model/background/hi3d-v2.1-fast-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/hi3d-v2.1-fast-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/hi3d-v2.1-fast-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/hi3d-v2.1-fast-image-to-3d.md",
+        "organization": "HI3D",
+        "example": "https://static.atlascloud.ai/model/example/hi3d-v2.1-fast-image-to-3d.json",
+        "priority": 483,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pdsgogfcdkl",
+        "familyName": "hi3d",
+        "familyDisplayName": "Hi3D",
+        "display_console": true,
+        "price": {
+          "discount": "85",
+          "actual": {
+            "base_price": "0.017"
           },
           "origin": {
             "base_price": "0.02"
@@ -22522,6 +22670,424 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-77dfc2de576b",
+        "model": "ltx/ltx-2.3-pro/audio-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.3 Pro Audio-to-Video",
+        "profile": "LTX-2.3 Pro audio-to-video (Lightricks LTX-2 native API): generate video synchronized to a driving audio track (dialogue/music/ambient); the audio sets the length. Up to 4K at 24/48 fps.",
+        "logo": "https://static.atlascloud.ai/uploads/models/a9559536-f8f2-44c1-b7f8-8c7bfdb14ea7.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.3-pro-audio-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.3-pro-audio-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.3-pro-audio-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.3-pro-audio-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.3-pro-audio-to-video.json",
+        "priority": 100,
+        "categories": [
+          "AUDIO-TO-VIDEO"
+        ],
+        "tags": [
+          "AUDIO-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.06"
+          },
+          "origin": {
+            "base_price": "0.06"
+          }
+        }
+      },
+      {
+        "uuid": "ms-d4ba214547bb",
+        "model": "ltx/ltx-2.5-fast/audio-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.5 Fast Audio-to-Video",
+        "profile": "LTX-2.5 Fast audio-to-video (Lightricks LTX-2 native API): generate video synchronized to a driving audio track (dialogue/music/ambient); the audio sets the length. Up to 4K at 24/48 fps.",
+        "logo": "https://static.atlascloud.ai/uploads/models/abf9ab53-bf0e-4800-bbfb-8fc57d4f35de.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.5-fast-audio-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.5-fast-audio-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.5-fast-audio-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.5-fast-audio-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.5-fast-audio-to-video.json",
+        "priority": 100,
+        "categories": [
+          "AUDIO-TO-VIDEO"
+        ],
+        "tags": [
+          "AUDIO-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.09"
+          },
+          "origin": {
+            "base_price": "0.09"
+          }
+        }
+      },
+      {
+        "uuid": "ms-65bda64e0b74",
+        "model": "ltx/ltx-2.5-pro/audio-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.5 Pro Audio-to-Video",
+        "profile": "LTX-2.5 Pro audio-to-video (Lightricks LTX-2 native API): generate video synchronized to a driving audio track (dialogue/music/ambient); the audio sets the length. Up to 4K at 24/48 fps.",
+        "logo": "https://static.atlascloud.ai/uploads/models/267edca2-9746-476b-a442-cc13e5023e49.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.5-pro-audio-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.5-pro-audio-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.5-pro-audio-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.5-pro-audio-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.5-pro-audio-to-video.json",
+        "priority": 100,
+        "categories": [
+          "AUDIO-TO-VIDEO"
+        ],
+        "tags": [
+          "AUDIO-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.12"
+          },
+          "origin": {
+            "base_price": "0.12"
+          }
+        }
+      },
+      {
+        "uuid": "ms-70f6d5e6bc37",
+        "model": "ltx/ltx-2.5-fast/text-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.5 Fast Text-to-Video",
+        "profile": "LTX-2.5 Fast text-to-video (Lightricks LTX-2 native API): generate a cinematic clip from a text prompt, up to 4K at 24/48 fps (up to 20s at 720p/1080p, with synchronized audio).",
+        "logo": "https://static.atlascloud.ai/uploads/models/110c33e2-a1fd-4968-8b33-9a73f6f63bff.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.5-fast-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.5-fast-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.5-fast-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.5-fast-text-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.5-fast-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.09"
+          },
+          "origin": {
+            "base_price": "0.09"
+          }
+        }
+      },
+      {
+        "uuid": "ms-61845ccb3701",
+        "model": "ltx/ltx-2.5-fast/image-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.5 Fast Image-to-Video",
+        "profile": "LTX-2.5 Fast image-to-video (Lightricks LTX-2 native API): animate a first-frame image (optionally interpolating to a last frame), up to 4K at 24/48 fps (up to 20s at 720p/1080p, with synchronized audio).",
+        "logo": "https://static.atlascloud.ai/uploads/models/7943997b-9999-4a40-aae8-85f3fa4f64b5.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.5-fast-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.5-fast-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.5-fast-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.5-fast-image-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.5-fast-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.09"
+          },
+          "origin": {
+            "base_price": "0.09"
+          }
+        }
+      },
+      {
+        "uuid": "ms-37db8ae504c5",
+        "model": "ltx/ltx-2.5-pro/text-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.5 Pro Text-to-Video",
+        "profile": "LTX-2.5 Pro text-to-video (Lightricks LTX-2 native API): generate a cinematic clip from a text prompt, up to 4K at 24/48 fps (6–10s, top-quality, with synchronized audio).",
+        "logo": "https://static.atlascloud.ai/uploads/models/bc95a4e9-9fd3-4972-be60-f46868b0068b.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.5-pro-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.5-pro-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.5-pro-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.5-pro-text-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.5-pro-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.12"
+          },
+          "origin": {
+            "base_price": "0.12"
+          }
+        }
+      },
+      {
+        "uuid": "ms-ad9c78406734",
+        "model": "ltx/ltx-2.5-pro/image-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.5 Pro Image-to-Video",
+        "profile": "LTX-2.5 Pro image-to-video (Lightricks LTX-2 native API): animate a first-frame image (optionally interpolating to a last frame), up to 4K at 24/48 fps (6–10s, top-quality, with synchronized audio).",
+        "logo": "https://static.atlascloud.ai/uploads/models/31604987-1a63-47d3-ac03-c6fa7751de0c.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.5-pro-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.5-pro-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.5-pro-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.5-pro-image-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.5-pro-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.12"
+          },
+          "origin": {
+            "base_price": "0.12"
+          }
+        }
+      },
+      {
+        "uuid": "ms-77502371b038",
+        "model": "ltx/ltx-2.3-fast/text-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.3 Fast Text-to-Video",
+        "profile": "LTX-2.3 Fast text-to-video (Lightricks LTX-2 native API): generate a cinematic clip from a text prompt, up to 4K at 24/48 fps (up to 20s at 720p/1080p, silent-only).",
+        "logo": "https://static.atlascloud.ai/uploads/models/a6b05366-0762-4364-a828-2ed79ff60d26.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.3-fast-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.3-fast-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.3-fast-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.3-fast-text-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.3-fast-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.03"
+          },
+          "origin": {
+            "base_price": "0.03"
+          }
+        }
+      },
+      {
+        "uuid": "ms-b08cdde015a2",
+        "model": "ltx/ltx-2.3-fast/image-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.3 Fast Image-to-Video",
+        "profile": "LTX-2.3 Fast image-to-video (Lightricks LTX-2 native API): animate a first-frame image (optionally interpolating to a last frame), up to 4K at 24/48 fps (up to 20s at 720p/1080p, silent-only).",
+        "logo": "https://static.atlascloud.ai/uploads/models/52f214b1-a4ae-4582-8196-70879236dc59.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.3-fast-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.3-fast-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.3-fast-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.3-fast-image-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.3-fast-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.03"
+          },
+          "origin": {
+            "base_price": "0.03"
+          }
+        }
+      },
+      {
+        "uuid": "ms-4033c1d30a77",
+        "model": "ltx/ltx-2.3-pro/text-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.3 Pro Text-to-Video",
+        "profile": "LTX-2.3 Pro text-to-video (Lightricks LTX-2 native API): generate a cinematic clip from a text prompt, up to 4K at 24/48 fps (6–10s, with synchronized audio).",
+        "logo": "https://static.atlascloud.ai/uploads/models/2a85e7cb-cf69-4688-a49d-95a8603c0abe.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.3-pro-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.3-pro-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.3-pro-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.3-pro-text-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.3-pro-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.04"
+          }
+        }
+      },
+      {
+        "uuid": "ms-931c7cd7e1a2",
+        "model": "ltx/ltx-2.3-pro/image-to-video",
+        "type": "Video",
+        "displayName": "LTX-2.3 Pro Image-to-Video",
+        "profile": "LTX-2.3 Pro image-to-video (Lightricks LTX-2 native API): animate a first-frame image (optionally interpolating to a last frame), up to 4K at 24/48 fps (6–10s, with synchronized audio).",
+        "logo": "https://static.atlascloud.ai/uploads/models/66a78030-4b2a-42ac-aab5-480cca88f19d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LTX.png",
+        "background": "https://static.atlascloud.ai/model/background/ltx-ltx-2.3-pro-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/ltx-ltx-2.3-pro-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/ltx-ltx-2.3-pro-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/ltx-ltx-2.3-pro-image-to-video.md",
+        "organization": "LTX",
+        "example": "https://static.atlascloud.ai/model/example/ltx-ltx-2.3-pro-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.04"
           }
         }
       },
