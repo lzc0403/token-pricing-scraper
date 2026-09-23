@@ -16,13 +16,6 @@
         "status": "未跟进"
       },
       {
-        "source": "modelmesh",
-        "before": 0.4,
-        "after": 0.8,
-        "pct": 100.0,
-        "status": "已跟进"
-      },
-      {
         "source": "openrouter",
         "before": 0.075,
         "after": 0.075,
@@ -60,13 +53,6 @@
         "after": 0.5,
         "pct": 0.0,
         "status": "未跟进"
-      },
-      {
-        "source": "modelmesh",
-        "before": 1.4,
-        "after": 2.8,
-        "pct": 100.0,
-        "status": "已跟进"
       },
       {
         "source": "openrouter",
@@ -150,13 +136,6 @@
         "source": "atlascloud",
         "before": 3.0,
         "after": 3.0,
-        "pct": 0.0,
-        "status": "未跟进"
-      },
-      {
-        "source": "modelmesh",
-        "before": 20.0,
-        "after": 20.0,
         "pct": 0.0,
         "status": "未跟进"
       },

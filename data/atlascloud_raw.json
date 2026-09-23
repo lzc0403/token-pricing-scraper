@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-22T07:03:37",
+  "fetched_at": "2026-09-23T06:59:53",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -11006,6 +11006,12 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
+        "familyUUID": "mf-2bre9rdqfz94",
+        "familyName": "wan",
+        "familyDisplayName": "Wan API: Open Video Generation by Alibaba",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -11040,6 +11046,12 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
+        "familyUUID": "mf-2bre9rdqfz94",
+        "familyName": "wan",
+        "familyDisplayName": "Wan API: Open Video Generation by Alibaba",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -11074,6 +11086,12 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
+        "familyUUID": "mf-2bre9rdqfz94",
+        "familyName": "wan",
+        "familyDisplayName": "Wan API: Open Video Generation by Alibaba",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -11108,6 +11126,12 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
+        "familyUUID": "mf-2bre9rdqfz94",
+        "familyName": "wan",
+        "familyDisplayName": "Wan API: Open Video Generation by Alibaba",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -11142,6 +11166,12 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
+        "familyUUID": "mf-2bre9rdqfz94",
+        "familyName": "wan",
+        "familyDisplayName": "Wan API: Open Video Generation by Alibaba",
+        "parentFamilyUUID": "mf-2bqy3lixq16l",
+        "parentFamilyName": "qwen-wan",
+        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -15522,78 +15552,6 @@
         ]
       },
       {
-        "uuid": "ms-2cb30ygju86i",
-        "model": "kwaipilot/kat-coder-pro-v2",
-        "type": "Text",
-        "displayName": "KAT Coder Pro V2",
-        "profile": "KAT Coder Pro is KwaiKAT's most advanced agentic coding model in the KAT-Coder series. Designed specifically for agentic coding tasks, it excels in real-world software engineering scenarios, achieving 73.4% solve rate on the SWE-Bench Verified benchmark.",
-        "logo": "https://static.atlascloud.ai/model/avatar/kwaipilot.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KWAIPILOT.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaipilot-kat-coder-pro-v2.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/d4d9ea09-ba6a-47e2-86b2-dda10ad60270.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaipilot-kat-coder-pro-v2.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaipilot-kat-coder-pro-v2.md",
-        "organization": "KWAIPILOT",
-        "example": "https://static.atlascloud.ai/model/example/kwaipilot-kat-coder-pro-v2.json",
-        "priority": 1432,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 262144,
-        "maxCompletionTokens": 144000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.3",
-            "output_price": "1.2",
-            "cache_price": "0.06"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.3",
-            "output_price": "1.2",
-            "cache_price": "0.06"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_sampling_parameters": [
-          "temperature",
-          "top_p",
-          "top_k",
-          "min_p",
-          "frequency_penalty",
-          "presence_penalty",
-          "repetition_penalty",
-          "stop",
-          "seed",
-          "max_tokens",
-          "logit_bias"
-        ],
-        "supported_features": [
-          "json_mode",
-          "structured_outputs",
-          "tools"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
         "uuid": "ms-wgnmmmsuzxrl",
         "model": "google/gemini-3.1-pro-preview",
         "type": "Text",
@@ -18490,7 +18448,7 @@
         ],
         "familyUUID": "mf-2pdsgogfcdkl",
         "familyName": "hi3d",
-        "familyDisplayName": "Hi3D",
+        "familyDisplayName": "Hi3D Production-Ready Image-to-3D Models",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -18527,7 +18485,7 @@
         ],
         "familyUUID": "mf-2pdsgogfcdkl",
         "familyName": "hi3d",
-        "familyDisplayName": "Hi3D",
+        "familyDisplayName": "Hi3D Production-Ready Image-to-3D Models",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -18564,7 +18522,7 @@
         ],
         "familyUUID": "mf-2pdsgogfcdkl",
         "familyName": "hi3d",
-        "familyDisplayName": "Hi3D",
+        "familyDisplayName": "Hi3D Production-Ready Image-to-3D Models",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -18641,7 +18599,7 @@
         ],
         "familyUUID": "mf-2pdsgogfcdkl",
         "familyName": "hi3d",
-        "familyDisplayName": "Hi3D",
+        "familyDisplayName": "Hi3D Production-Ready Image-to-3D Models",
         "display_console": true,
         "price": {
           "discount": "85",
