@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-23T06:59:53",
+  "fetched_at": "2026-09-24T06:57:28",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -112,7 +112,7 @@
         "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "80",
@@ -152,7 +152,7 @@
         "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "80",
@@ -192,7 +192,7 @@
         "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "80",
@@ -232,7 +232,7 @@
         "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "80",
@@ -8032,7 +8032,7 @@
         "familyDisplayName": "GPT Image 2 API for Accurate In-Image Text",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -8073,7 +8073,7 @@
         "familyDisplayName": "GPT Image 2 API for Accurate In-Image Text",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -8269,9 +8269,9 @@
           "NEW",
           "TEXT-TO-VIDEO"
         ],
-        "familyUUID": "mf-2gclr07i4tw7",
-        "familyName": "seedance2",
-        "familyDisplayName": "The Seedance 2.0 API, Built for Production (4K is Now Supported)",
+        "familyUUID": "mf-2pgekhiw31i7",
+        "familyName": "seedance-2.0-fast",
+        "familyDisplayName": "Seedance 2.0 Fast API",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -8309,9 +8309,9 @@
           "NEW",
           "IMAGE-TO-VIDEO"
         ],
-        "familyUUID": "mf-2gclr07i4tw7",
-        "familyName": "seedance2",
-        "familyDisplayName": "The Seedance 2.0 API, Built for Production (4K is Now Supported)",
+        "familyUUID": "mf-2pgekhiw31i7",
+        "familyName": "seedance-2.0-fast",
+        "familyDisplayName": "Seedance 2.0 Fast API",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -8350,9 +8350,9 @@
           "NEW",
           "IMAGE-TO-VIDEO"
         ],
-        "familyUUID": "mf-2gclr07i4tw7",
-        "familyName": "seedance2",
-        "familyDisplayName": "The Seedance 2.0 API, Built for Production (4K is Now Supported)",
+        "familyUUID": "mf-2pgekhiw31i7",
+        "familyName": "seedance-2.0-fast",
+        "familyDisplayName": "Seedance 2.0 Fast API",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -11806,12 +11806,12 @@
           "TEXT-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2ig444mdn52r",
-        "familyName": "gpt-image",
-        "familyDisplayName": "GPT Image API with 3 Model Tiers",
+        "familyUUID": "mf-2pfbgvrh03io",
+        "familyName": "gpt-image-1.5",
+        "familyDisplayName": "GPT Image 1.5 Precise Prompt Control",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -11846,12 +11846,12 @@
           "IMAGE-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2ig444mdn52r",
-        "familyName": "gpt-image",
-        "familyDisplayName": "GPT Image API with 3 Model Tiers",
+        "familyUUID": "mf-2pfbgvrh03io",
+        "familyName": "gpt-image-1.5",
+        "familyDisplayName": "GPT Image 1.5 Precise Prompt Control",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -12945,10 +12945,10 @@
         ],
         "familyUUID": "mf-2ig444mdn52r",
         "familyName": "gpt-image",
-        "familyDisplayName": "GPT Image API with 3 Model Tiers",
+        "familyDisplayName": "GPT Image 1 with Accurate Text",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -12986,10 +12986,10 @@
         ],
         "familyUUID": "mf-2ig444mdn52r",
         "familyName": "gpt-image",
-        "familyDisplayName": "GPT Image API with 3 Model Tiers",
+        "familyDisplayName": "GPT Image 1 with Accurate Text",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -13024,12 +13024,12 @@
           "TEXT-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2ig444mdn52r",
-        "familyName": "gpt-image",
-        "familyDisplayName": "GPT Image API with 3 Model Tiers",
+        "familyUUID": "mf-2pfblor5umkw",
+        "familyName": "gpt-image-1-mini",
+        "familyDisplayName": "Cost-Efficient GPT Image 1 MINI",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -13064,12 +13064,12 @@
           "IMAGE-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2ig444mdn52r",
-        "familyName": "gpt-image",
-        "familyDisplayName": "GPT Image API with 3 Model Tiers",
+        "familyUUID": "mf-2pfblor5umkw",
+        "familyName": "gpt-image-1-mini",
+        "familyDisplayName": "Cost-Efficient GPT Image 1 MINI",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "85",
@@ -13997,9 +13997,9 @@
           "TEXT-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2d997o47cbwe",
-        "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyUUID": "mf-2pgehkv78r82",
+        "familyName": "nanobanana-pro",
+        "familyDisplayName": "Nano Banana Pro API",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -14037,9 +14037,9 @@
           "IMAGE-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2d997o47cbwe",
-        "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyUUID": "mf-2pgehkv78r82",
+        "familyName": "nanobanana-pro",
+        "familyDisplayName": "Nano Banana Pro API",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -14077,9 +14077,9 @@
           "TEXT-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2d997o47cbwe",
-        "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyUUID": "mf-2pgehkv78r82",
+        "familyName": "nanobanana-pro",
+        "familyDisplayName": "Nano Banana Pro API",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -14199,9 +14199,9 @@
           "IMAGE-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2d997o47cbwe",
-        "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyUUID": "mf-2pgehkv78r82",
+        "familyName": "nanobanana-pro",
+        "familyDisplayName": "Nano Banana Pro API",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -14278,7 +14278,7 @@
         "familyDisplayName": "ChatGPT API for Frontier GPT 5.6 Reasoning",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "contextLength": 1050000,
         "maxCompletionTokens": 131072,
         "avgTotalTPS": "18.54",
@@ -14372,7 +14372,7 @@
         "familyDisplayName": "ChatGPT API for Frontier GPT 5.6 Reasoning",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "contextLength": 1050000,
         "maxCompletionTokens": 131072,
         "avgTotalTPS": "18.54",
@@ -14466,7 +14466,7 @@
         "familyDisplayName": "ChatGPT API for Frontier GPT 5.6 Reasoning",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "contextLength": 1050000,
         "maxCompletionTokens": 131072,
         "avgTotalTPS": "18.54",
@@ -15000,7 +15000,7 @@
         "familyDisplayName": "ChatGPT API for Frontier GPT 5.6 Reasoning",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "contextLength": 400000,
         "maxCompletionTokens": 128000,
         "avgTotalTPS": "18.54",
@@ -15090,7 +15090,7 @@
         "familyDisplayName": "ChatGPT API for Frontier GPT 5.6 Reasoning",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "contextLength": 1050000,
         "maxCompletionTokens": 128000,
         "avgTotalTPS": "18.54",
@@ -18639,7 +18639,7 @@
         "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -18756,7 +18756,7 @@
         "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -18833,7 +18833,7 @@
         "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -18910,7 +18910,7 @@
         "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -18921,6 +18921,65 @@
             "base_price": "0.03"
           }
         }
+      },
+      {
+        "uuid": "ms-wd4444wzhc9k",
+        "model": "anthropic/claude-opus-5.5",
+        "type": "Text",
+        "displayName": "Claude Opus 5.5",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-5.5.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/a1cfccf3-b867-4340-8252-74abc27b6c60.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-5.5.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
+        "priority": 474,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 1000000,
+        "maxCompletionTokens": 128000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "4",
+            "output_price": "20",
+            "cache_creation_price": "5",
+            "cache_creation_1h_price": "8",
+            "cache_price": "0.2"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "4",
+            "output_price": "20",
+            "cache_creation_price": "5",
+            "cache_creation_1h_price": "8",
+            "cache_price": "0.2"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
       },
       {
         "uuid": "ms-hcxtrzec43xh",
@@ -20802,7 +20861,7 @@
         "familyDisplayName": "GPT Image 2 API for Accurate In-Image Text",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "50",
@@ -20918,7 +20977,7 @@
         "familyDisplayName": "GPT Image 2 API for Accurate In-Image Text",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
-        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image 2",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "display_console": true,
         "price": {
           "discount": "50",
@@ -21076,9 +21135,9 @@
           "TEXT-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2d997o47cbwe",
-        "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyUUID": "mf-2pgehkv78r82",
+        "familyName": "nanobanana-pro",
+        "familyDisplayName": "Nano Banana Pro API",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -21441,9 +21500,9 @@
           "IMAGE-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2d997o47cbwe",
-        "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyUUID": "mf-2pgehkv78r82",
+        "familyName": "nanobanana-pro",
+        "familyDisplayName": "Nano Banana Pro API",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -22628,6 +22687,310 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-d2e8a7230ee1",
+        "model": "luma/uni-1/edit",
+        "type": "Image",
+        "displayName": "Luma Uni 1 Edit",
+        "profile": "Luma Uni 1 edit (Luma AI generations API): edit an uploaded source image with a text instruction. Supports multiple aspect ratios and png/jpeg output.",
+        "logo": "https://static.atlascloud.ai/model/logo/luma-uni-1-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
+        "background": "https://static.atlascloud.ai/model/background/luma-uni-1-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/luma-uni-1-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/luma-uni-1-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/luma-uni-1-edit.md",
+        "organization": "LUMA",
+        "example": "https://static.atlascloud.ai/model/example/luma-uni-1-edit.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pgmma5f771b",
+        "familyName": "luma-uni-1",
+        "familyDisplayName": "Luma Uni 1 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.043"
+          },
+          "origin": {
+            "base_price": "0.043"
+          }
+        }
+      },
+      {
+        "uuid": "ms-f94acb92e693",
+        "model": "luma/uni-1-max/edit",
+        "type": "Image",
+        "displayName": "Luma Uni 1 Max Edit",
+        "profile": "Luma Uni 1 Max edit (Luma AI generations API): higher-quality tier. Edit an uploaded source image with a text instruction. Supports multiple aspect ratios and png/jpeg output.",
+        "logo": "https://static.atlascloud.ai/model/logo/luma-uni-1-max-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
+        "background": "https://static.atlascloud.ai/model/background/luma-uni-1-max-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/luma-uni-1-max-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/luma-uni-1-max-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/luma-uni-1-max-edit.md",
+        "organization": "LUMA",
+        "example": "https://static.atlascloud.ai/model/example/luma-uni-1-max-edit.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pgmma5f771b",
+        "familyName": "luma-uni-1",
+        "familyDisplayName": "Luma Uni 1 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.103"
+          },
+          "origin": {
+            "base_price": "0.103"
+          }
+        }
+      },
+      {
+        "uuid": "ms-83962183a3b8",
+        "model": "luma/ray-3.2/video-to-video",
+        "type": "Video",
+        "displayName": "Luma Ray 3.2 Video-to-Video",
+        "profile": "Luma Ray 3.2 video-to-video (Luma AI generations API): restyle/edit a source video with a text instruction. strength controls preserve↔transform. Supports 540p/720p/1080p, 5s/10s, HDR.",
+        "logo": "https://static.atlascloud.ai/model/logo/luma-ray-3.2-video-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
+        "background": "https://static.atlascloud.ai/model/background/luma-ray-3.2-video-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/luma-ray-3.2-video-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/luma-ray-3.2-video-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/luma-ray-3.2-video-to-video.md",
+        "organization": "LUMA",
+        "example": "https://static.atlascloud.ai/model/example/luma-ray-3.2-video-to-video.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pgmnsdxtx7j",
+        "familyName": "luma-ray-3.2",
+        "familyDisplayName": "Luma Ray 3.2 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.54"
+          },
+          "origin": {
+            "base_price": "0.54"
+          }
+        }
+      },
+      {
+        "uuid": "ms-8660da39eae3",
+        "model": "luma/ray-3.2/reframe",
+        "type": "Video",
+        "displayName": "Luma Ray 3.2 Reframe",
+        "profile": "Luma Ray 3.2 reframe (Luma AI generations API): reframe a source video into a new aspect ratio. Supports 540p/720p/1080p. Billed per second of source video.",
+        "logo": "https://static.atlascloud.ai/model/logo/luma-ray-3.2-reframe.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
+        "background": "https://static.atlascloud.ai/model/background/luma-ray-3.2-reframe.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/luma-ray-3.2-reframe.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/luma-ray-3.2-reframe.json",
+        "readme": "https://static.atlascloud.ai/model/readme/luma-ray-3.2-reframe.md",
+        "organization": "LUMA",
+        "example": "https://static.atlascloud.ai/model/example/luma-ray-3.2-reframe.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pgmnsdxtx7j",
+        "familyName": "luma-ray-3.2",
+        "familyDisplayName": "Luma Ray 3.2 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.03"
+          },
+          "origin": {
+            "base_price": "0.03"
+          }
+        }
+      },
+      {
+        "uuid": "ms-0369404cd770",
+        "model": "luma/ray-3.2/text-to-video",
+        "type": "Video",
+        "displayName": "Luma Ray 3.2 Text-to-Video",
+        "profile": "Luma Ray 3.2 text-to-video (Luma AI generations API): generate a cinematic clip from a text prompt. Supports 540p/720p/1080p, 5s/10s, and common aspect ratios.",
+        "logo": "https://static.atlascloud.ai/model/logo/luma-ray-3.2-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
+        "background": "https://static.atlascloud.ai/model/background/luma-ray-3.2-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/luma-ray-3.2-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/luma-ray-3.2-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/luma-ray-3.2-text-to-video.md",
+        "organization": "LUMA",
+        "example": "https://static.atlascloud.ai/model/example/luma-ray-3.2-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pgmnsdxtx7j",
+        "familyName": "luma-ray-3.2",
+        "familyDisplayName": "Luma Ray 3.2 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.06"
+          },
+          "origin": {
+            "base_price": "0.06"
+          }
+        }
+      },
+      {
+        "uuid": "ms-c2c44b3fce52",
+        "model": "luma/ray-3.2/image-to-video",
+        "type": "Video",
+        "displayName": "Luma Ray 3.2 Image-to-Video",
+        "profile": "Luma Ray 3.2 image-to-video (Luma AI generations API): animate a first-frame image (optionally interpolating to a last frame) driven by a text prompt. Supports 540p/720p/1080p, 5s/10s.",
+        "logo": "https://static.atlascloud.ai/model/logo/luma-ray-3.2-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
+        "background": "https://static.atlascloud.ai/model/background/luma-ray-3.2-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/luma-ray-3.2-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/luma-ray-3.2-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/luma-ray-3.2-image-to-video.md",
+        "organization": "LUMA",
+        "example": "https://static.atlascloud.ai/model/example/luma-ray-3.2-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pgmnsdxtx7j",
+        "familyName": "luma-ray-3.2",
+        "familyDisplayName": "Luma Ray 3.2 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.06"
+          },
+          "origin": {
+            "base_price": "0.06"
+          }
+        }
+      },
+      {
+        "uuid": "ms-af561add6c84",
+        "model": "luma/uni-1/text-to-image",
+        "type": "Image",
+        "displayName": "Luma Uni 1 Text-to-Image",
+        "profile": "Luma Uni 1 text-to-image (Luma AI generations API): generate a high-fidelity image from a text prompt. Supports multiple aspect ratios and png/jpeg output.",
+        "logo": "https://static.atlascloud.ai/model/logo/luma-uni-1-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
+        "background": "https://static.atlascloud.ai/model/background/luma-uni-1-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/luma-uni-1-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/luma-uni-1-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/luma-uni-1-text-to-image.md",
+        "organization": "LUMA",
+        "example": "https://static.atlascloud.ai/model/example/luma-uni-1-text-to-image.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pgmma5f771b",
+        "familyName": "luma-uni-1",
+        "familyDisplayName": "Luma Uni 1 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.04"
+          }
+        }
+      },
+      {
+        "uuid": "ms-89e1ec50632d",
+        "model": "luma/uni-1-max/text-to-image",
+        "type": "Image",
+        "displayName": "Luma Uni 1 Max Text-to-Image",
+        "profile": "Luma Uni 1 Max text-to-image (Luma AI generations API): higher-quality tier than uni-1. Generate a high-fidelity image from a text prompt. Supports multiple aspect ratios and png/jpeg output.",
+        "logo": "https://static.atlascloud.ai/model/logo/luma-uni-1-max-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
+        "background": "https://static.atlascloud.ai/model/background/luma-uni-1-max-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/luma-uni-1-max-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/luma-uni-1-max-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/luma-uni-1-max-text-to-image.md",
+        "organization": "LUMA",
+        "example": "https://static.atlascloud.ai/model/example/luma-uni-1-max-text-to-image.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pgmma5f771b",
+        "familyName": "luma-uni-1",
+        "familyDisplayName": "Luma Uni 1 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.1"
+          },
+          "origin": {
+            "base_price": "0.1"
           }
         }
       },

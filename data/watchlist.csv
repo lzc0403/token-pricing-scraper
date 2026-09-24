@@ -16,16 +16,6 @@ aliyun_bailian,kimi-k3,20.0,100.0,4.0,,,,,1M tokens,CNY,20.0,100.0,Kimi K3,no
 aliyun_bailian,minimax-m2.7,2.1,8.4,0.42,,,,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,yes
 aliyun_bailian,minimax-m3,4.2,16.8,0.84,,,,,1M tokens,CNY,4.2,16.8,MiniMax M3,no
 aliyun_bailian,qwen3.8-flash,0.8,2.7,0.16,,,,,1M tokens,CNY,0.8,2.7,Qwen3.8 Flash,yes
-anthropic,Claude Fable 5,10.0,50.0,1.0,12.5,,200K,,1M tokens,USD,70.0,350.0,Claude Fable 5,yes
-anthropic,Claude Haiku 4.5,1.0,5.0,0.1,1.25,,200K,,1M tokens,USD,7.0,35.0,Claude Haiku 4.5,yes
-anthropic,Claude Opus 4.5,5.0,25.0,0.5,6.25,,200K,,1M tokens,USD,35.0,175.0,Claude Opus 4.5,yes
-anthropic,Claude Opus 4.6,5.0,25.0,0.5,6.25,,200K,,1M tokens,USD,35.0,175.0,Claude Opus 4.6,yes
-anthropic,Claude Opus 4.7,5.0,25.0,0.5,6.25,,200K,,1M tokens,USD,35.0,175.0,Claude Opus 4.7,yes
-anthropic,Claude Opus 4.8,5.0,25.0,0.5,6.25,,200K,,1M tokens,USD,35.0,175.0,Claude Opus 4.8,yes
-anthropic,Claude Opus 5,5.0,25.0,0.5,6.25,,200K,,1M tokens,USD,35.0,175.0,Claude Opus 5,yes
-anthropic,Claude Sonnet 4.5,3.0,15.0,0.3,3.75,,200K,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.5,yes
-anthropic,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,200K,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.6,yes
-anthropic,Claude Sonnet 5,2.0,10.0,0.2,2.5,,200K,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
 atlascloud,DeepSeek V3.2,0.26,0.38,0.13,,,163K,,1M tokens,USD,1.82,2.66,DeepSeek V3.2,yes
 atlascloud,DeepSeek V4 Flash,0.14,0.28,0.028,,,1.04858M,,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,no
 atlascloud,DeepSeek V4 Pro,1.68,3.38,0.13,,,1.04858M,,1M tokens,USD,11.76,23.66,DeepSeek V4 Pro,no
@@ -86,9 +76,9 @@ openrouter,Claude Sonnet 4.5,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Cla
 openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.6,yes
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
 openrouter,DeepSeek V4 Flash,0.088606,0.177212,0.017721,,,1.04858M,,1M tokens,USD,0.620242,1.240484,DeepSeek V4 Flash,yes
-openrouter,DeepSeek V4 Pro,0.95526,1.91052,0.079605,,,1.04858M,,1M tokens,USD,6.68682,13.37364,DeepSeek V4 Pro,no
-openrouter,DeepSeek V4 Pro 0813,1.32,3.96,0.044,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro 0813,yes
-openrouter,DeepSeek V4.1 Flash,0.04,0.64,0.016,,,1.04858M,,1M tokens,USD,0.28,4.48,DeepSeek V4.1 Flash,yes
+openrouter,DeepSeek V4 Pro,0.9396,1.8792,0.0783,,,1.04858M,,1M tokens,USD,6.5772,13.1544,DeepSeek V4 Pro,no
+openrouter,DeepSeek V4 Pro 0813,0.462,1.386,0.0154,,,1.04858M,,1M tokens,USD,3.234,9.702,DeepSeek V4 Pro 0813,yes
+openrouter,DeepSeek V4.1 Flash,0.14,0.42,0.0042,,,1.04858M,,1M tokens,USD,0.98,2.94,DeepSeek V4.1 Flash,yes
 openrouter,GLM 5.2,0.6496,2.0416,0.12064,,,1.04858M,,1M tokens,USD,4.5472,14.2912,GLM-5.2,yes
 openrouter,GLM-5.3,0.84,2.64,0.156,,,1.31072M,,1M tokens,USD,5.88,18.48,GLM-5.3,yes
 openrouter,GLM-5.3-Flash,0.15,0.5,0.05,,,1.31072M,,1M tokens,USD,1.05,3.5,GLM-5.3-Flash,no

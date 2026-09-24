@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23",
+  "generated_at": "2026-09-24",
   "lookback_days": 7,
   "changes": [
     {
@@ -12,7 +12,7 @@
       "new": 0.3,
       "pct": -90.0,
       "currency": "USD",
-      "date": "2026-09-23"
+      "date": "2026-09-24"
     }
   ],
   "new_models": [
@@ -21,28 +21,28 @@
       "source": "deepseek_us",
       "source_label": "DeepSeek海外官网",
       "first_seen": "2026-09-20",
-      "date": "2026-09-23"
+      "date": "2026-09-24"
     },
     {
       "canonical": "DeepSeek V4.1 Flash",
       "source": "deepseek",
       "source_label": "DeepSeek官网",
       "first_seen": "2026-09-20",
-      "date": "2026-09-23"
+      "date": "2026-09-24"
     },
     {
       "canonical": "Qwen3.7 Max",
       "source": "aliyun",
       "source_label": "阿里云通义",
       "first_seen": "2026-09-20",
-      "date": "2026-09-23"
+      "date": "2026-09-24"
     },
     {
       "canonical": "Qwen3.7 Plus",
       "source": "aliyun",
       "source_label": "阿里云通义",
       "first_seen": "2026-09-20",
-      "date": "2026-09-23"
+      "date": "2026-09-24"
     }
   ],
   "known": {
