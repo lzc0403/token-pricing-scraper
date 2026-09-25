@@ -75,13 +75,13 @@ openrouter,Claude Opus 5,5.0,25.0,0.5,6.25,,1M,,1M tokens,USD,35.0,175.0,Claude 
 openrouter,Claude Sonnet 4.5,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.5,yes
 openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.6,yes
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
-openrouter,DeepSeek V4 Flash,0.088606,0.177212,0.017721,,,1.04858M,,1M tokens,USD,0.620242,1.240484,DeepSeek V4 Flash,yes
-openrouter,DeepSeek V4 Pro,0.9396,1.8792,0.0783,,,1.04858M,,1M tokens,USD,6.5772,13.1544,DeepSeek V4 Pro,no
+openrouter,DeepSeek V4 Flash,0.049,0.098,0.0098,,,1.04858M,,1M tokens,USD,0.343,0.686,DeepSeek V4 Flash,yes
+openrouter,DeepSeek V4 Pro,0.784044,1.568088,0.065337,,,1.04858M,,1M tokens,USD,5.488308,10.976616,DeepSeek V4 Pro,no
 openrouter,DeepSeek V4 Pro 0813,0.462,1.386,0.0154,,,1.04858M,,1M tokens,USD,3.234,9.702,DeepSeek V4 Pro 0813,yes
-openrouter,DeepSeek V4.1 Flash,0.14,0.42,0.0042,,,1.04858M,,1M tokens,USD,0.98,2.94,DeepSeek V4.1 Flash,yes
+openrouter,DeepSeek V4.1 Flash,0.3,1.2,0.006,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,2.1,8.4,DeepSeek V4.1 Flash,no
 openrouter,GLM 5.2,0.6496,2.0416,0.12064,,,1.04858M,,1M tokens,USD,4.5472,14.2912,GLM-5.2,yes
-openrouter,GLM-5.3,0.84,2.64,0.156,,,1.31072M,,1M tokens,USD,5.88,18.48,GLM-5.3,yes
-openrouter,GLM-5.3-Flash,0.15,0.5,0.05,,,1.31072M,,1M tokens,USD,1.05,3.5,GLM-5.3-Flash,no
+openrouter,GLM-5.3,1.4,4.4,0.26,,,1.31072M,,1M tokens,USD,9.8,30.8,GLM-5.3,no
+openrouter,GLM-5.3-Flash,0.045,0.14,0.01,,,1.31072M,,1M tokens,USD,0.315,0.98,GLM-5.3-Flash,yes
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openrouter,GPT-5.5 Pro,30.0,180.0,,,,1.05M,,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
@@ -94,7 +94,7 @@ openrouter,Gemini 3.7 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.
 openrouter,Gemini 3.8 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.8 Flash,yes
 openrouter,Grok 4.6,2.0,6.0,0.5,,,500K,,1M tokens,USD,14.0,42.0,Grok 4.6,yes
 openrouter,Kimi K2.6,0.95,4.0,0.16,,,262K,,1M tokens,USD,6.65,28.0,Kimi K2.6,no
-openrouter,Kimi K3,3.0,15.0,0.3,,,1.04858M,,1M tokens,USD,21.0,105.0,Kimi K3,no
+openrouter,Kimi K3,0.8845,10.5346,0.33,,,1.04858M,,1M tokens,USD,6.1915,73.7422,Kimi K3,no
 openrouter,MiMo-V2.5,0.14,0.28,0.0028,,,1.05M,,1M tokens,USD,0.98,1.96,MiMo V2.5,yes
 openrouter,MiniMax M3,0.3,1.2,0.06,,,1.04858M,,1M tokens,USD,2.1,8.4,MiniMax M3,yes
 tencent,Deepseek-v3.2,0.28,0.42,0.056,,,,,1M tokens,USD,1.96,2.94,DeepSeek V3.2,no
@@ -110,11 +110,13 @@ tencent,DeepSeek-V4-Pro,1.32,3.96,0.044,,,,高峰时段 | 腾讯云自建,1M tok
 tencent,DeepSeek-V4-Pro,1.74,3.48,0.145,,,,腾讯云自建,1M tokens,USD,12.18,24.36,DeepSeek V4 Pro,no
 tencent,DeepSeek-V4.1-Flash,0.15,0.6,0.003,,,,空闲时段 | 原厂直供,1M tokens,USD,1.05,4.2,DeepSeek V4.1 Flash,no
 tencent,DeepSeek-V4.1-Flash,0.3,1.2,0.006,,,,高峰时段 | 原厂直供,1M tokens,USD,2.1,8.4,DeepSeek V4.1 Flash,no
+tencent,DeepSeek-V4.1-Flash,0.15,0.6,0.003,,,,空闲时段 | 腾讯云自建,1M tokens,USD,1.05,4.2,DeepSeek V4.1 Flash,no
+tencent,DeepSeek-V4.1-Flash,0.3,1.2,0.006,,,,高峰时段 | 腾讯云自建,1M tokens,USD,2.1,8.4,DeepSeek V4.1 Flash,no
 tencent,GLM-5.1,0.84,3.36,0.182,,,,0 ≤ 输入长度 ＜ 32k,1M tokens,USD,5.88,23.52,GLM-5.1,yes
 tencent,GLM-5.1,1.12,3.92,0.28,,,,输入长度 ≥ 32k,1M tokens,USD,7.84,27.44,GLM-5.1,no
 tencent,GLM-5.2,1.12,3.92,0.28,,,,,1M tokens,USD,7.84,27.44,GLM-5.2,no
-tencent,GLM-5.3,1.1116,3.8907,0.2779,,,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,no
-tencent,GLM-5.3-Flash,0.11116,0.38907,0.03196,,,,,1M tokens,USD,0.77812,2.72349,GLM-5.3-Flash,yes
+tencent,GLM-5.3,1.1116,3.8907,0.2779,,,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,yes
+tencent,GLM-5.3-Flash,0.11116,0.38907,0.03196,,,,,1M tokens,USD,0.77812,2.72349,GLM-5.3-Flash,no
 tencent,kimi-k2.6,0.858,3.566,0.145,,,,,1M tokens,USD,6.006,24.962,Kimi K2.6,yes
 tencent,Kimi K2.7 Code,0.95,4.0,0.19,,,,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
 tencent,Kimi K3,2.731,13.653,0.2731,,,,,1M tokens,USD,19.117,95.571,Kimi K3,no
@@ -124,7 +126,8 @@ tencent,MiniMax-M3,0.3,1.2,0.06,,,,"输入长度（0, 512k]",1M tokens,USD,2.1,8
 tencent,MiniMax-M3,0.6,2.4,0.12,,,,输入长度 512k+,1M tokens,USD,4.2,16.8,MiniMax M3,no
 tencent_cn,DeepSeek-V4-Flash,1.0,2.0,0.2,,,,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,no
 tencent_cn,DeepSeek-V4-Pro,12.0,24.0,1.0,,,,,1M tokens,CNY,12.0,24.0,DeepSeek V4 Pro,no
-tencent_cn,DeepSeek-V4.1-Flash,1.0,4.0,0.02,,,,原厂直供,1M tokens,CNY,1.0,4.0,DeepSeek V4.1 Flash,no
+tencent_cn,DeepSeek-V4.1-Flash,1.0,4.0,0.02,,,,原厂直供,1M tokens,CNY,1.0,4.0,DeepSeek V4.1 Flash,yes
+tencent_cn,DeepSeek-V4.1-Flash,1.0,4.0,0.02,,,,腾讯云自建,1M tokens,CNY,1.0,4.0,DeepSeek V4.1 Flash,yes
 tencent_cn,GLM-5.1,10.254,32.228,1.904,,,,,1M tokens,CNY,10.254,32.228,GLM-5.1,no
 tencent_cn,GLM-5.2,10.254,32.2282,1.9044,,,,,1M tokens,CNY,10.254,32.2282,GLM-5.2,no
 tencent_cn,GLM-5.3,10.07524,31.66504,1.871116,,,,,1M tokens,CNY,10.07524,31.66504,GLM-5.3,no

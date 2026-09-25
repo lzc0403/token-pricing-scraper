@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-24T06:57:28",
+  "fetched_at": "2026-09-25T06:51:35",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -8148,7 +8148,7 @@
         ],
         "familyUUID": "mf-2gclr07i4tw7",
         "familyName": "seedance2",
-        "familyDisplayName": "The Seedance 2.0 API, Built for Production (4K is Now Supported)",
+        "familyDisplayName": "Seedance 2.0 First and Last Frame Control",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -8189,7 +8189,7 @@
         ],
         "familyUUID": "mf-2gclr07i4tw7",
         "familyName": "seedance2",
-        "familyDisplayName": "The Seedance 2.0 API, Built for Production (4K is Now Supported)",
+        "familyDisplayName": "Seedance 2.0 First and Last Frame Control",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -8230,7 +8230,7 @@
         ],
         "familyUUID": "mf-2gclr07i4tw7",
         "familyName": "seedance2",
-        "familyDisplayName": "The Seedance 2.0 API, Built for Production (4K is Now Supported)",
+        "familyDisplayName": "Seedance 2.0 First and Last Frame Control",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -8271,7 +8271,7 @@
         ],
         "familyUUID": "mf-2pgekhiw31i7",
         "familyName": "seedance-2.0-fast",
-        "familyDisplayName": "Seedance 2.0 Fast API",
+        "familyDisplayName": "Seedance 2.0 fast Native Audio",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -8311,7 +8311,7 @@
         ],
         "familyUUID": "mf-2pgekhiw31i7",
         "familyName": "seedance-2.0-fast",
-        "familyDisplayName": "Seedance 2.0 Fast API",
+        "familyDisplayName": "Seedance 2.0 fast Native Audio",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -8352,7 +8352,7 @@
         ],
         "familyUUID": "mf-2pgekhiw31i7",
         "familyName": "seedance-2.0-fast",
-        "familyDisplayName": "Seedance 2.0 Fast API",
+        "familyDisplayName": "Seedance 2.0 fast Native Audio",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -13999,7 +13999,7 @@
         ],
         "familyUUID": "mf-2pgehkv78r82",
         "familyName": "nanobanana-pro",
-        "familyDisplayName": "Nano Banana Pro API",
+        "familyDisplayName": "Nano Banana Pro Production Ready Visuals",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -14039,7 +14039,7 @@
         ],
         "familyUUID": "mf-2pgehkv78r82",
         "familyName": "nanobanana-pro",
-        "familyDisplayName": "Nano Banana Pro API",
+        "familyDisplayName": "Nano Banana Pro Production Ready Visuals",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -14079,7 +14079,7 @@
         ],
         "familyUUID": "mf-2pgehkv78r82",
         "familyName": "nanobanana-pro",
-        "familyDisplayName": "Nano Banana Pro API",
+        "familyDisplayName": "Nano Banana Pro Production Ready Visuals",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -14201,7 +14201,7 @@
         ],
         "familyUUID": "mf-2pgehkv78r82",
         "familyName": "nanobanana-pro",
-        "familyDisplayName": "Nano Banana Pro API",
+        "familyDisplayName": "Nano Banana Pro Production Ready Visuals",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -14944,6 +14944,94 @@
                 "cache_creation_price": "12.5",
                 "cache_price": "1",
                 "output_price": "45"
+              }
+            ]
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "coreStrengths": [
+          "Adaptive real-time reasoning",
+          "State-of-the-art performance",
+          "Reduced hallucinations significantly",
+          "Large context (256K-400K tokens)"
+        ],
+        "useCases": [
+          "Mission-critical enterprise applications",
+          "Advanced coding & development",
+          "Human-like content creation",
+          "AI agent & workflow automation"
+        ]
+      },
+      {
+        "uuid": "ms-so8kz4nr264w",
+        "model": "openai/gpt-6-sol-codex",
+        "type": "Text",
+        "displayName": "GPT 6 Sol",
+        "profile": "High-intelligence model built for deep reasoning, ambitious problem-solving, and frontier AI workloads.",
+        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-6-sol-codex.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/951996e6-7717-4f92-9e0f-589ae214e856.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-6-sol-codex.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.4.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.4.json",
+        "priority": 2007,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1050000,
+        "maxCompletionTokens": 131072,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.76",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "tiered_price": true,
+          "actual": {
+            "type": "flat",
+            "input_price": "0.1",
+            "output_price": "0.5",
+            "cache_creation_price": "0.125",
+            "cache_price": "0.01",
+            "prompt_thresholds": [
+              {
+                "threshold": 272000,
+                "input_price": "0.2",
+                "cache_creation_price": "0.25",
+                "cache_price": "0.02",
+                "output_price": "0.75"
+              }
+            ]
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0.1",
+            "output_price": "0.5",
+            "cache_creation_price": "0.125",
+            "cache_price": "0.01",
+            "prompt_thresholds": [
+              {
+                "threshold": 272000,
+                "input_price": "0.2",
+                "cache_creation_price": "0.25",
+                "cache_price": "0.02",
+                "output_price": "0.75"
               }
             ]
           }
@@ -15897,7 +15985,7 @@
         ],
         "familyUUID": "mf-2bs2w82o2tfh",
         "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
+        "familyDisplayName": "Seedance 1 Pro Multi-Shot Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -15938,7 +16026,7 @@
         ],
         "familyUUID": "mf-2bs2w82o2tfh",
         "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
+        "familyDisplayName": "Seedance 1 Pro Multi-Shot Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -17138,7 +17226,7 @@
         ],
         "familyUUID": "mf-2bs2w82o2tfh",
         "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
+        "familyDisplayName": "Seedance 1 Pro Multi-Shot Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -17543,7 +17631,7 @@
         ],
         "familyUUID": "mf-2bs2w82o2tfh",
         "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
+        "familyDisplayName": "Seedance 1 Pro Multi-Shot Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -17584,7 +17672,7 @@
         ],
         "familyUUID": "mf-2bs2w82o2tfh",
         "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
+        "familyDisplayName": "Seedance 1 Pro Multi-Shot Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -17625,7 +17713,7 @@
         ],
         "familyUUID": "mf-2bs2w82o2tfh",
         "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
+        "familyDisplayName": "Seedance 1 Pro Multi-Shot Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -17666,7 +17754,7 @@
         ],
         "familyUUID": "mf-2bs2w82o2tfh",
         "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
+        "familyDisplayName": "Seedance 1 Pro Multi-Shot Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -17706,7 +17794,7 @@
         ],
         "familyUUID": "mf-2bs2w82o2tfh",
         "familyName": "seedance",
-        "familyDisplayName": "Seedance API: Every Seedance Model, One Key",
+        "familyDisplayName": "Seedance 1 Pro Multi-Shot Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -19332,65 +19420,6 @@
         ]
       },
       {
-        "uuid": "ms-1ylkksekttnj",
-        "model": "anthropic/claude-opus-5-ccmax",
-        "type": "Text",
-        "displayName": "Claude Opus 5 CC Max",
-        "profile": "",
-        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
-        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-5-ccmax.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a1cfccf3-b867-4340-8252-74abc27b6c60.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-5-ccmax.json",
-        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
-        "organization": "ANTHROPIC",
-        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
-        "priority": 474,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 1000000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "5",
-            "output_price": "25",
-            "cache_creation_price": "6.25",
-            "cache_creation_1h_price": "10",
-            "cache_price": "0.5"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "5",
-            "output_price": "25",
-            "cache_creation_price": "6.25",
-            "cache_creation_1h_price": "10",
-            "cache_price": "0.5"
-          }
-        },
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
         "uuid": "ms-y7e2vdjb2bfd",
         "model": "anthropic/claude-opus-5",
         "type": "Text",
@@ -19436,123 +19465,6 @@
             "cache_creation_price": "6.25",
             "cache_creation_1h_price": "10",
             "cache_price": "0.5"
-          }
-        },
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
-        "uuid": "ms-u6m1no22lucd",
-        "model": "anthropic/claude-opus-4.8-ccmax",
-        "type": "Text",
-        "displayName": "Claude Opus 4.8 CC Max",
-        "profile": "",
-        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
-        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-4.8-ccmax.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a1cfccf3-b867-4340-8252-74abc27b6c60.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-4.8-ccmax.json",
-        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
-        "organization": "ANTHROPIC",
-        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
-        "priority": 474,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 1000000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "5",
-            "output_price": "25",
-            "cache_creation_price": "6.25",
-            "cache_creation_1h_price": "10",
-            "cache_price": "0.5"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "5",
-            "output_price": "25",
-            "cache_creation_price": "6.25",
-            "cache_creation_1h_price": "10",
-            "cache_price": "0.5"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
-        "uuid": "ms-jklwcvvn9y6l",
-        "model": "anthropic/claude-sonnet-5-ccmax",
-        "type": "Text",
-        "displayName": "Claude Sonnet 5 CC Max",
-        "profile": "",
-        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
-        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-sonnet-5-ccmax.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a1cfccf3-b867-4340-8252-74abc27b6c60.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-sonnet-5-ccmax.json",
-        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
-        "organization": "ANTHROPIC",
-        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
-        "priority": 474,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 1000000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "2",
-            "output_price": "10",
-            "cache_creation_price": "2.5",
-            "cache_creation_1h_price": "4",
-            "cache_price": "0.2"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "2",
-            "output_price": "10",
-            "cache_creation_price": "2.5",
-            "cache_creation_1h_price": "4",
-            "cache_price": "0.2"
           }
         },
         "input_modalities": [
@@ -21137,7 +21049,7 @@
         ],
         "familyUUID": "mf-2pgehkv78r82",
         "familyName": "nanobanana-pro",
-        "familyDisplayName": "Nano Banana Pro API",
+        "familyDisplayName": "Nano Banana Pro Production Ready Visuals",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -21177,7 +21089,7 @@
         ],
         "familyUUID": "mf-2d997o47cbwe",
         "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyDisplayName": "Nano Banana Across Ten Aspect Ratios",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -21502,7 +21414,7 @@
         ],
         "familyUUID": "mf-2pgehkv78r82",
         "familyName": "nanobanana-pro",
-        "familyDisplayName": "Nano Banana Pro API",
+        "familyDisplayName": "Nano Banana Pro Production Ready Visuals",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -21542,7 +21454,7 @@
         ],
         "familyUUID": "mf-2d997o47cbwe",
         "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyDisplayName": "Nano Banana Across Ten Aspect Ratios",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -21664,7 +21576,7 @@
         ],
         "familyUUID": "mf-2d997o47cbwe",
         "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyDisplayName": "Nano Banana Across Ten Aspect Ratios",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -21704,7 +21616,7 @@
         ],
         "familyUUID": "mf-2d997o47cbwe",
         "familyName": "nanobanana",
-        "familyDisplayName": "Nano Banana API for Consistent Image Generation",
+        "familyDisplayName": "Nano Banana Across Ten Aspect Ratios",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -22716,7 +22628,7 @@
         ],
         "familyUUID": "mf-2pgmma5f771b",
         "familyName": "luma-uni-1",
-        "familyDisplayName": "Luma Uni 1 API",
+        "familyDisplayName": "Luma Uni 1 API for Reasoning-Driven Image Generation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -22754,7 +22666,7 @@
         ],
         "familyUUID": "mf-2pgmma5f771b",
         "familyName": "luma-uni-1",
-        "familyDisplayName": "Luma Uni 1 API",
+        "familyDisplayName": "Luma Uni 1 API for Reasoning-Driven Image Generation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -22792,7 +22704,7 @@
         ],
         "familyUUID": "mf-2pgmnsdxtx7j",
         "familyName": "luma-ray-3.2",
-        "familyDisplayName": "Luma Ray 3.2 API",
+        "familyDisplayName": "Luma Ray 3.2 API for Directable Cinematic Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -22830,7 +22742,7 @@
         ],
         "familyUUID": "mf-2pgmnsdxtx7j",
         "familyName": "luma-ray-3.2",
-        "familyDisplayName": "Luma Ray 3.2 API",
+        "familyDisplayName": "Luma Ray 3.2 API for Directable Cinematic Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -22868,7 +22780,7 @@
         ],
         "familyUUID": "mf-2pgmnsdxtx7j",
         "familyName": "luma-ray-3.2",
-        "familyDisplayName": "Luma Ray 3.2 API",
+        "familyDisplayName": "Luma Ray 3.2 API for Directable Cinematic Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -22906,7 +22818,7 @@
         ],
         "familyUUID": "mf-2pgmnsdxtx7j",
         "familyName": "luma-ray-3.2",
-        "familyDisplayName": "Luma Ray 3.2 API",
+        "familyDisplayName": "Luma Ray 3.2 API for Directable Cinematic Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -22944,7 +22856,7 @@
         ],
         "familyUUID": "mf-2pgmma5f771b",
         "familyName": "luma-uni-1",
-        "familyDisplayName": "Luma Uni 1 API",
+        "familyDisplayName": "Luma Uni 1 API for Reasoning-Driven Image Generation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -22982,7 +22894,7 @@
         ],
         "familyUUID": "mf-2pgmma5f771b",
         "familyName": "luma-uni-1",
-        "familyDisplayName": "Luma Uni 1 API",
+        "familyDisplayName": "Luma Uni 1 API for Reasoning-Driven Image Generation",
         "display_console": true,
         "price": {
           "discount": "100",
