@@ -1,50 +1,8 @@
 {
-  "generated_at": "2026-09-26",
+  "generated_at": "2026-09-27",
   "lookback_days": 7,
-  "changes": [
-    {
-      "canonical": "Kimi K3",
-      "source": "kimi_ai",
-      "source_label": "Kimi国际站",
-      "field": "input",
-      "field_cn": "输入",
-      "old": 3.0,
-      "new": 0.3,
-      "pct": -90.0,
-      "currency": "USD",
-      "date": "2026-09-26"
-    }
-  ],
-  "new_models": [
-    {
-      "canonical": "DeepSeek V4.1 Flash",
-      "source": "deepseek_us",
-      "source_label": "DeepSeek海外官网",
-      "first_seen": "2026-09-20",
-      "date": "2026-09-26"
-    },
-    {
-      "canonical": "DeepSeek V4.1 Flash",
-      "source": "deepseek",
-      "source_label": "DeepSeek官网",
-      "first_seen": "2026-09-20",
-      "date": "2026-09-26"
-    },
-    {
-      "canonical": "Qwen3.7 Max",
-      "source": "aliyun",
-      "source_label": "阿里云通义",
-      "first_seen": "2026-09-20",
-      "date": "2026-09-26"
-    },
-    {
-      "canonical": "Qwen3.7 Plus",
-      "source": "aliyun",
-      "source_label": "阿里云通义",
-      "first_seen": "2026-09-20",
-      "date": "2026-09-26"
-    }
-  ],
+  "changes": [],
+  "new_models": [],
   "known": {
     "DeepSeek V4 Flash\u0001deepseek_us": "2026-09-05",
     "DeepSeek V4 Flash\u0001deepseek": "2026-09-05",

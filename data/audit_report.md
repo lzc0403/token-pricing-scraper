@@ -1,6 +1,6 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-09-26 06:57:08
+> 生成时间：2026-09-27 07:25:30
 
 ## 一、核对统计
 
@@ -33,6 +33,7 @@
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Max | 静态源页面未找到output价数值「43.2」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到input价数值「2.4」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到output价数值「9.6」，疑似解析/幻觉错误 |
+| med | T1 | CACHE_SUSPECT | openrouter | DeepSeek V4 Pro 0813 | 缓存命中价(0.24452) 接近输入价(0.24502)，异常偏高 |
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | DeepSeek V3.2 | 缓存/输入比率(50%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | DeepSeek V4 Flash | 缓存/输入比率(2%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | DeepSeek V4 Flash | 缓存/输入比率(2%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
@@ -51,7 +52,6 @@
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.1 | 缓存/输入比率(25%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.2 | 缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.3 | 缓存/输入比率(25%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
-| med | T1 | CACHE_RATIO_ANOMALY | openrouter | GLM-5.3-Flash | 缓存/输入比率(38%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | GLM-5.3-Flash | 缓存/输入比率(29%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | Kimi K2.6 | 缓存/输入比率(20%) 偏离同模型基准(17%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | Kimi K2.7 Code | 缓存/输入比率(17%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |

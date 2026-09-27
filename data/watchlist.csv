@@ -75,13 +75,13 @@ openrouter,Claude Opus 5,5.0,25.0,0.5,6.25,,1M,,1M tokens,USD,35.0,175.0,Claude 
 openrouter,Claude Sonnet 4.5,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.5,yes
 openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.6,yes
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
-openrouter,DeepSeek V4 Flash,0.04704,0.09408,0.009408,,,1.04858M,,1M tokens,USD,0.32928,0.65856,DeepSeek V4 Flash,yes
-openrouter,DeepSeek V4 Pro,0.418818,0.837636,0.034902,,,1.04858M,,1M tokens,USD,2.931726,5.863452,DeepSeek V4 Pro,yes
-openrouter,DeepSeek V4 Pro 0813,0.264,0.792,0.0088,,,1.04858M,,1M tokens,USD,1.848,5.544,DeepSeek V4 Pro 0813,yes
-openrouter,DeepSeek V4.1 Flash,0.14,0.42,0.0042,,,1.04858M,,1M tokens,USD,0.98,2.94,DeepSeek V4.1 Flash,yes
+openrouter,DeepSeek V4 Flash,0.0469,0.0938,0.00938,,,1.04858M,,1M tokens,USD,0.3283,0.6566,DeepSeek V4 Flash,yes
+openrouter,DeepSeek V4 Pro,0.348,0.696,0.029,,,1.04858M,,1M tokens,USD,2.436,4.872,DeepSeek V4 Pro,yes
+openrouter,DeepSeek V4 Pro 0813,0.24502,3.5,0.24452,,,1.04858M,,1M tokens,USD,1.71514,24.5,DeepSeek V4 Pro 0813,yes
+openrouter,DeepSeek V4.1 Flash,0.035,0.29,0.001,,,1.04858M,,1M tokens,USD,0.245,2.03,DeepSeek V4.1 Flash,yes
 openrouter,GLM 5.2,0.6496,2.0416,0.12064,,,1.04858M,,1M tokens,USD,4.5472,14.2912,GLM-5.2,yes
-openrouter,GLM-5.3,1.4,4.4,0.26,,,1.31072M,,1M tokens,USD,9.8,30.8,GLM-5.3,no
-openrouter,GLM-5.3-Flash,0.04,0.5,0.015,,,1.31072M,,1M tokens,USD,0.28,3.5,GLM-5.3-Flash,yes
+openrouter,GLM-5.3,0.2737,0.8602,0.044965,,,1.31072M,,1M tokens,USD,1.9159,6.0214,GLM-5.3,yes
+openrouter,GLM-5.3-Flash,0.045,0.14,0.01,,,1.31072M,,1M tokens,USD,0.315,0.98,GLM-5.3-Flash,yes
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openrouter,GPT-5.5 Pro,30.0,180.0,,,,1.05M,,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
@@ -115,7 +115,7 @@ tencent,DeepSeek-V4.1-Flash,0.3,1.2,0.006,,,,高峰时段 | 腾讯云自建,1M t
 tencent,GLM-5.1,0.84,3.36,0.182,,,,0 ≤ 输入长度 ＜ 32k,1M tokens,USD,5.88,23.52,GLM-5.1,yes
 tencent,GLM-5.1,1.12,3.92,0.28,,,,输入长度 ≥ 32k,1M tokens,USD,7.84,27.44,GLM-5.1,no
 tencent,GLM-5.2,1.12,3.92,0.28,,,,,1M tokens,USD,7.84,27.44,GLM-5.2,no
-tencent,GLM-5.3,1.1116,3.8907,0.2779,,,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,yes
+tencent,GLM-5.3,1.1116,3.8907,0.2779,,,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,no
 tencent,GLM-5.3-Flash,0.11116,0.38907,0.03196,,,,,1M tokens,USD,0.77812,2.72349,GLM-5.3-Flash,no
 tencent,kimi-k2.6,0.858,3.566,0.145,,,,,1M tokens,USD,6.006,24.962,Kimi K2.6,yes
 tencent,Kimi K2.7 Code,0.95,4.0,0.19,,,,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26 06:57:08",
+  "generated_at": "2026-09-27 07:25:30",
   "stats": {
     "total": 151,
     "suspects": 83,
@@ -12,6 +12,33 @@
     "gate": "pass"
   },
   "suspects": [
+    {
+      "tier": 1,
+      "code": "CACHE_SUSPECT",
+      "severity": "med",
+      "source": "openrouter",
+      "canonical": "DeepSeek V4 Pro 0813",
+      "msg": "缓存命中价(0.24452) 接近输入价(0.24502)，异常偏高",
+      "record": {
+        "source": "openrouter",
+        "model_raw": "DeepSeek V4 Pro 0813",
+        "input": 0.24502,
+        "output": 3.5,
+        "cache_hit": 0.24452,
+        "cache_write": null,
+        "context": "1.04858M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "openrouter_id": "deepseek/deepseek-v4-pro-0813",
+        "openrouter_prompt_per_token": "0.00000024502",
+        "openrouter_completion_per_token": "0.0000035",
+        "input_rmb": 1.71514,
+        "output_rmb": 24.5,
+        "canonical": "DeepSeek V4 Pro 0813",
+        "is_lowest_input": "yes"
+      }
+    },
     {
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
@@ -214,19 +241,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 0.418818,
-        "output": 0.837636,
-        "cache_hit": 0.034902,
+        "input": 0.348,
+        "output": 0.696,
+        "cache_hit": 0.029,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.000000418818",
-        "openrouter_completion_per_token": "0.000000837636",
-        "input_rmb": 2.931726,
-        "output_rmb": 5.863452,
+        "openrouter_prompt_per_token": "0.000000348",
+        "openrouter_completion_per_token": "0.000000696",
+        "input_rmb": 2.436,
+        "output_rmb": 4.872,
         "canonical": "DeepSeek V4 Pro",
         "is_lowest_input": "yes"
       }
@@ -337,19 +364,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4.1 Flash",
-        "input": 0.14,
-        "output": 0.42,
-        "cache_hit": 0.0042,
+        "input": 0.035,
+        "output": 0.29,
+        "cache_hit": 0.001,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4.1-flash",
-        "openrouter_prompt_per_token": "0.00000014",
-        "openrouter_completion_per_token": "0.00000042",
-        "input_rmb": 0.98,
-        "output_rmb": 2.94,
+        "openrouter_prompt_per_token": "0.000000035",
+        "openrouter_completion_per_token": "0.00000029",
+        "input_rmb": 0.245,
+        "output_rmb": 2.03,
         "canonical": "DeepSeek V4.1 Flash",
         "is_lowest_input": "yes"
       }
@@ -447,34 +474,7 @@
         "input_rmb": 7.7812,
         "output_rmb": 27.2349,
         "canonical": "GLM-5.3",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "openrouter",
-      "canonical": "GLM-5.3-Flash",
-      "msg": "缓存/输入比率(38%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "GLM-5.3-Flash",
-        "input": 0.04,
-        "output": 0.5,
-        "cache_hit": 0.015,
-        "cache_write": null,
-        "context": "1.31072M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "z-ai/glm-5.3-flash",
-        "openrouter_prompt_per_token": "0.00000004",
-        "openrouter_completion_per_token": "0.0000005",
-        "input_rmb": 0.28,
-        "output_rmb": 3.5,
-        "canonical": "GLM-5.3-Flash",
-        "is_lowest_input": "yes"
+        "is_lowest_input": "no"
       }
     },
     {
