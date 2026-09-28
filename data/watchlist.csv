@@ -17,7 +17,7 @@ aliyun_bailian,minimax-m2.7,2.1,8.4,0.42,,,,,1M tokens,CNY,2.1,8.4,MiniMax M2.7,
 aliyun_bailian,minimax-m3,4.2,16.8,0.84,,,,,1M tokens,CNY,4.2,16.8,MiniMax M3,no
 aliyun_bailian,qwen3.8-flash,0.8,2.7,0.16,,,,,1M tokens,CNY,0.8,2.7,Qwen3.8 Flash,yes
 atlascloud,DeepSeek V3.2,0.26,0.38,0.13,,,163K,,1M tokens,USD,1.82,2.66,DeepSeek V3.2,yes
-atlascloud,DeepSeek V4 Flash,0.14,0.28,0.028,,,1.04858M,,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,no
+atlascloud,DeepSeek V4 Flash,0.14,0.28,0.028,,,1.04858M,,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,yes
 atlascloud,DeepSeek V4 Pro,1.68,3.38,0.13,,,1.04858M,,1M tokens,USD,11.76,23.66,DeepSeek V4 Pro,no
 atlascloud,DeepSeek V4.1 Flash,0.3,1.2,0.03,,,1.04858M,,1M tokens,USD,2.1,8.4,DeepSeek V4.1 Flash,no
 atlascloud,Doubao Seed 2.1 Pro,0.9,4.5,0.18,,,262K,,1M tokens,USD,6.3,31.5,Doubao Seed 2.1 Pro,no
@@ -75,13 +75,13 @@ openrouter,Claude Opus 5,5.0,25.0,0.5,6.25,,1M,,1M tokens,USD,35.0,175.0,Claude 
 openrouter,Claude Sonnet 4.5,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.5,yes
 openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.6,yes
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
-openrouter,DeepSeek V4 Flash,0.0469,0.0938,0.00938,,,1.04858M,,1M tokens,USD,0.3283,0.6566,DeepSeek V4 Flash,yes
-openrouter,DeepSeek V4 Pro,0.348,0.696,0.029,,,1.04858M,,1M tokens,USD,2.436,4.872,DeepSeek V4 Pro,yes
-openrouter,DeepSeek V4 Pro 0813,0.24502,3.5,0.24452,,,1.04858M,,1M tokens,USD,1.71514,24.5,DeepSeek V4 Pro 0813,yes
-openrouter,DeepSeek V4.1 Flash,0.035,0.29,0.001,,,1.04858M,,1M tokens,USD,0.245,2.03,DeepSeek V4.1 Flash,yes
+openrouter,DeepSeek V4 Flash,0.14,0.28,0.028,,,1.04858M,,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,yes
+openrouter,DeepSeek V4 Pro,0.95526,1.91052,0.079605,,,1.04858M,,1M tokens,USD,6.68682,13.37364,DeepSeek V4 Pro,no
+openrouter,DeepSeek V4 Pro 0813,0.2523,4.2,0.2518,,,1.04858M,,1M tokens,USD,1.7661,29.4,DeepSeek V4 Pro 0813,yes
+openrouter,DeepSeek V4.1 Flash,0.025,0.6,0.01,,,1.04858M,,1M tokens,USD,0.175,4.2,DeepSeek V4.1 Flash,yes
 openrouter,GLM 5.2,0.6496,2.0416,0.12064,,,1.04858M,,1M tokens,USD,4.5472,14.2912,GLM-5.2,yes
-openrouter,GLM-5.3,0.2737,0.8602,0.044965,,,1.31072M,,1M tokens,USD,1.9159,6.0214,GLM-5.3,yes
-openrouter,GLM-5.3-Flash,0.045,0.14,0.01,,,1.31072M,,1M tokens,USD,0.315,0.98,GLM-5.3-Flash,yes
+openrouter,GLM-5.3,1.4,4.4,0.26,,,1.31072M,,1M tokens,USD,9.8,30.8,GLM-5.3,no
+openrouter,GLM-5.3-Flash,0.15,0.5,0.03,,,1.31072M,,1M tokens,USD,1.05,3.5,GLM-5.3-Flash,no
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openrouter,GPT-5.5 Pro,30.0,180.0,,,,1.05M,,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
@@ -93,7 +93,7 @@ openrouter,Gemini 3.6 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.
 openrouter,Gemini 3.7 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.7 Flash,yes
 openrouter,Gemini 3.8 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.8 Flash,yes
 openrouter,Grok 4.6,2.0,6.0,0.5,,,500K,,1M tokens,USD,14.0,42.0,Grok 4.6,yes
-openrouter,Kimi K2.6,0.95,4.0,0.16,,,262K,,1M tokens,USD,6.65,28.0,Kimi K2.6,no
+openrouter,Kimi K2.6,0.65,3.41,0.15,,,262K,,1M tokens,USD,4.55,23.87,Kimi K2.6,yes
 openrouter,Kimi K3,3.0,15.0,0.3,,,1.04858M,,1M tokens,USD,21.0,105.0,Kimi K3,no
 openrouter,MiMo-V2.5,0.14,0.28,0.0028,,,1.05M,,1M tokens,USD,0.98,1.96,MiMo V2.5,yes
 openrouter,MiniMax M3,0.3,1.2,0.06,,,1.04858M,,1M tokens,USD,2.1,8.4,MiniMax M3,yes
@@ -102,10 +102,10 @@ tencent,DeepSeek-V4-Flash,0.15,0.6,0.003,,,,空闲时段 | 原厂直供,1M token
 tencent,DeepSeek-V4-Flash,0.3,1.2,0.006,,,,高峰时段 | 原厂直供,1M tokens,USD,2.1,8.4,DeepSeek V4 Flash,no
 tencent,DeepSeek-V4-Flash,0.22,0.66,0.007,,,,空闲时段 | 腾讯云自建,1M tokens,USD,1.54,4.62,DeepSeek V4 Flash,no
 tencent,DeepSeek-V4-Flash,0.44,1.32,0.014,,,,高峰时段 | 腾讯云自建,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash,no
-tencent,DeepSeek-V4-Flash,0.14,0.28,0.028,,,,腾讯云自建,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,no
-tencent,DeepSeek-V4-Pro,0.66,1.98,0.022,,,,空闲时段 | 原厂直供,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,no
+tencent,DeepSeek-V4-Flash,0.14,0.28,0.028,,,,腾讯云自建,1M tokens,USD,0.98,1.96,DeepSeek V4 Flash,yes
+tencent,DeepSeek-V4-Pro,0.66,1.98,0.022,,,,空闲时段 | 原厂直供,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,yes
 tencent,DeepSeek-V4-Pro,1.32,3.96,0.044,,,,高峰时段 | 原厂直供,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
-tencent,DeepSeek-V4-Pro,0.66,1.98,0.022,,,,空闲时段 | 腾讯云自建,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,no
+tencent,DeepSeek-V4-Pro,0.66,1.98,0.022,,,,空闲时段 | 腾讯云自建,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro,yes
 tencent,DeepSeek-V4-Pro,1.32,3.96,0.044,,,,高峰时段 | 腾讯云自建,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
 tencent,DeepSeek-V4-Pro,1.74,3.48,0.145,,,,腾讯云自建,1M tokens,USD,12.18,24.36,DeepSeek V4 Pro,no
 tencent,DeepSeek-V4.1-Flash,0.15,0.6,0.003,,,,空闲时段 | 原厂直供,1M tokens,USD,1.05,4.2,DeepSeek V4.1 Flash,no
@@ -115,9 +115,9 @@ tencent,DeepSeek-V4.1-Flash,0.3,1.2,0.006,,,,高峰时段 | 腾讯云自建,1M t
 tencent,GLM-5.1,0.84,3.36,0.182,,,,0 ≤ 输入长度 ＜ 32k,1M tokens,USD,5.88,23.52,GLM-5.1,yes
 tencent,GLM-5.1,1.12,3.92,0.28,,,,输入长度 ≥ 32k,1M tokens,USD,7.84,27.44,GLM-5.1,no
 tencent,GLM-5.2,1.12,3.92,0.28,,,,,1M tokens,USD,7.84,27.44,GLM-5.2,no
-tencent,GLM-5.3,1.1116,3.8907,0.2779,,,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,no
-tencent,GLM-5.3-Flash,0.11116,0.38907,0.03196,,,,,1M tokens,USD,0.77812,2.72349,GLM-5.3-Flash,no
-tencent,kimi-k2.6,0.858,3.566,0.145,,,,,1M tokens,USD,6.006,24.962,Kimi K2.6,yes
+tencent,GLM-5.3,1.1116,3.8907,0.2779,,,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,yes
+tencent,GLM-5.3-Flash,0.11116,0.38907,0.03196,,,,,1M tokens,USD,0.77812,2.72349,GLM-5.3-Flash,yes
+tencent,kimi-k2.6,0.858,3.566,0.145,,,,,1M tokens,USD,6.006,24.962,Kimi K2.6,no
 tencent,Kimi K2.7 Code,0.95,4.0,0.19,,,,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
 tencent,Kimi K3,2.731,13.653,0.2731,,,,,1M tokens,USD,19.117,95.571,Kimi K3,no
 tencent,MiMo-V2.5-Pro,0.41,0.819,0.003,,,,,1M tokens,USD,2.87,5.733,MiMo V2.5 Pro,yes

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-27T07:21:21",
+  "fetched_at": "2026-09-28T07:59:13",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -267,9 +267,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2n8o4bdx2yyz",
-        "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "familyUUID": "mf-2pm1o3hchdgu",
+        "familyName": "minimax-h3-max",
+        "familyDisplayName": "MiniMax H3 Max API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -309,9 +309,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2n8o4bdx2yyz",
-        "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "familyUUID": "mf-2pm1o3hchdgu",
+        "familyName": "minimax-h3-max",
+        "familyDisplayName": "MiniMax H3 Max API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -351,9 +351,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2n8o4bdx2yyz",
-        "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "familyUUID": "mf-2pm1ldffyyjy",
+        "familyName": "minimax-h3-fast",
+        "familyDisplayName": "MiniMax H3 Fast API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -393,9 +393,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2n8o4bdx2yyz",
-        "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "familyUUID": "mf-2pm1ldffyyjy",
+        "familyName": "minimax-h3-fast",
+        "familyDisplayName": "MiniMax H3 Fast API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -435,9 +435,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2n8o4bdx2yyz",
-        "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "familyUUID": "mf-2pm1ldffyyjy",
+        "familyName": "minimax-h3-fast",
+        "familyDisplayName": "MiniMax H3 Fast API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -21750,6 +21750,41 @@
         }
       },
       {
+        "uuid": "ms-atlas-relight-01",
+        "model": "atlascloud/relight",
+        "type": "Image",
+        "displayName": "Relight",
+        "profile": "Change light direction, intensity, color temperature, softness, and independent rim lighting while preserving the source image.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-relight.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-relight.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-relight.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-relight.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-relight.md",
+        "organization": "ATLASCLOUD",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-relight.json",
+        "priority": 392,
+        "categories": [
+          "IMAGE-TOOLS"
+        ],
+        "tags": [
+          "IMAGE-TOOLS",
+          "TOOLS",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.036"
+          },
+          "origin": {
+            "base_price": "0.045"
+          }
+        }
+      },
+      {
         "uuid": "ms-k9j6f1o6r5o2",
         "model": "black-forest-labs/flux-kontext-dev",
         "type": "Image",
@@ -23505,9 +23540,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2n8o4bdx2yyz",
-        "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "familyUUID": "mf-2pm1o3hchdgu",
+        "familyName": "minimax-h3-max",
+        "familyDisplayName": "MiniMax H3 Max API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -23547,9 +23582,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2n8o4bdx2yyz",
-        "familyName": "minimax-h3",
-        "familyDisplayName": "MiniMax H3 Multimodal Video API",
+        "familyUUID": "mf-2pm1o3hchdgu",
+        "familyName": "minimax-h3-max",
+        "familyDisplayName": "MiniMax H3 Max API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -24795,6 +24830,99 @@
           },
           "origin": {
             "base_price": "0.015"
+          }
+        }
+      },
+      {
+        "uuid": "ms-atlascloud-video-analysis",
+        "model": "atlascloud/video-analysis",
+        "type": "Image",
+        "displayName": "Video Analysis",
+        "profile": "Split a video into shots and describe each one.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-video-analysis.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-video-analysis.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-video-analysis.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-video-analysis.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-video-analysis.md",
+        "organization": "ATLASCLOUD",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-video-analysis.json",
+        "priority": 0,
+        "categories": null,
+        "tags": [
+          "VIDEO-UNDERSTANDING"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.3"
+          },
+          "origin": {
+            "base_price": "0.3"
+          }
+        }
+      },
+      {
+        "uuid": "ms-atlascloud-shot-reframe",
+        "model": "atlascloud/shot-reframe",
+        "type": "Video",
+        "displayName": "Shot Reframe",
+        "profile": "Re-shoot one clip of a video from a new camera angle.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-shot-reframe.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-shot-reframe.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-shot-reframe.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-shot-reframe.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-shot-reframe.md",
+        "organization": "ATLASCLOUD",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-shot-reframe.json",
+        "priority": 0,
+        "categories": null,
+        "tags": [
+          "VIDEO-GENERATION"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "10.4"
+          },
+          "origin": {
+            "base_price": "10.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-atlascloud-video-extend",
+        "model": "atlascloud/video-extend",
+        "type": "Video",
+        "displayName": "Video Extend",
+        "profile": "Add 4–30 seconds before or after a video.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-video-extend.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ATLASCLOUD.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-video-extend.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-video-extend.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-video-extend.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-video-extend.md",
+        "organization": "ATLASCLOUD",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-video-extend.json",
+        "priority": 0,
+        "categories": null,
+        "tags": [
+          "VIDEO-GENERATION"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "17.388"
+          },
+          "origin": {
+            "base_price": "17.388"
           }
         }
       },

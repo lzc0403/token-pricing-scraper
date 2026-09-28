@@ -1,19 +1,21 @@
-## 🔔 Token 定价变动（2026-09-27 07:25:28）
+## 🔔 Token 定价变动（2026-09-28 08:03:44）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.418818 | 0.348 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 0.837636 | 0.696 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输入 | 0.264 | 0.24502 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输出 | 0.792 | 3.5 | USD |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.04704 | 0.0469 | USD |
-| DeepSeek V4 Flash | openrouter | 输出 | 0.09408 | 0.0938 | USD |
-| GLM-5.3 | openrouter | 输入 | 1.4 | 0.2737 | USD |
-| GLM-5.3 | openrouter | 输出 | 4.4 | 0.8602 | USD |
-| GLM-5.3-Flash | openrouter | 输入 | 0.04 | 0.045 | USD |
-| GLM-5.3-Flash | openrouter | 输出 | 0.5 | 0.14 | USD |
-| DeepSeek V4.1 Flash | openrouter | 输入 | 0.14 | 0.035 | USD |
-| DeepSeek V4.1 Flash | openrouter | 输出 | 0.42 | 0.29 | USD |
+| DeepSeek V4 Pro | openrouter | 输入 | 0.348 | 0.95526 | USD |
+| DeepSeek V4 Pro | openrouter | 输出 | 0.696 | 1.91052 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输入 | 0.24502 | 0.2523 | USD |
+| DeepSeek V4 Pro 0813 | openrouter | 输出 | 3.5 | 4.2 | USD |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.0469 | 0.14 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.0938 | 0.28 | USD |
+| Kimi K2.6 | openrouter | 输入 | 0.95 | 0.65 | USD |
+| Kimi K2.6 | openrouter | 输出 | 4 | 3.41 | USD |
+| GLM-5.3 | openrouter | 输入 | 0.2737 | 1.4 | USD |
+| GLM-5.3 | openrouter | 输出 | 0.8602 | 4.4 | USD |
+| GLM-5.3-Flash | openrouter | 输入 | 0.045 | 0.15 | USD |
+| GLM-5.3-Flash | openrouter | 输出 | 0.14 | 0.5 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输入 | 0.035 | 0.025 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输出 | 0.29 | 0.6 | USD |
 | MiniMax M3 | minimax | 输入 | 4.2 | 2.1 | CNY |
 | MiniMax M3 | minimax | 输出 | 16.8 | 8.4 | CNY |
 
@@ -23,15 +25,15 @@
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 3 天 | $4 | $12 | 疑似旗舰 |
-| `z-ai/glm-5.3-prime`（GLM 5.3 Prime） | GLM | 2026-09-23 | 3 天 | $2.8 | $8.8 | 疑似旗舰 |
-| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 4 天 | $2 | $10 | 疑似旗舰 |
-| `x-ai/grok-4.7`（Grok 4.7） | xAI | 2026-09-21 | 5 天 | $1.6 | $4.8 | 疑似旗舰 |
-| `anthropic/claude-fable-5.1`（Claude Fable 5.1） | Anthropic | 2026-09-01 | 25 天 | $10 | $50 | 疑似旗舰 |
-| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 4 天 | $0.1 | $0.5 | 新增档位 |
-| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 6 天 | $0.15 | $0.47 | 新增档位 |
-| `qwen/qwen3.8-max-0902`（Qwen3.8 Max (0902)） | 通义千问 | 2026-09-03 | 23 天 | $2 | $6 | 新增档位 |
-| `qwen/qwen3.8-2.4t-a95b`（Qwen3.8 2.4T A95B） | 通义千问 | 2026-08-12 | 45 天 | $2 | $6 | 新增档位 |
+| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 4 天 | $4 | $12 | 疑似旗舰 |
+| `z-ai/glm-5.3-prime`（GLM 5.3 Prime） | GLM | 2026-09-23 | 4 天 | $2.8 | $8.8 | 疑似旗舰 |
+| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 5 天 | $2 | $10 | 疑似旗舰 |
+| `x-ai/grok-4.7`（Grok 4.7） | xAI | 2026-09-21 | 6 天 | $1.6 | $4.8 | 疑似旗舰 |
+| `anthropic/claude-fable-5.1`（Claude Fable 5.1） | Anthropic | 2026-09-01 | 26 天 | $10 | $50 | 疑似旗舰 |
+| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 5 天 | $0.1 | $0.5 | 新增档位 |
+| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 7 天 | $0.15 | $0.47 | 新增档位 |
+| `qwen/qwen3.8-max-0902`（Qwen3.8 Max (0902)） | 通义千问 | 2026-09-03 | 24 天 | $2 | $6 | 新增档位 |
+| `qwen/qwen3.8-2.4t-a95b`（Qwen3.8 2.4T A95B） | 通义千问 | 2026-08-12 | 46 天 | $2 | $6 | 新增档位 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 
