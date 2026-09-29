@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-28T07:59:13",
+  "fetched_at": "2026-09-29T07:41:53",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -269,7 +269,7 @@
         ],
         "familyUUID": "mf-2pm1o3hchdgu",
         "familyName": "minimax-h3-max",
-        "familyDisplayName": "MiniMax H3 Max API",
+        "familyDisplayName": "MiniMax H3 Max Cinematic Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -311,7 +311,7 @@
         ],
         "familyUUID": "mf-2pm1o3hchdgu",
         "familyName": "minimax-h3-max",
-        "familyDisplayName": "MiniMax H3 Max API",
+        "familyDisplayName": "MiniMax H3 Max Cinematic Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -353,7 +353,7 @@
         ],
         "familyUUID": "mf-2pm1ldffyyjy",
         "familyName": "minimax-h3-fast",
-        "familyDisplayName": "MiniMax H3 Fast API",
+        "familyDisplayName": "MiniMax H3 Fast Subject Preserving Video",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -395,7 +395,7 @@
         ],
         "familyUUID": "mf-2pm1ldffyyjy",
         "familyName": "minimax-h3-fast",
-        "familyDisplayName": "MiniMax H3 Fast API",
+        "familyDisplayName": "MiniMax H3 Fast Subject Preserving Video",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -437,7 +437,7 @@
         ],
         "familyUUID": "mf-2pm1ldffyyjy",
         "familyName": "minimax-h3-fast",
-        "familyDisplayName": "MiniMax H3 Fast API",
+        "familyDisplayName": "MiniMax H3 Fast Subject Preserving Video",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -1873,9 +1873,9 @@
           "IMAGE-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkhq6idzg4",
+        "familyName": "grok-imagine-image-2.0",
+        "familyDisplayName": "Grok Imagine Image 2.0 Natural Language Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -1913,9 +1913,9 @@
           "TEXT-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkhq6idzg4",
+        "familyName": "grok-imagine-image-2.0",
+        "familyDisplayName": "Grok Imagine Image 2.0 Natural Language Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -1953,9 +1953,9 @@
           "TEXT-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkhq6idzg4",
+        "familyName": "grok-imagine-image-2.0",
+        "familyDisplayName": "Grok Imagine Image 2.0 Natural Language Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -1993,9 +1993,9 @@
           "IMAGE-TO-IMAGE",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkhq6idzg4",
+        "familyName": "grok-imagine-image-2.0",
+        "familyDisplayName": "Grok Imagine Image 2.0 Natural Language Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -5805,9 +5805,9 @@
           "TEXT-TO-SPEECH",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2l83qz7nslfl",
+        "familyName": "grok",
+        "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7388,9 +7388,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkfuxws31d",
+        "familyName": "grok-imagine-video-1.5",
+        "familyDisplayName": "Grok Imagine Video 1.5 API",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7428,9 +7428,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkfuxws31d",
+        "familyName": "grok-imagine-video-1.5",
+        "familyDisplayName": "Grok Imagine Video 1.5 API",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7508,9 +7508,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkfuxws31d",
+        "familyName": "grok-imagine-video-1.5",
+        "familyDisplayName": "Grok Imagine Video 1.5 API",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7548,9 +7548,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkfuxws31d",
+        "familyName": "grok-imagine-video-1.5",
+        "familyDisplayName": "Grok Imagine Video 1.5 API",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7628,9 +7628,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkfuxws31d",
+        "familyName": "grok-imagine-video-1.5",
+        "familyDisplayName": "Grok Imagine Video 1.5 API",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7668,9 +7668,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkfuxws31d",
+        "familyName": "grok-imagine-video-1.5",
+        "familyDisplayName": "Grok Imagine Video 1.5 API",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7710,7 +7710,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyDisplayName": "Grok Imagine Image Multi-Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -7750,7 +7750,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyDisplayName": "Grok Imagine Image Multi-Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -10381,9 +10381,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkc0gzex5t",
+        "familyName": "grok-imagine-video",
+        "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -10421,9 +10421,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkc0gzex5t",
+        "familyName": "grok-imagine-video",
+        "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -10461,9 +10461,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkc0gzex5t",
+        "familyName": "grok-imagine-video",
+        "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -10501,9 +10501,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkc0gzex5t",
+        "familyName": "grok-imagine-video",
+        "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -10541,9 +10541,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2k6x1vk9frdd",
-        "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyUUID": "mf-2pnkc0gzex5t",
+        "familyName": "grok-imagine-video",
+        "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -15060,6 +15060,94 @@
         ]
       },
       {
+        "uuid": "ms-h3evb35nfxug",
+        "model": "openai/gpt-6-astra-codex",
+        "type": "Text",
+        "displayName": "GPT 6 Astra Codex",
+        "profile": "Creative and intuitive model optimized for natural conversation, content generation, and personalized AI experiences.",
+        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-6-astra-codex.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/951996e6-7717-4f92-9e0f-589ae214e856.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-6-astra-codex.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.4.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.4.json",
+        "priority": 2007,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1050000,
+        "maxCompletionTokens": 131072,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.76",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "tiered_price": true,
+          "actual": {
+            "type": "flat",
+            "input_price": "10",
+            "output_price": "50",
+            "cache_creation_price": "12.5",
+            "cache_price": "1",
+            "prompt_thresholds": [
+              {
+                "threshold": 272000,
+                "input_price": "20",
+                "cache_creation_price": "25",
+                "cache_price": "2",
+                "output_price": "75"
+              }
+            ]
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "10",
+            "output_price": "50",
+            "cache_creation_price": "12.5",
+            "cache_price": "1",
+            "prompt_thresholds": [
+              {
+                "threshold": 272000,
+                "input_price": "20",
+                "cache_creation_price": "25",
+                "cache_price": "2",
+                "output_price": "75"
+              }
+            ]
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "coreStrengths": [
+          "Adaptive real-time reasoning",
+          "State-of-the-art performance",
+          "Reduced hallucinations significantly",
+          "Large context (256K-400K tokens)"
+        ],
+        "useCases": [
+          "Mission-critical enterprise applications",
+          "Advanced coding & development",
+          "Human-like content creation",
+          "AI agent & workflow automation"
+        ]
+      },
+      {
         "uuid": "ms-9545g5uq8cg9",
         "model": "openai/gpt-5.4",
         "type": "Text",
@@ -17281,13 +17369,15 @@
           "dynamic_discount": true,
           "actual": {
             "type": "flat",
-            "input_price": "0.27",
-            "output_price": "0.41"
+            "input_price": "0.26",
+            "output_price": "0.38",
+            "cache_price": "0.13"
           },
           "origin": {
             "type": "flat",
             "input_price": "0.287",
-            "output_price": "0.43"
+            "output_price": "0.431",
+            "cache_price": "0.058"
           }
         },
         "input_modalities": [
@@ -18647,7 +18737,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyDisplayName": "Grok Imagine Image Multi-Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -18764,7 +18854,7 @@
         ],
         "familyUUID": "mf-2k6x1vk9frdd",
         "familyName": "grok-imagine-models",
-        "familyDisplayName": "Grok Imagine API for 15 Second Video",
+        "familyDisplayName": "Grok Imagine Image Multi-Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Models on Atlas Cloud | Grok Imagine Models",
@@ -22638,6 +22728,171 @@
         }
       },
       {
+        "uuid": "ms-coze-imgclone",
+        "model": "atlascloud/studio/image-clone",
+        "type": "Image",
+        "displayName": "Image Clone",
+        "profile": "Recreate the look of a reference image using your own product.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-image-clone.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-image-clone.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-image-clone-v2.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-image-clone.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-image-clone.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-image-clone-v4.json",
+        "priority": 100,
+        "categories": null,
+        "version": "v0.0.7",
+        "tags": [
+          "IMAGE_TO_IMAGE",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.021"
+          },
+          "origin": {
+            "base_price": "0.021"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-apparel1",
+        "model": "atlascloud/studio/apparel-image",
+        "type": "Image",
+        "displayName": "Apparel Photoshoot",
+        "profile": "Turn apparel images into clean ghost mannequin shots or realistic on-model photos.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-apparel-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-apparel-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-apparel-image-v2.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-apparel-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-apparel-image.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-apparel-image-v4.json",
+        "priority": 100,
+        "categories": null,
+        "version": "v0.0.4",
+        "tags": [
+          "IMAGE_TO_IMAGE",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.021"
+          },
+          "origin": {
+            "base_price": "0.021"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-listimg1",
+        "model": "atlascloud/studio/listing-image-set",
+        "type": "Image",
+        "displayName": "Listing Image Generator",
+        "profile": "Create a full set of listing images from one product image or link.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-listing-image-set.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-listing-image-set.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-listing-image-set-v2.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-listing-image-set.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-listing-image-set.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-listing-image-set-v6.json",
+        "priority": 100,
+        "categories": null,
+        "version": "v0.0.10",
+        "tags": [
+          "IMAGE_TO_IMAGE",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.021"
+          },
+          "origin": {
+            "base_price": "0.021"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-apluscnt",
+        "model": "atlascloud/studio/a-plus-content",
+        "type": "Image",
+        "displayName": "A+ Content Maker",
+        "profile": "Create a complete set of product visuals for your A+ content.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-a-plus-content.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-a-plus-content.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-a-plus-content-v2.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-a-plus-content.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-a-plus-content.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-a-plus-content-v5.json",
+        "priority": 100,
+        "categories": null,
+        "version": "v0.0.11",
+        "tags": [
+          "IMAGE_TO_IMAGE",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.021"
+          },
+          "origin": {
+            "base_price": "0.021"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coze-videoclone",
+        "model": "atlascloud/studio/video-clone",
+        "type": "Video",
+        "displayName": "Template Video Clone",
+        "profile": "Pick a template video, upload your product shot, and Seedance 2.5 rebuilds the same shot structure, camera work and pacing with your product in it.",
+        "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-video-clone.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/.png",
+        "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-video-clone.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-video-clone.jpg",
+        "coverVideo": "https://static.atlascloud.ai/model/example/material/template-video-01.mp4",
+        "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-video-clone.json",
+        "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-video-clone.md",
+        "organization": "",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-video-clone.json",
+        "priority": 100,
+        "categories": null,
+        "version": "v0.0.4",
+        "tags": [
+          "VIDEO_TO_VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "3.14"
+          },
+          "origin": {
+            "base_price": "3.14"
+          }
+        }
+      },
+      {
         "uuid": "ms-d2e8a7230ee1",
         "model": "luma/uni-1/edit",
         "type": "Image",
@@ -22756,7 +23011,7 @@
         "model": "luma/ray-3.2/reframe",
         "type": "Video",
         "displayName": "Luma Ray 3.2 Reframe",
-        "profile": "Luma Ray 3.2 reframe (Luma AI generations API): reframe a source video into a new aspect ratio. Supports 540p/720p/1080p. Billed per second of source video.",
+        "profile": "Luma Ray 3.2 generative video reframe. Source video must be at most 10 seconds; output is silent. Supports 540p and 720p with six target aspect ratios.",
         "logo": "https://static.atlascloud.ai/model/logo/luma-ray-3.2-reframe.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/LUMA.png",
         "background": "https://static.atlascloud.ai/model/background/luma-ray-3.2-reframe.png",
@@ -23542,7 +23797,7 @@
         ],
         "familyUUID": "mf-2pm1o3hchdgu",
         "familyName": "minimax-h3-max",
-        "familyDisplayName": "MiniMax H3 Max API",
+        "familyDisplayName": "MiniMax H3 Max Cinematic Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -23584,7 +23839,7 @@
         ],
         "familyUUID": "mf-2pm1o3hchdgu",
         "familyName": "minimax-h3-max",
-        "familyDisplayName": "MiniMax H3 Max API",
+        "familyDisplayName": "MiniMax H3 Max Cinematic Video API",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -23605,17 +23860,17 @@
         "uuid": "ms-coze-prodvis1",
         "model": "atlascloud/studio/product-visuals",
         "type": "Image",
-        "displayName": "Product Visuals",
-        "profile": "A Workflow template: one product shot becomes a full set of studio-grade product visuals — scene, lighting and composition planned per image, then rendered as stills in your chosen ratio and resolution. Priced per image; a failed run is not charged.",
+        "displayName": "Image ads",
+        "profile": "Turn your product into ready-to-use ad images for campaigns and social media.",
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-product-visuals.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/OTHER.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-product-visuals.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-product-visuals-v3.jpg",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-product-visuals-v2.jpg",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-product-visuals.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-product-visuals.md",
         "organization": "OTHER",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-product-visuals.json",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-product-visuals-v2.json",
         "priority": 100,
         "categories": null,
         "version": "v0.0.17",
@@ -23639,16 +23894,16 @@
         "model": "atlascloud/studio/food-motion",
         "type": "Video",
         "displayName": "Food Motion",
-        "profile": "A Workflow template: one food or drink shot becomes a motion-driven product film. It reads the packaging, picks the sensory beats (pour, splash, steam, crunch), builds white-background reference sheets for identity, then renders with Seedance 2.5 — pick length (4-30s), ratio, resolution and audio. Add a model shot to get a tasting cut. Priced by duration; a failed run is not charged.",
+        "profile": "Turn food and drink images into eye-catching product videos.",
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-food-motion.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-food-motion.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-food-motion-v2.jpg",
-        "coverVideo": "",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-food-motion-v2.jpg",
+        "coverVideo": "https://static.atlascloud.ai/marketing-studio/showcase/wf-food-motion-1.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-food-motion.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-food-motion.md",
         "organization": "",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-food-motion.json",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-food-motion-v2.json",
         "priority": 100,
         "categories": null,
         "version": "v0.0.13",
@@ -23671,17 +23926,17 @@
         "uuid": "ms-coze-tryon01",
         "model": "atlascloud/studio/virtual-try-on",
         "type": "Video",
-        "displayName": "Virtual Try-On",
-        "profile": "A Workflow template: one garment or accessory shot becomes a try-on film. It reads structure and wearing logic, builds product and model reference sheets, locks the fit with a try-on still, then renders with Seedance 2.5 — 55% pure try-on, 30% lifestyle, 15% fabric detail. Bring your own model shot or let it cast one. Priced by duration; a failed run is not charged.",
+        "displayName": "Try-on Video",
+        "profile": "Turn fashion products into on-model videos, outfit showcases, and runway-style clips.",
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-virtual-try-on.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-virtual-try-on.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-virtual-try-on-v3.jpg",
-        "coverVideo": "",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-virtual-try-on-v2.jpg",
+        "coverVideo": "https://static.atlascloud.ai/marketing-studio/showcase/wf-virtual-try-on-1.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-virtual-try-on.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-virtual-try-on.md",
         "organization": "",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-virtual-try-on.json",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-virtual-try-on-v2.json",
         "priority": 100,
         "categories": null,
         "version": "v0.0.13",
@@ -23704,17 +23959,17 @@
         "uuid": "ms-coze-ugcad2",
         "model": "atlascloud/studio/ugc-ad",
         "type": "Video",
-        "displayName": "UGC Ad",
-        "profile": "A Workflow template: a presenter shot plus a product shot become a lip-synced UGC ad with generated voice-over. Billed once per run; a failed run is not charged.",
+        "displayName": "Ugc ads",
+        "profile": "Create realistic UGC ad videos for your product.",
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-ugc-ad.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/OTHER.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-ugc-ad.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-ugc-ad-v2.jpg",
-        "coverVideo": "",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-ugc-ad-v2.jpg",
+        "coverVideo": "https://static.atlascloud.ai/marketing-studio/showcase/wf-ugc-ad-1.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-ugc-ad.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-ugc-ad.md",
         "organization": "OTHER",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-ugc-ad.json",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-ugc-ad-v2.json",
         "priority": 100,
         "categories": null,
         "version": "v0.0.8",
@@ -23737,13 +23992,13 @@
         "uuid": "ms-coze-trendrx",
         "model": "atlascloud/studio/trend-remix",
         "type": "Video",
-        "displayName": "Trend Remix",
-        "profile": "A Workflow template: feed it one product shot and a reference video that is already working. It reads the reference for structure, pacing, camera language and edit rhythm, then rewrites the whole thing around your product — borrowing the method, never copying the frames. Renders with Seedance 2.5; pick length, ratio, resolution and audio. Priced by duration; a failed run is not charged.",
+        "displayName": "Video Clone",
+        "profile": "Recreate a reference video using your own product or model.",
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-trend-remix.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/OTHER.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-trend-remix.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-trend-remix-v2.jpg",
-        "coverVideo": "",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-trend-remix-v2.jpg",
+        "coverVideo": "https://static.atlascloud.ai/model/example/atlascloud-studio-trend-remix-showcase-v2.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-trend-remix.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-trend-remix.md",
         "organization": "OTHER",
@@ -23771,16 +24026,16 @@
         "model": "atlascloud/studio/tvc-maker",
         "type": "Video",
         "displayName": "TVC Maker",
-        "profile": "A Workflow template: one product shot plus a short brand brief becomes a premium commercial. It works through insight, concept, storyline, an audio-visual script and key frames, then renders with Seedance 2.5 — pick length, ratio, resolution and audio. Priced by duration; a failed run is not charged.",
+        "profile": "Turn your product into a polished multi-shot commercial video.",
         "logo": "https://static.atlascloud.ai/model/logo/atlascloud-studio-tvc-maker.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/OTHER.png",
         "background": "https://static.atlascloud.ai/model/background/atlascloud-studio-tvc-maker.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/atlascloud-studio-tvc-maker-v3.jpg",
-        "coverVideo": "",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/wf-tvc-maker-v2.jpg",
+        "coverVideo": "https://static.atlascloud.ai/marketing-studio/showcase/wf-tvc-maker-1.mp4",
         "schema": "https://static.atlascloud.ai/model/schema/atlascloud-studio-tvc-maker.json",
         "readme": "https://static.atlascloud.ai/model/readme/atlascloud-studio-tvc-maker.md",
         "organization": "OTHER",
-        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-tvc-maker.json",
+        "example": "https://static.atlascloud.ai/model/example/atlascloud-studio-tvc-maker-v2.json",
         "priority": 100,
         "categories": null,
         "version": "v0.0.18",
