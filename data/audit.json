@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-29 07:46:52",
+  "generated_at": "2026-09-30 07:48:15",
   "stats": {
-    "total": 151,
-    "suspects": 83,
-    "high": 0,
-    "med": 39,
-    "low": 44,
-    "tier1": 38,
-    "tier2": 45,
+    "total": 148,
+    "suspects": 81,
+    "high": 4,
+    "med": 36,
+    "low": 41,
+    "tier1": 37,
+    "tier2": 44,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -17,51 +17,24 @@
       "code": "CACHE_SUSPECT",
       "severity": "med",
       "source": "openrouter",
-      "canonical": "DeepSeek V4 Pro 0813",
-      "msg": "缓存命中价(0.32) 接近输入价(0.4)，异常偏高",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "DeepSeek V4 Pro 0813",
-        "input": 0.4,
-        "output": 4.2,
-        "cache_hit": 0.32,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "deepseek/deepseek-v4-pro-0813",
-        "openrouter_prompt_per_token": "0.0000004",
-        "openrouter_completion_per_token": "0.0000042",
-        "input_rmb": 2.8,
-        "output_rmb": 29.4,
-        "canonical": "DeepSeek V4 Pro 0813",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_SUSPECT",
-      "severity": "med",
-      "source": "openrouter",
       "canonical": "GLM-5.2",
-      "msg": "缓存命中价(0.2599) 接近输入价(0.3249)，异常偏高",
+      "msg": "缓存命中价(0.2) 接近输入价(0.25)，异常偏高",
       "record": {
         "source": "openrouter",
         "model_raw": "GLM 5.2",
-        "input": 0.3249,
-        "output": 4.4,
-        "cache_hit": 0.2599,
+        "input": 0.25,
+        "output": 3.99,
+        "cache_hit": 0.2,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "z-ai/glm-5.2",
-        "openrouter_prompt_per_token": "0.0000003249",
-        "openrouter_completion_per_token": "0.0000044",
-        "input_rmb": 2.2743,
-        "output_rmb": 30.8,
+        "openrouter_prompt_per_token": "0.00000025",
+        "openrouter_completion_per_token": "0.00000399",
+        "input_rmb": 1.75,
+        "output_rmb": 27.93,
         "canonical": "GLM-5.2",
         "is_lowest_input": "yes"
       }
@@ -439,19 +412,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "GLM 5.2",
-        "input": 0.3249,
-        "output": 4.4,
-        "cache_hit": 0.2599,
+        "input": 0.25,
+        "output": 3.99,
+        "cache_hit": 0.2,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "z-ai/glm-5.2",
-        "openrouter_prompt_per_token": "0.0000003249",
-        "openrouter_completion_per_token": "0.0000044",
-        "input_rmb": 2.2743,
-        "output_rmb": 30.8,
+        "openrouter_prompt_per_token": "0.00000025",
+        "openrouter_completion_per_token": "0.00000399",
+        "input_rmb": 1.75,
+        "output_rmb": 27.93,
         "canonical": "GLM-5.2",
         "is_lowest_input": "yes"
       }
@@ -844,50 +817,58 @@
     },
     {
       "tier": 2,
-      "code": "SRC_UNREACHABLE",
-      "severity": "med",
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
       "source": "aliyun",
       "canonical": "Qwen3.7 Max",
-      "msg": "源页面抓取失败: https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing",
+      "msg": "静态源页面未找到input价数值「14.4」，疑似解析/幻觉错误",
       "record": {
-        "source": "aliyun",
         "model_raw": "Qwen3.7-Max",
-        "input": 14.4,
-        "output": 43.2,
-        "cache_hit": 2.88,
-        "cache_write": null,
-        "context": null,
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "CNY",
-        "input_rmb": 14.4,
-        "output_rmb": 43.2,
-        "canonical": "Qwen3.7 Max",
-        "is_lowest_input": "yes"
+        "field": "input",
+        "value": "14.4",
+        "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
       }
     },
     {
       "tier": 2,
-      "code": "SRC_UNREACHABLE",
-      "severity": "med",
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
+      "source": "aliyun",
+      "canonical": "Qwen3.7 Max",
+      "msg": "静态源页面未找到output价数值「43.2」，疑似解析/幻觉错误",
+      "record": {
+        "model_raw": "Qwen3.7-Max",
+        "field": "output",
+        "value": "43.2",
+        "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
       "source": "aliyun",
       "canonical": "Qwen3.7 Plus",
-      "msg": "源页面抓取失败: https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing",
+      "msg": "静态源页面未找到input价数值「2.4」，疑似解析/幻觉错误",
       "record": {
-        "source": "aliyun",
         "model_raw": "Qwen3.7-Plus",
-        "input": 2.4,
-        "output": 9.6,
-        "cache_hit": 0.48,
-        "cache_write": null,
-        "context": null,
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "CNY",
-        "input_rmb": 2.4,
-        "output_rmb": 9.6,
-        "canonical": "Qwen3.7 Plus",
-        "is_lowest_input": "yes"
+        "field": "input",
+        "value": "2.4",
+        "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "PRICE_NOT_FOUND",
+      "severity": "high",
+      "source": "aliyun",
+      "canonical": "Qwen3.7 Plus",
+      "msg": "静态源页面未找到output价数值「9.6」，疑似解析/幻觉错误",
+      "record": {
+        "model_raw": "Qwen3.7-Plus",
+        "field": "output",
+        "value": "9.6",
+        "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
       }
     },
     {
@@ -960,42 +941,6 @@
       "record": {
         "model_raw": "kimi-k3",
         "url": "https://platform.kimi.ai/docs/pricing/chat"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "minimax",
-      "canonical": "MiniMax M2.7",
-      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "MiniMax-M2.7",
-        "url": "https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "minimax",
-      "canonical": "MiniMax M3",
-      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "MiniMax-M3",
-        "url": "https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "minimax",
-      "canonical": "MiniMax M3",
-      "msg": "SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "MiniMax-M3",
-        "url": "https://platform.minimaxi.com/subscribe/token-plan?tab=api-enterprise"
       }
     },
     {

@@ -1,14 +1,14 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-09-29 07:46:52
+> 生成时间：2026-09-30 07:48:15
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
-- 校验记录总数：**151**
-- 可疑项总数：**83**（high 0 / med 39 / low 44）
-- Tier1 结构性校验可疑：**38**
-- Tier2 源页面核对可疑：**45**
+- 校验记录总数：**148**
+- 可疑项总数：**81**（high 4 / med 36 / low 41）
+- Tier1 结构性校验可疑：**37**
+- Tier2 源页面核对可疑：**44**
 
 ## 二、核对维度
 
@@ -29,8 +29,11 @@
 
 | 严重度 | 层级 | 代码 | 源 | 模型 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| med | T1 | CACHE_SUSPECT | openrouter | DeepSeek V4 Pro 0813 | 缓存命中价(0.32) 接近输入价(0.4)，异常偏高 |
-| med | T1 | CACHE_SUSPECT | openrouter | GLM-5.2 | 缓存命中价(0.2599) 接近输入价(0.3249)，异常偏高 |
+| high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Max | 静态源页面未找到input价数值「14.4」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Max | 静态源页面未找到output价数值「43.2」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到input价数值「2.4」，疑似解析/幻觉错误 |
+| high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到output价数值「9.6」，疑似解析/幻觉错误 |
+| med | T1 | CACHE_SUSPECT | openrouter | GLM-5.2 | 缓存命中价(0.2) 接近输入价(0.25)，异常偏高 |
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | DeepSeek V3.2 | 缓存/输入比率(50%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | DeepSeek V4 Flash | 缓存/输入比率(2%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent | DeepSeek V4 Flash | 缓存/输入比率(2%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
@@ -66,8 +69,6 @@
 | med | T1 | OPENAI_LONG_NO_OR | openai | GPT-5.6 Sol | OpenAI 硬编码长上下文价 GPT-5.6 Sol 无对应 OpenRouter 记录可交叉校验 |
 | med | T1 | OPENAI_LONG_DEV_CH | openai | GPT-5.6 Terra | OpenAI 长上下文input价(4.0) 与 OpenRouter 标准档(2.0) 偏差 100.0%，属渠道定价差异（OR 无长档可对标） |
 | med | T1 | OPENAI_LONG_DEV_CH | openai | GPT-5.6 Terra | OpenAI 长上下文output价(18.0) 与 OpenRouter 标准档(12.0) 偏差 50.0%，属渠道定价差异（OR 无长档可对标） |
-| med | T2 | SRC_UNREACHABLE | aliyun | Qwen3.7 Max | 源页面抓取失败: https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing |
-| med | T2 | SRC_UNREACHABLE | aliyun | Qwen3.7 Plus | 源页面抓取失败: https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing |
 | low | T1 | DIVERGE | - | Kimi K3 | 跨源输入价离散 10.5× (最低 2.1 / 最高 21.974)，建议人工核对是否同规格模型 |
 | low | T2 | SPA_NEED_RENDER | kimi | Kimi K3 | SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi | Kimi K3 | SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对 |
@@ -75,9 +76,6 @@
 | low | T2 | SPA_NEED_RENDER | kimi_ai | Kimi K3 | SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi_ai | Kimi K3 | SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | kimi_ai | Kimi K3 | SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | minimax | MiniMax M2.7 | SPA 源静态 HTML 未含模型名「MiniMax-M2.7」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
-| low | T2 | SPA_NEED_RENDER | minimax | MiniMax M3 | SPA 源静态 HTML 未含模型名「MiniMax-M3」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V3.2 | SPA 源静态 HTML 未含模型名「Deepseek-v3.」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
 | low | T2 | SPA_NEED_RENDER | tencent | DeepSeek V4 Flash | SPA 源静态 HTML 未含模型名「DeepSeek-V4-」，需 Playwright 渲染核对 |
