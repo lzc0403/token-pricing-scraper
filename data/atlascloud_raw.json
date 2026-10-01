@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-30T07:43:36",
+  "fetched_at": "2026-10-01T08:02:28",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -1358,6 +1358,47 @@
         }
       },
       {
+        "uuid": "ms-5eed25000004",
+        "model": "bytedance/seedance-2.5/draft-complete",
+        "type": "Video",
+        "displayName": "Seedance 2.5 Draft Complete",
+        "profile": "Render the 1080p final of a completed Seedance 2.5 draft. Prompt, inputs, duration, ratio, seed and audio come from the draft; only draft_id, return_last_frame, output_format and watermark are accepted.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedance-2.5-draft-complete.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedance-2.5-draft-complete.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedance-2.5-draft-complete.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedance-2.5-draft-complete.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedance-2.5-draft-complete.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedance-2.5-draft-complete.json",
+        "priority": 90048,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "DRAFT-COMPLETE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2lrwmrdlmpa7",
+        "familyName": "seedance-2.5",
+        "familyDisplayName": "Seedance 2.5 API: 30-Second Native Video Generation",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.263"
+          },
+          "origin": {
+            "base_price": "0.329"
+          }
+        }
+      },
+      {
         "uuid": "ms-h10tyt9jrpyj",
         "model": "microsoft/mai-image-2.5-pro/edit",
         "type": "Image",
@@ -1589,7 +1630,7 @@
         "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "contextLength": 500000,
         "maxCompletionTokens": 500000,
         "avgTotalTPS": "18.54",
@@ -1851,6 +1892,46 @@
         }
       },
       {
+        "uuid": "ms-sd5flash0003",
+        "model": "bytedance/seedream-v5.0-flash/layer-decomposition",
+        "type": "Image",
+        "displayName": "Seedream v5.0 Flash Layer Decomposition",
+        "profile": "Dola-Seedream-5.0-flash layer decomposition from ByteDance's high-speed, cost-optimized model built for instant creation. Splits one image into a base image plus up to 16 transparent PNG layers with stacking order (z_index), bounding boxes, names, and descriptions - fast, bulk-scale design-asset extraction.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v5.0-flash-layer-decomposition.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v5.0-flash-layer-decomposition.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v5.0-flash-layer-decomposition.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v5.0-flash-layer-decomposition.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v5.0-flash-layer-decomposition.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v5.0-flash-layer-decomposition.json",
+        "priority": 90042,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ppqjkjj83h4",
+        "familyName": "seedream-v5.0-flash",
+        "familyDisplayName": "Seedream v5.0 Flash: Up to 16 Layers",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.018"
+          },
+          "origin": {
+            "base_price": "0.018"
+          }
+        }
+      },
+      {
         "uuid": "ms-b3wmh4gdvj78",
         "model": "xai/grok-imagine-image-2.0-developer/edit",
         "type": "Image",
@@ -1878,7 +1959,7 @@
         "familyDisplayName": "Grok Imagine Image 2.0 Natural Language Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "35",
@@ -1918,7 +1999,7 @@
         "familyDisplayName": "Grok Imagine Image 2.0 Natural Language Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "35",
@@ -1958,7 +2039,7 @@
         "familyDisplayName": "Grok Imagine Image 2.0 Natural Language Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -1998,7 +2079,7 @@
         "familyDisplayName": "Grok Imagine Image 2.0 Natural Language Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -2035,7 +2116,7 @@
         ],
         "familyUUID": "mf-2pp5b0gtdpdf",
         "familyName": "qwen-image-3.0-pro",
-        "familyDisplayName": "Qwen Image 3.0 Pro API",
+        "familyDisplayName": "Qwen Image 3.0 pro Identity Preserving Edits",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -2075,7 +2156,7 @@
         ],
         "familyUUID": "mf-2pp5b0gtdpdf",
         "familyName": "qwen-image-3.0-pro",
-        "familyDisplayName": "Qwen Image 3.0 Pro API",
+        "familyDisplayName": "Qwen Image 3.0 pro Identity Preserving Edits",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -2234,7 +2315,7 @@
         ],
         "familyUUID": "mf-2pp59xemjhrn",
         "familyName": "qwen-image-3.0",
-        "familyDisplayName": "Qwen Image 3.0 API",
+        "familyDisplayName": "Qwen Image 3.0 Precise Text Rendering",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -2274,7 +2355,7 @@
         ],
         "familyUUID": "mf-2pp59xemjhrn",
         "familyName": "qwen-image-3.0",
-        "familyDisplayName": "Qwen Image 3.0 API",
+        "familyDisplayName": "Qwen Image 3.0 Precise Text Rendering",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -2684,7 +2765,7 @@
         "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "contextLength": 500000,
         "maxCompletionTokens": 500000,
         "avgTotalTPS": "18.54",
@@ -2952,6 +3033,86 @@
           },
           "origin": {
             "base_price": "0.086"
+          }
+        }
+      },
+      {
+        "uuid": "ms-sd5flash0002",
+        "model": "bytedance/seedream-v5.0-flash/edit",
+        "type": "Image",
+        "displayName": "Seedream v5.0 Flash Edit",
+        "profile": "Dola-Seedream-5.0-flash image editing from ByteDance's high-speed, cost-optimized model built for instant creation. Supports single- and multi-reference workflows with up to 10 images, precision editing, and transparent-background output - built for latency-sensitive mobile assistant apps, UGC content creation, and bulk-scale content production.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v5.0-flash-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v5.0-flash-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v5.0-flash-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v5.0-flash-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v5.0-flash-edit.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v5.0-flash-edit.json",
+        "priority": 90033,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ppqjkjj83h4",
+        "familyName": "seedream-v5.0-flash",
+        "familyDisplayName": "Seedream v5.0 Flash: Up to 16 Layers",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.018"
+          },
+          "origin": {
+            "base_price": "0.018"
+          }
+        }
+      },
+      {
+        "uuid": "ms-sd5flash0001",
+        "model": "bytedance/seedream-v5.0-flash/text-to-image",
+        "type": "Image",
+        "displayName": "Seedream v5.0 Flash Text-to-Image",
+        "profile": "Dola-Seedream-5.0-flash, ByteDance's high-speed, cost-optimized image generation model built for instant creation. Generates a single image from a text prompt in seconds at 1K, 1.5K, or 2K - well suited to latency-sensitive scenarios such as mobile assistant apps, UGC content creation, and bulk-scale content production.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v5.0-flash-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v5.0-flash-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v5.0-flash-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v5.0-flash-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v5.0-flash-text-to-image.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v5.0-flash-text-to-image.json",
+        "priority": 90033,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ppqjkjj83h4",
+        "familyName": "seedream-v5.0-flash",
+        "familyDisplayName": "Seedream v5.0 Flash: Up to 16 Layers",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.018"
+          },
+          "origin": {
+            "base_price": "0.018"
           }
         }
       },
@@ -5103,7 +5264,7 @@
         "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "contextLength": 262144,
         "maxCompletionTokens": 262144,
         "avgTotalTPS": "18.54",
@@ -5180,7 +5341,7 @@
         "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "contextLength": 1000000,
         "maxCompletionTokens": 1000000,
         "avgTotalTPS": "18.54",
@@ -5736,7 +5897,7 @@
         "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -7319,7 +7480,7 @@
         "familyDisplayName": "Grok Imagine Video 1.5 Motion Prompting",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "35",
@@ -7359,7 +7520,7 @@
         "familyDisplayName": "Grok Imagine Video 1.5 Motion Prompting",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -7439,7 +7600,7 @@
         "familyDisplayName": "Grok Imagine Video 1.5 Motion Prompting",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "35",
@@ -7479,7 +7640,7 @@
         "familyDisplayName": "Grok Imagine Video 1.5 Motion Prompting",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -7559,7 +7720,7 @@
         "familyDisplayName": "Grok Imagine Video 1.5 Motion Prompting",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "35",
@@ -7599,7 +7760,7 @@
         "familyDisplayName": "Grok Imagine Video 1.5 Motion Prompting",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -7639,7 +7800,7 @@
         "familyDisplayName": "Grok Imagine Image Multi-Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -7679,7 +7840,7 @@
         "familyDisplayName": "Grok Imagine Image Multi-Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -9780,7 +9941,7 @@
         ],
         "familyUUID": "mf-2pp579sog7mg",
         "familyName": "qwen-image-2.0",
-        "familyDisplayName": "Qwen Image 2.0 API",
+        "familyDisplayName": "Qwen Image 2.0 Native 2K",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -9820,7 +9981,7 @@
         ],
         "familyUUID": "mf-2pp579sog7mg",
         "familyName": "qwen-image-2.0",
-        "familyDisplayName": "Qwen Image 2.0 API",
+        "familyDisplayName": "Qwen Image 2.0 Native 2K",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -9860,7 +10021,7 @@
         ],
         "familyUUID": "mf-2pp58j5a392r",
         "familyName": "qwen-image-2.0-pro",
-        "familyDisplayName": "Qwen Image 2.0 Pro API",
+        "familyDisplayName": "Qwen Image 2.0 pro Prompt Intelligence",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -9900,7 +10061,7 @@
         ],
         "familyUUID": "mf-2pp58j5a392r",
         "familyName": "qwen-image-2.0-pro",
-        "familyDisplayName": "Qwen Image 2.0 Pro API",
+        "familyDisplayName": "Qwen Image 2.0 pro Prompt Intelligence",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -10312,7 +10473,7 @@
         "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -10352,7 +10513,7 @@
         "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -10392,7 +10553,7 @@
         "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -10432,7 +10593,7 @@
         "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -10472,7 +10633,7 @@
         "familyDisplayName": "Grok Imagine Video with Reference Guidance",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -11975,7 +12136,7 @@
         ],
         "familyUUID": "mf-2ce5n45fejp7",
         "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "familyDisplayName": "Qwen Image for Bilingual Typography",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -12503,7 +12664,7 @@
         ],
         "familyUUID": "mf-2ce5n45fejp7",
         "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "familyDisplayName": "Qwen Image for Bilingual Typography",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -13885,7 +14046,7 @@
         ],
         "familyUUID": "mf-2ce5n45fejp7",
         "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "familyDisplayName": "Qwen Image for Bilingual Typography",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -14046,7 +14207,7 @@
         ],
         "familyUUID": "mf-2ce5n45fejp7",
         "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "familyDisplayName": "Qwen Image for Bilingual Typography",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -14087,7 +14248,7 @@
         ],
         "familyUUID": "mf-2ce5n45fejp7",
         "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "familyDisplayName": "Qwen Image for Bilingual Typography",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -19054,7 +19215,7 @@
         "familyDisplayName": "Grok Imagine Image Multi-Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -19171,7 +19332,7 @@
         "familyDisplayName": "Grok Imagine Image Multi-Image Editing",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -21675,7 +21836,7 @@
         ],
         "familyUUID": "mf-2ce5n45fejp7",
         "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "familyDisplayName": "Qwen Image for Bilingual Typography",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -21716,7 +21877,7 @@
         ],
         "familyUUID": "mf-2ce5n45fejp7",
         "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "familyDisplayName": "Qwen Image for Bilingual Typography",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -22120,7 +22281,7 @@
         ],
         "familyUUID": "mf-2ce5n45fejp7",
         "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image API for Multilingual Text Rendering",
+        "familyDisplayName": "Qwen Image for Bilingual Typography",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -25102,7 +25263,7 @@
         "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
-        "parentFamilyDisplayName": "xAI API",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
