@@ -1,9 +1,9 @@
 {
   "ok": true,
-  "fetched_at": "2026-10-01T08:02:27.941838+00:00",
-  "generated_at": "2026-10-01 08:07:02",
+  "fetched_at": "2026-10-02T07:45:08.371209+00:00",
+  "generated_at": "2026-10-02 07:49:43",
   "stats": {
-    "raw_models": 462,
+    "raw_models": 464,
     "parsed": 41,
     "whitelist": 30,
     "missing_whitelist": 0,
