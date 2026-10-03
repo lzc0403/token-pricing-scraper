@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-02T07:45:09",
+  "fetched_at": "2026-10-03T07:19:08",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -2685,12 +2685,16 @@
             "type": "flat",
             "input_price": "3",
             "output_price": "15",
+            "cache_creation_price": "3",
+            "cache_creation_1h_price": "6",
             "cache_price": "0.3"
           },
           "origin": {
             "type": "flat",
             "input_price": "3",
             "output_price": "15",
+            "cache_creation_price": "3",
+            "cache_creation_1h_price": "6",
             "cache_price": "0.3"
           }
         },

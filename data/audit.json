@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-02 07:49:26",
+  "generated_at": "2026-10-03 07:23:21",
   "stats": {
     "total": 147,
-    "suspects": 84,
+    "suspects": 82,
     "high": 4,
-    "med": 37,
-    "low": 43,
-    "tier1": 40,
+    "med": 36,
+    "low": 42,
+    "tier1": 38,
     "tier2": 44,
     "tier1_high": 0,
     "gate": "pass"
@@ -358,33 +358,6 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
-      "source": "openrouter",
-      "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(14%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "DeepSeek V4.1 Flash",
-        "input": 0.015,
-        "output": 1.2,
-        "cache_hit": 0.002115,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "deepseek/deepseek-v4.1-flash",
-        "openrouter_prompt_per_token": "0.000000015",
-        "openrouter_completion_per_token": "0.0000012",
-        "input_rmb": 0.105,
-        "output_rmb": 8.4,
-        "canonical": "DeepSeek V4.1 Flash",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
       "source": "atlascloud",
       "canonical": "GLM-4.7",
       "msg": "缓存/输入比率(23%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
@@ -710,24 +683,11 @@
       "severity": "low",
       "source": null,
       "canonical": "DeepSeek V4 Flash",
-      "msg": "跨源输入价离散 10.5× (最低 0.294 / 最高 3.08)，建议人工核对是否同规格模型",
+      "msg": "跨源输入价离散 15.7× (最低 0.196 / 最高 3.08)，建议人工核对是否同规格模型",
       "record": {
-        "min": 0.294,
+        "min": 0.196,
         "max": 3.08,
-        "ratio": 10.5
-      }
-    },
-    {
-      "tier": 1,
-      "code": "DIVERGE",
-      "severity": "low",
-      "source": null,
-      "canonical": "DeepSeek V4.1 Flash",
-      "msg": "跨源输入价离散 20.0× (最低 0.105 / 最高 2.1)，建议人工核对是否同规格模型",
-      "record": {
-        "min": 0.105,
-        "max": 2.1,
-        "ratio": 20.0
+        "ratio": 15.7
       }
     },
     {
