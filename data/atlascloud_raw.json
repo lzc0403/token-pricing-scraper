@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-08T08:11:19",
+  "fetched_at": "2026-10-09T08:14:59",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -83,6 +83,85 @@
           "openai.chat.completions"
         ],
         "architectureType": "Mixture-of-Experts (MoE)"
+      },
+      {
+        "uuid": "ms-vwk9mdho5c45",
+        "model": "zai-org/glm-5.3-flash",
+        "type": "Text",
+        "displayName": "GLM 5.3 Flash",
+        "profile": "Fast, efficient GLM model optimized for low-latency reasoning and high-throughput AI tasks.",
+        "logo": "https://static.atlascloud.ai/model/logo/zai-org-glm-4.6.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ZHIPUAI.png",
+        "background": "https://static.atlascloud.ai/model/background/zai-org-glm-5.3-flash.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/d1838851-b8af-480f-bc9b-1ee715ab5e5b.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/zai-org-glm-5.3-flash.json",
+        "readme": "https://static.atlascloud.ai/model/readme/zai-org-glm-5.2.md",
+        "organization": "ZHIPUAI",
+        "example": "https://static.atlascloud.ai/model/example/zai-org-glm-4.6.json",
+        "priority": 108887,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 131072,
+        "avgTotalTPS": "34.49",
+        "avgLatency": "0.70",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "0.15",
+            "output_price": "0.5",
+            "cache_price": "0.03"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0.15",
+            "output_price": "0.5",
+            "cache_price": "0.03"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "tools",
+          "reasoning",
+          "structured_outputs"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "totalParameters": "744B",
+        "activeParameters": "40B",
+        "architectureType": "Hybrid Transformer with high-sparsity MoE",
+        "knowledgeCutoff": "June 2025"
       },
       {
         "uuid": "ms-gi25sunt2i",
@@ -478,9 +557,9 @@
           "VIDEO-EXTEND",
           "NEW"
         ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "familyUUID": "mf-2q1tqcsjavtm",
+        "familyName": "gemini-omni-1.1-flash",
+        "familyDisplayName": "Gemini Omni 1.1 Flash",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -519,9 +598,9 @@
           "VIDEO-EDIT",
           "NEW"
         ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "familyUUID": "mf-2q1tqcsjavtm",
+        "familyName": "gemini-omni-1.1-flash",
+        "familyDisplayName": "Gemini Omni 1.1 Flash",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -557,9 +636,9 @@
           "REFERENCE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "familyUUID": "mf-2q1tqcsjavtm",
+        "familyName": "gemini-omni-1.1-flash",
+        "familyDisplayName": "Gemini Omni 1.1 Flash",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -597,9 +676,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "familyUUID": "mf-2q1tqcsjavtm",
+        "familyName": "gemini-omni-1.1-flash",
+        "familyDisplayName": "Gemini Omni 1.1 Flash",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -637,9 +716,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2kfgui1jyt27",
-        "familyName": "gemini-omni",
-        "familyDisplayName": "Conversational Video Editing with gemini omni API",
+        "familyUUID": "mf-2q1tqcsjavtm",
+        "familyName": "gemini-omni-1.1-flash",
+        "familyDisplayName": "Gemini Omni 1.1 Flash",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -2820,19 +2899,19 @@
       },
       {
         "uuid": "ms-795d715ecddc",
-        "model": "youchuan/v8.2/image-to-video",
+        "model": "midjourney/v8.2/image-to-video",
         "type": "Video",
-        "displayName": "Youchuan V8.2 Image-to-Video",
-        "profile": "Youchuan V8.2 animates an input image into four 5-second videos at 480p or 720p.",
+        "displayName": "Midjourney V8.2 Image-to-Video",
+        "profile": "Midjourney V8.2 animates an input image into four 5-second videos at 480p or 720p.",
         "logo": "https://static.atlascloud.ai/uploads/models/65a6b380-69d4-4e57-b1df-d58d79298c11.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.2-image-to-video.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.2-image-to-video.png",
         "coverUrl": "https://static.atlascloud.ai/uploads/models/d4924553-b904-4a4b-9bd2-e4dfe01319d8.png",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.2-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.2-image-to-video.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.2-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.2-image-to-video.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.2-image-to-video.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.2-image-to-video.json",
         "priority": 90035,
         "categories": [
           "IMAGE-TO-VIDEO"
@@ -2857,19 +2936,19 @@
       },
       {
         "uuid": "ms-4b25a1e59d0c",
-        "model": "youchuan/v8.2/remove-background",
+        "model": "midjourney/v8.2/remove-background",
         "type": "Image",
-        "displayName": "Youchuan V8.2 Remove Background",
-        "profile": "Youchuan automatically removes the background from an input image, returning one transparent-background result.",
+        "displayName": "Midjourney V8.2 Remove Background",
+        "profile": "Midjourney automatically removes the background from an input image, returning one transparent-background result.",
         "logo": "https://static.atlascloud.ai/uploads/models/b91299db-0b93-4ea7-80ea-6a7864932e68.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.2-remove-background.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.2-remove-background.png",
         "coverUrl": "https://static.atlascloud.ai/uploads/models/a42a5d6c-7cc8-49da-b698-d0653b27119a.png",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.2-remove-background.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.2-remove-background.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.2-remove-background.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.2-remove-background.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.2-remove-background.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.2-remove-background.json",
         "priority": 90035,
         "categories": [
           "IMAGE-TO-IMAGE"
@@ -2894,19 +2973,19 @@
       },
       {
         "uuid": "ms-d767a95a6d33",
-        "model": "youchuan/v8.2/style-transfer",
+        "model": "midjourney/v8.2/style-transfer",
         "type": "Image",
-        "displayName": "Youchuan V8.2 Style Transfer",
-        "profile": "Youchuan retexture changes the artistic style of an input image while preserving its composition, returning four restyled results.",
+        "displayName": "Midjourney V8.2 Style Transfer",
+        "profile": "Midjourney retexture changes the artistic style of an input image while preserving its composition, returning four restyled results.",
         "logo": "https://static.atlascloud.ai/uploads/models/d5c59281-b486-408d-91a7-bfc8e4fe9fe6.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.2-style-transfer.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.2-style-transfer.png",
         "coverUrl": "https://static.atlascloud.ai/uploads/models/c131796f-f718-4270-9199-259327cff4f4.png",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.2-style-transfer.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.2-style-transfer.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.2-style-transfer.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.2-style-transfer.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.2-style-transfer.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.2-style-transfer.json",
         "priority": 90035,
         "categories": [
           "IMAGE-TO-IMAGE"
@@ -2931,19 +3010,19 @@
       },
       {
         "uuid": "ms-be298c3e2981",
-        "model": "youchuan/v8.2/blend",
+        "model": "midjourney/v8.2/blend",
         "type": "Image",
-        "displayName": "Youchuan V8.2 Blend",
-        "profile": "Youchuan V8.2 blends two to five input images into four fused results, with an optional guiding prompt and native 2K HD.",
+        "displayName": "Midjourney V8.2 Blend",
+        "profile": "Midjourney V8.2 blends two to five input images into four fused results, with an optional guiding prompt and native 2K HD.",
         "logo": "https://static.atlascloud.ai/uploads/models/5d15567e-55f6-481c-9e76-6179147a5460.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.2-blend.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.2-blend.png",
         "coverUrl": "https://static.atlascloud.ai/uploads/models/7fe4f8e9-22e6-4234-b4f2-bba2f14092e1.png",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.2-blend.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.2-blend.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.2-blend.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.2-blend.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.2-blend.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.2-blend.json",
         "priority": 90035,
         "categories": [
           "IMAGE-TO-IMAGE"
@@ -2968,62 +3047,25 @@
       },
       {
         "uuid": "ms-80d6823ab6da",
-        "model": "youchuan/v8.2/image-to-image",
+        "model": "midjourney/v8.2/image-to-image",
         "type": "Image",
-        "displayName": "Youchuan V8.2 Image-to-Image",
-        "profile": "Youchuan V8.2 re-imagines an input image guided by a text prompt, returning four variations. Supports native 2K HD, style reference, and aspect-ratio / stylize / chaos / weird controls.",
+        "displayName": "Midjourney V8.2 Image-to-Image",
+        "profile": "Midjourney V8.2 re-imagines an input image guided by a text prompt, returning four variations. Supports native 2K HD, style reference, and aspect-ratio / stylize / chaos / weird controls.",
         "logo": "https://static.atlascloud.ai/uploads/models/f910ef6c-d0a8-4321-bbb7-045aeb84f005.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.2-image-to-image.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.2-image-to-image.png",
         "coverUrl": "https://static.atlascloud.ai/uploads/models/ceb1bdcc-3790-4eba-b4f6-a2cd783d3368.png",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.2-image-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.2-image-to-image.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.2-image-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.2-image-to-image.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.2-image-to-image.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.2-image-to-image.json",
         "priority": 90035,
         "categories": [
           "IMAGE-TO-IMAGE"
         ],
         "tags": [
           "IMAGE-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2ltc5tdc9rb3",
-        "familyName": "youchuan",
-        "familyDisplayName": "Youchuan API for Native 2K Stills and Motion",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "base_price": "0.086"
-          },
-          "origin": {
-            "base_price": "0.086"
-          }
-        }
-      },
-      {
-        "uuid": "ms-81d0c06bc310",
-        "model": "youchuan/v8.2/text-to-image",
-        "type": "Image",
-        "displayName": "Youchuan V8.2 Text-to-Image",
-        "profile": "Youchuan V8.2 generates four images from a text prompt, with optional native 2K HD, a style reference, and aspect-ratio / stylize / chaos / weird controls.",
-        "logo": "https://static.atlascloud.ai/uploads/models/67427304-6468-4df1-b9e2-df02e3321455.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.2-text-to-image.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/029d473d-88c7-4a2c-b8e0-9b22d1c28833.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.2-text-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.2-text-to-image.md",
-        "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.2-text-to-image.json",
-        "priority": 90035,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
           "NEW"
         ],
         "familyUUID": "mf-2ltc5tdc9rb3",
@@ -3801,85 +3843,6 @@
         }
       },
       {
-        "uuid": "ms-vwk9mdho5c45",
-        "model": "zai-org/glm-5.3-flash",
-        "type": "Text",
-        "displayName": "GLM 5.3 Flash",
-        "profile": "Fast, efficient GLM model optimized for low-latency reasoning and high-throughput AI tasks.",
-        "logo": "https://static.atlascloud.ai/model/logo/zai-org-glm-4.6.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ZHIPUAI.png",
-        "background": "https://static.atlascloud.ai/model/background/zai-org-glm-5.3-flash.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/d1838851-b8af-480f-bc9b-1ee715ab5e5b.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/zai-org-glm-5.3-flash.json",
-        "readme": "https://static.atlascloud.ai/model/readme/zai-org-glm-5.2.md",
-        "organization": "ZHIPUAI",
-        "example": "https://static.atlascloud.ai/model/example/zai-org-glm-4.6.json",
-        "priority": 90025,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 1048576,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "34.49",
-        "avgLatency": "0.70",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.15",
-            "output_price": "0.5",
-            "cache_price": "0.03"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.15",
-            "output_price": "0.5",
-            "cache_price": "0.03"
-          }
-        },
-        "input_modalities": [
-          "text",
-          "image",
-          "video"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_sampling_parameters": [
-          "temperature",
-          "top_p",
-          "top_k",
-          "min_p",
-          "frequency_penalty",
-          "presence_penalty",
-          "repetition_penalty",
-          "stop",
-          "seed",
-          "max_tokens",
-          "logit_bias"
-        ],
-        "supported_features": [
-          "json_mode",
-          "tools",
-          "reasoning",
-          "structured_outputs"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "totalParameters": "744B",
-        "activeParameters": "40B",
-        "architectureType": "Hybrid Transformer with high-sparsity MoE",
-        "knowledgeCutoff": "June 2025"
-      },
-      {
         "uuid": "ms-pdxmg9mn6cmx",
         "model": "zai-org/glm-5.3",
         "type": "Text",
@@ -3980,9 +3943,9 @@
           "NEW",
           "PREVIEW"
         ],
-        "familyUUID": "mf-2iujzxbqqdtf",
-        "familyName": "happyhorse",
-        "familyDisplayName": "Meet the Happy Horse 1.0 API & Happy Horse 1.1 API",
+        "familyUUID": "mf-2q1ttwdolivl",
+        "familyName": "happyhorse-1.1",
+        "familyDisplayName": "Happyhorse 1.1",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -4021,9 +3984,9 @@
           "NEW",
           "PREVIEW"
         ],
-        "familyUUID": "mf-2iujzxbqqdtf",
-        "familyName": "happyhorse",
-        "familyDisplayName": "Meet the Happy Horse 1.0 API & Happy Horse 1.1 API",
+        "familyUUID": "mf-2q1ttwdolivl",
+        "familyName": "happyhorse-1.1",
+        "familyDisplayName": "Happyhorse 1.1",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -4060,9 +4023,9 @@
           "NEW",
           "PREVIEW"
         ],
-        "familyUUID": "mf-2iujzxbqqdtf",
-        "familyName": "happyhorse",
-        "familyDisplayName": "Meet the Happy Horse 1.0 API & Happy Horse 1.1 API",
+        "familyUUID": "mf-2q1ttwdolivl",
+        "familyName": "happyhorse-1.1",
+        "familyDisplayName": "Happyhorse 1.1",
         "parentFamilyUUID": "mf-2bqy3lixq16l",
         "parentFamilyName": "qwen-wan",
         "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
@@ -4976,19 +4939,19 @@
       },
       {
         "uuid": "ms-w45nvr6xyxe1",
-        "model": "youchuan/v8.1/remove-background",
+        "model": "midjourney/v8.1/remove-background",
         "type": "Image",
-        "displayName": "Youchuan V8.1 Remove Background",
-        "profile": "Youchuan automatically removes the background from an input image, returning one transparent-background result.",
-        "logo": "https://static.atlascloud.ai/model/logo/youchuan-v8.1-remove-background.png",
+        "displayName": "Midjourney V8.1 Remove Background",
+        "profile": "Midjourney automatically removes the background from an input image, returning one transparent-background result.",
+        "logo": "https://static.atlascloud.ai/model/logo/midjourney-v8.1-remove-background.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.1-remove-background.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.1-remove-background.png",
         "coverUrl": "https://static.atlascloud.ai/model/cover/youchuan-v8.1-remove-background.jpg",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.1-remove-background.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.1-remove-background.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.1-remove-background.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.1-remove-background.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.1-remove-background.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.1-remove-background.json",
         "priority": 88900,
         "categories": [
           "IMAGE-TO-IMAGE"
@@ -5013,19 +4976,19 @@
       },
       {
         "uuid": "ms-fr4s52xv530q",
-        "model": "youchuan/v8.1/style-transfer",
+        "model": "midjourney/v8.1/style-transfer",
         "type": "Image",
-        "displayName": "Youchuan V8.1 Style Transfer",
-        "profile": "Youchuan retexture changes the artistic style of an input image while preserving its composition, returning four restyled results.",
-        "logo": "https://static.atlascloud.ai/model/logo/youchuan-v8.1-style-transfer.png",
+        "displayName": "Midjourney V8.1 Style Transfer",
+        "profile": "Midjourney retexture changes the artistic style of an input image while preserving its composition, returning four restyled results.",
+        "logo": "https://static.atlascloud.ai/model/logo/midjourney-v8.1-style-transfer.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.1-style-transfer.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.1-style-transfer.png",
         "coverUrl": "https://static.atlascloud.ai/model/cover/youchuan-v8.1-style-transfer.jpg",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.1-style-transfer.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.1-style-transfer.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.1-style-transfer.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.1-style-transfer.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.1-style-transfer.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.1-style-transfer.json",
         "priority": 88899,
         "categories": [
           "IMAGE-TO-IMAGE"
@@ -5050,19 +5013,19 @@
       },
       {
         "uuid": "ms-ixctszzoextu",
-        "model": "youchuan/v8.1/blend",
+        "model": "midjourney/v8.1/blend",
         "type": "Image",
-        "displayName": "Youchuan V8.1 Blend",
-        "profile": "Youchuan V8.1 blends two to five input images into four fused results, with an optional guiding prompt and native 2K HD.",
-        "logo": "https://static.atlascloud.ai/model/logo/youchuan-v8.1-blend.png",
+        "displayName": "Midjourney V8.1 Blend",
+        "profile": "Midjourney V8.1 blends two to five input images into four fused results, with an optional guiding prompt and native 2K HD.",
+        "logo": "https://static.atlascloud.ai/model/logo/midjourney-v8.1-blend.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.1-blend.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.1-blend.png",
         "coverUrl": "https://static.atlascloud.ai/model/cover/youchuan-v8.1-blend.jpg",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.1-blend.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.1-blend.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.1-blend.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.1-blend.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.1-blend.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.1-blend.json",
         "priority": 88898,
         "categories": [
           "IMAGE-TO-IMAGE"
@@ -5087,19 +5050,19 @@
       },
       {
         "uuid": "ms-8gcfizw7l8n5",
-        "model": "youchuan/v8.1/image-to-image",
+        "model": "midjourney/v8.1/image-to-image",
         "type": "Image",
-        "displayName": "Youchuan V8.1 Image-to-Image",
-        "profile": "Youchuan V8.1 re-imagines an input image guided by a text prompt, returning four variations. Supports native 2K HD, style reference, and aspect-ratio / stylize / chaos / weird controls.",
-        "logo": "https://static.atlascloud.ai/model/logo/youchuan-v8.1-image-to-image.png",
+        "displayName": "Midjourney V8.1 Image-to-Image",
+        "profile": "Midjourney V8.1 re-imagines an input image guided by a text prompt, returning four variations. Supports native 2K HD, style reference, and aspect-ratio / stylize / chaos / weird controls.",
+        "logo": "https://static.atlascloud.ai/model/logo/midjourney-v8.1-image-to-image.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.1-image-to-image.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.1-image-to-image.png",
         "coverUrl": "https://static.atlascloud.ai/model/cover/youchuan-v8.1-image-to-image.jpg",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.1-image-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.1-image-to-image.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.1-image-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.1-image-to-image.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.1-image-to-image.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.1-image-to-image.json",
         "priority": 88897,
         "categories": [
           "IMAGE-TO-IMAGE"
@@ -5320,19 +5283,19 @@
       },
       {
         "uuid": "ms-wb2d2epta95m",
-        "model": "youchuan/v8.1/image-to-video",
+        "model": "midjourney/v8.1/image-to-video",
         "type": "Video",
-        "displayName": "Youchuan V8.1 Image-to-Video",
-        "profile": "Youchuan V8.1 animates an input image into four 5-second videos at 480p or 720p.",
-        "logo": "https://static.atlascloud.ai/model/logo/youchuan-v8.1-image-to-video.png",
+        "displayName": "Midjourney V8.1 Image-to-Video",
+        "profile": "Midjourney V8.1 animates an input image into four 5-second videos at 480p or 720p.",
+        "logo": "https://static.atlascloud.ai/model/logo/midjourney-v8.1-image-to-video.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.1-image-to-video.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.1-image-to-video.png",
         "coverUrl": "https://static.atlascloud.ai/model/cover/youchuan-v8.1-image-to-video.jpg",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.1-image-to-video.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.1-image-to-video.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.1-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.1-image-to-video.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.1-image-to-video.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.1-image-to-video.json",
         "priority": 88893,
         "categories": [
           "IMAGE-TO-VIDEO"
@@ -5357,19 +5320,19 @@
       },
       {
         "uuid": "ms-c5mrda1tyarc",
-        "model": "youchuan/v8.1/text-to-image",
+        "model": "midjourney/v8.1/text-to-image",
         "type": "Image",
-        "displayName": "Youchuan V8.1 Text-to-Image",
-        "profile": "Youchuan V8.1 generates four images from a text prompt, with optional native 2K HD, a style reference, and aspect-ratio / stylize / chaos / weird controls.",
-        "logo": "https://static.atlascloud.ai/model/logo/youchuan-v8.1-text-to-image.png",
+        "displayName": "Midjourney V8.1 Text-to-Image",
+        "profile": "Midjourney V8.1 generates four images from a text prompt, with optional native 2K HD, a style reference, and aspect-ratio / stylize / chaos / weird controls.",
+        "logo": "https://static.atlascloud.ai/model/logo/midjourney-v8.1-text-to-image.png",
         "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
-        "background": "https://static.atlascloud.ai/model/background/youchuan-v8.1-text-to-image.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.1-text-to-image.png",
         "coverUrl": "https://static.atlascloud.ai/model/cover/youchuan-v8.1-text-to-image.jpg",
         "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/youchuan-v8.1-text-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/youchuan-v8.1-text-to-image.md",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.1-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.1-text-to-image.md",
         "organization": "MIDJOURNEY",
-        "example": "https://static.atlascloud.ai/model/example/youchuan-v8.1-text-to-image.json",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.1-text-to-image.json",
         "priority": 88892,
         "categories": [
           "TEXT-TO-IMAGE"
@@ -5381,6 +5344,43 @@
         "familyUUID": "mf-2ltc5tdc9rb3",
         "familyName": "youchuan",
         "familyDisplayName": "Youchuan API for Native 2K Stills and Motion",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.086"
+          },
+          "origin": {
+            "base_price": "0.086"
+          }
+        }
+      },
+      {
+        "uuid": "ms-d1927ec1c0c0",
+        "model": "midjourney/v8.2/text-to-image",
+        "type": "Image",
+        "displayName": "Midjourney V8.2 Text-to-Image",
+        "profile": "Midjourney V8.2 generates four images from a text prompt, with optional native 2K HD, a style reference, and aspect-ratio / stylize / chaos / weird controls.",
+        "logo": "https://static.atlascloud.ai/model/logo/midjourney-v8.2-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MIDJOURNEY.png",
+        "background": "https://static.atlascloud.ai/model/background/midjourney-v8.2-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/midjourney-v8.2-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/midjourney-v8.2-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/midjourney-v8.2-text-to-image.md",
+        "organization": "MIDJOURNEY",
+        "example": "https://static.atlascloud.ai/model/example/midjourney-v8.2-text-to-image.json",
+        "priority": 88892,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2l9gkmsln52m",
+        "familyName": "midjourney",
+        "familyDisplayName": "Midjourney Models",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -8567,9 +8567,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2g2pbf474j99",
-        "familyName": "veo-3.1",
-        "familyDisplayName": "Veo 3.1 API for Video with Synchronized Audio",
+        "familyUUID": "mf-2q1tk92utwb5",
+        "familyName": "veo-3.1-lite",
+        "familyDisplayName": "Veo 3.1 Lite",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -8607,9 +8607,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2g2pbf474j99",
-        "familyName": "veo-3.1",
-        "familyDisplayName": "Veo 3.1 API for Video with Synchronized Audio",
+        "familyUUID": "mf-2q1tk92utwb5",
+        "familyName": "veo-3.1-lite",
+        "familyDisplayName": "Veo 3.1 Lite",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -8647,9 +8647,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2g2pbf474j99",
-        "familyName": "veo-3.1",
-        "familyDisplayName": "Veo 3.1 API for Video with Synchronized Audio",
+        "familyUUID": "mf-2q1tk92utwb5",
+        "familyName": "veo-3.1-lite",
+        "familyDisplayName": "Veo 3.1 Lite",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -10192,9 +10192,9 @@
           "HOT",
           "NEW"
         ],
-        "familyUUID": "mf-2g2pbf474j99",
-        "familyName": "veo-3.1",
-        "familyDisplayName": "Veo 3.1 API for Video with Synchronized Audio",
+        "familyUUID": "mf-2q1tj8joai8h",
+        "familyName": "veo-3.1-fast",
+        "familyDisplayName": "Veo 3.1 Fast for Rapid Iteration",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -10233,9 +10233,9 @@
           "HOT",
           "NEW"
         ],
-        "familyUUID": "mf-2g2pbf474j99",
-        "familyName": "veo-3.1",
-        "familyDisplayName": "Veo 3.1 API for Video with Synchronized Audio",
+        "familyUUID": "mf-2q1tj8joai8h",
+        "familyName": "veo-3.1-fast",
+        "familyDisplayName": "Veo 3.1 Fast for Rapid Iteration",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -10276,7 +10276,7 @@
         ],
         "familyUUID": "mf-2g2pbf474j99",
         "familyName": "veo-3.1",
-        "familyDisplayName": "Veo 3.1 API for Video with Synchronized Audio",
+        "familyDisplayName": "Veo 3.1 with Native Audio",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -10317,7 +10317,7 @@
         ],
         "familyUUID": "mf-2g2pbf474j99",
         "familyName": "veo-3.1",
-        "familyDisplayName": "Veo 3.1 API for Video with Synchronized Audio",
+        "familyDisplayName": "Veo 3.1 with Native Audio",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -10358,7 +10358,7 @@
         ],
         "familyUUID": "mf-2g2pbf474j99",
         "familyName": "veo-3.1",
-        "familyDisplayName": "Veo 3.1 API for Video with Synchronized Audio",
+        "familyDisplayName": "Veo 3.1 with Native Audio",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -11743,7 +11743,7 @@
         ],
         "familyUUID": "mf-2q0ei9dv8kvn",
         "familyName": "kling-2.6",
-        "familyDisplayName": "Kling 2.6 API",
+        "familyDisplayName": "Kling v2.6 Cinematic Video Creation",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -11783,7 +11783,7 @@
         ],
         "familyUUID": "mf-2q0ei9dv8kvn",
         "familyName": "kling-2.6",
-        "familyDisplayName": "Kling 2.6 API",
+        "familyDisplayName": "Kling v2.6 Cinematic Video Creation",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -11903,7 +11903,7 @@
         ],
         "familyUUID": "mf-2q0ei9dv8kvn",
         "familyName": "kling-2.6",
-        "familyDisplayName": "Kling 2.6 API",
+        "familyDisplayName": "Kling v2.6 Cinematic Video Creation",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -11983,7 +11983,7 @@
         ],
         "familyUUID": "mf-2q0ei9dv8kvn",
         "familyName": "kling-2.6",
-        "familyDisplayName": "Kling 2.6 API",
+        "familyDisplayName": "Kling v2.6 Cinematic Video Creation",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12795,7 +12795,7 @@
         ],
         "familyUUID": "mf-2q0ei9dv8kvn",
         "familyName": "kling-2.6",
-        "familyDisplayName": "Kling 2.6 API",
+        "familyDisplayName": "Kling v2.6 Cinematic Video Creation",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12836,7 +12836,7 @@
         ],
         "familyUUID": "mf-2q0ei9dv8kvn",
         "familyName": "kling-2.6",
-        "familyDisplayName": "Kling 2.6 API",
+        "familyDisplayName": "Kling v2.6 Cinematic Video Creation",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -16472,7 +16472,7 @@
         ],
         "familyUUID": "mf-2q0ejsyxw90z",
         "familyName": "kling-2.5-turbo-pro",
-        "familyDisplayName": "Kling 2.5 Turbo Pro",
+        "familyDisplayName": "Kling v2.5 Turbo Pro Cinematic Motion",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -16511,7 +16511,7 @@
         ],
         "familyUUID": "mf-2q0ejsyxw90z",
         "familyName": "kling-2.5-turbo-pro",
-        "familyDisplayName": "Kling 2.5 Turbo Pro",
+        "familyDisplayName": "Kling v2.5 Turbo Pro Cinematic Motion",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -16550,7 +16550,7 @@
         ],
         "familyUUID": "mf-2q0eks28jezc",
         "familyName": "kling-2.1",
-        "familyDisplayName": "Kling 2.1",
+        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -16589,7 +16589,7 @@
         ],
         "familyUUID": "mf-2q0enfl4r0d4",
         "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 API",
+        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -16628,7 +16628,7 @@
         ],
         "familyUUID": "mf-2q0enfl4r0d4",
         "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 API",
+        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -17027,7 +17027,7 @@
         ],
         "familyUUID": "mf-2q0embrr0qsz",
         "familyName": "kling-2.0",
-        "familyDisplayName": "Kling 2.0",
+        "familyDisplayName": "Kling 2.0 Refined Camera Realism",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -17147,7 +17147,7 @@
         ],
         "familyUUID": "mf-2q0eks28jezc",
         "familyName": "kling-2.1",
-        "familyDisplayName": "Kling 2.1",
+        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -17187,7 +17187,7 @@
         ],
         "familyUUID": "mf-2q0embrr0qsz",
         "familyName": "kling-2.0",
-        "familyDisplayName": "Kling 2.0",
+        "familyDisplayName": "Kling 2.0 Refined Camera Realism",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -17347,7 +17347,7 @@
         ],
         "familyUUID": "mf-2q0eks28jezc",
         "familyName": "kling-2.1",
-        "familyDisplayName": "Kling 2.1",
+        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -17507,7 +17507,7 @@
         ],
         "familyUUID": "mf-2q0eks28jezc",
         "familyName": "kling-2.1",
-        "familyDisplayName": "Kling 2.1",
+        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -17547,7 +17547,7 @@
         ],
         "familyUUID": "mf-2q0enfl4r0d4",
         "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 API",
+        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -17587,7 +17587,7 @@
         ],
         "familyUUID": "mf-2q0enfl4r0d4",
         "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 API",
+        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -18155,7 +18155,7 @@
         ],
         "familyUUID": "mf-2q0eks28jezc",
         "familyName": "kling-2.1",
-        "familyDisplayName": "Kling 2.1",
+        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -18194,7 +18194,7 @@
         ],
         "familyUUID": "mf-2q0enfl4r0d4",
         "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 API",
+        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -22640,6 +22640,246 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-7tpizptvdzw1",
+        "model": "google/nano-banana-2.1-developer/reference-to-image",
+        "type": "Image",
+        "displayName": "Nano Banana 2.1 Developer Reference-to-Image",
+        "profile": "Google's Nano Banana 2.1, built on Gemini 3.6 Flash, turns one source video clip, optional reference images and a prompt into a new still image such as a thumbnail, poster or summary infographic, with Pro-level quality at Flash-level speed.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-nano-banana-2.1-developer-reference-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-nano-banana-2.1-developer-reference-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-nano-banana-2.1-developer-reference-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-nano-banana-2.1-developer-reference-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-nano-banana-2.1-developer-reference-to-image.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-nano-banana-2.1-developer-reference-to-image.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2q0owkvdhuq9",
+        "familyName": "nano-banana-2.1",
+        "familyDisplayName": "Nano Banana 2.1 Pro Quality at Flash Speed",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.018"
+          },
+          "origin": {
+            "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-xeofmsnqt6yb",
+        "model": "google/nano-banana-2.1-developer/edit",
+        "type": "Image",
+        "displayName": "Nano Banana 2.1 Developer Edit",
+        "profile": "Google's Nano Banana 2.1, built on Gemini 3.6 Flash, delivers Pro-level image editing at Flash-level speed, editing, restyling or merging 1-14 input images from a natural-language instruction with mask-based region edits and consistency for up to 4 characters and 10 objects.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-nano-banana-2.1-developer-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-nano-banana-2.1-developer-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-nano-banana-2.1-developer-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-nano-banana-2.1-developer-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-nano-banana-2.1-developer-edit.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-nano-banana-2.1-developer-edit.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2q0owkvdhuq9",
+        "familyName": "nano-banana-2.1",
+        "familyDisplayName": "Nano Banana 2.1 Pro Quality at Flash Speed",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.018"
+          },
+          "origin": {
+            "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-wm6hyinedgp9",
+        "model": "google/nano-banana-2.1-developer/text-to-image",
+        "type": "Image",
+        "displayName": "Nano Banana 2.1 Developer Text-to-Image",
+        "profile": "Google's Nano Banana 2.1, built on Gemini 3.6 Flash, delivers Pro-level image generation at Flash-level speed, turning text prompts into well-composed 1K-4K images with precise multilingual text rendering, adjustable thinking and optional Google Search grounding.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-nano-banana-2.1-developer-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-nano-banana-2.1-developer-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-nano-banana-2.1-developer-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-nano-banana-2.1-developer-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-nano-banana-2.1-developer-text-to-image.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-nano-banana-2.1-developer-text-to-image.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2q0owkvdhuq9",
+        "familyName": "nano-banana-2.1",
+        "familyDisplayName": "Nano Banana 2.1 Pro Quality at Flash Speed",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.018"
+          },
+          "origin": {
+            "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-qx6559qtre90",
+        "model": "google/nano-banana-2.1/reference-to-image",
+        "type": "Image",
+        "displayName": "Nano Banana 2.1 Reference-to-Image",
+        "profile": "Google's Nano Banana 2.1, built on Gemini 3.6 Flash, turns one source video clip, optional reference images and a prompt into a new still image such as a thumbnail, poster or summary infographic, with Pro-level quality at Flash-level speed.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-nano-banana-2.1-reference-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-nano-banana-2.1-reference-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-nano-banana-2.1-reference-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-nano-banana-2.1-reference-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-nano-banana-2.1-reference-to-image.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-nano-banana-2.1-reference-to-image.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2q0owkvdhuq9",
+        "familyName": "nano-banana-2.1",
+        "familyDisplayName": "Nano Banana 2.1 Pro Quality at Flash Speed",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-nc4gd62lf3ci",
+        "model": "google/nano-banana-2.1/edit",
+        "type": "Image",
+        "displayName": "Nano Banana 2.1 Edit",
+        "profile": "Google's Nano Banana 2.1, built on Gemini 3.6 Flash, delivers Pro-level image editing at Flash-level speed, editing, restyling or merging 1-14 input images from a natural-language instruction with mask-based region edits and consistency for up to 4 characters and 10 objects.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-nano-banana-2.1-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-nano-banana-2.1-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-nano-banana-2.1-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-nano-banana-2.1-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-nano-banana-2.1-edit.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-nano-banana-2.1-edit.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2q0owkvdhuq9",
+        "familyName": "nano-banana-2.1",
+        "familyDisplayName": "Nano Banana 2.1 Pro Quality at Flash Speed",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.05"
+          }
+        }
+      },
+      {
+        "uuid": "ms-961rmhiaf1ah",
+        "model": "google/nano-banana-2.1/text-to-image",
+        "type": "Image",
+        "displayName": "Nano Banana 2.1 Text-to-Image",
+        "profile": "Google's Nano Banana 2.1, built on Gemini 3.6 Flash, delivers Pro-level image generation at Flash-level speed, turning text prompts into well-composed 1K-4K images with precise multilingual text rendering, adjustable thinking and optional Google Search grounding.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-nano-banana-2.1-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-nano-banana-2.1-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-nano-banana-2.1-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-nano-banana-2.1-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-nano-banana-2.1-text-to-image.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-nano-banana-2.1-text-to-image.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2q0owkvdhuq9",
+        "familyName": "nano-banana-2.1",
+        "familyDisplayName": "Nano Banana 2.1 Pro Quality at Flash Speed",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.04"
+          },
+          "origin": {
+            "base_price": "0.05"
           }
         }
       },
