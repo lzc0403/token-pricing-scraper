@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-10T07:55:06",
+  "fetched_at": "2026-10-11T08:02:04",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -8101,43 +8101,6 @@
         }
       },
       {
-        "uuid": "ms-tz3jwhvc9dfy",
-        "model": "baidu/ERNIE-Image-Turbo/text-to-image",
-        "type": "Image",
-        "displayName": "Baidu ERNIE Image Turbo Text-to-image",
-        "profile": "A fast, low-latency version of ERNIE Image by Baidu, optimized for rapid iteration and scalable image generation.Balances speed and quality, ideal for real-time and high-throughput scenarios.",
-        "logo": "https://static.atlascloud.ai/model/logo/baidu-wenxinyiyan.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ernie.png",
-        "background": "https://static.atlascloud.ai/model/background/baidu-ernie-image-turbo-text-to-image.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/baidu-ernie-image-turbo-text-to-image.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/baidu-ernie-image-turbo-text-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/baidu-ernie-image-turbo-text-to-image.md",
-        "organization": "ernie",
-        "example": "https://static.atlascloud.ai/model/example/baidu-ernie-image-turbo-text-to-image.json",
-        "priority": 40051,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW",
-          "FREE"
-        ],
-        "familyUUID": "mf-2j4eepqgse43",
-        "familyName": "ERNIE-Image",
-        "familyDisplayName": "ERNIE Image API for Readable Text in Images",
-        "parentFamilyUUID": "mf-2l7pdgvt0wox",
-        "parentFamilyName": "baidu",
-        "parentFamilyDisplayName": "Baidu Models on Atlas Cloud | ERNIE",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {},
-          "origin": {}
-        }
-      },
-      {
         "uuid": "ms-b5e1f9a3fa7e",
         "model": "bytedance/seedance-2.0/text-to-video",
         "type": "Video",
@@ -12039,47 +12002,6 @@
         }
       },
       {
-        "uuid": "ms-z1rs895l8rcc",
-        "model": "alibaba/qwen-image/edit-plus-20251215",
-        "type": "Image",
-        "displayName": "Qwen-Image Edit Plus 20251215",
-        "profile": "Supports multiple image inputs and outputs, allowing for precise modification of text within images, addition, deletion, or movement of objects, alteration of subject actions, transfer of image styles, and enhancement of image details.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-edit-plus-20251215.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-qwen-image-edit-plus-20251215.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/1ce6bd0e-8c1e-4f31-9901-176238bf8064.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-qwen-image-edit-plus-20251215.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-qwen-image-edit-plus-20251215.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-qwen-image-edit-plus-20251215.json",
-        "priority": 2953,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "HOT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2ce5n45fejp7",
-        "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image for Bilingual Typography",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "70",
-          "actual": {
-            "base_price": "0.021"
-          },
-          "origin": {
-            "base_price": "0.03"
-          }
-        }
-      },
-      {
         "uuid": "ms-gwetv0hosn1n",
         "model": "google/gemini-3-flash-preview",
         "type": "Text",
@@ -13561,7 +13483,7 @@
         ],
         "familyUUID": "mf-2l86vk4cukwh",
         "familyName": "pixverse",
-        "familyDisplayName": "Pixverse V6",
+        "familyDisplayName": "Seven Image Reference Control with Pixverse v6",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -13598,7 +13520,7 @@
         ],
         "familyUUID": "mf-2q38za5fjmzx",
         "familyName": "pixverse-c1",
-        "familyDisplayName": "PixVerse C1",
+        "familyDisplayName": "Pixverse c1 Storyboard to Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -13635,7 +13557,7 @@
         ],
         "familyUUID": "mf-2q38za5fjmzx",
         "familyName": "pixverse-c1",
-        "familyDisplayName": "PixVerse C1",
+        "familyDisplayName": "Pixverse c1 Storyboard to Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -13670,7 +13592,7 @@
         ],
         "familyUUID": "mf-2q38za5fjmzx",
         "familyName": "pixverse-c1",
-        "familyDisplayName": "PixVerse C1",
+        "familyDisplayName": "Pixverse c1 Storyboard to Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -13707,7 +13629,7 @@
         ],
         "familyUUID": "mf-2l86vk4cukwh",
         "familyName": "pixverse",
-        "familyDisplayName": "Pixverse V6",
+        "familyDisplayName": "Seven Image Reference Control with Pixverse v6",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -13744,7 +13666,7 @@
         ],
         "familyUUID": "mf-2l86vk4cukwh",
         "familyName": "pixverse",
-        "familyDisplayName": "Pixverse V6",
+        "familyDisplayName": "Seven Image Reference Control with Pixverse v6",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -13781,7 +13703,7 @@
         ],
         "familyUUID": "mf-2l86vk4cukwh",
         "familyName": "pixverse",
-        "familyDisplayName": "Pixverse V6",
+        "familyDisplayName": "Seven Image Reference Control with Pixverse v6",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -13816,7 +13738,7 @@
         ],
         "familyUUID": "mf-2l86vk4cukwh",
         "familyName": "pixverse",
-        "familyDisplayName": "Pixverse V6",
+        "familyDisplayName": "Seven Image Reference Control with Pixverse v6",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -13853,7 +13775,7 @@
         ],
         "familyUUID": "mf-2q38za5fjmzx",
         "familyName": "pixverse-c1",
-        "familyDisplayName": "PixVerse C1",
+        "familyDisplayName": "Pixverse c1 Storyboard to Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -14022,88 +13944,6 @@
           },
           "origin": {
             "base_price": "0.14"
-          }
-        }
-      },
-      {
-        "uuid": "ms-sk32kg8dcwfo",
-        "model": "alibaba/qwen-image/text-to-image-max",
-        "type": "Image",
-        "displayName": "Qwen-Image Text-to-image Max",
-        "profile": "General-purpose image generation model that supports various art styles and is particularly good at rendering complex text.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-max.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-qwen-image-text-to-image-max.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/94f8f06c-145b-45c5-af53-7a1f4637f4dc.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-qwen-image-text-to-image-max.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-qwen-image-text-to-image-max.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-qwen-image-text-to-image-max.json",
-        "priority": 2453,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "HOT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2ce5n45fejp7",
-        "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image for Bilingual Typography",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "70",
-          "actual": {
-            "base_price": "0.052"
-          },
-          "origin": {
-            "base_price": "0.075"
-          }
-        }
-      },
-      {
-        "uuid": "ms-sye1pb6stlbv",
-        "model": "alibaba/qwen-image/text-to-image-plus",
-        "type": "Image",
-        "displayName": "Qwen-Image Text-to-image Plus",
-        "profile": "General-purpose image generation model that supports various art styles and is particularly good at rendering complex text.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-text-to-image-plus.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-qwen-image-text-to-image-plus.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/b3bd3956-df77-4bb1-b069-2f6a38a657d6.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-qwen-image-text-to-image-plus.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-qwen-image-text-to-image-plus.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-qwen-image-text-to-image-plus.json",
-        "priority": 2453,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "HOT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2ce5n45fejp7",
-        "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image for Bilingual Typography",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "70",
-          "actual": {
-            "base_price": "0.021"
-          },
-          "origin": {
-            "base_price": "0.03"
           }
         }
       },
@@ -14751,8 +14591,8 @@
           "HOT"
         ],
         "familyUUID": "mf-2q3jecf4lxrh",
-        "familyName": "gpt-6--astra",
-        "familyDisplayName": "GPT 6 Astra API",
+        "familyName": "gpt-6-astra",
+        "familyDisplayName": "GPT 6 Astra API: OpenAI’s Most Intelligent Model",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -15027,8 +14867,8 @@
           "HOT"
         ],
         "familyUUID": "mf-2q3jecf4lxrh",
-        "familyName": "gpt-6--astra",
-        "familyDisplayName": "GPT 6 Astra API",
+        "familyName": "gpt-6-astra",
+        "familyDisplayName": "GPT 6 Astra API: OpenAI’s Most Intelligent Model",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -16195,7 +16035,7 @@
         ],
         "familyUUID": "mf-2bztldbji0dy",
         "familyName": "hailuo",
-        "familyDisplayName": "Hailuo Video API: Lifelike Motion Video by MiniMax",
+        "familyDisplayName": "Hailuo 2.3 Physics Realism",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -16234,7 +16074,7 @@
         ],
         "familyUUID": "mf-2bztldbji0dy",
         "familyName": "hailuo",
-        "familyDisplayName": "Hailuo Video API: Lifelike Motion Video by MiniMax",
+        "familyDisplayName": "Hailuo 2.3 Physics Realism",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -16273,7 +16113,7 @@
         ],
         "familyUUID": "mf-2bztldbji0dy",
         "familyName": "hailuo",
-        "familyDisplayName": "Hailuo Video API: Lifelike Motion Video by MiniMax",
+        "familyDisplayName": "Hailuo 2.3 Physics Realism",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -16312,7 +16152,7 @@
         ],
         "familyUUID": "mf-2bztldbji0dy",
         "familyName": "hailuo",
-        "familyDisplayName": "Hailuo Video API: Lifelike Motion Video by MiniMax",
+        "familyDisplayName": "Hailuo 2.3 Physics Realism",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -16351,7 +16191,7 @@
         ],
         "familyUUID": "mf-2bztldbji0dy",
         "familyName": "hailuo",
-        "familyDisplayName": "Hailuo Video API: Lifelike Motion Video by MiniMax",
+        "familyDisplayName": "Hailuo 2.3 Physics Realism",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -17067,7 +16907,7 @@
         ],
         "familyUUID": "mf-2q395mdpk3zh",
         "familyName": "hailuo-02",
-        "familyDisplayName": "Hailuo 02",
+        "familyDisplayName": "Hailuo 02 Standard: 2.5x Efficiency",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -17267,7 +17107,7 @@
         ],
         "familyUUID": "mf-2q395mdpk3zh",
         "familyName": "hailuo-02",
-        "familyDisplayName": "Hailuo 02",
+        "familyDisplayName": "Hailuo 02 Standard: 2.5x Efficiency",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -17307,7 +17147,7 @@
         ],
         "familyUUID": "mf-2q395mdpk3zh",
         "familyName": "hailuo-02",
-        "familyDisplayName": "Hailuo 02",
+        "familyDisplayName": "Hailuo 02 Standard: 2.5x Efficiency",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -17387,7 +17227,7 @@
         ],
         "familyUUID": "mf-2q395mdpk3zh",
         "familyName": "hailuo-02",
-        "familyDisplayName": "Hailuo 02",
+        "familyDisplayName": "Hailuo 02 Standard: 2.5x Efficiency",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -17427,7 +17267,7 @@
         ],
         "familyUUID": "mf-2q395mdpk3zh",
         "familyName": "hailuo-02",
-        "familyDisplayName": "Hailuo 02",
+        "familyDisplayName": "Hailuo 02 Standard: 2.5x Efficiency",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -17467,7 +17307,7 @@
         ],
         "familyUUID": "mf-2q395mdpk3zh",
         "familyName": "hailuo-02",
-        "familyDisplayName": "Hailuo 02",
+        "familyDisplayName": "Hailuo 02 Standard: 2.5x Efficiency",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -18234,7 +18074,7 @@
         ],
         "familyUUID": "mf-2q395mdpk3zh",
         "familyName": "hailuo-02",
-        "familyDisplayName": "Hailuo 02",
+        "familyDisplayName": "Hailuo 02 Standard: 2.5x Efficiency",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -19142,6 +18982,85 @@
             "base_price": "0.03"
           }
         }
+      },
+      {
+        "uuid": "ms-prprwj3besba",
+        "model": "anthropic/claude-sonnet-4.5-20250929-ccmax",
+        "type": "Text",
+        "displayName": "Claude Sonnet 4.5 20250929 CC Max",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/claude-sonnet-4-5-20250929.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
+        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-sonnet-4.5-20250929-ccmax.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/ace4e330-6088-4027-9b6c-7e78e76821a9.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-sonnet-4.5-20250929-ccmax.json",
+        "readme": "https://static.atlascloud.ai/model/readme/claude-sonnet-4-5-20250929.md",
+        "organization": "ANTHROPIC",
+        "example": "https://static.atlascloud.ai/model/example/claude-sonnet-4-5-20250929.json",
+        "priority": 474,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 200000,
+        "maxCompletionTokens": 64000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "tiered_price": true,
+          "actual": {
+            "type": "flat",
+            "input_price": "3",
+            "output_price": "15",
+            "cache_creation_price": "3.75",
+            "cache_creation_1h_price": "6",
+            "cache_price": "0.3",
+            "prompt_thresholds": [
+              {
+                "threshold": 200000,
+                "input_price": "6",
+                "cache_creation_price": "7.5",
+                "cache_creation_1h_price": "12",
+                "cache_price": "0.6",
+                "output_price": "22.5"
+              }
+            ]
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "3",
+            "output_price": "15",
+            "cache_creation_price": "3.75",
+            "cache_creation_1h_price": "6",
+            "cache_price": "0.3",
+            "prompt_thresholds": [
+              {
+                "threshold": 200000,
+                "input_price": "6",
+                "cache_creation_price": "7.5",
+                "cache_creation_1h_price": "12",
+                "cache_price": "0.6",
+                "output_price": "22.5"
+              }
+            ]
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
       },
       {
         "uuid": "ms-wd4444wzhc9k",
@@ -21290,88 +21209,6 @@
         }
       },
       {
-        "uuid": "ms-8mxdnnolz023",
-        "model": "alibaba/qwen-image/edit",
-        "type": "Image",
-        "displayName": "Qwen-Image Edit",
-        "profile": "Supports multiple image inputs and outputs, allowing for precise modification of text within images, addition, deletion, or movement of objects, alteration of subject actions, transfer of image styles, and enhancement of image details.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-edit.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-qwen-image-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/af6fc043-ed82-463b-9239-2c9573ba850b.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-qwen-image-edit.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-qwen-image-edit.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-qwen-image-edit.json",
-        "priority": 453,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "HOT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2ce5n45fejp7",
-        "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image for Bilingual Typography",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "70",
-          "actual": {
-            "base_price": "0.032"
-          },
-          "origin": {
-            "base_price": "0.045"
-          }
-        }
-      },
-      {
-        "uuid": "ms-yyb5idr6lh4l",
-        "model": "alibaba/qwen-image/edit-plus",
-        "type": "Image",
-        "displayName": "Qwen-Image Edit Plus",
-        "profile": "Supports multiple image inputs and outputs, allowing for precise modification of text within images, addition, deletion, or movement of objects, alteration of subject actions, transfer of image styles, and enhancement of image details.",
-        "logo": "https://static.atlascloud.ai/model/logo/alibaba-qwen-image-edit-plus.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/QWEN.png",
-        "background": "https://static.atlascloud.ai/model/background/alibaba-qwen-image-edit-plus.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/23394488-656b-48d2-8701-f99f42203615.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/alibaba-qwen-image-edit-plus.json",
-        "readme": "https://static.atlascloud.ai/model/readme/alibaba-qwen-image-edit-plus.md",
-        "organization": "QWEN",
-        "example": "https://static.atlascloud.ai/model/example/alibaba-qwen-image-edit-plus.json",
-        "priority": 453,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "HOT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2ce5n45fejp7",
-        "familyName": "qwen-image",
-        "familyDisplayName": "Qwen Image for Bilingual Typography",
-        "parentFamilyUUID": "mf-2bqy3lixq16l",
-        "parentFamilyName": "qwen-wan",
-        "parentFamilyDisplayName": "Alibaba Models on Atlas Cloud | Wan & Qwen",
-        "display_console": true,
-        "price": {
-          "discount": "70",
-          "actual": {
-            "base_price": "0.021"
-          },
-          "origin": {
-            "base_price": "0.03"
-          }
-        }
-      },
-      {
         "uuid": "ms-rqv7tq2c6bwz",
         "model": "alibaba/wan-2.2/animate-mix",
         "type": "Video",
@@ -22669,7 +22506,7 @@
         ],
         "familyUUID": "mf-2q3avvee3k19",
         "familyName": "vidu-q4",
-        "familyDisplayName": "Vidu Q4 Preview API",
+        "familyDisplayName": "Vidu Q4 Automatic Scene Transitions",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22712,7 +22549,7 @@
         ],
         "familyUUID": "mf-2q3avvee3k19",
         "familyName": "vidu-q4",
-        "familyDisplayName": "Vidu Q4 Preview API",
+        "familyDisplayName": "Vidu Q4 Automatic Scene Transitions",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
