@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-11T08:02:04",
+  "fetched_at": "2026-10-12T08:18:14",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -3752,9 +3752,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "20",
+          "discount": "80",
           "actual": {
-            "base_price": "0.011"
+            "base_price": "0.045"
           },
           "origin": {
             "base_price": "0.056"
@@ -3792,9 +3792,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "20",
+          "discount": "80",
           "actual": {
-            "base_price": "0.011"
+            "base_price": "0.045"
           },
           "origin": {
             "base_price": "0.056"
@@ -3833,9 +3833,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "20",
+          "discount": "80",
           "actual": {
-            "base_price": "0.011"
+            "base_price": "0.045"
           },
           "origin": {
             "base_price": "0.056"
@@ -8255,9 +8255,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "30",
+          "discount": "80",
           "actual": {
-            "base_price": "0.027"
+            "base_price": "0.072"
           },
           "origin": {
             "base_price": "0.09"
@@ -8295,9 +8295,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "30",
+          "discount": "80",
           "actual": {
-            "base_price": "0.027"
+            "base_price": "0.072"
           },
           "origin": {
             "base_price": "0.09"
@@ -8336,9 +8336,9 @@
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
         "display_console": true,
         "price": {
-          "discount": "30",
+          "discount": "80",
           "actual": {
-            "base_price": "0.027"
+            "base_price": "0.072"
           },
           "origin": {
             "base_price": "0.09"
@@ -8650,9 +8650,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65s97z2kbl",
+        "familyName": "vidu-q3",
+        "familyDisplayName": "Vidu Q3 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -8690,9 +8690,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65s97z2kbl",
+        "familyName": "vidu-q3",
+        "familyDisplayName": "Vidu Q3 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11222,9 +11222,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65s97z2kbl",
+        "familyName": "vidu-q3",
+        "familyDisplayName": "Vidu Q3 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11262,9 +11262,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65s97z2kbl",
+        "familyName": "vidu-q3",
+        "familyDisplayName": "Vidu Q3 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11302,9 +11302,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65s97z2kbl",
+        "familyName": "vidu-q3",
+        "familyDisplayName": "Vidu Q3 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11342,9 +11342,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65s97z2kbl",
+        "familyName": "vidu-q3",
+        "familyDisplayName": "Vidu Q3 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11624,9 +11624,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65s97z2kbl",
+        "familyName": "vidu-q3",
+        "familyDisplayName": "Vidu Q3 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11664,9 +11664,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65s97z2kbl",
+        "familyName": "vidu-q3",
+        "familyDisplayName": "Vidu Q3 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -14592,7 +14592,7 @@
         ],
         "familyUUID": "mf-2q3jecf4lxrh",
         "familyName": "gpt-6-astra",
-        "familyDisplayName": "GPT 6 Astra API: OpenAI’s Most Intelligent Model",
+        "familyDisplayName": "GPT 6 Astra for Computer Use",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -14868,7 +14868,7 @@
         ],
         "familyUUID": "mf-2q3jecf4lxrh",
         "familyName": "gpt-6-astra",
-        "familyDisplayName": "GPT 6 Astra API: OpenAI’s Most Intelligent Model",
+        "familyDisplayName": "GPT 6 Astra for Computer Use",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -16786,7 +16786,7 @@
         ],
         "familyUUID": "mf-2gbaqlp0pcug",
         "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyDisplayName": "Vidu Multi Subject Consistency",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -16826,7 +16826,7 @@
         ],
         "familyUUID": "mf-2gbaqlp0pcug",
         "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyDisplayName": "Vidu Multi Subject Consistency",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -16947,7 +16947,7 @@
         ],
         "familyUUID": "mf-2gbaqlp0pcug",
         "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyDisplayName": "Vidu Multi Subject Consistency",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -17067,7 +17067,7 @@
         ],
         "familyUUID": "mf-2gbaqlp0pcug",
         "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyDisplayName": "Vidu Multi Subject Consistency",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -21989,9 +21989,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22027,9 +22027,9 @@
           "REFERENCE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22065,9 +22065,9 @@
           "REFERENCE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22105,9 +22105,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22145,9 +22145,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22185,9 +22185,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22225,9 +22225,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22265,9 +22265,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22305,9 +22305,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65r3y5h1d9",
+        "familyName": "vidu-q2",
+        "familyDisplayName": "Vidu Q2 API",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22345,9 +22345,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65pyxrhjxp",
+        "familyName": "vidu-q1",
+        "familyDisplayName": "Vidu Q1 Multimode Video Generation",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22383,9 +22383,9 @@
           "REFERENCE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65pyxrhjxp",
+        "familyName": "vidu-q1",
+        "familyDisplayName": "Vidu Q1 Multimode Video Generation",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22423,9 +22423,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65pyxrhjxp",
+        "familyName": "vidu-q1",
+        "familyDisplayName": "Vidu Q1 Multimode Video Generation",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22463,9 +22463,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2gbaqlp0pcug",
-        "familyName": "vidu",
-        "familyDisplayName": "Vidu API: Consistent Subjects from Reference Images",
+        "familyUUID": "mf-2q65pyxrhjxp",
+        "familyName": "vidu-q1",
+        "familyDisplayName": "Vidu Q1 Multimode Video Generation",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22477,6 +22477,80 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-edff4c3ce5c5",
+        "model": "xai/grok-imagine-video-v1.5-lite/text-to-video",
+        "type": "Video",
+        "displayName": "Grok Imagine Video V1.5 Lite Text-to-Video",
+        "profile": "xAI's lowest-cost Grok Imagine video model turns a text prompt into a 1-15 second clip with native audio and lip-synced speech, at 480p, 720p, or 1080p (upscaled from 720p).",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-video-v1.5-lite-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-video-v1.5-lite-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-video-v1.5-lite-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-video-v1.5-lite-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-video-v1.5-lite-text-to-video.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-video-v1.5-lite-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.02",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.02",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-e6a4b658e20a",
+        "model": "xai/grok-imagine-video-v1.5-lite/image-to-video",
+        "type": "Video",
+        "displayName": "Grok Imagine Video V1.5 Lite Image-to-Video",
+        "profile": "xAI's lowest-cost Grok Imagine video model animates a starting image into a 1-15 second clip with native audio and lip-synced speech, at 480p, 720p, or 1080p (upscaled from 720p).",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-video-v1.5-lite-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-video-v1.5-lite-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-video-v1.5-lite-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-video-v1.5-lite-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-video-v1.5-lite-image-to-video.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-video-v1.5-lite-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.02",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.02",
+            "unit": "second"
           }
         }
       },
@@ -23337,9 +23411,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q662clvay3x",
+        "familyName": "ltx-2.5",
+        "familyDisplayName": "ltx 2.5 API",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23375,9 +23449,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q662clvay3x",
+        "familyName": "ltx-2.5",
+        "familyDisplayName": "ltx 2.5 API",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23413,9 +23487,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q662clvay3x",
+        "familyName": "ltx-2.5",
+        "familyDisplayName": "ltx 2.5 API",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23451,9 +23525,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q662clvay3x",
+        "familyName": "ltx-2.5",
+        "familyDisplayName": "ltx 2.5 API",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23489,9 +23563,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q662clvay3x",
+        "familyName": "ltx-2.5",
+        "familyDisplayName": "ltx 2.5 API",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23527,9 +23601,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q662clvay3x",
+        "familyName": "ltx-2.5",
+        "familyDisplayName": "ltx 2.5 API",
         "display_console": true,
         "price": {
           "discount": "100",
