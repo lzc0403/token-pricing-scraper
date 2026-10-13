@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-12T08:18:14",
+  "fetched_at": "2026-10-13T08:43:22",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -1681,6 +1681,78 @@
         "architectureType": "Mixture-of-Experts (MoE)"
       },
       {
+        "uuid": "ms-bg7ly72kevrd",
+        "model": "xai/grok-4.7",
+        "type": "Text",
+        "displayName": "Grok 4.7",
+        "profile": "xAI’s flagship model for advanced reasoning, coding, and agentic tasks.",
+        "logo": "https://static.atlascloud.ai/model/logo/grok-3.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-4.7.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/fadf4b00-918b-48f7-8a9e-af2035aa7d6e.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-4.7.json",
+        "readme": "https://static.atlascloud.ai/model/readme/grok-3.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/grok-3.json",
+        "priority": 90046,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 500000,
+        "maxCompletionTokens": 500000,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.56",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "tiered_price": true,
+          "actual": {
+            "type": "flat",
+            "input_price": "2",
+            "output_price": "6",
+            "cache_price": "0.5",
+            "prompt_thresholds": [
+              {
+                "threshold": 200000,
+                "input_price": "4",
+                "cache_price": "1",
+                "output_price": "12"
+              }
+            ]
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "2",
+            "output_price": "6",
+            "cache_price": "0.5",
+            "prompt_thresholds": [
+              {
+                "threshold": 200000,
+                "input_price": "4",
+                "cache_price": "1",
+                "output_price": "12"
+              }
+            ]
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
         "uuid": "ms-quhtbofvn503",
         "model": "xai/grok-4.6",
         "type": "Text",
@@ -1907,9 +1979,9 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
+        "familyUUID": "mf-2q7iyor5u4ar",
+        "familyName": "minimax-music-3.0",
+        "familyDisplayName": "MimiMax Music 3.0 Arrangement Control",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -1951,9 +2023,9 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
+        "familyUUID": "mf-2q7j2tlu0icl",
+        "familyName": "minimax-lyrics",
+        "familyDisplayName": "MiniMax Lyrics",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -4599,9 +4671,9 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
+        "familyUUID": "mf-2q7j1g4seup1",
+        "familyName": "minimax-speech-2.6",
+        "familyDisplayName": "MimiMax Speech 2.6 Natural Voice Control",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -4640,9 +4712,9 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
+        "familyUUID": "mf-2q7j1g4seup1",
+        "familyName": "minimax-speech-2.6",
+        "familyDisplayName": "MimiMax Speech 2.6 Natural Voice Control",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -6049,9 +6121,9 @@
           "MUSIC",
           "AUDIO"
         ],
-        "familyUUID": "mf-2er4petbfz1y",
-        "familyName": "minimax-m2.1",
-        "familyDisplayName": "MiniMax API",
+        "familyUUID": "mf-2q7j08ptxw77",
+        "familyName": "minimax-music-2.6",
+        "familyDisplayName": "MimiMax Music 2.6 Vocal and Instrumental Songs",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -8652,7 +8724,7 @@
         ],
         "familyUUID": "mf-2q65s97z2kbl",
         "familyName": "vidu-q3",
-        "familyDisplayName": "Vidu Q3 API",
+        "familyDisplayName": "Vidu Q3 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -8692,7 +8764,7 @@
         ],
         "familyUUID": "mf-2q65s97z2kbl",
         "familyName": "vidu-q3",
-        "familyDisplayName": "Vidu Q3 API",
+        "familyDisplayName": "Vidu Q3 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11224,7 +11296,7 @@
         ],
         "familyUUID": "mf-2q65s97z2kbl",
         "familyName": "vidu-q3",
-        "familyDisplayName": "Vidu Q3 API",
+        "familyDisplayName": "Vidu Q3 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11264,7 +11336,7 @@
         ],
         "familyUUID": "mf-2q65s97z2kbl",
         "familyName": "vidu-q3",
-        "familyDisplayName": "Vidu Q3 API",
+        "familyDisplayName": "Vidu Q3 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11304,7 +11376,7 @@
         ],
         "familyUUID": "mf-2q65s97z2kbl",
         "familyName": "vidu-q3",
-        "familyDisplayName": "Vidu Q3 API",
+        "familyDisplayName": "Vidu Q3 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11344,7 +11416,7 @@
         ],
         "familyUUID": "mf-2q65s97z2kbl",
         "familyName": "vidu-q3",
-        "familyDisplayName": "Vidu Q3 API",
+        "familyDisplayName": "Vidu Q3 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11626,7 +11698,7 @@
         ],
         "familyUUID": "mf-2q65s97z2kbl",
         "familyName": "vidu-q3",
-        "familyDisplayName": "Vidu Q3 API",
+        "familyDisplayName": "Vidu Q3 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -11666,7 +11738,7 @@
         ],
         "familyUUID": "mf-2q65s97z2kbl",
         "familyName": "vidu-q3",
-        "familyDisplayName": "Vidu Q3 API",
+        "familyDisplayName": "Vidu Q3 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -21991,7 +22063,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22029,7 +22101,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22067,7 +22139,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22107,7 +22179,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22147,7 +22219,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22187,7 +22259,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22227,7 +22299,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22267,7 +22339,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22307,7 +22379,7 @@
         ],
         "familyUUID": "mf-2q65r3y5h1d9",
         "familyName": "vidu-q2",
-        "familyDisplayName": "Vidu Q2 API",
+        "familyDisplayName": "Vidu Q2 Smooth Cinematic Motion",
         "parentFamilyUUID": "mf-2l7x67k34k92",
         "parentFamilyName": "shengshu",
         "parentFamilyDisplayName": "ShengShu Models on AtlasCloud |  Vidu",
@@ -22504,6 +22576,12 @@
           "VIDEO",
           "NEW"
         ],
+        "familyUUID": "mf-2q6kgoqyfxpd",
+        "familyName": "grok-imagine-video-1.5-lite",
+        "familyDisplayName": "Grok Imagine Video 1.5 Lite with Native Audio",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -22541,6 +22619,12 @@
           "VIDEO",
           "NEW"
         ],
+        "familyUUID": "mf-2q6kgoqyfxpd",
+        "familyName": "grok-imagine-video-1.5-lite",
+        "familyDisplayName": "Grok Imagine Video 1.5 Lite with Native Audio",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23373,9 +23457,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q6wbjpkr6mb",
+        "familyName": "ltx2.3",
+        "familyDisplayName": "ltx 2.3 First-to-Last Frame Animation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23411,9 +23495,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2q662clvay3x",
-        "familyName": "ltx-2.5",
-        "familyDisplayName": "ltx 2.5 API",
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "Ltx 2.5 Audio Driven Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23449,9 +23533,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2q662clvay3x",
-        "familyName": "ltx-2.5",
-        "familyDisplayName": "ltx 2.5 API",
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "Ltx 2.5 Audio Driven Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23487,9 +23571,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2q662clvay3x",
-        "familyName": "ltx-2.5",
-        "familyDisplayName": "ltx 2.5 API",
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "Ltx 2.5 Audio Driven Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23525,9 +23609,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2q662clvay3x",
-        "familyName": "ltx-2.5",
-        "familyDisplayName": "ltx 2.5 API",
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "Ltx 2.5 Audio Driven Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23563,9 +23647,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2q662clvay3x",
-        "familyName": "ltx-2.5",
-        "familyDisplayName": "ltx 2.5 API",
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "Ltx 2.5 Audio Driven Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23601,9 +23685,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2q662clvay3x",
-        "familyName": "ltx-2.5",
-        "familyDisplayName": "ltx 2.5 API",
+        "familyUUID": "mf-2cwtx01qc4tg",
+        "familyName": "ltx2",
+        "familyDisplayName": "Ltx 2.5 Audio Driven Video",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23639,9 +23723,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q6wbjpkr6mb",
+        "familyName": "ltx2.3",
+        "familyDisplayName": "ltx 2.3 First-to-Last Frame Animation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23677,9 +23761,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q6wbjpkr6mb",
+        "familyName": "ltx2.3",
+        "familyDisplayName": "ltx 2.3 First-to-Last Frame Animation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23715,9 +23799,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q6wbjpkr6mb",
+        "familyName": "ltx2.3",
+        "familyDisplayName": "ltx 2.3 First-to-Last Frame Animation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -23753,9 +23837,9 @@
           "VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q6wbjpkr6mb",
+        "familyName": "ltx2.3",
+        "familyDisplayName": "ltx 2.3 First-to-Last Frame Animation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -24459,9 +24543,9 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2bsi7w2ldpa0",
-        "familyName": "gemini",
-        "familyDisplayName": "Gemini API for Advanced Multimodal Reasoning",
+        "familyUUID": "mf-2q7j41fhvmtf",
+        "familyName": "gemini-flash-tts",
+        "familyDisplayName": "Gemini Flash TTS",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -24500,9 +24584,9 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2bsi7w2ldpa0",
-        "familyName": "gemini",
-        "familyDisplayName": "Gemini API for Advanced Multimodal Reasoning",
+        "familyUUID": "mf-2q7j41fhvmtf",
+        "familyName": "gemini-flash-tts",
+        "familyDisplayName": "Gemini Flash TTS",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -24541,9 +24625,9 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2bsi7w2ldpa0",
-        "familyName": "gemini",
-        "familyDisplayName": "Gemini API for Advanced Multimodal Reasoning",
+        "familyUUID": "mf-2q7j41fhvmtf",
+        "familyName": "gemini-flash-tts",
+        "familyDisplayName": "Gemini Flash TTS",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -24618,9 +24702,9 @@
           "TEXT-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q6wbjpkr6mb",
+        "familyName": "ltx2.3",
+        "familyDisplayName": "ltx 2.3 First-to-Last Frame Animation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -24655,9 +24739,9 @@
           "IMAGE-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q6wbjpkr6mb",
+        "familyName": "ltx2.3",
+        "familyDisplayName": "ltx 2.3 First-to-Last Frame Animation",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -24692,9 +24776,9 @@
           "VIDEO-TO-VIDEO",
           "NEW"
         ],
-        "familyUUID": "mf-2cwtx01qc4tg",
-        "familyName": "ltx2",
-        "familyDisplayName": "LTX-2 API for Synchronized Audio and Video",
+        "familyUUID": "mf-2q6wbjpkr6mb",
+        "familyName": "ltx2.3",
+        "familyDisplayName": "ltx 2.3 First-to-Last Frame Animation",
         "display_console": true,
         "price": {
           "discount": "100",
