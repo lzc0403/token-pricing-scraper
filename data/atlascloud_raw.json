@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13T08:43:22",
+  "fetched_at": "2026-10-15T06:44:23",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -1981,7 +1981,7 @@
         ],
         "familyUUID": "mf-2q7iyor5u4ar",
         "familyName": "minimax-music-3.0",
-        "familyDisplayName": "MimiMax Music 3.0 Arrangement Control",
+        "familyDisplayName": "MiniMax Music 3.0 Arrangement Control",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -2025,7 +2025,7 @@
         ],
         "familyUUID": "mf-2q7j2tlu0icl",
         "familyName": "minimax-lyrics",
-        "familyDisplayName": "MiniMax Lyrics",
+        "familyDisplayName": "Minimax Lyrics for Music-Ready Drafts",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -3576,9 +3576,9 @@
           "AUDIO-GENERATION",
           "NEW"
         ],
-        "familyUUID": "mf-2lhweudcrktv",
-        "familyName": "doubao",
-        "familyDisplayName": "Doubao Seed API for Reasoning and Coding",
+        "familyUUID": "mf-2q7ivw8qxdyd",
+        "familyName": "seed-audio-1.0",
+        "familyDisplayName": "Seed Audio 1.0 AI Audio Director",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -4671,12 +4671,6 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2q7j1g4seup1",
-        "familyName": "minimax-speech-2.6",
-        "familyDisplayName": "MimiMax Speech 2.6 Natural Voice Control",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
         "display_console": true,
         "price": {
           "discount": "80",
@@ -4712,12 +4706,6 @@
           "AUDIO",
           "NEW"
         ],
-        "familyUUID": "mf-2q7j1g4seup1",
-        "familyName": "minimax-speech-2.6",
-        "familyDisplayName": "MimiMax Speech 2.6 Natural Voice Control",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
         "display_console": true,
         "price": {
           "discount": "80",
@@ -5892,9 +5880,9 @@
           "TEXT-TO-SPEECH",
           "NEW"
         ],
-        "familyUUID": "mf-2l83qz7nslfl",
-        "familyName": "grok",
-        "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
+        "familyUUID": "mf-2ppo5flb3f77",
+        "familyName": "xai-tts-v1",
+        "familyDisplayName": "xAI TTS v1 Sub-Second Speech",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
@@ -22553,6 +22541,134 @@
         }
       },
       {
+        "uuid": "ms-0fb44c77dd57",
+        "model": "minimax/h3-max/reference-to-video",
+        "type": "Video",
+        "displayName": "MiniMax H3 Max Reference-to-Video",
+        "profile": "MiniMax H3 Max reference-to-video: generate a video that keeps the subjects from your reference images, videos and audio, driven by a text prompt. Supports 480P/768P, 5-15s., adaptive or explicit aspect ratios.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-max-reference-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-max-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-max-reference-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-max-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-max-reference-to-video.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-max-reference-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2pm1o3hchdgu",
+        "familyName": "minimax-h3-max",
+        "familyDisplayName": "MiniMax H3 Max Cinematic Video API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "95",
+          "actual": {
+            "base_price": "0.048",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.05",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-274eed8d4e7f",
+        "model": "xai/grok-imagine-video-v1.5-lite-developer/text-to-video",
+        "type": "Video",
+        "displayName": "Grok Imagine Video V1.5 Lite Developer Text-to-Video",
+        "profile": "xAI's lowest-cost Grok Imagine video model turns a text prompt into a 1-15 second clip with native audio and lip-synced speech, at 480p, 720p, or 1080p (upscaled from 720p).",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-video-v1.5-lite-developer-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-video-v1.5-lite-developer-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-video-v1.5-lite-developer-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-video-v1.5-lite-developer-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-video-v1.5-lite-developer-text-to-video.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-video-v1.5-lite-developer-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2q6kgoqyfxpd",
+        "familyName": "grok-imagine-video-1.5-lite",
+        "familyDisplayName": "Grok Imagine Video 1.5 Lite with Native Audio",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.007",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.02",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-bd78ac5dc495",
+        "model": "xai/grok-imagine-video-v1.5-lite-developer/image-to-video",
+        "type": "Video",
+        "displayName": "Grok Imagine Video V1.5 Lite Developer Image-to-Video",
+        "profile": "xAI's lowest-cost Grok Imagine video model animates a starting image into a 1-15 second clip with native audio and lip-synced speech, at 480p, 720p, or 1080p (upscaled from 720p).",
+        "logo": "https://static.atlascloud.ai/model/logo/xai-grok-imagine-video-v1.5-lite-developer-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/XAI.png",
+        "background": "https://static.atlascloud.ai/model/background/xai-grok-imagine-video-v1.5-lite-developer-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/xai-grok-imagine-video-v1.5-lite-developer-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/xai-grok-imagine-video-v1.5-lite-developer-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/xai-grok-imagine-video-v1.5-lite-developer-image-to-video.md",
+        "organization": "XAI",
+        "example": "https://static.atlascloud.ai/model/example/xai-grok-imagine-video-v1.5-lite-developer-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2q6kgoqyfxpd",
+        "familyName": "grok-imagine-video-1.5-lite",
+        "familyDisplayName": "Grok Imagine Video 1.5 Lite with Native Audio",
+        "parentFamilyUUID": "mf-2l7s625nq45i",
+        "parentFamilyName": "xai",
+        "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",
+        "display_console": true,
+        "price": {
+          "discount": "35",
+          "actual": {
+            "base_price": "0.007",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.02",
+            "unit": "second"
+          }
+        }
+      },
+      {
         "uuid": "ms-edff4c3ce5c5",
         "model": "xai/grok-imagine-video-v1.5-lite/text-to-video",
         "type": "Video",
@@ -24545,7 +24661,7 @@
         ],
         "familyUUID": "mf-2q7j41fhvmtf",
         "familyName": "gemini-flash-tts",
-        "familyDisplayName": "Gemini Flash TTS",
+        "familyDisplayName": "Expressive Gemini Flash TTS",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -24586,7 +24702,7 @@
         ],
         "familyUUID": "mf-2q7j41fhvmtf",
         "familyName": "gemini-flash-tts",
-        "familyDisplayName": "Gemini Flash TTS",
+        "familyDisplayName": "Expressive Gemini Flash TTS",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -24627,7 +24743,7 @@
         ],
         "familyUUID": "mf-2q7j41fhvmtf",
         "familyName": "gemini-flash-tts",
-        "familyDisplayName": "Gemini Flash TTS",
+        "familyDisplayName": "Expressive Gemini Flash TTS",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -24961,9 +25077,9 @@
           "SPEECH-TO-TEXT",
           "NEW"
         ],
-        "familyUUID": "mf-2l83qz7nslfl",
-        "familyName": "grok",
-        "familyDisplayName": "Grok API: xAI Reasoning and Coding Models",
+        "familyUUID": "mf-2ppo5flb3f77",
+        "familyName": "xai-tts-v1",
+        "familyDisplayName": "xAI TTS v1 Sub-Second Speech",
         "parentFamilyUUID": "mf-2l7s625nq45i",
         "parentFamilyName": "xai",
         "parentFamilyDisplayName": "xAI Speech with Subsecond Latency",

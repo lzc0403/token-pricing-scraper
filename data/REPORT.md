@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-10-13 08:47:52
+> 生成时间：2026-10-15 06:48:20
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -21,7 +21,7 @@
 | DeepSeek V3.2 | tencent | 1.96 ¥ | 2.94 ¥ | 0.056 USD | USD | 0.28 USD / 0.42 USD | - |
 | DeepSeek V3.2 | volcengine_intl | 1.96 ¥ | 2.94 ¥ | 0.056 USD | USD | 0.28 USD / 0.42 USD | - |
 | DeepSeek V4 Flash | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.028 USD | USD | 0.14 USD / 0.28 USD | 1.04858M |
-| DeepSeek V4 Flash | openrouter | 0.2548 ¥ | 8.96 ¥ | 0.0364 USD | USD | 0.0364 USD / 1.28 USD | 1.04858M |
+| DeepSeek V4 Flash | openrouter | 0.637 ¥ | 1.274 ¥ | 0.0182 USD | USD | 0.091 USD / 0.182 USD | 1.04858M |
 | DeepSeek V4 Flash | tencent | 1.05 ¥ | 4.2 ¥ | 0.003 USD | USD | 0.15 USD / 0.6 USD | - |
 | DeepSeek V4 Flash | tencent | 2.1 ¥ | 8.4 ¥ | 0.006 USD | USD | 0.3 USD / 1.2 USD | - |
 | DeepSeek V4 Flash | tencent | 1.54 ¥ | 4.62 ¥ | 0.007 USD | USD | 0.22 USD / 0.66 USD | - |
@@ -46,7 +46,7 @@
 | DeepSeek V4.1 Flash | atlascloud | 2.1 ¥ | 8.4 ¥ | 0.03 USD | USD | 0.3 USD / 1.2 USD | 1.04858M |
 | DeepSeek V4.1 Flash | deepseek | 2 ¥ | 8 ¥ | 0.04 CNY | CNY | 2 CNY / 8 CNY | 1M |
 | DeepSeek V4.1 Flash | deepseek_us | 2.1 ¥ | 8.4 ¥ | 0.006 USD | USD | 0.3 USD / 1.2 USD | 1M |
-| DeepSeek V4.1 Flash | openrouter | 0.3087 ¥ | 4.725 ¥ | 0.0054 USD | USD | 0.0441 USD / 0.675 USD | 1.04858M |
+| DeepSeek V4.1 Flash | openrouter | 0.09576 ¥ | 6.237 ¥ | 0.0054 USD | USD | 0.01368 USD / 0.891 USD | 1.04858M |
 | DeepSeek V4.1 Flash | tencent | 1.05 ¥ | 4.2 ¥ | 0.003 USD | USD | 0.15 USD / 0.6 USD | - |
 | DeepSeek V4.1 Flash | tencent | 2.1 ¥ | 8.4 ¥ | 0.006 USD | USD | 0.3 USD / 1.2 USD | - |
 | DeepSeek V4.1 Flash | tencent | 1.05 ¥ | 4.2 ¥ | 0.003 USD | USD | 0.15 USD / 0.6 USD | - |
@@ -66,20 +66,19 @@
 | GLM-5.1 | zai | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
 | GLM-5.2 | aliyun_bailian | 8 ¥ | 28 ¥ | 1.6 CNY | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.2 | atlascloud | 6.566 ¥ | 20.636 ¥ | 0.174 USD | USD | 0.938 USD / 2.948 USD | 1.04858M |
-| GLM-5.2 | openrouter | 0.42 ¥ | 49 ¥ | 0.059 USD | USD | 0.06 USD / 7 USD | 1.04858M |
 | GLM-5.2 | tencent | 7.84 ¥ | 27.44 ¥ | 0.28 USD | USD | 1.12 USD / 3.92 USD | - |
 | GLM-5.2 | tencent_cn | 10.254 ¥ | 32.2282 ¥ | 1.9044 CNY | CNY | 10.254 CNY / 32.2282 CNY | - |
 | GLM-5.2 | volcengine_intl | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
 | GLM-5.2 | zai | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
 | GLM-5.3 | aliyun_bailian | 8 ¥ | 28 ¥ | 1.6 CNY | CNY | 8 CNY / 28 CNY | - |
 | GLM-5.3 | atlascloud | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | 1.04858M |
-| GLM-5.3 | openrouter | 0.553 ¥ | 33.6 ¥ | 0.059 USD | USD | 0.079 USD / 4.8 USD | 1.04858M |
+| GLM-5.3 | openrouter | 0.553 ¥ | 33.6 ¥ | 0.078 USD | USD | 0.079 USD / 4.8 USD | 1.04858M |
 | GLM-5.3 | tencent | 7.7812 ¥ | 27.2349 ¥ | 0.2779 USD | USD | 1.1116 USD / 3.8907 USD | - |
 | GLM-5.3 | tencent_cn | 10.0752 ¥ | 31.665 ¥ | 1.87112 CNY | CNY | 10.0752 CNY / 31.665 CNY | - |
 | GLM-5.3 | zai | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
 | GLM-5.3-Flash | aliyun_bailian | 0.8 ¥ | 2.8 ¥ | 0.16 CNY | CNY | 0.8 CNY / 2.8 CNY | - |
 | GLM-5.3-Flash | atlascloud | 1.05 ¥ | 3.5 ¥ | 0.03 USD | USD | 0.15 USD / 0.5 USD | 1.04858M |
-| GLM-5.3-Flash | openrouter | 0.1827 ¥ | 6.3 ¥ | 0.0108 USD | USD | 0.0261 USD / 0.9 USD | 1.04858M |
+| GLM-5.3-Flash | openrouter | 0.252 ¥ | 6.3 ¥ | 0.01125 USD | USD | 0.036 USD / 0.9 USD | 1.04858M |
 | GLM-5.3-Flash | tencent | 0.77812 ¥ | 2.72349 ¥ | 0.03196 USD | USD | 0.11116 USD / 0.38907 USD | - |
 | GLM-5.3-Flash | tencent_cn | 1.07949 ¥ | 3.5983 ¥ | 0.215898 CNY | CNY | 1.07949 CNY / 3.5983 CNY | - |
 | GLM-5.3-Flash | zai | 1.05 ¥ | 3.5 ¥ | 0.03 USD | USD | 0.15 USD / 0.5 USD | - |
@@ -125,7 +124,7 @@
 | Kimi K3 | kimi_ai | 2.1 ¥ | 105 ¥ | - | USD | 0.3 USD / 15 USD | 1,048,576 tokens |
 | Kimi K3 | kimi_ai | 2.1 ¥ | 105 ¥ | - | USD | 0.3 USD / 15 USD | 1,048,576 tokens |
 | Kimi K3 | kimi_ai | 2.1 ¥ | 105 ¥ | - | USD | 0.3 USD / 15 USD | 1,048,576 tokens |
-| Kimi K3 | openrouter | 5.11 ¥ | 94.5 ¥ | 0.55 USD | USD | 0.73 USD / 13.5 USD | 1.04858M |
+| Kimi K3 | openrouter | 3.15 ¥ | 105 ¥ | 0.28 USD | USD | 0.45 USD / 15 USD | 1.04858M |
 | Kimi K3 | tencent | 19.117 ¥ | 95.571 ¥ | 0.2731 USD | USD | 2.731 USD / 13.653 USD | - |
 | Kimi K3 | tencent_cn | 21.974 ¥ | 109.869 ¥ | 2.197 CNY | CNY | 21.974 CNY / 109.869 CNY | - |
 | MiMo V2.5 | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.003 USD | USD | 0.14 USD / 0.28 USD | 1.024M |
@@ -153,12 +152,13 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Flash | openrouter | 输入 | 0.03 | 0.0364 | USD |
-| Kimi K3 | openrouter | 输出 | 10 | 13.5 | USD |
-| GLM-5.3-Flash | openrouter | 输入 | 0.15 | 0.0261 | USD |
-| GLM-5.3-Flash | openrouter | 输出 | 0.5 | 0.9 | USD |
-| DeepSeek V4.1 Flash | openrouter | 输入 | 0.3 | 0.0441 | USD |
-| DeepSeek V4.1 Flash | openrouter | 输出 | 1.2 | 0.675 | USD |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.0364 | 0.091 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 1.28 | 0.182 | USD |
+| Kimi K3 | openrouter | 输入 | 0.73 | 0.45 | USD |
+| Kimi K3 | openrouter | 输出 | 13.5 | 15 | USD |
+| GLM-5.3-Flash | openrouter | 输入 | 0.0261 | 0.036 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输入 | 0.0441 | 0.01368 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输出 | 0.675 | 0.891 | USD |
 
 ## 三、抓取状态
 
@@ -168,13 +168,13 @@
 | zai | 成功 | 14 | 抓取 14 条 |
 | deepseek_us | 成功 | 2 | 抓取 2 条 |
 | deepseek | 成功 | 2 | 抓取 2 条 |
-| anthropic | 成功 | 0 | 抓取 0 条 |
-| grok | 成功 | 2 | 抓取 2 条 |
 | openrouter | 成功 | 41 | 抓取 41 条 |
-| gemini | 成功 | 2 | 抓取 2 条 |
+| grok | 成功 | 2 | 抓取 2 条 |
 | atlascloud | 成功 | 115 | 抓取 115 条 |
-| aliyun_bailian | 成功 | 28 | 抓取 28 条 |
+| gemini | 成功 | 2 | 抓取 2 条 |
+| anthropic | 成功 | 0 | 抓取 0 条 |
 | aliyun | 成功 | 2 | 抓取 2 条 |
+| aliyun_bailian | 成功 | 28 | 抓取 28 条 |
 | aliyun_intl | 成功 | 0 | 抓取 0 条 |
 | volcengine | 成功 | 10 | 抓取 10 条 |
 | volcengine_intl | 成功 | 7 | 抓取 7 条 |
@@ -190,20 +190,19 @@
 
 ## 四、新模型雷达（待人工登记）
 
-扫描 OpenRouter 全量 459 个模型，发现 **10** 个未登记候选（疑似旗舰 **6** 个）：
+扫描 OpenRouter 全量 462 个模型，发现 **9** 个未登记候选（疑似旗舰 **6** 个）：
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 6 天 | $0.68 | $2.09 | 疑似旗舰 |
-| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 13 天 | $2 | $10 | 疑似旗舰 |
-| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 19 天 | $4 | $12 | 疑似旗舰 |
-| `z-ai/glm-5.3-prime`（GLM 5.3 Prime） | GLM | 2026-09-23 | 19 天 | $2.8 | $8.8 | 疑似旗舰 |
-| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 20 天 | $2 | $10 | 疑似旗舰 |
-| `anthropic/claude-fable-5.1`（Claude Fable 5.1） | Anthropic | 2026-09-01 | 41 天 | $10 | $50 | 疑似旗舰 |
-| `anthropic/claude-haiku-5.5`（Claude Haiku 5.5） | Anthropic | 2026-10-07 | 5 天 | $0.1 | $0.5 | 新增档位 |
-| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 20 天 | $0.1 | $0.5 | 新增档位 |
-| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 22 天 | $0.15 | $0.47 | 新增档位 |
-| `qwen/qwen3.8-max-0902`（Qwen3.8 Max (0902)） | 通义千问 | 2026-09-03 | 39 天 | $2 | $6 | 新增档位 |
+| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 8 天 | $0.68 | $2.09 | 疑似旗舰 |
+| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 15 天 | $2 | $10 | 疑似旗舰 |
+| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 21 天 | $4 | $12 | 疑似旗舰 |
+| `z-ai/glm-5.3-prime`（GLM 5.3 Prime） | GLM | 2026-09-23 | 21 天 | $2.8 | $8.8 | 疑似旗舰 |
+| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 22 天 | $2 | $10 | 疑似旗舰 |
+| `anthropic/claude-fable-5.1`（Claude Fable 5.1） | Anthropic | 2026-09-01 | 43 天 | $10 | $50 | 疑似旗舰 |
+| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 22 天 | $0.1 | $0.5 | 新增档位 |
+| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 24 天 | $0.15 | $0.47 | 新增档位 |
+| `qwen/qwen3.8-max-0902`（Qwen3.8 Max (0902)） | 通义千问 | 2026-09-03 | 41 天 | $2 | $6 | 新增档位 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 
