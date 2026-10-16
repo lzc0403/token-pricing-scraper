@@ -44,7 +44,6 @@ grok,grok-4.6,2.0,6.0,0.5,,,500K,default,1M tokens,USD,14.0,42.0,Grok 4.6,yes
 grok,grok-4.6,4.0,12.0,1.0,,,500K,长上下文 · ≥200K,1M tokens,USD,28.0,84.0,Grok 4.6,no
 kimi,kimi-k3,20.0,100.0,2.0,,,"1,048,576 tokens",,1M tokens,CNY,20.0,100.0,Kimi K3,no
 kimi,kimi-k3,20.0,100.0,2.0,,,"1,048,576 tokens",,1M tokens,CNY,20.0,100.0,Kimi K3,no
-kimi,kimi-k3,20.0,100.0,2.0,,,"1,048,576 tokens",,1M tokens,CNY,20.0,100.0,Kimi K3,no
 kimi_ai,kimi-k3,0.3,15.0,,,,"1,048,576 tokens",,1M tokens,USD,2.1,105.0,Kimi K3,yes
 kimi_ai,kimi-k3,0.3,15.0,,,,"1,048,576 tokens",,1M tokens,USD,2.1,105.0,Kimi K3,yes
 kimi_ai,kimi-k3,0.3,15.0,,,,"1,048,576 tokens",,1M tokens,USD,2.1,105.0,Kimi K3,yes
@@ -71,9 +70,9 @@ openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude 
 openrouter,DeepSeek V4 Flash,0.091,0.182,0.0182,,,1.04858M,,1M tokens,USD,0.637,1.274,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,0.95526,1.91052,0.079605,,,1.04858M,,1M tokens,USD,6.68682,13.37364,DeepSeek V4 Pro,no
 openrouter,DeepSeek V4 Pro 0813,1.32,3.96,0.044,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro 0813,yes
-openrouter,DeepSeek V4.1 Flash,0.01368,0.891,0.0054,,,1.04858M,,1M tokens,USD,0.09576,6.237,DeepSeek V4.1 Flash,yes
+openrouter,DeepSeek V4.1 Flash,0.036,0.684,0.0054,,,1.04858M,,1M tokens,USD,0.252,4.788,DeepSeek V4.1 Flash,yes
 openrouter,GLM-5.3,0.079,4.8,0.078,,,1.04858M,,1M tokens,USD,0.553,33.6,GLM-5.3,yes
-openrouter,GLM-5.3-Flash,0.036,0.9,0.01125,,,1.04858M,,1M tokens,USD,0.252,6.3,GLM-5.3-Flash,yes
+openrouter,GLM-5.3-Flash,0.02142,0.9,0.01125,,,1.04858M,,1M tokens,USD,0.14994,6.3,GLM-5.3-Flash,yes
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openrouter,GPT-5.5 Pro,30.0,180.0,,,,1.05M,,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
@@ -83,10 +82,10 @@ openrouter,GPT-6 Astra,10.0,50.0,1.0,12.5,,1.05M,,1M tokens,USD,70.0,350.0,GPT-6
 openrouter,GPT-6 Astra Pro,10.0,50.0,1.0,12.5,,1.05M,,1M tokens,USD,70.0,350.0,GPT-6 Astra Pro,yes
 openrouter,Gemini 3.6 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.6 Flash,yes
 openrouter,Gemini 3.7 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.7 Flash,yes
-openrouter,Gemini 3.8 Flash,0.75,3.75,0.075,0.041667,,1.04858M,,1M tokens,USD,5.25,26.25,Gemini 3.8 Flash,yes
+openrouter,Gemini 3.8 Flash,0.825,4.125,0.0825,0.041667,,1.04858M,,1M tokens,USD,5.775,28.875,Gemini 3.8 Flash,no
 openrouter,Grok 4.6,2.0,6.0,0.5,,,500K,,1M tokens,USD,14.0,42.0,Grok 4.6,yes
 openrouter,Kimi K2.6,0.65,3.41,0.15,,,262K,,1M tokens,USD,4.55,23.87,Kimi K2.6,yes
-openrouter,Kimi K3,0.45,15.0,0.28,,,1.04858M,,1M tokens,USD,3.15,105.0,Kimi K3,no
+openrouter,Kimi K3,0.304,11.936,0.21,,,1.04858M,,1M tokens,USD,2.128,83.552,Kimi K3,no
 openrouter,MiniMax M3,0.3,1.2,0.06,,,1.04858M,,1M tokens,USD,2.1,8.4,MiniMax M3,yes
 tencent,Deepseek-v3.2,0.28,0.42,0.056,,,,,1M tokens,USD,1.96,2.94,DeepSeek V3.2,no
 tencent,DeepSeek-V4-Flash,0.15,0.6,0.003,,,,空闲时段 | 原厂直供,1M tokens,USD,1.05,4.2,DeepSeek V4 Flash,no
