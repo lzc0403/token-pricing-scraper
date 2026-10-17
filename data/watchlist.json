@@ -774,6 +774,22 @@
     "is_lowest_input": "no"
   },
   {
+    "source": "kimi",
+    "model_raw": "kimi-k3",
+    "input": 20.0,
+    "output": 100.0,
+    "cache_hit": 2.0,
+    "cache_write": null,
+    "context": "1,048,576 tokens",
+    "condition": null,
+    "unit": "1M tokens",
+    "currency": "CNY",
+    "input_rmb": 20.0,
+    "output_rmb": 100.0,
+    "canonical": "Kimi K3",
+    "is_lowest_input": "no"
+  },
+  {
     "source": "kimi_ai",
     "model_raw": "kimi-k3",
     "input": 0.3,
@@ -1203,36 +1219,36 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Pro",
-    "input": 0.95526,
-    "output": 1.91052,
-    "cache_hit": 0.079605,
+    "input": 0.2088,
+    "output": 0.4176,
+    "cache_hit": 0.0174,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4-pro",
-    "openrouter_prompt_per_token": "0.00000095526",
-    "openrouter_completion_per_token": "0.00000191052",
-    "input_rmb": 6.68682,
-    "output_rmb": 13.37364,
+    "openrouter_prompt_per_token": "0.0000002088",
+    "openrouter_completion_per_token": "0.0000004176",
+    "input_rmb": 1.4616,
+    "output_rmb": 2.9232,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Pro 0813",
-    "input": 1.32,
-    "output": 3.96,
-    "cache_hit": 0.044,
+    "input": 0.66,
+    "output": 1.98,
+    "cache_hit": 0.022,
     "cache_write": null,
     "context": "1.04858M",
     "condition": "OpenRouter 峰谷计费",
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4-pro-0813",
-    "openrouter_prompt_per_token": "0.00000132",
-    "openrouter_completion_per_token": "0.00000396",
+    "openrouter_prompt_per_token": "0.00000066",
+    "openrouter_completion_per_token": "0.00000198",
     "peak_input_low": 0.66,
     "peak_input_high": 1.32,
     "peak_output_low": 1.98,
@@ -1250,8 +1266,8 @@
       ]
     ],
     "is_peak": true,
-    "input_rmb": 9.24,
-    "output_rmb": 27.72,
+    "input_rmb": 4.62,
+    "output_rmb": 13.86,
     "peak_input_rmb_low": 4.62,
     "peak_input_rmb_high": 9.24,
     "peak_output_rmb_low": 13.86,
@@ -1264,21 +1280,44 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4.1 Flash",
-    "input": 0.036,
-    "output": 0.684,
-    "cache_hit": 0.0054,
+    "input": 0.15,
+    "output": 0.6,
+    "cache_hit": 0.003,
     "cache_write": null,
     "context": "1.04858M",
-    "condition": null,
+    "condition": "OpenRouter 峰谷计费",
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4.1-flash",
-    "openrouter_prompt_per_token": "0.000000036",
-    "openrouter_completion_per_token": "0.000000684",
-    "input_rmb": 0.252,
-    "output_rmb": 4.788,
+    "openrouter_prompt_per_token": "0.00000015",
+    "openrouter_completion_per_token": "0.0000006",
+    "peak_input_low": 0.15,
+    "peak_input_high": 0.3,
+    "peak_output_low": 0.6,
+    "peak_output_high": 1.2,
+    "peak_cache_low": 0.003,
+    "peak_cache_high": 0.006,
+    "peak_window_beijing": [
+      [
+        900,
+        1200
+      ],
+      [
+        1400,
+        1800
+      ]
+    ],
+    "is_peak": true,
+    "input_rmb": 1.05,
+    "output_rmb": 4.2,
+    "peak_input_rmb_low": 1.05,
+    "peak_input_rmb_high": 2.1,
+    "peak_output_rmb_low": 4.2,
+    "peak_output_rmb_high": 8.4,
+    "peak_cache_rmb_low": 0.021,
+    "peak_cache_rmb_high": 0.042,
     "canonical": "DeepSeek V4.1 Flash",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "openrouter",
@@ -1302,19 +1341,19 @@
   {
     "source": "openrouter",
     "model_raw": "GLM-5.3-Flash",
-    "input": 0.02142,
-    "output": 0.9,
-    "cache_hit": 0.01125,
+    "input": 0.0514,
+    "output": 0.5578,
+    "cache_hit": 0.0051,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.3-flash",
-    "openrouter_prompt_per_token": "0.00000002142",
-    "openrouter_completion_per_token": "0.0000009",
-    "input_rmb": 0.14994,
-    "output_rmb": 6.3,
+    "openrouter_prompt_per_token": "0.0000000514",
+    "openrouter_completion_per_token": "0.0000005578",
+    "input_rmb": 0.3598,
+    "output_rmb": 3.9046,
     "canonical": "GLM-5.3-Flash",
     "is_lowest_input": "yes"
   },
@@ -1694,7 +1733,7 @@
     "input_rmb": 4.62,
     "output_rmb": 13.86,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
@@ -1726,7 +1765,7 @@
     "input_rmb": 4.62,
     "output_rmb": 13.86,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
@@ -2062,7 +2101,7 @@
     "input_rmb": 1.0,
     "output_rmb": 4.0,
     "canonical": "DeepSeek V4.1 Flash",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent_cn",
@@ -2078,7 +2117,7 @@
     "input_rmb": 1.0,
     "output_rmb": 4.0,
     "canonical": "DeepSeek V4.1 Flash",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent_cn",

@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-10-16 06:38:36",
+  "generated_at": "2026-10-17 06:27:57",
   "stats": {
-    "total": 140,
+    "total": 141,
     "suspects": 58,
     "high": 4,
-    "med": 40,
-    "low": 14,
-    "tier1": 42,
-    "tier2": 16,
+    "med": 39,
+    "low": 15,
+    "tier1": 41,
+    "tier2": 17,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -148,21 +148,21 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 0.95526,
-        "output": 1.91052,
-        "cache_hit": 0.079605,
+        "input": 0.2088,
+        "output": 0.4176,
+        "cache_hit": 0.0174,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.00000095526",
-        "openrouter_completion_per_token": "0.00000191052",
-        "input_rmb": 6.68682,
-        "output_rmb": 13.37364,
+        "openrouter_prompt_per_token": "0.0000002088",
+        "openrouter_completion_per_token": "0.0000004176",
+        "input_rmb": 1.4616,
+        "output_rmb": 2.9232,
         "canonical": "DeepSeek V4 Pro",
-        "is_lowest_input": "no"
+        "is_lowest_input": "yes"
       }
     },
     {
@@ -259,33 +259,6 @@
         "output_rmb": 8.4,
         "canonical": "DeepSeek V4.1 Flash",
         "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "openrouter",
-      "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(15%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "DeepSeek V4.1 Flash",
-        "input": 0.036,
-        "output": 0.684,
-        "cache_hit": 0.0054,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "deepseek/deepseek-v4.1-flash",
-        "openrouter_prompt_per_token": "0.000000036",
-        "openrouter_completion_per_token": "0.000000684",
-        "input_rmb": 0.252,
-        "output_rmb": 4.788,
-        "canonical": "DeepSeek V4.1 Flash",
-        "is_lowest_input": "yes"
       }
     },
     {
@@ -393,23 +366,23 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "GLM-5.3-Flash",
-      "msg": "缓存/输入比率(53%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(10%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "openrouter",
         "model_raw": "GLM-5.3-Flash",
-        "input": 0.02142,
-        "output": 0.9,
-        "cache_hit": 0.01125,
+        "input": 0.0514,
+        "output": 0.5578,
+        "cache_hit": 0.0051,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "z-ai/glm-5.3-flash",
-        "openrouter_prompt_per_token": "0.00000002142",
-        "openrouter_completion_per_token": "0.0000009",
-        "input_rmb": 0.14994,
-        "output_rmb": 6.3,
+        "openrouter_prompt_per_token": "0.0000000514",
+        "openrouter_completion_per_token": "0.0000005578",
+        "input_rmb": 0.3598,
+        "output_rmb": 3.9046,
         "canonical": "GLM-5.3-Flash",
         "is_lowest_input": "yes"
       }
@@ -717,7 +690,7 @@
       "severity": "med",
       "source": "kimi",
       "canonical": null,
-      "msg": "重复记录 ×2: kimi-k3",
+      "msg": "重复记录 ×3: kimi-k3",
       "record": {
         "key": "kimi|kimi-k3|20.0|100.0"
       }
@@ -993,6 +966,18 @@
         "field": "output",
         "value": "9.6",
         "url": "https://help.aliyun.com/zh/hologres/user-guide/managed-models-billing"
+      }
+    },
+    {
+      "tier": 2,
+      "code": "SPA_NEED_RENDER",
+      "severity": "low",
+      "source": "kimi",
+      "canonical": "Kimi K3",
+      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
+      "record": {
+        "model_raw": "kimi-k3",
+        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
       }
     },
     {
