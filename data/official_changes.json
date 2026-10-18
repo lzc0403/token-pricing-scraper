@@ -1,16 +1,8 @@
 {
-  "generated_at": "2026-10-17",
+  "generated_at": "2026-10-18",
   "lookback_days": 7,
   "changes": [],
-  "new_models": [
-    {
-      "canonical": "Kimi K3",
-      "source": "kimi",
-      "source_label": "Kimi官网",
-      "first_seen": "2026-09-05",
-      "date": "2026-10-17"
-    }
-  ],
+  "new_models": [],
   "known": {
     "DeepSeek V4 Flash\u0001deepseek_us": "2026-09-05",
     "DeepSeek V4 Flash\u0001deepseek": "2026-09-05",

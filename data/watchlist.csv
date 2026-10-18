@@ -70,10 +70,10 @@ openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Cla
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
 openrouter,DeepSeek V4 Flash,0.091,0.182,0.0182,,,1.04858M,,1M tokens,USD,0.637,1.274,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,0.2088,0.4176,0.0174,,,1.04858M,,1M tokens,USD,1.4616,2.9232,DeepSeek V4 Pro,yes
-openrouter,DeepSeek V4 Pro 0813,0.66,1.98,0.022,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro 0813,yes
-openrouter,DeepSeek V4.1 Flash,0.15,0.6,0.003,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,1.05,4.2,DeepSeek V4.1 Flash,no
+openrouter,DeepSeek V4 Pro 0813,0.66,1.98,0.022,,,1.04858M,,1M tokens,USD,4.62,13.86,DeepSeek V4 Pro 0813,yes
+openrouter,DeepSeek V4.1 Flash,0.0648,0.144,0.0016,,,1.04858M,,1M tokens,USD,0.4536,1.008,DeepSeek V4.1 Flash,yes
 openrouter,GLM-5.3,0.079,4.8,0.078,,,1.04858M,,1M tokens,USD,0.553,33.6,GLM-5.3,yes
-openrouter,GLM-5.3-Flash,0.0514,0.5578,0.0051,,,1.04858M,,1M tokens,USD,0.3598,3.9046,GLM-5.3-Flash,yes
+openrouter,GLM-5.3-Flash,0.048,0.2,0.006,,,1.04858M,,1M tokens,USD,0.336,1.4,GLM-5.3-Flash,yes
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openrouter,GPT-5.5 Pro,30.0,180.0,,,,1.05M,,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
@@ -117,8 +117,7 @@ tencent,MiniMax-M3,0.3,1.2,0.06,,,,"输入长度（0, 512k]",1M tokens,USD,2.1,8
 tencent,MiniMax-M3,0.6,2.4,0.12,,,,输入长度 512k+,1M tokens,USD,4.2,16.8,MiniMax M3,no
 tencent_cn,DeepSeek-V4-Flash,1.0,2.0,0.2,,,,,1M tokens,CNY,1.0,2.0,DeepSeek V4 Flash,no
 tencent_cn,DeepSeek-V4-Pro,12.0,24.0,1.0,,,,,1M tokens,CNY,12.0,24.0,DeepSeek V4 Pro,no
-tencent_cn,DeepSeek-V4.1-Flash,1.0,4.0,0.02,,,,原厂直供,1M tokens,CNY,1.0,4.0,DeepSeek V4.1 Flash,yes
-tencent_cn,DeepSeek-V4.1-Flash,1.0,4.0,0.02,,,,腾讯云自建,1M tokens,CNY,1.0,4.0,DeepSeek V4.1 Flash,yes
+tencent_cn,DeepSeek-V4.1-Flash,1.0,4.0,0.02,,,,,1M tokens,CNY,1.0,4.0,DeepSeek V4.1 Flash,no
 tencent_cn,GLM-5.2,10.254,32.2282,1.9044,,,,,1M tokens,CNY,10.254,32.2282,GLM-5.2,no
 tencent_cn,GLM-5.3,10.07524,31.66504,1.871116,,,,,1M tokens,CNY,10.07524,31.66504,GLM-5.3,no
 tencent_cn,GLM-5.3-Flash,1.07949,3.5983,0.215898,,,,,1M tokens,CNY,1.07949,3.5983,GLM-5.3-Flash,no
