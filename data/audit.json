@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-19 07:11:38",
+  "generated_at": "2026-10-20 06:56:44",
   "stats": {
     "total": 140,
-    "suspects": 57,
+    "suspects": 58,
     "high": 4,
-    "med": 38,
+    "med": 39,
     "low": 15,
-    "tier1": 40,
+    "tier1": 41,
     "tier2": 17,
     "tier1_high": 0,
     "gate": "pass"
@@ -267,12 +267,12 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(4%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(5%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4.1 Flash",
-        "input": 0.0456,
-        "output": 0.08,
+        "input": 0.0352,
+        "output": 0.0112,
         "cache_hit": 0.0016,
         "cache_write": null,
         "context": "1.04858M",
@@ -280,10 +280,10 @@
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4.1-flash",
-        "openrouter_prompt_per_token": "0.0000000456",
-        "openrouter_completion_per_token": "0.00000008",
-        "input_rmb": 0.3192,
-        "output_rmb": 0.56,
+        "openrouter_prompt_per_token": "0.0000000352",
+        "openrouter_completion_per_token": "0.0000000112",
+        "input_rmb": 0.2464,
+        "output_rmb": 0.0784,
         "canonical": "DeepSeek V4.1 Flash",
         "is_lowest_input": "yes"
       }
@@ -385,6 +385,33 @@
         "output_rmb": 27.2349,
         "canonical": "GLM-5.3",
         "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "CACHE_RATIO_ANOMALY",
+      "severity": "med",
+      "source": "openrouter",
+      "canonical": "GLM-5.3-Flash",
+      "msg": "缓存/输入比率(12%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "record": {
+        "source": "openrouter",
+        "model_raw": "GLM-5.3-Flash",
+        "input": 0.048,
+        "output": 0.16,
+        "cache_hit": 0.006,
+        "cache_write": null,
+        "context": "1.04858M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "openrouter_id": "z-ai/glm-5.3-flash",
+        "openrouter_prompt_per_token": "0.000000048",
+        "openrouter_completion_per_token": "0.00000016",
+        "input_rmb": 0.336,
+        "output_rmb": 1.12,
+        "canonical": "GLM-5.3-Flash",
+        "is_lowest_input": "yes"
       }
     },
     {
