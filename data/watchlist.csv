@@ -70,9 +70,9 @@ openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude 
 openrouter,DeepSeek V4 Flash,0.091,0.182,0.0182,,,1.04858M,,1M tokens,USD,0.637,1.274,DeepSeek V4 Flash,yes
 openrouter,DeepSeek V4 Pro,0.95526,1.91052,0.079605,,,1.04858M,,1M tokens,USD,6.68682,13.37364,DeepSeek V4 Pro,no
 openrouter,DeepSeek V4 Pro 0813,1.32,3.96,0.044,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro 0813,yes
-openrouter,DeepSeek V4.1 Flash,0.3,1.2,0.006,,,1.04858M,,1M tokens,USD,2.1,8.4,DeepSeek V4.1 Flash,no
+openrouter,DeepSeek V4.1 Flash,0.165,0.66,0.006,,,1.04858M,,1M tokens,USD,1.155,4.62,DeepSeek V4.1 Flash,no
 openrouter,GLM-5.3,0.079,1.4,0.078,,,1.04858M,,1M tokens,USD,0.553,9.8,GLM-5.3,yes
-openrouter,GLM-5.3-Flash,0.0092,0.1707,0.0092,,,1.04858M,,1M tokens,USD,0.0644,1.1949,GLM-5.3-Flash,yes
+openrouter,GLM-5.3-Flash,0.0052,0.1985,0.0052,,,1.04858M,,1M tokens,USD,0.0364,1.3895,GLM-5.3-Flash,yes
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openrouter,GPT-5.5 Pro,30.0,180.0,,,,1.05M,,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
@@ -128,11 +128,6 @@ tencent_cn,MiniMax-M2.7,2.197,8.79,0.439,,,,,1M tokens,CNY,2.197,8.79,MiniMax M2
 tencent_cn,MiniMax-M3,2.1,8.4,0.42,,,,,1M tokens,CNY,2.1,8.4,MiniMax M3,yes
 volcengine,doubao-seed-2.1-pro,6.0,30.0,1.2,,,,"输入长度 [0, 1024]",1M tokens,CNY,6.0,30.0,Doubao Seed 2.1 Pro,yes
 volcengine,doubao-seed-2.1-turbo,3.0,15.0,0.6,,,,"输入长度 [0, 256]",1M tokens,CNY,3.0,15.0,Doubao Seed 2.1 Turbo,yes
-volcengine_intl,deepseek-v3.2,0.28,0.42,0.056,,,,火山引擎自部署,1M tokens,USD,1.96,2.94,DeepSeek V3.2,no
-volcengine_intl,deepseek-v4-flash,0.44,1.32,0.014,,,,火山引擎自部署,1M tokens,USD,3.08,9.24,DeepSeek V4 Flash,no
-volcengine_intl,deepseek-v4-pro,1.32,3.96,0.044,,,,火山引擎自部署,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro,no
-volcengine_intl,glm-4.7,0.6,2.2,0.11,,,,,1M tokens,USD,4.2,15.4,GLM-4.7,yes
-volcengine_intl,glm-5.2,1.4,4.4,0.26,,,,,1M tokens,USD,9.8,30.8,GLM-5.2,no
 zai,GLM-4.7,0.6,2.2,0.11,,,,,1M tokens,USD,4.2,15.4,GLM-4.7,yes
 zai,GLM-5.1,1.4,4.4,0.26,,,,,1M tokens,USD,9.8,30.8,GLM-5.1,no
 zai,GLM-5.2,1.4,4.4,0.26,,,,,1M tokens,USD,9.8,30.8,GLM-5.2,no

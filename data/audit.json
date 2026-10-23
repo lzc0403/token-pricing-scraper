@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-10-22 06:55:15",
+  "generated_at": "2026-10-23 06:50:02",
   "stats": {
-    "total": 139,
-    "suspects": 57,
+    "total": 134,
+    "suspects": 51,
     "high": 4,
-    "med": 39,
-    "low": 14,
-    "tier1": 42,
-    "tier2": 15,
+    "med": 38,
+    "low": 9,
+    "tier1": 41,
+    "tier2": 10,
     "tier1_high": 0,
     "gate": "pass"
   },
@@ -45,23 +45,23 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "GLM-5.3-Flash",
-      "msg": "缓存命中价(0.0092) 接近输入价(0.0092)，异常偏高",
+      "msg": "缓存命中价(0.0052) 接近输入价(0.0052)，异常偏高",
       "record": {
         "source": "openrouter",
         "model_raw": "GLM-5.3-Flash",
-        "input": 0.0092,
-        "output": 0.1707,
-        "cache_hit": 0.0092,
+        "input": 0.0052,
+        "output": 0.1985,
+        "cache_hit": 0.0052,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "z-ai/glm-5.3-flash",
-        "openrouter_prompt_per_token": "0.0000000092",
-        "openrouter_completion_per_token": "0.0000001707",
-        "input_rmb": 0.0644,
-        "output_rmb": 1.1949,
+        "openrouter_prompt_per_token": "0.0000000052",
+        "openrouter_completion_per_token": "0.0000001985",
+        "input_rmb": 0.0364,
+        "output_rmb": 1.3895,
         "canonical": "GLM-5.3-Flash",
         "is_lowest_input": "yes"
       }
@@ -292,6 +292,33 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
+      "source": "openrouter",
+      "canonical": "DeepSeek V4.1 Flash",
+      "msg": "缓存/输入比率(4%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "record": {
+        "source": "openrouter",
+        "model_raw": "DeepSeek V4.1 Flash",
+        "input": 0.165,
+        "output": 0.66,
+        "cache_hit": 0.006,
+        "cache_write": null,
+        "context": "1.04858M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "openrouter_id": "deepseek/deepseek-v4.1-flash",
+        "openrouter_prompt_per_token": "0.000000165",
+        "openrouter_completion_per_token": "0.00000066",
+        "input_rmb": 1.155,
+        "output_rmb": 4.62,
+        "canonical": "DeepSeek V4.1 Flash",
+        "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "CACHE_RATIO_ANOMALY",
+      "severity": "med",
       "source": "tencent",
       "canonical": "GLM-5.1",
       "msg": "缓存/输入比率(25%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
@@ -397,19 +424,19 @@
       "record": {
         "source": "openrouter",
         "model_raw": "GLM-5.3-Flash",
-        "input": 0.0092,
-        "output": 0.1707,
-        "cache_hit": 0.0092,
+        "input": 0.0052,
+        "output": 0.1985,
+        "cache_hit": 0.0052,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "z-ai/glm-5.3-flash",
-        "openrouter_prompt_per_token": "0.0000000092",
-        "openrouter_completion_per_token": "0.0000001707",
-        "input_rmb": 0.0644,
-        "output_rmb": 1.1949,
+        "openrouter_prompt_per_token": "0.0000000052",
+        "openrouter_completion_per_token": "0.0000001985",
+        "input_rmb": 0.0364,
+        "output_rmb": 1.3895,
         "canonical": "GLM-5.3-Flash",
         "is_lowest_input": "yes"
       }
@@ -568,60 +595,9 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
-      "source": "atlascloud",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "atlascloud",
-        "model_raw": "DeepSeek V4 Flash",
-        "input": 0.14,
-        "output": 0.28,
-        "cache_hit": 0.028,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "input_rmb": 0.98,
-        "output_rmb": 1.96,
-        "canonical": "DeepSeek V4 Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
-      "source": "openrouter",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "DeepSeek V4 Flash",
-        "input": 0.091,
-        "output": 0.182,
-        "cache_hit": 0.0182,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "deepseek/deepseek-v4-flash",
-        "openrouter_prompt_per_token": "0.000000091",
-        "openrouter_completion_per_token": "0.000000182",
-        "input_rmb": 0.637,
-        "output_rmb": 1.274,
-        "canonical": "DeepSeek V4 Flash",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(2%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(2%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
@@ -645,7 +621,7 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(2%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(2%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
@@ -669,20 +645,20 @@
       "severity": "med",
       "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
-        "input": 0.14,
-        "output": 0.28,
-        "cache_hit": 0.028,
+        "input": 0.22,
+        "output": 0.66,
+        "cache_hit": 0.007,
         "cache_write": null,
         "context": null,
-        "condition": "腾讯云自建",
+        "condition": "空闲时段 | 腾讯云自建",
         "unit": "1M tokens",
         "currency": "USD",
-        "input_rmb": 0.98,
-        "output_rmb": 1.96,
+        "input_rmb": 1.54,
+        "output_rmb": 4.62,
         "canonical": "DeepSeek V4 Flash",
         "is_lowest_input": "no"
       }
@@ -691,22 +667,22 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
-      "source": "tencent_cn",
+      "source": "tencent",
       "canonical": "DeepSeek V4 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(3%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
-        "source": "tencent_cn",
+        "source": "tencent",
         "model_raw": "DeepSeek-V4-Flash",
-        "input": 1.0,
-        "output": 2.0,
-        "cache_hit": 0.2,
+        "input": 0.44,
+        "output": 1.32,
+        "cache_hit": 0.014,
         "cache_write": null,
         "context": null,
-        "condition": null,
+        "condition": "高峰时段 | 腾讯云自建",
         "unit": "1M tokens",
-        "currency": "CNY",
-        "input_rmb": 1.0,
-        "output_rmb": 2.0,
+        "currency": "USD",
+        "input_rmb": 3.08,
+        "output_rmb": 9.24,
         "canonical": "DeepSeek V4 Flash",
         "is_lowest_input": "no"
       }
@@ -796,11 +772,11 @@
       "severity": "low",
       "source": null,
       "canonical": "GLM-5.3-Flash",
-      "msg": "跨源输入价离散 16.8× (最低 0.0644 / 最高 1.07949)，建议人工核对是否同规格模型",
+      "msg": "跨源输入价离散 29.7× (最低 0.0364 / 最高 1.07949)，建议人工核对是否同规格模型",
       "record": {
-        "min": 0.0644,
+        "min": 0.0364,
         "max": 1.07949,
-        "ratio": 16.8
+        "ratio": 29.7
       }
     },
     {
@@ -1067,66 +1043,6 @@
       "record": {
         "model_raw": "kimi-k3",
         "url": "https://platform.kimi.ai/docs/pricing/chat"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "volcengine_intl",
-      "canonical": "DeepSeek V3.2",
-      "msg": "SPA 源静态 HTML 未含模型名「deepseek-v3.」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "deepseek-v3.2",
-        "url": "https://docs.byteplus.com/en/docs/ModelArk/1544106"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "volcengine_intl",
-      "canonical": "DeepSeek V4 Flash",
-      "msg": "SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "deepseek-v4-flash",
-        "url": "https://docs.byteplus.com/en/docs/ModelArk/1544106"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "volcengine_intl",
-      "canonical": "DeepSeek V4 Pro",
-      "msg": "SPA 源静态 HTML 未含模型名「deepseek-v4-」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "deepseek-v4-pro",
-        "url": "https://docs.byteplus.com/en/docs/ModelArk/1544106"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "volcengine_intl",
-      "canonical": "GLM-4.7",
-      "msg": "SPA 源静态 HTML 未含模型名「glm-4.7」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "glm-4.7",
-        "url": "https://docs.byteplus.com/en/docs/ModelArk/1544106"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "volcengine_intl",
-      "canonical": "GLM-5.2",
-      "msg": "SPA 源静态 HTML 未含模型名「glm-5.2」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "glm-5.2",
-        "url": "https://docs.byteplus.com/en/docs/ModelArk/1544106"
       }
     }
   ]
