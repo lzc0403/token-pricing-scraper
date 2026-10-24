@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-23T06:45:45",
+  "fetched_at": "2026-10-24T06:41:18",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -22694,6 +22694,176 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-1b84274b06ad",
+        "model": "kwaivgi/kling-v4.0/video-edit",
+        "type": "Video",
+        "displayName": "Kling Video 4.0 Video-Edit",
+        "profile": "Kling 4.0 video editing: restyle, replace or add content in an existing clip using text plus optional reference images, videos, subjects and voices.",
+        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v4.0-video-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
+        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v4.0-video-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/kwaivgi-kling-v4.0-video-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v4.0-video-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v4.0-video-edit.md",
+        "organization": "KUAISHOU",
+        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v4.0-video-edit.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "VIDEO-EDIT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nu9o41lcccb",
+        "familyName": "kling-v4",
+        "familyDisplayName": "Kling V4 4K HDR Video",
+        "parentFamilyUUID": "mf-2l6qag471zt2",
+        "parentFamilyName": "kwaivgi",
+        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.11",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.157",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-52c3b2bfa03e",
+        "model": "kwaivgi/kling-v4.0/reference-to-video",
+        "type": "Video",
+        "displayName": "Kling Video 4.0 Reference-to-Video",
+        "profile": "Kling 4.0 Omni Reference combines up to 15 images, videos, subjects and voices to generate a consistent 3-30 second video.",
+        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v4.0-reference-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
+        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v4.0-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/kwaivgi-kling-v4.0-reference-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v4.0-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v4.0-reference-to-video.md",
+        "organization": "KUAISHOU",
+        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v4.0-reference-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "REFERENCE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nu9o41lcccb",
+        "familyName": "kling-v4",
+        "familyDisplayName": "Kling V4 4K HDR Video",
+        "parentFamilyUUID": "mf-2l6qag471zt2",
+        "parentFamilyName": "kwaivgi",
+        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.11",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.157",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-acd14327febd",
+        "model": "kwaivgi/kling-v4.0/image-to-video",
+        "type": "Video",
+        "displayName": "Kling Video 4.0 Image-to-Video",
+        "profile": "Kling 4.0 keyframe video: animate from a first frame, through up to 10 keyframes, to a last frame in a single 3-30 second shot.",
+        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v4.0-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
+        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v4.0-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/kwaivgi-kling-v4.0-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v4.0-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v4.0-image-to-video.md",
+        "organization": "KUAISHOU",
+        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v4.0-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nu9o41lcccb",
+        "familyName": "kling-v4",
+        "familyDisplayName": "Kling V4 4K HDR Video",
+        "parentFamilyUUID": "mf-2l6qag471zt2",
+        "parentFamilyName": "kwaivgi",
+        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.11",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.157",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-e1692daff501",
+        "model": "kwaivgi/kling-v4.0/text-to-video",
+        "type": "Video",
+        "displayName": "Kling Video 4.0 Text-to-Video",
+        "profile": "Kling 4.0 turns a text prompt into a 3-30 second video at 720p or 1080p, including the new 21:9 cinematic aspect ratio.",
+        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v4.0-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
+        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v4.0-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/kwaivgi-kling-v4.0-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v4.0-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v4.0-text-to-video.md",
+        "organization": "KUAISHOU",
+        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v4.0-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2nu9o41lcccb",
+        "familyName": "kling-v4",
+        "familyDisplayName": "Kling V4 4K HDR Video",
+        "parentFamilyUUID": "mf-2l6qag471zt2",
+        "parentFamilyName": "kwaivgi",
+        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.11",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.157",
+            "unit": "second"
           }
         }
       },

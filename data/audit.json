@@ -1,17 +1,44 @@
 {
-  "generated_at": "2026-10-23 06:50:02",
+  "generated_at": "2026-10-24 06:45:12",
   "stats": {
-    "total": 134,
-    "suspects": 51,
+    "total": 128,
+    "suspects": 44,
     "high": 4,
-    "med": 38,
-    "low": 9,
-    "tier1": 41,
-    "tier2": 10,
+    "med": 35,
+    "low": 5,
+    "tier1": 38,
+    "tier2": 6,
     "tier1_high": 0,
     "gate": "pass"
   },
   "suspects": [
+    {
+      "tier": 1,
+      "code": "CACHE_SUSPECT",
+      "severity": "med",
+      "source": "openrouter",
+      "canonical": "DeepSeek V4.1 Flash",
+      "msg": "缓存命中价(0.015) 接近输入价(0.02)，异常偏高",
+      "record": {
+        "source": "openrouter",
+        "model_raw": "DeepSeek V4.1 Flash",
+        "input": 0.02,
+        "output": 1.0,
+        "cache_hit": 0.015,
+        "cache_write": null,
+        "context": "1.04858M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "openrouter_id": "deepseek/deepseek-v4.1-flash",
+        "openrouter_prompt_per_token": "0.00000002",
+        "openrouter_completion_per_token": "0.000001",
+        "input_rmb": 0.14,
+        "output_rmb": 7.0,
+        "canonical": "DeepSeek V4.1 Flash",
+        "is_lowest_input": "yes"
+      }
+    },
     {
       "tier": 1,
       "code": "CACHE_SUSPECT",
@@ -44,40 +71,13 @@
       "code": "CACHE_SUSPECT",
       "severity": "med",
       "source": "openrouter",
-      "canonical": "GLM-5.3-Flash",
-      "msg": "缓存命中价(0.0052) 接近输入价(0.0052)，异常偏高",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "GLM-5.3-Flash",
-        "input": 0.0052,
-        "output": 0.1985,
-        "cache_hit": 0.0052,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "z-ai/glm-5.3-flash",
-        "openrouter_prompt_per_token": "0.0000000052",
-        "openrouter_completion_per_token": "0.0000001985",
-        "input_rmb": 0.0364,
-        "output_rmb": 1.3895,
-        "canonical": "GLM-5.3-Flash",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_SUSPECT",
-      "severity": "med",
-      "source": "openrouter",
       "canonical": "Kimi K3",
       "msg": "缓存命中价(0.21) 接近输入价(0.239)，异常偏高",
       "record": {
         "source": "openrouter",
         "model_raw": "Kimi K3",
         "input": 0.239,
-        "output": 11.936,
+        "output": 10.8,
         "cache_hit": 0.21,
         "cache_write": null,
         "context": "1.04858M",
@@ -86,9 +86,9 @@
         "currency": "USD",
         "openrouter_id": "moonshotai/kimi-k3",
         "openrouter_prompt_per_token": "0.000000239",
-        "openrouter_completion_per_token": "0.000011936",
+        "openrouter_completion_per_token": "0.0000108",
         "input_rmb": 1.673,
-        "output_rmb": 83.552,
+        "output_rmb": 75.6,
         "canonical": "Kimi K3",
         "is_lowest_input": "yes"
       }
@@ -175,21 +175,21 @@
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 0.95526,
-        "output": 1.91052,
-        "cache_hit": 0.079605,
+        "input": 0.500076,
+        "output": 1.000152,
+        "cache_hit": 0.041673,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.00000095526",
-        "openrouter_completion_per_token": "0.00000191052",
-        "input_rmb": 6.68682,
-        "output_rmb": 13.37364,
+        "openrouter_prompt_per_token": "0.000000500076",
+        "openrouter_completion_per_token": "0.000001000152",
+        "input_rmb": 3.500532,
+        "output_rmb": 7.001064,
         "canonical": "DeepSeek V4 Pro",
-        "is_lowest_input": "no"
+        "is_lowest_input": "yes"
       }
     },
     {
@@ -294,25 +294,25 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(4%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(75%) 偏离同模型基准(2%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4.1 Flash",
-        "input": 0.165,
-        "output": 0.66,
-        "cache_hit": 0.006,
+        "input": 0.02,
+        "output": 1.0,
+        "cache_hit": 0.015,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4.1-flash",
-        "openrouter_prompt_per_token": "0.000000165",
-        "openrouter_completion_per_token": "0.00000066",
-        "input_rmb": 1.155,
-        "output_rmb": 4.62,
+        "openrouter_prompt_per_token": "0.00000002",
+        "openrouter_completion_per_token": "0.000001",
+        "input_rmb": 0.14,
+        "output_rmb": 7.0,
         "canonical": "DeepSeek V4.1 Flash",
-        "is_lowest_input": "no"
+        "is_lowest_input": "yes"
       }
     },
     {
@@ -418,33 +418,6 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
-      "source": "openrouter",
-      "canonical": "GLM-5.3-Flash",
-      "msg": "缓存/输入比率(100%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "openrouter",
-        "model_raw": "GLM-5.3-Flash",
-        "input": 0.0052,
-        "output": 0.1985,
-        "cache_hit": 0.0052,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "openrouter_id": "z-ai/glm-5.3-flash",
-        "openrouter_prompt_per_token": "0.0000000052",
-        "openrouter_completion_per_token": "0.0000001985",
-        "input_rmb": 0.0364,
-        "output_rmb": 1.3895,
-        "canonical": "GLM-5.3-Flash",
-        "is_lowest_input": "yes"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
       "source": "tencent",
       "canonical": "GLM-5.3-Flash",
       "msg": "缓存/输入比率(29%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
@@ -462,7 +435,7 @@
         "input_rmb": 0.77812,
         "output_rmb": 2.72349,
         "canonical": "GLM-5.3-Flash",
-        "is_lowest_input": "no"
+        "is_lowest_input": "yes"
       }
     },
     {
@@ -575,7 +548,7 @@
         "source": "openrouter",
         "model_raw": "Kimi K3",
         "input": 0.239,
-        "output": 11.936,
+        "output": 10.8,
         "cache_hit": 0.21,
         "cache_write": null,
         "context": "1.04858M",
@@ -584,9 +557,9 @@
         "currency": "USD",
         "openrouter_id": "moonshotai/kimi-k3",
         "openrouter_prompt_per_token": "0.000000239",
-        "openrouter_completion_per_token": "0.000011936",
+        "openrouter_completion_per_token": "0.0000108",
         "input_rmb": 1.673,
-        "output_rmb": 83.552,
+        "output_rmb": 75.6,
         "canonical": "Kimi K3",
         "is_lowest_input": "yes"
       }
@@ -691,28 +664,6 @@
       "tier": 1,
       "code": "DUPLICATE",
       "severity": "med",
-      "source": "kimi",
-      "canonical": null,
-      "msg": "重复记录 ×3: kimi-k3",
-      "record": {
-        "key": "kimi|kimi-k3|20.0|100.0"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "DUPLICATE",
-      "severity": "med",
-      "source": "kimi_ai",
-      "canonical": null,
-      "msg": "重复记录 ×3: kimi-k3",
-      "record": {
-        "key": "kimi_ai|kimi-k3|0.3|15.0"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "DUPLICATE",
-      "severity": "med",
       "source": "tencent",
       "canonical": null,
       "msg": "重复记录 ×2: DeepSeek-V4-Pro",
@@ -758,12 +709,12 @@
       "code": "DIVERGE",
       "severity": "low",
       "source": null,
-      "canonical": "GLM-5.3",
-      "msg": "跨源输入价离散 18.2× (最低 0.553 / 最高 10.07524)，建议人工核对是否同规格模型",
+      "canonical": "DeepSeek V4.1 Flash",
+      "msg": "跨源输入价离散 15.0× (最低 0.14 / 最高 2.1)，建议人工核对是否同规格模型",
       "record": {
-        "min": 0.553,
-        "max": 10.07524,
-        "ratio": 18.2
+        "min": 0.14,
+        "max": 2.1,
+        "ratio": 15.0
       }
     },
     {
@@ -771,12 +722,12 @@
       "code": "DIVERGE",
       "severity": "low",
       "source": null,
-      "canonical": "GLM-5.3-Flash",
-      "msg": "跨源输入价离散 29.7× (最低 0.0364 / 最高 1.07949)，建议人工核对是否同规格模型",
+      "canonical": "GLM-5.3",
+      "msg": "跨源输入价离散 18.2× (最低 0.553 / 最高 10.07524)，建议人工核对是否同规格模型",
       "record": {
-        "min": 0.0364,
-        "max": 1.07949,
-        "ratio": 29.7
+        "min": 0.553,
+        "max": 10.07524,
+        "ratio": 18.2
       }
     },
     {
@@ -977,72 +928,24 @@
       "tier": 2,
       "code": "SPA_NEED_RENDER",
       "severity": "low",
-      "source": "kimi",
-      "canonical": "Kimi K3",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
+      "source": "volcengine",
+      "canonical": "Doubao Seed 2.1 Pro",
+      "msg": "SPA 源静态 HTML 未含模型名「doubao-seed-」，需 Playwright 渲染核对",
       "record": {
-        "model_raw": "kimi-k3",
-        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
+        "model_raw": "doubao-seed-2.1-pro",
+        "url": "https://docs.volcengine.com/docs/82379/1544106?redirect=1&lang=zh"
       }
     },
     {
       "tier": 2,
       "code": "SPA_NEED_RENDER",
       "severity": "low",
-      "source": "kimi",
-      "canonical": "Kimi K3",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
+      "source": "volcengine",
+      "canonical": "Doubao Seed 2.1 Turbo",
+      "msg": "SPA 源静态 HTML 未含模型名「doubao-seed-」，需 Playwright 渲染核对",
       "record": {
-        "model_raw": "kimi-k3",
-        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "kimi",
-      "canonical": "Kimi K3",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k3",
-        "url": "https://platform.kimi.com/docs/pricing/chat-k3"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "kimi_ai",
-      "canonical": "Kimi K3",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k3",
-        "url": "https://platform.kimi.ai/docs/pricing/chat"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "kimi_ai",
-      "canonical": "Kimi K3",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k3",
-        "url": "https://platform.kimi.ai/docs/pricing/chat"
-      }
-    },
-    {
-      "tier": 2,
-      "code": "SPA_NEED_RENDER",
-      "severity": "low",
-      "source": "kimi_ai",
-      "canonical": "Kimi K3",
-      "msg": "SPA 源静态 HTML 未含模型名「kimi-k3」，需 Playwright 渲染核对",
-      "record": {
-        "model_raw": "kimi-k3",
-        "url": "https://platform.kimi.ai/docs/pricing/chat"
+        "model_raw": "doubao-seed-2.1-turbo",
+        "url": "https://docs.volcengine.com/docs/82379/1544106?redirect=1&lang=zh"
       }
     }
   ]
