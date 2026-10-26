@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-25T07:07:11",
+  "fetched_at": "2026-10-26T07:14:05",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -83,6 +83,190 @@
           "openai.chat.completions"
         ],
         "architectureType": "Mixture-of-Experts (MoE)"
+      },
+      {
+        "uuid": "ms-io57tc5gjuq3",
+        "model": "moonshotai/kimi-k3.1-pro-highspeed",
+        "type": "Text",
+        "displayName": "Kimi K3.1 Pro HighSpeed",
+        "profile": "Top-performing open-weight model optimized for frontier reasoning, coding, and enterprise AI applications.",
+        "logo": "https://static.atlascloud.ai/model/logo/moonshotai-kimi-k2-thinking.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MOONSHOTAI.png",
+        "background": "https://static.atlascloud.ai/model/background/moonshotai-kimi-k3.1-pro-highspeed.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/7433dc24-f64b-42ae-9733-11cfa566878e.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/moonshotai-kimi-k3.1-pro-highspeed.json",
+        "readme": "https://static.atlascloud.ai/model/readme/moonshotai-kimi-k3.1-pro-highspeed.md",
+        "organization": "MOONSHOTAI",
+        "example": "https://static.atlascloud.ai/model/example/moonshotai-kimi-k2.5.json",
+        "priority": 200001,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "INT4",
+          "NEW",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 1048576,
+        "avgTotalTPS": "50.75",
+        "avgLatency": "0.50",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "4",
+            "output_price": "20",
+            "cache_creation_price": "4",
+            "cache_creation_1h_price": "8",
+            "cache_price": "0.2"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "4",
+            "output_price": "20",
+            "cache_creation_price": "4",
+            "cache_creation_1h_price": "8",
+            "cache_price": "0.2"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "structured_outputs",
+          "tools",
+          "reasoning"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "coreStrengths": [
+          "Strong coding abilities",
+          "Efficient 1T MoE (32B active)",
+          "Long context support",
+          "Versatile task capabilities"
+        ],
+        "useCases": [
+          "Software development assistance",
+          "Agent development with tools",
+          "Technical content creation",
+          "Analytical problem solving"
+        ]
+      },
+      {
+        "uuid": "ms-n5ytp4kyioyg",
+        "model": "moonshotai/kimi-k3.1-pro",
+        "type": "Text",
+        "displayName": "Kimi K3.1 Pro",
+        "profile": "Top-performing open-weight model optimized for frontier reasoning, coding, and enterprise AI applications.",
+        "logo": "https://static.atlascloud.ai/model/logo/moonshotai-kimi-k2-thinking.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MOONSHOTAI.png",
+        "background": "https://static.atlascloud.ai/model/background/moonshotai-kimi-k3.1-pro.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/7433dc24-f64b-42ae-9733-11cfa566878e.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/moonshotai-kimi-k3.1-pro.json",
+        "readme": "https://static.atlascloud.ai/model/readme/moonshotai-kimi-k3.1-pro.md",
+        "organization": "MOONSHOTAI",
+        "example": "https://static.atlascloud.ai/model/example/moonshotai-kimi-k2.5.json",
+        "priority": 200000,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "INT4",
+          "NEW",
+          "HOT",
+          "CODE"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 1048576,
+        "avgTotalTPS": "50.75",
+        "avgLatency": "0.50",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "2",
+            "output_price": "10",
+            "cache_creation_price": "2",
+            "cache_creation_1h_price": "4",
+            "cache_price": "0.2"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "2",
+            "output_price": "10",
+            "cache_creation_price": "2",
+            "cache_creation_1h_price": "4",
+            "cache_price": "0.2"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "structured_outputs",
+          "tools",
+          "reasoning"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "coreStrengths": [
+          "Strong coding abilities",
+          "Efficient 1T MoE (32B active)",
+          "Long context support",
+          "Versatile task capabilities"
+        ],
+        "useCases": [
+          "Software development assistance",
+          "Agent development with tools",
+          "Technical content creation",
+          "Analytical problem solving"
+        ]
       },
       {
         "uuid": "ms-y4nc562ckrwy",
@@ -22694,6 +22878,80 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-9304084bef90",
+        "model": "minimax/speech-2.8-hd",
+        "type": "Audio",
+        "displayName": "MiniMax Speech 2.8 HD",
+        "profile": "MiniMax's latest high-fidelity text-to-speech model: natural, expressive speech in 40 languages with inline interjection tags such as (laughs) and (sighs), emotion control, and selectable voices.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-speech-2.8-hd.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-speech-2.8-hd.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-speech-2.8-hd.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-speech-2.8-hd.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-speech-2.8-hd.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-speech-2.8-hd.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "AUDIO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.07",
+            "unit": "1k characters"
+          },
+          "origin": {
+            "base_price": "0.1",
+            "unit": "1k characters"
+          }
+        }
+      },
+      {
+        "uuid": "ms-31ccab14f77f",
+        "model": "minimax/speech-2.8-turbo",
+        "type": "Audio",
+        "displayName": "MiniMax Speech 2.8 Turbo",
+        "profile": "MiniMax's latest fast, low-cost text-to-speech model: natural speech in 40 languages with inline interjection tags such as (laughs) and (sighs), emotion control, and selectable voices.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-speech-2.8-turbo.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-speech-2.8-turbo.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-speech-2.8-turbo.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-speech-2.8-turbo.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-speech-2.8-turbo.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-speech-2.8-turbo.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-SPEECH"
+        ],
+        "tags": [
+          "TEXT-TO-SPEECH",
+          "AUDIO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.042",
+            "unit": "1k characters"
+          },
+          "origin": {
+            "base_price": "0.06",
+            "unit": "1k characters"
           }
         }
       },
