@@ -1,30 +1,32 @@
-## 🔔 Token 定价变动（2026-10-26 07:18:00）
+## 🔔 Token 定价变动（2026-10-27 07:07:16）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.2088 | 0.95526 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 0.4176 | 1.91052 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输入 | 0.66 | 1.32 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输出 | 1.98 | 3.96 | USD |
-| Kimi K3 | openrouter | 输入 | 0.239 | 0.17 | USD |
-| Kimi K3 | openrouter | 输出 | 10.8 | 20 | USD |
-| GLM-5.3 | openrouter | 输入 | 0.079 | 0.0699 | USD |
+| DeepSeek V4 Flash | openrouter | 输入 | 0.091 | 0.14 | USD |
+| DeepSeek V4 Flash | openrouter | 输出 | 0.182 | 0.28 | USD |
+| Kimi K3 | openrouter | 输入 | 0.17 | 0.169 | USD |
+| Kimi K3 | openrouter | 输出 | 20 | 11.5 | USD |
+| GLM-5.3 | openrouter | 输入 | 0.0699 | 0.0769 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输入 | 0.02 | 0.14 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输出 | 1 | 0.42 | USD |
 
 ## 🆕 新模型雷达（未登记候选，待人工确认）
 
-扫描 OpenRouter 全量 467 个模型，发现 **9** 个未登记候选（疑似旗舰 **5** 个）：
+扫描 OpenRouter 全量 464 个模型，发现 **11** 个未登记候选（疑似旗舰 **5** 个）：
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 19 天 | $1.36 | $4.18 | 疑似旗舰 |
-| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 26 天 | $2 | $10 | 疑似旗舰 |
-| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 32 天 | $4 | $12 | 疑似旗舰 |
-| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 33 天 | $2 | $10 | 疑似旗舰 |
-| `anthropic/claude-fable-5.1`（Claude Fable 5.1） | Anthropic | 2026-09-01 | 54 天 | $10 | $50 | 疑似旗舰 |
-| `anthropic/claude-sonnet-5.5`（Claude Sonnet 5.5） | Anthropic | 2026-09-28 | 27 天 | $2 | $10 | 新增档位 |
-| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 33 天 | $0.1 | $0.5 | 新增档位 |
-| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 35 天 | $0.15 | $0.47 | 新增档位 |
-| `qwen/qwen3.8-max-0902`（Qwen3.8 Max (0902)） | 通义千问 | 2026-09-03 | 52 天 | $2 | $6 | 新增档位 |
+| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 20 天 | $1.36 | $4.18 | 疑似旗舰 |
+| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 27 天 | $2 | $10 | 疑似旗舰 |
+| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 33 天 | $4 | $12 | 疑似旗舰 |
+| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 34 天 | $2 | $10 | 疑似旗舰 |
+| `anthropic/claude-fable-5.1`（Claude Fable 5.1） | Anthropic | 2026-09-01 | 55 天 | $10 | $50 | 疑似旗舰 |
+| `openai/gpt-6.1-terra`（GPT-6.1 Terra） | OpenAI | 2026-10-26 | 0 天 | $1 | $5 | 新增档位 |
+| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 0 天 | $1 | $5 | 新增档位 |
+| `anthropic/claude-sonnet-5.5`（Claude Sonnet 5.5） | Anthropic | 2026-09-28 | 28 天 | $2 | $10 | 新增档位 |
+| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 34 天 | $0.1 | $0.5 | 新增档位 |
+| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 36 天 | $0.15 | $0.47 | 新增档位 |
+| `qwen/qwen3.8-max-0902`（Qwen3.8 Max (0902)） | 通义千问 | 2026-09-03 | 53 天 | $2 | $6 | 新增档位 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 

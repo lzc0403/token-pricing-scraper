@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-26T07:14:05",
+  "fetched_at": "2026-10-27T07:03:20",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -416,6 +416,133 @@
           "Migration planning workflows",
           "Capability exploration tasks",
           "Release preparation activities"
+        ]
+      },
+      {
+        "uuid": "ms-mg2d5j3mxjqo",
+        "model": "minimaxai/minimax-m3.1-flash",
+        "type": "Text",
+        "displayName": "MiniMax M3.1 Flash",
+        "profile": "Agent-focused model combining rapid reasoning, efficient tool use, and multi-step task execution.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimaxai-minimax-m2.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimaxai-minimax-m3.1-flash.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/44c5a00b-41cc-49ee-86a4-9e3ffe39c7c2.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimaxai-minimax-m3.1-flash.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimaxai-minimax-m3.1-flash.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimaxai-minimax-m2.json",
+        "priority": 190020,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "HOT",
+          "CODE",
+          "NEW"
+        ],
+        "contextLength": 1000000,
+        "maxCompletionTokens": 524288,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.36",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "0.15",
+            "output_price": "0.6",
+            "cache_price": "0.015"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0.15",
+            "output_price": "0.6",
+            "cache_price": "0.015"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
+      {
+        "uuid": "ms-d58a83a791ep",
+        "model": "tencent/hy4-preview",
+        "type": "Text",
+        "displayName": "Hunyuan 4 Preview",
+        "profile": "Next-generation Hunyuan model exploring frontier reasoning, advanced agent capabilities, and complex task execution.",
+        "logo": "https://static.atlascloud.ai/uploads/models/451534c8-335e-43b1-86f3-a9ef537fec50.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/TENCENT.png",
+        "background": "https://static.atlascloud.ai/model/background/tencent-hy4-preview.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/dfd6eb5c-19af-4a04-9bfc-29328f1cc98f.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/tencent-hy4-preview.json",
+        "readme": "https://static.atlascloud.ai/model/readme/tencent-hy4-preview.md",
+        "organization": "TENCENT",
+        "example": "https://static.atlascloud.ai/model/example/tencent-hy3.json",
+        "priority": 160039,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 64000,
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "0.834",
+            "output_price": "2.501",
+            "cache_price": "0.042"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0.834",
+            "output_price": "2.501",
+            "cache_price": "0.042"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "structured_outputs",
+          "tools",
+          "reasoning"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
         ]
       },
       {
@@ -5196,7 +5323,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -5236,7 +5363,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -5276,7 +5403,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -5316,7 +5443,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12146,7 +12273,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12186,7 +12313,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12227,7 +12354,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12268,7 +12395,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12308,7 +12435,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12348,7 +12475,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12668,7 +12795,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -12748,7 +12875,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -13271,10 +13398,10 @@
         "price": {
           "discount": "100",
           "actual": {
-            "base_price": "0.005"
+            "base_price": "0.015"
           },
           "origin": {
-            "base_price": "0.005"
+            "base_price": "0.015"
           }
         }
       },
@@ -13344,7 +13471,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -13386,7 +13513,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -13427,7 +13554,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -13468,7 +13595,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -13712,7 +13839,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -13753,7 +13880,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -13793,7 +13920,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -13833,7 +13960,7 @@
         ],
         "familyUUID": "mf-2g2kde181ohi",
         "familyName": "kling-v3",
-        "familyDisplayName": "Kling V3.0 API: AI Director Video with Native Audio",
+        "familyDisplayName": "Kling V3 Motion Transfer with Character Consistency",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -22905,6 +23032,12 @@
           "AUDIO",
           "NEW"
         ],
+        "familyUUID": "mf-2qqdqnd3av18",
+        "familyName": "minimax-speech-2.8",
+        "familyDisplayName": "MiniMax Speech 2.8 API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
         "display_console": true,
         "price": {
           "discount": "70",
@@ -22942,6 +23075,12 @@
           "AUDIO",
           "NEW"
         ],
+        "familyUUID": "mf-2qqdqnd3av18",
+        "familyName": "minimax-speech-2.8",
+        "familyDisplayName": "MiniMax Speech 2.8 API",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
         "display_console": true,
         "price": {
           "discount": "70",
