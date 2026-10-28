@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27 07:07:19",
+  "generated_at": "2026-10-28 07:48:38",
   "stats": {
     "total": 124,
     "suspects": 34,
@@ -18,11 +18,11 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "GLM-5.3",
-      "msg": "缓存命中价(0.0689) 接近输入价(0.0769)，异常偏高",
+      "msg": "缓存命中价(0.0689) 接近输入价(0.0699)，异常偏高",
       "record": {
         "source": "openrouter",
         "model_raw": "GLM-5.3",
-        "input": 0.0769,
+        "input": 0.0699,
         "output": 1.4,
         "cache_hit": 0.0689,
         "cache_write": null,
@@ -31,9 +31,9 @@
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "z-ai/glm-5.3",
-        "openrouter_prompt_per_token": "0.0000000769",
+        "openrouter_prompt_per_token": "0.0000000699",
         "openrouter_completion_per_token": "0.0000014",
-        "input_rmb": 0.5383,
+        "input_rmb": 0.4893,
         "output_rmb": 9.8,
         "canonical": "GLM-5.3",
         "is_lowest_input": "yes"
@@ -45,23 +45,23 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "Kimi K3",
-      "msg": "缓存命中价(0.159) 接近输入价(0.169)，异常偏高",
+      "msg": "缓存命中价(0.19) 接近输入价(0.2)，异常偏高",
       "record": {
         "source": "openrouter",
         "model_raw": "Kimi K3",
-        "input": 0.169,
-        "output": 11.5,
-        "cache_hit": 0.159,
+        "input": 0.2,
+        "output": 20.0,
+        "cache_hit": 0.19,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "moonshotai/kimi-k3",
-        "openrouter_prompt_per_token": "0.000000169",
-        "openrouter_completion_per_token": "0.0000115",
-        "input_rmb": 1.183,
-        "output_rmb": 80.5,
+        "openrouter_prompt_per_token": "0.0000002",
+        "openrouter_completion_per_token": "0.00002",
+        "input_rmb": 1.4,
+        "output_rmb": 140.0,
         "canonical": "Kimi K3",
         "is_lowest_input": "yes"
       }
@@ -336,11 +336,11 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "GLM-5.3",
-      "msg": "缓存/输入比率(90%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(99%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "openrouter",
         "model_raw": "GLM-5.3",
-        "input": 0.0769,
+        "input": 0.0699,
         "output": 1.4,
         "cache_hit": 0.0689,
         "cache_write": null,
@@ -349,9 +349,9 @@
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "z-ai/glm-5.3",
-        "openrouter_prompt_per_token": "0.0000000769",
+        "openrouter_prompt_per_token": "0.0000000699",
         "openrouter_completion_per_token": "0.0000014",
-        "input_rmb": 0.5383,
+        "input_rmb": 0.4893,
         "output_rmb": 9.8,
         "canonical": "GLM-5.3",
         "is_lowest_input": "yes"
@@ -486,23 +486,23 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "Kimi K3",
-      "msg": "缓存/输入比率(94%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(95%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "openrouter",
         "model_raw": "Kimi K3",
-        "input": 0.169,
-        "output": 11.5,
-        "cache_hit": 0.159,
+        "input": 0.2,
+        "output": 20.0,
+        "cache_hit": 0.19,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "moonshotai/kimi-k3",
-        "openrouter_prompt_per_token": "0.000000169",
-        "openrouter_completion_per_token": "0.0000115",
-        "input_rmb": 1.183,
-        "output_rmb": 80.5,
+        "openrouter_prompt_per_token": "0.0000002",
+        "openrouter_completion_per_token": "0.00002",
+        "input_rmb": 1.4,
+        "output_rmb": 140.0,
         "canonical": "Kimi K3",
         "is_lowest_input": "yes"
       }
@@ -559,11 +559,11 @@
       "severity": "low",
       "source": null,
       "canonical": "GLM-5.3",
-      "msg": "跨源输入价离散 18.7× (最低 0.5383 / 最高 10.07524)，建议人工核对是否同规格模型",
+      "msg": "跨源输入价离散 20.6× (最低 0.4893 / 最高 10.07524)，建议人工核对是否同规格模型",
       "record": {
-        "min": 0.5383,
+        "min": 0.4893,
         "max": 10.07524,
-        "ratio": 18.7
+        "ratio": 20.6
       }
     },
     {
@@ -572,11 +572,11 @@
       "severity": "low",
       "source": null,
       "canonical": "Kimi K3",
-      "msg": "跨源输入价离散 18.6× (最低 1.183 / 最高 21.974)，建议人工核对是否同规格模型",
+      "msg": "跨源输入价离散 15.7× (最低 1.4 / 最高 21.974)，建议人工核对是否同规格模型",
       "record": {
-        "min": 1.183,
+        "min": 1.4,
         "max": 21.974,
-        "ratio": 18.6
+        "ratio": 15.7
       }
     },
     {

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-27T07:03:20",
+  "fetched_at": "2026-10-28T07:44:40",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -890,7 +890,7 @@
         ],
         "familyUUID": "mf-2lrwmrdlmpa7",
         "familyName": "seedance-2.5",
-        "familyDisplayName": "Seedance 2.5 API: 30-Second Native Video Generation",
+        "familyDisplayName": "Seedance 2.5 API for 30 Second, 50 Reference Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -931,7 +931,7 @@
         ],
         "familyUUID": "mf-2lrwmrdlmpa7",
         "familyName": "seedance-2.5",
-        "familyDisplayName": "Seedance 2.5 API: 30-Second Native Video Generation",
+        "familyDisplayName": "Seedance 2.5 API for 30 Second, 50 Reference Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -2085,7 +2085,7 @@
         ],
         "familyUUID": "mf-2lrwmrdlmpa7",
         "familyName": "seedance-2.5",
-        "familyDisplayName": "Seedance 2.5 API: 30-Second Native Video Generation",
+        "familyDisplayName": "Seedance 2.5 API for 30 Second, 50 Reference Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -2479,7 +2479,7 @@
         ],
         "familyUUID": "mf-2lrwmrdlmpa7",
         "familyName": "seedance-2.5",
-        "familyDisplayName": "Seedance 2.5 API: 30-Second Native Video Generation",
+        "familyDisplayName": "Seedance 2.5 API for 30 Second, 50 Reference Video",
         "parentFamilyUUID": "mf-2brf8kb6xlq0",
         "parentFamilyName": "bytedance",
         "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
@@ -14945,7 +14945,7 @@
         }
       },
       {
-        "uuid": "",
+        "uuid": "ms-infinitetalk",
         "model": "atlascloud/infinitetalk",
         "type": "Video",
         "displayName": "InfiniteTalk",
@@ -16929,39 +16929,6 @@
           },
           "origin": {
             "base_price": "0.056"
-          }
-        }
-      },
-      {
-        "uuid": "ms-f0s4u3r1s7h8",
-        "model": "kwaivgi/kling-effects",
-        "type": "Video",
-        "displayName": "Kling Effects",
-        "profile": "Adds post-processing and stylistic motion effects, expanding creative editing within Kling’s video suite.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-effects.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-effects.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/db64ed33-72ae-4c20-a9ee-e188d2d3e574.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/0fceac4a-aea3-49a0-aeb1-b454038a8bea.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-effects.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-effects.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-effects.json",
-        "priority": 706,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.212"
-          },
-          "origin": {
-            "base_price": "0.25"
           }
         }
       },
@@ -23034,7 +23001,7 @@
         ],
         "familyUUID": "mf-2qqdqnd3av18",
         "familyName": "minimax-speech-2.8",
-        "familyDisplayName": "MiniMax Speech 2.8 API",
+        "familyDisplayName": "Minimax Speech 2.8 Expressive Speech Across 40 Languages",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -23077,7 +23044,7 @@
         ],
         "familyUUID": "mf-2qqdqnd3av18",
         "familyName": "minimax-speech-2.8",
-        "familyDisplayName": "MiniMax Speech 2.8 API",
+        "familyDisplayName": "Minimax Speech 2.8 Expressive Speech Across 40 Languages",
         "parentFamilyUUID": "mf-2l7r5ayk2bgm",
         "parentFamilyName": "minimax",
         "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
@@ -23120,7 +23087,7 @@
         ],
         "familyUUID": "mf-2nu9o41lcccb",
         "familyName": "kling-v4",
-        "familyDisplayName": "Kling V4 4K HDR Video",
+        "familyDisplayName": "Kling 4 API: 30 Second Video with Audio",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -23163,7 +23130,7 @@
         ],
         "familyUUID": "mf-2nu9o41lcccb",
         "familyName": "kling-v4",
-        "familyDisplayName": "Kling V4 4K HDR Video",
+        "familyDisplayName": "Kling 4 API: 30 Second Video with Audio",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -23205,7 +23172,7 @@
         ],
         "familyUUID": "mf-2nu9o41lcccb",
         "familyName": "kling-v4",
-        "familyDisplayName": "Kling V4 4K HDR Video",
+        "familyDisplayName": "Kling 4 API: 30 Second Video with Audio",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
@@ -23247,7 +23214,7 @@
         ],
         "familyUUID": "mf-2nu9o41lcccb",
         "familyName": "kling-v4",
-        "familyDisplayName": "Kling V4 4K HDR Video",
+        "familyDisplayName": "Kling 4 API: 30 Second Video with Audio",
         "parentFamilyUUID": "mf-2l6qag471zt2",
         "parentFamilyName": "kwaivgi",
         "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
