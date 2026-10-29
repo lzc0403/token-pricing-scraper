@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-28T07:44:40",
+  "fetched_at": "2026-10-29T07:49:38",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -476,6 +476,57 @@
         ]
       },
       {
+        "uuid": "ms-xoen5kvzhlqz",
+        "model": "autojev",
+        "type": "Text",
+        "displayName": "AutoJev",
+        "profile": "",
+        "logo": "https://static.atlascloud.ai/model/logo/autojev.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OTHER.png",
+        "background": "https://static.atlascloud.ai/model/background/autojev.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/autojev.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/autojev.json",
+        "readme": "https://static.atlascloud.ai/model/readme/autojev.md",
+        "organization": "OTHER",
+        "example": "https://static.atlascloud.ai/model/example/autojev.json",
+        "priority": 160039,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "DECISION",
+          ""
+        ],
+        "contextLength": 16384,
+        "maxCompletionTokens": 16384,
+        "display_console": false,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "type": "flat",
+            "input_price": "0",
+            "output_price": "0"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0",
+            "output_price": "0"
+          }
+        },
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "systemone"
+        ]
+      },
+      {
         "uuid": "ms-d58a83a791ep",
         "model": "tencent/hy4-preview",
         "type": "Text",
@@ -729,7 +780,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
+        "familyDisplayName": "GPT Image 2.5 API: Flare for Speed, Sunburst for Precision",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -769,7 +820,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
+        "familyDisplayName": "GPT Image 2.5 API: Flare for Speed, Sunburst for Precision",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -809,7 +860,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
+        "familyDisplayName": "GPT Image 2.5 API: Flare for Speed, Sunburst for Precision",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -849,7 +900,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
+        "familyDisplayName": "GPT Image 2.5 API: Flare for Speed, Sunburst for Precision",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -19113,7 +19164,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
+        "familyDisplayName": "GPT Image 2.5 API: Flare for Speed, Sunburst for Precision",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -19230,7 +19281,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
+        "familyDisplayName": "GPT Image 2.5 API: Flare for Speed, Sunburst for Precision",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -19307,7 +19358,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
+        "familyDisplayName": "GPT Image 2.5 API: Flare for Speed, Sunburst for Precision",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -19384,7 +19435,7 @@
         ],
         "familyUUID": "mf-2ol9m2gf2d9w",
         "familyName": "gpt-image-2.5",
-        "familyDisplayName": "gpt-image-2.5 Up to 4K Output",
+        "familyDisplayName": "GPT Image 2.5 API: Flare for Speed, Sunburst for Precision",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",

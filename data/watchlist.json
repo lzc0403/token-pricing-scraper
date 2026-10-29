@@ -253,7 +253,7 @@
     "input_rmb": 0.98,
     "output_rmb": 1.96,
     "canonical": "DeepSeek V4 Flash",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "atlascloud",
@@ -1088,19 +1088,19 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Flash",
-    "input": 0.14,
-    "output": 0.28,
-    "cache_hit": 0.028,
+    "input": 0.091,
+    "output": 0.182,
+    "cache_hit": 0.0182,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4-flash",
-    "openrouter_prompt_per_token": "0.00000014",
-    "openrouter_completion_per_token": "0.00000028",
-    "input_rmb": 0.98,
-    "output_rmb": 1.96,
+    "openrouter_prompt_per_token": "0.000000091",
+    "openrouter_completion_per_token": "0.000000182",
+    "input_rmb": 0.637,
+    "output_rmb": 1.274,
     "canonical": "DeepSeek V4 Flash",
     "is_lowest_input": "yes"
   },
@@ -1168,19 +1168,19 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4.1 Flash",
-    "input": 0.14,
-    "output": 0.42,
-    "cache_hit": 0.0042,
+    "input": 0.045,
+    "output": 0.5,
+    "cache_hit": 0.006,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4.1-flash",
-    "openrouter_prompt_per_token": "0.00000014",
-    "openrouter_completion_per_token": "0.00000042",
-    "input_rmb": 0.98,
-    "output_rmb": 2.94,
+    "openrouter_prompt_per_token": "0.000000045",
+    "openrouter_completion_per_token": "0.0000005",
+    "input_rmb": 0.315,
+    "output_rmb": 3.5,
     "canonical": "DeepSeek V4.1 Flash",
     "is_lowest_input": "yes"
   },
@@ -1206,8 +1206,8 @@
   {
     "source": "openrouter",
     "model_raw": "GLM-5.3-Flash",
-    "input": 0.15,
-    "output": 0.5,
+    "input": 0.0457,
+    "output": 0.0742,
     "cache_hit": 0.03,
     "cache_write": null,
     "context": "1.04858M",
@@ -1215,12 +1215,12 @@
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.3-flash",
-    "openrouter_prompt_per_token": "0.00000015",
-    "openrouter_completion_per_token": "0.0000005",
-    "input_rmb": 1.05,
-    "output_rmb": 3.5,
+    "openrouter_prompt_per_token": "0.0000000457",
+    "openrouter_completion_per_token": "0.0000000742",
+    "input_rmb": 0.3199,
+    "output_rmb": 0.5194,
     "canonical": "GLM-5.3-Flash",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
@@ -1453,19 +1453,19 @@
   {
     "source": "openrouter",
     "model_raw": "Kimi K3",
-    "input": 0.2,
-    "output": 20.0,
-    "cache_hit": 0.19,
+    "input": 0.192,
+    "output": 15.0,
+    "cache_hit": 0.182,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "moonshotai/kimi-k3",
-    "openrouter_prompt_per_token": "0.0000002",
-    "openrouter_completion_per_token": "0.00002",
-    "input_rmb": 1.4,
-    "output_rmb": 140.0,
+    "openrouter_prompt_per_token": "0.000000192",
+    "openrouter_completion_per_token": "0.000015",
+    "input_rmb": 1.344,
+    "output_rmb": 105.0,
     "canonical": "Kimi K3",
     "is_lowest_input": "yes"
   },
@@ -1582,7 +1582,7 @@
     "input_rmb": 0.98,
     "output_rmb": 1.96,
     "canonical": "DeepSeek V4 Flash",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
@@ -1742,7 +1742,7 @@
     "input_rmb": 0.77812,
     "output_rmb": 2.72349,
     "canonical": "GLM-5.3-Flash",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
