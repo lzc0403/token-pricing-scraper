@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-29T07:49:38",
+  "fetched_at": "2026-10-30T07:54:09",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -11124,6 +11124,12 @@
           "NEW",
           "HOT"
         ],
+        "familyUUID": "mf-2qvtoy4p9904",
+        "familyName": "gpt-6.1",
+        "familyDisplayName": "GPT 6.1 Sol & Terra",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "contextLength": 1050000,
         "maxCompletionTokens": 131072,
         "avgTotalTPS": "18.54",
@@ -11212,6 +11218,12 @@
           "NEW",
           "HOT"
         ],
+        "familyUUID": "mf-2qvtoy4p9904",
+        "familyName": "gpt-6.1",
+        "familyDisplayName": "GPT 6.1 Sol & Terra",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
         "contextLength": 1050000,
         "maxCompletionTokens": 131072,
         "avgTotalTPS": "18.54",
@@ -15029,6 +15041,100 @@
         }
       },
       {
+        "uuid": "ms-or4qkd0e2ggg",
+        "model": "openai/gpt-6.1-terra-codex",
+        "type": "Text",
+        "displayName": "GPT 6.1 Terra Codex",
+        "profile": "Dependable general-purpose model designed for practical workflows, grounded analysis, and production applications.",
+        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-6.1-terra-codex.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/951996e6-7717-4f92-9e0f-589ae214e856.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-6.1-terra-codex.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-6.1-terra-codex.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.4.json",
+        "priority": 2007,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "familyUUID": "mf-2qvtoy4p9904",
+        "familyName": "gpt-6.1",
+        "familyDisplayName": "GPT 6.1 Sol & Terra",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
+        "contextLength": 1050000,
+        "maxCompletionTokens": 131072,
+        "avgTotalTPS": "18.54",
+        "avgLatency": "0.76",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "tiered_price": true,
+          "actual": {
+            "type": "flat",
+            "input_price": "1",
+            "output_price": "5",
+            "cache_creation_price": "1.25",
+            "cache_price": "0.05",
+            "prompt_thresholds": [
+              {
+                "threshold": 272000,
+                "input_price": "2",
+                "cache_creation_price": "2.5",
+                "cache_price": "0.1",
+                "output_price": "7.5"
+              }
+            ]
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "1",
+            "output_price": "5",
+            "cache_creation_price": "1.25",
+            "cache_price": "0.05",
+            "prompt_thresholds": [
+              {
+                "threshold": 272000,
+                "input_price": "2",
+                "cache_creation_price": "2.5",
+                "cache_price": "0.1",
+                "output_price": "7.5"
+              }
+            ]
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ],
+        "coreStrengths": [
+          "Adaptive real-time reasoning",
+          "State-of-the-art performance",
+          "Reduced hallucinations significantly",
+          "Large context (256K-400K tokens)"
+        ],
+        "useCases": [
+          "Mission-critical enterprise applications",
+          "Advanced coding & development",
+          "Human-like content creation",
+          "AI agent & workflow automation"
+        ]
+      },
+      {
         "uuid": "ms-2ac44du6084e",
         "model": "openai/gpt-5.6-sol",
         "type": "Text",
@@ -16867,123 +16973,6 @@
         }
       },
       {
-        "uuid": "ms-i3j4m3w8c6s1",
-        "model": "kwaivgi/kling-v2.1-i2v-pro/start-end-frame",
-        "type": "Video",
-        "displayName": "Kling v2.1 i2v Pro Start-end-frame",
-        "profile": "Supports start-to-end frame conditioning for controlled motion continuity and smoother scene transitions.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v2.1-i2v-pro-start-end-frame.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v2.1-i2v-pro-start-end-frame.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/8e516b13-71bd-458f-9539-ba7eccfe4fde.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/efa75bb8-91c7-4fd6-8d02-c21753246c64.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v2.1-i2v-pro-start-end-frame.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v2.1-i2v-pro-start-end-frame.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v2.1-i2v-pro-start-end-frame.json",
-        "priority": 709,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "familyUUID": "mf-2q0eks28jezc",
-        "familyName": "kling-2.1",
-        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.083"
-          },
-          "origin": {
-            "base_price": "0.098"
-          }
-        }
-      },
-      {
-        "uuid": "ms-b8p3e1b6x8l1",
-        "model": "kwaivgi/kling-v1.6-multi-i2v-pro",
-        "type": "Video",
-        "displayName": "Kling v1.6 Multi i2v Pro",
-        "profile": "Generates multi-subject video from images with improved coherence and advanced motion-tracking accuracy.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v1.6-multi-i2v-pro.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v1.6-multi-i2v-pro.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/938528e7-0d0f-4fbc-9875-77aab0d32d88.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/1382d713-c173-40ff-b698-721458725a00.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v1.6-multi-i2v-pro.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v1.6-multi-i2v-pro.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v1.6-multi-i2v-pro.json",
-        "priority": 708,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "familyUUID": "mf-2q0enfl4r0d4",
-        "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.083"
-          },
-          "origin": {
-            "base_price": "0.098"
-          }
-        }
-      },
-      {
-        "uuid": "ms-n7h5d4y2n3h8",
-        "model": "kwaivgi/kling-v1.6-multi-i2v-standard",
-        "type": "Video",
-        "displayName": "Kling v1.6 Multi i2v Standard",
-        "profile": "A cost-efficient option for basic image-to-video generation with balanced speed and detail.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v1.6-multi-i2v-standard.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v1.6-multi-i2v-standard.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/76faeacf-ed38-4145-b838-4ee8ba451c58.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/855a541a-969e-4872-99a0-93e75d46d345.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v1.6-multi-i2v-standard.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v1.6-multi-i2v-standard.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v1.6-multi-i2v-standard.json",
-        "priority": 707,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "familyUUID": "mf-2q0enfl4r0d4",
-        "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.048"
-          },
-          "origin": {
-            "base_price": "0.056"
-          }
-        }
-      },
-      {
         "uuid": "ms-b4mthv8qcxl8",
         "model": "atlascloud/van-2.6/text-to-video",
         "type": "Video",
@@ -17309,47 +17298,6 @@
         }
       },
       {
-        "uuid": "ms-u4m7f9o4p3b2",
-        "model": "kwaivgi/kling-v2.0-i2v-master",
-        "type": "Video",
-        "displayName": "kling v2.0 i2v Master",
-        "profile": "Produces cinematic 1080p clips with refined lighting, camera realism, and cross-frame character stability.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v2.0-i2v-master.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v2.0-i2v-master.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/9cd8ef9d-d16c-4813-b72b-47c25bd727d1.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/21c878d0-8af1-4944-8d91-33dde828b7fe.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v2.0-i2v-master.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v2.0-i2v-master.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v2.0-i2v-master.json",
-        "priority": 671,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "HOT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2q0embrr0qsz",
-        "familyName": "kling-2.0",
-        "familyDisplayName": "Kling 2.0 Refined Camera Realism",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.238"
-          },
-          "origin": {
-            "base_price": "0.28"
-          }
-        }
-      },
-      {
         "uuid": "ms-y6q8n7t8k6z0",
         "model": "minimax/hailuo-02/t2v-pro",
         "type": "Video",
@@ -17426,86 +17374,6 @@
           },
           "origin": {
             "base_price": "0.075"
-          }
-        }
-      },
-      {
-        "uuid": "ms-m8q1u7x7g6a4",
-        "model": "kwaivgi/kling-v2.1-t2v-master",
-        "type": "Video",
-        "displayName": "Kling v2.1 t2v Master",
-        "profile": "Interprets complex text prompts with advanced motion logic and enhanced dynamic-camera rendering.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v2.1-t2v-master.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v2.1-t2v-master.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/7b456705-beb0-4664-aae9-40593f32ab6a.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/24b42513-a9bb-478e-a2cb-97cf01e5e291.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v2.1-t2v-master.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v2.1-t2v-master.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v2.1-t2v-master.json",
-        "priority": 655,
-        "categories": [
-          "TEXT-TO-VIDEO"
-        ],
-        "tags": [
-          "TEXT-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2q0eks28jezc",
-        "familyName": "kling-2.1",
-        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.238"
-          },
-          "origin": {
-            "base_price": "0.28"
-          }
-        }
-      },
-      {
-        "uuid": "ms-h4x3y1c6y5c5",
-        "model": "kwaivgi/kling-v2.0-t2v-master",
-        "type": "Video",
-        "displayName": "Kling v2.0 t2v Master",
-        "profile": "The foundational cinematic model combining high-fidelity visuals with realistic human motion generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v2.0-t2v-master.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v2.0-t2v-master.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/9a13a50b-9fed-4a22-85f7-2d551a842a97.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/2a8b3926-7223-479a-a90d-2f3e2d0d6be0.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v2.0-t2v-master.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v2.0-t2v-master.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v2.0-t2v-master.json",
-        "priority": 654,
-        "categories": [
-          "TEXT-TO-VIDEO"
-        ],
-        "tags": [
-          "TEXT-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2q0embrr0qsz",
-        "familyName": "kling-2.0",
-        "familyDisplayName": "Kling 2.0 Refined Camera Realism",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.238"
-          },
-          "origin": {
-            "base_price": "0.28"
           }
         }
       },
@@ -17630,46 +17498,6 @@
         }
       },
       {
-        "uuid": "ms-w4k1j6p4f0u1",
-        "model": "kwaivgi/kling-v2.1-i2v-master",
-        "type": "Video",
-        "displayName": "Kling v2.1 i2v Master",
-        "profile": "Delivers professional-grade image-to-video generation with precise motion continuity and visual depth.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v2.1-i2v-master.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v2.1-i2v-master.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/3a95b14c-a235-44e3-b4e7-7189ff757e76.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/4d26c03b-2749-486e-a50f-a3f440de0a7f.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v2.1-i2v-master.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v2.1-i2v-master.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v2.1-i2v-master.json",
-        "priority": 629,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2q0eks28jezc",
-        "familyName": "kling-2.1",
-        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.238"
-          },
-          "origin": {
-            "base_price": "0.28"
-          }
-        }
-      },
-      {
         "uuid": "ms-i5n3k1z4f0o2",
         "model": "minimax/hailuo-02/t2v-standard",
         "type": "Video",
@@ -17786,126 +17614,6 @@
           },
           "origin": {
             "base_price": "0.49"
-          }
-        }
-      },
-      {
-        "uuid": "ms-s3q2o5b3w2t4",
-        "model": "kwaivgi/kling-v2.1-i2v-pro",
-        "type": "Video",
-        "displayName": "Kling v2.1 i2v Pro",
-        "profile": "Balances generation speed and fidelity, producing sharp, fluid image-to-video results for general creative use.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v2.1-i2v-pro.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v2.1-i2v-pro.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/e8fe8818-ed9c-4fdd-b349-4062a3f919a9.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/925bc422-03f6-4b3e-8556-8d8f7025677e.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v2.1-i2v-pro.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v2.1-i2v-pro.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v2.1-i2v-pro.json",
-        "priority": 617,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2q0eks28jezc",
-        "familyName": "kling-2.1",
-        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.083"
-          },
-          "origin": {
-            "base_price": "0.098"
-          }
-        }
-      },
-      {
-        "uuid": "ms-m7r1f2k6x6p4",
-        "model": "kwaivgi/kling-v1.6-t2v-standard",
-        "type": "Video",
-        "displayName": "Kling v1.6 t2v Standard",
-        "profile": "Entry-level text-to-video generator offering stable motion and prompt alignment for short-form outputs.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v1.6-t2v-standard.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v1.6-t2v-standard.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/f8d7af68-587f-4880-8d33-0b70b623113e.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/ff244d85-7c93-4387-990f-4f843ee03184.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v1.6-t2v-standard.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v1.6-t2v-standard.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v1.6-t2v-standard.json",
-        "priority": 616,
-        "categories": [
-          "TEXT-TO-VIDEO"
-        ],
-        "tags": [
-          "TEXT-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2q0enfl4r0d4",
-        "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.048"
-          },
-          "origin": {
-            "base_price": "0.056"
-          }
-        }
-      },
-      {
-        "uuid": "ms-j7q3s6m1x7z0",
-        "model": "kwaivgi/kling-v1.6-i2v-pro",
-        "type": "Video",
-        "displayName": "Kling v1.6 i2v Pro",
-        "profile": "Upgraded image-to-video variant with smoother motion blending and improved texture realism.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v1.6-i2v-pro.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v1.6-i2v-pro.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/170a3c01-c5f1-4cdd-a170-14cbc553e2ca.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/87bdd15b-b391-4175-8514-0c0d8877c797.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v1.6-i2v-pro.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v1.6-i2v-pro.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v1.6-i2v-pro.json",
-        "priority": 615,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "NEW"
-        ],
-        "familyUUID": "mf-2q0enfl4r0d4",
-        "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.083"
-          },
-          "origin": {
-            "base_price": "0.098"
           }
         }
       },
@@ -18433,86 +18141,6 @@
           },
           "origin": {
             "base_price": "0.122"
-          }
-        }
-      },
-      {
-        "uuid": "ms-b5j9w7u6c2t8",
-        "model": "kwaivgi/kling-v2.1-i2v-standard",
-        "type": "Video",
-        "displayName": "Kling v2.1 i2v Standard",
-        "profile": "A fast, reliable 720p model optimized for quick visual drafts and efficient prototyping.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v2.1-i2v-standard.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v2.1-i2v-standard.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/cf26fad7-66c3-49d0-9830-e9d24cd1a69e.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/d695112f-0e35-4561-9d21-28e32e933c17.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v2.1-i2v-standard.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v2.1-i2v-standard.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v2.1-i2v-standard.json",
-        "priority": 571,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO",
-          "HOT",
-          "NEW"
-        ],
-        "familyUUID": "mf-2q0eks28jezc",
-        "familyName": "kling-2.1",
-        "familyDisplayName": "Kling v2.1 Advanced Motion Logic",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.048"
-          },
-          "origin": {
-            "base_price": "0.056"
-          }
-        }
-      },
-      {
-        "uuid": "ms-k3p8f9y4m9f5",
-        "model": "kwaivgi/kling-v1.6-i2v-standard",
-        "type": "Video",
-        "displayName": "Kling v1.6 i2v Standard",
-        "profile": "Lightweight early-generation model providing foundational image-to-video conversion at minimal cost.",
-        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v1.6-i2v-standard.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v1.6-i2v-standard.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/cc6ba347-2727-494f-89f6-c82faa17c4c2.png",
-        "coverVideo": "https://static.atlascloud.ai/uploads/models/c9282326-0ab5-4d88-a953-b194d4885d69.mp4",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v1.6-i2v-standard.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v1.6-i2v-standard.md",
-        "organization": "KUAISHOU",
-        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v1.6-i2v-standard.json",
-        "priority": 569,
-        "categories": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "tags": [
-          "IMAGE-TO-VIDEO"
-        ],
-        "familyUUID": "mf-2q0enfl4r0d4",
-        "familyName": "kling-1.6",
-        "familyDisplayName": "Kling 1.6 Multi-Image Subject Consistency",
-        "parentFamilyUUID": "mf-2l6qag471zt2",
-        "parentFamilyName": "kwaivgi",
-        "parentFamilyDisplayName": "Kwaivgi Models on Atlas Cloud | Kling Models",
-        "display_console": true,
-        "price": {
-          "discount": "85",
-          "actual": {
-            "base_price": "0.048"
-          },
-          "origin": {
-            "base_price": "0.056"
           }
         }
       },
@@ -23023,6 +22651,45 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-457316f7f47e",
+        "model": "heygen/avatar-5/digital-twin",
+        "type": "Video",
+        "displayName": "HeyGen Avatar V Digital Twin",
+        "profile": "HeyGen Avatar V digital twin videos: pick a stock avatar, give it a script or an audio track, and get a natural lip-synced presenter video with optional backgrounds, background removal and transparent WebM output, up to 4K.",
+        "logo": "https://static.atlascloud.ai/model/logo/heygen-avatar-5-digital-twin.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/HEYGEN.png",
+        "background": "https://static.atlascloud.ai/model/background/heygen-avatar-5-digital-twin.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/heygen-avatar-5-digital-twin.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/heygen-avatar-5-digital-twin.json",
+        "readme": "https://static.atlascloud.ai/model/readme/heygen-avatar-5-digital-twin.md",
+        "organization": "HEYGEN",
+        "example": "https://static.atlascloud.ai/model/example/heygen-avatar-5-digital-twin.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO",
+          "AUDIO-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "AUDIO-TO-VIDEO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2qur1lhjx512",
+        "familyName": "heygen-avatar-v-digital-twin",
+        "familyDisplayName": "HeyGen Avatar V Digital Twin Background Removal",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.1"
+          },
+          "origin": {
+            "base_price": "0.1"
           }
         }
       },

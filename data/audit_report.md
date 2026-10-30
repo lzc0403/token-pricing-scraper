@@ -1,13 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-10-29 07:53:42
+> 生成时间：2026-10-30 07:58:14
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
 - 校验记录总数：**124**
-- 可疑项总数：**34**（high 4 / med 28 / low 2）
-- Tier1 结构性校验可疑：**30**
+- 可疑项总数：**32**（high 4 / med 26 / low 2）
+- Tier1 结构性校验可疑：**28**
 - Tier2 源页面核对可疑：**4**
 
 ## 二、核对维度
@@ -33,8 +33,7 @@
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Max | 静态源页面未找到output价数值「43.2」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到input价数值「2.4」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到output价数值「9.6」，疑似解析/幻觉错误 |
-| med | T1 | CACHE_SUSPECT | openrouter | GLM-5.3 | 缓存命中价(0.0689) 接近输入价(0.0699)，异常偏高 |
-| med | T1 | CACHE_SUSPECT | openrouter | GLM-5.3-Flash | 缓存命中价(0.03) 接近输入价(0.0457)，异常偏高 |
+| med | T1 | CACHE_SUSPECT | openrouter | GLM-5.3 | 缓存命中价(0.076) 接近输入价(0.08)，异常偏高 |
 | med | T1 | CACHE_SUSPECT | openrouter | Kimi K3 | 缓存命中价(0.182) 接近输入价(0.192)，异常偏高 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | DeepSeek V3.2 | 缓存/输入比率(20%) 偏离同模型基准(50%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | DeepSeek V4 Pro | 缓存/输入比率(20%) 偏离同模型基准(8%) 超 15%，疑似缓存价缺失/估算口径不一致 |
@@ -45,8 +44,7 @@
 | med | T1 | CACHE_RATIO_ANOMALY | deepseek_us | DeepSeek V4.1 Flash | 缓存/输入比率(2%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | openrouter | DeepSeek V4.1 Flash | 缓存/输入比率(13%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent_cn | DeepSeek V4.1 Flash | 缓存/输入比率(2%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
-| med | T1 | CACHE_RATIO_ANOMALY | openrouter | GLM-5.3 | 缓存/输入比率(99%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
-| med | T1 | CACHE_RATIO_ANOMALY | openrouter | GLM-5.3-Flash | 缓存/输入比率(66%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
+| med | T1 | CACHE_RATIO_ANOMALY | openrouter | GLM-5.3 | 缓存/输入比率(95%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | atlascloud | Kimi K2.6 | 缓存/输入比率(17%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | openrouter | Kimi K2.6 | 缓存/输入比率(23%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent_cn | Kimi K2.6 | 缓存/输入比率(17%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |
@@ -61,7 +59,7 @@
 | med | T1 | OPENAI_LONG_NO_OR | openai | GPT-5.6 Sol | OpenAI 硬编码长上下文价 GPT-5.6 Sol 无对应 OpenRouter 记录可交叉校验 |
 | med | T1 | OPENAI_LONG_DEV_CH | openai | GPT-5.6 Terra | OpenAI 长上下文input价(4.0) 与 OpenRouter 标准档(2.0) 偏差 100.0%，属渠道定价差异（OR 无长档可对标） |
 | med | T1 | OPENAI_LONG_DEV_CH | openai | GPT-5.6 Terra | OpenAI 长上下文output价(18.0) 与 OpenRouter 标准档(12.0) 偏差 50.0%，属渠道定价差异（OR 无长档可对标） |
-| low | T1 | DIVERGE | - | GLM-5.3 | 跨源输入价离散 20.6× (最低 0.4893 / 最高 10.07524)，建议人工核对是否同规格模型 |
+| low | T1 | DIVERGE | - | GLM-5.3 | 跨源输入价离散 18.0× (最低 0.56 / 最高 10.07524)，建议人工核对是否同规格模型 |
 | low | T1 | DIVERGE | - | Kimi K3 | 跨源输入价离散 16.3× (最低 1.344 / 最高 21.974)，建议人工核对是否同规格模型 |
 
 > ⚠️ high 级别需立即人工核对并修正；med 级别建议复核；low 级别多为 SPA 渲染提示。

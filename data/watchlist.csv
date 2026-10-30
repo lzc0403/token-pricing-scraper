@@ -62,11 +62,11 @@ openrouter,Claude Sonnet 4.5,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Cla
 openrouter,Claude Sonnet 4.6,3.0,15.0,0.3,3.75,,1M,,1M tokens,USD,21.0,105.0,Claude Sonnet 4.6,yes
 openrouter,Claude Sonnet 5,2.0,10.0,0.2,2.5,,1M,,1M tokens,USD,14.0,70.0,Claude Sonnet 5,yes
 openrouter,DeepSeek V4 Flash,0.091,0.182,0.0182,,,1.04858M,,1M tokens,USD,0.637,1.274,DeepSeek V4 Flash,yes
-openrouter,DeepSeek V4 Pro,0.95526,1.91052,0.079605,,,1.04858M,,1M tokens,USD,6.68682,13.37364,DeepSeek V4 Pro,no
+openrouter,DeepSeek V4 Pro,0.816234,1.632468,0.068019,,,1.04858M,,1M tokens,USD,5.713638,11.427276,DeepSeek V4 Pro,no
 openrouter,DeepSeek V4 Pro 0813,1.32,3.96,0.044,,,1.04858M,OpenRouter 峰谷计费,1M tokens,USD,9.24,27.72,DeepSeek V4 Pro 0813,yes
 openrouter,DeepSeek V4.1 Flash,0.045,0.5,0.006,,,1.04858M,,1M tokens,USD,0.315,3.5,DeepSeek V4.1 Flash,yes
-openrouter,GLM-5.3,0.0699,1.4,0.0689,,,1.04858M,,1M tokens,USD,0.4893,9.8,GLM-5.3,yes
-openrouter,GLM-5.3-Flash,0.0457,0.0742,0.03,,,1.04858M,,1M tokens,USD,0.3199,0.5194,GLM-5.3-Flash,yes
+openrouter,GLM-5.3,0.08,3.6,0.076,,,1.04858M,,1M tokens,USD,0.56,25.2,GLM-5.3,yes
+openrouter,GLM-5.3-Flash,0.15,0.5,0.03,,,1.04858M,,1M tokens,USD,1.05,3.5,GLM-5.3-Flash,no
 openrouter,GPT-5,1.25,10.0,0.125,,,400K,,1M tokens,USD,8.75,70.0,GPT-5,yes
 openrouter,GPT-5.5,5.0,30.0,0.5,,,1.05M,,1M tokens,USD,35.0,210.0,GPT-5.5,yes
 openrouter,GPT-5.5 Pro,30.0,180.0,,,,1.05M,,1M tokens,USD,210.0,1260.0,GPT-5.5 Pro,yes
@@ -96,7 +96,7 @@ tencent,DeepSeek-V4.1-Flash,0.15,0.6,,,,,空闲时段,1M tokens,USD,1.05,4.2,Dee
 tencent,DeepSeek-V4.1-Flash,0.3,1.2,,,,,高峰时段,1M tokens,USD,2.1,8.4,DeepSeek V4.1 Flash,no
 tencent,GLM-5.2,1.12,3.92,,,,,,1M tokens,USD,7.84,27.44,GLM-5.2,no
 tencent,GLM-5.3,1.1116,3.8907,,,,,,1M tokens,USD,7.7812,27.2349,GLM-5.3,no
-tencent,GLM-5.3-Flash,0.11116,0.38907,,,,,,1M tokens,USD,0.77812,2.72349,GLM-5.3-Flash,no
+tencent,GLM-5.3-Flash,0.11116,0.38907,,,,,,1M tokens,USD,0.77812,2.72349,GLM-5.3-Flash,yes
 tencent,kimi-k2.6,0.858,3.566,,,,,,1M tokens,USD,6.006,24.962,Kimi K2.6,no
 tencent,Kimi K2.7 Code,0.95,4.0,,,,,,1M tokens,USD,6.65,28.0,Kimi K2.7 Code,no
 tencent,Kimi K3,2.731,13.653,,,,,,1M tokens,USD,19.117,95.571,Kimi K3,no
