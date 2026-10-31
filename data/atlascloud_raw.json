@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-30T07:54:09",
+  "fetched_at": "2026-10-31T07:45:20",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -41,6 +41,7 @@
         "display_console": true,
         "price": {
           "discount": "100",
+          "timezone": 8,
           "actual": {
             "type": "flat",
             "input_price": "0.3",
@@ -11126,7 +11127,7 @@
         ],
         "familyUUID": "mf-2qvtoy4p9904",
         "familyName": "gpt-6.1",
-        "familyDisplayName": "GPT 6.1 Sol & Terra",
+        "familyDisplayName": "GPT 6.1 Terra Codex for Visual Workflows",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -11220,7 +11221,7 @@
         ],
         "familyUUID": "mf-2qvtoy4p9904",
         "familyName": "gpt-6.1",
-        "familyDisplayName": "GPT 6.1 Sol & Terra",
+        "familyDisplayName": "GPT 6.1 Terra Codex for Visual Workflows",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
@@ -15066,7 +15067,7 @@
         ],
         "familyUUID": "mf-2qvtoy4p9904",
         "familyName": "gpt-6.1",
-        "familyDisplayName": "GPT 6.1 Sol & Terra",
+        "familyDisplayName": "GPT 6.1 Terra Codex for Visual Workflows",
         "parentFamilyUUID": "mf-2c1b7akvxzln",
         "parentFamilyName": "openai",
         "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",

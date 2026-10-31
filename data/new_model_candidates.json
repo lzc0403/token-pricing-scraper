@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-30 07:58:11",
+  "generated_at": "2026-10-31 07:49:29",
   "enabled": true,
   "lookback_days": 60,
   "scanned": 456,
-  "known_count": 217,
+  "known_count": 214,
   "candidates": [
     {
       "id": "mistralai/mistral-large-4-0",
@@ -12,13 +12,13 @@
       "family": "Mistral",
       "region": "overseas",
       "created": "2026-10-06",
-      "age_days": 23,
+      "age_days": 24,
       "input_usd_per_m": 0.7,
       "output_usd_per_m": 2.1,
       "context": "1.04858M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 23 天 · Mistral 系候选最高价档"
+      "reason": "新上架 24 天 · Mistral 系候选最高价档"
     },
     {
       "id": "openai/gpt-6.1-sol-pro",
@@ -27,13 +27,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-09-29",
-      "age_days": 30,
+      "age_days": 31,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 10.0,
       "context": "1.05M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 30 天 · OpenAI 系候选最高价档"
+      "reason": "新上架 31 天 · OpenAI 系候选最高价档"
     },
     {
       "id": "qwen/qwen3.8-max-prime",
@@ -42,13 +42,13 @@
       "family": "通义千问",
       "region": "domestic",
       "created": "2026-09-23",
-      "age_days": 36,
+      "age_days": 37,
       "input_usd_per_m": 4.0,
       "output_usd_per_m": 12.0,
       "context": "1M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 36 天 · 通义千问 系候选最高价档"
+      "reason": "新上架 37 天 · 通义千问 系候选最高价档"
     },
     {
       "id": "openai/gpt-6-sol-pro",
@@ -57,13 +57,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-09-22",
-      "age_days": 37,
+      "age_days": 38,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 10.0,
       "context": "1.05M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 37 天 · OpenAI 系候选最高价档"
+      "reason": "新上架 38 天 · OpenAI 系候选最高价档"
     },
     {
       "id": "anthropic/claude-fable-5.1",
@@ -72,13 +72,13 @@
       "family": "Anthropic",
       "region": "overseas",
       "created": "2026-09-01",
-      "age_days": 58,
+      "age_days": 59,
       "input_usd_per_m": 10.0,
       "output_usd_per_m": 50.0,
       "context": "1M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 58 天 · Anthropic 系候选最高价档"
+      "reason": "新上架 59 天 · Anthropic 系候选最高价档"
     },
     {
       "id": "openai/gpt-6.1-terra",
@@ -87,13 +87,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-10-26",
-      "age_days": 3,
+      "age_days": 4,
       "input_usd_per_m": 1.0,
       "output_usd_per_m": 5.0,
       "context": "1.05M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 3 天 · OpenAI 系新增次级档"
+      "reason": "新上架 4 天 · OpenAI 系新增次级档"
     },
     {
       "id": "openai/gpt-6.1-terra-pro",
@@ -102,13 +102,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-10-26",
-      "age_days": 3,
+      "age_days": 4,
       "input_usd_per_m": 1.0,
       "output_usd_per_m": 5.0,
       "context": "1.05M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 3 天 · OpenAI 系新增次级档"
+      "reason": "新上架 4 天 · OpenAI 系新增次级档"
     },
     {
       "id": "anthropic/claude-sonnet-5.5",
@@ -117,13 +117,13 @@
       "family": "Anthropic",
       "region": "overseas",
       "created": "2026-09-28",
-      "age_days": 31,
+      "age_days": 32,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 10.0,
       "context": "1M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 31 天 · Anthropic 系新增次级档"
+      "reason": "新上架 32 天 · Anthropic 系新增次级档"
     },
     {
       "id": "openai/gpt-6-luna-pro",
@@ -132,13 +132,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-09-22",
-      "age_days": 37,
+      "age_days": 38,
       "input_usd_per_m": 0.1,
       "output_usd_per_m": 0.5,
       "context": "1.05M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 37 天 · OpenAI 系新增次级档"
+      "reason": "新上架 38 天 · OpenAI 系新增次级档"
     },
     {
       "id": "qwen/qwen3.8-omni-flash",
@@ -147,13 +147,13 @@
       "family": "通义千问",
       "region": "domestic",
       "created": "2026-09-21",
-      "age_days": 39,
+      "age_days": 40,
       "input_usd_per_m": 0.15,
       "output_usd_per_m": 0.47,
       "context": "1M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 39 天 · 通义千问 系新增次级档"
+      "reason": "新上架 40 天 · 通义千问 系新增次级档"
     },
     {
       "id": "qwen/qwen3.8-max-0902",
@@ -162,13 +162,13 @@
       "family": "通义千问",
       "region": "domestic",
       "created": "2026-09-03",
-      "age_days": 56,
+      "age_days": 57,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 6.0,
       "context": "1M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 56 天 · 通义千问 系新增次级档"
+      "reason": "新上架 57 天 · 通义千问 系新增次级档"
     }
   ],
   "flagship_count": 5
