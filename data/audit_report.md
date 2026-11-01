@@ -1,13 +1,13 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-10-31 07:49:32
+> 生成时间：2026-11-01 08:30:54
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
 - 校验记录总数：**122**
-- 可疑项总数：**34**（high 4 / med 28 / low 2）
-- Tier1 结构性校验可疑：**30**
+- 可疑项总数：**35**（high 4 / med 29 / low 2）
+- Tier1 结构性校验可疑：**31**
 - Tier2 源页面核对可疑：**4**
 
 ## 二、核对维度
@@ -33,8 +33,9 @@
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Max | 静态源页面未找到output价数值「43.2」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到input价数值「2.4」，疑似解析/幻觉错误 |
 | high | T2 | PRICE_NOT_FOUND | aliyun | Qwen3.7 Plus | 静态源页面未找到output价数值「9.6」，疑似解析/幻觉错误 |
+| med | T1 | CACHE_SUSPECT | openrouter | DeepSeek V4 Pro 0813 | 缓存命中价(0.11) 接近输入价(0.115)，异常偏高 |
 | med | T1 | CACHE_SUSPECT | openrouter | GLM-5.3 | 缓存命中价(0.0689) 接近输入价(0.0699)，异常偏高 |
-| med | T1 | CACHE_SUSPECT | openrouter | GLM-5.3-Flash | 缓存命中价(0.0163) 接近输入价(0.0163)，异常偏高 |
+| med | T1 | CACHE_SUSPECT | openrouter | GLM-5.3-Flash | 缓存命中价(0.0285) 接近输入价(0.0285)，异常偏高 |
 | med | T1 | CACHE_SUSPECT | openrouter | Kimi K3 | 缓存命中价(0.182) 接近输入价(0.192)，异常偏高 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | DeepSeek V3.2 | 缓存/输入比率(20%) 偏离同模型基准(50%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | DeepSeek V4 Pro | 缓存/输入比率(20%) 偏离同模型基准(8%) 超 15%，疑似缓存价缺失/估算口径不一致 |
