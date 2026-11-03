@@ -1,11 +1,11 @@
 # 数据核对报告（自我检查机制）
 
-> 生成时间：2026-11-02 08:42:45
+> 生成时间：2026-11-03 08:54:28
 
 ## 一、核对统计
 
 - 门禁状态：**✅ 通过**
-- 校验记录总数：**121**
+- 校验记录总数：**119**
 - 可疑项总数：**35**（high 4 / med 29 / low 2）
 - Tier1 结构性校验可疑：**31**
 - Tier2 源页面核对可疑：**4**
@@ -44,7 +44,7 @@
 | med | T1 | CACHE_RATIO_ANOMALY | aliyun_bailian | DeepSeek V4.1 Flash | 缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | deepseek | DeepSeek V4.1 Flash | 缓存/输入比率(2%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | deepseek_us | DeepSeek V4.1 Flash | 缓存/输入比率(2%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
-| med | T1 | CACHE_RATIO_ANOMALY | openrouter | DeepSeek V4.1 Flash | 缓存/输入比率(13%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
+| med | T1 | CACHE_RATIO_ANOMALY | openrouter | DeepSeek V4.1 Flash | 缓存/输入比率(27%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | tencent_cn | DeepSeek V4.1 Flash | 缓存/输入比率(2%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | openrouter | GLM-5.3 | 缓存/输入比率(95%) 偏离同模型基准(19%) 超 15%，疑似缓存价缺失/估算口径不一致 |
 | med | T1 | CACHE_RATIO_ANOMALY | openrouter | GLM-5.3-Flash | 缓存/输入比率(100%) 偏离同模型基准(20%) 超 15%，疑似缓存价缺失/估算口径不一致 |

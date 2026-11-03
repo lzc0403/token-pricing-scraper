@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-02 08:42:45",
+  "generated_at": "2026-11-03 08:54:28",
   "stats": {
-    "total": 121,
+    "total": 119,
     "suspects": 35,
     "high": 4,
     "med": 29,
@@ -342,13 +342,13 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(13%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(27%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4.1 Flash",
         "input": 0.045,
         "output": 0.5,
-        "cache_hit": 0.006,
+        "cache_hit": 0.012,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
