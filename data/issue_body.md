@@ -1,25 +1,28 @@
-## 🔔 Token 定价变动（2026-11-03 08:54:26）
+## 🔔 Token 定价变动（2026-11-04 08:23:53）
 
-本次无价格变动。
-
+| 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
+| --- | --- | --- | ---: | ---: | --- |
+| DeepSeek V4 Pro 0813 | openrouter | 输出 | 4 | 4.6 | USD |
+| Kimi K3 | openrouter | 输入 | 0.192 | 0.2 | USD |
+| Kimi K3 | openrouter | 输出 | 15 | 16 | USD |
+| GLM-5.3-Flash | openrouter | 输入 | 0.0285 | 0.0269 | USD |
+| GLM-5.3-Flash | openrouter | 输出 | 0.0923 | 0.0996 | USD |
 
 ## 🆕 新模型雷达（未登记候选，待人工确认）
 
-扫描 OpenRouter 全量 451 个模型，发现 **11** 个未登记候选（疑似旗舰 **5** 个）：
+扫描 OpenRouter 全量 455 个模型，发现 **9** 个未登记候选（疑似旗舰 **5** 个）：
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 27 天 | $0.7 | $2.1 | 疑似旗舰 |
-| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 34 天 | $2 | $10 | 疑似旗舰 |
-| `anthropic/claude-sonnet-5.5`（Claude Sonnet 5.5） | Anthropic | 2026-09-28 | 35 天 | $2 | $10 | 疑似旗舰 |
-| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 40 天 | $4 | $12 | 疑似旗舰 |
-| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 41 天 | $2 | $10 | 疑似旗舰 |
-| `openai/gpt-6.1-terra`（GPT-6.1 Terra） | OpenAI | 2026-10-26 | 7 天 | $1 | $5 | 新增档位 |
-| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 7 天 | $1 | $5 | 新增档位 |
-| `anthropic/claude-haiku-5.5`（Claude Haiku 5.5） | Anthropic | 2026-10-07 | 26 天 | $0.1 | $0.5 | 新增档位 |
-| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 41 天 | $0.1 | $0.5 | 新增档位 |
-| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 43 天 | $0.15 | $0.47 | 新增档位 |
-| `qwen/qwen3.8-max-0902`（Qwen3.8 Max (0902)） | 通义千问 | 2026-09-03 | 60 天 | $2 | $6 | 新增档位 |
+| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 28 天 | $0.7 | $2.1 | 疑似旗舰 |
+| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 35 天 | $2 | $10 | 疑似旗舰 |
+| `anthropic/claude-sonnet-5.5`（Claude Sonnet 5.5） | Anthropic | 2026-09-28 | 36 天 | $2 | $10 | 疑似旗舰 |
+| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 41 天 | $4 | $12 | 疑似旗舰 |
+| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 42 天 | $2 | $10 | 疑似旗舰 |
+| `openai/gpt-6.1-terra`（GPT-6.1 Terra） | OpenAI | 2026-10-26 | 8 天 | $1 | $5 | 新增档位 |
+| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 8 天 | $1 | $5 | 新增档位 |
+| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 42 天 | $0.1 | $0.5 | 新增档位 |
+| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 44 天 | $0.15 | $0.47 | 新增档位 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 
