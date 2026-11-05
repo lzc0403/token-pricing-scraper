@@ -1,9 +1,81 @@
 {
-  "fetched_at": "2026-11-04T08:19:24",
+  "fetched_at": "2026-11-05T08:44:45",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
     "data": [
+      {
+        "uuid": "ms-vsxjzt5dd1bg",
+        "model": "tencent/hy4",
+        "type": "Text",
+        "displayName": "Hy4",
+        "profile": "Next-generation Hunyuan model exploring frontier reasoning, advanced agent capabilities, and complex task execution.",
+        "logo": "https://static.atlascloud.ai/uploads/models/451534c8-335e-43b1-86f3-a9ef537fec50.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/TENCENT.png",
+        "background": "https://static.atlascloud.ai/model/background/tencent-hy4.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/dfd6eb5c-19af-4a04-9bfc-29328f1cc98f.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/tencent-hy4.json",
+        "readme": "https://static.atlascloud.ai/model/readme/tencent-hy4.md",
+        "organization": "TENCENT",
+        "example": "https://static.atlascloud.ai/model/example/tencent-hy3.json",
+        "priority": 660039,
+        "categories": [
+          "LLM"
+        ],
+        "tags": [
+          "LLM",
+          "NEW",
+          "HOT"
+        ],
+        "contextLength": 1048576,
+        "maxCompletionTokens": 65536,
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "type": "flat",
+            "input_price": "0.584",
+            "output_price": "1.751",
+            "cache_price": "0.029"
+          },
+          "origin": {
+            "type": "flat",
+            "input_price": "0.834",
+            "output_price": "2.501",
+            "cache_price": "0.042"
+          }
+        },
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "supported_sampling_parameters": [
+          "temperature",
+          "top_p",
+          "top_k",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "logit_bias"
+        ],
+        "supported_features": [
+          "json_mode",
+          "structured_outputs",
+          "tools",
+          "reasoning"
+        ],
+        "supported_protocols": [
+          "openai.chat.completions"
+        ]
+      },
       {
         "uuid": "ms-hf7m0dqdzxkx",
         "model": "deepseek-ai/deepseek-v4.1-flash-1017",
@@ -755,6 +827,166 @@
         "activeParameters": "40B",
         "architectureType": "Hybrid Transformer with high-sparsity MoE",
         "knowledgeCutoff": "June 2025"
+      },
+      {
+        "uuid": "ms-980c916056d8",
+        "model": "openai/gpt-image-2.6-sunburst/text-to-image",
+        "type": "Image",
+        "displayName": "GPT Image 2.6 Sunburst Text-to-Image",
+        "profile": "GPT Image 2.6 Sunburst generates images from natural-language prompts with arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and first-class transparent backgrounds. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.",
+        "logo": "https://static.atlascloud.ai/uploads/models/94771348-d47f-4730-8076-7ea0a2e6a8a7.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.6-sunburst-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/beff9582-cffe-4279-812a-319aa7c68cec.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.6-sunburst-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.6-sunburst-text-to-image.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-image-2.6-sunburst-text-to-image.json",
+        "priority": 90070,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2r4do344m3ee",
+        "familyName": "gpt-image-2.6",
+        "familyDisplayName": "GPT Image 2.6 API: 50% Faster Image Generation with Animated GIF Output",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.009"
+          },
+          "origin": {
+            "base_price": "0.009"
+          }
+        }
+      },
+      {
+        "uuid": "ms-b0a34898a2d9",
+        "model": "openai/gpt-image-2.6-sunburst/edit",
+        "type": "Image",
+        "displayName": "GPT Image 2.6 Sunburst Edit",
+        "profile": "GPT Image 2.6 Sunburst Edit applies natural-language instructions to up to 16 reference images, with an optional mask, arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and transparent-background output. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.",
+        "logo": "https://static.atlascloud.ai/uploads/models/75549505-d155-404d-aaaf-3950995aa71f.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.6-sunburst-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/openai-gpt-image-2.6-sunburst-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.6-sunburst-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.6-sunburst-edit.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-image-2.6-sunburst-edit.json",
+        "priority": 90070,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2r4do344m3ee",
+        "familyName": "gpt-image-2.6",
+        "familyDisplayName": "GPT Image 2.6 API: 50% Faster Image Generation with Animated GIF Output",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.01"
+          },
+          "origin": {
+            "base_price": "0.01"
+          }
+        }
+      },
+      {
+        "uuid": "ms-a9fb441ccd25",
+        "model": "openai/gpt-image-2.6-flare/text-to-image",
+        "type": "Image",
+        "displayName": "GPT Image 2.6 Flare Text-to-Image",
+        "profile": "GPT Image 2.6 Flare generates images from natural-language prompts with arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and first-class transparent backgrounds. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.",
+        "logo": "https://static.atlascloud.ai/uploads/models/d0c7d2f0-7445-40f1-bcc5-dbfe38ae5f47.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.6-flare-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/28454b84-9639-4b10-98a7-fb144d928512.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.6-flare-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.6-flare-text-to-image.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-image-2.6-flare-text-to-image.json",
+        "priority": 90070,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2r4do344m3ee",
+        "familyName": "gpt-image-2.6",
+        "familyDisplayName": "GPT Image 2.6 API: 50% Faster Image Generation with Animated GIF Output",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.009"
+          },
+          "origin": {
+            "base_price": "0.009"
+          }
+        }
+      },
+      {
+        "uuid": "ms-c2f644a21b9f",
+        "model": "openai/gpt-image-2.6-flare/edit",
+        "type": "Image",
+        "displayName": "GPT Image 2.6 Flare Edit",
+        "profile": "GPT Image 2.6 Flare Edit applies natural-language instructions to up to 16 reference images, with an optional mask, arbitrary resolutions up to 3840x2160, five quality tiers including xhigh and max, and transparent-background output. Ready-to-use REST inference API, best performance, no coldstarts, affordable pricing.",
+        "logo": "https://static.atlascloud.ai/uploads/models/01ea1954-9e2f-4892-bccc-b1cf7799ab8d.webp",
+        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
+        "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.6-flare-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/4b15254b-f7ea-45de-baaf-4c24d3506c69.png",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.6-flare-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.6-flare-edit.md",
+        "organization": "OPENAI",
+        "example": "https://static.atlascloud.ai/model/example/openai-gpt-image-2.6-flare-edit.json",
+        "priority": 90070,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2r4do344m3ee",
+        "familyName": "gpt-image-2.6",
+        "familyDisplayName": "GPT Image 2.6 API: 50% Faster Image Generation with Animated GIF Output",
+        "parentFamilyUUID": "mf-2c1b7akvxzln",
+        "parentFamilyName": "openai",
+        "parentFamilyDisplayName": "OpenAI Models on Atlas Cloud | GPT Image Family",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.01"
+          },
+          "origin": {
+            "base_price": "0.01"
+          }
+        }
       },
       {
         "uuid": "ms-gi25sunt2i",
