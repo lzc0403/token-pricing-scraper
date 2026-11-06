@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05T08:44:45",
+  "fetched_at": "2026-11-06T08:46:26",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -32,12 +32,12 @@
         "maxCompletionTokens": 65536,
         "display_console": true,
         "price": {
-          "discount": "70",
+          "discount": "50",
           "actual": {
             "type": "flat",
-            "input_price": "0.584",
-            "output_price": "1.751",
-            "cache_price": "0.029"
+            "input_price": "0.417",
+            "output_price": "1.25",
+            "cache_price": "0.021"
           },
           "origin": {
             "type": "flat",
@@ -957,7 +957,7 @@
         "logo": "https://static.atlascloud.ai/uploads/models/01ea1954-9e2f-4892-bccc-b1cf7799ab8d.webp",
         "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
         "background": "https://static.atlascloud.ai/model/background/openai-gpt-image-2.6-flare-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/4b15254b-f7ea-45de-baaf-4c24d3506c69.png",
+        "coverUrl": "https://static.atlascloud.ai/uploads/models/24cf3a92-b0d7-4093-8d6e-d038d8b8518d.png",
         "coverVideo": "",
         "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-image-2.6-flare-edit.json",
         "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-image-2.6-flare-edit.md",
@@ -3452,13 +3452,13 @@
         "avgLatency": "0.34",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "70",
           "actual": {
             "type": "flat",
-            "input_price": "2",
-            "output_price": "6",
-            "cache_creation_price": "2.5",
-            "cache_price": "0.25"
+            "input_price": "1.4",
+            "output_price": "4.2",
+            "cache_creation_price": "1.75",
+            "cache_price": "0.175"
           },
           "origin": {
             "type": "flat",
@@ -22884,6 +22884,134 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-x867u4b8qy2f",
+        "model": "bytedance/seedream-v5.5/layer-decomposition",
+        "type": "Image",
+        "displayName": "Seedream v5.5 Layer Decomposition",
+        "profile": "ByteDance Seedream 5.5 layer decomposition model that splits one image into an opaque base image plus up to 99 editable transparent PNG layers, with optional rich-text OCR for text layers.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v5.5-layer-decomposition.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v5.5-layer-decomposition.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v5.5-layer-decomposition.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v5.5-layer-decomposition.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v5.5-layer-decomposition.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v5.5-layer-decomposition.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2qbura5hvrie",
+        "familyName": "seedream-5.5",
+        "familyDisplayName": "Seedream 5.5 Precision Image Editing",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.016",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.02",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-coeoey809ga2",
+        "model": "bytedance/seedream-v5.5/edit",
+        "type": "Image",
+        "displayName": "Seedream v5.5 Edit",
+        "profile": "ByteDance Seedream 5.5 image editing model that edits 1 to 10 reference images with natural-language instructions, keeping unedited areas stable over 100+ editing rounds and supporting native transparent (RGBA) output.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v5.5-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v5.5-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v5.5-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v5.5-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v5.5-edit.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v5.5-edit.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2qbura5hvrie",
+        "familyName": "seedream-5.5",
+        "familyDisplayName": "Seedream 5.5 Precision Image Editing",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.016",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.02",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-ruh29mhssd0j",
+        "model": "bytedance/seedream-v5.5/text-to-image",
+        "type": "Image",
+        "displayName": "Seedream v5.5 Text-to-Image",
+        "profile": "ByteDance Seedream 5.5 text-to-image model that generates one photorealistic image from a prompt, with accurate small and multilingual text and native transparent (RGBA) PNG output.",
+        "logo": "https://static.atlascloud.ai/model/logo/bytedance-seedream-v5.5-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/bytedance-seedream-v5.5-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bytedance-seedream-v5.5-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bytedance-seedream-v5.5-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bytedance-seedream-v5.5-text-to-image.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/bytedance-seedream-v5.5-text-to-image.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "HOT",
+          "NEW"
+        ],
+        "familyUUID": "mf-2qbura5hvrie",
+        "familyName": "seedream-5.5",
+        "familyDisplayName": "Seedream 5.5 Precision Image Editing",
+        "parentFamilyUUID": "mf-2brf8kb6xlq0",
+        "parentFamilyName": "bytedance",
+        "parentFamilyDisplayName": "ByteDance Models on Atlas Cloud |  Seedance API & Seedream API",
+        "display_console": true,
+        "price": {
+          "discount": "80",
+          "actual": {
+            "base_price": "0.016",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.02",
+            "unit": "image"
           }
         }
       },
