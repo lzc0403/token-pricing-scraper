@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-07T08:00:53",
+  "fetched_at": "2026-11-08T08:19:50",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -22926,9 +22926,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "90",
+          "discount": "80",
           "actual": {
-            "base_price": "0.031"
+            "base_price": "0.028"
           },
           "origin": {
             "base_price": "0.035"
@@ -22967,9 +22967,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "90",
+          "discount": "80",
           "actual": {
-            "base_price": "0.025",
+            "base_price": "0.023",
             "unit": "second"
           },
           "origin": {
@@ -23010,9 +23010,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "90",
+          "discount": "80",
           "actual": {
-            "base_price": "0.025",
+            "base_price": "0.023",
             "unit": "second"
           },
           "origin": {
@@ -23050,9 +23050,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "90",
+          "discount": "80",
           "actual": {
-            "base_price": "0.025",
+            "base_price": "0.023",
             "unit": "second"
           },
           "origin": {
@@ -23092,9 +23092,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "90",
+          "discount": "80",
           "actual": {
-            "base_price": "0.025",
+            "base_price": "0.023",
             "unit": "second"
           },
           "origin": {
@@ -23134,9 +23134,9 @@
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
         "display_console": true,
         "price": {
-          "discount": "90",
+          "discount": "80",
           "actual": {
-            "base_price": "0.025",
+            "base_price": "0.023",
             "unit": "second"
           },
           "origin": {

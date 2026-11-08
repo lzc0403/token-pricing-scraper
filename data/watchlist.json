@@ -1071,38 +1071,38 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Pro",
-    "input": 0.819366,
-    "output": 1.638732,
-    "cache_hit": 0.06828,
+    "input": 0.353046,
+    "output": 0.706092,
+    "cache_hit": 0.02942,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4-pro",
-    "openrouter_prompt_per_token": "0.000000819366",
-    "openrouter_completion_per_token": "0.000001638732",
-    "input_rmb": 5.735562,
-    "output_rmb": 11.471124,
+    "openrouter_prompt_per_token": "0.000000353046",
+    "openrouter_completion_per_token": "0.000000706092",
+    "input_rmb": 2.471322,
+    "output_rmb": 4.942644,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Pro 0813",
-    "input": 0.1165,
-    "output": 4.66,
-    "cache_hit": 0.111,
+    "input": 0.111,
+    "output": 4.44,
+    "cache_hit": 0.101,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4-pro-0813",
-    "openrouter_prompt_per_token": "0.0000001165",
-    "openrouter_completion_per_token": "0.00000466",
-    "input_rmb": 0.8155,
-    "output_rmb": 32.62,
+    "openrouter_prompt_per_token": "0.000000111",
+    "openrouter_completion_per_token": "0.00000444",
+    "input_rmb": 0.777,
+    "output_rmb": 31.08,
     "canonical": "DeepSeek V4 Pro 0813",
     "is_lowest_input": "yes"
   },
@@ -1147,8 +1147,8 @@
   {
     "source": "openrouter",
     "model_raw": "GLM-5.3-Flash",
-    "input": 0.15,
-    "output": 0.5,
+    "input": 0.0335,
+    "output": 0.083,
     "cache_hit": 0.03,
     "cache_write": null,
     "context": "1.04858M",
@@ -1156,12 +1156,12 @@
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.3-flash",
-    "openrouter_prompt_per_token": "0.00000015",
-    "openrouter_completion_per_token": "0.0000005",
-    "input_rmb": 1.05,
-    "output_rmb": 3.5,
+    "openrouter_prompt_per_token": "0.0000000335",
+    "openrouter_completion_per_token": "0.000000083",
+    "input_rmb": 0.2345,
+    "output_rmb": 0.581,
     "canonical": "GLM-5.3-Flash",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "openrouter",
@@ -1539,7 +1539,7 @@
     "input_rmb": 4.62,
     "output_rmb": 13.86,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
@@ -1571,7 +1571,7 @@
     "input_rmb": 4.62,
     "output_rmb": 13.86,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
@@ -1683,7 +1683,7 @@
     "input_rmb": 0.77812,
     "output_rmb": 2.72349,
     "canonical": "GLM-5.3-Flash",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "tencent",
