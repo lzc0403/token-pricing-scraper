@@ -1071,28 +1071,28 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Pro",
-    "input": 0.353046,
-    "output": 0.706092,
-    "cache_hit": 0.02942,
+    "input": 0.95526,
+    "output": 1.91052,
+    "cache_hit": 0.079605,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4-pro",
-    "openrouter_prompt_per_token": "0.000000353046",
-    "openrouter_completion_per_token": "0.000000706092",
-    "input_rmb": 2.471322,
-    "output_rmb": 4.942644,
+    "openrouter_prompt_per_token": "0.00000095526",
+    "openrouter_completion_per_token": "0.00000191052",
+    "input_rmb": 6.68682,
+    "output_rmb": 13.37364,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4 Pro 0813",
     "input": 0.111,
     "output": 4.44,
-    "cache_hit": 0.101,
+    "cache_hit": 0.097,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
@@ -1539,7 +1539,7 @@
     "input_rmb": 4.62,
     "output_rmb": 13.86,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",
@@ -1571,7 +1571,7 @@
     "input_rmb": 4.62,
     "output_rmb": 13.86,
     "canonical": "DeepSeek V4 Pro",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",

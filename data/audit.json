@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08 08:24:02",
+  "generated_at": "2026-11-09 08:56:17",
   "stats": {
     "total": 119,
     "suspects": 35,
@@ -18,13 +18,13 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "DeepSeek V4 Pro 0813",
-      "msg": "缓存命中价(0.101) 接近输入价(0.111)，异常偏高",
+      "msg": "缓存命中价(0.097) 接近输入价(0.111)，异常偏高",
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro 0813",
         "input": 0.111,
         "output": 4.44,
-        "cache_hit": 0.101,
+        "cache_hit": 0.097,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
