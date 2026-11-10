@@ -1109,19 +1109,19 @@
   {
     "source": "openrouter",
     "model_raw": "DeepSeek V4.1 Flash",
-    "input": 0.051,
-    "output": 0.567,
-    "cache_hit": 0.018,
+    "input": 0.006,
+    "output": 0.5,
+    "cache_hit": 0.005,
     "cache_write": null,
     "context": "1.04858M",
     "condition": null,
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "deepseek/deepseek-v4.1-flash",
-    "openrouter_prompt_per_token": "0.000000051",
-    "openrouter_completion_per_token": "0.000000567",
-    "input_rmb": 0.357,
-    "output_rmb": 3.969,
+    "openrouter_prompt_per_token": "0.000000006",
+    "openrouter_completion_per_token": "0.0000005",
+    "input_rmb": 0.042,
+    "output_rmb": 3.5,
     "canonical": "DeepSeek V4.1 Flash",
     "is_lowest_input": "yes"
   },
@@ -1147,8 +1147,8 @@
   {
     "source": "openrouter",
     "model_raw": "GLM-5.3-Flash",
-    "input": 0.0335,
-    "output": 0.083,
+    "input": 0.15,
+    "output": 0.5,
     "cache_hit": 0.03,
     "cache_write": null,
     "context": "1.04858M",
@@ -1156,12 +1156,12 @@
     "unit": "1M tokens",
     "currency": "USD",
     "openrouter_id": "z-ai/glm-5.3-flash",
-    "openrouter_prompt_per_token": "0.0000000335",
-    "openrouter_completion_per_token": "0.000000083",
-    "input_rmb": 0.2345,
-    "output_rmb": 0.581,
+    "openrouter_prompt_per_token": "0.00000015",
+    "openrouter_completion_per_token": "0.0000005",
+    "input_rmb": 1.05,
+    "output_rmb": 3.5,
     "canonical": "GLM-5.3-Flash",
-    "is_lowest_input": "yes"
+    "is_lowest_input": "no"
   },
   {
     "source": "openrouter",
@@ -1683,7 +1683,7 @@
     "input_rmb": 0.77812,
     "output_rmb": 2.72349,
     "canonical": "GLM-5.3-Flash",
-    "is_lowest_input": "no"
+    "is_lowest_input": "yes"
   },
   {
     "source": "tencent",

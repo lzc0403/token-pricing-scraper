@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-11-09 08:56:15
+> 生成时间：2026-11-10 09:02:13
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -42,7 +42,7 @@
 | DeepSeek V4.1 Flash | atlascloud | 2.1 ¥ | 8.4 ¥ | 0.03 USD | USD | 0.3 USD / 1.2 USD | 1.04858M |
 | DeepSeek V4.1 Flash | deepseek | 2 ¥ | 8 ¥ | 0.04 CNY | CNY | 2 CNY / 8 CNY | 1M |
 | DeepSeek V4.1 Flash | deepseek_us | 2.1 ¥ | 8.4 ¥ | 0.006 USD | USD | 0.3 USD / 1.2 USD | 1M |
-| DeepSeek V4.1 Flash | openrouter | 0.357 ¥ | 3.969 ¥ | 0.018 USD | USD | 0.051 USD / 0.567 USD | 1.04858M |
+| DeepSeek V4.1 Flash | openrouter | 0.042 ¥ | 3.5 ¥ | 0.005 USD | USD | 0.006 USD / 0.5 USD | 1.04858M |
 | DeepSeek V4.1 Flash | tencent | 1.05 ¥ | 4.2 ¥ | - | USD | 0.15 USD / 0.6 USD | - |
 | DeepSeek V4.1 Flash | tencent | 2.1 ¥ | 8.4 ¥ | - | USD | 0.3 USD / 1.2 USD | - |
 | DeepSeek V4.1 Flash | tencent_cn | 1 ¥ | 4 ¥ | 0.02 CNY | CNY | 1 CNY / 4 CNY | - |
@@ -65,7 +65,7 @@
 | GLM-5.3 | zai | 9.8 ¥ | 30.8 ¥ | 0.26 USD | USD | 1.4 USD / 4.4 USD | - |
 | GLM-5.3-Flash | aliyun_bailian | 0.8 ¥ | 2.8 ¥ | 0.16 CNY | CNY | 0.8 CNY / 2.8 CNY | - |
 | GLM-5.3-Flash | atlascloud | 1.05 ¥ | 3.5 ¥ | 0.03 USD | USD | 0.15 USD / 0.5 USD | 1.04858M |
-| GLM-5.3-Flash | openrouter | 0.2345 ¥ | 0.581 ¥ | 0.03 USD | USD | 0.0335 USD / 0.083 USD | 1.04858M |
+| GLM-5.3-Flash | openrouter | 1.05 ¥ | 3.5 ¥ | 0.03 USD | USD | 0.15 USD / 0.5 USD | 1.04858M |
 | GLM-5.3-Flash | tencent | 0.77812 ¥ | 2.72349 ¥ | - | USD | 0.11116 USD / 0.38907 USD | - |
 | GLM-5.3-Flash | tencent_cn | 1.07949 ¥ | 3.5983 ¥ | 0.215898 CNY | CNY | 1.07949 CNY / 3.5983 CNY | - |
 | GLM-5.3-Flash | zai | 1.05 ¥ | 3.5 ¥ | 0.03 USD | USD | 0.15 USD / 0.5 USD | - |
@@ -130,24 +130,26 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.353046 | 0.95526 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 0.706092 | 1.91052 | USD |
+| GLM-5.3-Flash | openrouter | 输入 | 0.0335 | 0.15 | USD |
+| GLM-5.3-Flash | openrouter | 输出 | 0.083 | 0.5 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输入 | 0.051 | 0.006 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输出 | 0.567 | 0.5 | USD |
 
 ## 三、抓取状态
 
 | 源 | 状态 | 记录数 | 说明 |
 | --- | --- | ---: | --- |
 | openai | 成功 | 10 | 抓取 10 条 |
-| deepseek | 成功 | 2 | 抓取 2 条 |
 | deepseek_us | 成功 | 2 | 抓取 2 条 |
 | zai | 成功 | 15 | 抓取 15 条 |
-| openrouter | 成功 | 41 | 抓取 41 条 |
-| grok | 成功 | 2 | 抓取 2 条 |
+| deepseek | 成功 | 2 | 抓取 2 条 |
 | anthropic | 成功 | 0 | 抓取 0 条 |
-| gemini | 成功 | 0 | 抓取 0 条 |
+| grok | 成功 | 2 | 抓取 2 条 |
+| openrouter | 成功 | 41 | 抓取 41 条 |
 | atlascloud | 成功 | 123 | 抓取 123 条 |
 | aliyun_bailian | 成功 | 31 | 抓取 31 条 |
 | aliyun | 成功 | 2 | 抓取 2 条 |
+| gemini | 成功 | 0 | 抓取 0 条 |
 | aliyun_intl | 成功 | 0 | 抓取 0 条 |
 | volcengine | 成功 | 0 | 抓取 0 条 |
 | volcengine_intl | 成功 | 0 | 抓取 0 条 |
@@ -163,25 +165,32 @@
 
 ## 四、新模型雷达（待人工登记）
 
-扫描 OpenRouter 全量 461 个模型，发现 **10** 个未登记候选（疑似旗舰 **5** 个）：
+扫描 OpenRouter 全量 465 个模型，发现 **10** 个未登记候选（疑似旗舰 **5** 个）：
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 33 天 | $0.7 | $2.1 | 疑似旗舰 |
-| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 40 天 | $2 | $10 | 疑似旗舰 |
-| `anthropic/claude-sonnet-5.5`（Claude Sonnet 5.5） | Anthropic | 2026-09-28 | 41 天 | $2 | $10 | 疑似旗舰 |
-| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 46 天 | $4 | $12 | 疑似旗舰 |
-| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 47 天 | $2 | $10 | 疑似旗舰 |
-| `openai/gpt-6.1-terra`（GPT-6.1 Terra） | OpenAI | 2026-10-26 | 13 天 | $1 | $5 | 新增档位 |
-| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 13 天 | $1 | $5 | 新增档位 |
-| `anthropic/claude-haiku-5.5`（Claude Haiku 5.5） | Anthropic | 2026-10-07 | 32 天 | $0.1 | $0.5 | 新增档位 |
-| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 47 天 | $0.1 | $0.5 | 新增档位 |
-| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 49 天 | $0.15 | $0.47 | 新增档位 |
+| `anthropic/claude-fable-5.2`（Claude Fable 5.2） | Anthropic | 2026-11-09 | 0 天 | $8 | $40 | 疑似旗舰 |
+| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 34 天 | $0.7 | $2.1 | 疑似旗舰 |
+| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 41 天 | $2 | $10 | 疑似旗舰 |
+| `qwen/qwen3.8-max-prime`（Qwen3.8 Max Prime） | 通义千问 | 2026-09-23 | 47 天 | $4 | $12 | 疑似旗舰 |
+| `openai/gpt-6-sol-pro`（GPT-6 Sol Pro） | OpenAI | 2026-09-22 | 48 天 | $2 | $10 | 疑似旗舰 |
+| `openai/gpt-6.1-terra`（GPT-6.1 Terra） | OpenAI | 2026-10-26 | 14 天 | $1 | $5 | 新增档位 |
+| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 14 天 | $1 | $5 | 新增档位 |
+| `anthropic/claude-sonnet-5.5`（Claude Sonnet 5.5） | Anthropic | 2026-09-28 | 42 天 | $2 | $10 | 新增档位 |
+| `openai/gpt-6-luna-pro`（GPT-6 Luna Pro） | OpenAI | 2026-09-22 | 48 天 | $0.1 | $0.5 | 新增档位 |
+| `qwen/qwen3.8-omni-flash`（Qwen3.8 Omni Flash） | 通义千问 | 2026-09-21 | 50 天 | $0.15 | $0.47 | 新增档位 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 
 ```yaml
 models:
+  - canonical: Claude Fable 5.2
+    family: Anthropic
+    region: overseas
+    status: tracking
+    priority: high
+    aliases: [Claude Fable 5.2, claude-fable-5.2, anthropic/claude-fable-5.2]
+    note: 雷达自动发现（OpenRouter 2026-11-09 上架，$8/$40）；确认后补官网抓取/白名单并转 active
   - canonical: Mistral Large 4
     family: Mistral
     region: overseas
@@ -196,13 +205,6 @@ models:
     priority: high
     aliases: [GPT-6.1 Sol Pro, gpt-6.1-sol-pro, openai/gpt-6.1-sol-pro]
     note: 雷达自动发现（OpenRouter 2026-09-29 上架，$2/$10）；确认后补官网抓取/白名单并转 active
-  - canonical: Claude Sonnet 5.5
-    family: Anthropic
-    region: overseas
-    status: tracking
-    priority: high
-    aliases: [Claude Sonnet 5.5, claude-sonnet-5.5, anthropic/claude-sonnet-5.5]
-    note: 雷达自动发现（OpenRouter 2026-09-28 上架，$2/$10）；确认后补官网抓取/白名单并转 active
   - canonical: Qwen3.8 Max Prime
     family: 通义千问
     region: domestic

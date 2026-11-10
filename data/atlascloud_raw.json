@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-09T08:52:19",
+  "fetched_at": "2026-11-10T08:58:35",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -22894,6 +22894,152 @@
         }
       },
       {
+        "uuid": "ms-57c96c7466f5",
+        "model": "kwaivgi/kling-v4.0-flash/video-edit",
+        "type": "Video",
+        "displayName": "Kling Video 4.0 Flash Video-Edit",
+        "profile": "Kling 4.0 Flash video editing: restyle, replace or add content in an existing clip using text plus optional reference images, videos and subjects.",
+        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v4.0-flash-video-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
+        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v4.0-flash-video-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/kwaivgi-kling-v4.0-flash-video-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v4.0-flash-video-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v4.0-flash-video-edit.md",
+        "organization": "KUAISHOU",
+        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v4.0-flash-video-edit.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "VIDEO-EDIT",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.066",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.094",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-a799521f533a",
+        "model": "kwaivgi/kling-v4.0-flash/reference-to-video",
+        "type": "Video",
+        "displayName": "Kling Video 4.0 Flash Reference-to-Video",
+        "profile": "Kling 4.0 Flash Omni Reference combines up to 10 images, 5 videos and 7 subjects (15 items in total) into a consistent 3-20 second 720p video.",
+        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v4.0-flash-reference-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
+        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v4.0-flash-reference-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/kwaivgi-kling-v4.0-flash-reference-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v4.0-flash-reference-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v4.0-flash-reference-to-video.md",
+        "organization": "KUAISHOU",
+        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v4.0-flash-reference-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "REFERENCE-TO-VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.066",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.094",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-29979c6e33df",
+        "model": "kwaivgi/kling-v4.0-flash/image-to-video",
+        "type": "Video",
+        "displayName": "Kling Video 4.0 Flash Image-to-Video",
+        "profile": "Kling 4.0 Flash animates a first-frame image into a 3-20 second 720p video with a lower cost per second than Kling 4.0.",
+        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v4.0-flash-image-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
+        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v4.0-flash-image-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/kwaivgi-kling-v4.0-flash-image-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v4.0-flash-image-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v4.0-flash-image-to-video.md",
+        "organization": "KUAISHOU",
+        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v4.0-flash-image-to-video.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-VIDEO"
+        ],
+        "tags": [
+          "IMAGE-TO-VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.066",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.094",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-6b87beef327b",
+        "model": "kwaivgi/kling-v4.0-flash/text-to-video",
+        "type": "Video",
+        "displayName": "Kling Video 4.0 Flash Text-to-Video",
+        "profile": "Kling 4.0 Flash turns a text prompt into a 3-20 second 720p video with a lower cost per second than Kling 4.0.",
+        "logo": "https://static.atlascloud.ai/model/logo/kwaivgi-kling-v4.0-flash-text-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/KUAISHOU.png",
+        "background": "https://static.atlascloud.ai/model/background/kwaivgi-kling-v4.0-flash-text-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/kwaivgi-kling-v4.0-flash-text-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/kwaivgi-kling-v4.0-flash-text-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/kwaivgi-kling-v4.0-flash-text-to-video.md",
+        "organization": "KUAISHOU",
+        "example": "https://static.atlascloud.ai/model/example/kwaivgi-kling-v4.0-flash-text-to-video.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-VIDEO"
+        ],
+        "tags": [
+          "TEXT-TO-VIDEO",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.066",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.094",
+            "unit": "second"
+          }
+        }
+      },
+      {
         "uuid": "ms-hmtbxexkueyo",
         "model": "google/gemini-omni-1.2-flash/video-upscale",
         "type": "Video",
@@ -22920,7 +23066,7 @@
         ],
         "familyUUID": "mf-2r74j8um98pw",
         "familyName": "gemini-omni-1.2-flash",
-        "familyDisplayName": "Gemini Omni 1.2 Flash API",
+        "familyDisplayName": "Gemini Omni 1.2 Flash Conversational Video Editing",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -22961,7 +23107,7 @@
         ],
         "familyUUID": "mf-2r74j8um98pw",
         "familyName": "gemini-omni-1.2-flash",
-        "familyDisplayName": "Gemini Omni 1.2 Flash API",
+        "familyDisplayName": "Gemini Omni 1.2 Flash Conversational Video Editing",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -23004,7 +23150,7 @@
         ],
         "familyUUID": "mf-2r74j8um98pw",
         "familyName": "gemini-omni-1.2-flash",
-        "familyDisplayName": "Gemini Omni 1.2 Flash API",
+        "familyDisplayName": "Gemini Omni 1.2 Flash Conversational Video Editing",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -23044,7 +23190,7 @@
         ],
         "familyUUID": "mf-2r74j8um98pw",
         "familyName": "gemini-omni-1.2-flash",
-        "familyDisplayName": "Gemini Omni 1.2 Flash API",
+        "familyDisplayName": "Gemini Omni 1.2 Flash Conversational Video Editing",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -23086,7 +23232,7 @@
         ],
         "familyUUID": "mf-2r74j8um98pw",
         "familyName": "gemini-omni-1.2-flash",
-        "familyDisplayName": "Gemini Omni 1.2 Flash API",
+        "familyDisplayName": "Gemini Omni 1.2 Flash Conversational Video Editing",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -23128,7 +23274,7 @@
         ],
         "familyUUID": "mf-2r74j8um98pw",
         "familyName": "gemini-omni-1.2-flash",
-        "familyDisplayName": "Gemini Omni 1.2 Flash API",
+        "familyDisplayName": "Gemini Omni 1.2 Flash Conversational Video Editing",
         "parentFamilyUUID": "mf-2bsfpxmyfqk8",
         "parentFamilyName": "google",
         "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
@@ -23375,12 +23521,10 @@
         "price": {
           "discount": "75",
           "actual": {
-            "base_price": "0.002",
-            "unit": "1k characters"
+            "unit": "request"
           },
           "origin": {
-            "base_price": "0.003",
-            "unit": "1k characters"
+            "unit": "request"
           }
         }
       },
