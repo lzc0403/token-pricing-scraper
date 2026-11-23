@@ -21,20 +21,6 @@
         "after": 0.075,
         "pct": 0.0,
         "status": "未跟进"
-      },
-      {
-        "source": "tencent",
-        "before": 0.11116,
-        "after": 0.11116,
-        "pct": 0.0,
-        "status": "未跟进"
-      },
-      {
-        "source": "tencent_cn",
-        "before": 1.07949,
-        "after": 1.07949,
-        "pct": 0.0,
-        "status": "未跟进"
       }
     ]
   },
@@ -60,20 +46,6 @@
         "after": 0.25,
         "pct": 0.0,
         "status": "未跟进"
-      },
-      {
-        "source": "tencent",
-        "before": 0.38907,
-        "after": 0.38907,
-        "pct": 0.0,
-        "status": "未跟进"
-      },
-      {
-        "source": "tencent_cn",
-        "before": 3.5983,
-        "after": 3.5983,
-        "pct": 0.0,
-        "status": "未跟进"
       }
     ]
   },
@@ -97,20 +69,6 @@
         "source": "openrouter",
         "before": 0.015,
         "after": 0.015,
-        "pct": 0.0,
-        "status": "未跟进"
-      },
-      {
-        "source": "tencent",
-        "before": 0.03196,
-        "after": 0.03196,
-        "pct": 0.0,
-        "status": "未跟进"
-      },
-      {
-        "source": "tencent_cn",
-        "before": 0.215898,
-        "after": 0.215898,
         "pct": 0.0,
         "status": "未跟进"
       }
@@ -145,20 +103,6 @@
         "after": 1.7,
         "pct": -9.33,
         "status": "幅度背离"
-      },
-      {
-        "source": "tencent",
-        "before": 2.731,
-        "after": 2.731,
-        "pct": 0.0,
-        "status": "未跟进"
-      },
-      {
-        "source": "tencent_cn",
-        "before": 21.974,
-        "after": 21.974,
-        "pct": 0.0,
-        "status": "未跟进"
       }
     ]
   }
