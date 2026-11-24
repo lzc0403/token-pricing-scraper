@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-23T10:00:23",
+  "fetched_at": "2026-11-24T11:49:36",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -4676,82 +4676,6 @@
             "base_price": "0.045"
           }
         }
-      },
-      {
-        "uuid": "ms-c385ycjyc7kc",
-        "model": "kwaipilot/kat-coder-air-v2.5",
-        "type": "Text",
-        "displayName": "KAT Coder Air V2.5",
-        "profile": "Fast, lightweight coding model designed for interactive development, rapid code iteration, and efficient coding agents.",
-        "logo": "https://static.atlascloud.ai/model/avatar/kwaipilot.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/KWAIPILOT.png",
-        "background": "https://static.atlascloud.ai/model/background/kwaipilot-kat-coder-air-v2.5.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/d4d9ea09-ba6a-47e2-86b2-dda10ad60270.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/kwaipilot-kat-coder-air-v2.5.json",
-        "readme": "https://static.atlascloud.ai/model/readme/kwaipilot-kat-coder-pro-v2.md",
-        "organization": "KWAIPILOT",
-        "example": "https://static.atlascloud.ai/model/example/kwaipilot-kat-coder-pro-v2.json",
-        "priority": 90031,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 262144,
-        "maxCompletionTokens": 262144,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": true,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "0.15",
-            "output_price": "0.6",
-            "cache_price": "0.03"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.15",
-            "output_price": "0.6",
-            "cache_price": "0.03"
-          }
-        },
-        "input_modalities": [
-          "text",
-          "image",
-          "video"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_sampling_parameters": [
-          "temperature",
-          "top_p",
-          "top_k",
-          "min_p",
-          "frequency_penalty",
-          "presence_penalty",
-          "repetition_penalty",
-          "stop",
-          "seed",
-          "max_tokens",
-          "logit_bias"
-        ],
-        "supported_features": [
-          "json_mode",
-          "structured_outputs",
-          "tools",
-          "reasoning"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
       },
       {
         "uuid": "ms-hz0mexy58s0a",
@@ -18388,182 +18312,6 @@
         ]
       },
       {
-        "uuid": "ms-2hned0xg3q20",
-        "model": "openai/gpt-5.6-terra-az",
-        "type": "Text",
-        "displayName": "GPT 5.6 Terra",
-        "profile": "Dependable general-purpose model designed for practical workflows, grounded analysis, and production applications.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.6-terra-az.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/951996e6-7717-4f92-9e0f-589ae214e856.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.6-terra-az.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.4.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.4.json",
-        "priority": 2007,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 1050000,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "tiered_price": true,
-          "actual": {
-            "type": "flat",
-            "input_price": "2",
-            "output_price": "12",
-            "cache_creation_price": "2.5",
-            "cache_price": "0.2",
-            "prompt_thresholds": [
-              {
-                "threshold": 272000,
-                "input_price": "4",
-                "cache_creation_price": "5",
-                "cache_price": "0.4",
-                "output_price": "18"
-              }
-            ]
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "2",
-            "output_price": "12",
-            "cache_creation_price": "2.5",
-            "cache_price": "0.2",
-            "prompt_thresholds": [
-              {
-                "threshold": 272000,
-                "input_price": "4",
-                "cache_creation_price": "5",
-                "cache_price": "0.4",
-                "output_price": "18"
-              }
-            ]
-          }
-        },
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
-      },
-      {
-        "uuid": "ms-irg0mx6fi4vk",
-        "model": "openai/gpt-5.6-luna-az",
-        "type": "Text",
-        "displayName": "GPT 5.6 Luna",
-        "profile": "Creative and intuitive model optimized for natural conversation, content generation, and personalized AI experiences.",
-        "logo": "https://static.atlascloud.ai/model/logo/gpt-4.1-mini.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/OPENAI.png",
-        "background": "https://static.atlascloud.ai/model/background/openai-gpt-5.6-luna-az.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/951996e6-7717-4f92-9e0f-589ae214e856.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/openai-gpt-5.6-luna-az.json",
-        "readme": "https://static.atlascloud.ai/model/readme/openai-gpt-5.4.md",
-        "organization": "OPENAI",
-        "example": "https://static.atlascloud.ai/model/example/openai-gpt-5.4.json",
-        "priority": 2007,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "NEW",
-          "HOT"
-        ],
-        "contextLength": 1050000,
-        "maxCompletionTokens": 131072,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.76",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "tiered_price": true,
-          "actual": {
-            "type": "flat",
-            "input_price": "0.2",
-            "output_price": "1.2",
-            "cache_creation_price": "0.25",
-            "cache_price": "0.02",
-            "prompt_thresholds": [
-              {
-                "threshold": 272000,
-                "input_price": "0.4",
-                "cache_creation_price": "0.5",
-                "cache_price": "0.04",
-                "output_price": "1.8"
-              }
-            ]
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "0.2",
-            "output_price": "1.2",
-            "cache_creation_price": "0.25",
-            "cache_price": "0.02",
-            "prompt_thresholds": [
-              {
-                "threshold": 272000,
-                "input_price": "0.4",
-                "cache_creation_price": "0.5",
-                "cache_price": "0.04",
-                "output_price": "1.8"
-              }
-            ]
-          }
-        },
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ],
-        "coreStrengths": [
-          "Adaptive real-time reasoning",
-          "State-of-the-art performance",
-          "Reduced hallucinations significantly",
-          "Large context (256K-400K tokens)"
-        ],
-        "useCases": [
-          "Mission-critical enterprise applications",
-          "Advanced coding & development",
-          "Human-like content creation",
-          "AI agent & workflow automation"
-        ]
-      },
-      {
         "uuid": "ms-pcy8sdk3mksi",
         "model": "openai/gpt-6-astra",
         "type": "Text",
@@ -25322,6 +25070,410 @@
           },
           "origin": {
             "base_price": "0.4"
+          }
+        }
+      },
+      {
+        "uuid": "ms-dmlexo6owkkk",
+        "model": "minimax/h3-image-developer/edit-lora",
+        "type": "Image",
+        "displayName": "MiniMax H3-Image Developer Edit LoRA",
+        "profile": "The Developer edition of MiniMax's open-weight H3-Image model with one custom LoRA per request, editing and composing images from 1-8 reference images and a verbatim instruction in the style, character or subject the LoRA was trained on, with a reproducible seed and a fixed per-image price.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-edit-lora.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-edit-lora.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-edit-lora.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-edit-lora.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-edit-lora.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-edit-lora.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rd6kcsw9xlw",
+        "familyName": "minimax-h3-image",
+        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "base_price": "0.029",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.058",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-9oox04uvrcqz",
+        "model": "minimax/h3-image-developer/text-to-image-lora",
+        "type": "Image",
+        "displayName": "MiniMax H3-Image Developer Text-to-Image LoRA",
+        "profile": "The Developer edition of MiniMax's open-weight H3-Image model with one custom LoRA per request, turning a verbatim prompt into 1-10 natively high-resolution images in the style, character or subject the LoRA was trained on, with a reproducible seed and a fixed per-image price.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-text-to-image-lora.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-text-to-image-lora.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-text-to-image-lora.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-text-to-image-lora.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-text-to-image-lora.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-text-to-image-lora.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rd6kcsw9xlw",
+        "familyName": "minimax-h3-image",
+        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "base_price": "0.025",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.05",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-mzwp8npp0l72",
+        "model": "minimax/h3-image-developer/edit",
+        "type": "Image",
+        "displayName": "MiniMax H3-Image Developer Edit",
+        "profile": "The Developer edition of MiniMax's open-weight H3-Image model, editing and composing images from 1-8 reference images and a verbatim instruction (no prompt expansion) into 1-10 natively high-resolution results, with a reproducible seed and a fixed per-image price.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-edit.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-edit.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rd6kcsw9xlw",
+        "familyName": "minimax-h3-image",
+        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "base_price": "0.023",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.046",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-eppu8ey597l3",
+        "model": "minimax/h3-image-developer/text-to-image",
+        "type": "Image",
+        "displayName": "MiniMax H3-Image Developer Text-to-Image",
+        "profile": "The Developer edition of MiniMax's open-weight H3-Image model, turning a verbatim prompt (no prompt expansion) into 1-10 natively high-resolution images up to about 20 MP, with a reproducible seed and a fixed per-image price.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-text-to-image.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-text-to-image.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rd6kcsw9xlw",
+        "familyName": "minimax-h3-image",
+        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "base_price": "0.02",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.04",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-785757f8806a",
+        "model": "mirelo/sfx-2.0/video-to-audio",
+        "type": "Audio",
+        "displayName": "Mirelo SFX 2.0 Video-to-Audio",
+        "profile": "Mirelo SFX 2.0 watches a video and generates synchronized sound effects and foley for it, keeping the original speech by default. Add a text prompt for off-screen sounds or ambience; returns the soundtracks as audio files, up to 600 seconds.",
+        "logo": "https://static.atlascloud.ai/model/logo/mirelo-sfx-2.0-video-to-audio.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MIRELO.png",
+        "background": "https://static.atlascloud.ai/model/background/mirelo-sfx-2.0-video-to-audio.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/mirelo-sfx-2.0-video-to-audio.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/mirelo-sfx-2.0-video-to-audio.json",
+        "readme": "https://static.atlascloud.ai/model/readme/mirelo-sfx-2.0-video-to-audio.md",
+        "organization": "MIRELO",
+        "example": "https://static.atlascloud.ai/model/example/mirelo-sfx-2.0-video-to-audio.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "VIDEO-TO-AUDIO",
+          "SOUND-EFFECTS",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rvr6aqm7ecj",
+        "familyName": "mirelo-sfx-2.0",
+        "familyDisplayName": "Mirelo SFX 2.0 Sound Matched to Motion",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.016",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.016",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-dc430b06aad0",
+        "model": "mirelo/sfx-2.0/video-to-video",
+        "type": "Video",
+        "displayName": "Mirelo SFX 2.0 Video-to-Video",
+        "profile": "Mirelo SFX 2.0 adds synchronized sound effects and foley to a video and returns the video with the new soundtrack mixed in. Speech in the original audio is kept by default; a text prompt adds off-screen sounds or ambience.",
+        "logo": "https://static.atlascloud.ai/model/logo/mirelo-sfx-2.0-video-to-video.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MIRELO.png",
+        "background": "https://static.atlascloud.ai/model/background/mirelo-sfx-2.0-video-to-video.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/mirelo-sfx-2.0-video-to-video.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/mirelo-sfx-2.0-video-to-video.json",
+        "readme": "https://static.atlascloud.ai/model/readme/mirelo-sfx-2.0-video-to-video.md",
+        "organization": "MIRELO",
+        "example": "https://static.atlascloud.ai/model/example/mirelo-sfx-2.0-video-to-video.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "SOUND-EFFECTS",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rvr6aqm7ecj",
+        "familyName": "mirelo-sfx-2.0",
+        "familyDisplayName": "Mirelo SFX 2.0 Sound Matched to Motion",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.016",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.016",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-bc351ad6ce42",
+        "model": "mirelo/sfx-2.0/text-to-audio",
+        "type": "Audio",
+        "displayName": "Mirelo SFX 2.0 Text-to-Audio",
+        "profile": "Mirelo SFX 2.0 generates sound effects and ambience from a text description, from one-second hits to 10-minute ambience beds, with up to 4 variations per request in WAV, MP3, AAC or FLAC.",
+        "logo": "https://static.atlascloud.ai/model/logo/mirelo-sfx-2.0-text-to-audio.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MIRELO.png",
+        "background": "https://static.atlascloud.ai/model/background/mirelo-sfx-2.0-text-to-audio.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/mirelo-sfx-2.0-text-to-audio.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/mirelo-sfx-2.0-text-to-audio.json",
+        "readme": "https://static.atlascloud.ai/model/readme/mirelo-sfx-2.0-text-to-audio.md",
+        "organization": "MIRELO",
+        "example": "https://static.atlascloud.ai/model/example/mirelo-sfx-2.0-text-to-audio.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "SOUND-EFFECTS",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rvr6aqm7ecj",
+        "familyName": "mirelo-sfx-2.0",
+        "familyDisplayName": "Mirelo SFX 2.0 Sound Matched to Motion",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.016",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.016",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-2471956d44a8",
+        "model": "google/lyria-3.5/text-to-music",
+        "type": "Audio",
+        "displayName": "Google Lyria 3.5 Text-to-Music",
+        "profile": "Google DeepMind's music model: full songs with vocals and lyrics, or instrumentals, from a text prompt and optional reference images.",
+        "logo": "https://static.atlascloud.ai/model/logo/google-lyria-3.5-text-to-music.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/GOOGLE.png",
+        "background": "https://static.atlascloud.ai/model/background/google-lyria-3.5-text-to-music.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/google-lyria-3.5-text-to-music.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/google-lyria-3.5-text-to-music.json",
+        "readme": "https://static.atlascloud.ai/model/readme/google-lyria-3.5-text-to-music.md",
+        "organization": "GOOGLE",
+        "example": "https://static.atlascloud.ai/model/example/google-lyria-3.5-text-to-music.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rvqa2vjj1sk",
+        "familyName": "lyria-3.5",
+        "familyDisplayName": "Lyria 3.5 Complete Songs with Lyrics",
+        "parentFamilyUUID": "mf-2bsfpxmyfqk8",
+        "parentFamilyName": "google",
+        "parentFamilyDisplayName": "Google Models on Atlas Cloud | Gemini, Nano Bananas & Veo",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.11"
+          },
+          "origin": {
+            "base_price": "0.11"
+          }
+        }
+      },
+      {
+        "uuid": "ms-d0543053befc",
+        "model": "bria/rmbg-2.0/remove-background",
+        "type": "Image",
+        "displayName": "Bria RMBG 2.0",
+        "profile": "Bria RMBG 2.0 removes the background from a still image and returns a high-resolution transparent PNG. Trained only on licensed data for commercial use. An optional prompt changes what the cutout keeps.",
+        "logo": "https://static.atlascloud.ai/model/logo/bria-rmbg-2.0-remove-background.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BRIA.png",
+        "background": "https://static.atlascloud.ai/model/background/bria-rmbg-2.0-remove-background.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/bria-rmbg-2.0-remove-background.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/bria-rmbg-2.0-remove-background.json",
+        "readme": "https://static.atlascloud.ai/model/readme/bria-rmbg-2.0-remove-background.md",
+        "organization": "BRIA",
+        "example": "https://static.atlascloud.ai/model/example/bria-rmbg-2.0-remove-background.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TOOLS"
+        ],
+        "tags": [
+          "IMAGE-TOOLS",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rvr3zstkwk4",
+        "familyName": "bria-rmbg-2.0",
+        "familyDisplayName": "Bria RMBG 2.0 API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.02"
+          },
+          "origin": {
+            "base_price": "0.02"
+          }
+        }
+      },
+      {
+        "uuid": "ms-bd71bd9d9681",
+        "model": "depth-anything/depth-anything-v2/depth-estimation",
+        "type": "Image",
+        "displayName": "Depth Anything V2",
+        "profile": "Depth Anything V2 estimates relative depth from a single still image and returns a grayscale depth map at the input resolution (brighter = closer). Use it as a ControlNet depth control, for depth-of-field effects or for 3D and parallax effects.",
+        "logo": "https://static.atlascloud.ai/model/logo/depth-anything-depth-anything-v2-depth-estimation.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/BYTEDANCE.png",
+        "background": "https://static.atlascloud.ai/model/background/depth-anything-depth-anything-v2-depth-estimation.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/depth-anything-depth-anything-v2-depth-estimation.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/depth-anything-depth-anything-v2-depth-estimation.json",
+        "readme": "https://static.atlascloud.ai/model/readme/depth-anything-depth-anything-v2-depth-estimation.md",
+        "organization": "BYTEDANCE",
+        "example": "https://static.atlascloud.ai/model/example/depth-anything-depth-anything-v2-depth-estimation.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TOOLS"
+        ],
+        "tags": [
+          "IMAGE-TOOLS",
+          "NEW"
+        ],
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.002"
+          },
+          "origin": {
+            "base_price": "0.002"
           }
         }
       },
