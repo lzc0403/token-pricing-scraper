@@ -1,6 +1,6 @@
 # 大模型 Token 定价周报
 
-> 生成时间：2026-11-24 11:54:39
+> 生成时间：2026-11-25 10:47:25
 
 ## 一、目标模型跨源对照（已换算人民币）
 
@@ -68,7 +68,7 @@
 | Kimi K2.7 Code | atlascloud | 6.65 ¥ | 28 ¥ | 0.16 USD | USD | 0.95 USD / 4 USD | 262K |
 | Kimi K3 | aliyun_bailian | 20 ¥ | 100 ¥ | 4 CNY | CNY | 20 CNY / 100 CNY | - |
 | Kimi K3 | atlascloud | 21 ¥ | 105 ¥ | 0.3 USD | USD | 3 USD / 15 USD | 1.04858M |
-| Kimi K3 | openrouter | 1.4 ¥ | 112 ¥ | 0.19 USD | USD | 0.2 USD / 16 USD | 1.04858M |
+| Kimi K3 | openrouter | 1.344 ¥ | 112 ¥ | 0.182 USD | USD | 0.192 USD / 16 USD | 1.04858M |
 | MiMo V2.5 | atlascloud | 0.98 ¥ | 1.96 ¥ | 0.003 USD | USD | 0.14 USD / 0.28 USD | 1.024M |
 | MiMo V2.5 Pro | atlascloud | 3.045 ¥ | 6.09 ¥ | 0.004 USD | USD | 0.435 USD / 0.87 USD | 1.024M |
 | MiniMax M2.7 | aliyun_bailian | 2.1 ¥ | 8.4 ¥ | 0.42 CNY | CNY | 2.1 CNY / 8.4 CNY | - |
@@ -84,31 +84,23 @@
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro | openrouter | 输入 | 0.9 | 1.28 | USD |
-| DeepSeek V4 Pro | openrouter | 输出 | 1.5 | 2.56 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输入 | 1.32 | 0.111 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输出 | 3.96 | 4.44 | USD |
-| Kimi K3 | openrouter | 输入 | 0.192 | 0.2 | USD |
-| GLM-5.3-Flash | openrouter | 输入 | 0.0399 | 0.12 | USD |
-| GLM-5.3-Flash | openrouter | 输出 | 0.0784 | 0.38 | USD |
-| DeepSeek V4.1 Flash | openrouter | 输入 | 0.0498 | 0.14 | USD |
-| DeepSeek V4.1 Flash | openrouter | 输出 | 0.1992 | 0.42 | USD |
+| Kimi K3 | openrouter | 输入 | 0.2 | 0.192 | USD |
 
 ## 三、抓取状态
 
 | 源 | 状态 | 记录数 | 说明 |
 | --- | --- | ---: | --- |
 | zai | 成功 | 15 | 抓取 15 条 |
-| openai | 成功 | 0 | 抓取 0 条 |
 | deepseek_us | 成功 | 2 | 抓取 2 条 |
-| deepseek | 成功 | 2 | 抓取 2 条 |
-| openrouter | 成功 | 41 | 抓取 41 条 |
-| grok | 成功 | 2 | 抓取 2 条 |
 | anthropic | 成功 | 0 | 抓取 0 条 |
-| atlascloud | 成功 | 147 | 抓取 147 条 |
+| deepseek | 成功 | 2 | 抓取 2 条 |
+| grok | 成功 | 2 | 抓取 2 条 |
+| openrouter | 成功 | 41 | 抓取 41 条 |
 | gemini | 成功 | 0 | 抓取 0 条 |
-| aliyun | 成功 | 2 | 抓取 2 条 |
+| openai | 成功 | 0 | 抓取 0 条 |
+| atlascloud | 成功 | 147 | 抓取 147 条 |
 | aliyun_bailian | 成功 | 31 | 抓取 31 条 |
+| aliyun | 成功 | 2 | 抓取 2 条 |
 | aliyun_intl | 成功 | 0 | 抓取 0 条 |
 | volcengine | 成功 | 0 | 抓取 0 条 |
 | volcengine_intl | 成功 | 0 | 抓取 0 条 |
@@ -124,19 +116,18 @@
 
 ## 四、新模型雷达（待人工登记）
 
-扫描 OpenRouter 全量 473 个模型，发现 **9** 个未登记候选（疑似旗舰 **4** 个）：
+扫描 OpenRouter 全量 472 个模型，发现 **8** 个未登记候选（疑似旗舰 **4** 个）：
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `mistralai/pixtral-large-2502`（Pixtral Large 2502） | Mistral | 2026-11-20 | 4 天 | $2 | $6 | 疑似旗舰 |
-| `openai/gpt-6.2-astra-pro`（GPT-6.2 Astra Pro） | OpenAI | 2026-11-17 | 6 天 | $8 | $40 | 疑似旗舰 |
-| `qwen/qwen4-max`（Qwen4 Max） | 通义千问 | 2026-11-16 | 8 天 | $1.425 | $4.275 | 疑似旗舰 |
-| `anthropic/claude-fable-5.2`（Claude Fable 5.2） | Anthropic | 2026-11-09 | 14 天 | $8 | $40 | 疑似旗舰 |
-| `openai/gpt-6.2-sol-pro`（GPT-6.2 Sol Pro） | OpenAI | 2026-11-17 | 6 天 | $2 | $10 | 新增档位 |
-| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 28 天 | $1 | $5 | 新增档位 |
-| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 48 天 | $0.7 | $2.1 | 新增档位 |
-| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 55 天 | $2 | $10 | 新增档位 |
-| `anthropic/claude-sonnet-5.5`（Claude Sonnet 5.5） | Anthropic | 2026-09-28 | 56 天 | $2 | $10 | 新增档位 |
+| `mistralai/pixtral-large-2502`（Pixtral Large 2502） | Mistral | 2026-11-20 | 5 天 | $2 | $6 | 疑似旗舰 |
+| `openai/gpt-6.2-astra-pro`（GPT-6.2 Astra Pro） | OpenAI | 2026-11-17 | 7 天 | $8 | $40 | 疑似旗舰 |
+| `qwen/qwen4-max`（Qwen4 Max） | 通义千问 | 2026-11-16 | 9 天 | $1.425 | $4.275 | 疑似旗舰 |
+| `anthropic/claude-fable-5.2`（Claude Fable 5.2） | Anthropic | 2026-11-09 | 15 天 | $8 | $40 | 疑似旗舰 |
+| `openai/gpt-6.2-sol-pro`（GPT-6.2 Sol Pro） | OpenAI | 2026-11-17 | 7 天 | $2 | $10 | 新增档位 |
+| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 29 天 | $1 | $5 | 新增档位 |
+| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 49 天 | $0.7 | $2.1 | 新增档位 |
+| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 56 天 | $2 | $10 | 新增档位 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 

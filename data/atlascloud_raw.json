@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-24T11:49:36",
+  "fetched_at": "2026-11-25T10:42:15",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -610,7 +610,7 @@
         "maxCompletionTokens": 65536,
         "avgTotalTPS": "18.54",
         "avgLatency": "0.36",
-        "display_console": true,
+        "display_console": false,
         "price": {
           "discount": "40",
           "actual": {
@@ -1119,6 +1119,174 @@
           },
           "origin": {
             "base_price": "0.023",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-dmlexo6owkkk",
+        "model": "minimax/h3-image-developer/edit-lora",
+        "type": "Image",
+        "displayName": "MiniMax H3-Image Developer Edit LoRA",
+        "profile": "The Developer edition of MiniMax's open-weight H3-Image model with one custom LoRA per request, editing and composing images from 1-8 reference images and a verbatim instruction in the style, character or subject the LoRA was trained on, with a reproducible seed and a fixed per-image price.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-edit-lora.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-edit-lora.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-edit-lora.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-edit-lora.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-edit-lora.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-edit-lora.json",
+        "priority": 90070,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rd6kcsw9xlw",
+        "familyName": "minimax-h3-image",
+        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "base_price": "0.029",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.058",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-9oox04uvrcqz",
+        "model": "minimax/h3-image-developer/text-to-image-lora",
+        "type": "Image",
+        "displayName": "MiniMax H3-Image Developer Text-to-Image LoRA",
+        "profile": "The Developer edition of MiniMax's open-weight H3-Image model with one custom LoRA per request, turning a verbatim prompt into 1-10 natively high-resolution images in the style, character or subject the LoRA was trained on, with a reproducible seed and a fixed per-image price.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-text-to-image-lora.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-text-to-image-lora.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-text-to-image-lora.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-text-to-image-lora.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-text-to-image-lora.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-text-to-image-lora.json",
+        "priority": 90070,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rd6kcsw9xlw",
+        "familyName": "minimax-h3-image",
+        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "base_price": "0.025",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.05",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-mzwp8npp0l72",
+        "model": "minimax/h3-image-developer/edit",
+        "type": "Image",
+        "displayName": "MiniMax H3-Image Developer Edit",
+        "profile": "The Developer edition of MiniMax's open-weight H3-Image model, editing and composing images from 1-8 reference images and a verbatim instruction (no prompt expansion) into 1-10 natively high-resolution results, with a reproducible seed and a fixed per-image price.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-edit.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-edit.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-edit.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-edit.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-edit.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-edit.json",
+        "priority": 90070,
+        "categories": [
+          "IMAGE-TO-IMAGE"
+        ],
+        "tags": [
+          "IMAGE-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rd6kcsw9xlw",
+        "familyName": "minimax-h3-image",
+        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "base_price": "0.023",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.046",
+            "unit": "image"
+          }
+        }
+      },
+      {
+        "uuid": "ms-eppu8ey597l3",
+        "model": "minimax/h3-image-developer/text-to-image",
+        "type": "Image",
+        "displayName": "MiniMax H3-Image Developer Text-to-Image",
+        "profile": "The Developer edition of MiniMax's open-weight H3-Image model, turning a verbatim prompt (no prompt expansion) into 1-10 natively high-resolution images up to about 20 MP, with a reproducible seed and a fixed per-image price.",
+        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-text-to-image.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
+        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-text-to-image.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-text-to-image.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-text-to-image.json",
+        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-text-to-image.md",
+        "organization": "MINIMAX",
+        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-text-to-image.json",
+        "priority": 90070,
+        "categories": [
+          "TEXT-TO-IMAGE"
+        ],
+        "tags": [
+          "TEXT-TO-IMAGE",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rd6kcsw9xlw",
+        "familyName": "minimax-h3-image",
+        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
+        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
+        "parentFamilyName": "minimax",
+        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
+        "display_console": true,
+        "price": {
+          "discount": "50",
+          "actual": {
+            "base_price": "0.02",
+            "unit": "image"
+          },
+          "origin": {
+            "base_price": "0.04",
             "unit": "image"
           }
         }
@@ -25074,174 +25242,6 @@
         }
       },
       {
-        "uuid": "ms-dmlexo6owkkk",
-        "model": "minimax/h3-image-developer/edit-lora",
-        "type": "Image",
-        "displayName": "MiniMax H3-Image Developer Edit LoRA",
-        "profile": "The Developer edition of MiniMax's open-weight H3-Image model with one custom LoRA per request, editing and composing images from 1-8 reference images and a verbatim instruction in the style, character or subject the LoRA was trained on, with a reproducible seed and a fixed per-image price.",
-        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-edit-lora.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
-        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-edit-lora.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-edit-lora.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-edit-lora.json",
-        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-edit-lora.md",
-        "organization": "MINIMAX",
-        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-edit-lora.json",
-        "priority": 100,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2rd6kcsw9xlw",
-        "familyName": "minimax-h3-image",
-        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
-        "display_console": true,
-        "price": {
-          "discount": "50",
-          "actual": {
-            "base_price": "0.029",
-            "unit": "image"
-          },
-          "origin": {
-            "base_price": "0.058",
-            "unit": "image"
-          }
-        }
-      },
-      {
-        "uuid": "ms-9oox04uvrcqz",
-        "model": "minimax/h3-image-developer/text-to-image-lora",
-        "type": "Image",
-        "displayName": "MiniMax H3-Image Developer Text-to-Image LoRA",
-        "profile": "The Developer edition of MiniMax's open-weight H3-Image model with one custom LoRA per request, turning a verbatim prompt into 1-10 natively high-resolution images in the style, character or subject the LoRA was trained on, with a reproducible seed and a fixed per-image price.",
-        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-text-to-image-lora.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
-        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-text-to-image-lora.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-text-to-image-lora.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-text-to-image-lora.json",
-        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-text-to-image-lora.md",
-        "organization": "MINIMAX",
-        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-text-to-image-lora.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2rd6kcsw9xlw",
-        "familyName": "minimax-h3-image",
-        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
-        "display_console": true,
-        "price": {
-          "discount": "50",
-          "actual": {
-            "base_price": "0.025",
-            "unit": "image"
-          },
-          "origin": {
-            "base_price": "0.05",
-            "unit": "image"
-          }
-        }
-      },
-      {
-        "uuid": "ms-mzwp8npp0l72",
-        "model": "minimax/h3-image-developer/edit",
-        "type": "Image",
-        "displayName": "MiniMax H3-Image Developer Edit",
-        "profile": "The Developer edition of MiniMax's open-weight H3-Image model, editing and composing images from 1-8 reference images and a verbatim instruction (no prompt expansion) into 1-10 natively high-resolution results, with a reproducible seed and a fixed per-image price.",
-        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-edit.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
-        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-edit.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-edit.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-edit.json",
-        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-edit.md",
-        "organization": "MINIMAX",
-        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-edit.json",
-        "priority": 100,
-        "categories": [
-          "IMAGE-TO-IMAGE"
-        ],
-        "tags": [
-          "IMAGE-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2rd6kcsw9xlw",
-        "familyName": "minimax-h3-image",
-        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
-        "display_console": true,
-        "price": {
-          "discount": "50",
-          "actual": {
-            "base_price": "0.023",
-            "unit": "image"
-          },
-          "origin": {
-            "base_price": "0.046",
-            "unit": "image"
-          }
-        }
-      },
-      {
-        "uuid": "ms-eppu8ey597l3",
-        "model": "minimax/h3-image-developer/text-to-image",
-        "type": "Image",
-        "displayName": "MiniMax H3-Image Developer Text-to-Image",
-        "profile": "The Developer edition of MiniMax's open-weight H3-Image model, turning a verbatim prompt (no prompt expansion) into 1-10 natively high-resolution images up to about 20 MP, with a reproducible seed and a fixed per-image price.",
-        "logo": "https://static.atlascloud.ai/model/logo/minimax-h3-image-developer-text-to-image.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/MINIMAX.png",
-        "background": "https://static.atlascloud.ai/model/background/minimax-h3-image-developer-text-to-image.png",
-        "coverUrl": "https://static.atlascloud.ai/model/cover/minimax-h3-image-developer-text-to-image.jpg",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/minimax-h3-image-developer-text-to-image.json",
-        "readme": "https://static.atlascloud.ai/model/readme/minimax-h3-image-developer-text-to-image.md",
-        "organization": "MINIMAX",
-        "example": "https://static.atlascloud.ai/model/example/minimax-h3-image-developer-text-to-image.json",
-        "priority": 100,
-        "categories": [
-          "TEXT-TO-IMAGE"
-        ],
-        "tags": [
-          "TEXT-TO-IMAGE",
-          "NEW"
-        ],
-        "familyUUID": "mf-2rd6kcsw9xlw",
-        "familyName": "minimax-h3-image",
-        "familyDisplayName": "MiniMax H3-Image for Precise Image Editing",
-        "parentFamilyUUID": "mf-2l7r5ayk2bgm",
-        "parentFamilyName": "minimax",
-        "parentFamilyDisplayName": "MiniMax API for Agentic LLMs and Video",
-        "display_console": true,
-        "price": {
-          "discount": "50",
-          "actual": {
-            "base_price": "0.02",
-            "unit": "image"
-          },
-          "origin": {
-            "base_price": "0.04",
-            "unit": "image"
-          }
-        }
-      },
-      {
         "uuid": "ms-785757f8806a",
         "model": "mirelo/sfx-2.0/video-to-audio",
         "type": "Audio",
@@ -25431,7 +25431,7 @@
         ],
         "familyUUID": "mf-2rvr3zstkwk4",
         "familyName": "bria-rmbg-2.0",
-        "familyDisplayName": "Bria RMBG 2.0 API",
+        "familyDisplayName": "Bria RMBG 2.0 Background Removal API",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -25466,6 +25466,9 @@
           "IMAGE-TOOLS",
           "NEW"
         ],
+        "familyUUID": "mf-2rx74dkle492",
+        "familyName": "depth-anything-v2",
+        "familyDisplayName": "Depth Anything V2",
         "display_console": true,
         "price": {
           "discount": "100",
