@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-25T10:42:15",
+  "fetched_at": "2026-11-26T10:12:56",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -7215,65 +7215,6 @@
         ]
       },
       {
-        "uuid": "ms-k4gzsy0lu3yv",
-        "model": "anthropic/claude-fable-5-coding",
-        "type": "Text",
-        "displayName": "Claude Fable 5 Coding",
-        "profile": "Anthropic's most capable model, built for advanced reasoning, complex workflows, deep analysis, and high-quality content generation.",
-        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
-        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-fable-5-coding.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/e23784cc-aca5-436e-b4fd-35b49f3d92c5.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-fable-5-coding.json",
-        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
-        "organization": "ANTHROPIC",
-        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
-        "priority": 88891,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 1000000,
-        "maxCompletionTokens": 128000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "10",
-            "output_price": "50",
-            "cache_creation_price": "12.5",
-            "cache_creation_1h_price": "20",
-            "cache_price": "1"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "10",
-            "output_price": "50",
-            "cache_creation_price": "12.5",
-            "cache_creation_1h_price": "20",
-            "cache_price": "1"
-          }
-        },
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
         "uuid": "ms-kw26zkhsz9m5",
         "model": "anthropic/claude-fable-5-ccmax",
         "type": "Text",
@@ -7751,14 +7692,14 @@
         "avgLatency": "0.36",
         "display_console": true,
         "price": {
-          "discount": "100",
+          "discount": "50",
           "actual": {
             "type": "flat",
-            "input_price": "1.5",
-            "output_price": "7.5",
-            "cache_creation_price": "0.083",
-            "cache_creation_1h_price": "1",
-            "cache_price": "0.15"
+            "input_price": "0.75",
+            "output_price": "3.75",
+            "cache_creation_price": "0.042",
+            "cache_creation_1h_price": "0.5",
+            "cache_price": "0.075"
           },
           "origin": {
             "type": "flat",
@@ -21360,6 +21301,43 @@
         }
       },
       {
+        "uuid": "ms-e9b6d0043354",
+        "model": "meshy-v7.1/multi-image-to-3d",
+        "type": "Image",
+        "displayName": "Meshy v7.1 Multi-Image-to-3D",
+        "profile": "Meshy v7.1 reconstructs one textured 3D model from up to four views of the same object, with Standard or Ultra 2K geometry, PBR maps up to 8K and optional multi-view texture references.",
+        "logo": "https://static.atlascloud.ai/model/logo/meshy-v7.1-multi-image-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MESHY.png",
+        "background": "https://static.atlascloud.ai/model/background/meshy-v7.1-multi-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meshy-v7.1-multi-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meshy-v7.1-multi-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meshy-v7.1-multi-image-to-3d.md",
+        "organization": "MESHY",
+        "example": "https://static.atlascloud.ai/model/example/meshy-v7.1-multi-image-to-3d.json",
+        "priority": 485,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rybg8c1bhkl",
+        "familyName": "meshy-7.1",
+        "familyDisplayName": "Meshy 7.1 API",
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.014"
+          },
+          "origin": {
+            "base_price": "0.02"
+          }
+        }
+      },
+      {
         "uuid": "ms-36684231f032",
         "model": "hi3d/v3.0-quality/image-to-3d",
         "type": "Image",
@@ -21390,6 +21368,43 @@
           "discount": "85",
           "actual": {
             "base_price": "0.017"
+          },
+          "origin": {
+            "base_price": "0.02"
+          }
+        }
+      },
+      {
+        "uuid": "ms-16abdd9550fe",
+        "model": "meshy-v7.1/image-to-3d",
+        "type": "Image",
+        "displayName": "Meshy v7.1 Image-to-3D",
+        "profile": "Meshy v7.1 reconstructs a textured 3D model from one image with Standard, Ultra 2K or Ultra 4K geometry, PBR maps up to 8K and a settable polygon budget.",
+        "logo": "https://static.atlascloud.ai/model/logo/meshy-v7.1-image-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MESHY.png",
+        "background": "https://static.atlascloud.ai/model/background/meshy-v7.1-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meshy-v7.1-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meshy-v7.1-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meshy-v7.1-image-to-3d.md",
+        "organization": "MESHY",
+        "example": "https://static.atlascloud.ai/model/example/meshy-v7.1-image-to-3d.json",
+        "priority": 484,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rybg8c1bhkl",
+        "familyName": "meshy-7.1",
+        "familyDisplayName": "Meshy 7.1 API",
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.014"
           },
           "origin": {
             "base_price": "0.02"
@@ -21467,6 +21482,43 @@
           "discount": "100",
           "actual": {
             "base_price": "0.02"
+          },
+          "origin": {
+            "base_price": "0.02"
+          }
+        }
+      },
+      {
+        "uuid": "ms-bf72e7d8c81e",
+        "model": "meshy-v7.1/text-to-3d",
+        "type": "Image",
+        "displayName": "Meshy v7.1 Text-to-3D",
+        "profile": "Meshy v7.1 generates a 3D mesh from a text prompt with Standard, Ultra 2K or Ultra 4K geometry, then optionally textures it in a second stage. Outputs GLB/OBJ/FBX/STL/USDZ/3MF with PBR maps up to 8K.",
+        "logo": "https://static.atlascloud.ai/model/logo/meshy-v7.1-text-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/MESHY.png",
+        "background": "https://static.atlascloud.ai/model/background/meshy-v7.1-text-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meshy-v7.1-text-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meshy-v7.1-text-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meshy-v7.1-text-to-3d.md",
+        "organization": "MESHY",
+        "example": "https://static.atlascloud.ai/model/example/meshy-v7.1-text-to-3d.json",
+        "priority": 483,
+        "categories": [
+          "TEXT-TO-3D"
+        ],
+        "tags": [
+          "TEXT-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2rybg8c1bhkl",
+        "familyName": "meshy-7.1",
+        "familyDisplayName": "Meshy 7.1 API",
+        "display_console": true,
+        "price": {
+          "discount": "70",
+          "actual": {
+            "base_price": "0.014"
           },
           "origin": {
             "base_price": "0.02"
@@ -23180,85 +23232,6 @@
         ]
       },
       {
-        "uuid": "ms-92b1xzje2072",
-        "model": "anthropic/claude-sonnet-4-20250514-coding",
-        "type": "Text",
-        "displayName": "Claude Sonnet 4 20250514 Coding",
-        "profile": "",
-        "logo": "https://static.atlascloud.ai/model/logo/claude-sonnet-4-20250514.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
-        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-sonnet-4-20250514-coding.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/0a930dc2-dc03-49a9-903e-7b12950da011.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-sonnet-4-20250514-coding.json",
-        "readme": "https://static.atlascloud.ai/model/readme/claude-sonnet-4-20250514.md",
-        "organization": "ANTHROPIC",
-        "example": "https://static.atlascloud.ai/model/example/claude-sonnet-4-20250514.json",
-        "priority": 474,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 64000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "tiered_price": true,
-          "actual": {
-            "type": "flat",
-            "input_price": "3",
-            "output_price": "15",
-            "cache_creation_price": "3.75",
-            "cache_creation_1h_price": "6",
-            "cache_price": "0.3",
-            "prompt_thresholds": [
-              {
-                "threshold": 200000,
-                "input_price": "6",
-                "cache_creation_price": "7.5",
-                "cache_creation_1h_price": "12",
-                "cache_price": "0.6",
-                "output_price": "22.5"
-              }
-            ]
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "3",
-            "output_price": "15",
-            "cache_creation_price": "3.75",
-            "cache_creation_1h_price": "6",
-            "cache_price": "0.3",
-            "prompt_thresholds": [
-              {
-                "threshold": 200000,
-                "input_price": "6",
-                "cache_creation_price": "7.5",
-                "cache_creation_1h_price": "12",
-                "cache_price": "0.6",
-                "output_price": "22.5"
-              }
-            ]
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
         "uuid": "ms-rljytjbzlotm",
         "model": "anthropic/claude-haiku-4.5-20251001-coding",
         "type": "Text",
@@ -23383,122 +23356,6 @@
                 "output_price": "22.5"
               }
             ]
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
-        "uuid": "ms-vff566s28wvc",
-        "model": "anthropic/claude-opus-4.1-20250805-coding",
-        "type": "Text",
-        "displayName": "Claude Opus 4.1 20250805 Coding",
-        "profile": "",
-        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-1-20250805.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
-        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-4.1-20250805-coding.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/a40eddbd-7755-4882-b983-d3add32da345.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-4.1-20250805-coding.json",
-        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-1-20250805.md",
-        "organization": "ANTHROPIC",
-        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-1-20250805.json",
-        "priority": 474,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 32000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "15",
-            "output_price": "75",
-            "cache_creation_price": "18.75",
-            "cache_creation_1h_price": "30",
-            "cache_price": "1.5"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "15",
-            "output_price": "75",
-            "cache_creation_price": "18.75",
-            "cache_creation_1h_price": "30",
-            "cache_price": "1.5"
-          }
-        },
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "supported_protocols": [
-          "openai.chat.completions"
-        ]
-      },
-      {
-        "uuid": "ms-2mgewna558hx",
-        "model": "anthropic/claude-opus-4-20250514-coding",
-        "type": "Text",
-        "displayName": "Claude Opus 4 20250514 Coding",
-        "profile": "",
-        "logo": "https://static.atlascloud.ai/model/logo/claude-opus-4-20250514.png",
-        "avatar": "https://static.atlascloud.ai/model/avatar/ANTHROPIC.png",
-        "background": "https://static.atlascloud.ai/model/background/anthropic-claude-opus-4-20250514-coding.png",
-        "coverUrl": "https://static.atlascloud.ai/uploads/models/51202dd3-4a67-47ad-994d-fd783fbc7620.png",
-        "coverVideo": "",
-        "schema": "https://static.atlascloud.ai/model/schema/anthropic-claude-opus-4-20250514-coding.json",
-        "readme": "https://static.atlascloud.ai/model/readme/claude-opus-4-20250514.md",
-        "organization": "ANTHROPIC",
-        "example": "https://static.atlascloud.ai/model/example/claude-opus-4-20250514.json",
-        "priority": 474,
-        "categories": [
-          "LLM"
-        ],
-        "tags": [
-          "LLM",
-          "HOT",
-          "CODE"
-        ],
-        "contextLength": 200000,
-        "maxCompletionTokens": 32000,
-        "avgTotalTPS": "18.54",
-        "avgLatency": "0.36",
-        "display_console": false,
-        "price": {
-          "discount": "100",
-          "actual": {
-            "type": "flat",
-            "input_price": "15",
-            "output_price": "75",
-            "cache_creation_price": "18.75",
-            "cache_creation_1h_price": "30",
-            "cache_price": "1.5"
-          },
-          "origin": {
-            "type": "flat",
-            "input_price": "15",
-            "output_price": "75",
-            "cache_creation_price": "18.75",
-            "cache_creation_1h_price": "30",
-            "cache_price": "1.5"
           }
         },
         "input_modalities": [
@@ -25242,6 +25099,252 @@
         }
       },
       {
+        "uuid": "ms-a2b906119b8e",
+        "model": "sonilo/v1.1/text-to-music",
+        "type": "Audio",
+        "displayName": "Sonilo V1.1 Text-to-Music",
+        "profile": "Sonilo V1.1 composes licensed, commercial-use-safe music from a text prompt, with control over style, mood, instrumentation and exact length from 1 second to 10 minutes, and up to 3 tracks per request.",
+        "logo": "https://static.atlascloud.ai/model/logo/sonilo-v1.1-text-to-music.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SONILO.png",
+        "background": "https://static.atlascloud.ai/model/background/sonilo-v1.1-text-to-music.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/sonilo-v1.1-text-to-music.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/sonilo-v1.1-text-to-music.json",
+        "readme": "https://static.atlascloud.ai/model/readme/sonilo-v1.1-text-to-music.md",
+        "organization": "SONILO",
+        "example": "https://static.atlascloud.ai/model/example/sonilo-v1.1-text-to-music.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrh0mlagfp",
+        "familyName": "sonilo-1.1",
+        "familyDisplayName": "Sonilo V1.1",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.003",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.003",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-558f6405a52a",
+        "model": "sonilo/v1.1/text-to-sound-effects",
+        "type": "Audio",
+        "displayName": "Sonilo V1.1 Text-to-Sound-Effects",
+        "profile": "Sonilo V1.1 generates commercial-use-safe sound effects from a text prompt, with control over type, texture and intensity, from half-second hits to 3-minute ambiences, in WAV, MP3, AAC or FLAC.",
+        "logo": "https://static.atlascloud.ai/model/logo/sonilo-v1.1-text-to-sound-effects.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SONILO.png",
+        "background": "https://static.atlascloud.ai/model/background/sonilo-v1.1-text-to-sound-effects.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/sonilo-v1.1-text-to-sound-effects.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/sonilo-v1.1-text-to-sound-effects.json",
+        "readme": "https://static.atlascloud.ai/model/readme/sonilo-v1.1-text-to-sound-effects.md",
+        "organization": "SONILO",
+        "example": "https://static.atlascloud.ai/model/example/sonilo-v1.1-text-to-sound-effects.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "SOUND-EFFECTS",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrh0mlagfp",
+        "familyName": "sonilo-1.1",
+        "familyDisplayName": "Sonilo V1.1",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.002",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.002",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-1f4d74e7bcb9",
+        "model": "sonilo/v1.1/video-to-music",
+        "type": "Audio",
+        "displayName": "Sonilo V1.1 Video-to-Music",
+        "profile": "Sonilo V1.1 reads a video's pacing, mood and cuts and composes a frame-synced, licensed, commercial-use-safe soundtrack for it. Steer the style with an optional prompt; returns up to 3 music tracks as audio files.",
+        "logo": "https://static.atlascloud.ai/model/logo/sonilo-v1.1-video-to-music.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SONILO.png",
+        "background": "https://static.atlascloud.ai/model/background/sonilo-v1.1-video-to-music.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/sonilo-v1.1-video-to-music.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/sonilo-v1.1-video-to-music.json",
+        "readme": "https://static.atlascloud.ai/model/readme/sonilo-v1.1-video-to-music.md",
+        "organization": "SONILO",
+        "example": "https://static.atlascloud.ai/model/example/sonilo-v1.1-video-to-music.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "VIDEO-TO-AUDIO",
+          "MUSIC",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrh0mlagfp",
+        "familyName": "sonilo-1.1",
+        "familyDisplayName": "Sonilo V1.1",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.01",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.01",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-2e995b940327",
+        "model": "sonilo/v1.1/video-to-sound-effects",
+        "type": "Audio",
+        "displayName": "Sonilo V1.1 Video-to-Sound-Effects",
+        "profile": "Sonilo V1.1 watches a video scene by scene and generates synchronized, commercial-use-safe sound effects and foley for its full length. Optionally describe the sound, or give each time range its own prompt; returns the sound as an audio file.",
+        "logo": "https://static.atlascloud.ai/model/logo/sonilo-v1.1-video-to-sound-effects.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SONILO.png",
+        "background": "https://static.atlascloud.ai/model/background/sonilo-v1.1-video-to-sound-effects.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/sonilo-v1.1-video-to-sound-effects.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/sonilo-v1.1-video-to-sound-effects.json",
+        "readme": "https://static.atlascloud.ai/model/readme/sonilo-v1.1-video-to-sound-effects.md",
+        "organization": "SONILO",
+        "example": "https://static.atlascloud.ai/model/example/sonilo-v1.1-video-to-sound-effects.json",
+        "priority": 100,
+        "categories": [
+          "TEXT-TO-AUDIO"
+        ],
+        "tags": [
+          "TEXT-TO-AUDIO",
+          "VIDEO-TO-AUDIO",
+          "SOUND-EFFECTS",
+          "AUDIO",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrh0mlagfp",
+        "familyName": "sonilo-1.1",
+        "familyDisplayName": "Sonilo V1.1",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.01",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.01",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-992ef4a8728e",
+        "model": "sonilo/v1.1/video-to-video-music",
+        "type": "Video",
+        "displayName": "Sonilo V1.1 Video-to-Video Music",
+        "profile": "Sonilo V1.1 scores a video with a frame-synced, licensed, commercial-use-safe soundtrack and returns the video with the music mixed in. Keep the original speech with automatic ducking, steer the style with a prompt, and get up to 3 versions.",
+        "logo": "https://static.atlascloud.ai/model/logo/sonilo-v1.1-video-to-video-music.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SONILO.png",
+        "background": "https://static.atlascloud.ai/model/background/sonilo-v1.1-video-to-video-music.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/sonilo-v1.1-video-to-video-music.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/sonilo-v1.1-video-to-video-music.json",
+        "readme": "https://static.atlascloud.ai/model/readme/sonilo-v1.1-video-to-video-music.md",
+        "organization": "SONILO",
+        "example": "https://static.atlascloud.ai/model/example/sonilo-v1.1-video-to-video-music.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "MUSIC",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrh0mlagfp",
+        "familyName": "sonilo-1.1",
+        "familyDisplayName": "Sonilo V1.1",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.01",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.01",
+            "unit": "second"
+          }
+        }
+      },
+      {
+        "uuid": "ms-a1a06d43d734",
+        "model": "sonilo/v1.1/video-to-video-sound-effects",
+        "type": "Video",
+        "displayName": "Sonilo V1.1 Video-to-Video Sound Effects",
+        "profile": "Sonilo V1.1 adds synchronized, commercial-use-safe sound effects and foley to a video, scene by scene, and returns the video with the sound mixed in. Optionally keep the original speech, describe the sound, or prompt each time range separately.",
+        "logo": "https://static.atlascloud.ai/model/logo/sonilo-v1.1-video-to-video-sound-effects.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/SONILO.png",
+        "background": "https://static.atlascloud.ai/model/background/sonilo-v1.1-video-to-video-sound-effects.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/sonilo-v1.1-video-to-video-sound-effects.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/sonilo-v1.1-video-to-video-sound-effects.json",
+        "readme": "https://static.atlascloud.ai/model/readme/sonilo-v1.1-video-to-video-sound-effects.md",
+        "organization": "SONILO",
+        "example": "https://static.atlascloud.ai/model/example/sonilo-v1.1-video-to-video-sound-effects.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "SOUND-EFFECTS",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrh0mlagfp",
+        "familyName": "sonilo-1.1",
+        "familyDisplayName": "Sonilo V1.1",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.01",
+            "unit": "second"
+          },
+          "origin": {
+            "base_price": "0.01",
+            "unit": "second"
+          }
+        }
+      },
+      {
         "uuid": "ms-785757f8806a",
         "model": "mirelo/sfx-2.0/video-to-audio",
         "type": "Audio",
@@ -25407,6 +25510,304 @@
         }
       },
       {
+        "uuid": "ms-7a889aaf2f34",
+        "model": "meta/sam-3/image-segmentation",
+        "type": "Image",
+        "displayName": "SAM 3 Image Segmentation",
+        "profile": "Meta Segment Anything Model 3 finds and cuts out objects in a still image. Describe the target in words, or mark it with points or boxes. Each detected object comes back as its own PNG.",
+        "logo": "https://static.atlascloud.ai/model/logo/meta-sam-3-image-segmentation.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/META.png",
+        "background": "https://static.atlascloud.ai/model/background/meta-sam-3-image-segmentation.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meta-sam-3-image-segmentation.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meta-sam-3-image-segmentation.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meta-sam-3-image-segmentation.md",
+        "organization": "META",
+        "example": "https://static.atlascloud.ai/model/example/meta-sam-3-image-segmentation.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TOOLS"
+        ],
+        "tags": [
+          "IMAGE-TOOLS",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrcjcnaljk",
+        "familyName": "sam-3-image",
+        "familyDisplayName": "SAM 3 Image",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.006"
+          },
+          "origin": {
+            "base_price": "0.006"
+          }
+        }
+      },
+      {
+        "uuid": "ms-1276123d6386",
+        "model": "meta/sam-3/video-segmentation",
+        "type": "Video",
+        "displayName": "SAM 3 Video Segmentation",
+        "profile": "Meta Segment Anything Model 3 finds, cuts out and tracks objects through a video. Describe the target in words, or mark it with points or boxes on the first frame. Returns the segmented video.",
+        "logo": "https://static.atlascloud.ai/model/logo/meta-sam-3-video-segmentation.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/META.png",
+        "background": "https://static.atlascloud.ai/model/background/meta-sam-3-video-segmentation.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meta-sam-3-video-segmentation.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meta-sam-3-video-segmentation.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meta-sam-3-video-segmentation.md",
+        "organization": "META",
+        "example": "https://static.atlascloud.ai/model/example/meta-sam-3-video-segmentation.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "TOOLS",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrahblmq45",
+        "familyName": "sam-3-video-segmentation",
+        "familyDisplayName": "SAM 3 Video Segmentation",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.006"
+          },
+          "origin": {
+            "base_price": "0.006"
+          }
+        }
+      },
+      {
+        "uuid": "ms-d4443a856de2",
+        "model": "meta/sam-3d-objects/image-to-3d",
+        "type": "Image",
+        "displayName": "SAM 3D Objects",
+        "profile": "Meta SAM 3D Objects rebuilds objects from a single photo as 3D models. Name the object in words, or mark it with points or boxes. Returns a GLB mesh and a Gaussian splat.",
+        "logo": "https://static.atlascloud.ai/model/logo/meta-sam-3d-objects-image-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/META.png",
+        "background": "https://static.atlascloud.ai/model/background/meta-sam-3d-objects-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meta-sam-3d-objects-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meta-sam-3d-objects-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meta-sam-3d-objects-image-to-3d.md",
+        "organization": "META",
+        "example": "https://static.atlascloud.ai/model/example/meta-sam-3d-objects-image-to-3d.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryr8ir4w8eo",
+        "familyName": "sam-3d",
+        "familyDisplayName": "SAM 3D API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.022"
+          },
+          "origin": {
+            "base_price": "0.022"
+          }
+        }
+      },
+      {
+        "uuid": "ms-da595dc110f5",
+        "model": "meta/sam-3d-body/image-to-3d",
+        "type": "Image",
+        "displayName": "SAM 3D Body",
+        "profile": "Meta SAM 3D Body rebuilds the people in a single photo as 3D body meshes, with pose and body shape. Returns a GLB mesh, one PLY mesh per person and a preview image.",
+        "logo": "https://static.atlascloud.ai/model/logo/meta-sam-3d-body-image-to-3d.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/META.png",
+        "background": "https://static.atlascloud.ai/model/background/meta-sam-3d-body-image-to-3d.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meta-sam-3d-body-image-to-3d.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meta-sam-3d-body-image-to-3d.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meta-sam-3d-body-image-to-3d.md",
+        "organization": "META",
+        "example": "https://static.atlascloud.ai/model/example/meta-sam-3d-body-image-to-3d.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryr8ir4w8eo",
+        "familyName": "sam-3d",
+        "familyDisplayName": "SAM 3D API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.022"
+          },
+          "origin": {
+            "base_price": "0.022"
+          }
+        }
+      },
+      {
+        "uuid": "ms-4f2557f58d10",
+        "model": "meta/sam-3d-body/mesh-alignment",
+        "type": "Image",
+        "displayName": "SAM 3D Body Mesh Alignment",
+        "profile": "Places a SAM 3D Body mesh into the scene of its source photo, with real-world scale and position. Can also combine it with a SAM 3D Objects mesh into one scene.",
+        "logo": "https://static.atlascloud.ai/model/logo/meta-sam-3d-body-mesh-alignment.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/META.png",
+        "background": "https://static.atlascloud.ai/model/background/meta-sam-3d-body-mesh-alignment.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meta-sam-3d-body-mesh-alignment.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meta-sam-3d-body-mesh-alignment.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meta-sam-3d-body-mesh-alignment.md",
+        "organization": "META",
+        "example": "https://static.atlascloud.ai/model/example/meta-sam-3d-body-mesh-alignment.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TO-3D"
+        ],
+        "tags": [
+          "IMAGE-TO-3D",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryr8ir4w8eo",
+        "familyName": "sam-3d",
+        "familyDisplayName": "SAM 3D API",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.022"
+          },
+          "origin": {
+            "base_price": "0.022"
+          }
+        }
+      },
+      {
+        "uuid": "ms-022465a95ab6",
+        "model": "meta/sam-3/image-segmentation-rle",
+        "type": "Image",
+        "displayName": "SAM 3 Image Segmentation (RLE)",
+        "profile": "Meta Segment Anything Model 3 image segmentation that returns masks as run-length encoding (RLE) in a JSON file instead of images, with optional per-mask scores and boxes. For pipelines that process masks in code.",
+        "logo": "https://static.atlascloud.ai/model/logo/meta-sam-3-image-segmentation-rle.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/META.png",
+        "background": "https://static.atlascloud.ai/model/background/meta-sam-3-image-segmentation-rle.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meta-sam-3-image-segmentation-rle.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meta-sam-3-image-segmentation-rle.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meta-sam-3-image-segmentation-rle.md",
+        "organization": "META",
+        "example": "https://static.atlascloud.ai/model/example/meta-sam-3-image-segmentation-rle.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TOOLS"
+        ],
+        "tags": [
+          "IMAGE-TOOLS",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrcjcnaljk",
+        "familyName": "sam-3-image",
+        "familyDisplayName": "SAM 3 Image",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.006"
+          },
+          "origin": {
+            "base_price": "0.006"
+          }
+        }
+      },
+      {
+        "uuid": "ms-4ae2eb62a43a",
+        "model": "meta/sam-3/video-segmentation-rle",
+        "type": "Image",
+        "displayName": "SAM 3 Video Segmentation (RLE)",
+        "profile": "Meta Segment Anything Model 3 video tracking that returns per-frame masks as run-length encoding (RLE) in a JSON file instead of a video, with per-frame boxes. For pipelines that process masks in code.",
+        "logo": "https://static.atlascloud.ai/model/logo/meta-sam-3-video-segmentation-rle.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/META.png",
+        "background": "https://static.atlascloud.ai/model/background/meta-sam-3-video-segmentation-rle.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meta-sam-3-video-segmentation-rle.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meta-sam-3-video-segmentation-rle.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meta-sam-3-video-segmentation-rle.md",
+        "organization": "META",
+        "example": "https://static.atlascloud.ai/model/example/meta-sam-3-video-segmentation-rle.json",
+        "priority": 100,
+        "categories": [
+          "VIDEO-TO-VIDEO"
+        ],
+        "tags": [
+          "VIDEO-TO-VIDEO",
+          "TOOLS",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrahblmq45",
+        "familyName": "sam-3-video-segmentation",
+        "familyDisplayName": "SAM 3 Video Segmentation",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.006"
+          },
+          "origin": {
+            "base_price": "0.006"
+          }
+        }
+      },
+      {
+        "uuid": "ms-99bbcf4abdc2",
+        "model": "meta/sam-3/image-embedding",
+        "type": "Image",
+        "displayName": "SAM 3 Image Embedding",
+        "profile": "Computes the Meta Segment Anything Model 3 image embedding for an image and returns it as a NumPy .npy file, for caching and running your own segmentation on top of it.",
+        "logo": "https://static.atlascloud.ai/model/logo/meta-sam-3-image-embedding.png",
+        "avatar": "https://static.atlascloud.ai/model/avatar/META.png",
+        "background": "https://static.atlascloud.ai/model/background/meta-sam-3-image-embedding.png",
+        "coverUrl": "https://static.atlascloud.ai/model/cover/meta-sam-3-image-embedding.jpg",
+        "coverVideo": "",
+        "schema": "https://static.atlascloud.ai/model/schema/meta-sam-3-image-embedding.json",
+        "readme": "https://static.atlascloud.ai/model/readme/meta-sam-3-image-embedding.md",
+        "organization": "META",
+        "example": "https://static.atlascloud.ai/model/example/meta-sam-3-image-embedding.json",
+        "priority": 100,
+        "categories": [
+          "IMAGE-TOOLS"
+        ],
+        "tags": [
+          "IMAGE-TOOLS",
+          "NEW"
+        ],
+        "familyUUID": "mf-2ryrcjcnaljk",
+        "familyName": "sam-3-image",
+        "familyDisplayName": "SAM 3 Image",
+        "display_console": true,
+        "price": {
+          "discount": "100",
+          "actual": {
+            "base_price": "0.006"
+          },
+          "origin": {
+            "base_price": "0.006"
+          }
+        }
+      },
+      {
         "uuid": "ms-d0543053befc",
         "model": "bria/rmbg-2.0/remove-background",
         "type": "Image",
@@ -25468,7 +25869,7 @@
         ],
         "familyUUID": "mf-2rx74dkle492",
         "familyName": "depth-anything-v2",
-        "familyDisplayName": "Depth Anything V2",
+        "familyDisplayName": "Depth Anything V2 for Detailed Depth Maps",
         "display_console": true,
         "price": {
           "discount": "100",
