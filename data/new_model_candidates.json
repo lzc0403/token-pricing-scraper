@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-26 10:17:33",
+  "generated_at": "2026-11-27 10:23:50",
   "enabled": true,
   "lookback_days": 60,
-  "scanned": 474,
+  "scanned": 477,
   "known_count": 224,
   "candidates": [
     {
@@ -12,13 +12,13 @@
       "family": "Mistral",
       "region": "overseas",
       "created": "2026-11-20",
-      "age_days": 6,
+      "age_days": 7,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 6.0,
       "context": "128K",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 6 天 · Mistral 系候选最高价档"
+      "reason": "新上架 7 天 · Mistral 系候选最高价档"
     },
     {
       "id": "openai/gpt-6.2-astra-pro",
@@ -27,13 +27,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-11-17",
-      "age_days": 8,
+      "age_days": 9,
       "input_usd_per_m": 8.0,
       "output_usd_per_m": 40.0,
       "context": "1.05M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 8 天 · OpenAI 系候选最高价档"
+      "reason": "新上架 9 天 · OpenAI 系候选最高价档"
     },
     {
       "id": "qwen/qwen4-max",
@@ -42,13 +42,13 @@
       "family": "通义千问",
       "region": "domestic",
       "created": "2026-11-16",
-      "age_days": 10,
+      "age_days": 11,
       "input_usd_per_m": 1.425,
       "output_usd_per_m": 4.275,
       "context": "1M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 10 天 · 通义千问 系候选最高价档"
+      "reason": "新上架 11 天 · 通义千问 系候选最高价档"
     },
     {
       "id": "anthropic/claude-fable-5.2",
@@ -57,13 +57,13 @@
       "family": "Anthropic",
       "region": "overseas",
       "created": "2026-11-09",
-      "age_days": 16,
+      "age_days": 17,
       "input_usd_per_m": 8.0,
       "output_usd_per_m": 40.0,
       "context": "1M",
       "flagship": true,
       "registered": false,
-      "reason": "新上架 16 天 · Anthropic 系候选最高价档"
+      "reason": "新上架 17 天 · Anthropic 系候选最高价档"
     },
     {
       "id": "openai/gpt-6.2-sol-pro",
@@ -72,13 +72,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-11-17",
-      "age_days": 8,
+      "age_days": 9,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 10.0,
       "context": "1.05M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 8 天 · OpenAI 系新增次级档"
+      "reason": "新上架 9 天 · OpenAI 系新增次级档"
     },
     {
       "id": "openai/gpt-6.1-terra-pro",
@@ -87,13 +87,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-10-26",
-      "age_days": 30,
+      "age_days": 31,
       "input_usd_per_m": 1.0,
       "output_usd_per_m": 5.0,
       "context": "1.05M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 30 天 · OpenAI 系新增次级档"
+      "reason": "新上架 31 天 · OpenAI 系新增次级档"
     },
     {
       "id": "mistralai/mistral-large-4-0",
@@ -102,13 +102,13 @@
       "family": "Mistral",
       "region": "overseas",
       "created": "2026-10-06",
-      "age_days": 50,
+      "age_days": 51,
       "input_usd_per_m": 0.7,
       "output_usd_per_m": 2.1,
       "context": "1.04858M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 50 天 · Mistral 系新增次级档"
+      "reason": "新上架 51 天 · Mistral 系新增次级档"
     },
     {
       "id": "openai/gpt-6.1-sol-pro",
@@ -117,13 +117,13 @@
       "family": "OpenAI",
       "region": "overseas",
       "created": "2026-09-29",
-      "age_days": 57,
+      "age_days": 58,
       "input_usd_per_m": 2.0,
       "output_usd_per_m": 10.0,
       "context": "1.05M",
       "flagship": false,
       "registered": false,
-      "reason": "新上架 57 天 · OpenAI 系新增次级档"
+      "reason": "新上架 58 天 · OpenAI 系新增次级档"
     }
   ],
   "flagship_count": 4

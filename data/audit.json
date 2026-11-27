@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26 10:17:36",
+  "generated_at": "2026-11-27 10:23:52",
   "stats": {
     "total": 73,
     "suspects": 24,
@@ -18,23 +18,23 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "DeepSeek V4 Pro 0813",
-      "msg": "缓存命中价(0.097) 接近输入价(0.111)，异常偏高",
+      "msg": "缓存命中价(0.0999) 接近输入价(0.0999)，异常偏高",
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro 0813",
-        "input": 0.111,
-        "output": 4.44,
-        "cache_hit": 0.097,
+        "input": 0.0999,
+        "output": 5.0,
+        "cache_hit": 0.0999,
         "cache_write": null,
         "context": "1.04858M",
         "condition": null,
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro-0813",
-        "openrouter_prompt_per_token": "0.000000111",
-        "openrouter_completion_per_token": "0.00000444",
-        "input_rmb": 0.777,
-        "output_rmb": 31.08,
+        "openrouter_prompt_per_token": "0.0000000999",
+        "openrouter_completion_per_token": "0.000005",
+        "input_rmb": 0.6993,
+        "output_rmb": 35.0,
         "canonical": "DeepSeek V4 Pro 0813",
         "is_lowest_input": "yes"
       }
