@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27 10:23:52",
+  "generated_at": "2026-11-28 09:42:07",
   "stats": {
     "total": 73,
     "suspects": 24,
@@ -219,12 +219,12 @@
       "severity": "med",
       "source": "openrouter",
       "canonical": "DeepSeek V4 Pro",
-      "msg": "缓存/输入比率(23%) 偏离同模型基准(8%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(22%) 偏离同模型基准(8%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "openrouter",
         "model_raw": "DeepSeek V4 Pro",
-        "input": 0.888188,
-        "output": 1.5082,
+        "input": 0.89,
+        "output": 1.5069,
         "cache_hit": 0.2,
         "cache_write": null,
         "context": "1.04858M",
@@ -232,10 +232,10 @@
         "unit": "1M tokens",
         "currency": "USD",
         "openrouter_id": "deepseek/deepseek-v4-pro",
-        "openrouter_prompt_per_token": "0.000000888188",
-        "openrouter_completion_per_token": "0.0000015082",
-        "input_rmb": 6.217316,
-        "output_rmb": 10.5574,
+        "openrouter_prompt_per_token": "0.00000089",
+        "openrouter_completion_per_token": "0.0000015069",
+        "input_rmb": 6.23,
+        "output_rmb": 10.5483,
         "canonical": "DeepSeek V4 Pro",
         "is_lowest_input": "yes"
       }
@@ -246,7 +246,7 @@
       "severity": "med",
       "source": "aliyun_bailian",
       "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(20%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(20%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "aliyun_bailian",
         "model_raw": "deepseek-v4.1-flash",
@@ -268,33 +268,9 @@
       "tier": 1,
       "code": "CACHE_RATIO_ANOMALY",
       "severity": "med",
-      "source": "atlascloud",
-      "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(10%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
-      "record": {
-        "source": "atlascloud",
-        "model_raw": "DeepSeek V4.1 Flash",
-        "input": 0.3,
-        "output": 1.2,
-        "cache_hit": 0.03,
-        "cache_write": null,
-        "context": "1.04858M",
-        "condition": null,
-        "unit": "1M tokens",
-        "currency": "USD",
-        "input_rmb": 2.1,
-        "output_rmb": 8.4,
-        "canonical": "DeepSeek V4.1 Flash",
-        "is_lowest_input": "no"
-      }
-    },
-    {
-      "tier": 1,
-      "code": "CACHE_RATIO_ANOMALY",
-      "severity": "med",
       "source": "deepseek",
       "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(2%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(2%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "deepseek",
         "model_raw": "deepseek-flash",
@@ -330,7 +306,7 @@
       "severity": "med",
       "source": "deepseek_us",
       "canonical": "DeepSeek V4.1 Flash",
-      "msg": "缓存/输入比率(2%) 偏离同模型基准(3%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "msg": "缓存/输入比率(2%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
       "record": {
         "source": "deepseek_us",
         "model_raw": "deepseek-flash",
@@ -358,6 +334,33 @@
         "peak_cache_rmb_high": 0.042,
         "canonical": "DeepSeek V4.1 Flash",
         "is_lowest_input": "no"
+      }
+    },
+    {
+      "tier": 1,
+      "code": "CACHE_RATIO_ANOMALY",
+      "severity": "med",
+      "source": "openrouter",
+      "canonical": "DeepSeek V4.1 Flash",
+      "msg": "缓存/输入比率(35%) 偏离同模型基准(10%) 超 15%，疑似缓存价缺失/估算口径不一致",
+      "record": {
+        "source": "openrouter",
+        "model_raw": "DeepSeek V4.1 Flash",
+        "input": 0.051,
+        "output": 0.567,
+        "cache_hit": 0.018,
+        "cache_write": null,
+        "context": "1.04858M",
+        "condition": null,
+        "unit": "1M tokens",
+        "currency": "USD",
+        "openrouter_id": "deepseek/deepseek-v4.1-flash",
+        "openrouter_prompt_per_token": "0.000000051",
+        "openrouter_completion_per_token": "0.000000567",
+        "input_rmb": 0.357,
+        "output_rmb": 3.969,
+        "canonical": "DeepSeek V4.1 Flash",
+        "is_lowest_input": "yes"
       }
     },
     {

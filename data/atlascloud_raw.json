@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-27T10:18:57",
+  "fetched_at": "2026-11-28T09:37:27",
   "url": "https://console.atlascloud.ai/api/v1/models",
   "body": {
     "code": "200",
@@ -25370,7 +25370,7 @@
         ],
         "familyUUID": "mf-2s0564pvudgy",
         "familyName": "magi-2",
-        "familyDisplayName": "Magi 2",
+        "familyDisplayName": "Magi 2 Video Generation with Multimodal References",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -25410,7 +25410,7 @@
         ],
         "familyUUID": "mf-2s0564pvudgy",
         "familyName": "magi-2",
-        "familyDisplayName": "Magi 2",
+        "familyDisplayName": "Magi 2 Video Generation with Multimodal References",
         "display_console": true,
         "price": {
           "discount": "100",
@@ -25450,7 +25450,7 @@
         ],
         "familyUUID": "mf-2s0564pvudgy",
         "familyName": "magi-2",
-        "familyDisplayName": "Magi 2",
+        "familyDisplayName": "Magi 2 Video Generation with Multimodal References",
         "display_console": true,
         "price": {
           "discount": "100",

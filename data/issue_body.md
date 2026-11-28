@@ -1,24 +1,26 @@
-## 🔔 Token 定价变动（2026-11-27 10:23:51）
+## 🔔 Token 定价变动（2026-11-28 09:42:05）
 
 | 模型 | 源 | 字段 | 旧值 | 新值 | 货币 |
 | --- | --- | --- | ---: | ---: | --- |
-| DeepSeek V4 Pro 0813 | openrouter | 输入 | 0.111 | 0.0999 | USD |
-| DeepSeek V4 Pro 0813 | openrouter | 输出 | 4.44 | 5 | USD |
+| DeepSeek V4 Pro | openrouter | 输入 | 0.888188 | 0.89 | USD |
+| DeepSeek V4 Pro | openrouter | 输出 | 1.5082 | 1.5069 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输入 | 0.14 | 0.051 | USD |
+| DeepSeek V4.1 Flash | openrouter | 输出 | 0.42 | 0.567 | USD |
 
 ## 🆕 新模型雷达（未登记候选，待人工确认）
 
-扫描 OpenRouter 全量 477 个模型，发现 **8** 个未登记候选（疑似旗舰 **4** 个）：
+扫描 OpenRouter 全量 475 个模型，发现 **8** 个未登记候选（疑似旗舰 **4** 个）：
 
 | 模型 | 厂商 | 上架 | 距今 | 输入 $/1M | 输出 $/1M | 判定 |
 |---|---|---|---|---|---|---|
-| `mistralai/pixtral-large-2502`（Pixtral Large 2502） | Mistral | 2026-11-20 | 7 天 | $2 | $6 | 疑似旗舰 |
-| `openai/gpt-6.2-astra-pro`（GPT-6.2 Astra Pro） | OpenAI | 2026-11-17 | 9 天 | $8 | $40 | 疑似旗舰 |
-| `qwen/qwen4-max`（Qwen4 Max） | 通义千问 | 2026-11-16 | 11 天 | $1.425 | $4.275 | 疑似旗舰 |
-| `anthropic/claude-fable-5.2`（Claude Fable 5.2） | Anthropic | 2026-11-09 | 17 天 | $8 | $40 | 疑似旗舰 |
-| `openai/gpt-6.2-sol-pro`（GPT-6.2 Sol Pro） | OpenAI | 2026-11-17 | 9 天 | $2 | $10 | 新增档位 |
-| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 31 天 | $1 | $5 | 新增档位 |
-| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 51 天 | $0.7 | $2.1 | 新增档位 |
-| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 58 天 | $2 | $10 | 新增档位 |
+| `mistralai/pixtral-large-2502`（Pixtral Large 2502） | Mistral | 2026-11-20 | 8 天 | $2 | $6 | 疑似旗舰 |
+| `openai/gpt-6.2-astra-pro`（GPT-6.2 Astra Pro） | OpenAI | 2026-11-17 | 10 天 | $8 | $40 | 疑似旗舰 |
+| `qwen/qwen4-max`（Qwen4 Max） | 通义千问 | 2026-11-16 | 12 天 | $1.425 | $4.275 | 疑似旗舰 |
+| `anthropic/claude-fable-5.2`（Claude Fable 5.2） | Anthropic | 2026-11-09 | 18 天 | $8 | $40 | 疑似旗舰 |
+| `openai/gpt-6.2-sol-pro`（GPT-6.2 Sol Pro） | OpenAI | 2026-11-17 | 10 天 | $2 | $10 | 新增档位 |
+| `openai/gpt-6.1-terra-pro`（GPT-6.1 Terra Pro） | OpenAI | 2026-10-26 | 32 天 | $1 | $5 | 新增档位 |
+| `mistralai/mistral-large-4-0`（Mistral Large 4） | Mistral | 2026-10-06 | 52 天 | $0.7 | $2.1 | 新增档位 |
+| `openai/gpt-6.1-sol-pro`（GPT-6.1 Sol Pro） | OpenAI | 2026-09-29 | 59 天 | $2 | $10 | 新增档位 |
 
 <details><summary>待登记 YAML（粘贴到 <code>config/new_models.yml</code>）</summary>
 
